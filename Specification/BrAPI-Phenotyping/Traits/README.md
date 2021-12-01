@@ -8,7 +8,7 @@ API to manage the details of observation variable Traits. An observation variabl
 
 
 
-### Get - /traits [GET /brapi/v2/traits{?traitDbId}{?observationVariableDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /traits [GET /brapi/v2/traits{?traitDbId}{?observationVariableDbId}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Call to retrieve a list of traits available in the system and their associated variables.
 
@@ -26,7 +26,8 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
@@ -49,8 +50,11 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 + Parameters
     + traitDbId (Optional, ) ... The unique identifier for a trait
     + observationVariableDbId (Optional, ) ... The unique identifier for an observation variable
-    + externalReferenceID (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceID` parameter)
+    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + programDbId (Optional, ) ... A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. Use this parameter to only return results associated with the given program. Use `GET /programs` to find the list of available programs on a server.
+    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Reference issue number 460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -101,15 +105,11 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
                 "entity": "Stalk",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -173,7 +173,8 @@ Create new trait objects in the database
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
@@ -200,7 +201,8 @@ Create new trait objects in the database
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
@@ -239,15 +241,11 @@ Create new trait objects in the database
         "entity": "Stalk",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
@@ -322,15 +320,11 @@ Create new trait objects in the database
                 "entity": "Stalk",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -398,7 +392,8 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
@@ -466,15 +461,11 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
         "entity": "Stalk",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
@@ -541,7 +532,8 @@ Update an existing trait
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
@@ -567,7 +559,8 @@ Update an existing trait
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
@@ -606,15 +599,11 @@ Update an existing trait
     "entity": "Stalk",
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12341234",
+            "referenceId": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
-            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-            "referenceSource": "OBO Library"
-        },
-        {
-            "referenceID": "75a50e76",
+            "referenceId": "75a50e76",
             "referenceSource": "Remote Data Collection Upload Tool"
         }
     ],
@@ -686,15 +675,11 @@ Update an existing trait
         "entity": "Stalk",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],

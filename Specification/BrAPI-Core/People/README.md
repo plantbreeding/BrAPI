@@ -5,7 +5,7 @@ Calls for maintaining information about people
 
 
 
-### Get - /people [GET /brapi/v2/people{?firstName}{?lastName}{?personDbId}{?userID}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /people [GET /brapi/v2/people{?firstName}{?lastName}{?personDbId}{?userID}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get filtered list of people
 
@@ -20,7 +20,8 @@ Get filtered list of people
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -38,8 +39,11 @@ Get filtered list of people
     + lastName (Optional, ) ... A persons last name
     + personDbId (Optional, ) ... The unique ID of a person
     + userID (Optional, ) ... A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.
-    + externalReferenceID (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceID` parameter)
+    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + programDbId (Optional, ) ... A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. Use this parameter to only return results associated with the given program. Use `GET /programs` to find the list of available programs on a server.
+    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Reference issue number 460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -85,15 +89,11 @@ Get filtered list of people
                 "emailAddress": "bob@bob.com",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -140,7 +140,8 @@ Create new People entities. `personDbId` is generated and managed by the server.
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -159,7 +160,8 @@ Create new People entities. `personDbId` is generated and managed by the server.
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -186,15 +188,11 @@ Create new People entities. `personDbId` is generated and managed by the server.
         "emailAddress": "bob@bob.com",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
@@ -248,15 +246,11 @@ Create new People entities. `personDbId` is generated and managed by the server.
                 "emailAddress": "bob@bob.com",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -305,7 +299,8 @@ Get the details for a specific Person
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -361,15 +356,11 @@ Get the details for a specific Person
         "emailAddress": "bob@bob.com",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
@@ -419,7 +410,8 @@ Update an existing Person
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -437,7 +429,8 @@ Update an existing Person
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -464,15 +457,11 @@ Update an existing Person
     "emailAddress": "bob@bob.com",
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12341234",
+            "referenceId": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
-            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-            "referenceSource": "OBO Library"
-        },
-        {
-            "referenceID": "75a50e76",
+            "referenceId": "75a50e76",
             "referenceSource": "Remote Data Collection Upload Tool"
         }
     ],
@@ -523,15 +512,11 @@ Update an existing Person
         "emailAddress": "bob@bob.com",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
@@ -581,8 +566,10 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 |Field|Type|Description|
 |---|---|---| 
+|commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
 |emailAddresses|array[string]|email address for this person|
-|externalReferenceIDs|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Reference issue number 460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
 |externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
 |firstNames|array[string]|Persons first name|
 |lastNames|array[string]|Persons last name|
@@ -592,6 +579,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |personDbIds|array[string]|Unique ID for this person|
 |phoneNumbers|array[string]|phone number of this person|
+|programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
+|programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
 |userIDs|array[string]|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
 
 
@@ -604,7 +593,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -625,16 +615,24 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 + Request (application/json)
 ```
 {
+    "commonCropNames": [
+        "Tomatillo",
+        "Paw Paw"
+    ],
     "emailAddresses": [
         "bob@bob.com",
         "rob@bob.com"
     ],
     "externalReferenceIDs": [
-        "http://purl.obolibrary.org/obo/ro.owl",
+        "doi:10.155454/12341234",
+        "14a19841"
+    ],
+    "externalReferenceIds": [
+        "doi:10.155454/12341234",
         "14a19841"
     ],
     "externalReferenceSources": [
-        "OBO Library",
+        "DOI",
         "Field App Name"
     ],
     "firstNames": [
@@ -662,6 +660,14 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
     "phoneNumbers": [
         "9995555555",
         "8884444444"
+    ],
+    "programDbIds": [
+        "8f5de35b",
+        "0e2d4a13"
+    ],
+    "programNames": [
+        "Better Breeding Program",
+        "Best Breeding Program"
     ],
     "userIDs": [
         "bob",
@@ -710,15 +716,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "emailAddress": "bob@bob.com",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -809,7 +811,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -869,15 +872,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "emailAddress": "bob@bob.com",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],

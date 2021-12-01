@@ -24,8 +24,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |Field|Type|Description|
 |---|---|---| 
 |active|boolean|Is this study currently active|
-|commonCropNames|array[string]|Common name for the crop which this program is for|
-|externalReferenceIDs|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
+|externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Reference issue number 460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
 |externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
 |germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
 |germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
@@ -35,8 +36,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |observationVariableNames|array[string]|The names of Variables to search for|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
-|programDbIds|array[string]|A program identifier to search for|
-|programNames|array[string]|A name of a program to search for|
+|programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
+|programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
 |seasonDbIds|array[string]|The ID which uniquely identifies a season|
 |sortBy|string|Name of one of the fields within the study object on which results can be sorted|
 |sortOrder|string|Order results should be sorted. ex. "ASC" or "DESC"|
@@ -88,7 +89,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
@@ -131,11 +133,15 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "Paw Paw"
     ],
     "externalReferenceIDs": [
-        "http://purl.obolibrary.org/obo/ro.owl",
+        "doi:10.155454/12341234",
+        "14a19841"
+    ],
+    "externalReferenceIds": [
+        "doi:10.155454/12341234",
         "14a19841"
     ],
     "externalReferenceSources": [
-        "OBO Library",
+        "DOI",
         "Field App Name"
     ],
     "germplasmDbIds": [
@@ -304,15 +310,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 },
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -464,7 +466,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
@@ -580,15 +583,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 },
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -695,7 +694,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 
 
-### Get - /studies [GET /brapi/v2/studies{?commonCropName}{?studyType}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?studyName}{?studyCode}{?studyPUI}{?germplasmDbId}{?observationVariableDbId}{?active}{?sortBy}{?sortOrder}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /studies [GET /brapi/v2/studies{?studyType}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?studyName}{?studyCode}{?studyPUI}{?germplasmDbId}{?observationVariableDbId}{?active}{?sortBy}{?sortOrder}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get list of studies
 
@@ -742,7 +741,8 @@ StartDate and endDate should be ISO-8601 format for dates
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
@@ -772,9 +772,7 @@ StartDate and endDate should be ISO-8601 format for dates
  
 
 + Parameters
-    + commonCropName (Optional, ) ... Common name for the crop associated with this study
     + studyType (Optional, ) ... Filter based on study type unique identifier
-    + programDbId (Optional, ) ... Program filter to only return studies associated with given program id.
     + locationDbId (Optional, ) ... Filter by location
     + seasonDbId (Optional, ) ... Filter by season or year
     + trialDbId (Optional, ) ... Filter by trial
@@ -787,8 +785,11 @@ StartDate and endDate should be ISO-8601 format for dates
     + active (Optional, ) ... Filter active status true/false.
     + sortBy (Optional, ) ... Name of the field to sort by.
     + sortOrder (Optional, ) ... Sort order direction. Ascending/Descending.
-    + externalReferenceID (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceID` parameter)
+    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + programDbId (Optional, ) ... A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. Use this parameter to only return results associated with the given program. Use `GET /programs` to find the list of available programs on a server.
+    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Reference issue number 460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -874,15 +875,11 @@ StartDate and endDate should be ISO-8601 format for dates
                 },
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -996,7 +993,8 @@ StartDate and endDate should be ISO-8601 format for dates
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
@@ -1061,7 +1059,8 @@ StartDate and endDate should be ISO-8601 format for dates
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
@@ -1144,15 +1143,11 @@ StartDate and endDate should be ISO-8601 format for dates
         },
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
@@ -1277,15 +1272,11 @@ StartDate and endDate should be ISO-8601 format for dates
                 },
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -1397,7 +1388,8 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
@@ -1509,15 +1501,11 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
         },
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
@@ -1628,7 +1616,8 @@ Update an existing Study with new data
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
@@ -1692,7 +1681,8 @@ Update an existing Study with new data
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
@@ -1775,15 +1765,11 @@ Update an existing Study with new data
     },
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12341234",
+            "referenceId": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
-            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-            "referenceSource": "OBO Library"
-        },
-        {
-            "referenceID": "75a50e76",
+            "referenceId": "75a50e76",
             "referenceSource": "Remote Data Collection Upload Tool"
         }
     ],
@@ -1905,15 +1891,11 @@ Update an existing Study with new data
         },
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],

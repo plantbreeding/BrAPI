@@ -7,7 +7,7 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
 
 
 
-### Get - /samples [GET /brapi/v2/samples{?sampleDbId}{?observationUnitDbId}{?plateDbId}{?germplasmDbId}{?studyDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /samples [GET /brapi/v2/samples{?sampleDbId}{?observationUnitDbId}{?plateDbId}{?germplasmDbId}{?studyDbId}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 
@@ -21,7 +21,8 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -52,8 +53,11 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
     + plateDbId (Optional, ) ... the internal DB id for a plate of samples
     + germplasmDbId (Optional, ) ... the internal DB id for a germplasm
     + studyDbId (Optional, ) ... Filter by study DbId
-    + externalReferenceID (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceID` parameter)
+    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + programDbId (Optional, ) ... A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. Use this parameter to only return results associated with the given program. Use `GET /programs` to find the list of available programs on a server.
+    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Reference issue number 460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -98,15 +102,11 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
                 "column": 6,
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -164,7 +164,8 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -194,7 +195,8 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -232,15 +234,11 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
         "column": 6,
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
@@ -305,15 +303,11 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
                 "column": 6,
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -373,7 +367,8 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -440,15 +435,11 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
         "column": 6,
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
@@ -509,7 +500,8 @@ Update the details of an existing Sample
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -538,7 +530,8 @@ Update the details of an existing Sample
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -576,15 +569,11 @@ Update the details of an existing Sample
     "column": 6,
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12341234",
+            "referenceId": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
-            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-            "referenceSource": "OBO Library"
-        },
-        {
-            "referenceID": "75a50e76",
+            "referenceId": "75a50e76",
             "referenceSource": "Remote Data Collection Upload Tool"
         }
     ],
@@ -646,15 +635,11 @@ Update the details of an existing Sample
         "column": 6,
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
@@ -716,7 +701,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 |Field|Type|Description|
 |---|---|---| 
-|externalReferenceIDs|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
+|externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Reference issue number 460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
 |externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
 |germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
 |germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
@@ -724,6 +711,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |plateDbIds|array[string]|The ID which uniquely identifies a plate of samples|
+|programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
+|programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
 |sampleDbIds|array[string]|The ID which uniquely identifies a sample|
 |studyDbIds|array[string]|List of study identifiers to search for|
 |studyNames|array[string]|List of study names to filter search results|
@@ -737,7 +726,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -770,12 +760,20 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 + Request (application/json)
 ```
 {
+    "commonCropNames": [
+        "Tomatillo",
+        "Paw Paw"
+    ],
     "externalReferenceIDs": [
-        "http://purl.obolibrary.org/obo/ro.owl",
+        "doi:10.155454/12341234",
+        "14a19841"
+    ],
+    "externalReferenceIds": [
+        "doi:10.155454/12341234",
         "14a19841"
     ],
     "externalReferenceSources": [
-        "OBO Library",
+        "DOI",
         "Field App Name"
     ],
     "germplasmDbIds": [
@@ -795,6 +793,14 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
     "plateDbIds": [
         "0cac98b8",
         "b96125fb"
+    ],
+    "programDbIds": [
+        "8f5de35b",
+        "0e2d4a13"
+    ],
+    "programNames": [
+        "Better Breeding Program",
+        "Best Breeding Program"
     ],
     "sampleDbIds": [
         "3bece2ca",
@@ -850,15 +856,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "column": 6,
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -960,7 +962,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -1031,15 +1034,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "column": 6,
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],

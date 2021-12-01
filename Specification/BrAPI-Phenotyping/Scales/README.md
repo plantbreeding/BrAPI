@@ -8,7 +8,7 @@ API to manage the details of observation variable Scales. An observation variabl
 
 
 
-### Get - /scales [GET /brapi/v2/scales{?scaleDbId}{?observationVariableDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /scales [GET /brapi/v2/scales{?scaleDbId}{?observationVariableDbId}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Returns a list of Scales available on a server.
 
@@ -25,7 +25,8 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
@@ -49,8 +50,11 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 + Parameters
     + scaleDbId (Optional, ) ... The unique identifier for a scale
     + observationVariableDbId (Optional, ) ... The unique identifier for an observation variable
-    + externalReferenceID (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceID` parameter)
+    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + programDbId (Optional, ) ... A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. Use this parameter to only return results associated with the given program. Use `GET /programs` to find the list of available programs on a server.
+    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Reference issue number 460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -96,15 +100,11 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
                 "decimalPlaces": 2,
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -175,7 +175,8 @@ Create new scale objects in the database
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
@@ -202,7 +203,8 @@ Create new scale objects in the database
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
@@ -237,15 +239,11 @@ Create new scale objects in the database
         "decimalPlaces": 2,
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
@@ -323,15 +321,11 @@ Create new scale objects in the database
                 "decimalPlaces": 2,
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -406,7 +400,8 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
@@ -470,15 +465,11 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
         "decimalPlaces": 2,
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
@@ -552,7 +543,8 @@ Update the details of an existing scale
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
@@ -578,7 +570,8 @@ Update the details of an existing scale
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
@@ -613,15 +606,11 @@ Update the details of an existing scale
     "decimalPlaces": 2,
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12341234",
+            "referenceId": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
-            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-            "referenceSource": "OBO Library"
-        },
-        {
-            "referenceID": "75a50e76",
+            "referenceId": "75a50e76",
             "referenceSource": "Remote Data Collection Upload Tool"
         }
     ],
@@ -696,15 +685,11 @@ Update the details of an existing scale
         "decimalPlaces": 2,
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],

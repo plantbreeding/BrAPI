@@ -12,7 +12,7 @@ Retrieving genetic or physical maps
 
 
 
-### Get - /maps [GET /brapi/v2/maps{?commonCropName}{?mapDbId}{?mapPUI}{?scientificName}{?type}{?programDbId}{?trialDbId}{?studyDbId}{?page}{?pageSize}]
+### Get - /maps [GET /brapi/v2/maps{?mapDbId}{?mapPUI}{?scientificName}{?type}{?trialDbId}{?studyDbId}{?commonCropName}{?programDbId}{?page}{?pageSize}]
 
 Get list of maps
 
@@ -41,14 +41,14 @@ Get list of maps
  
 
 + Parameters
-    + commonCropName (Optional, ) ... The common name of the crop
     + mapDbId (Optional, ) ... The primary DbId for this genomic map
     + mapPUI (Optional, ) ... The DOI or other permanent identifier for this genomic map
     + scientificName (Optional, ) ... Full scientific binomial format name. This includes Genus, Species, and Sub-species
     + type (Optional, ) ... Type of map
-    + programDbId (Optional, ) ... Unique Id to filter by Program
     + trialDbId (Optional, ) ... Unique Id to filter by Trial
     + studyDbId (Optional, ) ... Unique Id to filter by Study
+    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + programDbId (Optional, ) ... A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. Use this parameter to only return results associated with the given program. Use `GET /programs` to find the list of available programs on a server.
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>

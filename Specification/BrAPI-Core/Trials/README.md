@@ -22,16 +22,17 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |Field|Type|Description|
 |---|---|---| 
 |active|boolean|Is this trail currently active|
-|commonCropNames|array[string]|Common name for the crop which this program is for|
+|commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
 |contactDbIds|array[string]|List of contact entities associated with this trial|
-|externalReferenceIDs|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Reference issue number 460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
 |externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
 |locationDbIds|array[string]|The location ids to search for|
 |locationNames|array[string]|A human readable names to search for|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
-|programDbIds|array[string]|A program identifier to search for|
-|programNames|array[string]|A name of a program to search for|
+|programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
+|programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
 |searchDateRangeEnd|string (date)|The end of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.  Return a Trial entity if any of the following cases are true  - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null   - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`  - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null  - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`|
 |searchDateRangeStart|string (date)|The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.  Return a Trial entity if any of the following cases are true  - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null   - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`  - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null  - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`|
 |studyDbIds|array[string]|List of study identifiers to search for|
@@ -64,7 +65,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
@@ -98,11 +100,15 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "b82f0967"
     ],
     "externalReferenceIDs": [
-        "http://purl.obolibrary.org/obo/ro.owl",
+        "doi:10.155454/12341234",
+        "14a19841"
+    ],
+    "externalReferenceIds": [
+        "doi:10.155454/12341234",
         "14a19841"
     ],
     "externalReferenceSources": [
-        "OBO Library",
+        "DOI",
         "Field App Name"
     ],
     "locationDbIds": [
@@ -208,15 +214,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "endDate": "2018-01-01",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -327,7 +329,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
@@ -410,15 +413,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "endDate": "2018-01-01",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -500,7 +499,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 
 
-### Get - /trials [GET /brapi/v2/trials{?active}{?commonCropName}{?contactDbId}{?programDbId}{?locationDbId}{?searchDateRangeStart}{?searchDateRangeEnd}{?studyDbId}{?trialDbId}{?trialName}{?trialPUI}{?sortBy}{?sortOrder}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /trials [GET /brapi/v2/trials{?active}{?contactDbId}{?locationDbId}{?searchDateRangeStart}{?searchDateRangeEnd}{?studyDbId}{?trialDbId}{?trialName}{?trialPUI}{?sortBy}{?sortOrder}{?programDbId}{?commonCropName}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
 
@@ -529,7 +528,8 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
@@ -547,9 +547,7 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
 
 + Parameters
     + active (Optional, ) ... Filter active status true/false.
-    + commonCropName (Optional, ) ... Common name for the crop associated with this trial
     + contactDbId (Optional, ) ... Contact entities associated with this trial
-    + programDbId (Optional, ) ... Program filter to only return trials associated with given program id.
     + locationDbId (Optional, ) ... Filter by location
     + searchDateRangeStart (Optional, ) ... The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.Return a Trial entity if any of the following cases are true- `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
     + searchDateRangeEnd (Optional, ) ... The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.Return a Trial entity if any of the following cases are true- `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
@@ -559,8 +557,11 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
     + trialPUI (Optional, ) ... Filter by trial PUI
     + sortBy (Optional, ) ... Sort order. Name of the field to sort by.
     + sortOrder (Optional, ) ... Sort order direction: asc/desc
-    + externalReferenceID (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceID` parameter)
+    + programDbId (Optional, ) ... A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. Use this parameter to only return results associated with the given program. Use `GET /programs` to find the list of available programs on a server.
+    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Reference issue number 460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -626,15 +627,11 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
                 "endDate": "2018-01-01",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -701,7 +698,8 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
@@ -737,7 +735,8 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
@@ -787,15 +786,11 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
         "endDate": "2018-01-01",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
@@ -875,15 +870,11 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
                 "endDate": "2018-01-01",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -952,7 +943,8 @@ Get the details of a specific Trial
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
@@ -1031,15 +1023,11 @@ Get the details of a specific Trial
         "endDate": "2018-01-01",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
@@ -1109,7 +1097,8 @@ Update the details of an existing Trial
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
@@ -1144,7 +1133,8 @@ Update the details of an existing Trial
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
@@ -1194,15 +1184,11 @@ Update the details of an existing Trial
     "endDate": "2018-01-01",
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12341234",
+            "referenceId": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
-            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-            "referenceSource": "OBO Library"
-        },
-        {
-            "referenceID": "75a50e76",
+            "referenceId": "75a50e76",
             "referenceSource": "Remote Data Collection Upload Tool"
         }
     ],
@@ -1279,15 +1265,11 @@ Update the details of an existing Trial
         "endDate": "2018-01-01",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],

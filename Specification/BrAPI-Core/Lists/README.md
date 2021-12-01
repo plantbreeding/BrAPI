@@ -5,7 +5,7 @@ Calls for manipulating generic lists of item IDs
 
 
 
-### Get - /lists [GET /brapi/v2/lists{?listType}{?listName}{?listDbId}{?listSource}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /lists [GET /brapi/v2/lists{?listType}{?listName}{?listDbId}{?listSource}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get filtered set of generic lists
 
@@ -20,7 +20,8 @@ Get filtered set of generic lists
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
@@ -39,8 +40,11 @@ Get filtered set of generic lists
     + listName (Optional, ) ... The human readable name of this generic list
     + listDbId (Optional, ) ... The unique ID of this generic list
     + listSource (Optional, ) ... The source tag of this generic list
-    + externalReferenceID (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceID` parameter)
+    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + programDbId (Optional, ) ... A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. Use this parameter to only return results associated with the given program. Use `GET /programs` to find the list of available programs on a server.
+    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Reference issue number 460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -86,15 +90,11 @@ Get filtered set of generic lists
                 "dateModified": "2018-01-01T14:47:23-0600",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -143,7 +143,8 @@ Create new list objects in the database
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
@@ -163,7 +164,8 @@ Create new list objects in the database
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
@@ -195,15 +197,11 @@ Create new list objects in the database
         "dateModified": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
@@ -258,15 +256,11 @@ Create new list objects in the database
                 "dateModified": "2018-01-01T14:47:23-0600",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -317,7 +311,8 @@ Get a specific generic lists
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
@@ -378,15 +373,11 @@ Get a specific generic lists
         "dateModified": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
@@ -438,7 +429,8 @@ Update an existing generic list
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
@@ -458,7 +450,8 @@ Update an existing generic list
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
@@ -490,15 +483,11 @@ Update an existing generic list
     "dateModified": "2018-01-01T14:47:23-0600",
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12341234",
+            "referenceId": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
-            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-            "referenceSource": "OBO Library"
-        },
-        {
-            "referenceID": "75a50e76",
+            "referenceId": "75a50e76",
             "referenceSource": "Remote Data Collection Upload Tool"
         }
     ],
@@ -554,15 +543,11 @@ Update an existing generic list
         "dateModified": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
@@ -620,7 +605,8 @@ Add new data to a specific generic lists
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
@@ -690,15 +676,11 @@ Add new data to a specific generic lists
         "dateModified": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
@@ -749,11 +731,13 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 |Field|Type|Description|
 |---|---|---| 
+|commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
 |dateCreatedRangeEnd|string (date-time)||
 |dateCreatedRangeStart|string (date-time)||
 |dateModifiedRangeEnd|string (date-time)||
 |dateModifiedRangeStart|string (date-time)||
-|externalReferenceIDs|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Reference issue number 460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
 |externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
 |listDbIds|array[string]||
 |listNames|array[string]||
@@ -763,6 +747,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |listType|string||
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
+|programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
+|programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
 
 
 **Response Fields** 
@@ -774,7 +760,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
@@ -796,16 +783,24 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 + Request (application/json)
 ```
 {
+    "commonCropNames": [
+        "Tomatillo",
+        "Paw Paw"
+    ],
     "dateCreatedRangeEnd": "2018-01-01T14:47:23-0600",
     "dateCreatedRangeStart": "2018-01-01T14:47:23-0600",
     "dateModifiedRangeEnd": "2018-01-01T14:47:23-0600",
     "dateModifiedRangeStart": "2018-01-01T14:47:23-0600",
     "externalReferenceIDs": [
-        "http://purl.obolibrary.org/obo/ro.owl",
+        "doi:10.155454/12341234",
+        "14a19841"
+    ],
+    "externalReferenceIds": [
+        "doi:10.155454/12341234",
         "14a19841"
     ],
     "externalReferenceSources": [
-        "OBO Library",
+        "DOI",
         "Field App Name"
     ],
     "listDbIds": [
@@ -831,7 +826,15 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
     ],
     "listType": "germplasm",
     "page": 0,
-    "pageSize": 1000
+    "pageSize": 1000,
+    "programDbIds": [
+        "8f5de35b",
+        "0e2d4a13"
+    ],
+    "programNames": [
+        "Better Breeding Program",
+        "Best Breeding Program"
+    ]
 }
 ```
 
@@ -875,15 +878,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "dateModified": "2018-01-01T14:47:23-0600",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -975,7 +974,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Reference issue number 460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
@@ -1036,15 +1036,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "dateModified": "2018-01-01T14:47:23-0600",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
