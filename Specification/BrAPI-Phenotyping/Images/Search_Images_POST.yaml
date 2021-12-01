@@ -23,7 +23,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ImageSearchRequest'
+              allOf:
+              - $ref: '#/components/schemas/SearchRequestParametersPaging'
+              - $ref: '#/components/schemas/ImageSearchRequest'
       responses:
         '200':
           $ref: '#/components/responses/ImageListResponse'
