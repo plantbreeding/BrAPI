@@ -1,0 +1,58 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /delete/observations:
+    post:
+      summary: Submit a delete request for `Observations`
+      description: |-
+        Submit a delete request for `Observations`
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObservationSearchRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/ObservationDeleteResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Observations
+
+components:
+  responses:
+    ObservationDeleteResponse:
+      content:
+        application/json:
+          schema:
+            title: ObservationDeleteResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  observationDbIds:
+                    description: The unique ids of the Observation records which have been successfully deleted
+                    items:
+                      type: string
+                    type: array
+                    example: ['6a4a59d8', '3ff067e0']
+                required:
+                - observationDbIds
+                type: object
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}
