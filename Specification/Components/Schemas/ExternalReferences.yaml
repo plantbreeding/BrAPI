@@ -19,7 +19,7 @@ components:
           referenceID:
             deprecated: true
             description: |-
-              **Deprecated in v2.1** Please use `referenceId`. Reference issue number 460 
+              **Deprecated in v2.1** Please use `referenceId`. Github issue number #460 
 
               The external reference ID. Could be a simple string or a URI.
             type: string

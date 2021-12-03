@@ -11,6 +11,7 @@ components:
       - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'
       - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'
       - $ref: '#/components/schemas/SearchRequestParametersPrograms'
+      - $ref: '#/components/schemas/SearchRequestParametersStudies'
       - type: object
         properties:
           dataTypes:
@@ -50,7 +51,11 @@ components:
             type: array
             example: ['a13ecffa', '7e1afe4f']
           studyDbId:  
-            description: The unique ID of a studies to filter on
+            description: |-
+              **Deprecated in v2.1** Please use `studyDbIds`. Github issue number #483 
+
+              The unique ID of a studies to filter on
+            deprecated: true
             type: array
             items:
               type: string

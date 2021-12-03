@@ -11,7 +11,7 @@ components:
         externalReferenceIDs: 
           deprecated: true
           description:  |-
-            **Deprecated in v2.1** Please use `externalReferenceIds`. Reference issue number 460 
+            **Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460 
 
             List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)
           items:
