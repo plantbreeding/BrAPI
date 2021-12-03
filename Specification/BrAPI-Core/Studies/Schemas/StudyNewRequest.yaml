@@ -136,6 +136,15 @@ components:
               levelOrder: 1
             - levelName: plot
               levelOrder: 2
+        observationVariableDbIds:
+          description: |-
+            The list of Observation Variables being used in this study. 
+
+            This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. 
+          type: array 
+          items: 
+            type: string
+          example: [57c236f9, 48b327ea, a5b367c5]
         observationUnitsDescription:
           description: MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.
           type: string
