@@ -105,6 +105,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |levelName|string|A name for this level|
 |levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
+|observationVariableDbIds|array[string]|The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. |
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
 |studyCode|string|A short human readable code for a study|
@@ -344,6 +345,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                     }
                 ],
                 "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
+                "observationVariableDbIds": [
+                    "57c236f9",
+                    "48b327ea",
+                    "a5b367c5"
+                ],
                 "seasons": [
                     "Spring_2018"
                 ],
@@ -482,6 +488,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |levelName|string|A name for this level|
 |levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
+|observationVariableDbIds|array[string]|The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. |
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
 |studyCode|string|A short human readable code for a study|
@@ -617,6 +624,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                     }
                 ],
                 "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
+                "observationVariableDbIds": [
+                    "57c236f9",
+                    "48b327ea",
+                    "a5b367c5"
+                ],
                 "seasons": [
                     "Spring_2018"
                 ],
@@ -757,6 +769,7 @@ StartDate and endDate should be ISO-8601 format for dates
 |levelName|string|A name for this level|
 |levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
+|observationVariableDbIds|array[string]|The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. |
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
 |studyCode|string|A short human readable code for a study|
@@ -909,6 +922,11 @@ StartDate and endDate should be ISO-8601 format for dates
                     }
                 ],
                 "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
+                "observationVariableDbIds": [
+                    "57c236f9",
+                    "48b327ea",
+                    "a5b367c5"
+                ],
                 "seasons": [
                     "Spring_2018"
                 ],
@@ -1009,6 +1027,7 @@ StartDate and endDate should be ISO-8601 format for dates
 |levelName|string|A name for this level|
 |levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
+|observationVariableDbIds|array[string]|The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. |
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
 |studyCode|string|A short human readable code for a study|
@@ -1075,6 +1094,7 @@ StartDate and endDate should be ISO-8601 format for dates
 |levelName|string|A name for this level|
 |levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
+|observationVariableDbIds|array[string]|The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. |
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
 |studyCode|string|A short human readable code for a study|
@@ -1177,6 +1197,11 @@ StartDate and endDate should be ISO-8601 format for dates
             }
         ],
         "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
+        "observationVariableDbIds": [
+            "57c236f9",
+            "48b327ea",
+            "a5b367c5"
+        ],
         "seasons": [
             "Spring_2018"
         ],
@@ -1306,6 +1331,11 @@ StartDate and endDate should be ISO-8601 format for dates
                     }
                 ],
                 "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
+                "observationVariableDbIds": [
+                    "57c236f9",
+                    "48b327ea",
+                    "a5b367c5"
+                ],
                 "seasons": [
                     "Spring_2018"
                 ],
@@ -1404,6 +1434,7 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 |levelName|string|A name for this level|
 |levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
+|observationVariableDbIds|array[string]|The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. |
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
 |studyCode|string|A short human readable code for a study|
@@ -1535,6 +1566,11 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
             }
         ],
         "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
+        "observationVariableDbIds": [
+            "57c236f9",
+            "48b327ea",
+            "a5b367c5"
+        ],
         "seasons": [
             "Spring_2018"
         ],
@@ -1632,6 +1668,7 @@ Update an existing Study with new data
 |levelName|string|A name for this level|
 |levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
+|observationVariableDbIds|array[string]|The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. |
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
 |studyCode|string|A short human readable code for a study|
@@ -1697,6 +1734,7 @@ Update an existing Study with new data
 |levelName|string|A name for this level|
 |levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
+|observationVariableDbIds|array[string]|The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. |
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
 |studyCode|string|A short human readable code for a study|
@@ -1799,6 +1837,11 @@ Update an existing Study with new data
         }
     ],
     "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
+    "observationVariableDbIds": [
+        "57c236f9",
+        "48b327ea",
+        "a5b367c5"
+    ],
     "seasons": [
         "Spring_2018"
     ],
@@ -1925,6 +1968,11 @@ Update an existing Study with new data
             }
         ],
         "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
+        "observationVariableDbIds": [
+            "57c236f9",
+            "48b327ea",
+            "a5b367c5"
+        ],
         "seasons": [
             "Spring_2018"
         ],
