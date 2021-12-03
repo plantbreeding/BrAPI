@@ -1,12 +1,14 @@
 # Group Images
 
-Calls for manipulating images
+Calls for retrieving, storing, and updating images and image metadata
 
 Implementation Notes:
 
-The `/images` calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON only supports two of the possible geometries: Points and Polygons. 
+The Images endpoints support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON only supports two of the possible geometries: Points and Polygons. 
  + With most images, the Point geometry should be used, and it should indicate the longitude and latitude of the camera. 
  + For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content. 
+
+An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/index.php/Image_Upload
 
 
 
@@ -214,13 +216,15 @@ Submit a delete request for `Images`
 
 ### Get - /images [GET /brapi/v2/images{?imageDbId}{?imageName}{?observationUnitDbId}{?observationDbId}{?descriptiveOntologyTerm}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
-Get filtered set of image meta data
+Get filtered set of image metadata
 
 Implementation Notes
 
-- ''imageURL'' should be a complete URL describing the location of the image. There is no BrAPI call for retrieving the image content, so it could be on a different path, or a different host.
+- ''imageURL'' should be a complete URL describing the location of the image. There is no BrAPI call for 
+retrieving the image content, so it could be on a different path, or a different host.
 
-- ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI''s.
+- ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive 
+words, or ontology references, or full ontology URI''s.
 
 
 
@@ -228,7 +232,7 @@ Implementation Notes
 
 |Field|Type|Description|
 |---|---|---| 
-|data|array[object]|Array of image meta data|
+|data|array[object]|Array of image metadata|
 |additionalInfo|object||
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
@@ -376,19 +380,28 @@ Implementation Notes
 
 ### Post - /images [POST /brapi/v2/images]
 
-Create new image meta data objects
+Create new image metadata records
 
 Implementation Notes
 
-- ''imageURL'' should be a complete URL describing the location of the image. There is no BrAPI call for retrieving the image content, so it could be on a different path, or a different host.
+- This endpoint should be implemented with 'PUT /images/{imageDbId}/imagecontent' for full image upload capability
 
-- ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI''s.
+- ''imageURL'' should be a complete URL describing the location of the image. There is no BrAPI call for retrieving 
+the image content, so it could be on a different path, or a different host.
 
-- The '/images' calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON only supports two of the possible geometries: Points and Polygons.
+- ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or 
+ontology references, or full ontology URI's.
+
+- The '/images' calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON 
+only supports two of the possible geometries; Points and Polygons.
 
 - With most images, the Point geometry should be used, and it should indicate the longitude and latitude of the camera.
 
-- For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content. '
+- For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and 
+latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the 
+image content.
+
+An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/index.php/Image_Upload
 
 **Request Fields** 
 
@@ -421,7 +434,7 @@ Implementation Notes
 
 |Field|Type|Description|
 |---|---|---| 
-|data|array[object]|Array of image meta data|
+|data|array[object]|Array of image metadata|
 |additionalInfo|object||
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
@@ -609,13 +622,15 @@ Implementation Notes
 
 ### Get - /images/{imageDbId} [GET /brapi/v2/images/{imageDbId}]
 
-Get one image meta data object
+Get one image metadata object
 
 Implementation Notes
 
-- ''imageURL'' should be a complete URL describing the location of the image. There is no BrAPI call for retrieving the image content, so it could be on a different path, or a different host.
+- ''imageURL'' should be a complete URL describing the location of the image. There is no BrAPI call for 
+retrieving the image content, so it could be on a different path, or a different host.
 
-- ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI''s.
+- ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive 
+words, or ontology references, or full ontology URI''s.
 
 
 
@@ -760,23 +775,30 @@ Implementation Notes
 
 ### Put - /images/{imageDbId} [PUT /brapi/v2/images/{imageDbId}/]
 
-Update an image meta data object
+Update an existing image metadata record
 
 Implementation Notes
 
-- This call should be paired with 'PUT /images/{imageDbId}/imagecontent' for full capability
+- This endpoint should be implemented with 'PUT /images/{imageDbId}/imagecontent' for full image update capability
 
-- A server may choose to modify the image meta data object based on the actually image which has been uploaded. 
+- A server may choose to modify the image metadata object based on the actually image which has been uploaded. 
 
-- Image data may be stored in a database or file system. Servers should generate and provide the "imageURL" as an absolute path for retrieving the image, wherever it happens to live. 
+- Image data may be stored in a database or file system. Servers should generate and provide the "imageURL" as an 
+absolute path for retrieving the image, wherever it happens to live. 
 
-- 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's. 
+- 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or 
+ontology references, or full ontology URI's. 
 
-- The '/images' calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON only supports two of the possible geometries: Points and Polygons. 
+- The '/images' calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON 
+only supports two of the possible geometries; Points and Polygons. 
 
 - With most images, the Point geometry should be used, and it should indicate the longitude and latitude of the camera. 
 
-- For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content.
+- For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and 
+latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the 
+image content.
+
+An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/index.php/Image_Upload
 
 **Request Fields** 
 
@@ -996,15 +1018,23 @@ Implementation Notes
 
 ### Put - /images/{imageDbId}/imagecontent [PUT /brapi/v2/images/{imageDbId}/imagecontent]
 
-Update an image with the image file content
+This endpoint is used to attach an image binary file to an existing image metadata record. All of the other Images endpoints 
+deal with the JSON for image metadata, but 'PUT /images/{imageDbId}/imagecontent' allows you to send any binary file with a Content 
+Type (MIME) of image/*. When the real image is uploaded, the server may choose to update some of the metadata to reflect the 
+reality of the image that was uploaded, and should respond with the updated JSON.
 
 Implementation Notes
 
-- This call should be paired with 'PUT /images/{imageDbId}' for full capability
+- This endpoint should be implemented with 'POST /images' for full image upload capability
 
-- A server may choose to modify the image meta data object based on the actually image which has been uploaded. 
+- This endpoint should be implemented with 'PUT /images/{imageDbId}' for full image update capability
 
-- Image data may be stored in a database or file system. Servers should generate and provide the "imageURL" for retrieving the image, wherever it happens to live.
+- A server may choose to modify the image metadata object based on the actually image which has been uploaded by this endpoint. 
+
+- Image data may be stored in a database or file system. Servers should generate and provide the "imageURL" for retrieving the 
+  image binary file. 
+
+An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/index.php/Image_Upload
 
 
 
@@ -1039,7 +1069,7 @@ Implementation Notes
  
 
 + Parameters
-    + imageDbId (Required, ) ... The unique identifier for a image
+    + imageDbId (Required, ) ... The unique identifier for an image
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
@@ -1196,7 +1226,7 @@ Image Implementation Notes<br/>
 
 |Field|Type|Description|
 |---|---|---| 
-|data|array[object]|Array of image meta data|
+|data|array[object]|Array of image metadata|
 |additionalInfo|object||
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
@@ -1483,7 +1513,7 @@ Image Implementation Notes<br/>
 
 |Field|Type|Description|
 |---|---|---| 
-|data|array[object]|Array of image meta data|
+|data|array[object]|Array of image metadata|
 |additionalInfo|object||
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
