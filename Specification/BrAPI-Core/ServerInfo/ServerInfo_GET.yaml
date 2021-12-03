@@ -45,7 +45,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ContentTypes'
       - description: |-
-          **Deprecated in v2.1** Please use `contentType`. Reference issue number 443
+          **Deprecated in v2.1** Please use `contentType`. Github issue number #443
 
           The data format supported by the call.
         deprecated: true
