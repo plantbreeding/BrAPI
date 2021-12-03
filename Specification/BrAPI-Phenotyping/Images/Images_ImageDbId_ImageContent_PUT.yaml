@@ -5,19 +5,27 @@ openapi: 3.0.0
 paths:
   /images/{imageDbId}/imagecontent:
     put:
-      summary: Update an image with the image file content
+      summary: Attach an image binary file to an existing image metadata record
       description: |-
-        Update an image with the image file content
+        This endpoint is used to attach an image binary file to an existing image metadata record. All of the other Images endpoints 
+        deal with the JSON for image metadata, but 'PUT /images/{imageDbId}/imagecontent' allows you to send any binary file with a Content 
+        Type (MIME) of image/*. When the real image is uploaded, the server may choose to update some of the metadata to reflect the 
+        reality of the image that was uploaded, and should respond with the updated JSON.
         
         Implementation Notes
         
-        - This call should be paired with 'PUT /images/{imageDbId}' for full capability
+        - This endpoint should be implemented with 'POST /images' for full image upload capability
         
-        - A server may choose to modify the image meta data object based on the actually image which has been uploaded. 
+        - This endpoint should be implemented with 'PUT /images/{imageDbId}' for full image update capability
         
-        - Image data may be stored in a database or file system. Servers should generate and provide the "imageURL" for retrieving the image, wherever it happens to live.
+        - A server may choose to modify the image metadata object based on the actually image which has been uploaded by this endpoint. 
+        
+        - Image data may be stored in a database or file system. Servers should generate and provide the "imageURL" for retrieving the 
+          image binary file. 
+
+        An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/index.php/Image_Upload
       parameters:
-      - description: The unique identifier for a image
+      - description: The unique identifier for an image
         in: path
         name: imageDbId
         required: true
