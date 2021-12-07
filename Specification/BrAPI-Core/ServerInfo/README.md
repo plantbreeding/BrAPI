@@ -47,7 +47,7 @@ BAD    "call": "germplasm/<germplasmDbId>/pedigree"
 |---|---|---| 
 |calls|array[object]|Array of available calls on this server|
 |contentTypes|array[string]|The possible content types returned by the service endpoint|
-|dataTypes|array[string]|**Deprecated in v2.1** Please use `contentTypes`. Github issue number #443   The possible data formats returned by the available call|
+|dataTypes|array[string]|**Deprecated in v2.1** Please use `contentTypes`. Github issue number #443   The possible data formats returned by the available call |
 |methods|array[string]|The possible HTTP Methods to be used with the available call|
 |service|string|The name of the available call as recorded in the documentation|
 |versions|array[string]|The supported versions of a particular call|
