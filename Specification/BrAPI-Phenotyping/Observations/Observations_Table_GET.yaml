@@ -124,12 +124,12 @@ paths:
         schema:
           format: date-time
           type: string
-      - $ref: '#/components/parameters/observationUnitLevelName
-      - $ref: '#/components/parameters/observationUnitLevelOrder
-      - $ref: '#/components/parameters/observationUnitLevelCode 
-      - $ref: '#/components/parameters/observationUnitLevelRelationshipName
-      - $ref: '#/components/parameters/observationUnitLevelRelationshipOrder
-      - $ref: '#/components/parameters/observationUnitLevelRelationshipCode 
+      - $ref: '#/components/parameters/observationUnitLevelName'
+      - $ref: '#/components/parameters/observationUnitLevelOrder'
+      - $ref: '#/components/parameters/observationUnitLevelCode'
+      - $ref: '#/components/parameters/observationUnitLevelRelationshipName'
+      - $ref: '#/components/parameters/observationUnitLevelRelationshipOrder'
+      - $ref: '#/components/parameters/observationUnitLevelRelationshipCode'
       - $ref: '#/components/parameters/acceptHeader'
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
