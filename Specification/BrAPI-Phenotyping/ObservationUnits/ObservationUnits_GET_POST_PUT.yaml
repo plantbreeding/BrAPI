@@ -14,7 +14,7 @@ paths:
         required: false
         schema:
           type: string
-      - description: The unique ID of a germplasm (accession) to filter on
+      - description: The unique ID of a germplasm (accession) to filter on 
         in: query
         name: germplasmDbId
         required: false
@@ -47,7 +47,7 @@ paths:
       - description: |-
           Use this parameter to include a list of observations embedded in each ObservationUnit object. 
           
-          CAUTION - Use this parameter at your own risk. It may return large, unpaginated lists of observation data. Only set this value to True if you are sure you need to.
+          CAUTION - Use this parameter at your own risk. It may return large, unpaginated lists of observation data. Only set this value to True if you are sure you need to. 
         in: query
         name: includeObservations
         required: false
@@ -104,9 +104,9 @@ paths:
     put:
       summary: Update a set of Observation Units
       description: |-
-        Update a set of Observation Units
+        Update a set of Observation Units 
         
-        Note - In strictly typed languages, this structure can be represented as a Map or Dictionary of objects and parsed directly to JSON.
+        Note - In strictly typed languages, this structure can be represented as a Map or Dictionary of objects and parsed directly to JSON. 
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
@@ -187,7 +187,7 @@ paths:
                       levelCode: Plot_123
                     observationLevelRelationships:
                     - levelCode: Field_1
-                      levelName: field
+                      levelName: field 
                       levelOrder: 0
                     - levelCode: Block_12
                       levelName: block
@@ -198,11 +198,11 @@ paths:
                     positionCoordinateX: '74'
                     positionCoordinateXType: GRID_COL
                     positionCoordinateY: '03'
-                    positionCoordinateYType: GRID_ROW
+                    positionCoordinateYType: GRID_ROW 
                   programDbId: 2d763a7a
                   programName: The Perfect Breeding Program
                   seedLotDbId: 261ecb09
-                  studyDbId: 9865addc
+                  studyDbId: 9865addc 
                   studyName: Purple_Tomato_1
                   treatments:
                   - factor: fertilizer

@@ -4,12 +4,12 @@ info:
 openapi: 3.0.0
 paths:
   /observations:
-    get:
+    get: 
       summary: Get a filtered set of Observations 
       description: |-
-        Retrieve all observations where there are measurements for the given observation variables.
+        Retrieve all observations where there are measurements for the given observation variables. 
 
-        observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:ss+hhmm
+        observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:ss+hhmm 
       parameters:
       - description: The unique ID of an Observation
         in: query
@@ -22,7 +22,7 @@ paths:
         name: observationUnitDbId
         required: false
         schema:
-          type: string
+          type: string 
       - description: The unique ID of a germplasm (accession) to filter on
         in: query
         name: germplasmDbId
@@ -34,10 +34,10 @@ paths:
         name: observationVariableDbId
         required: false
         schema:
-          type: string
+          type: string 
       - description: The unique ID of a studies to filter on
         in: query
-        name: studyDbId
+        name: studyDbId 
         required: false
         schema:
           type: string
@@ -127,11 +127,11 @@ paths:
     put:
       summary: Update multiple Observation entities 
       description: |-
-        Update multiple Observation entities simultaneously with a single call
+        Update multiple Observation entities simultaneously with a single call 
         
-        Include as many `observationDbIds` in the request as needed.
+        Include as many `observationDbIds` in the request as needed. 
         
-        Note - In strictly typed languages, this structure can be represented as a Map or Dictionary of objects and parsed directly from JSON.
+        Note - In strictly typed languages, this structure can be represented as a Map or Dictionary of objects and parsed directly from JSON. 
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:

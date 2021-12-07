@@ -26,7 +26,7 @@ components:
           description:  |-
             **Deprecated in v2.1** Please use `contentTypes`. Github issue number #443 
 
-            The possible data formats returned by the available call
+            The possible data formats returned by the available call 
           deprecated: true
           items:
             $ref: '#/components/schemas/ContentTypes'

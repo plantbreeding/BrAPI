@@ -14,24 +14,24 @@ components:
         `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are 
         at the bottom of the hierarchy (ie plant > 6). 
 
-        **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**
+        **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** 
 
-        For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
+        For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
       properties:
         levelName: 
           description: |-
-            A name for this level
+            A name for this level 
 
-            **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**
+            **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** 
 
-            For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
+            For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
           type: string
           example: plot
         levelOrder: 
           description: |-
             `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers 
-            are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).
+            are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9). 
 
-            For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
+            For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
           type: integer
           example: 2

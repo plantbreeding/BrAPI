@@ -98,7 +98,7 @@ paths:
           **Deprecated in v2.1** Please use `observationUnitLevelName`. Github issue number #464 
 
           The type of the observationUnit. Returns only the observation unit of the specified type; 
-          the parent levels ID can be accessed through observationUnitStructure.
+          the parent levels ID can be accessed through observationUnitStructure. 
         in: query
         name: observationLevel
         required: false
