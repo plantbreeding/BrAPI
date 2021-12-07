@@ -28,15 +28,15 @@ components:
               Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."
         observationLevelRelationships:
           description: |-
-            Observation levels indicate the granularity level at which the measurements are taken. 
-              
+            Observation levels indicate the granularity level at which the measurements are taken. `levelName` 
+            defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. 
+            `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are 
+            at the bottom of the hierarchy (ie plant > 6). `levelCode` is an ID code for this level tag. Identify 
+            this observation unit by each level of the hierarchy where it exists.
+
             For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
-            
-            `levelName` defines the level 
-            
-            `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). 
-            
-            `levelCode` is an ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists
+
+            **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**
           type: array 
           items:
             $ref: '#/components/schemas/ObservationUnitLevelRelationship' 
