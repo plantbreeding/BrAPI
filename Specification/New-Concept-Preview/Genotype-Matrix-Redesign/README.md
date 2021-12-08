@@ -323,7 +323,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 
 
-### Get - /variantmatrix1 [GET /brapi/v2/variantmatrix1{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
+### Get - /variantmatrix1 [GET /brapi/v2/variantmatrix1{?germplasmDbId}{?germplasmName}{?germplasmPUI}{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
 
 Two dimensional matrix representing the raw contents of a VCF
 
@@ -344,6 +344,9 @@ Two dimensional matrix representing the raw contents of a VCF
  
 
 + Parameters
+    + germplasmDbId (Optional, ) ... Internal database identifier
+    + germplasmName (Optional, ) ... Name of the germplasm
+    + germplasmPUI (Optional, ) ... Permanent unique identifier (DOI, URI, etc.)
     + callSetDbId (Optional, ) ... The ID of the `CallSet` to be retrieved.
     + variantDbId (Optional, ) ... The ID of the `Variant` to be retrieved.
     + variantSetDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
@@ -439,28 +442,28 @@ Two dimensional matrix representing the raw contents of a VCF
             ]
         ],
         "expandHomozygotes": true,
-        "sepPhased": "~",
-        "sepUnphased": "|",
-        "unknownString": "-",
+        "sepPhased": "|",
+        "sepUnphased": "/",
+        "unknownString": ".",
         "vcfHeaders": [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
+            "##fileformat=VCFv4.2",
+            "##fileDate=20090805",
+            "##source=myImputationProgramV3.1",
+            "##reference=file:///seq/references/1000GenomesPilot-NCBI36.fasta",
+            "##contig=<ID=20,length=62435964,assembly=B36,md5=f126cdf8a6e0c7f379d618ff66beb2da,species=\"Homo sapiens\",taxonomy=x>",
+            "##phasing=partial",
+            "##INFO=<ID=NS,Number=1,Type=Integer,Description=\"Number of Samples With Data\">",
+            "##INFO=<ID=DP,Number=1,Type=Integer,Description=\"Total Depth\">",
+            "##INFO=<ID=AF,Number=A,Type=Float,Description=\"Allele Frequency\">",
+            "##INFO=<ID=AA,Number=1,Type=String,Description=\"Ancestral Allele\">",
+            "##INFO=<ID=DB,Number=0,Type=Flag,Description=\"dbSNP membership, build 129\">",
+            "##INFO=<ID=H2,Number=0,Type=Flag,Description=\"HapMap2 membership\">",
+            "##FILTER=<ID=q10,Description=\"Quality below 10\">",
+            "##FILTER=<ID=s50,Description=\"Less than 50% of samples have data\">",
+            "##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\">",
+            "##FORMAT=<ID=GQ,Number=1,Type=Integer,Description=\"Genotype Quality\">",
+            "##FORMAT=<ID=DP,Number=1,Type=Integer,Description=\"Read Depth\">",
+            "##FORMAT=<ID=HQ,Number=2,Type=Integer,Description=\"Haplotype Quality\">"
         ]
     }
 }
@@ -484,7 +487,7 @@ Two dimensional matrix representing the raw contents of a VCF
 
 
 
-### Get - /variantmatrix2 [GET /brapi/v2/variantmatrix2{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
+### Get - /variantmatrix2 [GET /brapi/v2/variantmatrix2{?germplasmDbId}{?germplasmName}{?germplasmPUI}{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
 
 Two dimensional matrix representing the raw contents of a VCF
 
@@ -508,6 +511,9 @@ Two dimensional matrix representing the raw contents of a VCF
  
 
 + Parameters
+    + germplasmDbId (Optional, ) ... Internal database identifier
+    + germplasmName (Optional, ) ... Name of the germplasm
+    + germplasmPUI (Optional, ) ... Permanent unique identifier (DOI, URI, etc.)
     + callSetDbId (Optional, ) ... The ID of the `CallSet` to be retrieved.
     + variantDbId (Optional, ) ... The ID of the `Variant` to be retrieved.
     + variantSetDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
@@ -577,9 +583,9 @@ Two dimensional matrix representing the raw contents of a VCF
         ],
         "expandHomozygotes": true,
         "format": "GT:GQ:DP:HQ",
-        "sepPhased": "~",
-        "sepUnphased": "|",
-        "unknownString": "-"
+        "sepPhased": "|",
+        "sepUnphased": "/",
+        "unknownString": "."
     }
 }
 ```
@@ -602,7 +608,7 @@ Two dimensional matrix representing the raw contents of a VCF
 
 
 
-### Get - /variantmatrix3 [GET /brapi/v2/variantmatrix3{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
+### Get - /variantmatrix3 [GET /brapi/v2/variantmatrix3{?germplasmDbId}{?germplasmName}{?germplasmPUI}{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
 
 Two dimensional matrix representing the raw contents of a VCF
 
@@ -627,6 +633,9 @@ Two dimensional matrix representing the raw contents of a VCF
  
 
 + Parameters
+    + germplasmDbId (Optional, ) ... Internal database identifier
+    + germplasmName (Optional, ) ... Name of the germplasm
+    + germplasmPUI (Optional, ) ... Permanent unique identifier (DOI, URI, etc.)
     + callSetDbId (Optional, ) ... The ID of the `CallSet` to be retrieved.
     + variantDbId (Optional, ) ... The ID of the `Variant` to be retrieved.
     + variantSetDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
@@ -708,9 +717,9 @@ Two dimensional matrix representing the raw contents of a VCF
             }
         ],
         "expandHomozygotes": true,
-        "sepPhased": "~",
-        "sepUnphased": "|",
-        "unknownString": "-",
+        "sepPhased": "|",
+        "sepUnphased": "/",
+        "unknownString": ".",
         "variantDbIds": [
             "feb54257",
             "feb40355",
@@ -738,7 +747,7 @@ Two dimensional matrix representing the raw contents of a VCF
 
 
 
-### Get - /variantmatrix4 [GET /brapi/v2/variantmatrix4{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
+### Get - /variantmatrix4 [GET /brapi/v2/variantmatrix4{?germplasmDbId}{?germplasmName}{?germplasmPUI}{?callSetDbId}{?variantDbId}{?variantSetDbId}{?pageToken}{?pageSize}]
 
 Two dimensional matrix representing the raw contents of a VCF
 
@@ -759,13 +768,12 @@ Two dimensional matrix representing the raw contents of a VCF
  
 
 + Parameters
+    + germplasmDbId (Optional, ) ... Internal database identifier
+    + germplasmName (Optional, ) ... Name of the germplasm
+    + germplasmPUI (Optional, ) ... Permanent unique identifier (DOI, URI, etc.)
     + callSetDbId (Optional, ) ... The ID of the `CallSet` to be retrieved.
     + variantDbId (Optional, ) ... The ID of the `Variant` to be retrieved.
     + variantSetDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
-    + expandHomozygotes (Optional, ) ... Should homozygotes be expanded (true) or collapsed into a single occurrence (false)
-    + unknownString (Optional, ) ... The string to use as a representation for missing data
-    + sepPhased (Optional, ) ... The string to use as a separator for phased allele calls
-    + sepUnphased (Optional, ) ... The string to use as a separator for unphased allele calls
     + pageToken (Optional, ) ... Used to request a specific page of data to be returned.Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. 
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
