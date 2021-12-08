@@ -21,7 +21,7 @@ paths:
         - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          $ref: '#/components/responses/MatrixResponse2'
+          $ref: '#/components/responses/MatrixResponse_2'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -33,13 +33,13 @@ paths:
 
 components:
   responses:
-    MatrixResponse2: 
+    MatrixResponse_2: 
       description: OK
       headers: {}
       content:
         application/json:
           schema:
-            title: MatrixResponse2
+            title: MatrixResponse_2
             required:
             - metadata
             - result
@@ -61,7 +61,7 @@ components:
                     type: array
                     items:
                       type: string
-                    example: ['NA00001', 'NA00002', 'NA00003']
+                    example: ['na000001', 'na000002', 'na000003']
                   data:
                     type: array
                     items:
@@ -69,13 +69,13 @@ components:
                       properties:
                         variantDbId: 
                           type: string
-                          example: rs6054257 
+                          example: rs654257 
                         row:
                           type: array
                           items:
                             type: string
                     example:
-                    - variantDbId: rs6054257 
+                    - variantDbId: rs654257 
                       row: ['0|0:48:1:51,51', '1|0:48:8:51,51', '1/1:43:5:.,.']
                     - variantDbId: rs6040355 
                       row: ['0|0:48:1:51,51', '1|0:48:8:51,51', '1/1:43:5:.,.']

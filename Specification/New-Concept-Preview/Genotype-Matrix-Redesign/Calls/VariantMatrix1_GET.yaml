@@ -21,7 +21,7 @@ paths:
         - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          $ref: '#/components/responses/MatrixResponse1'
+          $ref: '#/components/responses/MatrixResponse_1'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -33,13 +33,13 @@ paths:
 
 components:
   responses:
-    MatrixResponse1: 
+    MatrixResponse_1: 
       description: OK
       headers: {}
       content:
         application/json:
           schema:
-            title: MatrixResponse1
+            title: MatrixResponse_1
             required:
             - metadata
             - result
@@ -70,12 +70,12 @@ components:
                       - 'FILTER'
                       - 'INFO'
                       - 'FORMAT'
-                      - 'NA00001'
-                      - 'NA00002'
-                      - 'NA00003'
+                      - 'na000001'
+                      - 'na000002'
+                      - 'na000003'
                     - - '20'
                       - '14370'
-                      - 'rs6054257'
+                      - 'rs654257'
                       - 'G'
                       - 'A'
                       - '29'
@@ -87,7 +87,7 @@ components:
                       - '1/1:43:5:.,.'
                     - - '20'
                       - '17330'
-                      - 'microsat1'
+                      - 'rs640323'
                       - 'T'
                       - 'A'
                       - '3'
@@ -99,7 +99,7 @@ components:
                       - '0/0:41:3'
                     - - '20'
                       - '1110696'
-                      - 'rs6040355'
+                      - 'rs640355'
                       - 'A'
                       - 'G,T'
                       - '67'

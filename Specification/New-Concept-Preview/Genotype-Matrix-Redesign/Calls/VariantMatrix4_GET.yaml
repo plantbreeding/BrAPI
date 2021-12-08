@@ -3,7 +3,7 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /variantmatrix3:
+  /variantmatrix4:
     get:
       summary: Two dimensional matrix representing the raw contents of a VCF
       description: |-
@@ -21,7 +21,7 @@ paths:
         - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          $ref: '#/components/responses/MatrixResponse3'
+          $ref: '#/components/responses/MatrixResponse_4'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -33,13 +33,13 @@ paths:
 
 components:
   responses:
-    MatrixResponse3: 
+    MatrixResponse_4: 
       description: OK
       headers: {}
       content:
         application/json:
           schema:
-            title: MatrixResponse3
+            title: MatrixResponse_4
             required:
             - metadata
             - result
@@ -58,12 +58,12 @@ components:
                     type: array
                     items:
                       type: string
-                    example: ['NA00001', 'NA00002', 'NA00003']
+                    example: ['na000001', 'na000002', 'na000003']
                   variantDbIds:
                     type: array
                     items:
                       type: string
-                    example: ['rs6054257', 'rs6040355', 'microsat1']
+                    example: ['rs654257', 'rs640355', 'rs640323']
                   data:
                     type: array
                     items:
