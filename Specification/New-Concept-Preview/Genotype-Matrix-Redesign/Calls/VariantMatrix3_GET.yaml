@@ -58,12 +58,12 @@ components:
                     type: array
                     items:
                       type: string
-                    example: ['na000001', 'na000002', 'na000003']
+                    example: ['aca00001', 'aca00002', 'aca00003']
                   variantDbIds:
                     type: array
                     items:
                       type: string
-                    example: ['rs654257', 'rs640355', 'rs640323']
+                    example: ['feb54257', 'feb40355', 'feb40323']
                   data:
                     type: array
                     items:
