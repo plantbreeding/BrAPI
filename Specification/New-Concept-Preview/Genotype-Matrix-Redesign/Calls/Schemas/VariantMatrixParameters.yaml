@@ -1,0 +1,63 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  parameters:
+    searchResultsDbId:
+      description: Unique identifier which references the search results
+      in: path
+      name: searchResultsDbId
+      required: true
+      schema:
+        type: string
+    callSetDbId:
+      name: callSetDbId
+      description: The ID of the `CallSet` to be retrieved.
+      in: query
+      required: false
+      schema:
+        type: string
+    variantDbId:
+      name: variantDbId
+      description: The ID of the `Variant` to be retrieved.
+      in: query
+      required: false
+      schema:
+        type: string
+    variantSetDbId:
+      name: variantSetDbId
+      description: The ID of the `VariantSet` to be retrieved.
+      in: query
+      required: false
+      schema:
+        type: string
+    expandHomozygotes:
+      name: expandHomozygotes
+      description: Should homozygotes be expanded (true) or collapsed into a single occurrence (false)
+      in: query
+      required: false
+      schema:
+        type: boolean
+    unknownString:
+      name: unknownString
+      description: The string to use as a representation for missing data
+      in: query
+      required: false
+      schema:
+        type: string
+    sepPhased: 
+      name: sepPhased
+      description: The string to use as a separator for phased allele calls
+      in: query
+      required: false
+      schema:
+        type: string
+    sepUnphased: 
+      name: sepUnphased
+      description: The string to use as a separator for unphased allele calls
+      in: query
+      required: false
+      schema:
+        type: string

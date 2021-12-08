@@ -1,0 +1,98 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /variantmatrix3:
+    get:
+      summary: Two dimensional matrix representing the raw contents of a VCF
+      description: |-
+        Two dimensional matrix representing the raw contents of a VCF
+      parameters:
+        - $ref: '#/components/parameters/callSetDbId'
+        - $ref: '#/components/parameters/variantDbId'
+        - $ref: '#/components/parameters/variantSetDbId'
+        - $ref: '#/components/parameters/expandHomozygotes'
+        - $ref: '#/components/parameters/unknownString'
+        - $ref: '#/components/parameters/sepPhased'
+        - $ref: '#/components/parameters/sepUnphased'
+        - $ref: '#/components/parameters/pageToken'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/MatrixResponse3'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+        - Genotype-Matrix-Redesign
+
+components:
+  responses:
+    MatrixResponse3: 
+      description: OK
+      headers: {}
+      content:
+        application/json:
+          schema:
+            title: MatrixResponse3
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                type: object
+                required:
+                - data
+                properties:
+                  callSetDbIds:
+                    type: array
+                    items:
+                      type: string
+                    example: ['NA00001', 'NA00002', 'NA00003']
+                  variantDbIds:
+                    type: array
+                    items:
+                      type: string
+                    example: ['rs6054257', 'rs6040355', 'microsat1']
+                  data:
+                    type: array
+                    items:
+                      type: array
+                      items:
+                        type: integer
+                    example:
+                    - [515, 1027, 1028]
+                    - [515, 1027, 1028]
+                    - [515, 1027, 1028]
+                  dataMasks:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        maskType:
+                          type: string
+                          enum:
+                          - Genotype Quality
+                          - Read Depth
+                          - Haplotype Quality
+                          example: Genotype Quality
+                        mask:
+                          type: array
+                          items:
+                            type: array
+                            items:
+                              type: integer
+                          example:
+                          - [48, 48, 43]
+                          - [49, 3, 41]
+                          - [21, 2, 35]
