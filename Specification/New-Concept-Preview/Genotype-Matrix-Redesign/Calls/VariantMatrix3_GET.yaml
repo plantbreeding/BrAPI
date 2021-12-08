@@ -9,6 +9,9 @@ paths:
       description: |-
         Two dimensional matrix representing the raw contents of a VCF
       parameters:
+        - $ref: '#/components/parameters/germplasmDbId'
+        - $ref: '#/components/parameters/germplasmName'
+        - $ref: '#/components/parameters/germplasmPUI'
         - $ref: '#/components/parameters/callSetDbId'
         - $ref: '#/components/parameters/variantDbId'
         - $ref: '#/components/parameters/variantSetDbId'
@@ -103,12 +106,12 @@ components:
                   sepPhased:
                     description: The string used as a separator for phased allele calls.
                     type: string
-                    example: '~'
+                    example: '|'
                   sepUnphased:
                     description: The string used as a separator for unphased allele calls.
                     type: string
-                    example: '|'
+                    example: '/'
                   unknownString:
                     description: The string used as a representation for missing data.
                     type: string
-                    example: '-'
+                    example: '.'

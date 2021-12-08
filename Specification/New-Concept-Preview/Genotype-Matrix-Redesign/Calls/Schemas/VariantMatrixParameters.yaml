@@ -61,3 +61,24 @@ components:
       required: false
       schema:
         type: string
+    germplasmPUI:
+        name: germplasmPUI
+        description: Permanent unique identifier (DOI, URI, etc.)
+        in: query
+        required: false
+        schema:
+          type: string
+    germplasmDbId:
+        name: germplasmDbId
+        description: Internal database identifier
+        in: query
+        required: false
+        schema:
+          type: string
+    germplasmName:
+        name: germplasmName
+        description: Name of the germplasm
+        in: query
+        required: false
+        schema:
+          type: string

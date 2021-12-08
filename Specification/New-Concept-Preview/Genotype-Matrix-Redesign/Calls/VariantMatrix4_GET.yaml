@@ -9,13 +9,12 @@ paths:
       description: |-
         Two dimensional matrix representing the raw contents of a VCF
       parameters:
+        - $ref: '#/components/parameters/germplasmDbId'
+        - $ref: '#/components/parameters/germplasmName'
+        - $ref: '#/components/parameters/germplasmPUI'
         - $ref: '#/components/parameters/callSetDbId'
         - $ref: '#/components/parameters/variantDbId'
         - $ref: '#/components/parameters/variantSetDbId'
-        - $ref: '#/components/parameters/expandHomozygotes'
-        - $ref: '#/components/parameters/unknownString'
-        - $ref: '#/components/parameters/sepPhased'
-        - $ref: '#/components/parameters/sepUnphased'
         - $ref: '#/components/parameters/pageToken'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/authorizationHeader'
