@@ -117,7 +117,7 @@ For more information on Observation Levels, please review the <a target="_blank"
 
 
 
-### Get - /observationunits [GET /brapi/v2/observationunits{?observationUnitDbId}{?germplasmDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?seasonDbId}{?includeObservations}{?observationUnitLevelName}{?observationUnitLevelOrder}{?observationUnitLevelCode}{?observationUnitLevelRelationshipName}{?observationUnitLevelRelationshipOrder}{?observationUnitLevelRelationshipCode}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /observationunits [GET /brapi/v2/observationunits{?observationUnitDbId}{?observationUnitName}{?germplasmDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?seasonDbId}{?includeObservations}{?observationUnitLevelName}{?observationUnitLevelOrder}{?observationUnitLevelCode}{?observationUnitLevelRelationshipName}{?observationUnitLevelRelationshipOrder}{?observationUnitLevelRelationshipCode}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered set of Observation Units
 
@@ -173,8 +173,9 @@ Get a filtered set of Observation Units
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -182,6 +183,7 @@ Get a filtered set of Observation Units
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
+|seedLotName|string|A human readable name for the originating Seed Lot|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
 |treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
@@ -195,6 +197,7 @@ Get a filtered set of Observation Units
 
 + Parameters
     + observationUnitDbId (Optional, ) ... The unique ID of an Observation Unit
+    + observationUnitName (Optional, ) ... The human readable identifier for an Observation Unit
     + germplasmDbId (Optional, ) ... The unique ID of a germplasm (accession) to filter on
     + studyDbId (Optional, ) ... The unique ID of a studies to filter on
     + locationDbId (Optional, ) ... The unique ID of a location where these observations were collected
@@ -335,6 +338,7 @@ Get a filtered set of Observation Units
                         "season": {
                             "season": "Spring",
                             "seasonDbId": "Spring_2018",
+                            "seasonName": "Spring",
                             "year": 2018
                         },
                         "studyDbId": "ef2829db",
@@ -345,6 +349,7 @@ Get a filtered set of Observation Units
                 "programDbId": "2d763a7a",
                 "programName": "The Perfect Breeding Program",
                 "seedLotDbId": "261ecb09",
+                "seedLotName": "Seed Lot Alpha",
                 "studyDbId": "9865addc",
                 "studyName": "Purple_Tomato_1",
                 "treatments": [
@@ -418,6 +423,7 @@ Add new Observation Units
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
+|seedLotName|string|A human readable name for the originating Seed Lot|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
 |treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
@@ -477,8 +483,9 @@ Add new Observation Units
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -486,6 +493,7 @@ Add new Observation Units
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
+|seedLotName|string|A human readable name for the originating Seed Lot|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
 |treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
@@ -566,6 +574,7 @@ Add new Observation Units
         "programDbId": "2d763a7a",
         "programName": "The Perfect Breeding Program",
         "seedLotDbId": "261ecb09",
+        "seedLotName": "Seed Lot Alpha",
         "studyDbId": "9865addc",
         "studyName": "Purple_Tomato_1",
         "treatments": [
@@ -698,6 +707,7 @@ Add new Observation Units
                         "season": {
                             "season": "Spring",
                             "seasonDbId": "Spring_2018",
+                            "seasonName": "Spring",
                             "year": 2018
                         },
                         "studyDbId": "ef2829db",
@@ -708,6 +718,7 @@ Add new Observation Units
                 "programDbId": "2d763a7a",
                 "programName": "The Perfect Breeding Program",
                 "seedLotDbId": "261ecb09",
+                "seedLotName": "Seed Lot Alpha",
                 "studyDbId": "9865addc",
                 "studyName": "Purple_Tomato_1",
                 "treatments": [
@@ -804,8 +815,9 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -813,6 +825,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
+|seedLotName|string|A human readable name for the originating Seed Lot|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
 |treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
@@ -1089,6 +1102,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                         "season": {
                             "season": "Spring",
                             "seasonDbId": "Spring_2018",
+                            "seasonName": "Spring",
                             "year": 2018
                         },
                         "studyDbId": "ef2829db",
@@ -1099,6 +1113,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                 "programDbId": "2d763a7a",
                 "programName": "The Perfect Breeding Program",
                 "seedLotDbId": "261ecb09",
+                "seedLotName": "Seed Lot Alpha",
                 "studyDbId": "9865addc",
                 "studyName": "Purple_Tomato_1",
                 "treatments": [
@@ -1454,8 +1469,9 @@ Get the details of a specific Observation Unit
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -1463,6 +1479,7 @@ Get the details of a specific Observation Unit
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
+|seedLotName|string|A human readable name for the originating Seed Lot|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
 |treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
@@ -1595,6 +1612,7 @@ Get the details of a specific Observation Unit
                 "season": {
                     "season": "Spring",
                     "seasonDbId": "Spring_2018",
+                    "seasonName": "Spring",
                     "year": 2018
                 },
                 "studyDbId": "ef2829db",
@@ -1605,6 +1623,7 @@ Get the details of a specific Observation Unit
         "programDbId": "2d763a7a",
         "programName": "The Perfect Breeding Program",
         "seedLotDbId": "261ecb09",
+        "seedLotName": "Seed Lot Alpha",
         "studyDbId": "9865addc",
         "studyName": "Purple_Tomato_1",
         "treatments": [
@@ -1676,6 +1695,7 @@ Update an existing Observation Units
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
+|seedLotName|string|A human readable name for the originating Seed Lot|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
 |treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
@@ -1734,8 +1754,9 @@ Update an existing Observation Units
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -1743,6 +1764,7 @@ Update an existing Observation Units
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
+|seedLotName|string|A human readable name for the originating Seed Lot|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
 |treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
@@ -1823,6 +1845,7 @@ Update an existing Observation Units
     "programDbId": "2d763a7a",
     "programName": "The Perfect Breeding Program",
     "seedLotDbId": "261ecb09",
+    "seedLotName": "Seed Lot Alpha",
     "studyDbId": "9865addc",
     "studyName": "Purple_Tomato_1",
     "treatments": [
@@ -1952,6 +1975,7 @@ Update an existing Observation Units
                 "season": {
                     "season": "Spring",
                     "seasonDbId": "Spring_2018",
+                    "seasonName": "Spring",
                     "year": 2018
                 },
                 "studyDbId": "ef2829db",
@@ -1962,6 +1986,7 @@ Update an existing Observation Units
         "programDbId": "2d763a7a",
         "programName": "The Perfect Breeding Program",
         "seedLotDbId": "261ecb09",
+        "seedLotName": "Seed Lot Alpha",
         "studyDbId": "9865addc",
         "studyName": "Purple_Tomato_1",
         "treatments": [
@@ -2024,6 +2049,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |levelName|string|A name for this level   **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
 |levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
 |observationUnitDbIds|array[string]|The unique id of an observation unit|
+|observationUnitNames|array[string]|The human readable identifier for an Observation Unit|
 |observationVariableDbIds|array[string]|The DbIds of Variables to search for|
 |observationVariableNames|array[string]|The names of Variables to search for|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
@@ -2086,8 +2112,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -2095,6 +2122,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
+|seedLotName|string|A human readable name for the originating Seed Lot|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
 |treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
@@ -2170,6 +2198,10 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
     "observationUnitDbIds": [
         "66bab7e3",
         "0e5e7f99"
+    ],
+    "observationUnitNames": [
+        "FieldA_PlotB",
+        "SpecialPlantName"
     ],
     "observationVariableDbIds": [
         "a646187d",
@@ -2326,6 +2358,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                         "season": {
                             "season": "Spring",
                             "seasonDbId": "Spring_2018",
+                            "seasonName": "Spring",
                             "year": 2018
                         },
                         "studyDbId": "ef2829db",
@@ -2336,6 +2369,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "programDbId": "2d763a7a",
                 "programName": "The Perfect Breeding Program",
                 "seedLotDbId": "261ecb09",
+                "seedLotName": "Seed Lot Alpha",
                 "studyDbId": "9865addc",
                 "studyName": "Purple_Tomato_1",
                 "treatments": [
@@ -2467,8 +2501,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -2476,6 +2511,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
+|seedLotName|string|A human readable name for the originating Seed Lot|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
 |treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
@@ -2612,6 +2648,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                         "season": {
                             "season": "Spring",
                             "seasonDbId": "Spring_2018",
+                            "seasonName": "Spring",
                             "year": 2018
                         },
                         "studyDbId": "ef2829db",
@@ -2622,6 +2659,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "programDbId": "2d763a7a",
                 "programName": "The Perfect Breeding Program",
                 "seedLotDbId": "261ecb09",
+                "seedLotName": "Seed Lot Alpha",
                 "studyDbId": "9865addc",
                 "studyName": "Purple_Tomato_1",
                 "treatments": [

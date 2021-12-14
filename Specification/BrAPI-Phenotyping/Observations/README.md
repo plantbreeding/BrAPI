@@ -252,8 +252,9 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -347,6 +348,7 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
                 "season": {
                     "season": "Spring",
                     "seasonDbId": "Spring_2018",
+                    "seasonName": "Spring",
                     "year": 2018
                 },
                 "studyDbId": "ef2829db",
@@ -398,8 +400,9 @@ Add new Observation entities
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -426,8 +429,9 @@ Add new Observation entities
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -467,6 +471,7 @@ Add new Observation entities
         "season": {
             "season": "Spring",
             "seasonDbId": "Spring_2018",
+            "seasonName": "Spring",
             "year": 2018
         },
         "studyDbId": "ef2829db",
@@ -534,6 +539,7 @@ Add new Observation entities
                 "season": {
                     "season": "Spring",
                     "seasonDbId": "Spring_2018",
+                    "seasonName": "Spring",
                     "year": 2018
                 },
                 "studyDbId": "ef2829db",
@@ -602,8 +608,9 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -731,6 +738,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                 "season": {
                     "season": "Spring",
                     "seasonDbId": "Spring_2018",
+                    "seasonName": "Spring",
                     "year": 2018
                 },
                 "studyDbId": "ef2829db",
@@ -1168,8 +1176,9 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -1239,6 +1248,7 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
         "season": {
             "season": "Spring",
             "seasonDbId": "Spring_2018",
+            "seasonName": "Spring",
             "year": 2018
         },
         "studyDbId": "ef2829db",
@@ -1293,8 +1303,9 @@ Update an existing Observation
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -1320,8 +1331,9 @@ Update an existing Observation
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -1361,6 +1373,7 @@ Update an existing Observation
     "season": {
         "season": "Spring",
         "seasonDbId": "Spring_2018",
+        "seasonName": "Spring",
         "year": 2018
     },
     "studyDbId": "ef2829db",
@@ -1425,6 +1438,7 @@ Update an existing Observation
         "season": {
             "season": "Spring",
             "seasonDbId": "Spring_2018",
+            "seasonName": "Spring",
             "year": 2018
         },
         "studyDbId": "ef2829db",
@@ -1522,8 +1536,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -1701,6 +1716,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "season": {
                     "season": "Spring",
                     "seasonDbId": "Spring_2018",
+                    "seasonName": "Spring",
                     "year": 2018
                 },
                 "studyDbId": "ef2829db",
@@ -1797,8 +1813,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -1873,6 +1890,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "season": {
                     "season": "Spring",
                     "seasonDbId": "Spring_2018",
+                    "seasonName": "Spring",
                     "year": 2018
                 },
                 "studyDbId": "ef2829db",

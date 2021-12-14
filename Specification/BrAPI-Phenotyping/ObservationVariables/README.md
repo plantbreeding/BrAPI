@@ -855,7 +855,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 
 
-### Get - /variables [GET /brapi/v2/variables{?observationVariableDbId}{?traitClass}{?studyDbId}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /variables [GET /brapi/v2/variables{?observationVariableDbId}{?traitClass}{?studyDbId}{?ontologyDbId}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Call to retrieve a list of observationVariables available in the system.
 
@@ -964,6 +964,7 @@ Call to retrieve a list of observationVariables available in the system.
     + observationVariableDbId (Optional, ) ... Variable's unique ID
     + traitClass (Optional, ) ... Variable's trait class (phenological, physiological, morphological, etc.)
     + studyDbId (Optional, ) ... The unique ID of a studies to filter on
+    + ontologyDbId (Optional, ) ... The unique identifier for an ontology definition. Use this parameterto filter results based on a specific ontology Use `GET /ontologies` to find the list of available ontologies on a server.
     + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
     + programDbId (Optional, ) ... A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. Use this parameter to only return results associated with the given program. Use `GET /programs` to find the list of available programs on a server.
     + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)

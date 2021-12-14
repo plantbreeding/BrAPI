@@ -8,7 +8,7 @@ API to manage the details of stored Ontologies. This could be a reference a loca
 
 
 
-### Get - /ontologies [GET /brapi/v2/ontologies{?ontologyDbId}{?page}{?pageSize}]
+### Get - /ontologies [GET /brapi/v2/ontologies{?ontologyName}{?ontologyDbId}{?page}{?pageSize}]
 
 Call to retrieve a list of observation variable ontologies available in the system.
 
@@ -33,7 +33,8 @@ Call to retrieve a list of observation variable ontologies available in the syst
  
 
 + Parameters
-    + ontologyDbId (Optional, ) ... The unique identifier for an ontology definition
+    + ontologyName (Optional, ) ... The human readable identifier for an ontology definition
+    + ontologyDbId (Optional, ) ... The unique identifier for an ontology definition. Use this parameterto filter results based on a specific ontology Use `GET /ontologies` to find the list of available ontologies on a server.
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
