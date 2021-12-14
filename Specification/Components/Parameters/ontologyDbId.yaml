@@ -1,0 +1,18 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  parameters:
+    ontologyDbId:
+      name: ontologyDbId
+      description: |-
+        The unique identifier for an ontology definition. Use this parameterto filter results based on a specific ontology 
+
+        Use `GET /ontologies` to find the list of available ontologies on a server.
+      in: query
+      required: false
+      schema:
+        type: string
+
