@@ -8,12 +8,13 @@ paths:
       summary: Get the Ontologies
       description: Call to retrieve a list of observation variable ontologies available in the system.
       parameters:
-      - description: The unique identifier for an ontology definition
+      - description: The human readable identifier for an ontology definition
         in: query
-        name: ontologyDbId
+        name: ontologyName
         required: false
         schema:
           type: string
+      - $ref: '#/components/parameters/ontologyDbId'
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
