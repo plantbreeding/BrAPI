@@ -46,7 +46,7 @@ components:
           type: string
           example: 917d3ae0
         season:
-          $ref: '#/components/schemas/Season'
+          $ref: '#/components/schemas/SeasonObs'
         studyDbId:
           description: The ID which uniquely identifies a study within the given database server
           type: string
