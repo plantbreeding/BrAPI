@@ -14,6 +14,12 @@ paths:
         required: false
         schema:
           type: string
+      - description: The human readable identifier for an Observation Unit
+        in: query
+        name: observationUnitName
+        required: false
+        schema:
+          type: string
       - description: The unique ID of a germplasm (accession) to filter on 
         in: query
         name: germplasmDbId
