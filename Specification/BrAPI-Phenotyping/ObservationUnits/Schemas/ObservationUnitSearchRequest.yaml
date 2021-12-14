@@ -24,6 +24,12 @@ components:
               type: string
             type: array
             example: ['66bab7e3', '0e5e7f99']
+          observationUnitNames:
+            description: The human readable identifier for an Observation Unit
+            items:
+              type: string
+            type: array
+            example: ['FieldA_Plot3', 'SpecialPlantName']
           observationLevels: 
             description: Searches for values in ObservationUnit->observationUnitPosition->observationLevel
             type: array 
