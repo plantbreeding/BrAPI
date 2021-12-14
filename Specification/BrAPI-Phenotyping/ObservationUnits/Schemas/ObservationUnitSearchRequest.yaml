@@ -29,7 +29,7 @@ components:
             items:
               type: string
             type: array
-            example: ['FieldA_Plot3', 'SpecialPlantName']
+            example: ['FieldA_PlotB', 'SpecialPlantName']
           observationLevels: 
             description: Searches for values in ObservationUnit->observationUnitPosition->observationLevel
             type: array 
