@@ -67,6 +67,7 @@ components:
                 Maximum value for numerical scales. Typically used for data capture control and QC.
               type: integer
               example: 9999
+              deprecated: true
             min:
               description: |-
                 **Deprecated in v2.1** Please use `minimumValue`. Github issue number #450 
@@ -74,6 +75,7 @@ components:
                 Minimum value for numerical scales. Typically used for data capture control and QC.
               type: integer
               example: 2
+              deprecated: true
             maximumValue:
               description: Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.
               type: string
