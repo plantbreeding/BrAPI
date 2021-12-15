@@ -31,6 +31,13 @@ components:
             MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable
           type: string
           example: Meters
+        units:
+          description: |-
+            This field can be used to describe the units used for this scale. This should be the abriviated 
+            form of the units, intended to be displayed with every value using this scale. Usually this only 
+            applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.
+          type: string
+          example: m
         validValues:
           type: object
           properties:
