@@ -21,6 +21,8 @@ components:
           description: Name of the germplasm. It can be the preferred name and does not have to be unique.
           type: string
           example: A0000003
+        geoCoordinates:
+          $ref: '#/components/schemas/geoJSON'
         observationTimeStamp:
           description: The date and time when this observation was made
           format: date-time
