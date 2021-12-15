@@ -61,13 +61,29 @@ components:
                 - value: "10"
                   label: "high"
             max:
-              description: Maximum value (used for field data capture control).
+              description: |-
+                **Deprecated in v2.1** Please use `maximumValue`. Github issue number #450 
+
+                Maximum value for numerical scales. Typically used for data capture control and QC.
               type: integer
               example: 9999
+              deprecated: true
             min:
-              description: Minimum value (used for data capture control) for numerical and date scales
+              description: |-
+                **Deprecated in v2.1** Please use `minimumValue`. Github issue number #450 
+
+                Minimum value for numerical scales. Typically used for data capture control and QC.
               type: integer
               example: 2
+              deprecated: true
+            maximumValue:
+              description: Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.
+              type: string
+              example: '9999'
+            minimumValue:
+              description: Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.
+              type: string
+              example: '2'
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
 
