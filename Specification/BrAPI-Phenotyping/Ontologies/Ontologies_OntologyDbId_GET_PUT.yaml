@@ -10,7 +10,10 @@ paths:
         Use this endpoint to retrieve a specific Ontology record by its ontologyDbId. 
         Each Ontology record describes the metadata of an existing ontology, it does not include all the terms that are part of that ontology.
       parameters:
-      - description: The human readable identifier for an ontology definition
+      - description: |-
+          The unique identifier for an ontology definition. Use this parameterto filter results based on a specific ontology 
+
+          Use `GET /ontologies` to find the list of available ontologies on a server.
         in: path
         name: ontologyDbId
         required: true
@@ -34,7 +37,10 @@ paths:
         Use this endpoint to update a specific Ontology record. 
         Each Ontology record describes the metadata of an existing ontology, it does not include all the terms that are part of that ontology.
       parameters:
-      - description: The human readable identifier for an ontology definition
+      - description: |-
+          The unique identifier for an ontology definition. Use this parameterto filter results based on a specific ontology 
+
+          Use `GET /ontologies` to find the list of available ontologies on a server.
         in: path
         name: ontologyDbId
         required: true
