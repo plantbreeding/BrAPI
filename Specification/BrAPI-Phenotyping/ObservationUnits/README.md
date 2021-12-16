@@ -164,6 +164,9 @@ Get a filtered set of Observation Units
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationDbId|string|The ID which uniquely identifies an observation|
@@ -327,6 +330,17 @@ Get a filtered set of Observation Units
                                 "referenceSource": "Remote Data Collection Upload Tool"
                             }
                         ],
+                        "geoCoordinates": {
+                            "geometry": {
+                                "coordinates": [
+                                    -76.506042,
+                                    42.417373,
+                                    123
+                                ],
+                                "type": "Point"
+                            },
+                            "type": "Feature"
+                        },
                         "germplasmDbId": "2408ab11",
                         "germplasmName": "A0000003",
                         "observationDbId": "ef24b615",
@@ -474,6 +488,9 @@ Add new Observation Units
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationDbId|string|The ID which uniquely identifies an observation|
@@ -696,6 +713,17 @@ Add new Observation Units
                                 "referenceSource": "Remote Data Collection Upload Tool"
                             }
                         ],
+                        "geoCoordinates": {
+                            "geometry": {
+                                "coordinates": [
+                                    -76.506042,
+                                    42.417373,
+                                    123
+                                ],
+                                "type": "Point"
+                            },
+                            "type": "Feature"
+                        },
                         "germplasmDbId": "2408ab11",
                         "germplasmName": "A0000003",
                         "observationDbId": "ef24b615",
@@ -806,6 +834,9 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationDbId|string|The ID which uniquely identifies an observation|
@@ -1091,6 +1122,17 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                                 "referenceSource": "Remote Data Collection Upload Tool"
                             }
                         ],
+                        "geoCoordinates": {
+                            "geometry": {
+                                "coordinates": [
+                                    -76.506042,
+                                    42.417373,
+                                    123
+                                ],
+                                "type": "Point"
+                            },
+                            "type": "Feature"
+                        },
                         "germplasmDbId": "2408ab11",
                         "germplasmName": "A0000003",
                         "observationDbId": "ef24b615",
@@ -1460,6 +1502,9 @@ Get the details of a specific Observation Unit
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationDbId|string|The ID which uniquely identifies an observation|
@@ -1601,6 +1646,17 @@ Get the details of a specific Observation Unit
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
+                "geoCoordinates": {
+                    "geometry": {
+                        "coordinates": [
+                            -76.506042,
+                            42.417373,
+                            123
+                        ],
+                        "type": "Point"
+                    },
+                    "type": "Feature"
+                },
                 "germplasmDbId": "2408ab11",
                 "germplasmName": "A0000003",
                 "observationDbId": "ef24b615",
@@ -1745,6 +1801,9 @@ Update an existing Observation Units
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationDbId|string|The ID which uniquely identifies an observation|
@@ -1964,6 +2023,17 @@ Update an existing Observation Units
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
+                "geoCoordinates": {
+                    "geometry": {
+                        "coordinates": [
+                            -76.506042,
+                            42.417373,
+                            123
+                        ],
+                        "type": "Point"
+                    },
+                    "type": "Feature"
+                },
                 "germplasmDbId": "2408ab11",
                 "germplasmName": "A0000003",
                 "observationDbId": "ef24b615",
@@ -2103,6 +2173,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationDbId|string|The ID which uniquely identifies an observation|
@@ -2347,6 +2420,17 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                                 "referenceSource": "Remote Data Collection Upload Tool"
                             }
                         ],
+                        "geoCoordinates": {
+                            "geometry": {
+                                "coordinates": [
+                                    -76.506042,
+                                    42.417373,
+                                    123
+                                ],
+                                "type": "Point"
+                            },
+                            "type": "Feature"
+                        },
                         "germplasmDbId": "2408ab11",
                         "germplasmName": "A0000003",
                         "observationDbId": "ef24b615",
@@ -2492,6 +2576,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationDbId|string|The ID which uniquely identifies an observation|
@@ -2637,6 +2724,17 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                                 "referenceSource": "Remote Data Collection Upload Tool"
                             }
                         ],
+                        "geoCoordinates": {
+                            "geometry": {
+                                "coordinates": [
+                                    -76.506042,
+                                    42.417373,
+                                    123
+                                ],
+                                "type": "Point"
+                            },
+                            "type": "Feature"
+                        },
                         "germplasmDbId": "2408ab11",
                         "germplasmName": "A0000003",
                         "observationDbId": "ef24b615",

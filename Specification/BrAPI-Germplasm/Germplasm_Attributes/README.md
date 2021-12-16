@@ -78,12 +78,15 @@ List available attributes.
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
 |scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|units|string|This field can be used to describe the units used for this scale. This should be the abriviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
 |value|string|The actual value for a category|
-|max|integer|Maximum value (used for field data capture control).|
-|min|integer|Minimum value (used for data capture control) for numerical and date scales|
+|max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
+|maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
+|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450   Minimum value for numerical scales. Typically used for data capture control and QC.|
+|minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
 |submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
@@ -258,6 +261,7 @@ List available attributes.
                     },
                     "scaleDbId": "af730171",
                     "scaleName": "Meters",
+                    "units": "m",
                     "validValues": {
                         "categories": [
                             {
@@ -274,7 +278,9 @@ List available attributes.
                             }
                         ],
                         "max": 9999,
-                        "min": 2
+                        "maximumValue": "9999",
+                        "min": 2,
+                        "minimumValue": "2"
                     }
                 },
                 "scientist": "Dr. Bob Robertson",
@@ -418,12 +424,15 @@ Create new Germplasm Attributes
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
 |scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|units|string|This field can be used to describe the units used for this scale. This should be the abriviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
 |value|string|The actual value for a category|
-|max|integer|Maximum value (used for field data capture control).|
-|min|integer|Minimum value (used for data capture control) for numerical and date scales|
+|max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
+|maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
+|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450   Minimum value for numerical scales. Typically used for data capture control and QC.|
+|minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
 |submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
@@ -517,12 +526,15 @@ Create new Germplasm Attributes
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
 |scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|units|string|This field can be used to describe the units used for this scale. This should be the abriviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
 |value|string|The actual value for a category|
-|max|integer|Maximum value (used for field data capture control).|
-|min|integer|Minimum value (used for data capture control) for numerical and date scales|
+|max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
+|maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
+|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450   Minimum value for numerical scales. Typically used for data capture control and QC.|
+|minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
 |submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
@@ -655,6 +667,7 @@ Create new Germplasm Attributes
             },
             "scaleDbId": "af730171",
             "scaleName": "Meters",
+            "units": "m",
             "validValues": {
                 "categories": [
                     {
@@ -671,7 +684,9 @@ Create new Germplasm Attributes
                     }
                 ],
                 "max": 9999,
-                "min": 2
+                "maximumValue": "9999",
+                "min": 2,
+                "minimumValue": "2"
             }
         },
         "scientist": "Dr. Bob Robertson",
@@ -857,6 +872,7 @@ Create new Germplasm Attributes
                     },
                     "scaleDbId": "af730171",
                     "scaleName": "Meters",
+                    "units": "m",
                     "validValues": {
                         "categories": [
                             {
@@ -873,7 +889,9 @@ Create new Germplasm Attributes
                             }
                         ],
                         "max": 9999,
-                        "min": 2
+                        "maximumValue": "9999",
+                        "min": 2,
+                        "minimumValue": "2"
                     }
                 },
                 "scientist": "Dr. Bob Robertson",
@@ -1100,12 +1118,15 @@ Get the details for a specific Germplasm Attribute
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
 |scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|units|string|This field can be used to describe the units used for this scale. This should be the abriviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
 |value|string|The actual value for a category|
-|max|integer|Maximum value (used for field data capture control).|
-|min|integer|Minimum value (used for data capture control) for numerical and date scales|
+|max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
+|maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
+|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450   Minimum value for numerical scales. Typically used for data capture control and QC.|
+|minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
 |submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
@@ -1268,6 +1289,7 @@ Get the details for a specific Germplasm Attribute
             },
             "scaleDbId": "af730171",
             "scaleName": "Meters",
+            "units": "m",
             "validValues": {
                 "categories": [
                     {
@@ -1284,7 +1306,9 @@ Get the details for a specific Germplasm Attribute
                     }
                 ],
                 "max": 9999,
-                "min": 2
+                "maximumValue": "9999",
+                "min": 2,
+                "minimumValue": "2"
             }
         },
         "scientist": "Dr. Bob Robertson",
@@ -1426,12 +1450,15 @@ Update an existing Germplasm Attribute
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
 |scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|units|string|This field can be used to describe the units used for this scale. This should be the abriviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
 |value|string|The actual value for a category|
-|max|integer|Maximum value (used for field data capture control).|
-|min|integer|Minimum value (used for data capture control) for numerical and date scales|
+|max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
+|maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
+|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450   Minimum value for numerical scales. Typically used for data capture control and QC.|
+|minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
 |submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
@@ -1524,12 +1551,15 @@ Update an existing Germplasm Attribute
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
 |scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|units|string|This field can be used to describe the units used for this scale. This should be the abriviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
 |value|string|The actual value for a category|
-|max|integer|Maximum value (used for field data capture control).|
-|min|integer|Minimum value (used for data capture control) for numerical and date scales|
+|max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
+|maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
+|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450   Minimum value for numerical scales. Typically used for data capture control and QC.|
+|minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
 |submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
@@ -1662,6 +1692,7 @@ Update an existing Germplasm Attribute
         },
         "scaleDbId": "af730171",
         "scaleName": "Meters",
+        "units": "m",
         "validValues": {
             "categories": [
                 {
@@ -1678,7 +1709,9 @@ Update an existing Germplasm Attribute
                 }
             ],
             "max": 9999,
-            "min": 2
+            "maximumValue": "9999",
+            "min": 2,
+            "minimumValue": "2"
         }
     },
     "scientist": "Dr. Bob Robertson",
@@ -1861,6 +1894,7 @@ Update an existing Germplasm Attribute
             },
             "scaleDbId": "af730171",
             "scaleName": "Meters",
+            "units": "m",
             "validValues": {
                 "categories": [
                     {
@@ -1877,7 +1911,9 @@ Update an existing Germplasm Attribute
                     }
                 ],
                 "max": 9999,
-                "min": 2
+                "maximumValue": "9999",
+                "min": 2,
+                "minimumValue": "2"
             }
         },
         "scientist": "Dr. Bob Robertson",
@@ -2048,12 +2084,15 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
 |scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|units|string|This field can be used to describe the units used for this scale. This should be the abriviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
 |value|string|The actual value for a category|
-|max|integer|Maximum value (used for field data capture control).|
-|min|integer|Minimum value (used for data capture control) for numerical and date scales|
+|max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
+|maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
+|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450   Minimum value for numerical scales. Typically used for data capture control and QC.|
+|minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
 |submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
@@ -2288,6 +2327,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                     },
                     "scaleDbId": "af730171",
                     "scaleName": "Meters",
+                    "units": "m",
                     "validValues": {
                         "categories": [
                             {
@@ -2304,7 +2344,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                             }
                         ],
                         "max": 9999,
-                        "min": 2
+                        "maximumValue": "9999",
+                        "min": 2,
+                        "minimumValue": "2"
                     }
                 },
                 "scientist": "Dr. Bob Robertson",
@@ -2493,12 +2535,15 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
 |scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|units|string|This field can be used to describe the units used for this scale. This should be the abriviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
 |value|string|The actual value for a category|
-|max|integer|Maximum value (used for field data capture control).|
-|min|integer|Minimum value (used for data capture control) for numerical and date scales|
+|max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
+|maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
+|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450   Minimum value for numerical scales. Typically used for data capture control and QC.|
+|minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
 |submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
@@ -2665,6 +2710,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                     },
                     "scaleDbId": "af730171",
                     "scaleName": "Meters",
+                    "units": "m",
                     "validValues": {
                         "categories": [
                             {
@@ -2681,7 +2727,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                             }
                         ],
                         "max": 9999,
-                        "min": 2
+                        "maximumValue": "9999",
+                        "min": 2,
+                        "minimumValue": "2"
                     }
                 },
                 "scientist": "Dr. Bob Robertson",
