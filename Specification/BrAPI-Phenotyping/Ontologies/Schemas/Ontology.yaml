@@ -6,47 +6,12 @@ paths: {}
 components:
   schemas:
     Ontology:
-      type: object
-      required:
-      - ontologyDbId
-      - ontologyName
-      properties:
-        additionalInfo:
-          additionalProperties:
+      allOf:
+      - $ref: '#/components/schemas/OntologyNewRequest'
+      - type: object
+        properties:
+          ontologyDbId:
+            description: Ontology database unique identifier
             type: string
-          description: Additional arbitrary info
-          type: object
-        authors:
-          description: Ontology's list of authors (no specific format)
-          type: string
-          example: Bob Robertson, Rob Robertson
-        copyright:
-          description: Ontology copyright
-          type: string
-          example: Copyright 1987, Bob Robertson
-        description:
-          description: Human readable description of Ontology
-          type: string
-          example: This is an example ontology that does not exist 
-        documentationURL:
-          description: A URL to the human readable documentation of this object
-          format: uri
-          type: string
-          example: https://wiki.brapi.org/ontology
-        licence:
-          description: Ontology licence
-          type: string
-          example: MIT Open source licence
-        ontologyDbId:
-          description: Ontology database unique identifier
-          type: string
-          example: 18e186cd
-        ontologyName:
-          description: Ontology name
-          type: string
-          example: The Official Ontology
-        version:
-          description: Ontology version (no specific format)
-          type: string
-          example: V1.3.2
+            example: 18e186cd
 
