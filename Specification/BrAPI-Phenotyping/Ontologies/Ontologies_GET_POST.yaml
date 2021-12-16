@@ -1,0 +1,85 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /ontologies:
+    get:
+      summary: Get a filtered list of Ontologies
+      description: |-
+        Retrieve a list of ontologies available in the system. 
+        Each Ontology record describes the metadata of an existing ontology, it does not include all the terms that are part of that ontology.
+      parameters:
+      - description: The human readable identifier for an ontology definition
+        in: query
+        name: ontologyName
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/ontologyDbId'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/OntologyListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Ontologies
+    post:
+      summary: Create a new Ontology record in the database
+      description: |-
+        Use this endpoint to create a new Ontology record in the database
+        Each Ontology record describes the metadata of an existing ontology, it does not include all the terms that are part of that ontology.
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/OntologyNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/OntologyListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Ontologies
+components:
+  responses:
+    OntologyListResponse:
+      content:
+        application/json:
+          schema:
+            title: OntologyListResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/Ontology'
+                    type: array
+                required:
+                - data
+                type: object
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}
