@@ -31,7 +31,7 @@ components:
           type: string
           example: 1098ebaf
         pedigree:
-          description: The string representation of the pedigree.
+          description: The string representation of the pedigree in PURDY notation.
           type: string
           example: A0000001/A0000002
         parents:
@@ -49,14 +49,7 @@ components:
                 type: string
                 example: A0000592
               parentType:
-                description: The type of parent the parent is. ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.
-                enum:
-                - MALE
-                - FEMALE
-                - SELF
-                - POPULATION
-                type: string
-                example: FEMALE
+                $ref: '#/components/schemas/ParentType'
           example:
           - germplasmDbId: b66958de
             germplasmName: A0000592
