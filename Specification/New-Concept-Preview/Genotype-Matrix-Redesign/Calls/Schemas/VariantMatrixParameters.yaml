@@ -82,3 +82,14 @@ components:
         required: false
         schema:
           type: string
+    positionRange:
+        name: positionRange
+        description: |-
+          The postion range to search
+          <br/>
+          Uses the format "<chrom>:<start>-<end>" where <chrom> is the chromosome name, <start> is 
+          the starting position of the range, and <end> is the ending position of the range
+        in: query
+        required: false
+        schema:
+          type: string

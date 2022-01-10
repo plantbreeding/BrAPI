@@ -1,0 +1,32 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /search/calls/{searchResultsDbId}:
+    get:
+      summary: Get the results of a `Calls` search request
+      description: |-
+        Get the results of a `Calls` search request <br/>
+        Clients should submit a search request using the corresponding `POST /search/calls` endpoint.
+        Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+        If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+        Use this endpoint to retrieve the results of the search. <br/> 
+        Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
+        <br/>
+      parameters:
+      - $ref: '#/components/parameters/searchResultsDbId'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '202': 
+          $ref: '#/components/responses/202AcceptedSearchResponse' 
+        '200':
+          $ref: '#/components/responses/VariantMatrixResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+        - Genotype-Matrix-Redesign

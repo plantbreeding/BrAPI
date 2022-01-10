@@ -1,0 +1,81 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    VariantMatrix:
+      type: object
+      required:
+      - data
+      properties:
+        callSetDbIds:
+          type: array
+          items:
+            type: string
+          example: ['aca00001', 'aca00002', 'aca00003']
+        variants:
+          type: array
+          items:
+            type: object
+            properties:
+              variantDbId:
+                type: string
+              chromosome: 
+                type: string
+              position:
+                type: integer
+              ploidy:
+                type: integer
+          example: [{'variantDbId': 'feb54257', 'chromosome': '20', 'position': 14370, 'ploidy': 2},
+                    {'variantDbId': 'feb40355', 'chromosome': '20', 'position': 1110696, 'ploidy': 2},
+                    {'variantDbId': 'feb40323', 'chromosome': '20', 'position': 1234567, 'ploidy': 2}]
+        data:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+          example:
+          - ['0|0', '1|0', '1/1']
+          - ['0|0', '1|0', '1/1']
+          - ['0|0', '1|0', '1/1']
+        genotypeFields:
+          type: array
+          items:
+            type: object
+            properties:
+              fieldName:
+                type: string
+                enum:
+                - Genotype Quality
+                - Read Depth
+                - Haplotype Quality
+                example: Genotype Quality
+              fieldMatrix:
+                type: array
+                items:
+                  type: array
+                  items:
+                    type: string
+                example:
+                - ['48', '48', '43']
+                - ['49', '3', '41']
+                - ['21', '2', '35']
+        expandHomozygotes: 
+          description: Should homozygotes be expanded (true) or collapsed into a single occurrence (false)
+          type: boolean
+          example: true
+        sepPhased:
+          description: The string used as a separator for phased allele calls.
+          type: string
+          example: '|'
+        sepUnphased:
+          description: The string used as a separator for unphased allele calls.
+          type: string
+          example: '/'
+        unknownString:
+          description: The string used as a representation for missing data.
+          type: string
+          example: '.'
