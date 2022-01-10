@@ -92,9 +92,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "a03202ec",
         "274e4f63"
     ],
-    "sepPhased": "~",
-    "sepUnphased": "|",
-    "unknownString": "-",
+    "sepPhased": "|",
+    "sepUnphased": "/",
+    "unknownString": ".",
     "variantDbIds": [
         "bba0b258",
         "ff97d4f0"
@@ -426,9 +426,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "a03202ec",
         "274e4f63"
     ],
-    "sepPhased": "~",
-    "sepUnphased": "|",
-    "unknownString": "-",
+    "sepPhased": "|",
+    "sepUnphased": "/",
+    "unknownString": ".",
     "variantDbIds": [
         "bba0b258",
         "ff97d4f0"
