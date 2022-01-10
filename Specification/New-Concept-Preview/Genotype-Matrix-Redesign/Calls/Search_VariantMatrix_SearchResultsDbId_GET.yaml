@@ -3,7 +3,7 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /search/calls/{searchResultsDbId}:
+  /search/variantmatrix/{searchResultsDbId}:
     get:
       summary: Get the results of a `Calls` search request
       description: |-
