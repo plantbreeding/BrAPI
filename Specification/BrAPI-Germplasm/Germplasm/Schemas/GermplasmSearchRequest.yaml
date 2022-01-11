@@ -21,6 +21,12 @@ components:
               type: string
             type: array
             example: ['A0000003', 'A0000477']
+          binomialNames: 
+            description: List of the full binomial name (scientific name) to identify a germplasm
+            items:
+              type: string
+            type: array
+            example: ['Aspergillus fructus', 'Zea mays']
           genus: 
             description: List of Genus names to identify germplasm
             items:
