@@ -26,17 +26,21 @@ components:
           type: string
           example: nursery
         programDbId:
-          description: Unique DbId of the breeding Program this Seed Lot belongs to
+          description: The unique DbId of the breeding program this Seed Lot belongs to
           type: string
           example: e972d569
-        germplasmDbId:
-          description: Unique DbId of the Germplasm held in this Seed Lot 
+        programName:
+          description: The human readable name of the breeding program this Seed Lot belongs to
           type: string
-          example: 029d705d
+          example: Tomatillo_Breeding_Program
         locationDbId:
-          description: DbId of the storage location
+          description: The unique identifier for a Location
           type: string
-          example: 7989c44c
+          example: 3cfdd67d
+        locationName:
+          description: A human readable name for a location
+          type: string
+          example: Location 1
         storageLocation:
           description: Description the storage location 
           type: string
@@ -49,6 +53,33 @@ components:
           description: The timestamp for the last update to this Seed Lot (including transactions)
           type: string
           format: date-time
+        contentMixture:
+          description: |-
+            The mixture of germplasm present in the seed lot.
+            <br/>
+            If this seed lot only contains a single germplasm, the response should contain the name 
+            and DbId of that germplasm with a mixturePercentage value of 100
+            <br/>
+            If the seed lot contains a mixture of different germplasm, the response should contain 
+            the name and DbId every germplasm present. The mixturePercentage field should contain 
+            the ratio of each germplasm in the total mixture. All of the mixturePercentage values 
+            in this array should sum to equal 100.
+          type: array
+          items:
+            type: object
+            properties:
+              germplasmDbId:
+                description: The unique DbId of the Germplasm held in this Seed Lot 
+                type: string
+                example: 029d705d
+              germplasmName:
+                description: The human readable name of the Germplasm held in this Seed Lot 
+                type: string
+                example: A0000003
+              mixturePercentage:
+                description: The percentage of the given germplasm in the seed lot mixture.   
+                type: integer
+                example: 100
         amount:
           description: Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).
           type: number
