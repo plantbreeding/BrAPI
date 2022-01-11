@@ -45,6 +45,12 @@ paths:
         required: false
         schema:
           type: string
+      - name: binomialName
+        description: The full binomial name (scientific name) to identify a germplasm
+        in: query
+        required: false
+        schema:
+          type: string
       - name: genus
         description: Genus name to identify germplasm
         in: query
