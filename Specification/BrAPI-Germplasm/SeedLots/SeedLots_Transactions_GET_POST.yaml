@@ -56,7 +56,7 @@ paths:
             schema:
               type: array
               items: 
-                $ref: '#/components/schemas/SeedLotNewTransactionRequest'
+                $ref: '#/components/schemas/SeedLotTransactionNewRequest'
       responses:
         '200':
           $ref: '#/components/responses/SeedLotTransactionListResponse'
