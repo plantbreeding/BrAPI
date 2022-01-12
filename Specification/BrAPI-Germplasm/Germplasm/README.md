@@ -181,7 +181,7 @@ Get the details of a specific Breeding Method used to produce Germplasm
 
 
 
-### Get - /germplasm [GET /brapi/v2/germplasm{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?accessionNumber}{?collection}{?genus}{?species}{?studyDbId}{?synonym}{?parentDbId}{?progenyDbId}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /germplasm [GET /brapi/v2/germplasm{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?accessionNumber}{?collection}{?binomialName}{?genus}{?species}{?studyDbId}{?synonym}{?parentDbId}{?progenyDbId}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Addresses these needs
 
@@ -254,6 +254,7 @@ Addresses these needs
     + germplasmName (Optional, ) ... Name of the germplasm
     + accessionNumber (Optional, ) ... Unique identifiers for accessions within a genebank
     + collection (Optional, ) ... A specific panel/collection/population name this germplasm belongs to.
+    + binomialName (Optional, ) ... The full binomial name (scientific name) to identify a germplasm
     + genus (Optional, ) ... Genus name to identify germplasm
     + species (Optional, ) ... Species name to identify germplasm
     + studyDbId (Optional, ) ... Search for Germplasm that are associated with a particular Study
@@ -1744,6 +1745,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |Field|Type|Description|
 |---|---|---| 
 |accessionNumbers|array[string]|List unique identifiers for accessions within a genebank|
+|binomialNames|array[string]|List of the full binomial name (scientific name) to identify a germplasm|
 |collections|array[string]|A specific panel/collection/population name this germplasm belongs to.|
 |commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
 |externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
@@ -1831,6 +1833,10 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
     "accessionNumbers": [
         "A0000003",
         "A0000477"
+    ],
+    "binomialNames": [
+        "Aspergillus fructus",
+        "Zea mays"
     ],
     "collections": [
         "RDP1",

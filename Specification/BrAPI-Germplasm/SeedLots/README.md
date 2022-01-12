@@ -18,15 +18,20 @@ Get a filtered list of Seed Lot descriptions available in a system.
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
+|contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
+|germplasmDbId|string|The unique DbId of the Germplasm held in this Seed Lot|
+|germplasmName|string|The human readable name of the Germplasm held in this Seed Lot|
+|mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
-|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|locationDbId|string|DbId of the storage location|
-|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
+|locationDbId|string|The unique identifier for a Location|
+|locationName|string|A human readable name for a location|
+|programDbId|string|The unique DbId of the breeding program this Seed Lot belongs to|
+|programName|string|The human readable name of the breeding program this Seed Lot belongs to|
 |seedLotDbId|string|Unique DbId for the Seed Lot|
 |seedLotDescription|string|A general description of this Seed Lot|
 |seedLotName|string|A human readable name for this Seed Lot|
@@ -87,6 +92,13 @@ Get a filtered list of Seed Lot descriptions available in a system.
             {
                 "additionalInfo": {},
                 "amount": 561,
+                "contentMixture": [
+                    {
+                        "germplasmDbId": "029d705d",
+                        "germplasmName": "A0000003",
+                        "mixturePercentage": 100
+                    }
+                ],
                 "createdDate": "2018-01-01T14:47:23-0600",
                 "externalReferences": [
                     {
@@ -98,10 +110,11 @@ Get a filtered list of Seed Lot descriptions available in a system.
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
-                "germplasmDbId": "029d705d",
                 "lastUpdated": "2018-01-01T14:47:23-0600",
-                "locationDbId": "7989c44c",
+                "locationDbId": "3cfdd67d",
+                "locationName": "Location 1",
                 "programDbId": "e972d569",
+                "programName": "Tomatillo_Breeding_Program",
                 "seedLotDbId": "261ecb09",
                 "seedLotDescription": "This is a description of a seed lot",
                 "seedLotName": "Seed Lot Alpha",
@@ -142,15 +155,20 @@ Add new Seed Lot descriptions to a server
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
+|contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
+|germplasmDbId|string|The unique DbId of the Germplasm held in this Seed Lot|
+|germplasmName|string|The human readable name of the Germplasm held in this Seed Lot|
+|mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
-|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|locationDbId|string|DbId of the storage location|
-|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
+|locationDbId|string|The unique identifier for a Location|
+|locationName|string|A human readable name for a location|
+|programDbId|string|The unique DbId of the breeding program this Seed Lot belongs to|
+|programName|string|The human readable name of the breeding program this Seed Lot belongs to|
 |seedLotDescription|string|A general description of this Seed Lot|
 |seedLotName|string|A human readable name for this Seed Lot|
 |sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
@@ -165,15 +183,20 @@ Add new Seed Lot descriptions to a server
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
+|contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
+|germplasmDbId|string|The unique DbId of the Germplasm held in this Seed Lot|
+|germplasmName|string|The human readable name of the Germplasm held in this Seed Lot|
+|mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
-|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|locationDbId|string|DbId of the storage location|
-|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
+|locationDbId|string|The unique identifier for a Location|
+|locationName|string|A human readable name for a location|
+|programDbId|string|The unique DbId of the breeding program this Seed Lot belongs to|
+|programName|string|The human readable name of the breeding program this Seed Lot belongs to|
 |seedLotDbId|string|Unique DbId for the Seed Lot|
 |seedLotDescription|string|A general description of this Seed Lot|
 |seedLotName|string|A human readable name for this Seed Lot|
@@ -195,6 +218,13 @@ Add new Seed Lot descriptions to a server
     {
         "additionalInfo": {},
         "amount": 561,
+        "contentMixture": [
+            {
+                "germplasmDbId": "029d705d",
+                "germplasmName": "A0000003",
+                "mixturePercentage": 100
+            }
+        ],
         "createdDate": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
@@ -206,10 +236,11 @@ Add new Seed Lot descriptions to a server
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
-        "germplasmDbId": "029d705d",
         "lastUpdated": "2018-01-01T14:47:23-0600",
-        "locationDbId": "7989c44c",
+        "locationDbId": "3cfdd67d",
+        "locationName": "Location 1",
         "programDbId": "e972d569",
+        "programName": "Tomatillo_Breeding_Program",
         "seedLotDescription": "This is a description of a seed lot",
         "seedLotName": "Seed Lot Alpha",
         "sourceCollection": "nursery",
@@ -256,6 +287,13 @@ Add new Seed Lot descriptions to a server
             {
                 "additionalInfo": {},
                 "amount": 561,
+                "contentMixture": [
+                    {
+                        "germplasmDbId": "029d705d",
+                        "germplasmName": "A0000003",
+                        "mixturePercentage": 100
+                    }
+                ],
                 "createdDate": "2018-01-01T14:47:23-0600",
                 "externalReferences": [
                     {
@@ -267,10 +305,11 @@ Add new Seed Lot descriptions to a server
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
-                "germplasmDbId": "029d705d",
                 "lastUpdated": "2018-01-01T14:47:23-0600",
-                "locationDbId": "7989c44c",
+                "locationDbId": "3cfdd67d",
+                "locationName": "Location 1",
                 "programDbId": "e972d569",
+                "programName": "Tomatillo_Breeding_Program",
                 "seedLotDbId": "261ecb09",
                 "seedLotDescription": "This is a description of a seed lot",
                 "seedLotName": "Seed Lot Alpha",
@@ -580,15 +619,20 @@ Get a specific Seed Lot by seedLotDbId
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
+|contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
+|germplasmDbId|string|The unique DbId of the Germplasm held in this Seed Lot|
+|germplasmName|string|The human readable name of the Germplasm held in this Seed Lot|
+|mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
-|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|locationDbId|string|DbId of the storage location|
-|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
+|locationDbId|string|The unique identifier for a Location|
+|locationName|string|A human readable name for a location|
+|programDbId|string|The unique DbId of the breeding program this Seed Lot belongs to|
+|programName|string|The human readable name of the breeding program this Seed Lot belongs to|
 |seedLotDbId|string|Unique DbId for the Seed Lot|
 |seedLotDescription|string|A general description of this Seed Lot|
 |seedLotName|string|A human readable name for this Seed Lot|
@@ -639,6 +683,13 @@ Get a specific Seed Lot by seedLotDbId
     "result": {
         "additionalInfo": {},
         "amount": 561,
+        "contentMixture": [
+            {
+                "germplasmDbId": "029d705d",
+                "germplasmName": "A0000003",
+                "mixturePercentage": 100
+            }
+        ],
         "createdDate": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
@@ -650,10 +701,11 @@ Get a specific Seed Lot by seedLotDbId
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
-        "germplasmDbId": "029d705d",
         "lastUpdated": "2018-01-01T14:47:23-0600",
-        "locationDbId": "7989c44c",
+        "locationDbId": "3cfdd67d",
+        "locationName": "Location 1",
         "programDbId": "e972d569",
+        "programName": "Tomatillo_Breeding_Program",
         "seedLotDbId": "261ecb09",
         "seedLotDescription": "This is a description of a seed lot",
         "seedLotName": "Seed Lot Alpha",
@@ -697,15 +749,20 @@ Update an existing Seed Lot
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
+|contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
+|germplasmDbId|string|The unique DbId of the Germplasm held in this Seed Lot|
+|germplasmName|string|The human readable name of the Germplasm held in this Seed Lot|
+|mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
-|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|locationDbId|string|DbId of the storage location|
-|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
+|locationDbId|string|The unique identifier for a Location|
+|locationName|string|A human readable name for a location|
+|programDbId|string|The unique DbId of the breeding program this Seed Lot belongs to|
+|programName|string|The human readable name of the breeding program this Seed Lot belongs to|
 |seedLotDescription|string|A general description of this Seed Lot|
 |seedLotName|string|A human readable name for this Seed Lot|
 |sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
@@ -719,15 +776,20 @@ Update an existing Seed Lot
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
+|contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
+|germplasmDbId|string|The unique DbId of the Germplasm held in this Seed Lot|
+|germplasmName|string|The human readable name of the Germplasm held in this Seed Lot|
+|mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
-|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|locationDbId|string|DbId of the storage location|
-|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
+|locationDbId|string|The unique identifier for a Location|
+|locationName|string|A human readable name for a location|
+|programDbId|string|The unique DbId of the breeding program this Seed Lot belongs to|
+|programName|string|The human readable name of the breeding program this Seed Lot belongs to|
 |seedLotDbId|string|Unique DbId for the Seed Lot|
 |seedLotDescription|string|A general description of this Seed Lot|
 |seedLotName|string|A human readable name for this Seed Lot|
@@ -749,6 +811,13 @@ Update an existing Seed Lot
 {
     "additionalInfo": {},
     "amount": 561,
+    "contentMixture": [
+        {
+            "germplasmDbId": "029d705d",
+            "germplasmName": "A0000003",
+            "mixturePercentage": 100
+        }
+    ],
     "createdDate": "2018-01-01T14:47:23-0600",
     "externalReferences": [
         {
@@ -760,10 +829,11 @@ Update an existing Seed Lot
             "referenceSource": "Remote Data Collection Upload Tool"
         }
     ],
-    "germplasmDbId": "029d705d",
     "lastUpdated": "2018-01-01T14:47:23-0600",
-    "locationDbId": "7989c44c",
+    "locationDbId": "3cfdd67d",
+    "locationName": "Location 1",
     "programDbId": "e972d569",
+    "programName": "Tomatillo_Breeding_Program",
     "seedLotDescription": "This is a description of a seed lot",
     "seedLotName": "Seed Lot Alpha",
     "sourceCollection": "nursery",
@@ -807,6 +877,13 @@ Update an existing Seed Lot
     "result": {
         "additionalInfo": {},
         "amount": 561,
+        "contentMixture": [
+            {
+                "germplasmDbId": "029d705d",
+                "germplasmName": "A0000003",
+                "mixturePercentage": 100
+            }
+        ],
         "createdDate": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
@@ -818,10 +895,11 @@ Update an existing Seed Lot
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
-        "germplasmDbId": "029d705d",
         "lastUpdated": "2018-01-01T14:47:23-0600",
-        "locationDbId": "7989c44c",
+        "locationDbId": "3cfdd67d",
+        "locationName": "Location 1",
         "programDbId": "e972d569",
+        "programName": "Tomatillo_Breeding_Program",
         "seedLotDbId": "261ecb09",
         "seedLotDescription": "This is a description of a seed lot",
         "seedLotName": "Seed Lot Alpha",
