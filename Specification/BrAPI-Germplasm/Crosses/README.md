@@ -5,7 +5,7 @@
 
 
 
-### Get - /crosses [GET /brapi/v2/crosses{?crossingProjectDbId}{?crossDbId}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /crosses [GET /brapi/v2/crosses{?crossingProjectDbId}{?crossDbId}{?crossName}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Cross entities.
 
@@ -49,6 +49,7 @@ Get a filtered list of Cross entities.
 + Parameters
     + crossingProjectDbId (Optional, ) ... Search for Crossing Projects with this unique id
     + crossDbId (Optional, ) ... Search for Cross with this unique id
+    + crossName (Optional, ) ... Search for Cross with this human readable name
     + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
     + programDbId (Optional, ) ... A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. Use this parameter to only return results associated with the given program. Use `GET /programs` to find the list of available programs on a server.
     + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)

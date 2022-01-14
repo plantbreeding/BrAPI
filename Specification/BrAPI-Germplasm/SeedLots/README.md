@@ -5,7 +5,7 @@
 
 
 
-### Get - /seedlots [GET /brapi/v2/seedlots{?seedLotDbId}{?germplasmDbId}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /seedlots [GET /brapi/v2/seedlots{?seedLotDbId}{?germplasmDbId}{?germplasmName}{?crossDbId}{?crossName}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Seed Lot descriptions available in a system.
 
@@ -19,8 +19,10 @@ Get a filtered list of Seed Lot descriptions available in a system.
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
-|germplasmDbId|string|The unique DbId of the Germplasm held in this Seed Lot|
-|germplasmName|string|The human readable name of the Germplasm held in this Seed Lot|
+|crossDbId|string|The unique DbId for a cross contained in this seed lot|
+|crossName|string|The human readable name for a cross contained in this seed lot|
+|germplasmDbId|string|The unique DbId of the Germplasm contained in this Seed Lot|
+|germplasmName|string|The human readable name of the Germplasm contained in this Seed Lot|
 |mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
@@ -45,6 +47,9 @@ Get a filtered list of Seed Lot descriptions available in a system.
 + Parameters
     + seedLotDbId (Optional, ) ... Unique id for a seed lot on this server
     + germplasmDbId (Optional, ) ... The internal id of the germplasm
+    + germplasmName (Optional, ) ... Name of the germplasm
+    + crossDbId (Optional, ) ... Search for Cross with this unique id
+    + crossName (Optional, ) ... Search for Cross with this human readable name
     + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
     + programDbId (Optional, ) ... A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. Use this parameter to only return results associated with the given program. Use `GET /programs` to find the list of available programs on a server.
     + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
@@ -94,6 +99,8 @@ Get a filtered list of Seed Lot descriptions available in a system.
                 "amount": 561,
                 "contentMixture": [
                     {
+                        "crossDbId": "d105fd6f",
+                        "crossName": "my_Crosses_2018_01",
                         "germplasmDbId": "029d705d",
                         "germplasmName": "A0000003",
                         "mixturePercentage": 100
@@ -156,8 +163,10 @@ Add new Seed Lot descriptions to a server
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
-|germplasmDbId|string|The unique DbId of the Germplasm held in this Seed Lot|
-|germplasmName|string|The human readable name of the Germplasm held in this Seed Lot|
+|crossDbId|string|The unique DbId for a cross contained in this seed lot|
+|crossName|string|The human readable name for a cross contained in this seed lot|
+|germplasmDbId|string|The unique DbId of the Germplasm contained in this Seed Lot|
+|germplasmName|string|The human readable name of the Germplasm contained in this Seed Lot|
 |mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
@@ -184,8 +193,10 @@ Add new Seed Lot descriptions to a server
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
-|germplasmDbId|string|The unique DbId of the Germplasm held in this Seed Lot|
-|germplasmName|string|The human readable name of the Germplasm held in this Seed Lot|
+|crossDbId|string|The unique DbId for a cross contained in this seed lot|
+|crossName|string|The human readable name for a cross contained in this seed lot|
+|germplasmDbId|string|The unique DbId of the Germplasm contained in this Seed Lot|
+|germplasmName|string|The human readable name of the Germplasm contained in this Seed Lot|
 |mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
@@ -220,6 +231,8 @@ Add new Seed Lot descriptions to a server
         "amount": 561,
         "contentMixture": [
             {
+                "crossDbId": "d105fd6f",
+                "crossName": "my_Crosses_2018_01",
                 "germplasmDbId": "029d705d",
                 "germplasmName": "A0000003",
                 "mixturePercentage": 100
@@ -289,6 +302,8 @@ Add new Seed Lot descriptions to a server
                 "amount": 561,
                 "contentMixture": [
                     {
+                        "crossDbId": "d105fd6f",
+                        "crossName": "my_Crosses_2018_01",
                         "germplasmDbId": "029d705d",
                         "germplasmName": "A0000003",
                         "mixturePercentage": 100
@@ -340,7 +355,7 @@ Add new Seed Lot descriptions to a server
 
 
 
-### Get - /seedlots/transactions [GET /brapi/v2/seedlots/transactions{?transactionDbId}{?seedLotDbId}{?germplasmDbId}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /seedlots/transactions [GET /brapi/v2/seedlots/transactions{?transactionDbId}{?seedLotDbId}{?germplasmDbId}{?germplasmName}{?crossDbId}{?crossName}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Seed Lot Transactions
 
@@ -371,6 +386,9 @@ Get a filtered list of Seed Lot Transactions
     + transactionDbId (Optional, ) ... Unique id for a transaction on this server
     + seedLotDbId (Optional, ) ... Unique id for a seed lot on this server
     + germplasmDbId (Optional, ) ... The internal id of the germplasm
+    + germplasmName (Optional, ) ... Name of the germplasm
+    + crossDbId (Optional, ) ... Search for Cross with this unique id
+    + crossName (Optional, ) ... Search for Cross with this human readable name
     + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
     + programDbId (Optional, ) ... A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. Use this parameter to only return results associated with the given program. Use `GET /programs` to find the list of available programs on a server.
     + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
@@ -620,8 +638,10 @@ Get a specific Seed Lot by seedLotDbId
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
-|germplasmDbId|string|The unique DbId of the Germplasm held in this Seed Lot|
-|germplasmName|string|The human readable name of the Germplasm held in this Seed Lot|
+|crossDbId|string|The unique DbId for a cross contained in this seed lot|
+|crossName|string|The human readable name for a cross contained in this seed lot|
+|germplasmDbId|string|The unique DbId of the Germplasm contained in this Seed Lot|
+|germplasmName|string|The human readable name of the Germplasm contained in this Seed Lot|
 |mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
@@ -685,6 +705,8 @@ Get a specific Seed Lot by seedLotDbId
         "amount": 561,
         "contentMixture": [
             {
+                "crossDbId": "d105fd6f",
+                "crossName": "my_Crosses_2018_01",
                 "germplasmDbId": "029d705d",
                 "germplasmName": "A0000003",
                 "mixturePercentage": 100
@@ -750,8 +772,10 @@ Update an existing Seed Lot
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
-|germplasmDbId|string|The unique DbId of the Germplasm held in this Seed Lot|
-|germplasmName|string|The human readable name of the Germplasm held in this Seed Lot|
+|crossDbId|string|The unique DbId for a cross contained in this seed lot|
+|crossName|string|The human readable name for a cross contained in this seed lot|
+|germplasmDbId|string|The unique DbId of the Germplasm contained in this Seed Lot|
+|germplasmName|string|The human readable name of the Germplasm contained in this Seed Lot|
 |mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
@@ -777,8 +801,10 @@ Update an existing Seed Lot
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
-|germplasmDbId|string|The unique DbId of the Germplasm held in this Seed Lot|
-|germplasmName|string|The human readable name of the Germplasm held in this Seed Lot|
+|crossDbId|string|The unique DbId for a cross contained in this seed lot|
+|crossName|string|The human readable name for a cross contained in this seed lot|
+|germplasmDbId|string|The unique DbId of the Germplasm contained in this Seed Lot|
+|germplasmName|string|The human readable name of the Germplasm contained in this Seed Lot|
 |mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
@@ -813,6 +839,8 @@ Update an existing Seed Lot
     "amount": 561,
     "contentMixture": [
         {
+            "crossDbId": "d105fd6f",
+            "crossName": "my_Crosses_2018_01",
             "germplasmDbId": "029d705d",
             "germplasmName": "A0000003",
             "mixturePercentage": 100
@@ -879,6 +907,8 @@ Update an existing Seed Lot
         "amount": 561,
         "contentMixture": [
             {
+                "crossDbId": "d105fd6f",
+                "crossName": "my_Crosses_2018_01",
                 "germplasmDbId": "029d705d",
                 "germplasmName": "A0000003",
                 "mixturePercentage": 100
