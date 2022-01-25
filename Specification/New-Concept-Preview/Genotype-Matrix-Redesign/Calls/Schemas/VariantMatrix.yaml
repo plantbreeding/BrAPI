@@ -15,6 +15,11 @@ components:
           items:
             type: string
           example: ['aca00001', 'aca00002', 'aca00003']
+        variantSetDbIds:
+          type: array
+          items:
+            type: string
+          example: ['vsid3944', 'vsid2077', 'vsid4424']
         variants:
           type: array
           items:
@@ -24,13 +29,15 @@ components:
                 type: string
               chromosome: 
                 type: string
-              position:
+              start:
+                type: integer
+              end:
                 type: integer
               ploidy:
                 type: integer
-          example: [{'variantDbId': 'feb54257', 'chromosome': '20', 'position': 14370, 'ploidy': 2},
-                    {'variantDbId': 'feb40355', 'chromosome': '20', 'position': 1110696, 'ploidy': 2},
-                    {'variantDbId': 'feb40323', 'chromosome': '20', 'position': 1234567, 'ploidy': 2}]
+          example: [{'variantDbId': 'feb54257', 'chromosome': '20', 'start': 14370, 'end': 24370, 'ploidy': 2},
+                    {'variantDbId': 'feb40355', 'chromosome': '20', 'start': 1110696, 'end': 1113696, 'ploidy': 2},
+                    {'variantDbId': 'feb40323', 'chromosome': '20', 'start': 1234567, 'end': 1237567, 'ploidy': 2}]
         data:
           type: array
           items:
@@ -46,6 +53,14 @@ components:
           items:
             type: object
             properties:
+              fieldType:
+                type: string
+                enum:
+                - string
+                - integer
+                - float
+                - boolean
+                example: integer
               fieldName:
                 type: string
                 enum:
