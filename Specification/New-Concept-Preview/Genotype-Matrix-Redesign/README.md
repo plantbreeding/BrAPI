@@ -28,7 +28,12 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |germplasmDbIds|array[string]|The germplasm to search|
 |germplasmNames|array[string]|The germplasm to search|
 |germplasmPUIs|array[string]|The germplasm to search|
+|pagination|array[object]|Pagination for the matrix|
+|dimension|string|the dimension of the matrix being paginated|
+|page|integer|the requested page number (zero indexed)|
+|pageSize|integer|the maximum number of elements per page in this dimension of the matrix|
 |positionRanges|array[string]|The postion range to search <br/> Uses the format "<chrom>:<start>-<end>" where <chrom> is the chromosome name, <start> is  the starting position of the range, and <end> is the ending position of the range|
+|preview|boolean|Default Value = false <br/> If 'preview' is set to true, then the server should only return the lists of 'callSetDbIds',  'variantDbIds', and 'variantSetDbIds'. The server should not return any matrix data. This is intended to be a preview and give the client a sense of how large the matrix returned will be <br/> If 'preview' is set to false or not set (default), then the server should return all the matrix data as requested.|
 |sampleDbIds|array[string]|The samples to search|
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
@@ -84,10 +89,23 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "a03202ec",
         "274e4f63"
     ],
+    "pagination": [
+        {
+            "dimension": "variants",
+            "page": 0,
+            "pageSize": 500
+        },
+        {
+            "dimension": "callsets",
+            "page": 4,
+            "pageSize": 1000
+        }
+    ],
     "positionRanges": [
         "20:1000-35000",
         "20:87000-125000"
     ],
+    "preview": true,
     "sampleDbIds": [
         "a03202ec",
         "274e4f63"
@@ -362,7 +380,12 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |germplasmDbIds|array[string]|The germplasm to search|
 |germplasmNames|array[string]|The germplasm to search|
 |germplasmPUIs|array[string]|The germplasm to search|
+|pagination|array[object]|Pagination for the matrix|
+|dimension|string|the dimension of the matrix being paginated|
+|page|integer|the requested page number (zero indexed)|
+|pageSize|integer|the maximum number of elements per page in this dimension of the matrix|
 |positionRanges|array[string]|The postion range to search <br/> Uses the format "<chrom>:<start>-<end>" where <chrom> is the chromosome name, <start> is  the starting position of the range, and <end> is the ending position of the range|
+|preview|boolean|Default Value = false <br/> If 'preview' is set to true, then the server should only return the lists of 'callSetDbIds',  'variantDbIds', and 'variantSetDbIds'. The server should not return any matrix data. This is intended to be a preview and give the client a sense of how large the matrix returned will be <br/> If 'preview' is set to false or not set (default), then the server should return all the matrix data as requested.|
 |sampleDbIds|array[string]|The samples to search|
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
@@ -381,13 +404,16 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |genotypeFields|array[object]||
 |fieldMatrix|array[array]||
 |fieldName|string||
+|fieldType|string||
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
 |unknownString|string|The string used as a representation for missing data.|
+|variantSetDbIds|array[string]||
 |variants|array[object]||
 |chromosome|string||
+|end|integer||
 |ploidy|integer||
-|position|integer||
+|start|integer||
 |variantDbId|string||
 
 
@@ -418,10 +444,23 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "a03202ec",
         "274e4f63"
     ],
+    "pagination": [
+        {
+            "dimension": "variants",
+            "page": 0,
+            "pageSize": 500
+        },
+        {
+            "dimension": "callsets",
+            "page": 4,
+            "pageSize": 1000
+        }
+    ],
     "positionRanges": [
         "20:1000-35000",
         "20:87000-125000"
     ],
+    "preview": true,
     "sampleDbIds": [
         "a03202ec",
         "274e4f63"
@@ -506,29 +545,38 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                         "35"
                     ]
                 ],
-                "fieldName": "Genotype Quality"
+                "fieldName": "Genotype Quality",
+                "fieldType": "integer"
             }
         ],
         "sepPhased": "|",
         "sepUnphased": "/",
         "unknownString": ".",
+        "variantSetDbIds": [
+            "cfde3944",
+            "cfde2077",
+            "cfde4424"
+        ],
         "variants": [
             {
                 "chromosome": "20",
+                "end": 24370,
                 "ploidy": 2,
-                "position": 14370,
+                "start": 14370,
                 "variantDbId": "feb54257"
             },
             {
                 "chromosome": "20",
+                "end": 1113696,
                 "ploidy": 2,
-                "position": 1110696,
+                "start": 1110696,
                 "variantDbId": "feb40355"
             },
             {
                 "chromosome": "20",
+                "end": 1237567,
                 "ploidy": 2,
-                "position": 1234567,
+                "start": 1234567,
                 "variantDbId": "feb40323"
             }
         ]
@@ -603,13 +651,16 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |genotypeFields|array[object]||
 |fieldMatrix|array[array]||
 |fieldName|string||
+|fieldType|string||
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
 |unknownString|string|The string used as a representation for missing data.|
+|variantSetDbIds|array[string]||
 |variants|array[object]||
 |chromosome|string||
+|end|integer||
 |ploidy|integer||
-|position|integer||
+|start|integer||
 |variantDbId|string||
 
 
@@ -686,29 +737,38 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                         "35"
                     ]
                 ],
-                "fieldName": "Genotype Quality"
+                "fieldName": "Genotype Quality",
+                "fieldType": "integer"
             }
         ],
         "sepPhased": "|",
         "sepUnphased": "/",
         "unknownString": ".",
+        "variantSetDbIds": [
+            "cfde3944",
+            "cfde2077",
+            "cfde4424"
+        ],
         "variants": [
             {
                 "chromosome": "20",
+                "end": 24370,
                 "ploidy": 2,
-                "position": 14370,
+                "start": 14370,
                 "variantDbId": "feb54257"
             },
             {
                 "chromosome": "20",
+                "end": 1113696,
                 "ploidy": 2,
-                "position": 1110696,
+                "start": 1110696,
                 "variantDbId": "feb40355"
             },
             {
                 "chromosome": "20",
+                "end": 1237567,
                 "ploidy": 2,
-                "position": 1234567,
+                "start": 1234567,
                 "variantDbId": "feb40323"
             }
         ]
@@ -777,13 +837,16 @@ Two dimensional matrix representing the raw contents of a VCF
 |genotypeFields|array[object]||
 |fieldMatrix|array[array]||
 |fieldName|string||
+|fieldType|string||
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
 |unknownString|string|The string used as a representation for missing data.|
+|variantSetDbIds|array[string]||
 |variants|array[object]||
 |chromosome|string||
+|end|integer||
 |ploidy|integer||
-|position|integer||
+|start|integer||
 |variantDbId|string||
 
 
@@ -870,29 +933,38 @@ Two dimensional matrix representing the raw contents of a VCF
                         "35"
                     ]
                 ],
-                "fieldName": "Genotype Quality"
+                "fieldName": "Genotype Quality",
+                "fieldType": "integer"
             }
         ],
         "sepPhased": "|",
         "sepUnphased": "/",
         "unknownString": ".",
+        "variantSetDbIds": [
+            "cfde3944",
+            "cfde2077",
+            "cfde4424"
+        ],
         "variants": [
             {
                 "chromosome": "20",
+                "end": 24370,
                 "ploidy": 2,
-                "position": 14370,
+                "start": 14370,
                 "variantDbId": "feb54257"
             },
             {
                 "chromosome": "20",
+                "end": 1113696,
                 "ploidy": 2,
-                "position": 1110696,
+                "start": 1110696,
                 "variantDbId": "feb40355"
             },
             {
                 "chromosome": "20",
+                "end": 1237567,
                 "ploidy": 2,
-                "position": 1234567,
+                "start": 1234567,
                 "variantDbId": "feb40323"
             }
         ]
