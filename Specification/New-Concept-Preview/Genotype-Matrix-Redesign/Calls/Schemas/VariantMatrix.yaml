@@ -19,7 +19,7 @@ components:
           type: array
           items:
             type: string
-          example: ['vsid3944', 'vsid2077', 'vsid4424']
+          example: ['cfde3944', 'cfde2077', 'cfde4424']
         variants:
           type: array
           items:
