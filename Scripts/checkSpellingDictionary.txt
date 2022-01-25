@@ -13,7 +13,7 @@ metadata asc desc schemas
 wiki wikipedia
 uppercase lowercase concatenated whitespace tokenized
 xref xrefs xmlns foaf w3c
-preprocessing debug async upload uploaded imagecontent unpaginated pagination
+preprocessing debug async upload uploaded imagecontent paginated unpaginated pagination
 boolean ordinal
 
 2px 5px 10px 20px #ddd ddd btn
