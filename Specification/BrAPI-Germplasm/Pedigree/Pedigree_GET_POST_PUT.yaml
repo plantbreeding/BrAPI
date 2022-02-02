@@ -5,8 +5,8 @@ openapi: 3.0.0
 paths:
   /pedigree:
     get:
-      summary: Get a filtered list of pedigree nodes which represent a subset of a pedigreee tree
-      description: Get a filtered list of pedigree nodes which represent a subset of a pedigreee tree
+      summary: Get a filtered list of pedigree nodes which represent a subset of a pedigree tree
+      description: Get a filtered list of pedigree nodes which represent a subset of a pedigree tree
       parameters:
       - name: germplasmPUI
         description: The Permanent Unique Identifier (DOI, URI, etc.) for a germplasm
