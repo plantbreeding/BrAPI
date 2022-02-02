@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /germplasm/{germplasmDbId}/progeny:
     get:
+      deprecated: true
       summary: |-
         **Deprecated in v2.1** Please use `GET /pedigree?germplasmDbId={germplasmDbId}`. Github issue number #481 
         <br/> Get the progeny details of a specific Germplasm
