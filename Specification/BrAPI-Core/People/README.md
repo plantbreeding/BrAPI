@@ -58,16 +58,7 @@ Get filtered list of people
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -215,16 +206,7 @@ Create new People entities. `personDbId` is generated and managed by the server.
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -327,16 +309,7 @@ Get the details for a specific Person
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -483,16 +456,7 @@ Update an existing Person
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -685,16 +649,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -744,16 +699,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -841,16 +787,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -900,16 +837,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,

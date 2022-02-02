@@ -69,16 +69,7 @@ Get a filtered list of Cross entities.
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -284,16 +275,7 @@ Create new Cross entities on this server
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -492,16 +474,7 @@ Update existing Cross entities on this server
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,

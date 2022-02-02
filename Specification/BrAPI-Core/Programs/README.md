@@ -56,16 +56,7 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -209,16 +200,7 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -319,16 +301,7 @@ Get a single breeding Program by Id. This can be used to quickly get the details
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -466,16 +439,7 @@ Update the details of an existing breeding Program.
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -641,16 +605,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -699,16 +654,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -795,16 +741,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -853,16 +790,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
