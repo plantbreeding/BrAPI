@@ -11,16 +11,43 @@ components:
       - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'
       - $ref: '#/components/schemas/SearchRequestParametersPrograms'
       - $ref: '#/components/schemas/SearchRequestParametersGermplasm'
+      - $ref: '#/components/schemas/SearchRequestParametersTrials'
       - $ref: '#/components/schemas/SearchRequestParametersStudies'
       - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'
       - type: object
         properties: 
+          germplasmPUIs:
+            description: List of Permanent Unique Identifiers to identify germplasm
+            items:
+              type: string
+            type: array
+            example: ['http://pui.per/accession/A0000003', 'http://pui.per/accession/A0000477']
           accessionNumbers:
             description: List unique identifiers for accessions within a genebank
             items:
               type: string
             type: array
             example: ['A0000003', 'A0000477']
+          collections:
+            description: A specific panel/collection/population name this germplasm belongs to.
+            items:
+              type: string
+            type: array
+            example: ['RDP1', 'MDP1']
+          familyCodes:
+            description: A familyCode representing the family this germplasm belongs to.
+            items:
+              type: string
+            type: array
+            example: ['F0000203', 'FA009965']
+          instituteCodes:
+            description: |-
+              The code for the institute that maintains the material. 
+              <br/> MCPD (v2.1) (INSTCODE) 1. FAO WIEWS code of the institute where the accession is maintained. The codes consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. PER001). The current set of institute codes is available from http://www.fao.org/wiews. For those institutes not yet having an FAO Code, or for those with "obsolete" codes, see "Common formatting rules (v)".
+            items:
+              type: string
+            type: array
+            example: ['PER001', 'NOR051']
           binomialNames: 
             description: List of the full binomial name (scientific name) to identify a germplasm
             items:
@@ -33,18 +60,18 @@ components:
               type: string
             type: array
             example: ['Aspergillus', 'Zea']
-          germplasmPUIs:
-            description: List of Permanent Unique Identifiers to identify germplasm
-            items:
-              type: string
-            type: array
-            example: ['http://pui.per/accession/A0000003', 'http://pui.per/accession/A0000477']
           species:
             description: List of Species names to identify germplasm
             items:
               type: string
             type: array
             example: ['fructus', 'mays']
+          synonyms:
+            description: List of alternative names or IDs used to reference this germplasm
+            items:
+              type: string
+            type: array
+            example: ['variety_1', '2c38f9b6']
           parentDbIds:
             description: Search for Germplasm with these parents
             items:
@@ -57,16 +84,4 @@ components:
               type: string
             type: array
             example: ['16e16a7e', 'ce06cf9e']
-          synonyms:
-            description: List of alternative names or IDs used to reference this germplasm
-            items:
-              type: string
-            type: array
-            example: ['variety_1', '2c38f9b6']
-          collections:
-            description: A specific panel/collection/population name this germplasm belongs to.
-            items:
-              type: string
-            type: array
-            example: ['RDP1', 'MDP1']
 
