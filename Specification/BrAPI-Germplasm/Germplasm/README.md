@@ -181,7 +181,7 @@ Get the details of a specific Breeding Method used to produce Germplasm
 
 
 
-### Get - /germplasm [GET /brapi/v2/germplasm{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?accessionNumber}{?collection}{?binomialName}{?genus}{?species}{?studyDbId}{?synonym}{?parentDbId}{?progenyDbId}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /germplasm [GET /brapi/v2/germplasm{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?accessionNumber}{?collection}{?binomialName}{?genus}{?species}{?trialDbId}{?studyDbId}{?synonym}{?parentDbId}{?progenyDbId}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Addresses these needs
 
@@ -204,6 +204,7 @@ Addresses these needs
 |biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc.   100) Wild  110) Natural  120) Semi-natural/wild  130) Semi-natural/sown  200) Weedy  300) Traditional cultivar/landrace  400) Breeding/research material  410) Breeders line  411) Synthetic population  412) Hybrid  413) Founder stock/base population  414) Inbred line (parent of hybrid cultivar)  415) Segregating population  416) Clonal selection  420) Genetic stock  421) Mutant (e.g. induced/insertion mutants, tilling populations)  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids)  423) Other genetic stocks (e.g. mapping populations)  500) Advanced or improved cultivar (conventional breeding methods)  600) GMO (by genetic engineering)  999) Other (Elaborate in REMARKS field)|
 |biologicalStatusOfAccessionDescription|string|Supplemental text description for 'biologicalStatusOfAccessionCode'|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
+|breedingMethodName|string|human readable name of the breeding method|
 |collection|string|A specific panel/collection/population name this germplasm belongs to.|
 |commonCropName|string|Common name for the crop   MCPD (v2.1) (CROPNAME) 10. Common name of the crop. Example: "malting barley", "mas".|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected   MCPD (v2.1) (ORIGCTY) 13. 3-letter ISO 3166-1 code of the country in which the sample was originally collected (e.g. landrace, crop wild relative, farmers variety), bred or selected (breeding lines, GMOs, segregating populations, hybrids, modern cultivars, etc.). Note- Descriptors 14 to 16 below should be completed accordingly only if it was "collected".|
@@ -257,6 +258,7 @@ Addresses these needs
     + binomialName (Optional, ) ... The full binomial name (scientific name) to identify a germplasm
     + genus (Optional, ) ... Genus name to identify germplasm
     + species (Optional, ) ... Species name to identify germplasm
+    + trialDbId (Optional, ) ... Search for Germplasm that are associated with a particular Study
     + studyDbId (Optional, ) ... Search for Germplasm that are associated with a particular Study
     + synonym (Optional, ) ... Alternative name or ID used to reference this germplasm
     + parentDbId (Optional, ) ... Search for Germplasm with this parent
@@ -312,6 +314,7 @@ Addresses these needs
                 "biologicalStatusOfAccessionCode": "420",
                 "biologicalStatusOfAccessionDescription": "Genetic stock",
                 "breedingMethodDbId": "ffcce7ef",
+                "breedingMethodName": "Male Backcross",
                 "collection": "Rice Diversity Panel 1 (RDP1)",
                 "commonCropName": "Maize",
                 "countryOfOriginCode": "BES",
@@ -423,6 +426,7 @@ Create new Germplasm entities on this server
 |biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc.   100) Wild  110) Natural  120) Semi-natural/wild  130) Semi-natural/sown  200) Weedy  300) Traditional cultivar/landrace  400) Breeding/research material  410) Breeders line  411) Synthetic population  412) Hybrid  413) Founder stock/base population  414) Inbred line (parent of hybrid cultivar)  415) Segregating population  416) Clonal selection  420) Genetic stock  421) Mutant (e.g. induced/insertion mutants, tilling populations)  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids)  423) Other genetic stocks (e.g. mapping populations)  500) Advanced or improved cultivar (conventional breeding methods)  600) GMO (by genetic engineering)  999) Other (Elaborate in REMARKS field)|
 |biologicalStatusOfAccessionDescription|string|Supplemental text description for 'biologicalStatusOfAccessionCode'|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
+|breedingMethodName|string|human readable name of the breeding method|
 |collection|string|A specific panel/collection/population name this germplasm belongs to.|
 |commonCropName|string|Common name for the crop   MCPD (v2.1) (CROPNAME) 10. Common name of the crop. Example: "malting barley", "mas".|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected   MCPD (v2.1) (ORIGCTY) 13. 3-letter ISO 3166-1 code of the country in which the sample was originally collected (e.g. landrace, crop wild relative, farmers variety), bred or selected (breeding lines, GMOs, segregating populations, hybrids, modern cultivars, etc.). Note- Descriptors 14 to 16 below should be completed accordingly only if it was "collected".|
@@ -475,6 +479,7 @@ Create new Germplasm entities on this server
 |biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc.   100) Wild  110) Natural  120) Semi-natural/wild  130) Semi-natural/sown  200) Weedy  300) Traditional cultivar/landrace  400) Breeding/research material  410) Breeders line  411) Synthetic population  412) Hybrid  413) Founder stock/base population  414) Inbred line (parent of hybrid cultivar)  415) Segregating population  416) Clonal selection  420) Genetic stock  421) Mutant (e.g. induced/insertion mutants, tilling populations)  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids)  423) Other genetic stocks (e.g. mapping populations)  500) Advanced or improved cultivar (conventional breeding methods)  600) GMO (by genetic engineering)  999) Other (Elaborate in REMARKS field)|
 |biologicalStatusOfAccessionDescription|string|Supplemental text description for 'biologicalStatusOfAccessionCode'|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
+|breedingMethodName|string|human readable name of the breeding method|
 |collection|string|A specific panel/collection/population name this germplasm belongs to.|
 |commonCropName|string|Common name for the crop   MCPD (v2.1) (CROPNAME) 10. Common name of the crop. Example: "malting barley", "mas".|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected   MCPD (v2.1) (ORIGCTY) 13. 3-letter ISO 3166-1 code of the country in which the sample was originally collected (e.g. landrace, crop wild relative, farmers variety), bred or selected (breeding lines, GMOs, segregating populations, hybrids, modern cultivars, etc.). Note- Descriptors 14 to 16 below should be completed accordingly only if it was "collected".|
@@ -534,6 +539,7 @@ Create new Germplasm entities on this server
         "biologicalStatusOfAccessionCode": "420",
         "biologicalStatusOfAccessionDescription": "Genetic stock",
         "breedingMethodDbId": "ffcce7ef",
+        "breedingMethodName": "Male Backcross",
         "collection": "Rice Diversity Panel 1 (RDP1)",
         "commonCropName": "Maize",
         "countryOfOriginCode": "BES",
@@ -651,6 +657,7 @@ Create new Germplasm entities on this server
                 "biologicalStatusOfAccessionCode": "420",
                 "biologicalStatusOfAccessionDescription": "Genetic stock",
                 "breedingMethodDbId": "ffcce7ef",
+                "breedingMethodName": "Male Backcross",
                 "collection": "Rice Diversity Panel 1 (RDP1)",
                 "commonCropName": "Maize",
                 "countryOfOriginCode": "BES",
@@ -764,6 +771,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc.   100) Wild  110) Natural  120) Semi-natural/wild  130) Semi-natural/sown  200) Weedy  300) Traditional cultivar/landrace  400) Breeding/research material  410) Breeders line  411) Synthetic population  412) Hybrid  413) Founder stock/base population  414) Inbred line (parent of hybrid cultivar)  415) Segregating population  416) Clonal selection  420) Genetic stock  421) Mutant (e.g. induced/insertion mutants, tilling populations)  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids)  423) Other genetic stocks (e.g. mapping populations)  500) Advanced or improved cultivar (conventional breeding methods)  600) GMO (by genetic engineering)  999) Other (Elaborate in REMARKS field)|
 |biologicalStatusOfAccessionDescription|string|Supplemental text description for 'biologicalStatusOfAccessionCode'|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
+|breedingMethodName|string|human readable name of the breeding method|
 |collection|string|A specific panel/collection/population name this germplasm belongs to.|
 |commonCropName|string|Common name for the crop   MCPD (v2.1) (CROPNAME) 10. Common name of the crop. Example: "malting barley", "mas".|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected   MCPD (v2.1) (ORIGCTY) 13. 3-letter ISO 3166-1 code of the country in which the sample was originally collected (e.g. landrace, crop wild relative, farmers variety), bred or selected (breeding lines, GMOs, segregating populations, hybrids, modern cultivars, etc.). Note- Descriptors 14 to 16 below should be completed accordingly only if it was "collected".|
@@ -852,6 +860,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
         "biologicalStatusOfAccessionCode": "420",
         "biologicalStatusOfAccessionDescription": "Genetic stock",
         "breedingMethodDbId": "ffcce7ef",
+        "breedingMethodName": "Male Backcross",
         "collection": "Rice Diversity Panel 1 (RDP1)",
         "commonCropName": "Maize",
         "countryOfOriginCode": "BES",
@@ -966,6 +975,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc.   100) Wild  110) Natural  120) Semi-natural/wild  130) Semi-natural/sown  200) Weedy  300) Traditional cultivar/landrace  400) Breeding/research material  410) Breeders line  411) Synthetic population  412) Hybrid  413) Founder stock/base population  414) Inbred line (parent of hybrid cultivar)  415) Segregating population  416) Clonal selection  420) Genetic stock  421) Mutant (e.g. induced/insertion mutants, tilling populations)  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids)  423) Other genetic stocks (e.g. mapping populations)  500) Advanced or improved cultivar (conventional breeding methods)  600) GMO (by genetic engineering)  999) Other (Elaborate in REMARKS field)|
 |biologicalStatusOfAccessionDescription|string|Supplemental text description for 'biologicalStatusOfAccessionCode'|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
+|breedingMethodName|string|human readable name of the breeding method|
 |collection|string|A specific panel/collection/population name this germplasm belongs to.|
 |commonCropName|string|Common name for the crop   MCPD (v2.1) (CROPNAME) 10. Common name of the crop. Example: "malting barley", "mas".|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected   MCPD (v2.1) (ORIGCTY) 13. 3-letter ISO 3166-1 code of the country in which the sample was originally collected (e.g. landrace, crop wild relative, farmers variety), bred or selected (breeding lines, GMOs, segregating populations, hybrids, modern cultivars, etc.). Note- Descriptors 14 to 16 below should be completed accordingly only if it was "collected".|
@@ -1017,6 +1027,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc.   100) Wild  110) Natural  120) Semi-natural/wild  130) Semi-natural/sown  200) Weedy  300) Traditional cultivar/landrace  400) Breeding/research material  410) Breeders line  411) Synthetic population  412) Hybrid  413) Founder stock/base population  414) Inbred line (parent of hybrid cultivar)  415) Segregating population  416) Clonal selection  420) Genetic stock  421) Mutant (e.g. induced/insertion mutants, tilling populations)  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids)  423) Other genetic stocks (e.g. mapping populations)  500) Advanced or improved cultivar (conventional breeding methods)  600) GMO (by genetic engineering)  999) Other (Elaborate in REMARKS field)|
 |biologicalStatusOfAccessionDescription|string|Supplemental text description for 'biologicalStatusOfAccessionCode'|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
+|breedingMethodName|string|human readable name of the breeding method|
 |collection|string|A specific panel/collection/population name this germplasm belongs to.|
 |commonCropName|string|Common name for the crop   MCPD (v2.1) (CROPNAME) 10. Common name of the crop. Example: "malting barley", "mas".|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected   MCPD (v2.1) (ORIGCTY) 13. 3-letter ISO 3166-1 code of the country in which the sample was originally collected (e.g. landrace, crop wild relative, farmers variety), bred or selected (breeding lines, GMOs, segregating populations, hybrids, modern cultivars, etc.). Note- Descriptors 14 to 16 below should be completed accordingly only if it was "collected".|
@@ -1076,6 +1087,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
     "biologicalStatusOfAccessionCode": "420",
     "biologicalStatusOfAccessionDescription": "Genetic stock",
     "breedingMethodDbId": "ffcce7ef",
+    "breedingMethodName": "Male Backcross",
     "collection": "Rice Diversity Panel 1 (RDP1)",
     "commonCropName": "Maize",
     "countryOfOriginCode": "BES",
@@ -1190,6 +1202,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
         "biologicalStatusOfAccessionCode": "420",
         "biologicalStatusOfAccessionDescription": "Genetic stock",
         "breedingMethodDbId": "ffcce7ef",
+        "breedingMethodName": "Male Backcross",
         "collection": "Rice Diversity Panel 1 (RDP1)",
         "commonCropName": "Maize",
         "countryOfOriginCode": "BES",
@@ -1498,9 +1511,10 @@ Implementation Notes
 
 
 
-### Get - /germplasm/{germplasmDbId}/pedigree [GET /brapi/v2/germplasm/{germplasmDbId}/pedigree{?notation}{?includeSiblings}]
+### **Deprecated** Get - /germplasm/{germplasmDbId}/pedigree [GET /brapi/v2/germplasm/{germplasmDbId}/pedigree{?notation}{?includeSiblings}]
 
-Get the parentage information of a specific Germplasm
+**Deprecated in v2.1** Please use `GET /pedigree?germplasmDbId={germplasmDbId}`. Github issue number #481 
+<br/> Get the parentage information of a specific Germplasm
 
 
 
@@ -1626,11 +1640,10 @@ Get the parentage information of a specific Germplasm
 
 ### Get - /germplasm/{germplasmDbId}/progeny [GET /brapi/v2/germplasm/{germplasmDbId}/progeny]
 
-Get the germplasmDbIds for all the Progeny of a particular germplasm.
-
-Implementation Notes
-
-- Regarding the ''parentType'' field in the progeny object. Given a germplasm A having a progeny B and C, ''parentType'' for progeny B refers to the ''parentType'' of A toward B.
+**Deprecated in v2.1** Please use `GET /pedigree?germplasmDbId={germplasmDbId}`. Github issue number #481 
+<br/> Get the germplasmDbIds for all the Progeny of a particular germplasm.
+<br/> Implementation Notes
+<br/> - Regarding the ''parentType'' field in the progeny object. Given a germplasm A having a progeny B and C, ''parentType'' for progeny B refers to the ''parentType'' of A toward B.
 
 
 
@@ -1751,10 +1764,12 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
 |externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
 |externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
+|familyCodes|array[string]|A familyCode representing the family this germplasm belongs to.|
 |genus|array[string]|List of Genus names to identify germplasm|
 |germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
 |germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
 |germplasmPUIs|array[string]|List of Permanent Unique Identifiers to identify germplasm|
+|instituteCodes|array[string]|The code for the institute that maintains the material.  <br/> MCPD (v2.1) (INSTCODE) 1. FAO WIEWS code of the institute where the accession is maintained. The codes consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. PER001). The current set of institute codes is available from http://www.fao.org/wiews. For those institutes not yet having an FAO Code, or for those with "obsolete" codes, see "Common formatting rules (v)".|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |parentDbIds|array[string]|Search for Germplasm with these parents|
@@ -1765,6 +1780,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |studyDbIds|array[string]|List of study identifiers to search for|
 |studyNames|array[string]|List of study names to filter search results|
 |synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
+|trialDbIds|array[string]|The ID which uniquely identifies a trial to search for|
+|trialNames|array[string]|The human readable name of a trial to search for|
 
 
 **Response Fields** 
@@ -1778,6 +1795,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc.   100) Wild  110) Natural  120) Semi-natural/wild  130) Semi-natural/sown  200) Weedy  300) Traditional cultivar/landrace  400) Breeding/research material  410) Breeders line  411) Synthetic population  412) Hybrid  413) Founder stock/base population  414) Inbred line (parent of hybrid cultivar)  415) Segregating population  416) Clonal selection  420) Genetic stock  421) Mutant (e.g. induced/insertion mutants, tilling populations)  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids)  423) Other genetic stocks (e.g. mapping populations)  500) Advanced or improved cultivar (conventional breeding methods)  600) GMO (by genetic engineering)  999) Other (Elaborate in REMARKS field)|
 |biologicalStatusOfAccessionDescription|string|Supplemental text description for 'biologicalStatusOfAccessionCode'|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
+|breedingMethodName|string|human readable name of the breeding method|
 |collection|string|A specific panel/collection/population name this germplasm belongs to.|
 |commonCropName|string|Common name for the crop   MCPD (v2.1) (CROPNAME) 10. Common name of the crop. Example: "malting barley", "mas".|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected   MCPD (v2.1) (ORIGCTY) 13. 3-letter ISO 3166-1 code of the country in which the sample was originally collected (e.g. landrace, crop wild relative, farmers variety), bred or selected (breeding lines, GMOs, segregating populations, hybrids, modern cultivars, etc.). Note- Descriptors 14 to 16 below should be completed accordingly only if it was "collected".|
@@ -1858,6 +1876,10 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "DOI",
         "Field App Name"
     ],
+    "familyCodes": [
+        "fa000203",
+        "fa009965"
+    ],
     "genus": [
         "Aspergillus",
         "Zea"
@@ -1873,6 +1895,10 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
     "germplasmPUIs": [
         "http://pui.per/accession/A0000003",
         "http://pui.per/accession/A0000477"
+    ],
+    "instituteCodes": [
+        "PER001",
+        "NOR001"
     ],
     "page": 0,
     "pageSize": 1000,
@@ -1907,6 +1933,14 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
     "synonyms": [
         "variety_1",
         "2c38f9b6"
+    ],
+    "trialDbIds": [
+        "d2593dc2",
+        "9431a731"
+    ],
+    "trialNames": [
+        "All Yield Trials 2016",
+        "Disease Resistance Study Comparison Group"
     ]
 }
 ```
@@ -1952,6 +1986,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "biologicalStatusOfAccessionCode": "420",
                 "biologicalStatusOfAccessionDescription": "Genetic stock",
                 "breedingMethodDbId": "ffcce7ef",
+                "breedingMethodName": "Male Backcross",
                 "collection": "Rice Diversity Panel 1 (RDP1)",
                 "commonCropName": "Maize",
                 "countryOfOriginCode": "BES",
@@ -2107,6 +2142,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc.   100) Wild  110) Natural  120) Semi-natural/wild  130) Semi-natural/sown  200) Weedy  300) Traditional cultivar/landrace  400) Breeding/research material  410) Breeders line  411) Synthetic population  412) Hybrid  413) Founder stock/base population  414) Inbred line (parent of hybrid cultivar)  415) Segregating population  416) Clonal selection  420) Genetic stock  421) Mutant (e.g. induced/insertion mutants, tilling populations)  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids)  423) Other genetic stocks (e.g. mapping populations)  500) Advanced or improved cultivar (conventional breeding methods)  600) GMO (by genetic engineering)  999) Other (Elaborate in REMARKS field)|
 |biologicalStatusOfAccessionDescription|string|Supplemental text description for 'biologicalStatusOfAccessionCode'|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
+|breedingMethodName|string|human readable name of the breeding method|
 |collection|string|A specific panel/collection/population name this germplasm belongs to.|
 |commonCropName|string|Common name for the crop   MCPD (v2.1) (CROPNAME) 10. Common name of the crop. Example: "malting barley", "mas".|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected   MCPD (v2.1) (ORIGCTY) 13. 3-letter ISO 3166-1 code of the country in which the sample was originally collected (e.g. landrace, crop wild relative, farmers variety), bred or selected (breeding lines, GMOs, segregating populations, hybrids, modern cultivars, etc.). Note- Descriptors 14 to 16 below should be completed accordingly only if it was "collected".|
@@ -2199,6 +2235,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "biologicalStatusOfAccessionCode": "420",
                 "biologicalStatusOfAccessionDescription": "Genetic stock",
                 "breedingMethodDbId": "ffcce7ef",
+                "breedingMethodName": "Male Backcross",
                 "collection": "Rice Diversity Panel 1 (RDP1)",
                 "commonCropName": "Maize",
                 "countryOfOriginCode": "BES",
