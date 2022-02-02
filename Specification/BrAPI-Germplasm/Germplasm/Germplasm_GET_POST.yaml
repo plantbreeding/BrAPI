@@ -63,6 +63,12 @@ paths:
         required: false
         schema:
           type: string
+      - name: trialDbId
+        description: Search for Germplasm that are associated with a particular Study
+        in: query
+        required: false
+        schema:
+          type: string
       - name: studyDbId
         description: Search for Germplasm that are associated with a particular Study
         in: query
