@@ -34,12 +34,12 @@ components:
               type: string
             type: array
             example: ['RDP1', 'MDP1']
-          familyCodes:
+          familyCodes: 
             description: A familyCode representing the family this germplasm belongs to.
             items:
               type: string
             type: array
-            example: ['F0000203', 'FA009965']
+            example: ['f0000203', 'fa009965']
           instituteCodes:
             description: |-
               The code for the institute that maintains the material. 
@@ -47,7 +47,7 @@ components:
             items:
               type: string
             type: array
-            example: ['PER001', 'NOR051']
+            example: ['PER001', 'NOR001']
           binomialNames: 
             description: List of the full binomial name (scientific name) to identify a germplasm
             items:
