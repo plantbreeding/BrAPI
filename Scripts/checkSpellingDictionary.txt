@@ -17,7 +17,7 @@ wiki wikipedia
 uppercase lowercase concatenated whitespace tokenized bibliographical
 xref xrefs xmlns foaf w3c
 preprocessing debug async upload uploaded imagecontent unpaginated pagination
-boolean ordinal
+boolean ordinal recursively
 
 2px 5px 10px 20px #ddd ddd btn
 thh hhmm yyyy o8601 timezone date-time timestamp s84 t18 easting northing
