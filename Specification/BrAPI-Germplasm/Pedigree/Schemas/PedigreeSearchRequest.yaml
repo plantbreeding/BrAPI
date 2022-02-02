@@ -5,7 +5,7 @@ openapi: 3.0.0
 paths: {}
 components:
   schemas:
-    GermplasmSearchRequest: 
+    PedigreeSearchRequest: 
       allOf:
       - $ref: '#/components/schemas/SearchRequestParametersPaging'
       - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'
@@ -72,16 +72,27 @@ components:
               type: string
             type: array
             example: ['variety_1', '2c38f9b6']
-          parentDbIds:
-            description: Search for Germplasm with these parents
-            items:
-              type: string
-            type: array
-            example: ['72c1001f', '7346c553']
-          progenyDbIds: 
-            description: Search for Germplasm with these children
-            items:
-              type: string
-            type: array
-            example: ['16e16a7e', 'ce06cf9e']
-
+          includeParents:
+            description: If this parameter is true, include the array of parents in the response
+            type: boolean
+            example: true
+          includeSiblings:
+            description: If this parameter is true, include the array of siblings in the response
+            type: boolean
+            example: true
+          includeProgeny:
+            description: If this parameter is true, include the array of progeny in the response
+            type: boolean
+            example: true
+          includeFullTree:
+            description: If this parameter is true, recursively include ALL of the nodes available in this pedigree tree 
+            type: boolean
+            example: true
+          pedigreeDepth:
+            description: Recursively include this number of levels up the tree in the response (parents, grand-parents, great-grand-parents, etc)
+            type: integer
+            example: 3
+          progenyDepth:
+            description: Recursively include this number of levels down the tree in the response (children, grand-children, great-grand-children, etc)
+            type: integer
+            example: 3

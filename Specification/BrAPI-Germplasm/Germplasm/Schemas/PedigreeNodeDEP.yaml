@@ -5,7 +5,7 @@ openapi: 3.0.0
 paths: {}
 components:
   schemas:
-    PedigreeNode:
+    PedigreeNodeDEP:
       type: object
       required: 
       - germplasmDbId
@@ -49,7 +49,7 @@ components:
                 type: string
                 example: A0000592
               parentType:
-                $ref: '#/components/schemas/ParentType'
+                $ref: '#/components/schemas/ParentTypeDEP'
           example:
           - germplasmDbId: b66958de
             germplasmName: A0000592

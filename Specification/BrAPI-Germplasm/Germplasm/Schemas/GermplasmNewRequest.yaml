@@ -67,6 +67,10 @@ components:
           description: The unique identifier for the breeding method used to create this germplasm
           type: string
           example: ffcce7ef
+        breedingMethodName:
+          description: human readable name of the breeding method
+          type: string
+          example: Male Backcross
         collection:
           description: A specific panel/collection/population name this germplasm belongs to.
           type: string
