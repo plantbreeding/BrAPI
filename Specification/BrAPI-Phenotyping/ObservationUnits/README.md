@@ -120,6 +120,8 @@ Get a filtered set of Observation Units
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
+|crossDbId|string|the unique identifier for a cross|
+|crossName|string|the human readable name for a cross|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -241,6 +243,8 @@ Get a filtered set of Observation Units
         "data": [
             {
                 "additionalInfo": {},
+                "crossDbId": "d105fd6f",
+                "crossName": "my_Crosses_2018_01",
                 "externalReferences": [
                     {
                         "referenceId": "doi:10.155454/12341234",
@@ -389,6 +393,8 @@ Add new Observation Units
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
+|crossDbId|string|the unique identifier for a cross|
+|crossName|string|the human readable name for a cross|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -435,6 +441,8 @@ Add new Observation Units
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
+|crossDbId|string|the unique identifier for a cross|
+|crossName|string|the human readable name for a cross|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -514,6 +522,8 @@ Add new Observation Units
 [
     {
         "additionalInfo": {},
+        "crossDbId": "d105fd6f",
+        "crossName": "my_Crosses_2018_01",
         "externalReferences": [
             {
                 "referenceId": "doi:10.155454/12341234",
@@ -615,6 +625,8 @@ Add new Observation Units
         "data": [
             {
                 "additionalInfo": {},
+                "crossDbId": "d105fd6f",
+                "crossName": "my_Crosses_2018_01",
                 "externalReferences": [
                     {
                         "referenceId": "doi:10.155454/12341234",
@@ -772,6 +784,8 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
+|crossDbId|string|the unique identifier for a cross|
+|crossName|string|the human readable name for a cross|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -1015,6 +1029,8 @@ Note - In strictly typed languages, this structure can be represented as a Map o
         "data": [
             {
                 "additionalInfo": {},
+                "crossDbId": "d105fd6f",
+                "crossName": "my_Crosses_2018_01",
                 "externalReferences": [
                     {
                         "referenceId": "doi:10.155454/12341234",
@@ -1422,6 +1438,8 @@ Get the details of a specific Observation Unit
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
+|crossDbId|string|the unique identifier for a cross|
+|crossName|string|the human readable name for a cross|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -1521,6 +1539,8 @@ Get the details of a specific Observation Unit
     },
     "result": {
         "additionalInfo": {},
+        "crossDbId": "d105fd6f",
+        "crossName": "my_Crosses_2018_01",
         "externalReferences": [
             {
                 "referenceId": "doi:10.155454/12341234",
@@ -1667,6 +1687,8 @@ Update an existing Observation Units
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
+|crossDbId|string|the unique identifier for a cross|
+|crossName|string|the human readable name for a cross|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -1712,6 +1734,8 @@ Update an existing Observation Units
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
+|crossDbId|string|the unique identifier for a cross|
+|crossName|string|the human readable name for a cross|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -1791,6 +1815,8 @@ Update an existing Observation Units
 ```
 {
     "additionalInfo": {},
+    "crossDbId": "d105fd6f",
+    "crossName": "my_Crosses_2018_01",
     "externalReferences": [
         {
             "referenceId": "doi:10.155454/12341234",
@@ -1889,6 +1915,8 @@ Update an existing Observation Units
     },
     "result": {
         "additionalInfo": {},
+        "crossDbId": "d105fd6f",
+        "crossName": "my_Crosses_2018_01",
         "externalReferences": [
             {
                 "referenceId": "doi:10.155454/12341234",
@@ -2075,6 +2103,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
+|crossDbId|string|the unique identifier for a cross|
+|crossName|string|the human readable name for a cross|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -2277,6 +2307,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "data": [
             {
                 "additionalInfo": {},
+                "crossDbId": "d105fd6f",
+                "crossName": "my_Crosses_2018_01",
                 "externalReferences": [
                     {
                         "referenceId": "doi:10.155454/12341234",
@@ -2460,6 +2492,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
+|crossDbId|string|the unique identifier for a cross|
+|crossName|string|the human readable name for a cross|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -2563,6 +2597,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "data": [
             {
                 "additionalInfo": {},
+                "crossDbId": "d105fd6f",
+                "crossName": "my_Crosses_2018_01",
                 "externalReferences": [
                     {
                         "referenceId": "doi:10.155454/12341234",

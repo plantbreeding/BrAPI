@@ -5,7 +5,7 @@
 
 
 
-### Get - /crosses [GET /brapi/v2/crosses{?crossingProjectDbId}{?crossDbId}{?crossName}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /crosses [GET /brapi/v2/crosses{?crossingProjectDbId}{?crossingProjectName}{?crossDbId}{?crossName}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Cross entities.
 
@@ -41,13 +41,20 @@ Get a filtered list of Cross entities.
 |observationUnitDbId|string|the unique identifier for an observation unit|
 |observationUnitName|string|the human readable name for an observation unit|
 |parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|pollinationTimeStamp|string (date-time)|the timestamp when the pollination took place|
+|plannedCrossDbId|string|the unique identifier for a planned cross|
+|plannedCrossName|string|the human readable name for a planned cross|
+|pollinationEvents|array[object]||
+|pollinationNumber|string|The unique identifier for this pollination event|
+|pollinationSuccessful|boolean|True if the pollination was successful|
+|pollinationTimeStamp|string (date-time)|The timestamp when the pollination took place|
+|pollinationTimeStamp|string (date-time)|**Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265   the timestamp when the pollination took place|
 
 
  
 
 + Parameters
     + crossingProjectDbId (Optional, ) ... Search for Crossing Projects with this unique id
+    + crossingProjectName (Optional, ) ... The human readable name for a crossing project
     + crossDbId (Optional, ) ... Search for Cross with this unique id
     + crossName (Optional, ) ... Search for Cross with this human readable name
     + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
@@ -122,6 +129,14 @@ Get a filtered list of Cross entities.
                     "observationUnitName": "my_Plot_9001",
                     "parentType": "MALE"
                 },
+                "plannedCrossDbId": "c8905568",
+                "plannedCrossName": "my_Crosses_2018_01",
+                "pollinationEvents": [
+                    {
+                        "pollinationNumber": "pollinationNumber",
+                        "pollinationTimeStamp": "2018-01-01T14:47:23-0600"
+                    }
+                ],
                 "pollinationTimeStamp": "2018-01-01T14:47:23-0600"
             }
         ]
@@ -179,7 +194,13 @@ Create new Cross entities on this server
 |observationUnitDbId|string|the unique identifier for an observation unit|
 |observationUnitName|string|the human readable name for an observation unit|
 |parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|pollinationTimeStamp|string (date-time)|the timestamp when the pollination took place|
+|plannedCrossDbId|string|the unique identifier for a planned cross|
+|plannedCrossName|string|the human readable name for a planned cross|
+|pollinationEvents|array[object]||
+|pollinationNumber|string|The unique identifier for this pollination event|
+|pollinationSuccessful|boolean|True if the pollination was successful|
+|pollinationTimeStamp|string (date-time)|The timestamp when the pollination took place|
+|pollinationTimeStamp|string (date-time)|**Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265   the timestamp when the pollination took place|
 
 
 **Response Fields** 
@@ -212,7 +233,13 @@ Create new Cross entities on this server
 |observationUnitDbId|string|the unique identifier for an observation unit|
 |observationUnitName|string|the human readable name for an observation unit|
 |parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|pollinationTimeStamp|string (date-time)|the timestamp when the pollination took place|
+|plannedCrossDbId|string|the unique identifier for a planned cross|
+|plannedCrossName|string|the human readable name for a planned cross|
+|pollinationEvents|array[object]||
+|pollinationNumber|string|The unique identifier for this pollination event|
+|pollinationSuccessful|boolean|True if the pollination was successful|
+|pollinationTimeStamp|string (date-time)|The timestamp when the pollination took place|
+|pollinationTimeStamp|string (date-time)|**Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265   the timestamp when the pollination took place|
 
 
  
@@ -261,6 +288,14 @@ Create new Cross entities on this server
             "observationUnitName": "my_Plot_9001",
             "parentType": "MALE"
         },
+        "plannedCrossDbId": "c8905568",
+        "plannedCrossName": "my_Crosses_2018_01",
+        "pollinationEvents": [
+            {
+                "pollinationNumber": "pollinationNumber",
+                "pollinationTimeStamp": "2018-01-01T14:47:23-0600"
+            }
+        ],
         "pollinationTimeStamp": "2018-01-01T14:47:23-0600"
     }
 ]
@@ -328,6 +363,14 @@ Create new Cross entities on this server
                     "observationUnitName": "my_Plot_9001",
                     "parentType": "MALE"
                 },
+                "plannedCrossDbId": "c8905568",
+                "plannedCrossName": "my_Crosses_2018_01",
+                "pollinationEvents": [
+                    {
+                        "pollinationNumber": "pollinationNumber",
+                        "pollinationTimeStamp": "2018-01-01T14:47:23-0600"
+                    }
+                ],
                 "pollinationTimeStamp": "2018-01-01T14:47:23-0600"
             }
         ]
@@ -393,7 +436,13 @@ Update existing Cross entities on this server
 |observationUnitDbId|string|the unique identifier for an observation unit|
 |observationUnitName|string|the human readable name for an observation unit|
 |parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|pollinationTimeStamp|string (date-time)|the timestamp when the pollination took place|
+|plannedCrossDbId|string|the unique identifier for a planned cross|
+|plannedCrossName|string|the human readable name for a planned cross|
+|pollinationEvents|array[object]||
+|pollinationNumber|string|The unique identifier for this pollination event|
+|pollinationSuccessful|boolean|True if the pollination was successful|
+|pollinationTimeStamp|string (date-time)|The timestamp when the pollination took place|
+|pollinationTimeStamp|string (date-time)|**Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265   the timestamp when the pollination took place|
 
 
  
@@ -527,6 +576,14 @@ Update existing Cross entities on this server
                     "observationUnitName": "my_Plot_9001",
                     "parentType": "MALE"
                 },
+                "plannedCrossDbId": "c8905568",
+                "plannedCrossName": "my_Crosses_2018_01",
+                "pollinationEvents": [
+                    {
+                        "pollinationNumber": "pollinationNumber",
+                        "pollinationTimeStamp": "2018-01-01T14:47:23-0600"
+                    }
+                ],
                 "pollinationTimeStamp": "2018-01-01T14:47:23-0600"
             }
         ]

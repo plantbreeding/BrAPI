@@ -5,7 +5,7 @@
 
 
 
-### Get - /plannedcrosses [GET /brapi/v2/plannedcrosses{?crossingProjectDbId}{?plannedCrossDbId}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /plannedcrosses [GET /brapi/v2/plannedcrosses{?crossingProjectDbId}{?crossingProjectName}{?plannedCrossDbId}{?status}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Planned Cross entities.
 
@@ -36,15 +36,18 @@ Get a filtered list of Planned Cross entities.
 |observationUnitDbId|string|the unique identifier for an observation unit|
 |observationUnitName|string|the human readable name for an observation unit|
 |parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|plannedCrossDbId|string|the unique identifier for a cross|
-|plannedCrossName|string|the human readable name for a cross|
+|plannedCrossDbId|string|the unique identifier for a planned cross|
+|plannedCrossName|string|the human readable name for a planned cross|
+|status|string|The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').|
 
 
  
 
 + Parameters
     + crossingProjectDbId (Optional, ) ... Search for Crossing Projects with this unique id
+    + crossingProjectName (Optional, ) ... The human readable name for a crossing project
     + plannedCrossDbId (Optional, ) ... Search for Planned Cross with this unique id
+    + status (Optional, ) ... The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').
     + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
     + programDbId (Optional, ) ... A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. Use this parameter to only return results associated with the given program. Use `GET /programs` to find the list of available programs on a server.
     + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
@@ -110,7 +113,8 @@ Get a filtered list of Planned Cross entities.
                     "parentType": "MALE"
                 },
                 "plannedCrossDbId": "c8905568",
-                "plannedCrossName": "my_Crosses_2018_01"
+                "plannedCrossName": "my_Crosses_2018_01",
+                "status": "TODO"
             }
         ]
     }
@@ -163,7 +167,8 @@ Create new Planned Cross entities on this server
 |observationUnitDbId|string|the unique identifier for an observation unit|
 |observationUnitName|string|the human readable name for an observation unit|
 |parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|plannedCrossName|string|the human readable name for a cross|
+|plannedCrossName|string|the human readable name for a planned cross|
+|status|string|The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').|
 
 
 **Response Fields** 
@@ -191,8 +196,9 @@ Create new Planned Cross entities on this server
 |observationUnitDbId|string|the unique identifier for an observation unit|
 |observationUnitName|string|the human readable name for an observation unit|
 |parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|plannedCrossDbId|string|the unique identifier for a cross|
-|plannedCrossName|string|the human readable name for a cross|
+|plannedCrossDbId|string|the unique identifier for a planned cross|
+|plannedCrossName|string|the human readable name for a planned cross|
+|status|string|The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').|
 
 
  
@@ -234,7 +240,8 @@ Create new Planned Cross entities on this server
             "observationUnitName": "my_Plot_9001",
             "parentType": "MALE"
         },
-        "plannedCrossName": "my_Crosses_2018_01"
+        "plannedCrossName": "my_Crosses_2018_01",
+        "status": "TODO"
     }
 ]
 ```
@@ -294,7 +301,8 @@ Create new Planned Cross entities on this server
                     "parentType": "MALE"
                 },
                 "plannedCrossDbId": "c8905568",
-                "plannedCrossName": "my_Crosses_2018_01"
+                "plannedCrossName": "my_Crosses_2018_01",
+                "status": "TODO"
             }
         ]
     }
@@ -354,8 +362,9 @@ Update existing Planned Cross entities on this server
 |observationUnitDbId|string|the unique identifier for an observation unit|
 |observationUnitName|string|the human readable name for an observation unit|
 |parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|plannedCrossDbId|string|the unique identifier for a cross|
-|plannedCrossName|string|the human readable name for a cross|
+|plannedCrossDbId|string|the unique identifier for a planned cross|
+|plannedCrossName|string|the human readable name for a planned cross|
+|status|string|The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').|
 
 
  
@@ -482,7 +491,8 @@ Update existing Planned Cross entities on this server
                     "parentType": "MALE"
                 },
                 "plannedCrossDbId": "c8905568",
-                "plannedCrossName": "my_Crosses_2018_01"
+                "plannedCrossName": "my_Crosses_2018_01",
+                "status": "TODO"
             }
         ]
     }
