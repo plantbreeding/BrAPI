@@ -51,14 +51,14 @@ components:
           $ref: '#/components/schemas/CrossParent'
         pollinationTimeStamp: 
           description: |-
-            **Deprecated in v2.1** Please use `pollinations`. Github issue number #265 
+            **Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265 
 
             the timestamp when the pollination took place
           type: string
           format: date-time
           deprecated: true
-        pollinations:
-          descriptions: The list of pollination events that occured for this cross
+        pollinationEvents:
+          descriptions: The list of pollination events that occurred for this cross
           type: array
           items:
             type: object
@@ -71,7 +71,7 @@ components:
                 description: True if the pollination was successful
                 type: boolean
               pollinationNumber:
-                description: The unique identifier for this polination event
+                description: The unique identifier for this pollination event
                 type: string
         crossAttributes: 
           description: Set of custom attributes associated with a cross
