@@ -14,6 +14,18 @@ paths:
         required: false
         schema:
           type: string
+      - name: crossingProjectName 
+        description: The human readable name for a crossing project
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: includePotentialParents 
+        description: If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.
+        in: query
+        required: false
+        schema:
+          type: boolean
       - $ref: '#/components/parameters/commonCropName'
       - $ref: '#/components/parameters/programDbId'
       - $ref: '#/components/parameters/externalReferenceID'

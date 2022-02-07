@@ -14,6 +14,12 @@ paths:
         required: false
         schema:
           type: string
+      - name: crossingProjectName 
+        description: The human readable name for a crossing project
+        in: query
+        required: false
+        schema:
+          type: string
       - name: crossDbId 
         description: Search for Cross with this unique id
         in: query
