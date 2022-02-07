@@ -9,7 +9,7 @@ paths:
       description: Get a filtered list of Crossing Projects. 
       parameters:
       - name: crossingProjectDbId 
-        description: Search for Crossing Projects with this unique id
+        description: The unique identifier for a crossing project
         in: path
         required: true
         schema:
