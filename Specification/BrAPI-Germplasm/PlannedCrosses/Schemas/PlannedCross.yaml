@@ -11,6 +11,6 @@ components:
         - type: object
           properties:
             plannedCrossDbId:
-              description: the unique identifier for a cross
+              description: the unique identifier for a planned cross
               type: string
               example: c8905568

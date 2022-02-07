@@ -25,6 +25,14 @@ components:
           description: the human readable name for a cross
           type: string
           example: my_Crosses_2018_01
+        plannedCrossDbId:
+          description: the unique identifier for a planned cross
+          type: string
+          example: c8905568
+        plannedCrossName: 
+          description: the human readable name for a cross
+          type: string
+          example: my_Crosses_2018_01
         crossType: 
           description: the type of cross
           type: string
