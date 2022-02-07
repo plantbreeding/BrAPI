@@ -22,7 +22,7 @@ components:
           type: string
           example: my_Crosses_2018
         plannedCrossName: 
-          description: the human readable name for a cross
+          description: the human readable name for a planned cross
           type: string
           example: my_Crosses_2018_01
         crossType: 
