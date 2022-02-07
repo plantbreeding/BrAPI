@@ -29,6 +29,14 @@ components:
           description: A human readable name for the originating Seed Lot 
           type: string
           example: Seed Lot Alpha
+        crossDbId:
+          description: the unique identifier for a cross
+          type: string
+          example: d105fd6f
+        crossName: 
+          description: the human readable name for a cross
+          type: string
+          example: my_Crosses_2018_01
         locationDbId:
           description: The ID which uniquely identifies a location, associated with this study
           type: string

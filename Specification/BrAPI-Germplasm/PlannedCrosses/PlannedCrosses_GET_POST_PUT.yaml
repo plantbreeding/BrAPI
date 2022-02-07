@@ -20,6 +20,16 @@ paths:
         required: false
         schema:
           type: string
+      - name: status 
+        description: The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - TODO
+          - DONE
+          - SKIPPED
       - $ref: '#/components/parameters/commonCropName'
       - $ref: '#/components/parameters/programDbId'
       - $ref: '#/components/parameters/externalReferenceID'
