@@ -60,4 +60,22 @@ components:
             items:
               type: string
             example: ['Nursery', 'Storage Location']
+          parentLocationDbIds:
+            description: |-
+              The unique identifier for a Location
+              <br/> The Parent Location defines the encompassing location that this location belongs to. 
+              For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.
+            type: array
+            items:
+              type: string
+            example: ['b28911cf', '5071d1e4']
+          parentLocationNames:
+            description: |-
+              A human readable name for a location
+              <br/> The Parent Location defines the encompassing location that this location belongs to. 
+              For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.
+            type: array
+            items:
+              type: string
+            example: ['Location Alpha', 'The Large Hadron Collider']
 
