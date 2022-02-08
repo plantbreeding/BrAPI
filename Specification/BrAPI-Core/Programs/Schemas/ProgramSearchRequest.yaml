@@ -37,3 +37,15 @@ components:
               type: string
             type: array
             example: ['Objective Code One', 'This is a longer objective search query']
+          programTypes:
+            description: |-
+              The type of program entity this object represents
+              <br/> 'STANARD' represents a standard, permenant breeding program
+              <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding 
+            items:
+              type: string
+              enum:
+              - STANARD
+              - PROJECT
+            type: array
+            example: ['STANARD', 'PROJECT']

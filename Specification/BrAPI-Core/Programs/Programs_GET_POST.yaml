@@ -22,6 +22,18 @@ paths:
         required: false
         schema:
           type: string
+      - name: programType
+        description: |-
+            The type of program entity this object represents
+            <br/> 'STANARD' represents a standard, permenant breeding program
+            <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding 
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - STANARD
+          - PROJECT
       - $ref: '#/components/parameters/externalReferenceID' 
       - $ref: '#/components/parameters/externalReferenceId'
       - $ref: '#/components/parameters/externalReferenceSource'
