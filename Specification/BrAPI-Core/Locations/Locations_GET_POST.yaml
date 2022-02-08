@@ -11,15 +11,41 @@ paths:
         * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
         * `altitude` is in meters.
       parameters:
-      - description: Filter by location type specified.
+      - description: The type of location this represents (ex. Field Station, Breeding Location, Storage Location, etc)
         in: query
         name: locationType
         required: false
         schema:
           type: string
-      - description: Filter by location DbId
+      - description: The unique identifier for a Location
         in: query
         name: locationDbId
+        required: false
+        schema:
+          type: string
+      - description:  |-
+          A human readable name for a location
+          <br/> MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.
+        in: query
+        name: locationName
+        required: false
+        schema:
+          type: string
+      - description: |-
+          The unique identifier for a Location
+          <br/> The Parent Location defines the encompassing location that this location belongs to. 
+          For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.
+        in: query
+        name: parentLocationDbId
+        required: false
+        schema:
+          type: string
+      - description: |-
+          A human readable name for a location
+          <br/> The Parent Location defines the encompassing location that this location belongs to. 
+          For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.
+        in: query
+        name: parentLocationName
         required: false
         schema:
           type: string
