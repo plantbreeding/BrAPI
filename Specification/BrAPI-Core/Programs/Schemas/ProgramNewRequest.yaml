@@ -55,7 +55,7 @@ components:
         fundingInformation:
           description: Information describing the grant or funding source for this program
           type: string
-          example: Tomatillo_Breeding_Program
+          example: 'EU: FP7-244374'
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
           
