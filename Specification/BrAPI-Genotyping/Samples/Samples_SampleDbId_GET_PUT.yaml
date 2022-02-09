@@ -29,8 +29,11 @@ paths:
       tags:
       - Samples
     put:
+      deprecated: true
       summary: Update the details of an existing Sample
-      description: Update the details of an existing Sample
+      description: |-
+        **Deprecated in v2.1** Please use `PUT /samples`. Github issue number #462 
+        <br/>Update the details of an existing Sample
       parameters:
       - description: the internal DB id for a sample
         in: path

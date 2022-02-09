@@ -5,7 +5,7 @@ openapi: 3.0.0
 paths: {}
 components:
   schemas:
-    SampleSearchRequest:
+    PlateSearchRequest:
       allOf:
       - $ref: '#/components/schemas/SearchRequestParametersPaging'
       - $ref: '#/components/schemas/SearchRequestParametersGermplasm'
@@ -34,6 +34,12 @@ components:
               type: string
             type: array
             example: [ '0cac98b8', 'b96125fb']
+          plateBarcodes:
+            description: A unique identifier physically attached to the plate
+            items:
+              type: string
+            type: array
+            example: [ '11223344', '55667788']
           sampleDbIds:
             description: The ID which uniquely identifies a sample
             items:
@@ -58,3 +64,4 @@ components:
               type: string
             type: array
             example: [ 'd745e1e2', '6dd28d74']
+

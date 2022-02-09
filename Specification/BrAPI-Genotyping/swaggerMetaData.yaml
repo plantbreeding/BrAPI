@@ -118,6 +118,11 @@ tags:
   externalDocs:
     description: Docs
     url: https://wiki.brapi.org/
+- name: Plates
+  description: Information about plates containing samples
+  externalDocs:
+    description: Docs
+    url: https://wiki.brapi.org/
 - name: Samples
   description: Information about physical samples
   externalDocs:
