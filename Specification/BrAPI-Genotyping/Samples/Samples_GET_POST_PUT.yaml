@@ -132,7 +132,7 @@ paths:
                   sampleGroupDbId: 8524b436
                   sampleName: Sample_alpha_20191022
                   samplePUI: doi:10.15454/312953986E3
-                  sampleTimestamp: 2018-01-01T14:47:23-0600
+                  sampleTimestamp: 2018-01-01T18:47:23-0600
                   sampleType: Tissue
                   studyDbId: 64bd6bf9
                   takenBy: Bob
@@ -154,7 +154,7 @@ paths:
                   sampleGroupDbId: 8524b436
                   sampleName: Sample_alpha_20191022
                   samplePUI: doi:10.15454/312953986E3
-                  sampleTimestamp: 2018-01-01T14:47:23-0600
+                  sampleTimestamp: 2018-01-01T18:47:23-0600
                   sampleType: Tissue
                   studyDbId: 64bd6bf9
                   takenBy: Bob

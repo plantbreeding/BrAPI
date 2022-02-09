@@ -5,8 +5,8 @@ openapi: 3.0.0
 paths:
   /plates:
     get:
-      summary: Get a filterd list of Plates.
-      description: Get a filterd list of Plates. Each Plate is a collection of samples that are physically grouped together.
+      summary: Get a filtered list of Plates.
+      description: Get a filtered list of Plates. Each Plate is a collection of samples that are physically grouped together.
       parameters:
       - name: sampleDbId
         description: The unique identifier for a Sample
@@ -121,20 +121,22 @@ paths:
                   additionalInfo: {}
                   externalReferences: []
                   plateName: Plate_alpha_20191022
-                  programDbId: bd748e00
                   plateBarcode: 3a027b59
+                  plateFormat: PLATE_96
                   sampleType: Tissue
                   studyDbId: 64bd6bf9
                   trialDbId: d34c5349
+                  programDbId: bd748e00
                 '<plateDbId_2>':
                   additionalInfo: {}
                   externalReferences: []
                   plateName: Plate_alpha_20191022
-                  programDbId: bd748e00
                   plateBarcode: 27b593a0
+                  plateFormat: PLATE_96
                   sampleType: Tissue
                   studyDbId: 64bd6bf9
                   trialDbId: d34c5349
+                  programDbId: bd748e00
       responses:
         '200':
           $ref: '#/components/responses/PlateListResponse'
