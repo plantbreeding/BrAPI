@@ -5,11 +5,11 @@ openapi: 3.0.0
 paths: {}
 components:
   schemas:
-    ObservationUnitLevelRelationship: 
+    ObservationUnitLevel: 
       allOf:
-      - $ref: '#/components/schemas/ObservationUnitLevel'
+      - $ref: '#/components/schemas/ObservationUnitHierarchyLevel'
       - type: object
-        title: ObservationUnitLevelRelationship
+        title: ObservationUnitLevel
         description: |-
           Observation levels indicate the granularity level at which the measurements are taken. `levelName` 
           defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. 
@@ -21,10 +21,10 @@ components:
 
           **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** 
         properties:
-          observationUnitDbId:
+          levelCode:
             description: |-
-              The ID which uniquely identifies an observation unit
-              <br/>If this level has on ObservationUnit associated with it, record the observationUnitDbId here. This is intedended to construct a strict hierarchy of observationUnits. 
-              <br/>If there is no ObservationUnit associated with this level, this field can set to NULL or omitted from the response.
+              An ID code or number to represent a real thing that may or may not be an an observation unit.
+              <br/>For example, if the 'levelName' is 'plot', then the 'levelCode' would be the plot number or plot barcode. If this plot is also considered an ObservationUnit, then the appropriate observationUnitDbId should also be recorded.
+              <br/>If the 'levelName' is 'field', then the 'levelCode' might be something like '3' or 'F3' to indicate the third field at a research station. 
             type: string
-            example: 5ab883e9
+            example: Plot_123

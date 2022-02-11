@@ -108,6 +108,7 @@ paths:
       - $ref: '#/components/parameters/observationUnitLevelRelationshipName'
       - $ref: '#/components/parameters/observationUnitLevelRelationshipOrder'
       - $ref: '#/components/parameters/observationUnitLevelRelationshipCode'
+      - $ref: '#/components/parameters/observationUnitLevelRelationshipDbId'
       - $ref: '#/components/parameters/acceptHeader'
       - $ref: '#/components/parameters/authorizationHeader'
       responses:

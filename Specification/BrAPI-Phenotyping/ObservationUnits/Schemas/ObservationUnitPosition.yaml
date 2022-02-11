@@ -16,8 +16,7 @@ components:
       properties:
         observationLevel:
           allOf:
-          - $ref: '#/components/schemas/ObservationUnitHierarchyLevel'
-          - $ref: '#/components/schemas/ObservationUnitLevelRelationship'
+          - $ref: '#/components/schemas/ObservationUnitLevel'
           - type: object
             properties: {}
             description: |-
