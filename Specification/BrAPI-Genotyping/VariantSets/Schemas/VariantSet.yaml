@@ -65,11 +65,11 @@ components:
           type: string
           example: 2fc3b034
         variantSetDbId: 
-          description: The variant set ID.
+          description: The unique identifier for a VariantSet
           type: string
           example: 87a6ac1e
         variantSetName:
-          description: The variant set name.
+          description: The human readable name for a VariantSet
           type: string
           example: Maize QC DataSet 002334 
         variantCount:

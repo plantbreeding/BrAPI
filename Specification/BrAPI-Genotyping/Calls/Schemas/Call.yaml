@@ -36,6 +36,14 @@ components:
           description: The name of the variant this call belongs to.
           type: string
           example: Marker A
+        variantSetDbId: 
+          description: The unique identifier for a VariantSet
+          type: string
+          example: 87a6ac1e
+        variantSetName:
+          description: The human readable name for a VariantSet
+          type: string
+          example: Maize QC DataSet 002334 
         genotype:
           $ref: '#/components/schemas/ListValue'
         genotype_likelihood:
