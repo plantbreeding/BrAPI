@@ -65,6 +65,7 @@ paths:
       - $ref: '#/components/parameters/observationUnitLevelRelationshipName'
       - $ref: '#/components/parameters/observationUnitLevelRelationshipOrder'
       - $ref: '#/components/parameters/observationUnitLevelRelationshipCode' 
+      - $ref: '#/components/parameters/observationUnitLevelRelationshipDbId'
       - $ref: '#/components/parameters/commonCropName'
       - $ref: '#/components/parameters/programDbId'
       - $ref: '#/components/parameters/externalReferenceID'

@@ -34,7 +34,7 @@ components:
             description: Searches for values in ObservationUnit->observationUnitPosition->observationLevel
             type: array 
             items: 
-              $ref: '#/components/schemas/ObservationUnitLevelRelationship'
+              $ref: '#/components/schemas/ObservationUnitLevel'
             example:
               - levelName: plot
                 levelCode: Plot_123
