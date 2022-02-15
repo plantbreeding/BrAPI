@@ -24,7 +24,7 @@ components:
           observationUnitDbId:
             description: |-
               The ID which uniquely identifies an observation unit
-              <br/>If this level has on ObservationUnit associated with it, record the observationUnitDbId here. This is intedended to construct a strict hierarchy of observationUnits. 
+              <br/>If this level has on ObservationUnit associated with it, record the observationUnitDbId here. This is intended to construct a strict hierarchy of observationUnits. 
               <br/>If there is no ObservationUnit associated with this level, this field can set to NULL or omitted from the response.
             type: string
             example: 5ab883e9
