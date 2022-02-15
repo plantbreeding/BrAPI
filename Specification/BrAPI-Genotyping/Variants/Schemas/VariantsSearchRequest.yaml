@@ -24,9 +24,23 @@ components:
             type: integer
             example: 1500
           referenceDbId:
-            description: Only return variants on this reference.
+            description: |-
+              **Deprecated in v2.1** Please use `referenceDbIds`. Github issue number #472
+              <br/>Only return variants on this reference.
             type: string
             example: 120a2d5c
+          referenceDbIds:
+            description: The unique identifier representing a genotype Refernce 
+            items:
+              type: string
+            type: array
+            example: ['89ab4d17', '74d3b63d']
+          referenceSetDbIds:
+            description: The unique identifier representing a genotype RefernceSet 
+            items:
+              type: string
+            type: array
+            example: ['d3b63d4d', '3b63d74b']
           start:
             description: The beginning of the window (0-based, inclusive) for which overlapping variants should be returned. Genomic positions are non-negative integers less than reference length. Requests spanning the join of circular genomes are represented as two requests one on each side of the join (position 0).
             type: integer
