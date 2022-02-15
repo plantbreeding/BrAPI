@@ -11,7 +11,10 @@ components:
       - type: object
         properties:
           callSetDbIds: 
-            description: Only return variant calls which belong to call sets with these IDs. If unspecified, return all variants and no variant call objects.
+            deprecated: true
+            description: |-
+              **Deprecated in v2.1** Parameter unnecessary. Github issue number #474 
+              <br/>Only return variant calls which belong to call sets with these IDs. If unspecified, return all variants and no variant call objects.
             items:
               type: string
             type: array
