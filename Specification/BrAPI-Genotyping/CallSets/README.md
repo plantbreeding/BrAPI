@@ -210,6 +210,8 @@ Gets a list of `Calls` associated with a `CallSet`.
 |phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.|
 |variantDbId|string|The ID of the variant this call belongs to.|
 |variantName|string|The name of the variant this call belongs to.|
+|variantSetDbId|string|The unique identifier for a VariantSet|
+|variantSetName|string|The human readable name for a VariantSet|
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
@@ -270,7 +272,9 @@ Gets a list of `Calls` associated with a `CallSet`.
                 ],
                 "phaseSet": "6410afc5",
                 "variantDbId": "538c8ecf",
-                "variantName": "Marker A"
+                "variantName": "Marker A",
+                "variantSetDbId": "87a6ac1e",
+                "variantSetName": "Maize QC DataSet 002334"
             }
         ],
         "expandHomozygotes": true,

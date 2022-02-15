@@ -50,8 +50,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
 |studyDbId|string|The ID of the dataset this variant set belongs to.|
 |variantCount|integer|The number of Variants included in this VariantSet|
-|variantSetDbId|string|The variant set ID.|
-|variantSetName|string|The variant set name.|
+|variantSetDbId|string|The unique identifier for a VariantSet|
+|variantSetName|string|The human readable name for a VariantSet|
 
 
  
@@ -243,8 +243,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
 |studyDbId|string|The ID of the dataset this variant set belongs to.|
 |variantCount|integer|The number of Variants included in this VariantSet|
-|variantSetDbId|string|The variant set ID.|
-|variantSetName|string|The variant set name.|
+|variantSetDbId|string|The unique identifier for a VariantSet|
+|variantSetName|string|The human readable name for a VariantSet|
 
 
  
@@ -393,8 +393,8 @@ Will return a filtered list of `VariantSet`.
 |referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
 |studyDbId|string|The ID of the dataset this variant set belongs to.|
 |variantCount|integer|The number of Variants included in this VariantSet|
-|variantSetDbId|string|The variant set ID.|
-|variantSetName|string|The variant set name.|
+|variantSetDbId|string|The unique identifier for a VariantSet|
+|variantSetName|string|The human readable name for a VariantSet|
 
 
  
@@ -534,8 +534,8 @@ Will perform a search for `Calls` which match the search criteria in `variantSet
 |referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
 |studyDbId|string|The ID of the dataset this variant set belongs to.|
 |variantCount|integer|The number of Variants included in this VariantSet|
-|variantSetDbId|string|The variant set ID.|
-|variantSetName|string|The variant set name.|
+|variantSetDbId|string|The unique identifier for a VariantSet|
+|variantSetName|string|The human readable name for a VariantSet|
 
 
  
@@ -685,8 +685,8 @@ This call will return a JSON version of a `VariantSet`.
 |referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
 |studyDbId|string|The ID of the dataset this variant set belongs to.|
 |variantCount|integer|The number of Variants included in this VariantSet|
-|variantSetDbId|string|The variant set ID.|
-|variantSetName|string|The variant set name.|
+|variantSetDbId|string|The unique identifier for a VariantSet|
+|variantSetName|string|The human readable name for a VariantSet|
 
 
  
@@ -801,6 +801,8 @@ Gets a list of `Calls` associated with a `VariantSet`.
 |phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.|
 |variantDbId|string|The ID of the variant this call belongs to.|
 |variantName|string|The name of the variant this call belongs to.|
+|variantSetDbId|string|The unique identifier for a VariantSet|
+|variantSetName|string|The human readable name for a VariantSet|
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
@@ -861,7 +863,9 @@ Gets a list of `Calls` associated with a `VariantSet`.
                 ],
                 "phaseSet": "6410afc5",
                 "variantDbId": "538c8ecf",
-                "variantName": "Marker A"
+                "variantName": "Marker A",
+                "variantSetDbId": "87a6ac1e",
+                "variantSetName": "Maize QC DataSet 002334"
             }
         ],
         "expandHomozygotes": true,
