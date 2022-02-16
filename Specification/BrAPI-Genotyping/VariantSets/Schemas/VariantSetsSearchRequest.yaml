@@ -34,13 +34,13 @@ components:
               type: string
             example: ['b2903842', 'dcbb8558']
           referenceDbIds:
-            description: The unique identifier representing a genotype Refernce 
+            description: The unique identifier representing a genotype Reference 
             items:
               type: string
             type: array
             example: ['89ab4d17', '74d3b63d']
           referenceSetDbIds:
-            description: The unique identifier representing a genotype RefernceSet 
+            description: The unique identifier representing a genotype ReferenceSet 
             items:
               type: string
             type: array

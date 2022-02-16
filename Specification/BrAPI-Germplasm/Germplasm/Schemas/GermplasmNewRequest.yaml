@@ -176,7 +176,7 @@ components:
             An identifier for the source of the biological material
             <br/>MIAPPE V1.1 (DM-50) Material source ID (Holding institute/stock centre, accession) - An identifier for the source of the biological material, in the form of a key-value pair comprising the name/identifier of the repository from which the material was sourced plus the accession number of the repository for that material. Where an accession number has not been assigned, but the material has been derived from the crossing of known accessions, the material can be defined as follows: "mother_accession X father_accession", or, if father is unknown, as "mother_accession X UNKNOWN". For in situ material, the region of provenance may be used when an accession is not available.
           type: string
-          example: INRA:W95115_inra
+          example: INRA:095115_inra
         speciesAuthority:
           description: |-
             The authority organization responsible for tracking and maintaining the species name 
