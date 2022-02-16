@@ -130,7 +130,7 @@ Create new list objects in the database
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
-|data|array[string]|The list of DbIds contained in this list|
+|data|array[string]|The DbIds of other objects contained in this List|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
@@ -289,7 +289,7 @@ Get a specific generic lists
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
-|data|array[string]|The list of DbIds contained in this list|
+|data|array[string]|The DbIds of other objects contained in this List|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
@@ -398,7 +398,7 @@ Update an existing generic list
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
-|data|array[string]|The list of DbIds contained in this list|
+|data|array[string]|The DbIds of other objects contained in this List|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
@@ -419,7 +419,7 @@ Update an existing generic list
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
-|data|array[string]|The list of DbIds contained in this list|
+|data|array[string]|The DbIds of other objects contained in this List|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
@@ -550,9 +550,9 @@ Update an existing generic list
 
 
 
-### Post - /lists/{listDbId}/items [POST /brapi/v2/lists/{listDbId}/items]
+### Post - /lists/{listDbId}/data [POST /brapi/v2/lists/{listDbId}/data]
 
-Add new data to a specific generic lists
+Add new data members to a specific List
 
 **Request Fields** 
 
@@ -565,7 +565,132 @@ Add new data to a specific generic lists
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
-|data|array[string]|The list of DbIds contained in this list|
+|data|array[string]|The DbIds of other objects contained in this List|
+|dateCreated|string (date-time)|Timestamp when the entity was first created|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
+|listDbId|string|The unique identifier for a List|
+|listDescription|string|Description of a List|
+|listName|string|Human readable name of a List|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listSize|integer|The number of elements in a List|
+|listSource|string|The description of where a List originated from|
+|listType|string||
+
+
+ 
+
++ Parameters
+    + listDbId (Required, ) ... The unique identifier of a generic List
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+[
+    "758a78c0",
+    "2c78f9ee"
+]
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "additionalInfo": {},
+        "data": [
+            "758a78c0",
+            "2c78f9ee"
+        ],
+        "dateCreated": "2018-01-01T14:47:23-0600",
+        "dateModified": "2018-01-01T14:47:23-0600",
+        "externalReferences": [
+            {
+                "referenceId": "doi:10.155454/12341234",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceId": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            }
+        ],
+        "listDbId": "6f621cfa",
+        "listDescription": "This is a list of germplasm I would like to investigate next season",
+        "listName": "MyGermplasm_Sept_2020",
+        "listOwnerName": "Bob Robertson",
+        "listOwnerPersonDbId": "58db0628",
+        "listSize": 53,
+        "listSource": "GeneBank Repository 1.3",
+        "listType": "germplasm"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
+
+
+
+### **Deprecated** Post - /lists/{listDbId}/items [POST /brapi/v2/lists/{listDbId}/items]
+
+**Deprecated in v2.1** Please use `POST /lists/{listDbId}/data`. Github issue number #444 
+<br/> Add new data to a specific generic lists
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|additionalInfo|object|Additional arbitrary info|
+|data|array[string]|The DbIds of other objects contained in this List|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|

@@ -16,16 +16,23 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 |Field|Type|Description|
 |---|---|---| 
-|callSetDbIds|array[string]|The CallSet to search.|
+|callSetDbIds|array[string]|The unique identifier representing a CallSet|
 |commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
+|externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
 |programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
+|referenceDbIds|array[string]|The unique identifier representing a genotype Reference|
+|referenceSetDbIds|array[string]|The unique identifier representing a genotype ReferenceSet|
 |studyDbIds|array[string]|List of study identifiers to search for|
 |studyNames|array[string]|List of study names to filter search results|
-|variantDbIds|array[string]|The Variant to search.|
-|variantSetDbIds|array[string]|The VariantSet to search.|
+|trialDbIds|array[string]|The ID which uniquely identifies a trial to search for|
+|trialNames|array[string]|The human readable name of a trial to search for|
+|variantDbIds|array[string]|The unique identifier representing a Variant|
+|variantSetDbIds|array[string]|The unique identifier representing a VariantSet|
 
 
 **Response Fields** 
@@ -42,11 +49,19 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
 |updated|string (date-time)|The time at which this record was last updated, in ISO 8601 format.|
-|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
+|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.  <br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc) <br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
+|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
 |fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
+|sepPhased|string|The string used as a separator for phased allele calls.|
+|sepUnphased|string|The string used as a separator for unphased allele calls.|
+|unknownString|string|The string used as a representation for missing data.|
 |callSetCount|integer|The number of CallSets included in this VariantSet|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
 |studyDbId|string|The ID of the dataset this variant set belongs to.|
 |variantCount|integer|The number of Variants included in this VariantSet|
@@ -72,6 +87,18 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "Tomatillo",
         "Paw Paw"
     ],
+    "externalReferenceIDs": [
+        "doi:10.155454/12341234",
+        "14a19841"
+    ],
+    "externalReferenceIds": [
+        "doi:10.155454/12341234",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "DOI",
+        "Field App Name"
+    ],
     "page": 0,
     "pageSize": 1000,
     "programDbIds": [
@@ -82,6 +109,14 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "Better Breeding Program",
         "Best Breeding Program"
     ],
+    "referenceDbIds": [
+        "89ab4d17",
+        "74d3b63d"
+    ],
+    "referenceSetDbIds": [
+        "d3b63d4d",
+        "3b63d74b"
+    ],
     "studyDbIds": [
         "cf6c4bd4",
         "691e69d6"
@@ -89,6 +124,14 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
     "studyNames": [
         "The First Bob Study 2017",
         "Wheat Yield Trial 246"
+    ],
+    "trialDbIds": [
+        "d2593dc2",
+        "9431a731"
+    ],
+    "trialNames": [
+        "All Yield Trials 2016",
+        "Disease Resistance Study Comparison Group"
     ],
     "variantDbIds": [
         "c80f068b",
@@ -143,17 +186,38 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 ],
                 "availableFormats": [
                     {
-                        "dataFormat": "VCF",
-                        "fileFormat": "application/excel",
-                        "fileURL": "https://brapi.org/example/VCF_1.xlsx"
-                    },
-                    {
-                        "dataFormat": "VCF",
-                        "fileFormat": "text/csv",
-                        "fileURL": "https://brapi.org/example/VCF_2.csv"
+                        "dataFormat": [
+                            "DartSeq",
+                            "VCF",
+                            "Hapmap",
+                            "tabular",
+                            "JSON"
+                        ],
+                        "expandHomozygotes": true,
+                        "fileFormat": [
+                            "text/csv",
+                            "text/tsv",
+                            "application/excel",
+                            "application/zip",
+                            "application/json"
+                        ],
+                        "fileURL": "",
+                        "sepPhased": "|",
+                        "sepUnphased": "/",
+                        "unknownString": "."
                     }
                 ],
                 "callSetCount": 341,
+                "externalReferences": [
+                    {
+                        "referenceId": "doi:10.155454/12341234",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceId": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    }
+                ],
                 "referenceSetDbId": "57eae639",
                 "studyDbId": "2fc3b034",
                 "variantCount": 250,
@@ -235,11 +299,19 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
 |updated|string (date-time)|The time at which this record was last updated, in ISO 8601 format.|
-|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
+|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.  <br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc) <br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
+|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
 |fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
+|sepPhased|string|The string used as a separator for phased allele calls.|
+|sepUnphased|string|The string used as a separator for unphased allele calls.|
+|unknownString|string|The string used as a representation for missing data.|
 |callSetCount|integer|The number of CallSets included in this VariantSet|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
 |studyDbId|string|The ID of the dataset this variant set belongs to.|
 |variantCount|integer|The number of Variants included in this VariantSet|
@@ -298,17 +370,38 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 ],
                 "availableFormats": [
                     {
-                        "dataFormat": "VCF",
-                        "fileFormat": "application/excel",
-                        "fileURL": "https://brapi.org/example/VCF_1.xlsx"
-                    },
-                    {
-                        "dataFormat": "VCF",
-                        "fileFormat": "text/csv",
-                        "fileURL": "https://brapi.org/example/VCF_2.csv"
+                        "dataFormat": [
+                            "DartSeq",
+                            "VCF",
+                            "Hapmap",
+                            "tabular",
+                            "JSON"
+                        ],
+                        "expandHomozygotes": true,
+                        "fileFormat": [
+                            "text/csv",
+                            "text/tsv",
+                            "application/excel",
+                            "application/zip",
+                            "application/json"
+                        ],
+                        "fileURL": "",
+                        "sepPhased": "|",
+                        "sepUnphased": "/",
+                        "unknownString": "."
                     }
                 ],
                 "callSetCount": 341,
+                "externalReferences": [
+                    {
+                        "referenceId": "doi:10.155454/12341234",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceId": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    }
+                ],
                 "referenceSetDbId": "57eae639",
                 "studyDbId": "2fc3b034",
                 "variantCount": 250,
@@ -365,7 +458,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 
 
-### Get - /variantsets [GET /brapi/v2/variantsets{?variantSetDbId}{?variantDbId}{?callSetDbId}{?studyDbId}{?studyName}{?commonCropName}{?programDbId}{?page}{?pageSize}]
+### Get - /variantsets [GET /brapi/v2/variantsets{?variantSetDbId}{?variantDbId}{?callSetDbId}{?studyDbId}{?studyName}{?referenceSetDbId}{?commonCropName}{?programDbId}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Will return a filtered list of `VariantSet`.
 
@@ -385,11 +478,19 @@ Will return a filtered list of `VariantSet`.
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
 |updated|string (date-time)|The time at which this record was last updated, in ISO 8601 format.|
-|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
+|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.  <br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc) <br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
+|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
 |fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
+|sepPhased|string|The string used as a separator for phased allele calls.|
+|sepUnphased|string|The string used as a separator for unphased allele calls.|
+|unknownString|string|The string used as a representation for missing data.|
 |callSetCount|integer|The number of CallSets included in this VariantSet|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
 |studyDbId|string|The ID of the dataset this variant set belongs to.|
 |variantCount|integer|The number of Variants included in this VariantSet|
@@ -405,8 +506,11 @@ Will return a filtered list of `VariantSet`.
     + callSetDbId (Optional, ) ... The ID of the `CallSet` to be retrieved.
     + studyDbId (Optional, ) ... Filter by study DbId
     + studyName (Optional, ) ... Filter by study name
+    + referenceSetDbId (Optional, ) ... The ID of the reference set that describes the sequences used by the variants in this set.
     + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
     + programDbId (Optional, ) ... A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. Use this parameter to only return results associated with the given program. Use `GET /programs` to find the list of available programs on a server.
+    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -454,17 +558,38 @@ Will return a filtered list of `VariantSet`.
                 ],
                 "availableFormats": [
                     {
-                        "dataFormat": "VCF",
-                        "fileFormat": "application/excel",
-                        "fileURL": "https://brapi.org/example/VCF_1.xlsx"
-                    },
-                    {
-                        "dataFormat": "VCF",
-                        "fileFormat": "text/csv",
-                        "fileURL": "https://brapi.org/example/VCF_2.csv"
+                        "dataFormat": [
+                            "DartSeq",
+                            "VCF",
+                            "Hapmap",
+                            "tabular",
+                            "JSON"
+                        ],
+                        "expandHomozygotes": true,
+                        "fileFormat": [
+                            "text/csv",
+                            "text/tsv",
+                            "application/excel",
+                            "application/zip",
+                            "application/json"
+                        ],
+                        "fileURL": "",
+                        "sepPhased": "|",
+                        "sepUnphased": "/",
+                        "unknownString": "."
                     }
                 ],
                 "callSetCount": 341,
+                "externalReferences": [
+                    {
+                        "referenceId": "doi:10.155454/12341234",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceId": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    }
+                ],
                 "referenceSetDbId": "57eae639",
                 "studyDbId": "2fc3b034",
                 "variantCount": 250,
@@ -526,11 +651,19 @@ Will perform a search for `Calls` which match the search criteria in `variantSet
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
 |updated|string (date-time)|The time at which this record was last updated, in ISO 8601 format.|
-|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
+|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.  <br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc) <br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
+|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
 |fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
+|sepPhased|string|The string used as a separator for phased allele calls.|
+|sepUnphased|string|The string used as a separator for unphased allele calls.|
+|unknownString|string|The string used as a representation for missing data.|
 |callSetCount|integer|The number of CallSets included in this VariantSet|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
 |studyDbId|string|The ID of the dataset this variant set belongs to.|
 |variantCount|integer|The number of Variants included in this VariantSet|
@@ -615,17 +748,38 @@ Will perform a search for `Calls` which match the search criteria in `variantSet
         ],
         "availableFormats": [
             {
-                "dataFormat": "VCF",
-                "fileFormat": "application/excel",
-                "fileURL": "https://brapi.org/example/VCF_1.xlsx"
-            },
-            {
-                "dataFormat": "VCF",
-                "fileFormat": "text/csv",
-                "fileURL": "https://brapi.org/example/VCF_2.csv"
+                "dataFormat": [
+                    "DartSeq",
+                    "VCF",
+                    "Hapmap",
+                    "tabular",
+                    "JSON"
+                ],
+                "expandHomozygotes": true,
+                "fileFormat": [
+                    "text/csv",
+                    "text/tsv",
+                    "application/excel",
+                    "application/zip",
+                    "application/json"
+                ],
+                "fileURL": "",
+                "sepPhased": "|",
+                "sepUnphased": "/",
+                "unknownString": "."
             }
         ],
         "callSetCount": 341,
+        "externalReferences": [
+            {
+                "referenceId": "doi:10.155454/12341234",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceId": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            }
+        ],
         "referenceSetDbId": "57eae639",
         "studyDbId": "2fc3b034",
         "variantCount": 250,
@@ -677,11 +831,19 @@ This call will return a JSON version of a `VariantSet`.
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
 |updated|string (date-time)|The time at which this record was last updated, in ISO 8601 format.|
-|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
+|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.  <br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc) <br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
+|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
 |fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
+|sepPhased|string|The string used as a separator for phased allele calls.|
+|sepUnphased|string|The string used as a separator for unphased allele calls.|
+|unknownString|string|The string used as a representation for missing data.|
 |callSetCount|integer|The number of CallSets included in this VariantSet|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
 |studyDbId|string|The ID of the dataset this variant set belongs to.|
 |variantCount|integer|The number of Variants included in this VariantSet|
@@ -736,17 +898,38 @@ This call will return a JSON version of a `VariantSet`.
         ],
         "availableFormats": [
             {
-                "dataFormat": "VCF",
-                "fileFormat": "application/excel",
-                "fileURL": "https://brapi.org/example/VCF_1.xlsx"
-            },
-            {
-                "dataFormat": "VCF",
-                "fileFormat": "text/csv",
-                "fileURL": "https://brapi.org/example/VCF_2.csv"
+                "dataFormat": [
+                    "DartSeq",
+                    "VCF",
+                    "Hapmap",
+                    "tabular",
+                    "JSON"
+                ],
+                "expandHomozygotes": true,
+                "fileFormat": [
+                    "text/csv",
+                    "text/tsv",
+                    "application/excel",
+                    "application/zip",
+                    "application/json"
+                ],
+                "fileURL": "",
+                "sepPhased": "|",
+                "sepUnphased": "/",
+                "unknownString": "."
             }
         ],
         "callSetCount": 341,
+        "externalReferences": [
+            {
+                "referenceId": "doi:10.155454/12341234",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceId": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            }
+        ],
         "referenceSetDbId": "57eae639",
         "studyDbId": "2fc3b034",
         "variantCount": 250,
@@ -869,9 +1052,9 @@ Gets a list of `Calls` associated with a `VariantSet`.
             }
         ],
         "expandHomozygotes": true,
-        "sepPhased": "~",
-        "sepUnphased": "|",
-        "unknownString": "-"
+        "sepPhased": "|",
+        "sepUnphased": "/",
+        "unknownString": "."
     }
 }
 ```
@@ -909,6 +1092,10 @@ Gets a list of `CallSets` associated with a `VariantSet`.
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
 |created|string (date-time)|The date this call set was created|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |updated|string (date-time)|The time at which this call set was last updated|
@@ -956,6 +1143,16 @@ Gets a list of `CallSets` associated with a `VariantSet`.
                 "callSetDbId": "eb2bfd3d",
                 "callSetName": "Sample_123_DNA_Run_456",
                 "created": "2018-01-01T14:47:23-0600",
+                "externalReferences": [
+                    {
+                        "referenceId": "doi:10.155454/12341234",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceId": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    }
+                ],
                 "sampleDbId": "5e50e11d",
                 "studyDbId": "708149c1",
                 "updated": "2018-01-01T14:47:23-0600",
@@ -1006,11 +1203,18 @@ This call will return an array of `Variants`.
 |cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2|
 |created|string (date-time)|The timestamp when this variant was created.|
 |end|integer|This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
 |filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
 |filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
 |referenceBases|string|The reference bases for this variant. They start at the given start position.|
+|referenceDbId|string|The unique identifier for a Reference|
 |referenceName|string|The reference on which this variant occurs. (e.g. `chr_20` or `X`)|
+|referenceSetDbId|string|The unique identifier for a ReferenceSet|
+|referenceSetName|string|The human readable name of the ReferenceSet|
 |start|integer|This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The start position at which this variant occurs (0-based). This corresponds to the first base of the string  of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning  the join of circular genomes are represented as two variants one on each side of the join (position 0).|
 |svlen|integer|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2|
 |updated|string (date-time)|The time at which this variant was last updated.|
@@ -1072,6 +1276,16 @@ This call will return an array of `Variants`.
                 ],
                 "created": "2018-01-01T14:47:23-0600",
                 "end": 518,
+                "externalReferences": [
+                    {
+                        "referenceId": "doi:10.155454/12341234",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceId": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    }
+                ],
                 "filtersApplied": true,
                 "filtersFailed": [
                     "d629a669",
@@ -1079,7 +1293,10 @@ This call will return an array of `Variants`.
                 ],
                 "filtersPassed": true,
                 "referenceBases": "TAGGATTGAGCTCTATAT",
+                "referenceDbId": "fc0a81d0",
                 "referenceName": "chr_20",
+                "referenceSetDbId": "c1ecfef1",
+                "referenceSetName": "The Best Assembly Ever",
                 "start": 500,
                 "svlen": 1500,
                 "updated": "2018-01-01T14:47:23-0600",

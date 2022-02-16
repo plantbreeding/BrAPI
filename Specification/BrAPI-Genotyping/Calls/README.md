@@ -96,9 +96,9 @@ Gets a filtered list of `Call` JSON objects.
             }
         ],
         "expandHomozygotes": true,
-        "sepPhased": "~",
-        "sepUnphased": "|",
-        "unknownString": "-"
+        "sepPhased": "|",
+        "sepUnphased": "/",
+        "unknownString": "."
     }
 }
 ```
@@ -248,9 +248,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
             }
         ],
         "expandHomozygotes": true,
-        "sepPhased": "~",
-        "sepUnphased": "|",
-        "unknownString": "-"
+        "sepPhased": "|",
+        "sepUnphased": "/",
+        "unknownString": "."
     }
 }
 ```
@@ -393,9 +393,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
             }
         ],
         "expandHomozygotes": true,
-        "sepPhased": "~",
-        "sepUnphased": "|",
-        "unknownString": "-"
+        "sepPhased": "|",
+        "sepUnphased": "/",
+        "unknownString": "."
     }
 }
 ```
