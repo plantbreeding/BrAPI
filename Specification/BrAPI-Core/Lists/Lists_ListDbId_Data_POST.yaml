@@ -3,14 +3,12 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /lists/{listDbId}/items:
+  /lists/{listDbId}/data:
     post:
-      deprecated: true
-      description: |-
-        **Deprecated in v2.1** Please use `POST /lists/{listDbId}/data`. Github issue number #444 
-        <br/> Add new data to a specific generic lists
+      summary: Add new data members to a specific List
+      description: Add new data members to a specific List
       parameters:
-      - description: The unique ID of this generic list
+      - description: The unique identifier of a generic List
         in: path
         name: listDbId
         required: true
@@ -52,6 +50,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Add Items to a specific List
       tags:
       - Lists
