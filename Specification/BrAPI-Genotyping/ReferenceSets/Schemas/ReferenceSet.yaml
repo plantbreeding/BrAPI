@@ -41,7 +41,7 @@ components:
           type: string
           example: c2365e900c81a89cf74d83dab60df146
         referenceSetName:
-          description: The reference set name.
+          description: The human readable name of the ReferenceSet
           type: string
           example: The Best Assembly Ever
         sourceAccessions:

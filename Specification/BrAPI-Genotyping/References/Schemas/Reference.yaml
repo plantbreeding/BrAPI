@@ -15,13 +15,21 @@ components:
           description: Additional arbitrary info
           type: object
         referenceDbId:
-          description: The reference ID. Unique within the repository.
+          description: The unique identifier for a Reference
           type: string
           example: fc0a81d0
+        referenceName:
+          description: The human readable name of a Reference within a Reference Set.
+          type: string
+          example: Chromosome 2
         referenceSetDbId:
-          description: The reference ID. Unique within the repository.
+          description: The unique identifier for a ReferenceSet
           type: string
           example: c1ecfef1
+        referenceSetName:
+          description: The human readable name of the ReferenceSet
+          type: string
+          example: The Best Assembly Ever
         isDerived:
           description: A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.
           format: boolean
@@ -35,10 +43,6 @@ components:
           description: The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).
           type: string
           example: c2365e900c81a89cf74d83dab60df146
-        referenceName:
-          description: The unique name of this reference within the Reference Set.
-          type: string
-          example: Chromosome 2
         sourceAccessions:
           description: All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.
           items:
