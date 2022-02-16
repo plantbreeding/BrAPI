@@ -14,6 +14,8 @@ components:
             type: string
           description: Additional arbitrary info
           type: object
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
         sampleDbId:
           description: The Biosample entity the call set data was generated from.
           type: string

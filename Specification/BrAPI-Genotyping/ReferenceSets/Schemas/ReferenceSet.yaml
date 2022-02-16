@@ -18,14 +18,20 @@ components:
             type: string
           description: Additional arbitrary info
           type: object
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
         description:
           description: Optional free text description of this reference set.
           type: string
           example: This is an example description for an assembly
         referenceSetDbId:
-          description: The reference set ID. Unique in the repository.
+          description: The unique identifier for a ReferenceSet
           type: string
-          example: 7e029a84
+          example: c1ecfef1
+        referenceSetName:
+          description: The human readable name of a ReferenceSet
+          type: string
+          example: The Best Assembly Ever
         isDerived:
           description: A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).
           format: boolean
@@ -40,10 +46,20 @@ components:
             hexadecimal string.
           type: string
           example: c2365e900c81a89cf74d83dab60df146
-        referenceSetName:
-          description: The human readable name of the ReferenceSet
-          type: string
-          example: The Best Assembly Ever
+        sourceGermplasm:
+          description: All known corresponding Germplasm
+          type: array
+          items:
+            type: object
+            properties:
+              germplasmDbId:
+                description: The ID which uniquely identifies a germplasm within the given database server
+                type: string
+                example: d4076594
+              germplasmName:
+                description: The human readable name of a germplasm
+                type: string
+                example: A0000003
         sourceAccessions:
           description: All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.
           items:
@@ -54,6 +70,10 @@ components:
           description: Specifies a FASTA format file/string.
           type: string
           example: https://wiki.brapi.org/files/demo.fast
+        commonCropName:
+          description: Common name for the crop 
+          type: string
+          example: Maize
         species:
           $ref: '#/components/schemas/OntologyTerm'
 

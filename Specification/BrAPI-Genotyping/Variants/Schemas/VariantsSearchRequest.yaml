@@ -8,6 +8,11 @@ components:
     variantsSearchRequest: 
       allOf:
       - $ref: '#/components/schemas/SearchRequestParametersTokenPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'
+      - $ref: '#/components/schemas/SearchRequestParametersPrograms'
+      - $ref: '#/components/schemas/SearchRequestParametersTrials'
+      - $ref: '#/components/schemas/SearchRequestParametersStudies'
+      - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'
       - type: object
         properties:
           callSetDbIds: 

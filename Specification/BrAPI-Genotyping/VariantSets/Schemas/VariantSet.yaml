@@ -14,6 +14,8 @@ components:
             type: string
           description: Additional arbitrary info
           type: object
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
         availableFormats:
           description: |-
             When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats. 

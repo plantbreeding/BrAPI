@@ -51,6 +51,22 @@ paths:
           required: false
           schema:
             type: integer
+        - name: trialDbId
+          description: The unique identifier for a Trial
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: studyDbId
+          description: The unique identifier for a Study
+          in: query
+          required: false
+          schema:
+            type: string
+        - $ref: '#/components/parameters/commonCropName'
+        - $ref: '#/components/parameters/programDbId'
+        - $ref: '#/components/parameters/externalReferenceId'
+        - $ref: '#/components/parameters/externalReferenceSource'
         - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/authorizationHeader'

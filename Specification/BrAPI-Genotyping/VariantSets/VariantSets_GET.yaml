@@ -46,6 +46,8 @@ paths:
             type: string
         - $ref: '#/components/parameters/commonCropName'
         - $ref: '#/components/parameters/programDbId'
+        - $ref: '#/components/parameters/externalReferenceId'
+        - $ref: '#/components/parameters/externalReferenceSource'
         - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/authorizationHeader'
