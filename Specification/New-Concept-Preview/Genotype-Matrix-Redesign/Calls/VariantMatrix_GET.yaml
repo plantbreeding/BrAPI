@@ -9,6 +9,34 @@ paths:
       description: |-
         Two dimensional matrix representing the raw contents of a VCF
       parameters:
+        - dimensionVariantPage:
+            name: dimensionVariantPage
+            description: The requested page number for the Variant dimension of the matrix
+            in: query
+            required: false
+            schema:
+              type: string
+        - dimensionVariantPageSize:
+            name: dimensionVariantPage
+            description: The requested page size for the Variant dimension of the matrix
+            in: query
+            required: false
+            schema:
+              type: string
+        - dimensionCallsetPage:
+            name: dimensionVariantPage
+            description: The requested page number for the Callset dimension of the matrix
+            in: query
+            required: false
+            schema:
+              type: string
+        - dimensionCallsetPageSize:
+            name: dimensionVariantPage
+            description: The requested page size for the Callset dimension of the matrix
+            in: query
+            required: false
+            schema:
+              type: string
         - $ref: '#/components/parameters/positionRange'
         - $ref: '#/components/parameters/germplasmDbId'
         - $ref: '#/components/parameters/germplasmName'

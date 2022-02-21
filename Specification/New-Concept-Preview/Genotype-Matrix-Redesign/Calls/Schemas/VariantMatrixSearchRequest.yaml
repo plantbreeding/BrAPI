@@ -17,7 +17,10 @@ components:
               dimension:
                 description: the dimension of the matrix being paginated
                 type: string
-                example: variants
+                enum:
+                - CALLSETS
+                - VARIANTS
+                example: VARIANTS
               pageSize: 
                 description: the maximum number of elements per page in this dimension of the matrix
                 type: integer

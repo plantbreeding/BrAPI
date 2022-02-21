@@ -10,6 +10,48 @@ components:
       required:
       - data
       properties:
+        pagination:
+          description: Pagination for the matrix
+          type: array
+          items:
+            type: object
+            properties:
+              dimension:
+                description: the dimension of the matrix being paginated
+                type: string
+                enum:
+                - CALLSETS
+                - VARIANTS
+                example: VARIANTS
+              pageSize: 
+                description: the maximum number of elements per page in this dimension of the matrix
+                type: integer
+                example: 500
+              page: 
+                description: the requested page number (zero indexed) 
+                type: integer
+                example: 0
+              totalCount:
+                description: The total number of elements that are available on the server and match the requested query parameters. 
+                type: integer
+                example: 10000
+              totalPages:
+                description: |-
+                  The total number of pages of elements available on the server. This should be calculated with the following formula. 
+                  <br/>totalPages = CEILING( totalCount / requested_page_size)
+                type: integer
+                example: 20
+          example:
+            -  dimension: VARIANTS
+               pageSize: 500
+               page: 0
+               totalCount: 10000
+               totalPages: 20
+            -  dimension: CALLSETS
+               pageSize: 1000
+               page: 4
+               totalCount: 10000
+               totalPages: 10
         callSetDbIds:
           type: array
           items:
