@@ -1,10 +1,10 @@
 brapi
 brapicore brapiphenotyping brapigenotyping brapigermplasm
+brapicore20 brapiphenotyping20 brapigenotyping20 brapigermplasm20
 brapicore21 brapiphenotyping21 brapigenotyping21 brapigermplasm21
 
 observationunits attributevalues callsets markerpositions referencesets variantsets commoncropnames
-openapi apiary github swaggerhub ga4gh apis auth
-RESTfulness Tfulness
+openapi apiary github swaggerhub ga4gh apis auth restfulness RESTfulness tfulness
 
 json jsonld csv tsv flapjack jpg svg png postgres xlsx vnd tabular datafiles datafile
 md5sum md5checksum md5checksums checksum
