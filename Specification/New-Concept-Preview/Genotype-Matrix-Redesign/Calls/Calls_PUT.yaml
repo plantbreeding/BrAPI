@@ -13,7 +13,7 @@ paths:
         `callSetDbId`, `variantDbId`, and `variantSetDbId`. These three fields MUST be present for every 
         `call` update request. This endpoint should not allow these fields to be modified for a given 
         `call`. Modifying these fields in the database is effectively moving a cell to a different location
-        in the genotype matrix. This action is dangerous and can cause data colisions.     
+        in the genotype matrix. This action is dangerous and can cause data collisions.     
       parameters:
         - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
