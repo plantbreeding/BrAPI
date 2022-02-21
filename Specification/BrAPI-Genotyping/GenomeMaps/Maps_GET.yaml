@@ -32,6 +32,15 @@ paths:
         required: false
         schema:
           type: string
+<<<<<<< HEAD
+=======
+      - name: programDbId
+        description: Unique Id to filter by Program
+        in: query
+        required: false
+        schema:
+          type: string
+>>>>>>> brapi-V2.0
       - name: trialDbId
         description: Unique Id to filter by Trial
         in: query

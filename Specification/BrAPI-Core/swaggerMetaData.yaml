@@ -25,6 +25,10 @@ info:
     <div class="link-btn"><a href="https://github.com/plantbreeding/API/tree/brapi-V2.1/Specification/BrAPI-Core">GitHub</a></div>
     <div class="link-btn"><a href="https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Core/2.1">SwaggerHub</a></div>
     <div class="link-btn"><a href="https://brapicore21.docs.apiary.io">Apiary</a></div>
+    <div class="version-number">V2.0</div>
+    <div class="link-btn"><a href="https://github.com/plantbreeding/API/tree/brapi-V2.0/Specification/BrAPI-Core">GitHub</a></div>
+    <div class="link-btn"><a href="https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Core/2.0">SwaggerHub</a></div>
+    <div class="link-btn"><a href="https://brapicore20.docs.apiary.io">Apiary</a></div>
     <div class="stop-float"></div>
     </div>
     
