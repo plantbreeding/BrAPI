@@ -7,6 +7,150 @@ Genotype Matrix Redesign description
 
 
 
+### Put - /calls [PUT /brapi/v2/calls]
+
+Update existing `Calls` with new genotype value or metadata
+<br/>Implementation Note - 
+<br/>A `Call` object does not have a DbId of its own. It is defined by the unique combination of 
+`callSetDbId`, `variantDbId`, and `variantSetDbId`. These three fields MUST be present for every 
+`call` update request. This endpoint should not allow these fields to be modified for a given 
+`call`. Modifying these fields in the database is effectively moving a cell to a different location
+in the genotype matrix. This action is dangerous and can cause data collisions.     
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|additionalInfo|object|Additional arbitrary info|
+|callSetDbId|string|The ID of the call set this variant call belongs to.  If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
+|callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
+|genotype|object|`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.|
+|values|array|Repeated field of dynamically typed values.|
+|genotype_likelihood|array[number]|The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
+|phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.|
+|variantDbId|string|The ID of the variant this call belongs to.|
+|variantName|string|The name of the variant this call belongs to.|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|callSetDbId|string|The ID of the call set this variant call belongs to.  If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
+|callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
+|genotype|object|`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.|
+|values|array|Repeated field of dynamically typed values.|
+|genotype_likelihood|array[number]|The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
+|phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.|
+|variantDbId|string|The ID of the variant this call belongs to.|
+|variantName|string|The name of the variant this call belongs to.|
+|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
+|sepPhased|string|The string used as a separator for phased allele calls.|
+|sepUnphased|string|The string used as a separator for unphased allele calls.|
+|unknownString|string|The string used as a representation for missing data.|
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+[
+    {
+        "additionalInfo": {},
+        "callSetDbId": "16466f55",
+        "callSetName": "Sample_123_DNA_Run_456",
+        "genotype": {
+            "values": [
+                "AA"
+            ]
+        },
+        "genotype_likelihood": [
+            1.0
+        ],
+        "phaseSet": "6410afc5",
+        "variantDbId": "538c8ecf",
+        "variantName": "Marker A"
+    }
+]
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPageToken": "48bc6ac1",
+            "nextPageToken": "cb668f63",
+            "pageSize": 1000,
+            "prevPageToken": "9659857e",
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "callSetDbId": "16466f55",
+                "callSetName": "Sample_123_DNA_Run_456",
+                "genotype": {
+                    "values": [
+                        "AA"
+                    ]
+                },
+                "genotype_likelihood": [
+                    1.0
+                ],
+                "phaseSet": "6410afc5",
+                "variantDbId": "538c8ecf",
+                "variantName": "Marker A"
+            }
+        ],
+        "expandHomozygotes": true,
+        "sepPhased": "~",
+        "sepUnphased": "|",
+        "unknownString": "-"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
 ### Post - /search/calls [POST /brapi/v2/search/calls]
 
 Submit a search request for `Calls`<br/>
@@ -405,6 +549,12 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |fieldMatrix|array[array]||
 |fieldName|string||
 |fieldType|string||
+|pagination|array[object]|Pagination for the matrix|
+|dimension|string|the dimension of the matrix being paginated|
+|page|integer|the requested page number (zero indexed)|
+|pageSize|integer|the maximum number of elements per page in this dimension of the matrix|
+|totalCount|integer|The total number of elements that are available on the server and match the requested query parameters.|
+|totalPages|integer|The total number of pages of elements available on the server. This should be calculated with the following formula.  <br/>totalPages = CEILING( totalCount / requested_page_size)|
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
 |unknownString|string|The string used as a representation for missing data.|
@@ -549,6 +699,22 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "fieldType": "integer"
             }
         ],
+        "pagination": [
+            {
+                "dimension": "VARIANTS",
+                "page": 0,
+                "pageSize": 500,
+                "totalCount": 10000,
+                "totalPages": 20
+            },
+            {
+                "dimension": "CALLSETS",
+                "page": 4,
+                "pageSize": 1000,
+                "totalCount": 10000,
+                "totalPages": 10
+            }
+        ],
         "sepPhased": "|",
         "sepUnphased": "/",
         "unknownString": ".",
@@ -652,6 +818,12 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |fieldMatrix|array[array]||
 |fieldName|string||
 |fieldType|string||
+|pagination|array[object]|Pagination for the matrix|
+|dimension|string|the dimension of the matrix being paginated|
+|page|integer|the requested page number (zero indexed)|
+|pageSize|integer|the maximum number of elements per page in this dimension of the matrix|
+|totalCount|integer|The total number of elements that are available on the server and match the requested query parameters.|
+|totalPages|integer|The total number of pages of elements available on the server. This should be calculated with the following formula.  <br/>totalPages = CEILING( totalCount / requested_page_size)|
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
 |unknownString|string|The string used as a representation for missing data.|
@@ -741,6 +913,22 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "fieldType": "integer"
             }
         ],
+        "pagination": [
+            {
+                "dimension": "VARIANTS",
+                "page": 0,
+                "pageSize": 500,
+                "totalCount": 10000,
+                "totalPages": 20
+            },
+            {
+                "dimension": "CALLSETS",
+                "page": 4,
+                "pageSize": 1000,
+                "totalCount": 10000,
+                "totalPages": 10
+            }
+        ],
         "sepPhased": "|",
         "sepUnphased": "/",
         "unknownString": ".",
@@ -821,7 +1009,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 
 
-### Get - /variantmatrix [GET /brapi/v2/variantmatrix{?positionRange}{?germplasmDbId}{?germplasmName}{?germplasmPUI}{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}]
+### Get - /variantmatrix [GET /brapi/v2/variantmatrix{?dimensionVariantPage}{?dimensionVariantPage}{?dimensionVariantPage}{?dimensionVariantPage}{?positionRange}{?germplasmDbId}{?germplasmName}{?germplasmPUI}{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}]
 
 Two dimensional matrix representing the raw contents of a VCF
 
@@ -838,6 +1026,12 @@ Two dimensional matrix representing the raw contents of a VCF
 |fieldMatrix|array[array]||
 |fieldName|string||
 |fieldType|string||
+|pagination|array[object]|Pagination for the matrix|
+|dimension|string|the dimension of the matrix being paginated|
+|page|integer|the requested page number (zero indexed)|
+|pageSize|integer|the maximum number of elements per page in this dimension of the matrix|
+|totalCount|integer|The total number of elements that are available on the server and match the requested query parameters.|
+|totalPages|integer|The total number of pages of elements available on the server. This should be calculated with the following formula.  <br/>totalPages = CEILING( totalCount / requested_page_size)|
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
 |unknownString|string|The string used as a representation for missing data.|
@@ -853,6 +1047,10 @@ Two dimensional matrix representing the raw contents of a VCF
  
 
 + Parameters
+    + dimensionVariantPage (Optional, ) ... The requested page number for the Variant dimension of the matrix
+    + dimensionVariantPage (Optional, ) ... The requested page size for the Variant dimension of the matrix
+    + dimensionVariantPage (Optional, ) ... The requested page number for the CallSet dimension of the matrix
+    + dimensionVariantPage (Optional, ) ... The requested page size for the CallSet dimension of the matrix
     + positionRange (Optional, ) ... The postion range to search<br/>Uses the format "<chrom>:<start>-<end>" where <chrom> is the chromosome name, <start> is the starting position of the range, and <end> is the ending position of the range
     + germplasmDbId (Optional, ) ... Internal database identifier
     + germplasmName (Optional, ) ... Name of the germplasm
@@ -935,6 +1133,22 @@ Two dimensional matrix representing the raw contents of a VCF
                 ],
                 "fieldName": "Genotype Quality",
                 "fieldType": "integer"
+            }
+        ],
+        "pagination": [
+            {
+                "dimension": "VARIANTS",
+                "page": 0,
+                "pageSize": 500,
+                "totalCount": 10000,
+                "totalPages": 20
+            },
+            {
+                "dimension": "CALLSETS",
+                "page": 4,
+                "pageSize": 1000,
+                "totalCount": 10000,
+                "totalPages": 10
             }
         ],
         "sepPhased": "|",
