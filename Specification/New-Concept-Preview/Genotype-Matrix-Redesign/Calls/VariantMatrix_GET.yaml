@@ -9,34 +9,30 @@ paths:
       description: |-
         Two dimensional matrix representing the raw contents of a VCF
       parameters:
-        - dimensionVariantPage:
-            name: dimensionVariantPage
-            description: The requested page number for the Variant dimension of the matrix
-            in: query
-            required: false
-            schema:
-              type: string
-        - dimensionVariantPageSize:
-            name: dimensionVariantPage
-            description: The requested page size for the Variant dimension of the matrix
-            in: query
-            required: false
-            schema:
-              type: string
-        - dimensionCallSetPage:
-            name: dimensionVariantPage
-            description: The requested page number for the CallSet dimension of the matrix
-            in: query
-            required: false
-            schema:
-              type: string
-        - dimensionCallSetPageSize:
-            name: dimensionVariantPage
-            description: The requested page size for the CallSet dimension of the matrix
-            in: query
-            required: false
-            schema:
-              type: string
+        - name: dimensionVariantPage
+          description: The requested page number for the Variant dimension of the matrix
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: dimensionVariantPage
+          description: The requested page size for the Variant dimension of the matrix
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: dimensionVariantPage
+          description: The requested page number for the CallSet dimension of the matrix
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: dimensionVariantPage
+          description: The requested page size for the CallSet dimension of the matrix
+          in: query
+          required: false
+          schema:
+            type: string
         - $ref: '#/components/parameters/positionRange'
         - $ref: '#/components/parameters/germplasmDbId'
         - $ref: '#/components/parameters/germplasmName'
