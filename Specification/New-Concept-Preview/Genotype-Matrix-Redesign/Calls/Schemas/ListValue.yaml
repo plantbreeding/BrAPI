@@ -9,8 +9,7 @@ components:
       type: object
       description: |-
         `ListValue` is a wrapper around a repeated field of values.
-
-        The JSON representation for `ListValue` is JSON array.
+        <br/>The JSON representation for `ListValue` is JSON array.
       properties:
         values:
           type: array
@@ -25,4 +24,4 @@ components:
               type: number
             - description: Represents a string value.
               type: string
-          example: [ 'AA' ]
+          example: [ '1/1' ]
