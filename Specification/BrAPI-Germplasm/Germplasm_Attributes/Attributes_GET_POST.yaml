@@ -26,12 +26,27 @@ paths:
         required: false
         schema:
           type: string
+      - name: attributePUI
+        description: The Perminent Unique Identifier of an Attribute, usually in the form of a URI
+        in: query
+        required: false
+        schema:
+          type: string
       - name: germplasmDbId
         description: Get all attributes associated with this germplasm
         in: query
         required: false
         schema:
           type: string
+      - $ref: '#/components/parameters/methodDbId'
+      - $ref: '#/components/parameters/methodName'
+      - $ref: '#/components/parameters/methodPUI'
+      - $ref: '#/components/parameters/scaleDbId'
+      - $ref: '#/components/parameters/scaleName'
+      - $ref: '#/components/parameters/scalePUI'
+      - $ref: '#/components/parameters/traitDbId'
+      - $ref: '#/components/parameters/traitName'
+      - $ref: '#/components/parameters/traitPUI'
       - $ref: '#/components/parameters/commonCropName'
       - $ref: '#/components/parameters/programDbId'
       - $ref: '#/components/parameters/externalReferenceID'

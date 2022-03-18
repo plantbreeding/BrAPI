@@ -7,24 +7,9 @@ components:
   schemas:
     GermplasmAttributeSearchRequest:
       allOf:
-      - $ref: '#/components/schemas/SearchRequestParametersPaging'
-      - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'
-      - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'
-      - $ref: '#/components/schemas/SearchRequestParametersPrograms'
+      - $ref: '#/components/schemas/SearchRequestParametersVariableBaseClass'
       - type: object
         properties:
-          dataTypes:
-            description: List of scale data types to filter search results
-            items:
-              $ref: '#/components/schemas/TraitDataType'
-            type: array
-            example: ['Numerical', 'Ordinal', 'Text']
-          methodDbIds:
-            description: List of methods to filter search results
-            items:
-              type: string
-            type: array
-            example: ['07e34f83', 'd3d5517a']
           attributeDbIds:
             description: List of Germplasm Attribute IDs to search for
             items:
@@ -37,34 +22,10 @@ components:
               type: string
             type: array
             example: ['Plant Height 1', 'Root Color']
-          ontologyDbIds:
-            description: List of ontology IDs to search for
+          attributePUIs:
+            description: The Perminent Unique Identifier of an Attribute, usually in the form of a URI
             items:
               type: string
             type: array
-            example: ['f44f7b23', 'a26b576e']
-          scaleDbIds:
-            description: List of scales to filter search results
-            items:
-              type: string
-            type: array
-            example: ['a13ecffa', '7e1afe4f']
-          studyDbId:  
-            description: The unique ID of a studies to filter on
-            type: array
-            items:
-              type: string
-            example: ['5bcac0ae', '7f48e22d']
-          traitClasses:
-            description: List of trait classes to filter search results
-            items:
-              type: string
-            type: array
-            example: ['morphological', 'phenological', 'agronomical']
-          traitDbIds:
-            description: List of trait unique ID to filter search results
-            items:
-              type: string
-            type: array
-            example: ['ef81147b', '78d82fad']
+            example: ['http://my-minter.com/trait/CO_123:0008012', 'http://my-minter.com/trait/CO_123:0007261']
   

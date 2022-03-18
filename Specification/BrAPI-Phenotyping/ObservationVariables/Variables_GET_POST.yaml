@@ -14,21 +14,38 @@ paths:
         required: false
         schema:
           type: string
+      - description: Human readable name of an Observation Variable
+        in: query
+        name: observationVariableName
+        required: false
+        schema:
+          type: string
+      - description: The Perminent Unique Identifier of a Observation Variable, usually in the form of a URI
+        in: query
+        name: observationVariablePUI
+        required: false
+        schema:
+          type: string
       - description: Variable's trait class (phenological, physiological, morphological, etc.)
         in: query
         name: traitClass
         required: false
         schema:
           type: string
-      - description: The unique ID of a studies to filter on
-        in: query
-        name: studyDbId
-        required: false
-        schema:
-          type: string
+      - $ref: '#/components/parameters/methodDbId'
+      - $ref: '#/components/parameters/methodName'
+      - $ref: '#/components/parameters/methodPUI'
+      - $ref: '#/components/parameters/scaleDbId'
+      - $ref: '#/components/parameters/scaleName'
+      - $ref: '#/components/parameters/scalePUI'
+      - $ref: '#/components/parameters/traitDbId'
+      - $ref: '#/components/parameters/traitName'
+      - $ref: '#/components/parameters/traitPUI'
       - $ref: '#/components/parameters/ontologyDbId'
       - $ref: '#/components/parameters/commonCropName'
       - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/trialDbId'
+      - $ref: '#/components/parameters/studyDbId'
       - $ref: '#/components/parameters/externalReferenceID'
       - $ref: '#/components/parameters/externalReferenceId'
       - $ref: '#/components/parameters/externalReferenceSource'
