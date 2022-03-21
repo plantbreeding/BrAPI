@@ -27,10 +27,13 @@ components:
         scaleName:
           description: |- 
             Name of the scale
-            
-            MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable
+            <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable
           type: string
           example: Meters
+        scalePUI:
+          description: The Perminent Unique Identifier of a Scale, usually in the form of a URI
+          type: string
+          example: http://my-minter.com/trait/CO_123:0000112
         units:
           description: |-
             This field can be used to describe the units used for this scale. This should be the abriviated 
@@ -71,8 +74,7 @@ components:
             min:
               description: |-
                 **Deprecated in v2.1** Please use `minimumValue`. Github issue number #450 
-
-                Minimum value for numerical scales. Typically used for data capture control and QC.
+                <br/>Minimum value for numerical scales. Typically used for data capture control and QC.
               type: integer
               example: 2
               deprecated: true

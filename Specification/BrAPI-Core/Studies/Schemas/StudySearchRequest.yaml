@@ -22,12 +22,6 @@ components:
             description: Is this study currently active
             type: boolean
             example: true
-          observationVariableDbIds: 
-            description: List of observation variable IDs to search for
-            items:
-              type: string
-            type: array
-            example: ['819e508f', 'f540b703']
           seasonDbIds: 
             description: The ID which uniquely identifies a season
             items:
