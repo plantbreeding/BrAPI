@@ -5,14 +5,71 @@ openapi: 3.0.0
 paths: {}
 components:
   parameters:
-    programDbId:
-      name: programDbId
+    methodDbId:
+      name: methodDbId
+      description: Method unique identifier
+      in: query
+      required: false
+      schema:
+        type: string
+    methodName:
+      name: methodName
       description: |-
-        A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
-
-        Use this parameter to only return results associated with the given program. 
-
-        Use `GET /programs` to find the list of available programs on a server.
+            Human readable name for the method
+            <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation
+      in: query
+      required: false
+      schema:
+        type: string
+    methodPUI:
+      name: methodPUI
+      description: The Perminent Unique Identifier of a Method, usually in the form of a URI
+      in: query
+      required: false
+      schema:
+        type: string
+    scaleDbId:
+      name: scaleDbId
+      description: Scale unique identifier
+      in: query
+      required: false
+      schema:
+        type: string
+    scaleName:
+      name: scaleName
+      description: |-
+            Human readable name for the scale
+            <br/>MIAPPE V1.1 (DM-88) Scale  Name of the scale of observation
+      in: query
+      required: false
+      schema:
+        type: string
+    scalePUI:
+      name: scalePUI
+      description: The Perminent Unique Identifier of a Scale, usually in the form of a URI
+      in: query
+      required: false
+      schema:
+        type: string
+    traitDbId:
+      name: traitDbId
+      description: Trait unique identifier
+      in: query
+      required: false
+      schema:
+        type: string
+    traitName:
+      name: traitName
+      description: |-
+            Human readable name for the trait
+            <br/>MIAPPE V1.1 (DM-88) Trait  Name of the trait of observation
+      in: query
+      required: false
+      schema:
+        type: string
+    traitPUI:
+      name: traitPUI
+      description: The Perminent Unique Identifier of a Trait, usually in the form of a URI
       in: query
       required: false
       schema:

@@ -15,6 +15,15 @@ components:
       - $ref: '#/components/schemas/SearchRequestParametersStudies'
       - type: object
         properties:
+          studyDbId:  
+            description: |-
+              **Deprecated in v2.1** Please use `studyDbIds`. Github issue number #483 
+              The unique ID of a studies to filter on
+            deprecated: true
+            type: array
+            items:
+              type: string
+            example: ['5bcac0ae', '7f48e22d']
           ontologyDbIds:
             description: List of ontology IDs to search for
             items:
