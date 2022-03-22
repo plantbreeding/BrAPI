@@ -35,7 +35,7 @@ Each Ontology record describes the metadata of an existing ontology, it does not
 
 + Parameters
     + ontologyName (Optional, ) ... The human readable identifier for an ontology definition
-    + ontologyDbId (Optional, ) ... The unique identifier for an ontology definition. Use this parameterto filter results based on a specific ontology Use `GET /ontologies` to find the list of available ontologies on a server.
+    + ontologyDbId (Optional, ) ... The unique identifier for an ontology definition. Use this parameter to filter results based on a specific ontology Use `GET /ontologies` to find the list of available ontologies on a server.
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>

@@ -36,15 +36,16 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
-|units|string|This field can be used to describe the units used for this scale. This should be the abriviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
+|scaleName|string|Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|scalePUI|string|The Permanent Unique Identifier of a Scale, usually in the form of a URI|
+|units|string|This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
 |value|string|The actual value for a category|
 |max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
 |maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
-|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450   Minimum value for numerical scales. Typically used for data capture control and QC.|
+|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.|
 |minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
 
 
@@ -53,9 +54,9 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 + Parameters
     + scaleDbId (Optional, ) ... The unique identifier for a scale
     + observationVariableDbId (Optional, ) ... The unique identifier for an observation variable
-    + ontologyDbId (Optional, ) ... The unique identifier for an ontology definition. Use this parameterto filter results based on a specific ontology Use `GET /ontologies` to find the list of available ontologies on a server.
+    + ontologyDbId (Optional, ) ... The unique identifier for an ontology definition. Use this parameter to filter results based on a specific ontology Use `GET /ontologies` to find the list of available ontologies on a server.
     + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
-    + programDbId (Optional, ) ... A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. Use this parameter to only return results associated with the given program. Use `GET /programs` to find the list of available programs on a server.
+    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
     + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
@@ -116,6 +117,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
                 },
                 "scaleDbId": "af730171",
                 "scaleName": "Meters",
+                "scalePUI": "http://my-traits.com/trait/CO_123:0000112",
                 "units": "m",
                 "validValues": {
                     "categories": [
@@ -183,15 +185,16 @@ Create new scale objects in the database
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
-|units|string|This field can be used to describe the units used for this scale. This should be the abriviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
+|scaleName|string|Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|scalePUI|string|The Permanent Unique Identifier of a Scale, usually in the form of a URI|
+|units|string|This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
 |value|string|The actual value for a category|
 |max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
 |maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
-|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450   Minimum value for numerical scales. Typically used for data capture control and QC.|
+|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.|
 |minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
 
 
@@ -215,15 +218,16 @@ Create new scale objects in the database
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
-|units|string|This field can be used to describe the units used for this scale. This should be the abriviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
+|scaleName|string|Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|scalePUI|string|The Permanent Unique Identifier of a Scale, usually in the form of a URI|
+|units|string|This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
 |value|string|The actual value for a category|
 |max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
 |maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
-|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450   Minimum value for numerical scales. Typically used for data capture control and QC.|
+|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.|
 |minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
 
 
@@ -263,6 +267,7 @@ Create new scale objects in the database
             "version": "7.2.3"
         },
         "scaleName": "Meters",
+        "scalePUI": "http://my-traits.com/trait/CO_123:0000112",
         "units": "m",
         "validValues": {
             "categories": [
@@ -340,6 +345,7 @@ Create new scale objects in the database
                 },
                 "scaleDbId": "af730171",
                 "scaleName": "Meters",
+                "scalePUI": "http://my-traits.com/trait/CO_123:0000112",
                 "units": "m",
                 "validValues": {
                     "categories": [
@@ -412,15 +418,16 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
-|units|string|This field can be used to describe the units used for this scale. This should be the abriviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
+|scaleName|string|Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|scalePUI|string|The Permanent Unique Identifier of a Scale, usually in the form of a URI|
+|units|string|This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
 |value|string|The actual value for a category|
 |max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
 |maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
-|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450   Minimum value for numerical scales. Typically used for data capture control and QC.|
+|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.|
 |minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
 
 
@@ -481,6 +488,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
         },
         "scaleDbId": "af730171",
         "scaleName": "Meters",
+        "scalePUI": "http://my-traits.com/trait/CO_123:0000112",
         "units": "m",
         "validValues": {
             "categories": [
@@ -551,15 +559,16 @@ Update the details of an existing scale
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
-|units|string|This field can be used to describe the units used for this scale. This should be the abriviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
+|scaleName|string|Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|scalePUI|string|The Permanent Unique Identifier of a Scale, usually in the form of a URI|
+|units|string|This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
 |value|string|The actual value for a category|
 |max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
 |maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
-|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450   Minimum value for numerical scales. Typically used for data capture control and QC.|
+|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.|
 |minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
 
 
@@ -582,15 +591,16 @@ Update the details of an existing scale
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
-|units|string|This field can be used to describe the units used for this scale. This should be the abriviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
+|scaleName|string|Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|scalePUI|string|The Permanent Unique Identifier of a Scale, usually in the form of a URI|
+|units|string|This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
 |value|string|The actual value for a category|
 |max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
 |maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
-|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450   Minimum value for numerical scales. Typically used for data capture control and QC.|
+|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.|
 |minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
 
 
@@ -630,6 +640,7 @@ Update the details of an existing scale
         "version": "7.2.3"
     },
     "scaleName": "Meters",
+    "scalePUI": "http://my-traits.com/trait/CO_123:0000112",
     "units": "m",
     "validValues": {
         "categories": [
@@ -704,6 +715,7 @@ Update the details of an existing scale
         },
         "scaleDbId": "af730171",
         "scaleName": "Meters",
+        "scalePUI": "http://my-traits.com/trait/CO_123:0000112",
         "units": "m",
         "validValues": {
             "categories": [

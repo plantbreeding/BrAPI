@@ -38,7 +38,7 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
 
 + Parameters
     + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
-    + programDbId (Optional, ) ... A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. Use this parameter to only return results associated with the given program. Use `GET /programs` to find the list of available programs on a server.
+    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
     + programName (Optional, ) ... Filter by program name. Exact match.
     + abbreviation (Optional, ) ... Filter by program abbreviation. Exact match.
     + programType (Optional, ) ... The type of program entity this object represents<br/> 'STANARD' represents a standard, permenant breeding program<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding 

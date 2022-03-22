@@ -8,7 +8,7 @@ hardness.  They are often evaluated by genotyping for diagnostic markers.
 
 
 
-### Get - /attributes [GET /brapi/v2/attributes{?attributeCategory}{?attributeDbId}{?attributeName}{?germplasmDbId}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /attributes [GET /brapi/v2/attributes{?attributeCategory}{?attributeDbId}{?attributeName}{?attributePUI}{?germplasmDbId}{?methodDbId}{?methodName}{?methodPUI}{?scaleDbId}{?scaleName}{?scalePUI}{?traitDbId}{?traitName}{?traitPUI}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 List available attributes.
 
@@ -24,6 +24,7 @@ List available attributes.
 |attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
 |attributeDescription|string|A human readable description of this attribute|
 |attributeName|string|A human readable name for this attribute|
+|attributePUI|string|The Permanent Unique Identifier of an Attribute, usually in the form of a URI|
 |commonCropName|string|Crop name (examples: "Maize", "Wheat")|
 |contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
 |defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
@@ -37,8 +38,8 @@ List available attributes.
 |language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
 |method|object||
 |additionalInfo|object|Additional arbitrary info|
-|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
-|description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|bibliographicalReference|string|Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
+|description|string|Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -46,7 +47,8 @@ List available attributes.
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
-|methodName|string|Human readable name for the method  MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
+|methodName|string|Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
+|methodPUI|string|The Permanent Unique Identifier of a Method, usually in the form of a URI|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -77,15 +79,16 @@ List available attributes.
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
-|units|string|This field can be used to describe the units used for this scale. This should be the abriviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
+|scaleName|string|Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|scalePUI|string|The Permanent Unique Identifier of a Scale, usually in the form of a URI|
+|units|string|This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
 |value|string|The actual value for a category|
 |max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
 |maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
-|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450   Minimum value for numerical scales. Typically used for data capture control and QC.|
+|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.|
 |minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
@@ -95,7 +98,9 @@ List available attributes.
 |additionalInfo|object|Additional arbitrary info|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|attributePUI|string|The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|entityPUI|string|The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" |
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -110,10 +115,11 @@ List available attributes.
 |version|string|Ontology version (no specific format)|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
 |synonyms|array[string]|Other trait names|
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|traitClass|string|A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
-|traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitName|string|The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitPUI|string|The Permanent Unique Identifier of a Trait, usually in the form of a URI|
 
 
  
@@ -122,9 +128,19 @@ List available attributes.
     + attributeCategory (Optional, ) ... The general category for the attribute. very similar to Trait class.
     + attributeDbId (Optional, ) ... The unique id for an attribute
     + attributeName (Optional, ) ... The human readable name for an attribute
+    + attributePUI (Optional, ) ... The Permanent Unique Identifier of an Attribute, usually in the form of a URI
     + germplasmDbId (Optional, ) ... Get all attributes associated with this germplasm
+    + methodDbId (Optional, ) ... Method unique identifier
+    + methodName (Optional, ) ... Human readable name for the method<br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation
+    + methodPUI (Optional, ) ... The Permanent Unique Identifier of a Method, usually in the form of a URI
+    + scaleDbId (Optional, ) ... Scale unique identifier
+    + scaleName (Optional, ) ... Human readable name for the scale<br/>MIAPPE V1.1 (DM-88) Scale  Name of the scale of observation
+    + scalePUI (Optional, ) ... The Permanent Unique Identifier of a Scale, usually in the form of a URI
+    + traitDbId (Optional, ) ... Trait unique identifier
+    + traitName (Optional, ) ... Human readable name for the trait<br/>MIAPPE V1.1 (DM-88) Trait  Name of the trait of observation
+    + traitPUI (Optional, ) ... The Permanent Unique Identifier of a Trait, usually in the form of a URI
     + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
-    + programDbId (Optional, ) ... A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. Use this parameter to only return results associated with the given program. Use `GET /programs` to find the list of available programs on a server.
+    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
     + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
@@ -164,6 +180,7 @@ List available attributes.
                 "attributeDbId": "2f08b902",
                 "attributeDescription": "Height of the plant measured in meters by a tape",
                 "attributeName": "Plant Height 1",
+                "attributePUI": "http://my-traits.com/trait/CO_123:0008012",
                 "commonCropName": "Maize",
                 "contextOfUse": [
                     "Trial evaluation",
@@ -202,6 +219,7 @@ List available attributes.
                     "methodClass": "Measurement",
                     "methodDbId": "0adb2764",
                     "methodName": "Measuring Tape",
+                    "methodPUI": "http://my-traits.com/trait/CO_123:0000212",
                     "ontologyReference": {
                         "documentationLinks": [
                             {
@@ -252,6 +270,7 @@ List available attributes.
                     },
                     "scaleDbId": "af730171",
                     "scaleName": "Meters",
+                    "scalePUI": "http://my-traits.com/trait/CO_123:0000112",
                     "units": "m",
                     "validValues": {
                         "categories": [
@@ -290,7 +309,9 @@ List available attributes.
                         "H1"
                     ],
                     "attribute": "height",
+                    "attributePUI": "http://my-traits.com/trait/PO:00012345",
                     "entity": "Stalk",
+                    "entityPUI": "http://my-traits.com/trait/PATO:00098765",
                     "externalReferences": [
                         {
                             "referenceId": "doi:10.155454/12341234",
@@ -323,7 +344,8 @@ List available attributes.
                     "traitClass": "phenological",
                     "traitDbId": "9b2e34f5",
                     "traitDescription": "The height of the plant",
-                    "traitName": "Height"
+                    "traitName": "Height",
+                    "traitPUI": "http://my-traits.com/trait/CO_123:0000012"
                 }
             }
         ]
@@ -361,6 +383,7 @@ Create new Germplasm Attributes
 |attributeCategory|string|General category for the attribute. very similar to Trait class.|
 |attributeDescription|string|A human readable description of this attribute|
 |attributeName|string|A human readable name for this attribute|
+|attributePUI|string|The Permanent Unique Identifier of an Attribute, usually in the form of a URI|
 |commonCropName|string|Crop name (examples: "Maize", "Wheat")|
 |contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
 |defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
@@ -374,8 +397,8 @@ Create new Germplasm Attributes
 |language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
 |method|object||
 |additionalInfo|object|Additional arbitrary info|
-|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
-|description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|bibliographicalReference|string|Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
+|description|string|Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -383,7 +406,8 @@ Create new Germplasm Attributes
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
-|methodName|string|Human readable name for the method  MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
+|methodName|string|Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
+|methodPUI|string|The Permanent Unique Identifier of a Method, usually in the form of a URI|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -414,15 +438,16 @@ Create new Germplasm Attributes
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
-|units|string|This field can be used to describe the units used for this scale. This should be the abriviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
+|scaleName|string|Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|scalePUI|string|The Permanent Unique Identifier of a Scale, usually in the form of a URI|
+|units|string|This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
 |value|string|The actual value for a category|
 |max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
 |maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
-|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450   Minimum value for numerical scales. Typically used for data capture control and QC.|
+|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.|
 |minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
@@ -432,7 +457,9 @@ Create new Germplasm Attributes
 |additionalInfo|object|Additional arbitrary info|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|attributePUI|string|The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|entityPUI|string|The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" |
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -447,10 +474,11 @@ Create new Germplasm Attributes
 |version|string|Ontology version (no specific format)|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
 |synonyms|array[string]|Other trait names|
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|traitClass|string|A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
-|traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitName|string|The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitPUI|string|The Permanent Unique Identifier of a Trait, usually in the form of a URI|
 
 
 **Response Fields** 
@@ -463,6 +491,7 @@ Create new Germplasm Attributes
 |attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
 |attributeDescription|string|A human readable description of this attribute|
 |attributeName|string|A human readable name for this attribute|
+|attributePUI|string|The Permanent Unique Identifier of an Attribute, usually in the form of a URI|
 |commonCropName|string|Crop name (examples: "Maize", "Wheat")|
 |contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
 |defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
@@ -476,8 +505,8 @@ Create new Germplasm Attributes
 |language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
 |method|object||
 |additionalInfo|object|Additional arbitrary info|
-|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
-|description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|bibliographicalReference|string|Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
+|description|string|Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -485,7 +514,8 @@ Create new Germplasm Attributes
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
-|methodName|string|Human readable name for the method  MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
+|methodName|string|Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
+|methodPUI|string|The Permanent Unique Identifier of a Method, usually in the form of a URI|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -516,15 +546,16 @@ Create new Germplasm Attributes
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
-|units|string|This field can be used to describe the units used for this scale. This should be the abriviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
+|scaleName|string|Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|scalePUI|string|The Permanent Unique Identifier of a Scale, usually in the form of a URI|
+|units|string|This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
 |value|string|The actual value for a category|
 |max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
 |maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
-|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450   Minimum value for numerical scales. Typically used for data capture control and QC.|
+|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.|
 |minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
@@ -534,7 +565,9 @@ Create new Germplasm Attributes
 |additionalInfo|object|Additional arbitrary info|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|attributePUI|string|The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|entityPUI|string|The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" |
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -549,10 +582,11 @@ Create new Germplasm Attributes
 |version|string|Ontology version (no specific format)|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
 |synonyms|array[string]|Other trait names|
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|traitClass|string|A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
-|traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitName|string|The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitPUI|string|The Permanent Unique Identifier of a Trait, usually in the form of a URI|
 
 
  
@@ -570,6 +604,7 @@ Create new Germplasm Attributes
         "attributeCategory": "Morphological",
         "attributeDescription": "Height of the plant measured in meters by a tape",
         "attributeName": "Plant Height 1",
+        "attributePUI": "http://my-traits.com/trait/CO_123:0008012",
         "commonCropName": "Maize",
         "contextOfUse": [
             "Trial evaluation",
@@ -608,6 +643,7 @@ Create new Germplasm Attributes
             "methodClass": "Measurement",
             "methodDbId": "0adb2764",
             "methodName": "Measuring Tape",
+            "methodPUI": "http://my-traits.com/trait/CO_123:0000212",
             "ontologyReference": {
                 "documentationLinks": [
                     {
@@ -658,6 +694,7 @@ Create new Germplasm Attributes
             },
             "scaleDbId": "af730171",
             "scaleName": "Meters",
+            "scalePUI": "http://my-traits.com/trait/CO_123:0000112",
             "units": "m",
             "validValues": {
                 "categories": [
@@ -696,7 +733,9 @@ Create new Germplasm Attributes
                 "H1"
             ],
             "attribute": "height",
+            "attributePUI": "http://my-traits.com/trait/PO:00012345",
             "entity": "Stalk",
+            "entityPUI": "http://my-traits.com/trait/PATO:00098765",
             "externalReferences": [
                 {
                     "referenceId": "doi:10.155454/12341234",
@@ -729,7 +768,8 @@ Create new Germplasm Attributes
             "traitClass": "phenological",
             "traitDbId": "9b2e34f5",
             "traitDescription": "The height of the plant",
-            "traitName": "Height"
+            "traitName": "Height",
+            "traitPUI": "http://my-traits.com/trait/CO_123:0000012"
         }
     }
 ]
@@ -766,6 +806,7 @@ Create new Germplasm Attributes
                 "attributeDbId": "2f08b902",
                 "attributeDescription": "Height of the plant measured in meters by a tape",
                 "attributeName": "Plant Height 1",
+                "attributePUI": "http://my-traits.com/trait/CO_123:0008012",
                 "commonCropName": "Maize",
                 "contextOfUse": [
                     "Trial evaluation",
@@ -804,6 +845,7 @@ Create new Germplasm Attributes
                     "methodClass": "Measurement",
                     "methodDbId": "0adb2764",
                     "methodName": "Measuring Tape",
+                    "methodPUI": "http://my-traits.com/trait/CO_123:0000212",
                     "ontologyReference": {
                         "documentationLinks": [
                             {
@@ -854,6 +896,7 @@ Create new Germplasm Attributes
                     },
                     "scaleDbId": "af730171",
                     "scaleName": "Meters",
+                    "scalePUI": "http://my-traits.com/trait/CO_123:0000112",
                     "units": "m",
                     "validValues": {
                         "categories": [
@@ -892,7 +935,9 @@ Create new Germplasm Attributes
                         "H1"
                     ],
                     "attribute": "height",
+                    "attributePUI": "http://my-traits.com/trait/PO:00012345",
                     "entity": "Stalk",
+                    "entityPUI": "http://my-traits.com/trait/PATO:00098765",
                     "externalReferences": [
                         {
                             "referenceId": "doi:10.155454/12341234",
@@ -925,7 +970,8 @@ Create new Germplasm Attributes
                     "traitClass": "phenological",
                     "traitDbId": "9b2e34f5",
                     "traitDescription": "The height of the plant",
-                    "traitName": "Height"
+                    "traitName": "Height",
+                    "traitPUI": "http://my-traits.com/trait/CO_123:0000012"
                 }
             }
         ]
@@ -1037,6 +1083,7 @@ Get the details for a specific Germplasm Attribute
 |attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
 |attributeDescription|string|A human readable description of this attribute|
 |attributeName|string|A human readable name for this attribute|
+|attributePUI|string|The Permanent Unique Identifier of an Attribute, usually in the form of a URI|
 |commonCropName|string|Crop name (examples: "Maize", "Wheat")|
 |contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
 |defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
@@ -1050,8 +1097,8 @@ Get the details for a specific Germplasm Attribute
 |language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
 |method|object||
 |additionalInfo|object|Additional arbitrary info|
-|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
-|description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|bibliographicalReference|string|Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
+|description|string|Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -1059,7 +1106,8 @@ Get the details for a specific Germplasm Attribute
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
-|methodName|string|Human readable name for the method  MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
+|methodName|string|Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
+|methodPUI|string|The Permanent Unique Identifier of a Method, usually in the form of a URI|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -1090,15 +1138,16 @@ Get the details for a specific Germplasm Attribute
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
-|units|string|This field can be used to describe the units used for this scale. This should be the abriviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
+|scaleName|string|Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|scalePUI|string|The Permanent Unique Identifier of a Scale, usually in the form of a URI|
+|units|string|This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
 |value|string|The actual value for a category|
 |max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
 |maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
-|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450   Minimum value for numerical scales. Typically used for data capture control and QC.|
+|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.|
 |minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
@@ -1108,7 +1157,9 @@ Get the details for a specific Germplasm Attribute
 |additionalInfo|object|Additional arbitrary info|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|attributePUI|string|The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|entityPUI|string|The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" |
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -1123,10 +1174,11 @@ Get the details for a specific Germplasm Attribute
 |version|string|Ontology version (no specific format)|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
 |synonyms|array[string]|Other trait names|
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|traitClass|string|A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
-|traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitName|string|The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitPUI|string|The Permanent Unique Identifier of a Trait, usually in the form of a URI|
 
 
  
@@ -1165,6 +1217,7 @@ Get the details for a specific Germplasm Attribute
         "attributeDbId": "2f08b902",
         "attributeDescription": "Height of the plant measured in meters by a tape",
         "attributeName": "Plant Height 1",
+        "attributePUI": "http://my-traits.com/trait/CO_123:0008012",
         "commonCropName": "Maize",
         "contextOfUse": [
             "Trial evaluation",
@@ -1203,6 +1256,7 @@ Get the details for a specific Germplasm Attribute
             "methodClass": "Measurement",
             "methodDbId": "0adb2764",
             "methodName": "Measuring Tape",
+            "methodPUI": "http://my-traits.com/trait/CO_123:0000212",
             "ontologyReference": {
                 "documentationLinks": [
                     {
@@ -1253,6 +1307,7 @@ Get the details for a specific Germplasm Attribute
             },
             "scaleDbId": "af730171",
             "scaleName": "Meters",
+            "scalePUI": "http://my-traits.com/trait/CO_123:0000112",
             "units": "m",
             "validValues": {
                 "categories": [
@@ -1291,7 +1346,9 @@ Get the details for a specific Germplasm Attribute
                 "H1"
             ],
             "attribute": "height",
+            "attributePUI": "http://my-traits.com/trait/PO:00012345",
             "entity": "Stalk",
+            "entityPUI": "http://my-traits.com/trait/PATO:00098765",
             "externalReferences": [
                 {
                     "referenceId": "doi:10.155454/12341234",
@@ -1324,7 +1381,8 @@ Get the details for a specific Germplasm Attribute
             "traitClass": "phenological",
             "traitDbId": "9b2e34f5",
             "traitDescription": "The height of the plant",
-            "traitName": "Height"
+            "traitName": "Height",
+            "traitPUI": "http://my-traits.com/trait/CO_123:0000012"
         }
     }
 }
@@ -1360,6 +1418,7 @@ Update an existing Germplasm Attribute
 |attributeCategory|string|General category for the attribute. very similar to Trait class.|
 |attributeDescription|string|A human readable description of this attribute|
 |attributeName|string|A human readable name for this attribute|
+|attributePUI|string|The Permanent Unique Identifier of an Attribute, usually in the form of a URI|
 |commonCropName|string|Crop name (examples: "Maize", "Wheat")|
 |contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
 |defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
@@ -1373,8 +1432,8 @@ Update an existing Germplasm Attribute
 |language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
 |method|object||
 |additionalInfo|object|Additional arbitrary info|
-|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
-|description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|bibliographicalReference|string|Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
+|description|string|Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -1382,7 +1441,8 @@ Update an existing Germplasm Attribute
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
-|methodName|string|Human readable name for the method  MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
+|methodName|string|Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
+|methodPUI|string|The Permanent Unique Identifier of a Method, usually in the form of a URI|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -1413,15 +1473,16 @@ Update an existing Germplasm Attribute
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
-|units|string|This field can be used to describe the units used for this scale. This should be the abriviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
+|scaleName|string|Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|scalePUI|string|The Permanent Unique Identifier of a Scale, usually in the form of a URI|
+|units|string|This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
 |value|string|The actual value for a category|
 |max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
 |maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
-|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450   Minimum value for numerical scales. Typically used for data capture control and QC.|
+|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.|
 |minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
@@ -1431,7 +1492,9 @@ Update an existing Germplasm Attribute
 |additionalInfo|object|Additional arbitrary info|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|attributePUI|string|The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|entityPUI|string|The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" |
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -1446,10 +1509,11 @@ Update an existing Germplasm Attribute
 |version|string|Ontology version (no specific format)|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
 |synonyms|array[string]|Other trait names|
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|traitClass|string|A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
-|traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitName|string|The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitPUI|string|The Permanent Unique Identifier of a Trait, usually in the form of a URI|
 
 
 **Response Fields** 
@@ -1461,6 +1525,7 @@ Update an existing Germplasm Attribute
 |attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
 |attributeDescription|string|A human readable description of this attribute|
 |attributeName|string|A human readable name for this attribute|
+|attributePUI|string|The Permanent Unique Identifier of an Attribute, usually in the form of a URI|
 |commonCropName|string|Crop name (examples: "Maize", "Wheat")|
 |contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
 |defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
@@ -1474,8 +1539,8 @@ Update an existing Germplasm Attribute
 |language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
 |method|object||
 |additionalInfo|object|Additional arbitrary info|
-|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
-|description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|bibliographicalReference|string|Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
+|description|string|Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -1483,7 +1548,8 @@ Update an existing Germplasm Attribute
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
-|methodName|string|Human readable name for the method  MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
+|methodName|string|Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
+|methodPUI|string|The Permanent Unique Identifier of a Method, usually in the form of a URI|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -1514,15 +1580,16 @@ Update an existing Germplasm Attribute
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
-|units|string|This field can be used to describe the units used for this scale. This should be the abriviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
+|scaleName|string|Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|scalePUI|string|The Permanent Unique Identifier of a Scale, usually in the form of a URI|
+|units|string|This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
 |value|string|The actual value for a category|
 |max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
 |maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
-|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450   Minimum value for numerical scales. Typically used for data capture control and QC.|
+|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.|
 |minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
@@ -1532,7 +1599,9 @@ Update an existing Germplasm Attribute
 |additionalInfo|object|Additional arbitrary info|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|attributePUI|string|The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|entityPUI|string|The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" |
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -1547,10 +1616,11 @@ Update an existing Germplasm Attribute
 |version|string|Ontology version (no specific format)|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
 |synonyms|array[string]|Other trait names|
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|traitClass|string|A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
-|traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitName|string|The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitPUI|string|The Permanent Unique Identifier of a Trait, usually in the form of a URI|
 
 
  
@@ -1568,6 +1638,7 @@ Update an existing Germplasm Attribute
     "attributeCategory": "Morphological",
     "attributeDescription": "Height of the plant measured in meters by a tape",
     "attributeName": "Plant Height 1",
+    "attributePUI": "http://my-traits.com/trait/CO_123:0008012",
     "commonCropName": "Maize",
     "contextOfUse": [
         "Trial evaluation",
@@ -1606,6 +1677,7 @@ Update an existing Germplasm Attribute
         "methodClass": "Measurement",
         "methodDbId": "0adb2764",
         "methodName": "Measuring Tape",
+        "methodPUI": "http://my-traits.com/trait/CO_123:0000212",
         "ontologyReference": {
             "documentationLinks": [
                 {
@@ -1656,6 +1728,7 @@ Update an existing Germplasm Attribute
         },
         "scaleDbId": "af730171",
         "scaleName": "Meters",
+        "scalePUI": "http://my-traits.com/trait/CO_123:0000112",
         "units": "m",
         "validValues": {
             "categories": [
@@ -1694,7 +1767,9 @@ Update an existing Germplasm Attribute
             "H1"
         ],
         "attribute": "height",
+        "attributePUI": "http://my-traits.com/trait/PO:00012345",
         "entity": "Stalk",
+        "entityPUI": "http://my-traits.com/trait/PATO:00098765",
         "externalReferences": [
             {
                 "referenceId": "doi:10.155454/12341234",
@@ -1727,7 +1802,8 @@ Update an existing Germplasm Attribute
         "traitClass": "phenological",
         "traitDbId": "9b2e34f5",
         "traitDescription": "The height of the plant",
-        "traitName": "Height"
+        "traitName": "Height",
+        "traitPUI": "http://my-traits.com/trait/CO_123:0000012"
     }
 }
 ```
@@ -1761,6 +1837,7 @@ Update an existing Germplasm Attribute
         "attributeDbId": "2f08b902",
         "attributeDescription": "Height of the plant measured in meters by a tape",
         "attributeName": "Plant Height 1",
+        "attributePUI": "http://my-traits.com/trait/CO_123:0008012",
         "commonCropName": "Maize",
         "contextOfUse": [
             "Trial evaluation",
@@ -1799,6 +1876,7 @@ Update an existing Germplasm Attribute
             "methodClass": "Measurement",
             "methodDbId": "0adb2764",
             "methodName": "Measuring Tape",
+            "methodPUI": "http://my-traits.com/trait/CO_123:0000212",
             "ontologyReference": {
                 "documentationLinks": [
                     {
@@ -1849,6 +1927,7 @@ Update an existing Germplasm Attribute
             },
             "scaleDbId": "af730171",
             "scaleName": "Meters",
+            "scalePUI": "http://my-traits.com/trait/CO_123:0000112",
             "units": "m",
             "validValues": {
                 "categories": [
@@ -1887,7 +1966,9 @@ Update an existing Germplasm Attribute
                 "H1"
             ],
             "attribute": "height",
+            "attributePUI": "http://my-traits.com/trait/PO:00012345",
             "entity": "Stalk",
+            "entityPUI": "http://my-traits.com/trait/PATO:00098765",
             "externalReferences": [
                 {
                     "referenceId": "doi:10.155454/12341234",
@@ -1920,7 +2001,8 @@ Update an existing Germplasm Attribute
             "traitClass": "phenological",
             "traitDbId": "9b2e34f5",
             "traitDescription": "The height of the plant",
-            "traitName": "Height"
+            "traitName": "Height",
+            "traitPUI": "http://my-traits.com/trait/CO_123:0000012"
         }
     }
 }
@@ -1958,21 +2040,36 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |---|---|---| 
 |attributeDbIds|array[string]|List of Germplasm Attribute IDs to search for|
 |attributeNames|array[string]|List of human readable Germplasm Attribute names to search for|
+|attributePUIs|array[string]|The Permanent Unique Identifier of an Attribute, usually in the form of a URI|
 |commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
 |dataTypes|array[string]|List of scale data types to filter search results|
 |externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
 |externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
 |externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
 |methodDbIds|array[string]|List of methods to filter search results|
+|methodNames|array[string]|Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
+|methodPUIs|array[string]|The Permanent Unique Identifier of a Method, usually in the form of a URI|
 |ontologyDbIds|array[string]|List of ontology IDs to search for|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
 |programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
-|scaleDbIds|array[string]|List of scales to filter search results|
-|studyDbId|array[string]|The unique ID of a studies to filter on|
+|scaleDbIds|array[string]|The unique identifier for a Scale|
+|scaleNames|array[string]|Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|scalePUIs|array[string]|The Permanent Unique Identifier of a Scale, usually in the form of a URI|
+|studyDbId|array[string]|**Deprecated in v2.1** Please use `studyDbIds`. Github issue number #483  The unique ID of a studies to filter on|
+|studyDbIds|array[string]|List of study identifiers to search for|
+|studyNames|array[string]|List of study names to filter search results|
+|traitAttributePUIs|array[string]|The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|traitAttributes|array[string]|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |traitClasses|array[string]|List of trait classes to filter search results|
-|traitDbIds|array[string]|List of trait unique ID to filter search results|
+|traitDbIds|array[string]|The unique identifier for a Trait|
+|traitEntities|array[string]|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|traitEntityPUIs|array[string]|The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" |
+|traitNames|array[string]|The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitPUIs|array[string]|The Permanent Unique Identifier of a Trait, usually in the form of a URI|
+|trialDbIds|array[string]|The ID which uniquely identifies a trial to search for|
+|trialNames|array[string]|The human readable name of a trial to search for|
 
 
 **Response Fields** 
@@ -1985,6 +2082,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
 |attributeDescription|string|A human readable description of this attribute|
 |attributeName|string|A human readable name for this attribute|
+|attributePUI|string|The Permanent Unique Identifier of an Attribute, usually in the form of a URI|
 |commonCropName|string|Crop name (examples: "Maize", "Wheat")|
 |contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
 |defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
@@ -1998,8 +2096,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
 |method|object||
 |additionalInfo|object|Additional arbitrary info|
-|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
-|description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|bibliographicalReference|string|Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
+|description|string|Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -2007,7 +2105,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
-|methodName|string|Human readable name for the method  MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
+|methodName|string|Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
+|methodPUI|string|The Permanent Unique Identifier of a Method, usually in the form of a URI|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -2038,15 +2137,16 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
-|units|string|This field can be used to describe the units used for this scale. This should be the abriviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
+|scaleName|string|Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|scalePUI|string|The Permanent Unique Identifier of a Scale, usually in the form of a URI|
+|units|string|This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
 |value|string|The actual value for a category|
 |max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
 |maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
-|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450   Minimum value for numerical scales. Typically used for data capture control and QC.|
+|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.|
 |minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
@@ -2056,7 +2156,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |additionalInfo|object|Additional arbitrary info|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|attributePUI|string|The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|entityPUI|string|The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" |
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -2071,10 +2173,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |version|string|Ontology version (no specific format)|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
 |synonyms|array[string]|Other trait names|
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|traitClass|string|A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
-|traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitName|string|The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitPUI|string|The Permanent Unique Identifier of a Trait, usually in the form of a URI|
 
 
  
@@ -2094,6 +2197,10 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
     "attributeNames": [
         "Plant Height 1",
         "Root Color"
+    ],
+    "attributePUIs": [
+        "http://my-traits.com/trait/CO_123:0008012",
+        "http://my-traits.com/trait/CO_123:0007261"
     ],
     "commonCropNames": [
         "Tomatillo",
@@ -2120,6 +2227,14 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "07e34f83",
         "d3d5517a"
     ],
+    "methodNames": [
+        "Measuring Tape",
+        "Spectrometer"
+    ],
+    "methodPUIs": [
+        "http://my-traits.com/trait/CO_123:0000212",
+        "http://my-traits.com/trait/CO_123:0003557"
+    ],
     "ontologyDbIds": [
         "f44f7b23",
         "a26b576e"
@@ -2138,9 +2253,33 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "a13ecffa",
         "7e1afe4f"
     ],
+    "scaleNames": [
+        "Meters",
+        "Liters"
+    ],
+    "scalePUIs": [
+        "http://my-traits.com/trait/CO_123:0000336",
+        "http://my-traits.com/trait/CO_123:0000560"
+    ],
     "studyDbId": [
         "5bcac0ae",
         "7f48e22d"
+    ],
+    "studyDbIds": [
+        "cf6c4bd4",
+        "691e69d6"
+    ],
+    "studyNames": [
+        "The First Bob Study 2017",
+        "Wheat Yield Trial 246"
+    ],
+    "traitAttributePUIs": [
+        "http://my-traits.com/trait/CO_123:0008336",
+        "http://my-traits.com/trait/CO_123:0001092"
+    ],
+    "traitAttributes": [
+        "Height",
+        "Color"
     ],
     "traitClasses": [
         "morphological",
@@ -2150,6 +2289,30 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
     "traitDbIds": [
         "ef81147b",
         "78d82fad"
+    ],
+    "traitEntities": [
+        "Stalk",
+        "Root"
+    ],
+    "traitEntityPUIs": [
+        "http://my-traits.com/trait/CO_123:0004098",
+        "http://my-traits.com/trait/CO_123:0002366"
+    ],
+    "traitNames": [
+        "Stalk Height",
+        "Root Color"
+    ],
+    "traitPUIs": [
+        "http://my-traits.com/trait/CO_123:0000456",
+        "http://my-traits.com/trait/CO_123:0000820"
+    ],
+    "trialDbIds": [
+        "d2593dc2",
+        "9431a731"
+    ],
+    "trialNames": [
+        "All Yield Trials 2016",
+        "Disease Resistance Study Comparison Group"
     ]
 }
 ```
@@ -2185,6 +2348,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "attributeDbId": "2f08b902",
                 "attributeDescription": "Height of the plant measured in meters by a tape",
                 "attributeName": "Plant Height 1",
+                "attributePUI": "http://my-traits.com/trait/CO_123:0008012",
                 "commonCropName": "Maize",
                 "contextOfUse": [
                     "Trial evaluation",
@@ -2223,6 +2387,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                     "methodClass": "Measurement",
                     "methodDbId": "0adb2764",
                     "methodName": "Measuring Tape",
+                    "methodPUI": "http://my-traits.com/trait/CO_123:0000212",
                     "ontologyReference": {
                         "documentationLinks": [
                             {
@@ -2273,6 +2438,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                     },
                     "scaleDbId": "af730171",
                     "scaleName": "Meters",
+                    "scalePUI": "http://my-traits.com/trait/CO_123:0000112",
                     "units": "m",
                     "validValues": {
                         "categories": [
@@ -2311,7 +2477,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                         "H1"
                     ],
                     "attribute": "height",
+                    "attributePUI": "http://my-traits.com/trait/PO:00012345",
                     "entity": "Stalk",
+                    "entityPUI": "http://my-traits.com/trait/PATO:00098765",
                     "externalReferences": [
                         {
                             "referenceId": "doi:10.155454/12341234",
@@ -2344,7 +2512,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                     "traitClass": "phenological",
                     "traitDbId": "9b2e34f5",
                     "traitDescription": "The height of the plant",
-                    "traitName": "Height"
+                    "traitName": "Height",
+                    "traitPUI": "http://my-traits.com/trait/CO_123:0000012"
                 }
             }
         ]
@@ -2418,6 +2587,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
 |attributeDescription|string|A human readable description of this attribute|
 |attributeName|string|A human readable name for this attribute|
+|attributePUI|string|The Permanent Unique Identifier of an Attribute, usually in the form of a URI|
 |commonCropName|string|Crop name (examples: "Maize", "Wheat")|
 |contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
 |defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
@@ -2431,8 +2601,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
 |method|object||
 |additionalInfo|object|Additional arbitrary info|
-|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
-|description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|bibliographicalReference|string|Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
+|description|string|Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -2440,7 +2610,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
-|methodName|string|Human readable name for the method  MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
+|methodName|string|Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
+|methodPUI|string|The Permanent Unique Identifier of a Method, usually in the form of a URI|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -2471,15 +2642,16 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
-|units|string|This field can be used to describe the units used for this scale. This should be the abriviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
+|scaleName|string|Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|scalePUI|string|The Permanent Unique Identifier of a Scale, usually in the form of a URI|
+|units|string|This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
 |value|string|The actual value for a category|
 |max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
 |maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
-|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450   Minimum value for numerical scales. Typically used for data capture control and QC.|
+|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.|
 |minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
@@ -2489,7 +2661,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |additionalInfo|object|Additional arbitrary info|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|attributePUI|string|The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|entityPUI|string|The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" |
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -2504,10 +2678,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |version|string|Ontology version (no specific format)|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
 |synonyms|array[string]|Other trait names|
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|traitClass|string|A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
-|traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitName|string|The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitPUI|string|The Permanent Unique Identifier of a Trait, usually in the form of a URI|
 
 
  
@@ -2550,6 +2725,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "attributeDbId": "2f08b902",
                 "attributeDescription": "Height of the plant measured in meters by a tape",
                 "attributeName": "Plant Height 1",
+                "attributePUI": "http://my-traits.com/trait/CO_123:0008012",
                 "commonCropName": "Maize",
                 "contextOfUse": [
                     "Trial evaluation",
@@ -2588,6 +2764,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                     "methodClass": "Measurement",
                     "methodDbId": "0adb2764",
                     "methodName": "Measuring Tape",
+                    "methodPUI": "http://my-traits.com/trait/CO_123:0000212",
                     "ontologyReference": {
                         "documentationLinks": [
                             {
@@ -2638,6 +2815,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                     },
                     "scaleDbId": "af730171",
                     "scaleName": "Meters",
+                    "scalePUI": "http://my-traits.com/trait/CO_123:0000112",
                     "units": "m",
                     "validValues": {
                         "categories": [
@@ -2676,7 +2854,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                         "H1"
                     ],
                     "attribute": "height",
+                    "attributePUI": "http://my-traits.com/trait/PO:00012345",
                     "entity": "Stalk",
+                    "entityPUI": "http://my-traits.com/trait/PATO:00098765",
                     "externalReferences": [
                         {
                             "referenceId": "doi:10.155454/12341234",
@@ -2709,7 +2889,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                     "traitClass": "phenological",
                     "traitDbId": "9b2e34f5",
                     "traitDescription": "The height of the plant",
-                    "traitName": "Height"
+                    "traitName": "Height",
+                    "traitPUI": "http://my-traits.com/trait/CO_123:0000012"
                 }
             }
         ]

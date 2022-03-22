@@ -24,7 +24,9 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 |additionalInfo|object|Additional arbitrary info|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|attributePUI|string|The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|entityPUI|string|The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" |
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -39,10 +41,11 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 |version|string|Ontology version (no specific format)|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
 |synonyms|array[string]|Other trait names|
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|traitClass|string|A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
-|traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitName|string|The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitPUI|string|The Permanent Unique Identifier of a Trait, usually in the form of a URI|
 
 
  
@@ -50,9 +53,9 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 + Parameters
     + traitDbId (Optional, ) ... The unique identifier for a trait
     + observationVariableDbId (Optional, ) ... The unique identifier for an observation variable
-    + ontologyDbId (Optional, ) ... The unique identifier for an ontology definition. Use this parameterto filter results based on a specific ontology Use `GET /ontologies` to find the list of available ontologies on a server.
+    + ontologyDbId (Optional, ) ... The unique identifier for an ontology definition. Use this parameter to filter results based on a specific ontology Use `GET /ontologies` to find the list of available ontologies on a server.
     + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
-    + programDbId (Optional, ) ... A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. Use this parameter to only return results associated with the given program. Use `GET /programs` to find the list of available programs on a server.
+    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
     + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
@@ -94,7 +97,9 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
                     "H1"
                 ],
                 "attribute": "height",
+                "attributePUI": "http://my-traits.com/trait/PO:00012345",
                 "entity": "Stalk",
+                "entityPUI": "http://my-traits.com/trait/PATO:00098765",
                 "externalReferences": [
                     {
                         "referenceId": "doi:10.155454/12341234",
@@ -127,7 +132,8 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
                 "traitClass": "phenological",
                 "traitDbId": "9b2e34f5",
                 "traitDescription": "The height of the plant",
-                "traitName": "Height"
+                "traitName": "Height",
+                "traitPUI": "http://my-traits.com/trait/CO_123:0000012"
             }
         ]
     }
@@ -163,7 +169,9 @@ Create new trait objects in the database
 |additionalInfo|object|Additional arbitrary info|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|attributePUI|string|The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|entityPUI|string|The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" |
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -178,9 +186,10 @@ Create new trait objects in the database
 |version|string|Ontology version (no specific format)|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
 |synonyms|array[string]|Other trait names|
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|traitClass|string|A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.|
 |traitDescription|string|The description of a trait|
-|traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitName|string|The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitPUI|string|The Permanent Unique Identifier of a Trait, usually in the form of a URI|
 
 
 **Response Fields** 
@@ -191,7 +200,9 @@ Create new trait objects in the database
 |additionalInfo|object|Additional arbitrary info|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|attributePUI|string|The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|entityPUI|string|The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" |
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -206,10 +217,11 @@ Create new trait objects in the database
 |version|string|Ontology version (no specific format)|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
 |synonyms|array[string]|Other trait names|
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|traitClass|string|A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
-|traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitName|string|The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitPUI|string|The Permanent Unique Identifier of a Trait, usually in the form of a URI|
 
 
  
@@ -230,7 +242,9 @@ Create new trait objects in the database
             "H1"
         ],
         "attribute": "height",
+        "attributePUI": "http://my-traits.com/trait/PO:00012345",
         "entity": "Stalk",
+        "entityPUI": "http://my-traits.com/trait/PATO:00098765",
         "externalReferences": [
             {
                 "referenceId": "doi:10.155454/12341234",
@@ -262,7 +276,8 @@ Create new trait objects in the database
         ],
         "traitClass": "phenological",
         "traitDescription": "The height of the plant",
-        "traitName": "Height"
+        "traitName": "Height",
+        "traitPUI": "http://my-traits.com/trait/CO_123:0000012"
     }
 ]
 ```
@@ -300,7 +315,9 @@ Create new trait objects in the database
                     "H1"
                 ],
                 "attribute": "height",
+                "attributePUI": "http://my-traits.com/trait/PO:00012345",
                 "entity": "Stalk",
+                "entityPUI": "http://my-traits.com/trait/PATO:00098765",
                 "externalReferences": [
                     {
                         "referenceId": "doi:10.155454/12341234",
@@ -333,7 +350,8 @@ Create new trait objects in the database
                 "traitClass": "phenological",
                 "traitDbId": "9b2e34f5",
                 "traitDescription": "The height of the plant",
-                "traitName": "Height"
+                "traitName": "Height",
+                "traitPUI": "http://my-traits.com/trait/CO_123:0000012"
             }
         ]
     }
@@ -373,7 +391,9 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 |additionalInfo|object|Additional arbitrary info|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|attributePUI|string|The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|entityPUI|string|The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" |
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -388,10 +408,11 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 |version|string|Ontology version (no specific format)|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
 |synonyms|array[string]|Other trait names|
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|traitClass|string|A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
-|traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitName|string|The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitPUI|string|The Permanent Unique Identifier of a Trait, usually in the form of a URI|
 
 
  
@@ -432,7 +453,9 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
             "H1"
         ],
         "attribute": "height",
+        "attributePUI": "http://my-traits.com/trait/PO:00012345",
         "entity": "Stalk",
+        "entityPUI": "http://my-traits.com/trait/PATO:00098765",
         "externalReferences": [
             {
                 "referenceId": "doi:10.155454/12341234",
@@ -465,7 +488,8 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
         "traitClass": "phenological",
         "traitDbId": "9b2e34f5",
         "traitDescription": "The height of the plant",
-        "traitName": "Height"
+        "traitName": "Height",
+        "traitPUI": "http://my-traits.com/trait/CO_123:0000012"
     }
 }
 ```
@@ -504,7 +528,9 @@ Update an existing trait
 |additionalInfo|object|Additional arbitrary info|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|attributePUI|string|The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|entityPUI|string|The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" |
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -519,9 +545,10 @@ Update an existing trait
 |version|string|Ontology version (no specific format)|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
 |synonyms|array[string]|Other trait names|
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|traitClass|string|A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.|
 |traitDescription|string|The description of a trait|
-|traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitName|string|The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitPUI|string|The Permanent Unique Identifier of a Trait, usually in the form of a URI|
 
 
 **Response Fields** 
@@ -531,7 +558,9 @@ Update an existing trait
 |additionalInfo|object|Additional arbitrary info|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|attributePUI|string|The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|entityPUI|string|The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" |
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
 |referenceId|string|The external reference ID. Could be a simple string or a URI.|
@@ -546,10 +575,11 @@ Update an existing trait
 |version|string|Ontology version (no specific format)|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
 |synonyms|array[string]|Other trait names|
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|traitClass|string|A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
-|traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitName|string|The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|traitPUI|string|The Permanent Unique Identifier of a Trait, usually in the form of a URI|
 
 
  
@@ -570,7 +600,9 @@ Update an existing trait
         "H1"
     ],
     "attribute": "height",
+    "attributePUI": "http://my-traits.com/trait/PO:00012345",
     "entity": "Stalk",
+    "entityPUI": "http://my-traits.com/trait/PATO:00098765",
     "externalReferences": [
         {
             "referenceId": "doi:10.155454/12341234",
@@ -602,7 +634,8 @@ Update an existing trait
     ],
     "traitClass": "phenological",
     "traitDescription": "The height of the plant",
-    "traitName": "Height"
+    "traitName": "Height",
+    "traitPUI": "http://my-traits.com/trait/CO_123:0000012"
 }
 ```
 
@@ -637,7 +670,9 @@ Update an existing trait
             "H1"
         ],
         "attribute": "height",
+        "attributePUI": "http://my-traits.com/trait/PO:00012345",
         "entity": "Stalk",
+        "entityPUI": "http://my-traits.com/trait/PATO:00098765",
         "externalReferences": [
             {
                 "referenceId": "doi:10.155454/12341234",
@@ -670,7 +705,8 @@ Update an existing trait
         "traitClass": "phenological",
         "traitDbId": "9b2e34f5",
         "traitDescription": "The height of the plant",
-        "traitName": "Height"
+        "traitName": "Height",
+        "traitPUI": "http://my-traits.com/trait/CO_123:0000012"
     }
 }
 ```
