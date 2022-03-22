@@ -31,12 +31,12 @@ components:
           type: string
           example: Meters
         scalePUI:
-          description: The Perminent Unique Identifier of a Scale, usually in the form of a URI
+          description: The Permanent Unique Identifier of a Scale, usually in the form of a URI
           type: string
-          example: http://my-minter.com/trait/CO_123:0000112
+          example: http://my-traits.com/trait/CO_123:0000112
         units:
           description: |-
-            This field can be used to describe the units used for this scale. This should be the abriviated 
+            This field can be used to describe the units used for this scale. This should be the abbreviated 
             form of the units, intended to be displayed with every value using this scale. Usually this only 
             applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.
           type: string

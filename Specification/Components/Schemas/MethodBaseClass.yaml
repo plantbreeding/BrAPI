@@ -34,9 +34,9 @@ components:
           type: string
           example: Measuring Tape
         methodPUI:
-          description: The Perminent Unique Identifier of a Method, usually in the form of a URI
+          description: The Permanent Unique Identifier of a Method, usually in the form of a URI
           type: string
-          example: http://my-minter.com/trait/CO_123:0000212
+          example: http://my-traits.com/trait/CO_123:0000212
         ontologyReference:
           $ref: '#/components/schemas/OntologyReference'
         bibliographicalReference:

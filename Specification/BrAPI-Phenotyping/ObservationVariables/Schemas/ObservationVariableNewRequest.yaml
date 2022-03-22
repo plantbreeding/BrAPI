@@ -15,8 +15,8 @@ components:
             type: string
             example: Variable Name
           observationVariablePUI:
-            description: The Perminent Unique Identifier of a Observation Variable, usually in the form of a URI
+            description: The Permanent Unique Identifier of a Observation Variable, usually in the form of a URI
             type: string
-            example: http://my-minter.com/trait/CO_123:0009012
+            example: http://my-traits.com/trait/CO_123:0009012
         required:
         - observationVariableName

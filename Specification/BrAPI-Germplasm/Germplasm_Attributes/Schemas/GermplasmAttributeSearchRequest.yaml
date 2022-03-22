@@ -23,9 +23,9 @@ components:
             type: array
             example: ['Plant Height 1', 'Root Color']
           attributePUIs:
-            description: The Perminent Unique Identifier of an Attribute, usually in the form of a URI
+            description: The Permanent Unique Identifier of an Attribute, usually in the form of a URI
             items:
               type: string
             type: array
-            example: ['http://my-minter.com/trait/CO_123:0008012', 'http://my-minter.com/trait/CO_123:0007261']
+            example: ['http://my-traits.com/trait/CO_123:0008012', 'http://my-traits.com/trait/CO_123:0007261']
   

@@ -27,7 +27,7 @@ paths:
         schema:
           type: string
       - name: attributePUI
-        description: The Perminent Unique Identifier of an Attribute, usually in the form of a URI
+        description: The Permanent Unique Identifier of an Attribute, usually in the form of a URI
         in: query
         required: false
         schema:

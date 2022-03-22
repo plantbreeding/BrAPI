@@ -43,20 +43,20 @@ components:
           example: height
         attributePUI:
           description: |-
-            The Perminent Unique Identifier of a Trait Attribute, usually in the form of a URI
+            The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI
             <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"
           type: string
-          example: http://my-minter.com/trait/PO:00012345
+          example: http://my-traits.com/trait/PO:00012345
         entity:
           description: A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"
           type: string
           example: Stalk 
         entityPUI:
           description: |-
-            The Perminent Unique Identifier of a Trait Entiy, usually in the form of a URI
-            <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" 
+            The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI
+            <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" 
           type: string
-          example: http://my-minter.com/trait/PATO:00098765
+          example: http://my-traits.com/trait/PATO:00098765
         traitName:
           description: |-
             The human readable name of a trait
@@ -64,9 +64,9 @@ components:
           type: string
           example: Height
         traitPUI:
-          description: The Perminent Unique Identifier of a Trait, usually in the form of a URI
+          description: The Permanent Unique Identifier of a Trait, usually in the form of a URI
           type: string
-          example: http://my-minter.com/trait/CO_123:0000012
+          example: http://my-traits.com/trait/CO_123:0000012
         traitClass:
           description: |-
             A classification to describe the type of trait and the context it should be considered in.

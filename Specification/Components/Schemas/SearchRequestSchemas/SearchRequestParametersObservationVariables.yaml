@@ -21,8 +21,8 @@ components:
           type: array
           example: ['Plant Height in meters', 'Wheat rust score 1-5']
         observationVariablePUIs:
-          description: The Perminent Unique Identifier of an Observation Variable, usually in the form of a URI
+          description: The Permanent Unique Identifier of an Observation Variable, usually in the form of a URI
           items:
             type: string
           type: array
-          example: ['http://my-minter.com/trait/CO_123:0008012', 'http://my-minter.com/trait/CO_123:0007261']
+          example: ['http://my-traits.com/trait/CO_123:0008012', 'http://my-traits.com/trait/CO_123:0007261']

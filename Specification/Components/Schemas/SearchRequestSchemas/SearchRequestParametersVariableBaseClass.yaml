@@ -46,11 +46,11 @@ components:
             type: array
             example: ['Measuring Tape', 'Spectrometer']
           methodPUIs:
-            description: The Perminent Unique Identifier of a Method, usually in the form of a URI
+            description: The Permanent Unique Identifier of a Method, usually in the form of a URI
             items:
               type: string
             type: array
-            example: ['http://my-minter.com/trait/CO_123:0000212', 'http://my-minter.com/trait/CO_123:0003557']
+            example: ['http://my-traits.com/trait/CO_123:0000212', 'http://my-traits.com/trait/CO_123:0003557']
 
           scaleDbIds:
             description: The unique identifier for a Scale
@@ -67,11 +67,11 @@ components:
             type: array
             example: ['Meters', 'Liters']
           scalePUIs:
-            description: The Perminent Unique Identifier of a Scale, usually in the form of a URI
+            description: The Permanent Unique Identifier of a Scale, usually in the form of a URI
             items:
               type: string
             type: array
-            example: ['http://my-minter.com/trait/CO_123:0000336', 'http://my-minter.com/trait/CO_123:0000560']
+            example: ['http://my-traits.com/trait/CO_123:0000336', 'http://my-traits.com/trait/CO_123:0000560']
           dataTypes:
             description: List of scale data types to filter search results
             items:
@@ -100,11 +100,11 @@ components:
             type: array
             example: ['Stalk Height', 'Root Color']
           traitPUIs:
-            description: The Perminent Unique Identifier of a Trait, usually in the form of a URI
+            description: The Permanent Unique Identifier of a Trait, usually in the form of a URI
             items:
               type: string
             type: array
-            example: ['http://my-minter.com/trait/CO_123:0000456', 'http://my-minter.com/trait/CO_123:0000820']
+            example: ['http://my-traits.com/trait/CO_123:0000456', 'http://my-traits.com/trait/CO_123:0000820']
           traitAttributes:
             description: A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"
             items:
@@ -113,13 +113,13 @@ components:
             example: ['Height', 'Color']
           traitAttributePUIs:
             description: |-
-              The Perminent Unique Identifier of a Trait Attribute, usually in the form of a URI
+              The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI
               <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"
             items:
               type: string
             type: array
-            example: ['http://my-minter.com/trait/CO_123:0008336', 'http://my-minter.com/trait/CO_123:0001092']
-          traitEntitys:
+            example: ['http://my-traits.com/trait/CO_123:0008336', 'http://my-traits.com/trait/CO_123:0001092']
+          traitEntities:
             description: A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"
             items:
               type: string
@@ -127,9 +127,9 @@ components:
             example: ['Stalk', 'Root']
           traitEntityPUIs:
             description: |-
-              The Perminent Unique Identifier of a Trait Entiy, usually in the form of a URI
+              The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI
               <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" 
             items:
               type: string
             type: array
-            example: ['http://my-minter.com/trait/CO_123:0004098', 'http://my-minter.com/trait/CO_123:0002366']
+            example: ['http://my-traits.com/trait/CO_123:0004098', 'http://my-traits.com/trait/CO_123:0002366']

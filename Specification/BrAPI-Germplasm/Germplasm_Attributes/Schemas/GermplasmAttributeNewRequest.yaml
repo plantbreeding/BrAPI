@@ -21,9 +21,9 @@ components:
             type: string
             example: Plant Height 1
           attributePUI:
-            description: The Perminent Unique Identifier of an Attribute, usually in the form of a URI
+            description: The Permanent Unique Identifier of an Attribute, usually in the form of a URI
             type: string
-            example: http://my-minter.com/trait/CO_123:0008012
+            example: http://my-traits.com/trait/CO_123:0008012
           attributeDescription: 
             description: A human readable description of this attribute
             type: string

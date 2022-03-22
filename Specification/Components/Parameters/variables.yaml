@@ -23,7 +23,7 @@ components:
         type: string
     methodPUI:
       name: methodPUI
-      description: The Perminent Unique Identifier of a Method, usually in the form of a URI
+      description: The Permanent Unique Identifier of a Method, usually in the form of a URI
       in: query
       required: false
       schema:
@@ -46,7 +46,7 @@ components:
         type: string
     scalePUI:
       name: scalePUI
-      description: The Perminent Unique Identifier of a Scale, usually in the form of a URI
+      description: The Permanent Unique Identifier of a Scale, usually in the form of a URI
       in: query
       required: false
       schema:
@@ -69,7 +69,7 @@ components:
         type: string
     traitPUI:
       name: traitPUI
-      description: The Perminent Unique Identifier of a Trait, usually in the form of a URI
+      description: The Permanent Unique Identifier of a Trait, usually in the form of a URI
       in: query
       required: false
       schema:
