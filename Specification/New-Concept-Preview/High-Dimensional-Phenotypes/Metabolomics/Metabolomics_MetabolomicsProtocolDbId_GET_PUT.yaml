@@ -1,0 +1,75 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /metabolomics/{metabolomicsProtocolDbId}:
+    get:
+      summary: Get a Metabolomics Protocol by Id
+      description: Get a single Metabolomics Protocol by Id. This can be used to quickly get the details of a MetabolomicsProtocol when you have the Id from another entity. 
+      parameters:
+      - name: metabolomicsProtocolDbId
+        description: Filter by the common crop name. Exact match.
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/MetabolomicsProtocolSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - High-Dimensional-Phenotypes
+#    put:
+#      summary: Update an existing Metabolomics Protocol
+#      description: Update the details of an existing breeding Metabolomics Protocol. 
+#      parameters:
+#      - name: metabolomicsProtocolDbId
+#        description: Filter by the common crop name. Exact match.
+#        in: path
+#        required: true
+#        schema:
+#          type: string
+#      - $ref: '#/components/parameters/authorizationHeader'
+#      requestBody:
+#        content:
+#          application/json:
+#            schema:
+#              $ref: '#/components/schemas/MetabolomicsProtocolNewRequest'
+#      responses:
+#        '200':
+#          $ref: '#/components/responses/MetabolomicsProtocolSingleResponse'
+#        '400':
+#          $ref: '#/components/responses/400BadRequest'
+#        '401':
+#          $ref: '#/components/responses/401Unauthorized'
+#        '403':
+#          $ref: '#/components/responses/403Forbidden'
+#      tags:
+#      - High-Dimensional-Phenotypes
+components:
+  responses:
+    MetabolomicsProtocolSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: MetabolomicsProtocolSingleResponse
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/MetabolomicsProtocol'
+            required:
+            - metadata
+            - result
+            type: object
+      description: OK
+      headers: {}

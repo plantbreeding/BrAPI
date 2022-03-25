@@ -1,0 +1,70 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    Metabolite:
+      type: object
+      properties:
+        compoundDbId:
+          description: compound ID in this (breedbase) database to link to other files
+          type: string
+          example: f60f15b2
+        massToCharge:
+          description: m/z ratio, standard from output, should be a number
+          type: string
+          example: f60f15b2
+        retentionTime:
+          description: retention time, also standard from machine output; users shoud confirm that unit is 'seconds'
+          type: string
+          example: f60f15b2
+        chemicalFormula:
+          description: standard formula
+          type: string
+          example: f60f15b2
+        chebi:
+          description: CHEBI id; standard formula
+          type: string
+          example: f60f15b2
+        inchi:
+          description: InCHI is another standard universal formula
+          type: string
+          example: f60f15b2
+        inchiKey:
+          description: shortened version of inchi; users choose one or the other
+          type: string
+          example: f60f15b2
+        pubChemURL:
+          description: pubchem URL is another standard 
+          type: string
+          example: f60f15b2
+        metaboliteIdentification:
+          description: Name of compound
+          type: string
+          example: f60f15b2
+        synonyms:
+          description: Name of compound
+          type: array
+          items:
+            type: string
+          example: ['f60f15b2']
+        chemicalSpecies:
+          description: Family of chemical
+          type: object
+          example: f60f15b2
+        spectraSource:
+          description: The source database that defines the connection between spectra and compound
+          type: object
+          properties:
+            database:
+              description: Database identifier (Name or URL)
+              type: string
+              example: f60f15b2
+            databaseVersion:
+              description: Family of chemical
+              type: string
+              example: f60f15b2
+
+

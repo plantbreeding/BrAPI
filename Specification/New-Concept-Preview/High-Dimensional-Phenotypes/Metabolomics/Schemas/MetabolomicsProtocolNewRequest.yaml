@@ -1,0 +1,104 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    MetabolomicsProtocolNewRequest:
+      type: object
+      properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+        documentationURL:
+          description: description
+          format: uri
+          type: string
+          example: https://wiki.brapi.org
+        headerColumns:
+          description: Column definitions for any matrix with this protocol 
+          type: array
+          items:
+            type: integer
+        phenotypeUnits: 
+          description: Free text, e.g. relative abundance, BLUP, drBLUP, concentration (specifiy units, e.g. ug/g)
+          type: string
+          example: BLUP
+        publications: 
+          description: Relevent publication(s), DOI with details
+          type: array
+          items:
+            $ref: '#/components/schemas/Metabolite'
+        equipment: 
+          type: object
+          properties:
+            analysisType: 
+              description: MS or NMR. If NMR is selected, the rest of Equipment are not needed
+              type: string
+              enum: [MS, NMR]
+              example: MS
+            chromatographyType:  
+              description: description
+              type: string
+              enum: [LC, GC]
+              example: LC
+            chromatographySystem:  
+              description: User free text to specify brand of chromotography system
+              type: string
+              example: brand of chromotography system
+            chromatographyColumn:  
+              description: User free text to specify brand of chromotography column
+              type: string
+              example: brand of chromotography column
+            msInstrumentName:  
+              description: User free text to specify brand of MS system
+              type: string
+              example: brand of MS system
+            msInstrumentType:  
+              description: User free text, e.g. time of flight (TOF), triple quadropole
+              type: string
+              example: TOF
+            msType:  
+              description: Electron Ionization (EI), Electrospray Ionization (ESI), Atmospheric Pressure Chemical Ionization (APCI), Matrix Assisted Laser Desorption Ionization (MALDI), Other (please specify below)
+              type: string
+              example: EI
+            msIonMode:  
+              description: Negative, Positive, Both
+              type: string
+              example: Negative
+        protocol:
+          type: object
+          properties:
+            sampleCollection: 
+              description: the tissue, time point, if the sample was frozen
+              type: string
+              example: the tissue, time point, if the sample was frozen
+            sampleExtraction: 
+              description: the extraction protocol used
+              type: string
+              example: the extraction protocol used
+            chromatography: 
+              description: the LC protocol, instrument settings, calibration procedure
+              type: string
+              example: the LC protocol, instrument settings, calibration procedure
+            massSpectrometry: 
+              description: instrument settings, calibration procedure
+              type: string
+              example: instrument settings, calibration procedure
+            rawDataTransformation: 
+              description: the LCMS machine files were transformed into peak area
+              type: string
+              example: the LCMS machine files were transformed into peak area
+            metaboliteIdentification: 
+              description: metabolite annotations were assigned to peaks
+              type: string
+              example: metabolite annotations were assigned to peaks
+            phenotype: 
+              description: BLUPs were calculated from the peak area
+              type: string
+              example: BLUPs were calculated from the peak area

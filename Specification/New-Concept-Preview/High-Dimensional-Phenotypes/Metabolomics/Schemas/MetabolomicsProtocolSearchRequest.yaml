@@ -1,0 +1,25 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    MetabolomicsProtocolSearchRequest:
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'
+      - type: object
+        properties:
+          protocolDbIds:
+            description: description
+            items:
+              type: string
+            type: array
+            example: ['d8bd96c7', 'a2b9c8e7']
+          deviceTypes:
+            description: description
+            items:
+              type: string
+            type: array
+            example: ['SCIO', 'HONDA']

@@ -1,0 +1,93 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /metabolomics/{metabolomicsProtocolDbId}/matrix:
+    get:
+      summary: Get a Metabolomics data matrix by MetabolomicsProtocolDbId
+      description: Get a Metabolomics data matrix by MetabolomicsProtocolDbId
+      parameters:
+      - name: metabolomicsProtocolDbId
+        description: Path parameter protocol id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: studyDbId
+        description: filter by study
+        in: query
+        schema:
+          type: string
+      - name: observationUnitDbId
+        description: filter by study
+        in: query
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/MatrixResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - High-Dimensional-Phenotypes
+#    post:
+#      summary: Submit a new matrix
+#      description: Submit a new matrix
+#      parameters:
+#      - name: metabolomicsProtocolDbId
+#        description: Filter by the common crop name. Exact match.
+#        in: path
+#        required: true
+#        schema:
+#          type: string
+#      - $ref: '#/components/parameters/authorizationHeader'
+#      requestBody:
+#        content:
+#          application/json:
+#            schema:
+#              $ref: '#/components/schemas/MatrixNewRequest'
+#      responses:
+#        '200':
+#          $ref: '#/components/responses/MatrixResponse'
+#        '400':
+#          $ref: '#/components/responses/400BadRequest'
+#        '401':
+#          $ref: '#/components/responses/401Unauthorized'
+#        '403':
+#          $ref: '#/components/responses/403Forbidden'
+#      tags:
+#      - High-Dimensional-Phenotypes
+#    put:
+#      summary: Update an existing matrix
+#      description: Update an existing matrix 
+#      parameters:
+#      - name: metabolomicsProtocolDbId
+#        description: Filter by the common crop name. Exact match.
+#        in: path
+#        required: true
+#        schema:
+#          type: string
+#      - $ref: '#/components/parameters/authorizationHeader'
+#      requestBody:
+#        content:
+#          application/json:
+#            schema:
+#              $ref: '#/components/schemas/MatrixNewRequest'
+#      responses:
+#        '200':
+#          $ref: '#/components/responses/MatrixResponse'
+#        '400':
+#          $ref: '#/components/responses/400BadRequest'
+#        '401':
+#          $ref: '#/components/responses/401Unauthorized'
+#        '403':
+#          $ref: '#/components/responses/403Forbidden'
+#      tags:
+#      - High-Dimensional-Phenotypes
+
