@@ -31,18 +31,7 @@ Get a filtered list of Metabolomics Protocols
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
-|headerColumns|array[integer]|Column definitions for any matrix with this protocol|
-|phenotypeUnits|string|Free text, e.g. relative abundance, BLUP, drBLUP, concentration (specifiy units, e.g. ug/g)|
-|protocol|object||
-|chromatography|string|the LC protocol, instrument settings, calibration procedure|
-|massSpectrometry|string|instrument settings, calibration procedure|
-|metaboliteIdentification|string|metabolite annotations were assigned to peaks|
-|phenotype|string|BLUPs were calculated from the peak area|
-|rawDataTransformation|string|the LCMS machine files were transformed into peak area|
-|sampleCollection|string|the tissue, time point, if the sample was frozen|
-|sampleExtraction|string|the extraction protocol used|
-|protocolDbId|string|The ID which uniquely identifies the Metabolomics Matrix|
-|publications|array[object]|Relevent publication(s), DOI with details|
+|headerColumns|array[object]|Column definitions for any matrix with this protocol|
 |chebi|string|CHEBI id; standard formula|
 |chemicalFormula|string|standard formula|
 |chemicalSpecies|object|Family of chemical|
@@ -57,6 +46,17 @@ Get a filtered list of Metabolomics Protocols
 |database|string|Database identifier (Name or URL)|
 |databaseVersion|string|Family of chemical|
 |synonyms|array[string]|Name of compound|
+|phenotypeUnits|string|Free text, e.g. relative abundance, BLUP, drBLUP, concentration (specifiy units, e.g. ug/g)|
+|protocol|object||
+|chromatography|string|the LC protocol, instrument settings, calibration procedure|
+|massSpectrometry|string|instrument settings, calibration procedure|
+|metaboliteIdentification|string|metabolite annotations were assigned to peaks|
+|phenotype|string|BLUPs were calculated from the peak area|
+|rawDataTransformation|string|the LCMS machine files were transformed into peak area|
+|sampleCollection|string|the tissue, time point, if the sample was frozen|
+|sampleExtraction|string|the extraction protocol used|
+|protocolDbId|string|The ID which uniquely identifies the Metabolomics Matrix|
+|publications|array[string]|Relevent publication(s), DOI with details|
 
 
  
@@ -123,19 +123,7 @@ Get a filtered list of Metabolomics Protocols
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
-                "headerColumns": [],
-                "phenotypeUnits": "BLUP",
-                "protocol": {
-                    "chromatography": "the LC protocol, instrument settings, calibration procedure",
-                    "massSpectrometry": "instrument settings, calibration procedure",
-                    "metaboliteIdentification": "metabolite annotations were assigned to peaks",
-                    "phenotype": "BLUPs were calculated from the peak area",
-                    "rawDataTransformation": "the LCMS machine files were transformed into peak area",
-                    "sampleCollection": "the tissue, time point, if the sample was frozen",
-                    "sampleExtraction": "the extraction protocol used"
-                },
-                "protocolDbId": "f60f15b2",
-                "publications": [
+                "headerColumns": [
                     {
                         "chebi": "f60f15b2",
                         "chemicalFormula": "f60f15b2",
@@ -155,6 +143,21 @@ Get a filtered list of Metabolomics Protocols
                             "f60f15b2"
                         ]
                     }
+                ],
+                "phenotypeUnits": "BLUP",
+                "protocol": {
+                    "chromatography": "the LC protocol, instrument settings, calibration procedure",
+                    "massSpectrometry": "instrument settings, calibration procedure",
+                    "metaboliteIdentification": "metabolite annotations were assigned to peaks",
+                    "phenotype": "BLUPs were calculated from the peak area",
+                    "rawDataTransformation": "the LCMS machine files were transformed into peak area",
+                    "sampleCollection": "the tissue, time point, if the sample was frozen",
+                    "sampleExtraction": "the extraction protocol used"
+                },
+                "protocolDbId": "f60f15b2",
+                "publications": [
+                    "publications1",
+                    "publications2"
                 ]
             }
         ]
@@ -204,18 +207,7 @@ Get a single Metabolomics Protocol by Id. This can be used to quickly get the de
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
-|headerColumns|array[integer]|Column definitions for any matrix with this protocol|
-|phenotypeUnits|string|Free text, e.g. relative abundance, BLUP, drBLUP, concentration (specifiy units, e.g. ug/g)|
-|protocol|object||
-|chromatography|string|the LC protocol, instrument settings, calibration procedure|
-|massSpectrometry|string|instrument settings, calibration procedure|
-|metaboliteIdentification|string|metabolite annotations were assigned to peaks|
-|phenotype|string|BLUPs were calculated from the peak area|
-|rawDataTransformation|string|the LCMS machine files were transformed into peak area|
-|sampleCollection|string|the tissue, time point, if the sample was frozen|
-|sampleExtraction|string|the extraction protocol used|
-|protocolDbId|string|The ID which uniquely identifies the Metabolomics Matrix|
-|publications|array[object]|Relevent publication(s), DOI with details|
+|headerColumns|array[object]|Column definitions for any matrix with this protocol|
 |chebi|string|CHEBI id; standard formula|
 |chemicalFormula|string|standard formula|
 |chemicalSpecies|object|Family of chemical|
@@ -230,6 +222,17 @@ Get a single Metabolomics Protocol by Id. This can be used to quickly get the de
 |database|string|Database identifier (Name or URL)|
 |databaseVersion|string|Family of chemical|
 |synonyms|array[string]|Name of compound|
+|phenotypeUnits|string|Free text, e.g. relative abundance, BLUP, drBLUP, concentration (specifiy units, e.g. ug/g)|
+|protocol|object||
+|chromatography|string|the LC protocol, instrument settings, calibration procedure|
+|massSpectrometry|string|instrument settings, calibration procedure|
+|metaboliteIdentification|string|metabolite annotations were assigned to peaks|
+|phenotype|string|BLUPs were calculated from the peak area|
+|rawDataTransformation|string|the LCMS machine files were transformed into peak area|
+|sampleCollection|string|the tissue, time point, if the sample was frozen|
+|sampleExtraction|string|the extraction protocol used|
+|protocolDbId|string|The ID which uniquely identifies the Metabolomics Matrix|
+|publications|array[string]|Relevent publication(s), DOI with details|
 
 
  
@@ -289,19 +292,7 @@ Get a single Metabolomics Protocol by Id. This can be used to quickly get the de
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
-        "headerColumns": [],
-        "phenotypeUnits": "BLUP",
-        "protocol": {
-            "chromatography": "the LC protocol, instrument settings, calibration procedure",
-            "massSpectrometry": "instrument settings, calibration procedure",
-            "metaboliteIdentification": "metabolite annotations were assigned to peaks",
-            "phenotype": "BLUPs were calculated from the peak area",
-            "rawDataTransformation": "the LCMS machine files were transformed into peak area",
-            "sampleCollection": "the tissue, time point, if the sample was frozen",
-            "sampleExtraction": "the extraction protocol used"
-        },
-        "protocolDbId": "f60f15b2",
-        "publications": [
+        "headerColumns": [
             {
                 "chebi": "f60f15b2",
                 "chemicalFormula": "f60f15b2",
@@ -321,6 +312,21 @@ Get a single Metabolomics Protocol by Id. This can be used to quickly get the de
                     "f60f15b2"
                 ]
             }
+        ],
+        "phenotypeUnits": "BLUP",
+        "protocol": {
+            "chromatography": "the LC protocol, instrument settings, calibration procedure",
+            "massSpectrometry": "instrument settings, calibration procedure",
+            "metaboliteIdentification": "metabolite annotations were assigned to peaks",
+            "phenotype": "BLUPs were calculated from the peak area",
+            "rawDataTransformation": "the LCMS machine files were transformed into peak area",
+            "sampleCollection": "the tissue, time point, if the sample was frozen",
+            "sampleExtraction": "the extraction protocol used"
+        },
+        "protocolDbId": "f60f15b2",
+        "publications": [
+            "publications1",
+            "publications2"
         ]
     }
 }
