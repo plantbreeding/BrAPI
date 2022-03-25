@@ -24,7 +24,7 @@ components:
           description: Column definitions for any matrix with this protocol 
           type: array
           items:
-            type: integer
+            $ref: '#/components/schemas/Metabolite'
         phenotypeUnits: 
           description: Free text, e.g. relative abundance, BLUP, drBLUP, concentration (specifiy units, e.g. ug/g)
           type: string
@@ -33,7 +33,8 @@ components:
           description: Relevent publication(s), DOI with details
           type: array
           items:
-            $ref: '#/components/schemas/Metabolite'
+            type: string
+            example: https://doi.org/example/1234
         equipment: 
           type: object
           properties:
