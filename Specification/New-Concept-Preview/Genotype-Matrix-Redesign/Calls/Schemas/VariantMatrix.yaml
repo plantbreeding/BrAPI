@@ -69,7 +69,7 @@ components:
             properties:
               variantDbId:
                 type: string
-              chromosome: 
+              contig: 
                 type: string
               start:
                 type: integer
@@ -77,9 +77,9 @@ components:
                 type: integer
               ploidy:
                 type: integer
-          example: [{'variantDbId': 'feb54257', 'chromosome': '20', 'start': 14370, 'end': 24370, 'ploidy': 2},
-                    {'variantDbId': 'feb40355', 'chromosome': '20', 'start': 1110696, 'end': 1113696, 'ploidy': 2},
-                    {'variantDbId': 'feb40323', 'chromosome': '20', 'start': 1234567, 'end': 1237567, 'ploidy': 2}]
+          example: [{'variantDbId': 'feb54257', 'contig': 'CHROM20', 'start': 14370, 'end': 24370, 'ploidy': 2},
+                    {'variantDbId': 'feb40355', 'contig': 'CHROM20', 'start': 1110696, 'end': 1113696, 'ploidy': 2},
+                    {'variantDbId': 'feb40323', 'contig': 'CHROM20', 'start': 1234567, 'end': 1237567, 'ploidy': 2}]
         data:
           type: array
           items:
@@ -110,6 +110,13 @@ components:
                 - Read Depth
                 - Haplotype Quality
                 example: Genotype Quality
+              fieldAbbreviation:
+                type: string
+                enum:
+                - GQ
+                - RD
+                - HQ
+                example: GQ
               fieldMatrix:
                 type: array
                 items:

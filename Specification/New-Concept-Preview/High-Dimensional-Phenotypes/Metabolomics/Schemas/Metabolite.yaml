@@ -11,49 +11,49 @@ components:
         compoundDbId:
           description: compound ID in this (breedbase) database to link to other files
           type: string
-          example: f60f15b2
+          example: LC.03.0001
         massToCharge:
           description: m/z ratio, standard from output, should be a number
-          type: string
-          example: f60f15b2
+          type: double
+          example: 1062.5227
         retentionTime:
           description: retention time, also standard from machine output; users shoud confirm that unit is 'seconds'
-          type: string
-          example: f60f15b2
+          type: double
+          example: 342.256063
         chemicalFormula:
           description: standard formula
           type: string
-          example: f60f15b2
+          example: C6H6O3
         chebi:
           description: CHEBI id; standard formula
           type: string
-          example: f60f15b2
+          example: CHEBI:75854
         inchi:
           description: InCHI is another standard universal formula
           type: string
-          example: f60f15b2
+          example: InChI=1S/C39H68O5/c1-3-5-7-9-11-13-15-17-19-21-23-25-27-29-31-33-38(41)43-36-37(35-40)44-39(42)34-32-30-28-26-24-22-20-18-16-14-12-10-8-6-4-2/h11-14,17-20,37,40H,3-10,15-16,21-36H2,1-2H3/b13-11-,14-12-,19-17-,20-18-/t37-/m0/s1
         inchiKey:
           description: shortened version of inchi; users choose one or the other
           type: string
-          example: f60f15b2
+          example: MQGBAQLIFKSMEM-ZHARMHCNSA-N
         pubChemURL:
           description: pubchem URL is another standard 
           type: string
-          example: f60f15b2
+          example: https://pubchem.ncbi.nlm.nih.gov/compound/5988
         metaboliteIdentification:
           description: Name of compound
           type: string
-          example: f60f15b2
+          example: Avenacoside A
         synonyms:
           description: Name of compound
           type: array
           items:
             type: string
-          example: ['f60f15b2']
+          example: ['Avenacoside A']
         chemicalSpecies:
           description: Family of chemical
           type: object
-          example: f60f15b2
+          example: Amino Acids
         spectraSource:
           description: The source database that defines the connection between spectra and compound
           type: object
@@ -61,10 +61,10 @@ components:
             database:
               description: Database identifier (Name or URL)
               type: string
-              example: f60f15b2
+              example: gmd.mpimp-golm.mpg.de
             databaseVersion:
               description: Family of chemical
               type: string
-              example: f60f15b2
+              example: var5 alk 161212
 
 

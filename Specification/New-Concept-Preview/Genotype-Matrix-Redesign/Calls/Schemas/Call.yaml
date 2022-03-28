@@ -29,22 +29,55 @@ components:
           type: string
           example: Sample_123_DNA_Run_456
         variantDbId:
-          description: The ID of the variant this call belongs to.
+          description: The ID of the Variant this call belongs to.
           type: string
           example: 538c8ecf
         variantName:
-          description: The name of the variant this call belongs to.
+          description: The name of the Variant this call belongs to.
+          type: string
+          example: Marker A
+        variantSetDbId:
+          description: The ID of the Variant Set this call belongs to.
+          type: string
+          example: 8c8ecf53
+        variantSetName:
+          description: The name of the Variant Set this call belongs to.
           type: string
           example: Marker A
         genotype:
-          $ref: '#/components/schemas/ListValue'
-        genotype_likelihood:
-          description: The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data | genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.
-          items:
-            format: double
-            type: number
+          description: The value of this genotype 
+          type: string
+          example: '1/1'
+        genotypeFields:
           type: array
-          example: [ 1.0 ]
+          items:
+            type: object
+            properties:
+              fieldType:
+                type: string
+                enum:
+                - string
+                - integer
+                - float
+                - boolean
+                example: integer
+              fieldName:
+                type: string
+                enum:
+                - Genotype Quality
+                - Read Depth
+                - Haplotype Quality
+                example: Genotype Quality
+              fieldAbbreviation:
+                type: string
+                enum:
+                - GQ
+                - RD
+                - HQ
+                example: GQ
+              fieldvalue:
+                type: string
+                example: '45.2'
         phaseSet:
           description: |-
             If this field is populated, this variant call's genotype ordering implies the phase of the bases and 
