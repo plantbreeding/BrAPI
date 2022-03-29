@@ -38,10 +38,10 @@ Get a filtered list of Metabolomics Protocols
 |compoundDbId|string|compound ID in this (breedbase) database to link to other files|
 |inchi|string|InCHI is another standard universal formula|
 |inchiKey|string|shortened version of inchi; users choose one or the other|
-|massToCharge|string|m/z ratio, standard from output, should be a number|
+|massToCharge|double|m/z ratio, standard from output, should be a number|
 |metaboliteIdentification|string|Name of compound|
 |pubChemURL|string|pubchem URL is another standard|
-|retentionTime|string|retention time, also standard from machine output; users shoud confirm that unit is 'seconds'|
+|retentionTime|double|retention time, also standard from machine output; users shoud confirm that unit is 'seconds'|
 |spectraSource|object|The source database that defines the connection between spectra and compound|
 |database|string|Database identifier (Name or URL)|
 |databaseVersion|string|Family of chemical|
@@ -125,22 +125,22 @@ Get a filtered list of Metabolomics Protocols
                 ],
                 "headerColumns": [
                     {
-                        "chebi": "f60f15b2",
-                        "chemicalFormula": "f60f15b2",
-                        "chemicalSpecies": "f60f15b2",
-                        "compoundDbId": "f60f15b2",
-                        "inchi": "f60f15b2",
-                        "inchiKey": "f60f15b2",
-                        "massToCharge": "f60f15b2",
-                        "metaboliteIdentification": "f60f15b2",
-                        "pubChemURL": "f60f15b2",
-                        "retentionTime": "f60f15b2",
+                        "chebi": "CHEBI:75854",
+                        "chemicalFormula": "C6H6O3",
+                        "chemicalSpecies": "Amino Acids",
+                        "compoundDbId": "LC.03.0001",
+                        "inchi": "InChI=1S/C39H68O5/c1-3-5-7-9-11-13-15-17-19-21-23-25-27-29-31-33-38(41)43-36-37(35-40)44-39(42)34-32-30-28-26-24-22-20-18-16-14-12-10-8-6-4-2/h11-14,17-20,37,40H,3-10,15-16,21-36H2,1-2H3/b13-11-,14-12-,19-17-,20-18-/t37-/m0/s1",
+                        "inchiKey": "MQGBAQLIFKSMEM-ZHARMHCNSA-N",
+                        "massToCharge": 1062.5227,
+                        "metaboliteIdentification": "Avenacoside A",
+                        "pubChemURL": "https://pubchem.ncbi.nlm.nih.gov/compound/5988",
+                        "retentionTime": 342.256063,
                         "spectraSource": {
-                            "database": "f60f15b2",
-                            "databaseVersion": "f60f15b2"
+                            "database": "gmd.mpimp-golm.mpg.de",
+                            "databaseVersion": "var5 alk 161212"
                         },
                         "synonyms": [
-                            "f60f15b2"
+                            "Avenacoside A"
                         ]
                     }
                 ],
@@ -214,10 +214,10 @@ Get a single Metabolomics Protocol by Id. This can be used to quickly get the de
 |compoundDbId|string|compound ID in this (breedbase) database to link to other files|
 |inchi|string|InCHI is another standard universal formula|
 |inchiKey|string|shortened version of inchi; users choose one or the other|
-|massToCharge|string|m/z ratio, standard from output, should be a number|
+|massToCharge|double|m/z ratio, standard from output, should be a number|
 |metaboliteIdentification|string|Name of compound|
 |pubChemURL|string|pubchem URL is another standard|
-|retentionTime|string|retention time, also standard from machine output; users shoud confirm that unit is 'seconds'|
+|retentionTime|double|retention time, also standard from machine output; users shoud confirm that unit is 'seconds'|
 |spectraSource|object|The source database that defines the connection between spectra and compound|
 |database|string|Database identifier (Name or URL)|
 |databaseVersion|string|Family of chemical|
@@ -294,22 +294,22 @@ Get a single Metabolomics Protocol by Id. This can be used to quickly get the de
         ],
         "headerColumns": [
             {
-                "chebi": "f60f15b2",
-                "chemicalFormula": "f60f15b2",
-                "chemicalSpecies": "f60f15b2",
-                "compoundDbId": "f60f15b2",
-                "inchi": "f60f15b2",
-                "inchiKey": "f60f15b2",
-                "massToCharge": "f60f15b2",
-                "metaboliteIdentification": "f60f15b2",
-                "pubChemURL": "f60f15b2",
-                "retentionTime": "f60f15b2",
+                "chebi": "CHEBI:75854",
+                "chemicalFormula": "C6H6O3",
+                "chemicalSpecies": "Amino Acids",
+                "compoundDbId": "LC.03.0001",
+                "inchi": "InChI=1S/C39H68O5/c1-3-5-7-9-11-13-15-17-19-21-23-25-27-29-31-33-38(41)43-36-37(35-40)44-39(42)34-32-30-28-26-24-22-20-18-16-14-12-10-8-6-4-2/h11-14,17-20,37,40H,3-10,15-16,21-36H2,1-2H3/b13-11-,14-12-,19-17-,20-18-/t37-/m0/s1",
+                "inchiKey": "MQGBAQLIFKSMEM-ZHARMHCNSA-N",
+                "massToCharge": 1062.5227,
+                "metaboliteIdentification": "Avenacoside A",
+                "pubChemURL": "https://pubchem.ncbi.nlm.nih.gov/compound/5988",
+                "retentionTime": 342.256063,
                 "spectraSource": {
-                    "database": "f60f15b2",
-                    "databaseVersion": "f60f15b2"
+                    "database": "gmd.mpimp-golm.mpg.de",
+                    "databaseVersion": "var5 alk 161212"
                 },
                 "synonyms": [
-                    "f60f15b2"
+                    "Avenacoside A"
                 ]
             }
         ],

@@ -24,12 +24,17 @@ in the genotype matrix. This action is dangerous and can cause data collisions.
 |additionalInfo|object|Additional arbitrary info|
 |callSetDbId|string|The ID of the call set this variant call belongs to. <br/>If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet`  is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
 |callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
-|genotype|object|`ListValue` is a wrapper around a repeated field of values. <br/>The JSON representation for `ListValue` is JSON array.|
-|values|array|Repeated field of dynamically typed values.|
-|genotype_likelihood|array[number]|The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
+|genotype|string|The value of this genotype|
+|genotypeFields|array[object]||
+|fieldAbbreviation|string||
+|fieldName|string||
+|fieldType|string||
+|fieldvalue|string||
 |phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and  is consistent with any other variant calls on the same contig which have the same phase set string.|
-|variantDbId|string|The ID of the variant this call belongs to.|
-|variantName|string|The name of the variant this call belongs to.|
+|variantDbId|string|The ID of the Variant this call belongs to.|
+|variantName|string|The name of the Variant this call belongs to.|
+|variantSetDbId|string|The ID of the Variant Set this call belongs to.|
+|variantSetName|string|The name of the Variant Set this call belongs to.|
 
 
 **Response Fields** 
@@ -40,12 +45,17 @@ in the genotype matrix. This action is dangerous and can cause data collisions.
 |additionalInfo|object|Additional arbitrary info|
 |callSetDbId|string|The ID of the call set this variant call belongs to. <br/>If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet`  is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
 |callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
-|genotype|object|`ListValue` is a wrapper around a repeated field of values. <br/>The JSON representation for `ListValue` is JSON array.|
-|values|array|Repeated field of dynamically typed values.|
-|genotype_likelihood|array[number]|The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
+|genotype|string|The value of this genotype|
+|genotypeFields|array[object]||
+|fieldAbbreviation|string||
+|fieldName|string||
+|fieldType|string||
+|fieldvalue|string||
 |phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and  is consistent with any other variant calls on the same contig which have the same phase set string.|
-|variantDbId|string|The ID of the variant this call belongs to.|
-|variantName|string|The name of the variant this call belongs to.|
+|variantDbId|string|The ID of the Variant this call belongs to.|
+|variantName|string|The name of the Variant this call belongs to.|
+|variantSetDbId|string|The ID of the Variant Set this call belongs to.|
+|variantSetName|string|The name of the Variant Set this call belongs to.|
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
@@ -66,17 +76,20 @@ in the genotype matrix. This action is dangerous and can cause data collisions.
         "additionalInfo": {},
         "callSetDbId": "16466f55",
         "callSetName": "Sample_123_DNA_Run_456",
-        "genotype": {
-            "values": [
-                "1/1"
-            ]
-        },
-        "genotype_likelihood": [
-            1.0
+        "genotype": "1/1",
+        "genotypeFields": [
+            {
+                "fieldAbbreviation": "GQ",
+                "fieldName": "Genotype Quality",
+                "fieldType": "integer",
+                "fieldvalue": "45.2"
+            }
         ],
         "phaseSet": "6410afc5",
         "variantDbId": "538c8ecf",
-        "variantName": "Marker A"
+        "variantName": "Marker A",
+        "variantSetDbId": "8c8ecf53",
+        "variantSetName": "Marker A"
     }
 ]
 ```
@@ -112,17 +125,20 @@ in the genotype matrix. This action is dangerous and can cause data collisions.
                 "additionalInfo": {},
                 "callSetDbId": "16466f55",
                 "callSetName": "Sample_123_DNA_Run_456",
-                "genotype": {
-                    "values": [
-                        "1/1"
-                    ]
-                },
-                "genotype_likelihood": [
-                    1.0
+                "genotype": "1/1",
+                "genotypeFields": [
+                    {
+                        "fieldAbbreviation": "GQ",
+                        "fieldName": "Genotype Quality",
+                        "fieldType": "integer",
+                        "fieldvalue": "45.2"
+                    }
                 ],
                 "phaseSet": "6410afc5",
                 "variantDbId": "538c8ecf",
-                "variantName": "Marker A"
+                "variantName": "Marker A",
+                "variantSetDbId": "8c8ecf53",
+                "variantSetName": "Marker A"
             }
         ],
         "expandHomozygotes": true,
@@ -191,6 +207,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |data|array[array]||
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
 |genotypeFields|array[object]||
+|fieldAbbreviation|string||
 |fieldMatrix|array[array]||
 |fieldName|string||
 |fieldType|string||
@@ -205,7 +222,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |unknownString|string|The string used as a representation for missing data.|
 |variantSetDbIds|array[string]||
 |variants|array[object]||
-|chromosome|string||
+|contig|string||
 |end|integer||
 |ploidy|integer||
 |start|integer||
@@ -323,6 +340,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "expandHomozygotes": true,
         "genotypeFields": [
             {
+                "fieldAbbreviation": "GQ",
                 "fieldMatrix": [
                     [
                         "48",
@@ -370,21 +388,21 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         ],
         "variants": [
             {
-                "chromosome": "20",
+                "contig": "CHROM20",
                 "end": 24370,
                 "ploidy": 2,
                 "start": 14370,
                 "variantDbId": "feb54257"
             },
             {
-                "chromosome": "20",
+                "contig": "CHROM20",
                 "end": 1113696,
                 "ploidy": 2,
                 "start": 1110696,
                 "variantDbId": "feb40355"
             },
             {
-                "chromosome": "20",
+                "contig": "CHROM20",
                 "end": 1237567,
                 "ploidy": 2,
                 "start": 1234567,
@@ -460,6 +478,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |data|array[array]||
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
 |genotypeFields|array[object]||
+|fieldAbbreviation|string||
 |fieldMatrix|array[array]||
 |fieldName|string||
 |fieldType|string||
@@ -474,7 +493,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |unknownString|string|The string used as a representation for missing data.|
 |variantSetDbIds|array[string]||
 |variants|array[object]||
-|chromosome|string||
+|contig|string||
 |end|integer||
 |ploidy|integer||
 |start|integer||
@@ -537,6 +556,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "expandHomozygotes": true,
         "genotypeFields": [
             {
+                "fieldAbbreviation": "GQ",
                 "fieldMatrix": [
                     [
                         "48",
@@ -584,21 +604,21 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         ],
         "variants": [
             {
-                "chromosome": "20",
+                "contig": "CHROM20",
                 "end": 24370,
                 "ploidy": 2,
                 "start": 14370,
                 "variantDbId": "feb54257"
             },
             {
-                "chromosome": "20",
+                "contig": "CHROM20",
                 "end": 1113696,
                 "ploidy": 2,
                 "start": 1110696,
                 "variantDbId": "feb40355"
             },
             {
-                "chromosome": "20",
+                "contig": "CHROM20",
                 "end": 1237567,
                 "ploidy": 2,
                 "start": 1234567,
@@ -668,6 +688,7 @@ Two dimensional matrix representing the raw contents of a VCF
 |data|array[array]||
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
 |genotypeFields|array[object]||
+|fieldAbbreviation|string||
 |fieldMatrix|array[array]||
 |fieldName|string||
 |fieldType|string||
@@ -682,7 +703,7 @@ Two dimensional matrix representing the raw contents of a VCF
 |unknownString|string|The string used as a representation for missing data.|
 |variantSetDbIds|array[string]||
 |variants|array[object]||
-|chromosome|string||
+|contig|string||
 |end|integer||
 |ploidy|integer||
 |start|integer||
@@ -759,6 +780,7 @@ Two dimensional matrix representing the raw contents of a VCF
         "expandHomozygotes": true,
         "genotypeFields": [
             {
+                "fieldAbbreviation": "GQ",
                 "fieldMatrix": [
                     [
                         "48",
@@ -806,21 +828,21 @@ Two dimensional matrix representing the raw contents of a VCF
         ],
         "variants": [
             {
-                "chromosome": "20",
+                "contig": "CHROM20",
                 "end": 24370,
                 "ploidy": 2,
                 "start": 14370,
                 "variantDbId": "feb54257"
             },
             {
-                "chromosome": "20",
+                "contig": "CHROM20",
                 "end": 1113696,
                 "ploidy": 2,
                 "start": 1110696,
                 "variantDbId": "feb40355"
             },
             {
-                "chromosome": "20",
+                "contig": "CHROM20",
                 "end": 1237567,
                 "ploidy": 2,
                 "start": 1234567,
