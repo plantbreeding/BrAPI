@@ -101,13 +101,13 @@ Get a filtered list of Metabolomics Protocols
                 "documentationURL": "https://wiki.brapi.org",
                 "equipment": {
                     "analysisType": "MS",
-                    "chromatographyColumn": "brand of chromotography column",
-                    "chromatographySystem": "brand of chromotography system",
+                    "chromatographyColumn": "Waters 164 Acquity UPLC CSH Phenyl Hexyl column (1.7 \u03bcM, 1.0 x 100 mm)",
+                    "chromatographySystem": "Waters Acuity UPLC",
                     "chromatographyType": "LC",
-                    "msInstrumentName": "brand of MS system",
+                    "msInstrumentName": "Waters Xevo G2 TOF-MS",
                     "msInstrumentType": "TOF",
-                    "msIonMode": "Negative",
-                    "msType": "EI"
+                    "msIonMode": "Positive",
+                    "msType": "ESI"
                 },
                 "externalReferences": [
                     {
@@ -144,15 +144,15 @@ Get a filtered list of Metabolomics Protocols
                         ]
                     }
                 ],
-                "phenotypeUnits": "BLUP",
+                "phenotypeUnits": "relative abundance",
                 "protocol": {
-                    "chromatography": "the LC protocol, instrument settings, calibration procedure",
-                    "massSpectrometry": "instrument settings, calibration procedure",
-                    "metaboliteIdentification": "metabolite annotations were assigned to peaks",
-                    "phenotype": "BLUPs were calculated from the peak area",
-                    "rawDataTransformation": "the LCMS machine files were transformed into peak area",
-                    "sampleCollection": "the tissue, time point, if the sample was frozen",
-                    "sampleExtraction": "the extraction protocol used"
+                    "chromatography": "gradient of solvent A (2mM ammonium hydroxide and 0.1% formic acid) to solvent B (Acetonitrile, 0.1% formic acid)",
+                    "massSpectrometry": "scanning 50-2000 m/z at 0.2 seconds per scan, alternating between MS (6 V collision energy) and MSE mode (15-30 V ramp)",
+                    "metaboliteIdentification": "RAMSearch, MSFinder",
+                    "phenotype": "NA",
+                    "rawDataTransformation": "XCMS, centWave, RamClustR",
+                    "sampleCollection": "seed, mature, dehulled",
+                    "sampleExtraction": "biphasic, polar extract with methanol from 100mg of tissue"
                 },
                 "protocolDbId": "f60f15b2",
                 "publications": [
@@ -270,13 +270,13 @@ Get a single Metabolomics Protocol by Id. This can be used to quickly get the de
         "documentationURL": "https://wiki.brapi.org",
         "equipment": {
             "analysisType": "MS",
-            "chromatographyColumn": "brand of chromotography column",
-            "chromatographySystem": "brand of chromotography system",
+            "chromatographyColumn": "Waters 164 Acquity UPLC CSH Phenyl Hexyl column (1.7 \u03bcM, 1.0 x 100 mm)",
+            "chromatographySystem": "Waters Acuity UPLC",
             "chromatographyType": "LC",
-            "msInstrumentName": "brand of MS system",
+            "msInstrumentName": "Waters Xevo G2 TOF-MS",
             "msInstrumentType": "TOF",
-            "msIonMode": "Negative",
-            "msType": "EI"
+            "msIonMode": "Positive",
+            "msType": "ESI"
         },
         "externalReferences": [
             {
@@ -313,15 +313,15 @@ Get a single Metabolomics Protocol by Id. This can be used to quickly get the de
                 ]
             }
         ],
-        "phenotypeUnits": "BLUP",
+        "phenotypeUnits": "relative abundance",
         "protocol": {
-            "chromatography": "the LC protocol, instrument settings, calibration procedure",
-            "massSpectrometry": "instrument settings, calibration procedure",
-            "metaboliteIdentification": "metabolite annotations were assigned to peaks",
-            "phenotype": "BLUPs were calculated from the peak area",
-            "rawDataTransformation": "the LCMS machine files were transformed into peak area",
-            "sampleCollection": "the tissue, time point, if the sample was frozen",
-            "sampleExtraction": "the extraction protocol used"
+            "chromatography": "gradient of solvent A (2mM ammonium hydroxide and 0.1% formic acid) to solvent B (Acetonitrile, 0.1% formic acid)",
+            "massSpectrometry": "scanning 50-2000 m/z at 0.2 seconds per scan, alternating between MS (6 V collision energy) and MSE mode (15-30 V ramp)",
+            "metaboliteIdentification": "RAMSearch, MSFinder",
+            "phenotype": "NA",
+            "rawDataTransformation": "XCMS, centWave, RamClustR",
+            "sampleCollection": "seed, mature, dehulled",
+            "sampleExtraction": "biphasic, polar extract with methanol from 100mg of tissue"
         },
         "protocolDbId": "f60f15b2",
         "publications": [
