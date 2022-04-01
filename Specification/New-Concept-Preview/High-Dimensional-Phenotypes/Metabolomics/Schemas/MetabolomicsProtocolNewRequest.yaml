@@ -28,13 +28,13 @@ components:
         phenotypeUnits: 
           description: Free text, e.g. relative abundance, BLUP, drBLUP, concentration (specifiy units, e.g. ug/g)
           type: string
-          example: BLUP
+          example: relative abundance
         publications: 
           description: Relevent publication(s), DOI with details
           type: array
           items:
             type: string
-            example: https://doi.org/example/1234
+            example: https://doi.org/10.1093/g3journal/jkab419
         equipment: 
           type: object
           properties:
@@ -51,15 +51,15 @@ components:
             chromatographySystem:  
               description: User free text to specify brand of chromotography system
               type: string
-              example: brand of chromotography system
+              example: Waters Acuity UPLC
             chromatographyColumn:  
               description: User free text to specify brand of chromotography column
               type: string
-              example: brand of chromotography column
+              example: Waters 164 Acquity UPLC CSH Phenyl Hexyl column (1.7 μM, 1.0 x 100 mm)
             msInstrumentName:  
               description: User free text to specify brand of MS system
               type: string
-              example: brand of MS system
+              example: Waters Xevo G2 TOF-MS
             msInstrumentType:  
               description: User free text, e.g. time of flight (TOF), triple quadropole
               type: string
@@ -67,39 +67,39 @@ components:
             msType:  
               description: Electron Ionization (EI), Electrospray Ionization (ESI), Atmospheric Pressure Chemical Ionization (APCI), Matrix Assisted Laser Desorption Ionization (MALDI), Other (please specify below)
               type: string
-              example: EI
+              example: ESI
             msIonMode:  
               description: Negative, Positive, Both
               type: string
-              example: Negative
+              example: Positive
         protocol:
           type: object
           properties:
             sampleCollection: 
               description: the tissue, time point, if the sample was frozen
               type: string
-              example: the tissue, time point, if the sample was frozen
+              example: seed, mature, dehulled
             sampleExtraction: 
               description: the extraction protocol used
               type: string
-              example: the extraction protocol used
+              example: biphasic, polar extract with methanol from 100mg of tissue
             chromatography: 
               description: the LC protocol, instrument settings, calibration procedure
               type: string
-              example: the LC protocol, instrument settings, calibration procedure
+              example: gradient of solvent A (2mM ammonium hydroxide and 0.1% formic acid) to solvent B (Acetonitrile, 0.1% formic acid)
             massSpectrometry: 
               description: instrument settings, calibration procedure
               type: string
-              example: instrument settings, calibration procedure
+              example: scanning 50-2000 m/z at 0.2 seconds per scan, alternating between MS (6 V collision energy) and MSE mode (15-30 V ramp)
             rawDataTransformation: 
               description: the LCMS machine files were transformed into peak area
               type: string
-              example: the LCMS machine files were transformed into peak area
+              example: XCMS, centWave, RamClustR
             metaboliteIdentification: 
               description: metabolite annotations were assigned to peaks
               type: string
-              example: metabolite annotations were assigned to peaks
+              example: RAMSearch, MSFinder
             phenotype: 
               description: BLUPs were calculated from the peak area
               type: string
-              example: BLUPs were calculated from the peak area
+              example: NA
