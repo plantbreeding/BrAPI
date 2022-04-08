@@ -1,6 +1,7 @@
 .project
 .pydevproject
 .DS_Store
+.settings/
 
 /_temp
 brapi_blueprint.apib
