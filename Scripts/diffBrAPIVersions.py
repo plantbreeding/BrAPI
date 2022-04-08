@@ -207,7 +207,10 @@ def compareObjects(lowerRequestBody, higherRequestBody, addedFields, deletedFiel
     if('oneOf' in lowerRequestBody):
         lowerType = 'oneOf'
     else:
-        lowerType = lowerRequestBody['type'] 
+        if "type" in lowerRequestBody:
+            lowerType = lowerRequestBody['type']
+        else:
+            print(lowerRequestBody) 
     
     if('oneOf' in higherRequestBody):
         higherType = 'oneOf'
