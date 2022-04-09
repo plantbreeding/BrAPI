@@ -362,7 +362,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 |Field|Type|Description|
 |---|---|---| 
-|accessions||If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).|
+|accessions|array[string]|If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).|
 |commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
 |externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
 |externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
@@ -371,14 +371,14 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
 |isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
 |maxLength|integer|The minimum length of this reference's sequence.|
-|md5checksums||If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match).|
+|md5checksums|array[string]|If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match).|
 |minLength|integer|The minimum length of this reference's sequence.|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
 |programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
-|referenceDbIds||The `References` to search.|
-|referenceSetDbIds||The `ReferenceSets` to search.|
+|referenceDbIds|array[string]|The `References` to search.|
+|referenceSetDbIds|array[string]|The `ReferenceSets` to search.|
 |studyDbIds|array[string]|List of study identifiers to search for|
 |studyNames|array[string]|List of study names to filter search results|
 |trialDbIds|array[string]|The ID which uniquely identifies a trial to search for|

@@ -251,20 +251,20 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 |Field|Type|Description|
 |---|---|---| 
-|accessions||If set, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).|
-|assemblyPUIs||If set, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).|
+|accessions|array[string]|If set, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).|
+|assemblyPUIs|array[string]|If set, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).|
 |commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
 |externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
 |externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
 |externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
 |germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
 |germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
-|md5checksums||If set, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match).|
+|md5checksums|array[string]|If set, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match).|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
 |programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
-|referenceSetDbIds||The `ReferenceSets` to search.|
+|referenceSetDbIds|array[string]|The `ReferenceSets` to search.|
 |studyDbIds|array[string]|List of study identifiers to search for|
 |studyNames|array[string]|List of study names to filter search results|
 |trialDbIds|array[string]|The ID which uniquely identifies a trial to search for|
