@@ -22,29 +22,30 @@ components:
           example: 8566d4cb
         eventType:
           description: |-
-            General category for this event (e.g. Sowing, Watering, Rain). Each eventType should correspond to exactly one eventTypeDbId, if provided.
-            
-            ICASA "event"
-
-            MIAPPE V1.1 (DM-65) Event type - Short name of the event.
+            General category for this event (e.g. fertilizer, irrigation, tillage). Each eventType should correspond to exactly one eventTypeDbId, if provided.
+            <br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other
+            <br/>MIAPPE V1.1 (DM-65) Event type - Short name of the event.
           type: string
           example: tillage
         eventTypeDbId:
           description: |-
             An identifier for this event type, in the form of an ontology class reference
-            
-            MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).
+            <br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other
+            <br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).
           type: string
           example: 4e7d691e
         eventDescription: 
           description: |-
             A detailed, human-readable description of this event
-            
-            MIAPPE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. 
+            <br/>MIAPPE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. 
           type: string
           example: A set of plots was watered
         studyDbId: 
           description: The study in which the event occurred
+          type: string
+          example: 2cc2001f
+        studyName: 
+          description: The human readable name of a study
           type: string
           example: 2cc2001f
         observationUnitDbIds: 
@@ -54,15 +55,31 @@ components:
           type: array
           example: ['8439eaff', 'd7682e7a', '305ae51c']
         date:
-          description: |-
-            A list of dates when the event occurred
-            
-            MIAPPE V1.1 (DM-68) Event date - Date and time of the event.
-          items:
-            format: date-time
-            type: string
-          type: array
-          example: ['2018-10-08T18:15:11Z', '2018-11-09T18:16:12Z']
+          type: object
+          properties:
+            discreteDates:
+              description: |-
+                A list of dates when the event occurred
+                <br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.
+              items:
+                format: date-time
+                type: string
+              type: array
+              example: ['2018-10-08T18:15:11Z', '2018-11-09T18:16:12Z']
+            startDate:
+              description: |-
+                The begining of a continous or regularly repetative event
+                <br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.
+              format: date-time
+              type: string
+              example: '2018-10-08T18:15:11Z'
+            endDate:
+              description: |-
+                The end of a continous or regularly repetative event
+                <br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.
+              format: date-time
+              type: string
+              example: '2018-10-08T18:15:11Z'
         eventParameters: 
           description: A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI
           type: array 

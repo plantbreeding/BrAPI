@@ -5,14 +5,12 @@ openapi: 3.0.0
 paths:
   /search/variantmatrix:
     post:
-      summary: Submit a search request for `Calls`
+      summary: Submit a search request for a Variant Matrix
       description: |-
-        Submit a search request for `Calls`<br/>
-        Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
-        If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
-        Use the corresponding `GET /search/calls/{searchResultsDbId}` to retrieve the results of the search. <br/> 
-        Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details. 
-        <br/>
+        Use this endpoint to retrive a two dimensional matrix of genotype data. The response structure is based on the VCF format, with the enhanced ability to slice and merge data sets. This allows the user to return the subset of data they are interested in, without having to download the entire genotype file.
+        <br/>Each row of data (outer array) corresponds to a variant definition, and each column (inner array) corresponds to a callSet. 
+        <br/>Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. If a server needs more time to process the request, it might respond with a `searchResultsDbId`. Use the corresponding `GET /search/calls/{searchResultsDbId}` to retrieve the results of the search. 
+        <br/>Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
