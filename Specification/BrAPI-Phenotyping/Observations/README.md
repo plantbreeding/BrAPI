@@ -8,11 +8,224 @@ API to manage the details of observation variable Traits. An observation variabl
 
 
 
-### Get - /observations [GET /brapi/v2/observations{?observationDbId}{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationUnitLevelName}{?observationUnitLevelOrder}{?observationUnitLevelCode}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Post - /delete/observations [POST /brapi/v2/delete/observations]
 
-Retrieve all observations where there are measurements for the given observation variables.
+Submit a delete request for `Observations`
 
-observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:ss+hhmm
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
+|externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
+|germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
+|germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
+|locationDbIds|array[string]|The location ids to search for|
+|locationNames|array[string]|A human readable names to search for|
+|observationDbIds|array[string]|The unique id of an Observation|
+|observationLevelRelationships|array[object]|Searches for values in ObservationUnit->observationUnitPosition->observationLevelRelationships|
+|levelCode|string|An ID code or number to represent a real thing that may or may not be an an observation unit. <br/>For example, if the 'levelName' is 'plot', then the 'levelCode' would be the plot number or plot barcode. If this plot is also considered an ObservationUnit, then the appropriate observationUnitDbId should also be recorded. <br/>If the 'levelName' is 'field', then the 'levelCode' might be something like '3' or 'F3' to indicate the third field at a research station. |
+|levelName|string|A name for this level   **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit <br/>If this level has on ObservationUnit associated with it, record the observationUnitDbId here. This is intended to construct a strict hierarchy of observationUnits.  <br/>If there is no ObservationUnit associated with this level, this field can set to NULL or omitted from the response.|
+|observationLevels|array[object]|Searches for values in ObservationUnit->observationUnitPosition->observationLevel|
+|levelCode|string|An ID code or number to represent a real thing that may or may not be an an observation unit. <br/>For example, if the 'levelName' is 'plot', then the 'levelCode' would be the plot number or plot barcode. If this plot is also considered an ObservationUnit, then the appropriate observationUnitDbId should also be recorded. <br/>If the 'levelName' is 'field', then the 'levelCode' might be something like '3' or 'F3' to indicate the third field at a research station. |
+|levelName|string|A name for this level   **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
+|observationTimeStampRangeEnd|string (date-time)|Timestamp range end|
+|observationTimeStampRangeStart|string (date-time)|Timestamp range start|
+|observationUnitDbIds|array[string]|The unique id of an Observation Unit|
+|observationVariableDbIds|array[string]|The DbIds of Variables to search for|
+|observationVariableNames|array[string]|The names of Variables to search for|
+|observationVariablePUIs|array[string]|The Permanent Unique Identifier of an Observation Variable, usually in the form of a URI|
+|programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
+|programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
+|seasonDbIds|array[string]|The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)|
+|studyDbIds|array[string]|List of study identifiers to search for|
+|studyNames|array[string]|List of study names to filter search results|
+|trialDbIds|array[string]|The ID which uniquely identifies a trial to search for|
+|trialNames|array[string]|The human readable name of a trial to search for|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|observationDbIds|array[string]|The unique ids of the Observation records which have been successfully deleted|
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "commonCropNames": [
+        "Tomatillo",
+        "Paw Paw"
+    ],
+    "externalReferenceIDs": [
+        "doi:10.155454/12341234",
+        "14a19841"
+    ],
+    "externalReferenceIds": [
+        "doi:10.155454/12341234",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "DOI",
+        "Field App Name"
+    ],
+    "germplasmDbIds": [
+        "e9c6edd7",
+        "1b1df4a6"
+    ],
+    "germplasmNames": [
+        "A0000003",
+        "A0000477"
+    ],
+    "locationDbIds": [
+        "b28911cf",
+        "5071d1e4"
+    ],
+    "locationNames": [
+        "Location Alpha",
+        "The Large Hadron Collider"
+    ],
+    "observationDbIds": [
+        "6a4a59d8",
+        "3ff067e0"
+    ],
+    "observationLevelRelationships": [
+        {
+            "levelCode": "Field_1",
+            "levelName": "field"
+        }
+    ],
+    "observationLevels": [
+        {
+            "levelCode": "Plot_123",
+            "levelName": "plot"
+        },
+        {
+            "levelCode": "Plot_456",
+            "levelName": "plot"
+        },
+        {
+            "levelCode": "Plot_789",
+            "levelName": "plot"
+        }
+    ],
+    "observationTimeStampRangeEnd": "2018-01-01T14:47:23-0600",
+    "observationTimeStampRangeStart": "2018-01-01T14:47:23-0600",
+    "observationUnitDbIds": [
+        "76f559b5",
+        "066bc5d3"
+    ],
+    "observationVariableDbIds": [
+        "a646187d",
+        "6d23513b"
+    ],
+    "observationVariableNames": [
+        "Plant Height in meters",
+        "Wheat rust score 1-5"
+    ],
+    "observationVariablePUIs": [
+        "http://my-traits.com/trait/CO_123:0008012",
+        "http://my-traits.com/trait/CO_123:0007261"
+    ],
+    "programDbIds": [
+        "8f5de35b",
+        "0e2d4a13"
+    ],
+    "programNames": [
+        "Better Breeding Program",
+        "Best Breeding Program"
+    ],
+    "seasonDbIds": [
+        "Spring 2018",
+        "Season A"
+    ],
+    "studyDbIds": [
+        "cf6c4bd4",
+        "691e69d6"
+    ],
+    "studyNames": [
+        "The First Bob Study 2017",
+        "Wheat Yield Trial 246"
+    ],
+    "trialDbIds": [
+        "d2593dc2",
+        "9431a731"
+    ],
+    "trialNames": [
+        "All Yield Trials 2016",
+        "Disease Resistance Study Comparison Group"
+    ]
+}
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "observationDbIds": [
+            "6a4a59d8",
+            "3ff067e0"
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+### Get - /observations [GET /brapi/v2/observations{?observationDbId}{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?seasonDbId}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?observationUnitLevelName}{?observationUnitLevelOrder}{?observationUnitLevelCode}{?observationUnitLevelRelationshipName}{?observationUnitLevelRelationshipOrder}{?observationUnitLevelRelationshipCode}{?observationUnitLevelRelationshipDbId}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+
+Retrieve all observations where there are measurements for the given observation variables. 
+
+observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:ss+hhmm 
 
 
 
@@ -24,8 +237,12 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationDbId|string|The ID which uniquely identifies an observation|
@@ -35,8 +252,9 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -53,15 +271,21 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
     + studyDbId (Optional, ) ... The unique ID of a studies to filter on
     + locationDbId (Optional, ) ... The unique ID of a location where these observations were collected
     + trialDbId (Optional, ) ... The unique ID of a trial to filter on
-    + programDbId (Optional, ) ... The unique ID of a program to filter on
     + seasonDbId (Optional, ) ... The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
-    + observationUnitLevelName (Optional, ) ... The Observation Unit Level. Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelName
-    + observationUnitLevelOrder (Optional, ) ... The Observation Unit Level Order Number. Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder
-    + observationUnitLevelCode (Optional, ) ... The Observation Unit Level Code. This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode
     + observationTimeStampRangeStart (Optional, ) ... Timestamp range start
     + observationTimeStampRangeEnd (Optional, ) ... Timestamp range end
-    + externalReferenceID (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceID` parameter)
+    + observationUnitLevelName (Optional, ) ... The Observation Unit Level. Returns only the observation unit of the specified Level. <br/>References ObservationUnit->observationUnitPosition->observationLevel->levelName <br/>**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelOrder (Optional, ) ... The Observation Unit Level Order Number. Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelCode (Optional, ) ... The Observation Unit Level Code. This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelRelationshipName (Optional, ) ... The Observation Unit Level Relationship is a connection that this observation unit has to another level of the hierarchy. <br/>For example, if you have several observation units at a 'plot' level, they might all share a relationship to the same 'field' level.  <br/>Use this parameter to identify groups of observation units that share a relationship level. <br/>**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelRelationshipOrder (Optional, ) ... The Observation Unit Level Order Number. <br/>Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelRelationshipCode (Optional, ) ... The Observation Unit Level Code. <br/>This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelRelationshipDbId (Optional, ) ... The observationUnitDbId associated with a particular level and code.<br/>This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->observationUnitDbId <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
+    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -76,16 +300,7 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -106,18 +321,25 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
                 "collector": "917d3ae0",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
+                "geoCoordinates": {
+                    "geometry": {
+                        "coordinates": [
+                            -76.506042,
+                            42.417373,
+                            123
+                        ],
+                        "type": "Point"
+                    },
+                    "type": "Feature"
+                },
                 "germplasmDbId": "2408ab11",
                 "germplasmName": "A0000003",
                 "observationDbId": "ef24b615",
@@ -129,6 +351,7 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
                 "season": {
                     "season": "Spring",
                     "seasonDbId": "Spring_2018",
+                    "seasonName": "Spring",
                     "year": 2018
                 },
                 "studyDbId": "ef2829db",
@@ -169,8 +392,12 @@ Add new Observation entities
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationTimeStamp|string (date-time)|The date and time when this observation was made|
@@ -179,8 +406,9 @@ Add new Observation entities
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -195,8 +423,12 @@ Add new Observation entities
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationDbId|string|The ID which uniquely identifies an observation|
@@ -206,8 +438,9 @@ Add new Observation entities
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -229,18 +462,25 @@ Add new Observation entities
         "collector": "917d3ae0",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
+        "geoCoordinates": {
+            "geometry": {
+                "coordinates": [
+                    -76.506042,
+                    42.417373,
+                    123
+                ],
+                "type": "Point"
+            },
+            "type": "Feature"
+        },
         "germplasmDbId": "2408ab11",
         "germplasmName": "A0000003",
         "observationTimeStamp": "2018-01-01T14:47:23-0600",
@@ -251,6 +491,7 @@ Add new Observation entities
         "season": {
             "season": "Spring",
             "seasonDbId": "Spring_2018",
+            "seasonName": "Spring",
             "year": 2018
         },
         "studyDbId": "ef2829db",
@@ -269,16 +510,7 @@ Add new Observation entities
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -299,18 +531,25 @@ Add new Observation entities
                 "collector": "917d3ae0",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
+                "geoCoordinates": {
+                    "geometry": {
+                        "coordinates": [
+                            -76.506042,
+                            42.417373,
+                            123
+                        ],
+                        "type": "Point"
+                    },
+                    "type": "Feature"
+                },
                 "germplasmDbId": "2408ab11",
                 "germplasmName": "A0000003",
                 "observationDbId": "ef24b615",
@@ -322,6 +561,7 @@ Add new Observation entities
                 "season": {
                     "season": "Spring",
                     "seasonDbId": "Spring_2018",
+                    "seasonName": "Spring",
                     "year": 2018
                 },
                 "studyDbId": "ef2829db",
@@ -358,11 +598,11 @@ Add new Observation entities
 
 ### Put - /observations [PUT /brapi/v2/observations/]
 
-Update multiple Observation entities simultaneously with a single call
+Update multiple Observation entities simultaneously with a single call 
 
-Include as many `observationDbIds` in the request as needed.
+Include as many `observationDbIds` in the request as needed. 
 
-Note - In strictly typed languages, this structure can be represented as a Map or Dictionary of objects and parsed directly from JSON.
+Note - In strictly typed languages, this structure can be represented as a Map or Dictionary of objects and parsed directly from JSON. 
 
 **Request Fields** 
 
@@ -378,8 +618,12 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationDbId|string|The ID which uniquely identifies an observation|
@@ -389,8 +633,9 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -469,16 +714,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -499,18 +735,25 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                 "collector": "917d3ae0",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
+                "geoCoordinates": {
+                    "geometry": {
+                        "coordinates": [
+                            -76.506042,
+                            42.417373,
+                            123
+                        ],
+                        "type": "Point"
+                    },
+                    "type": "Feature"
+                },
                 "germplasmDbId": "2408ab11",
                 "germplasmName": "A0000003",
                 "observationDbId": "ef24b615",
@@ -522,6 +765,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                 "season": {
                     "season": "Spring",
                     "seasonDbId": "Spring_2018",
+                    "seasonName": "Spring",
                     "year": 2018
                 },
                 "studyDbId": "ef2829db",
@@ -556,7 +800,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 
 
 
-### Get - /observations/table [GET /brapi/v2/observations/table{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?searchResultsDbId}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}]
+### Get - /observations/table [GET /brapi/v2/observations/table{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?searchResultsDbId}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?observationUnitLevelName}{?observationUnitLevelOrder}{?observationUnitLevelCode}{?observationUnitLevelRelationshipName}{?observationUnitLevelRelationshipOrder}{?observationUnitLevelRelationshipCode}{?observationUnitLevelRelationshipDbId}]
 
 <p>This service is designed to retrieve a table of time dependant observation values as a matrix of Observation Units and Observation Variables.
 This is also sometimes called a Time Series. This service takes the "Sparse Table" approach for representing this time dependant data.</p>
@@ -621,10 +865,17 @@ See the example responses below</p>
     + trialDbId (Optional, ) ... The unique ID of a trial to filter on
     + programDbId (Optional, ) ... The unique ID of a program to filter on
     + seasonDbId (Optional, ) ... The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
-    + observationLevel (Optional, ) ... The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnitStructure.
+    + observationLevel (Optional, ) ... **Deprecated in v2.1** Please use `observationUnitLevelName`. Github issue number #464 The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnitStructure. 
     + searchResultsDbId (Optional, ) ... Permanent unique identifier which references the search results
     + observationTimeStampRangeStart (Optional, ) ... Timestamp range start
     + observationTimeStampRangeEnd (Optional, ) ... Timestamp range end
+    + observationUnitLevelName (Optional, ) ... The Observation Unit Level. Returns only the observation unit of the specified Level. <br/>References ObservationUnit->observationUnitPosition->observationLevel->levelName <br/>**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelOrder (Optional, ) ... The Observation Unit Level Order Number. Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelCode (Optional, ) ... The Observation Unit Level Code. This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelRelationshipName (Optional, ) ... The Observation Unit Level Relationship is a connection that this observation unit has to another level of the hierarchy. <br/>For example, if you have several observation units at a 'plot' level, they might all share a relationship to the same 'field' level.  <br/>Use this parameter to identify groups of observation units that share a relationship level. <br/>**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelRelationshipOrder (Optional, ) ... The Observation Unit Level Order Number. <br/>Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelRelationshipCode (Optional, ) ... The Observation Unit Level Code. <br/>This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelRelationshipDbId (Optional, ) ... The observationUnitDbId associated with a particular level and code.<br/>This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->observationUnitDbId <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
     + Accept (Required, ) ... The requested content type which should be returned by the server
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
@@ -638,16 +889,7 @@ See the example responses below</p>
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -941,8 +1183,12 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationDbId|string|The ID which uniquely identifies an observation|
@@ -952,8 +1198,9 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -976,16 +1223,7 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -1004,18 +1242,25 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
         "collector": "917d3ae0",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
+        "geoCoordinates": {
+            "geometry": {
+                "coordinates": [
+                    -76.506042,
+                    42.417373,
+                    123
+                ],
+                "type": "Point"
+            },
+            "type": "Feature"
+        },
         "germplasmDbId": "2408ab11",
         "germplasmName": "A0000003",
         "observationDbId": "ef24b615",
@@ -1027,6 +1272,7 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
         "season": {
             "season": "Spring",
             "seasonDbId": "Spring_2018",
+            "seasonName": "Spring",
             "year": 2018
         },
         "studyDbId": "ef2829db",
@@ -1070,8 +1316,12 @@ Update an existing Observation
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationTimeStamp|string (date-time)|The date and time when this observation was made|
@@ -1080,8 +1330,9 @@ Update an existing Observation
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -1095,8 +1346,12 @@ Update an existing Observation
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationDbId|string|The ID which uniquely identifies an observation|
@@ -1106,8 +1361,9 @@ Update an existing Observation
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -1129,18 +1385,25 @@ Update an existing Observation
     "collector": "917d3ae0",
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12341234",
+            "referenceId": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
-            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-            "referenceSource": "OBO Library"
-        },
-        {
-            "referenceID": "75a50e76",
+            "referenceId": "75a50e76",
             "referenceSource": "Remote Data Collection Upload Tool"
         }
     ],
+    "geoCoordinates": {
+        "geometry": {
+            "coordinates": [
+                -76.506042,
+                42.417373,
+                123
+            ],
+            "type": "Point"
+        },
+        "type": "Feature"
+    },
     "germplasmDbId": "2408ab11",
     "germplasmName": "A0000003",
     "observationTimeStamp": "2018-01-01T14:47:23-0600",
@@ -1151,6 +1414,7 @@ Update an existing Observation
     "season": {
         "season": "Spring",
         "seasonDbId": "Spring_2018",
+        "seasonName": "Spring",
         "year": 2018
     },
     "studyDbId": "ef2829db",
@@ -1168,16 +1432,7 @@ Update an existing Observation
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -1196,18 +1451,25 @@ Update an existing Observation
         "collector": "917d3ae0",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
+        "geoCoordinates": {
+            "geometry": {
+                "coordinates": [
+                    -76.506042,
+                    42.417373,
+                    123
+                ],
+                "type": "Point"
+            },
+            "type": "Feature"
+        },
         "germplasmDbId": "2408ab11",
         "germplasmName": "A0000003",
         "observationDbId": "ef24b615",
@@ -1219,6 +1481,7 @@ Update an existing Observation
         "season": {
             "season": "Spring",
             "seasonDbId": "Spring_2018",
+            "seasonName": "Spring",
             "year": 2018
         },
         "studyDbId": "ef2829db",
@@ -1263,7 +1526,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 |Field|Type|Description|
 |---|---|---| 
-|externalReferenceIDs|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
+|externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
 |externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
 |germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
 |germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
@@ -1271,22 +1536,24 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |locationNames|array[string]|A human readable names to search for|
 |observationDbIds|array[string]|The unique id of an Observation|
 |observationLevelRelationships|array[object]|Searches for values in ObservationUnit->observationUnitPosition->observationLevelRelationships|
-|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
-|levelName|string|A name for this level|
-|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
+|levelCode|string|An ID code or number to represent a real thing that may or may not be an an observation unit. <br/>For example, if the 'levelName' is 'plot', then the 'levelCode' would be the plot number or plot barcode. If this plot is also considered an ObservationUnit, then the appropriate observationUnitDbId should also be recorded. <br/>If the 'levelName' is 'field', then the 'levelCode' might be something like '3' or 'F3' to indicate the third field at a research station. |
+|levelName|string|A name for this level   **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit <br/>If this level has on ObservationUnit associated with it, record the observationUnitDbId here. This is intended to construct a strict hierarchy of observationUnits.  <br/>If there is no ObservationUnit associated with this level, this field can set to NULL or omitted from the response.|
 |observationLevels|array[object]|Searches for values in ObservationUnit->observationUnitPosition->observationLevel|
-|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
-|levelName|string|A name for this level|
-|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
+|levelCode|string|An ID code or number to represent a real thing that may or may not be an an observation unit. <br/>For example, if the 'levelName' is 'plot', then the 'levelCode' would be the plot number or plot barcode. If this plot is also considered an ObservationUnit, then the appropriate observationUnitDbId should also be recorded. <br/>If the 'levelName' is 'field', then the 'levelCode' might be something like '3' or 'F3' to indicate the third field at a research station. |
+|levelName|string|A name for this level   **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
 |observationTimeStampRangeEnd|string (date-time)|Timestamp range end|
 |observationTimeStampRangeStart|string (date-time)|Timestamp range start|
 |observationUnitDbIds|array[string]|The unique id of an Observation Unit|
 |observationVariableDbIds|array[string]|The DbIds of Variables to search for|
 |observationVariableNames|array[string]|The names of Variables to search for|
+|observationVariablePUIs|array[string]|The Permanent Unique Identifier of an Observation Variable, usually in the form of a URI|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
-|programDbIds|array[string]|A program identifier to search for|
-|programNames|array[string]|A name of a program to search for|
+|programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
+|programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
 |seasonDbIds|array[string]|The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)|
 |studyDbIds|array[string]|List of study identifiers to search for|
 |studyNames|array[string]|List of study names to filter search results|
@@ -1302,8 +1569,12 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationDbId|string|The ID which uniquely identifies an observation|
@@ -1313,8 +1584,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -1331,12 +1603,20 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 + Request (application/json)
 ```
 {
+    "commonCropNames": [
+        "Tomatillo",
+        "Paw Paw"
+    ],
     "externalReferenceIDs": [
-        "http://purl.obolibrary.org/obo/ro.owl",
+        "doi:10.155454/12341234",
+        "14a19841"
+    ],
+    "externalReferenceIds": [
+        "doi:10.155454/12341234",
         "14a19841"
     ],
     "externalReferenceSources": [
-        "OBO Library",
+        "DOI",
         "Field App Name"
     ],
     "germplasmDbIds": [
@@ -1393,6 +1673,10 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "Plant Height in meters",
         "Wheat rust score 1-5"
     ],
+    "observationVariablePUIs": [
+        "http://my-traits.com/trait/CO_123:0008012",
+        "http://my-traits.com/trait/CO_123:0007261"
+    ],
     "page": 0,
     "pageSize": 1000,
     "programDbIds": [
@@ -1435,16 +1719,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -1465,18 +1740,25 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "collector": "917d3ae0",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
+                "geoCoordinates": {
+                    "geometry": {
+                        "coordinates": [
+                            -76.506042,
+                            42.417373,
+                            123
+                        ],
+                        "type": "Point"
+                    },
+                    "type": "Feature"
+                },
                 "germplasmDbId": "2408ab11",
                 "germplasmName": "A0000003",
                 "observationDbId": "ef24b615",
@@ -1488,6 +1770,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "season": {
                     "season": "Spring",
                     "seasonDbId": "Spring_2018",
+                    "seasonName": "Spring",
                     "year": 2018
                 },
                 "studyDbId": "ef2829db",
@@ -1506,16 +1789,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -1572,8 +1846,12 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationDbId|string|The ID which uniquely identifies an observation|
@@ -1583,8 +1861,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |observationVariableName|string|A human readable name for an observation variable|
 |season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|season|string|**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |year|integer|The 4 digit year of the season.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
@@ -1610,16 +1889,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -1640,18 +1910,25 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "collector": "917d3ae0",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
+                "geoCoordinates": {
+                    "geometry": {
+                        "coordinates": [
+                            -76.506042,
+                            42.417373,
+                            123
+                        ],
+                        "type": "Point"
+                    },
+                    "type": "Feature"
+                },
                 "germplasmDbId": "2408ab11",
                 "germplasmName": "A0000003",
                 "observationDbId": "ef24b615",
@@ -1663,6 +1940,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "season": {
                     "season": "Spring",
                     "seasonDbId": "Spring_2018",
+                    "seasonName": "Spring",
                     "year": 2018
                 },
                 "studyDbId": "ef2829db",
@@ -1681,16 +1959,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,

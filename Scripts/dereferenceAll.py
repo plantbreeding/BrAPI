@@ -4,12 +4,15 @@ import sys
 
 def findRef(ref, parent):
     refPath = ref.split('/')[1:]
+    #print(ref)
+    #print(refPath)
     refObj = parent
     for refPart in refPath:
+        #print(refPart)
         if refPart in refObj:
             refObj = refObj[refPart]
         else:
-            raise Exception('Schema not found ' + obj[fieldStr])
+            raise Exception('Schema not found ' + refPart)
     
     return refObj
 

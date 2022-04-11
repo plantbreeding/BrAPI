@@ -26,6 +26,8 @@ Gets a filtered list of `Call` JSON objects.
 |phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.|
 |variantDbId|string|The ID of the variant this call belongs to.|
 |variantName|string|The name of the variant this call belongs to.|
+|variantSetDbId|string|The unique identifier for a VariantSet|
+|variantSetName|string|The human readable name for a VariantSet|
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
@@ -56,16 +58,7 @@ Gets a filtered list of `Call` JSON objects.
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPageToken": "48bc6ac1",
             "nextPageToken": "cb668f63",
@@ -97,13 +90,15 @@ Gets a filtered list of `Call` JSON objects.
                 ],
                 "phaseSet": "6410afc5",
                 "variantDbId": "538c8ecf",
-                "variantName": "Marker A"
+                "variantName": "Marker A",
+                "variantSetDbId": "87a6ac1e",
+                "variantSetName": "Maize QC DataSet 002334"
             }
         ],
         "expandHomozygotes": true,
-        "sepPhased": "~",
-        "sepUnphased": "|",
-        "unknownString": "-"
+        "sepPhased": "|",
+        "sepUnphased": "/",
+        "unknownString": "."
     }
 }
 ```
@@ -167,6 +162,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.|
 |variantDbId|string|The ID of the variant this call belongs to.|
 |variantName|string|The name of the variant this call belongs to.|
+|variantSetDbId|string|The unique identifier for a VariantSet|
+|variantSetName|string|The human readable name for a VariantSet|
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
@@ -190,9 +187,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
     "expandHomozygotes": true,
     "pageSize": 1000,
     "pageToken": "33c27874",
-    "sepPhased": "~",
-    "sepUnphased": "|",
-    "unknownString": "-",
+    "sepPhased": "|",
+    "sepUnphased": "/",
+    "unknownString": ".",
     "variantDbIds": [
         "bba0b258",
         "ff97d4f0"
@@ -213,16 +210,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPageToken": "48bc6ac1",
             "nextPageToken": "cb668f63",
@@ -254,13 +242,15 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 ],
                 "phaseSet": "6410afc5",
                 "variantDbId": "538c8ecf",
-                "variantName": "Marker A"
+                "variantName": "Marker A",
+                "variantSetDbId": "87a6ac1e",
+                "variantSetName": "Maize QC DataSet 002334"
             }
         ],
         "expandHomozygotes": true,
-        "sepPhased": "~",
-        "sepUnphased": "|",
-        "unknownString": "-"
+        "sepPhased": "|",
+        "sepUnphased": "/",
+        "unknownString": "."
     }
 }
 ```
@@ -272,16 +262,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -348,6 +329,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.|
 |variantDbId|string|The ID of the variant this call belongs to.|
 |variantName|string|The name of the variant this call belongs to.|
+|variantSetDbId|string|The unique identifier for a VariantSet|
+|variantSetName|string|The human readable name for a VariantSet|
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
@@ -372,16 +355,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPageToken": "48bc6ac1",
             "nextPageToken": "cb668f63",
@@ -413,13 +387,15 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 ],
                 "phaseSet": "6410afc5",
                 "variantDbId": "538c8ecf",
-                "variantName": "Marker A"
+                "variantName": "Marker A",
+                "variantSetDbId": "87a6ac1e",
+                "variantSetName": "Maize QC DataSet 002334"
             }
         ],
         "expandHomozygotes": true,
-        "sepPhased": "~",
-        "sepUnphased": "|",
-        "unknownString": "-"
+        "sepPhased": "|",
+        "sepUnphased": "/",
+        "unknownString": "."
     }
 }
 ```
@@ -431,16 +407,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,

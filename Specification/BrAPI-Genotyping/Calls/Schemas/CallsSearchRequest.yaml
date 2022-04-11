@@ -35,12 +35,12 @@ components:
           sepPhased:
             description: The string used as a separator for phased allele calls.
             type: string
-            example: '~'
+            example: '|'
           sepUnphased:
             description: The string used as a separator for unphased allele calls.
             type: string
-            example: '|'
+            example: '/'
           unknownString:
             description: The string used as a representation for missing data.
             type: string
-            example: '-'
+            example: '.'

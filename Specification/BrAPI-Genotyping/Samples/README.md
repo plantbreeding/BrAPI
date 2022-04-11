@@ -7,7 +7,7 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
 
 
 
-### Get - /samples [GET /brapi/v2/samples{?sampleDbId}{?observationUnitDbId}{?plateDbId}{?germplasmDbId}{?studyDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /samples [GET /brapi/v2/samples{?sampleDbId}{?sampleName}{?sampleGroupDbId}{?observationUnitDbId}{?plateDbId}{?plateName}{?germplasmDbId}{?studyDbId}{?trialDbId}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 
@@ -21,7 +21,8 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -33,7 +34,7 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
 |sampleDbId|string|The ID which uniquely identifies a sample  MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.|
 |sampleDescription|string|Description of a sample  MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.|
 |sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|sampleName|string|The name of the sample|
+|sampleName|string|The human readable name of the sample|
 |samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)  MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. |
 |sampleTimestamp|string (date-time)|The date and time a sample was collected from the field  MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested|
 |sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
@@ -47,13 +48,20 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
  
 
 + Parameters
-    + sampleDbId (Optional, ) ... the internal DB id for a sample
-    + observationUnitDbId (Optional, ) ... the internal DB id for an observation unit where a sample was taken from
-    + plateDbId (Optional, ) ... the internal DB id for a plate of samples
-    + germplasmDbId (Optional, ) ... the internal DB id for a germplasm
-    + studyDbId (Optional, ) ... Filter by study DbId
-    + externalReferenceID (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceID` parameter)
+    + sampleDbId (Optional, ) ... The unique identifier for a Sample
+    + sampleName (Optional, ) ... The human readable name of the sample
+    + sampleGroupDbId (Optional, ) ... The unique identifier for a group of related Samples
+    + observationUnitDbId (Optional, ) ... The ID which uniquely identifies an observation unit
+    + plateDbId (Optional, ) ... The ID which uniquely identifies a plate of samples
+    + plateName (Optional, ) ... The human readable name of a plate of samples
+    + germplasmDbId (Optional, ) ... The ID which uniquely identifies a germplasm
+    + studyDbId (Optional, ) ... The ID which uniquely identifies a study
+    + trialDbId (Optional, ) ... The ID which uniquely identifies a trial
+    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
+    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -68,16 +76,7 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -98,15 +97,11 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
                 "column": 6,
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -164,7 +159,8 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -175,7 +171,7 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 |sampleBarcode|string|A unique identifier physically attached to the sample|
 |sampleDescription|string|Description of a sample  MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.|
 |sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|sampleName|string|The name of the sample|
+|sampleName|string|The human readable name of the sample|
 |samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)  MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. |
 |sampleTimestamp|string (date-time)|The date and time a sample was collected from the field  MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested|
 |sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
@@ -194,7 +190,8 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -206,7 +203,7 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 |sampleDbId|string|The ID which uniquely identifies a sample  MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.|
 |sampleDescription|string|Description of a sample  MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.|
 |sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|sampleName|string|The name of the sample|
+|sampleName|string|The human readable name of the sample|
 |samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)  MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. |
 |sampleTimestamp|string (date-time)|The date and time a sample was collected from the field  MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested|
 |sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
@@ -232,15 +229,11 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
         "column": 6,
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
@@ -275,16 +268,7 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -305,15 +289,11 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
                 "column": 6,
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -360,6 +340,193 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 
 
 
+### Put - /samples [PUT /brapi/v2/samples/]
+
+Update the details of existing Samples
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|column|integer|The Column identifier for this samples location in the plate|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
+|plateName|string|The human readable name of a plate|
+|programDbId|string|The ID which uniquely identifies a program within the given database server|
+|row|string|The Row identifier for this samples location in the plate|
+|sampleBarcode|string|A unique identifier physically attached to the sample|
+|sampleDbId|string|The ID which uniquely identifies a sample  MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.|
+|sampleDescription|string|Description of a sample  MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.|
+|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
+|sampleName|string|The human readable name of the sample|
+|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)  MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. |
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field  MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|takenBy|string|The name or identifier of the entity which took the sample from the field|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.  MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).|
+|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
+|well|string|The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.|
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "<sampleDbId_1>": {
+        "additionalInfo": {},
+        "column": 6,
+        "externalReferences": [],
+        "germplasmDbId": "7e08d538",
+        "observationUnitDbId": "073a3ce5",
+        "plateDbId": "2dce16d1",
+        "plateName": "Plate_alpha_20191022",
+        "programDbId": "bd748e00",
+        "row": "B",
+        "sampleBarcode": "3a027b59",
+        "sampleDescription": "This sample was taken from the root of a tree",
+        "sampleGroupDbId": "8524b436",
+        "sampleName": "Sample_alpha_20191022",
+        "samplePUI": "doi:10.15454/312953986E3",
+        "sampleTimestamp": "2018-01-01T18:47:23-0600",
+        "sampleType": "Tissue",
+        "studyDbId": "64bd6bf9",
+        "takenBy": "Bob",
+        "tissueType": "Root",
+        "trialDbId": "d34c5349",
+        "well": "B6"
+    },
+    "<sampleDbId_2>": {
+        "additionalInfo": {},
+        "column": 6,
+        "externalReferences": [],
+        "germplasmDbId": "7e08d538",
+        "observationUnitDbId": "073a3ce5",
+        "plateDbId": "2dce16d1",
+        "plateName": "Plate_alpha_20191022",
+        "programDbId": "bd748e00",
+        "row": "B",
+        "sampleBarcode": "3a027b59",
+        "sampleDescription": "This sample was taken from the root of a tree",
+        "sampleGroupDbId": "8524b436",
+        "sampleName": "Sample_alpha_20191022",
+        "samplePUI": "doi:10.15454/312953986E3",
+        "sampleTimestamp": "2018-01-01T18:47:23-0600",
+        "sampleType": "Tissue",
+        "studyDbId": "64bd6bf9",
+        "takenBy": "Bob",
+        "tissueType": "Root",
+        "trialDbId": "d34c5349",
+        "well": "B6"
+    }
+}
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "column": 6,
+                "externalReferences": [
+                    {
+                        "referenceId": "doi:10.155454/12341234",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceId": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    }
+                ],
+                "germplasmDbId": "7e08d538",
+                "observationUnitDbId": "073a3ce5",
+                "plateDbId": "2dce16d1",
+                "plateName": "Plate_alpha_20191022",
+                "programDbId": "bd748e00",
+                "row": "B",
+                "sampleBarcode": "3a027b59",
+                "sampleDbId": "cd06a61d",
+                "sampleDescription": "This sample was taken from the root of a tree",
+                "sampleGroupDbId": "8524b436",
+                "sampleName": "Sample_alpha_20191022",
+                "samplePUI": "doi:10.15454/312953986E3",
+                "sampleTimestamp": "2018-01-01T14:47:23-0600",
+                "sampleType": "Tissue",
+                "studyDbId": "64bd6bf9",
+                "takenBy": "Bob",
+                "tissueType": "Root",
+                "trialDbId": "d34c5349",
+                "well": "B6"
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
+
+
+
 ### Get - /samples/{sampleDbId} [GET /brapi/v2/samples/{sampleDbId}]
 
 Used to retrieve the details of a single Sample from a Sample Tracking system.
@@ -373,7 +540,8 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -385,7 +553,7 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 |sampleDbId|string|The ID which uniquely identifies a sample  MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.|
 |sampleDescription|string|Description of a sample  MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.|
 |sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|sampleName|string|The name of the sample|
+|sampleName|string|The human readable name of the sample|
 |samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)  MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. |
 |sampleTimestamp|string (date-time)|The date and time a sample was collected from the field  MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested|
 |sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
@@ -412,16 +580,7 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -440,15 +599,11 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
         "column": 6,
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
@@ -498,9 +653,10 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 
 
 
-### Put - /samples/{sampleDbId} [PUT /brapi/v2/samples/{sampleDbId}/]
+### **Deprecated** Put - /samples/{sampleDbId} [PUT /brapi/v2/samples/{sampleDbId}/]
 
-Update the details of an existing Sample
+**Deprecated in v2.1** Please use `PUT /samples`. Github issue number #462 
+<br/>Update the details of an existing Sample
 
 **Request Fields** 
 
@@ -509,7 +665,8 @@ Update the details of an existing Sample
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -520,7 +677,7 @@ Update the details of an existing Sample
 |sampleBarcode|string|A unique identifier physically attached to the sample|
 |sampleDescription|string|Description of a sample  MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.|
 |sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|sampleName|string|The name of the sample|
+|sampleName|string|The human readable name of the sample|
 |samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)  MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. |
 |sampleTimestamp|string (date-time)|The date and time a sample was collected from the field  MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested|
 |sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
@@ -538,7 +695,8 @@ Update the details of an existing Sample
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -550,7 +708,7 @@ Update the details of an existing Sample
 |sampleDbId|string|The ID which uniquely identifies a sample  MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.|
 |sampleDescription|string|Description of a sample  MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.|
 |sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|sampleName|string|The name of the sample|
+|sampleName|string|The human readable name of the sample|
 |samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)  MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. |
 |sampleTimestamp|string (date-time)|The date and time a sample was collected from the field  MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested|
 |sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
@@ -576,15 +734,11 @@ Update the details of an existing Sample
     "column": 6,
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12341234",
+            "referenceId": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
-            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-            "referenceSource": "OBO Library"
-        },
-        {
-            "referenceID": "75a50e76",
+            "referenceId": "75a50e76",
             "referenceSource": "Remote Data Collection Upload Tool"
         }
     ],
@@ -618,16 +772,7 @@ Update the details of an existing Sample
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -646,15 +791,11 @@ Update the details of an existing Sample
         "column": 6,
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
@@ -716,17 +857,26 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 |Field|Type|Description|
 |---|---|---| 
-|externalReferenceIDs|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
+|externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
 |externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
-|germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
+|germplasmDbIds|array[string]|The ID which uniquely identifies a germplasm|
 |germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
 |observationUnitDbIds|array[string]|The ID which uniquely identifies an observation unit|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |plateDbIds|array[string]|The ID which uniquely identifies a plate of samples|
+|plateNames|array[string]|The human readable name of a plate of samples|
+|programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
+|programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
 |sampleDbIds|array[string]|The ID which uniquely identifies a sample|
+|sampleGroupDbIds|array[string]|The unique identifier for a group of related Samples|
+|sampleNames|array[string]|The human readable name of the sample|
 |studyDbIds|array[string]|List of study identifiers to search for|
 |studyNames|array[string]|List of study names to filter search results|
+|trialDbIds|array[string]|The ID which uniquely identifies a trial to search for|
+|trialNames|array[string]|The human readable name of a trial to search for|
 
 
 **Response Fields** 
@@ -737,7 +887,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -749,7 +900,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |sampleDbId|string|The ID which uniquely identifies a sample  MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.|
 |sampleDescription|string|Description of a sample  MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.|
 |sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|sampleName|string|The name of the sample|
+|sampleName|string|The human readable name of the sample|
 |samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)  MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. |
 |sampleTimestamp|string (date-time)|The date and time a sample was collected from the field  MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested|
 |sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
@@ -770,17 +921,25 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 + Request (application/json)
 ```
 {
+    "commonCropNames": [
+        "Tomatillo",
+        "Paw Paw"
+    ],
     "externalReferenceIDs": [
-        "http://purl.obolibrary.org/obo/ro.owl",
+        "doi:10.155454/12341234",
+        "14a19841"
+    ],
+    "externalReferenceIds": [
+        "doi:10.155454/12341234",
         "14a19841"
     ],
     "externalReferenceSources": [
-        "OBO Library",
+        "DOI",
         "Field App Name"
     ],
     "germplasmDbIds": [
-        "e9c6edd7",
-        "1b1df4a6"
+        "d745e1e2",
+        "6dd28d74"
     ],
     "germplasmNames": [
         "A0000003",
@@ -796,9 +955,29 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "0cac98b8",
         "b96125fb"
     ],
+    "plateNames": [
+        "0cac98b8",
+        "b96125fb"
+    ],
+    "programDbIds": [
+        "8f5de35b",
+        "0e2d4a13"
+    ],
+    "programNames": [
+        "Better Breeding Program",
+        "Best Breeding Program"
+    ],
     "sampleDbIds": [
         "3bece2ca",
         "dd286cc6"
+    ],
+    "sampleGroupDbIds": [
+        "45e1e2d7",
+        "6cc6dd28"
+    ],
+    "sampleNames": [
+        "SA_111",
+        "SA_222"
     ],
     "studyDbIds": [
         "cf6c4bd4",
@@ -807,6 +986,14 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
     "studyNames": [
         "The First Bob Study 2017",
         "Wheat Yield Trial 246"
+    ],
+    "trialDbIds": [
+        "d2593dc2",
+        "9431a731"
+    ],
+    "trialNames": [
+        "All Yield Trials 2016",
+        "Disease Resistance Study Comparison Group"
     ]
 }
 ```
@@ -820,16 +1007,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -850,15 +1028,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "column": 6,
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -894,16 +1068,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -960,7 +1125,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -972,7 +1138,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |sampleDbId|string|The ID which uniquely identifies a sample  MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.|
 |sampleDescription|string|Description of a sample  MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.|
 |sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|sampleName|string|The name of the sample|
+|sampleName|string|The human readable name of the sample|
 |samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)  MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. |
 |sampleTimestamp|string (date-time)|The date and time a sample was collected from the field  MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested|
 |sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
@@ -1001,16 +1167,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -1031,15 +1188,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "column": 6,
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -1075,16 +1228,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,

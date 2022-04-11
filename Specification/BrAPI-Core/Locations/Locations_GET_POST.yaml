@@ -11,19 +11,48 @@ paths:
         * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
         * `altitude` is in meters.
       parameters:
-      - description: Filter by location type specified.
+      - name: locationType
+        description: The type of location this represents (ex. Field Station, Breeding Location, Storage Location, etc)
         in: query
-        name: locationType
         required: false
         schema:
           type: string
-      - description: Filter by location DbId
+      - name: locationDbId
+        description: The unique identifier for a Location
         in: query
-        name: locationDbId
         required: false
         schema:
           type: string
+      - name: locationName
+        description:  |-
+          A human readable name for a location
+          <br/> MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: parentLocationDbId
+        description: |-
+          The unique identifier for a Location
+          <br/> The Parent Location defines the encompassing location that this location belongs to. 
+          For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: parentLocationName
+        description: |-
+          A human readable name for a location
+          <br/> The Parent Location defines the encompassing location that this location belongs to. 
+          For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.
+        in: query
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/commonCropName'
+      - $ref: '#/components/parameters/programDbId'
       - $ref: '#/components/parameters/externalReferenceID'
+      - $ref: '#/components/parameters/externalReferenceId'
       - $ref: '#/components/parameters/externalReferenceSource'
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'

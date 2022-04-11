@@ -1,20 +1,24 @@
 brapi
 brapicore brapiphenotyping brapigenotyping brapigermplasm
-observationunits attributevalues callsets markerpositions referencesets variantsets
-openapi apiary github swaggerhub ga4gh apis auth
+brapicore20 brapiphenotyping20 brapigenotyping20 brapigermplasm20
+brapicore21 brapiphenotyping21 brapigenotyping21 brapigermplasm21
 
-json jsonld csv tsv flapjack jpg svg png postgres xlsx vnd tabular
+observationunits attributevalues callsets markerpositions referencesets variantsets commoncropnames
+openapi apiary github swaggerhub ga4gh apis auth restfulness RESTfulness tfulness
+
+json jsonld csv tsv flapjack jpg svg png postgres xlsx vnd tabular datafiles datafile
 md5sum md5checksum md5checksums checksum
 
 url urls href html webpage www wiews prev php
 
-enum wsmime uuid
+enum wsmime uuid deprecated endpoints
 metadata asc desc schemas
 wiki wikipedia
-uppercase lowercase concatenated whitespace tokenized
+uppercase lowercase concatenated whitespace tokenized bibliographical
 xref xrefs xmlns foaf w3c
+
 preprocessing debug async upload uploaded imagecontent paginated unpaginated pagination
-boolean ordinal
+boolean ordinal recursively
 
 2px 5px 10px 20px #ddd ddd btn
 thh hhmm yyyy o8601 timezone date-time timestamp s84 t18 easting northing

@@ -25,6 +25,18 @@ components:
           description: The unique identifier for the originating Seed Lot
           type: string
           example: 261ecb09
+        seedLotName:
+          description: A human readable name for the originating Seed Lot 
+          type: string
+          example: Seed Lot Alpha
+        crossDbId:
+          description: the unique identifier for a cross
+          type: string
+          example: d105fd6f
+        crossName: 
+          description: the human readable name for a cross
+          type: string
+          example: my_Crosses_2018_01
         locationDbId:
           description: The ID which uniquely identifies a location, associated with this study
           type: string
@@ -80,7 +92,5 @@ components:
           description: The human readable name of a trial
           type: string
           example: Purple Tomato
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
           
 

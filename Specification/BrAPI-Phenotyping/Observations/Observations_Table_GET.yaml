@@ -94,7 +94,11 @@ paths:
         required: false
         schema:
           type: string
-      - description: The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnitStructure.
+      - description: |-
+          **Deprecated in v2.1** Please use `observationUnitLevelName`. Github issue number #464 
+
+          The type of the observationUnit. Returns only the observation unit of the specified type; 
+          the parent levels ID can be accessed through observationUnitStructure. 
         in: query
         name: observationLevel
         required: false
@@ -120,6 +124,13 @@ paths:
         schema:
           format: date-time
           type: string
+      - $ref: '#/components/parameters/observationUnitLevelName'
+      - $ref: '#/components/parameters/observationUnitLevelOrder'
+      - $ref: '#/components/parameters/observationUnitLevelCode'
+      - $ref: '#/components/parameters/observationUnitLevelRelationshipName'
+      - $ref: '#/components/parameters/observationUnitLevelRelationshipOrder'
+      - $ref: '#/components/parameters/observationUnitLevelRelationshipCode'
+      - $ref: '#/components/parameters/observationUnitLevelRelationshipDbId'
       - $ref: '#/components/parameters/acceptHeader'
       - $ref: '#/components/parameters/authorizationHeader'
       responses:

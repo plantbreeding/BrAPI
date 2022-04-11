@@ -5,8 +5,13 @@ openapi: 3.0.0
 paths:
   /germplasm/{germplasmDbId}/pedigree:
     get:
-      summary: Get the pedigree details of a specific Germplasm
-      description: Get the parentage information of a specific Germplasm
+      deprecated: true
+      summary:  |-
+        **Deprecated in v2.1** Please use `GET /pedigree?germplasmDbId={germplasmDbId}`. Github issue number #481 
+        <br/> Get the pedigree details of a specific Germplasm
+      description: |-
+        **Deprecated in v2.1** Please use `GET /pedigree?germplasmDbId={germplasmDbId}`. Github issue number #481 
+        <br/> Get the parentage information of a specific Germplasm
       parameters:
       - description: the internal id of the germplasm
         in: path
@@ -40,7 +45,7 @@ paths:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    $ref: '#/components/schemas/PedigreeNode'
+                    $ref: '#/components/schemas/PedigreeNodeDEP'
                 required:
                 - metadata
                 - result

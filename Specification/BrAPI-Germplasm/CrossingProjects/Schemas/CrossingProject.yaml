@@ -11,6 +11,6 @@ components:
         - type: object
           properties:
             crossingProjectDbId:
-              description: the unique identifier for a crossing project
+              description: The unique identifier for a crossing project
               type: string
               example: ce0e1c29

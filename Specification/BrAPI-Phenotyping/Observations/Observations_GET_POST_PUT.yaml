@@ -4,12 +4,12 @@ info:
 openapi: 3.0.0
 paths:
   /observations:
-    get:
+    get: 
       summary: Get a filtered set of Observations 
       description: |-
-        Retrieve all observations where there are measurements for the given observation variables.
+        Retrieve all observations where there are measurements for the given observation variables. 
 
-        observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:ss+hhmm
+        observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:ss+hhmm 
       parameters:
       - description: The unique ID of an Observation
         in: query
@@ -22,7 +22,7 @@ paths:
         name: observationUnitDbId
         required: false
         schema:
-          type: string
+          type: string 
       - description: The unique ID of a germplasm (accession) to filter on
         in: query
         name: germplasmDbId
@@ -34,10 +34,10 @@ paths:
         name: observationVariableDbId
         required: false
         schema:
-          type: string
+          type: string 
       - description: The unique ID of a studies to filter on
         in: query
-        name: studyDbId
+        name: studyDbId 
         required: false
         schema:
           type: string
@@ -53,33 +53,9 @@ paths:
         required: false
         schema:
           type: string
-      - description: The unique ID of a program to filter on
-        in: query
-        name: programDbId
-        required: false
-        schema:
-          type: string
       - description: The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
         in: query
         name: seasonDbId
-        required: false
-        schema:
-          type: string
-      - description: The Observation Unit Level. Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelName
-        in: query
-        name: observationUnitLevelName
-        required: false
-        schema:
-          type: string
-      - description: The Observation Unit Level Order Number. Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder
-        in: query
-        name: observationUnitLevelOrder
-        required: false
-        schema:
-          type: string
-      - description: The Observation Unit Level Code. This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode
-        in: query
-        name: observationUnitLevelCode
         required: false
         schema:
           type: string
@@ -97,7 +73,17 @@ paths:
         schema:
           format: date-time
           type: string
+      - $ref: '#/components/parameters/observationUnitLevelName'
+      - $ref: '#/components/parameters/observationUnitLevelOrder'
+      - $ref: '#/components/parameters/observationUnitLevelCode'
+      - $ref: '#/components/parameters/observationUnitLevelRelationshipName'
+      - $ref: '#/components/parameters/observationUnitLevelRelationshipOrder'
+      - $ref: '#/components/parameters/observationUnitLevelRelationshipCode'
+      - $ref: '#/components/parameters/observationUnitLevelRelationshipDbId'
+      - $ref: '#/components/parameters/commonCropName'
+      - $ref: '#/components/parameters/programDbId'
       - $ref: '#/components/parameters/externalReferenceID'
+      - $ref: '#/components/parameters/externalReferenceId'
       - $ref: '#/components/parameters/externalReferenceSource'
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
@@ -142,11 +128,11 @@ paths:
     put:
       summary: Update multiple Observation entities 
       description: |-
-        Update multiple Observation entities simultaneously with a single call
+        Update multiple Observation entities simultaneously with a single call 
         
-        Include as many `observationDbIds` in the request as needed.
+        Include as many `observationDbIds` in the request as needed. 
         
-        Note - In strictly typed languages, this structure can be represented as a Map or Dictionary of objects and parsed directly from JSON.
+        Note - In strictly typed languages, this structure can be represented as a Map or Dictionary of objects and parsed directly from JSON. 
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:

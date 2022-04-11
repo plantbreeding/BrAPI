@@ -7,7 +7,7 @@ components:
   schemas:
     ObservationSearchRequest: 
       allOf:
-      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'
       - $ref: '#/components/schemas/SearchRequestParametersPrograms'
       - $ref: '#/components/schemas/SearchRequestParametersTrials'
       - $ref: '#/components/schemas/SearchRequestParametersStudies'
@@ -33,7 +33,7 @@ components:
             description: Searches for values in ObservationUnit->observationUnitPosition->observationLevel
             type: array 
             items:
-              $ref: '#/components/schemas/ObservationUnitLevelRelationship' 
+              $ref: '#/components/schemas/ObservationUnitLevel' 
             example:
               - levelName: plot
                 levelCode: Plot_123

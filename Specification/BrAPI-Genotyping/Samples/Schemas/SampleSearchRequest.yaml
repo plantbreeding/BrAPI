@@ -9,6 +9,9 @@ components:
       allOf:
       - $ref: '#/components/schemas/SearchRequestParametersPaging'
       - $ref: '#/components/schemas/SearchRequestParametersGermplasm'
+      - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'
+      - $ref: '#/components/schemas/SearchRequestParametersPrograms'
+      - $ref: '#/components/schemas/SearchRequestParametersTrials'
       - $ref: '#/components/schemas/SearchRequestParametersStudies'
       - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'
       - type: object
@@ -25,10 +28,33 @@ components:
               type: string
             type: array
             example: [ '0cac98b8', 'b96125fb']
+          plateNames:
+            description: The human readable name of a plate of samples
+            items:
+              type: string
+            type: array
+            example: [ '0cac98b8', 'b96125fb']
           sampleDbIds:
             description: The ID which uniquely identifies a sample
             items:
               type: string
             type: array
             example: [ '3bece2ca', 'dd286cc6']
-
+          sampleNames:
+            description: The human readable name of the sample
+            items:
+              type: string
+            type: array
+            example: [ 'SA_111', 'SA_222']
+          sampleGroupDbIds:
+            description: The unique identifier for a group of related Samples
+            items:
+              type: string
+            type: array
+            example: [ '45e1e2d7', '6cc6dd28']
+          germplasmDbIds:
+            description: The ID which uniquely identifies a germplasm
+            items:
+              type: string
+            type: array
+            example: [ 'd745e1e2', '6dd28d74']

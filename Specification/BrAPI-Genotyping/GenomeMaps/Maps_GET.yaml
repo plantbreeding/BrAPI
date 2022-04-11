@@ -8,12 +8,6 @@ paths:
       summary: Get the Genomic Maps
       description: Get list of maps
       parameters:
-      - name: commonCropName
-        description: The common name of the crop
-        in: query
-        required: false
-        schema:
-          type: string
       - name: mapDbId
         description: The primary DbId for this genomic map
         in: query
@@ -38,15 +32,6 @@ paths:
         required: false
         schema:
           type: string
-          enum:
-          - physical
-          - genomic
-      - name: programDbId
-        description: Unique Id to filter by Program
-        in: query
-        required: false
-        schema:
-          type: string
       - name: trialDbId
         description: Unique Id to filter by Trial
         in: query
@@ -59,6 +44,8 @@ paths:
         required: false
         schema:
           type: string
+      - $ref: '#/components/parameters/commonCropName'
+      - $ref: '#/components/parameters/programDbId'
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'

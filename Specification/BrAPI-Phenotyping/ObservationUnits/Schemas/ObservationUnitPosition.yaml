@@ -7,36 +7,37 @@ components:
   schemas:
     ObservationUnitPosition:
       description: |-
-        All positional and layout information related to this Observation Unit
+        All positional and layout information related to this Observation Unit 
         
-        MIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. Levels of observation must be consistent with those listed in the Study section.
+        MIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) 
+        or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. 
+        Levels of observation must be consistent with those listed in the Study section.
       type: object
       properties:
         observationLevel:
           allOf:
-          - $ref: '#/components/schemas/ObservationUnitHierarchyLevel'
-          - $ref: '#/components/schemas/ObservationUnitLevelRelationship'
+          - $ref: '#/components/schemas/ObservationUnitLevel'
           - type: object
             properties: {}
             description: |-
               The exact level and level code of an observation unit. 
               
-              For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
+              For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
 
               MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended. 
-              The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables).
-              Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."
+              The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). 
+              Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead." 
         observationLevelRelationships:
           description: |-
-            Observation levels indicate the granularity level at which the measurements are taken. 
-              
-            For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
-            
-            `levelName` defines the level 
-            
-            `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). 
-            
-            `levelCode` is an ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists
+            Observation levels indicate the granularity level at which the measurements are taken. `levelName` 
+            defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. 
+            `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are 
+            at the bottom of the hierarchy (ie plant > 6). `levelCode` is an ID code for this level tag. Identify 
+            this observation unit by each level of the hierarchy where it exists. 
+
+            For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+
+            **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** 
           type: array 
           items:
             $ref: '#/components/schemas/ObservationUnitLevelRelationship' 
@@ -64,23 +65,23 @@ components:
           example: '74'
         positionCoordinateXType:
           description: |-
-            The type of positional coordinate used. Must be one of the following values
+            The type of positional coordinate used. Must be one of the following values 
             
-            LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details
+            LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details 
             
-            LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details
+            LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details 
             
             PLANTED_ROW - The physical planted row number 
             
-            PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row
+            PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row 
             
-            GRID_ROW - The row index number of a square grid overlay
+            GRID_ROW - The row index number of a square grid overlay 
             
-            GRID_COL - The column index number of a square grid overlay
+            GRID_COL - The column index number of a square grid overlay 
             
-            MEASURED_ROW - The distance in meters from a defined 0-th row
+            MEASURED_ROW - The distance in meters from a defined 0-th row 
             
-            MEASURED_COL - The distance in meters from a defined 0-th column
+            MEASURED_COL - The distance in meters from a defined 0-th column 
           enum:
           - LONGITUDE
           - LATITUDE
@@ -98,23 +99,23 @@ components:
           example: '03'
         positionCoordinateYType:
           description: |-
-            The type of positional coordinate used. Must be one of the following values
+            The type of positional coordinate used. Must be one of the following values 
             
-            LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details
+            LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details 
             
-            LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details
+            LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details 
             
-            PLANTED_ROW - The physical planted row number 
+            PLANTED_ROW - The physical planted row number  
             
-            PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row
+            PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row 
             
-            GRID_ROW - The row index number of a square grid overlay
+            GRID_ROW - The row index number of a square grid overlay 
             
-            GRID_COL - The column index number of a square grid overlay
+            GRID_COL - The column index number of a square grid overlay 
             
-            MEASURED_ROW - The distance in meters from a defined 0-th row
+            MEASURED_ROW - The distance in meters from a defined 0-th row 
             
-            MEASURED_COL - The distance in meters from a defined 0-th column
+            MEASURED_COL - The distance in meters from a defined 0-th column 
           enum:
           - LONGITUDE
           - LATITUDE

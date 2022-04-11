@@ -37,30 +37,30 @@ def go():
     printResults(deletedDeprecatedPaths, deletedPaths, modifiedPaths, addedPaths, options)
     
 def printResults(deletedDeprecatedPaths, deletedPaths, modifiedPaths, addedPaths, options):
-    print(len(deletedPaths) + len(deletedDeprecatedPaths), 'endpoints deleted')
+    print(len(deletedPaths) + len(deletedDeprecatedPaths), 'endpoints deprecated')
     print(len(modifiedPaths), 'endpoints modified')
     print(len(addedPaths), 'endpoints added')
     
     print()
     if options['printDeleted'] :
-        print('deleted endpoints')
+        print('deprecated endpoints')
         for path in sorted(deletedDeprecatedPaths):
             pathSplit = path.split(sep)
-            print(pathSplit[1], '\t', pathSplit[0], '\tPreviously deprecated, permanently removed')
+            print(pathSplit[1], '\t', pathSplit[0], '\tDeprecated in latest version')
         for path in sorted(deletedPaths):
             pathSplit = path.split(sep)
             print(pathSplit[1], '\t', pathSplit[0], '\tFunctionality replaced by XXXX')
     
     print()
     if options['printAdded']:
-        print('added endpoints')
+        print('Added endpoints')
         for path in sorted(addedPaths):
             pathSplit = path.split(sep)
             print(pathSplit[1], '\t', pathSplit[0])
             
     print()
     if options['printModified']:
-        print('modified endpoints')
+        print('Modified endpoints')
         for path in sorted(modifiedPaths.keys()):
             pathSplit = path.split(sep)
             msg = pathSplit[1] + '\t' + pathSplit[0] + '\t%d modifications\n'
@@ -116,15 +116,15 @@ def comparePaths(lowerVersionFile, higherVersionFile):
         for higherPath in higherPaths:
             if lowerPath == higherPath:
                 matchFound = True
-                modifiedPaths[lowerPath] = {'key': lowerPath}
+                higherPathSplit = higherPath.split(sep)
+                if 'deprecated' in higherVersionFile['paths'][higherPathSplit[0]][higherPathSplit[1]] and higherVersionFile['paths'][higherPathSplit[0]][higherPathSplit[1]]['deprecated']:
+                    deletedDeprecatedPaths.append(higherPath)
+                else:
+                    modifiedPaths[lowerPath] = {'key': lowerPath}
                 break
         if not matchFound:
-            lowerPathSplit = lowerPath.split(sep)
-            if 'deprecated' in lowerVersionFile['paths'][lowerPathSplit[0]][lowerPathSplit[1]] and lowerVersionFile['paths'][lowerPathSplit[0]][lowerPathSplit[1]]['deprecated']:
-                deletedDeprecatedPaths.append(lowerPath)
-            else:
-                deletedPaths.append(lowerPath)
-    addedPaths = list(set(higherPaths) - set(modifiedPaths.keys()))
+            deletedPaths.append(lowerPath)
+    addedPaths = list(set(higherPaths) - set(modifiedPaths.keys()) - set(deletedDeprecatedPaths) - set(deletedPaths))
     
     return deletedDeprecatedPaths, deletedPaths, modifiedPaths, addedPaths
         
@@ -140,11 +140,13 @@ def compareParams(pathsToDiff, lowerVersionFile, higherVersionFile):
         if 'parameters' in lowerVersionFile['paths'][pathSplit[0]][pathSplit[1]] and 'parameters' in higherVersionFile['paths'][pathSplit[0]][pathSplit[1]]:
             lowParams = lowerVersionFile['paths'][pathSplit[0]][pathSplit[1]]['parameters']
             for param in lowParams:
-                lowerParams.append(param['name'] + sep + param['schema']['type'])
+                if 'deprecated' not in param:
+                    lowerParams.append(param['name'] + sep + param['schema']['type'])
                 
             highParams = higherVersionFile['paths'][pathSplit[0]][pathSplit[1]]['parameters']
             for param in highParams:
-                higherParams.append(param['name'] + sep + param['schema']['type'])
+                if 'deprecated' not in param:
+                    higherParams.append(param['name'] + sep + param['schema']['type'])
         else:
             print('Error: Something is missing Parameter?')
             print(lowerVersionFile['paths'][pathSplit[0]][pathSplit[1]])
@@ -201,18 +203,38 @@ def compareResults(pathsToDiff, lowerVersionFile, higherVersionFile):
         pathsToDiff[path]['deletedResponseFields'] = deletedFields 
 
 def compareObjects(lowerRequestBody, higherRequestBody, addedFields, deletedFields, fieldPrefix = 'obj.'):
+        
+    if('oneOf' in lowerRequestBody):
+        lowerType = 'oneOf'
+    else:
+        if "type" in lowerRequestBody:
+            lowerType = lowerRequestBody['type']
+        else:
+            print(lowerRequestBody) 
     
-    lowerType = lowerRequestBody['type'] 
-    higherType = higherRequestBody['type']
-    
+    if('oneOf' in higherRequestBody):
+        higherType = 'oneOf'
+    else:
+        higherType = higherRequestBody['type'] 
+        
     if lowerType == higherType:
         if lowerType == 'object':
             if 'properties' in lowerRequestBody and 'properties' in higherRequestBody:
-                deleted = list(set(lowerRequestBody['properties'].keys()) - set(higherRequestBody['properties'].keys()))
-                added = list(set(higherRequestBody['properties'].keys()) - set(lowerRequestBody['properties'].keys()))
+                lowerProps = []
+                higherProps = []
+                for lowerProp in lowerRequestBody['properties']:
+                    if 'deprecated' not in lowerRequestBody['properties'][lowerProp]:
+                        lowerProps.append(lowerProp)
+                for higherProp in higherRequestBody['properties']:
+                    if 'deprecated' not in higherRequestBody['properties'][higherProp]:
+                        higherProps.append(higherProp)
+                deleted = list(set(lowerProps) - set(higherProps))
                
                 for d in deleted:
                     deletedFields.append(fieldPrefix + d + sep + lowerRequestBody['properties'][d]['type'])
+                    
+                    
+                added = list(set(higherRequestBody['properties'].keys()) - set(lowerRequestBody['properties'].keys()))
                 for a in added:
                     addedFields.append(fieldPrefix + a + sep + higherRequestBody['properties'][a]['type'])
                 

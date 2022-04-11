@@ -5,13 +5,15 @@ openapi: 3.0.0
 paths:
   /germplasm/{germplasmDbId}/progeny:
     get:
-      summary: Get the progeny details of a specific Germplasm
+      deprecated: true
+      summary: |-
+        **Deprecated in v2.1** Please use `GET /pedigree?germplasmDbId={germplasmDbId}`. Github issue number #481 
+        <br/> Get the progeny details of a specific Germplasm
       description: |-
-        Get the germplasmDbIds for all the Progeny of a particular germplasm.
-
-        Implementation Notes
-
-        - Regarding the ''parentType'' field in the progeny object. Given a germplasm A having a progeny B and C, ''parentType'' for progeny B refers to the ''parentType'' of A toward B.
+        **Deprecated in v2.1** Please use `GET /pedigree?germplasmDbId={germplasmDbId}`. Github issue number #481 
+        <br/> Get the germplasmDbIds for all the Progeny of a particular germplasm.
+        <br/> Implementation Notes
+        <br/> - Regarding the ''parentType'' field in the progeny object. Given a germplasm A having a progeny B and C, ''parentType'' for progeny B refers to the ''parentType'' of A toward B.
       parameters:
       - description: the internal id of the germplasm
         in: path
@@ -33,7 +35,7 @@ paths:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    $ref: '#/components/schemas/ProgenyNode'
+                    $ref: '#/components/schemas/ProgenyNodeDEP'
                 required:
                 - metadata
                 - result

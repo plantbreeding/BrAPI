@@ -1,0 +1,180 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /plates:
+    get:
+      summary: Get a filtered list of Plates.
+      description: Get a filtered list of Plates. Each Plate is a collection of samples that are physically grouped together.
+      parameters:
+      - name: sampleDbId
+        description: The unique identifier for a Sample
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: sampleName
+        description: The human readable name of the sample
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: sampleGroupDbId
+        description: The unique identifier for a group of related Samples
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: observationUnitDbId
+        description: The ID which uniquely identifies an observation unit
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: plateDbId
+        description: The ID which uniquely identifies a plate of samples
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: plateName
+        description: The human readable name of a plate of samples
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: germplasmDbId
+        description: The ID which uniquely identifies a germplasm
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: studyDbId
+        description: The ID which uniquely identifies a study
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: trialDbId
+        description: The ID which uniquely identifies a trial
+        in: query
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/commonCropName'
+      - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/externalReferenceID'
+      - $ref: '#/components/parameters/externalReferenceId'
+      - $ref: '#/components/parameters/externalReferenceSource'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/PlateListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Plates
+    post:
+      summary: Submit new Plate entities to the server
+      description: Submit new Plate entities to the server
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PlateNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/PlateListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Plates
+    put:
+      summary: Update the details of existing Plates
+      description: Update the details of existing Plates
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                $ref: '#/components/schemas/PlateNewRequest'
+              example:
+                '<plateDbId_1>':
+                  additionalInfo: {}
+                  externalReferences: []
+                  plateName: Plate_alpha_20191022
+                  plateBarcode: 3a027b59
+                  plateFormat: PLATE_96
+                  sampleType: Tissue
+                  studyDbId: 64bd6bf9
+                  trialDbId: d34c5349
+                  programDbId: bd748e00
+                '<plateDbId_2>':
+                  additionalInfo: {}
+                  externalReferences: []
+                  plateName: Plate_alpha_20191022
+                  plateBarcode: 27b593a0
+                  plateFormat: PLATE_96
+                  sampleType: Tissue
+                  studyDbId: 64bd6bf9
+                  trialDbId: d34c5349
+                  programDbId: bd748e00
+      responses:
+        '200':
+          $ref: '#/components/responses/PlateListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Plates
+components:
+  responses:
+    PlateListResponse:
+      content:
+        application/json:
+          schema:
+            title: PlateListResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/Plate'
+                    type: array
+                required:
+                - data
+                type: object
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}
+      

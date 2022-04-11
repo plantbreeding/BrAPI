@@ -13,51 +13,68 @@ components:
             type: string
           description: Additional arbitrary info
           type: object
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
         alternativeAbbreviations:
           description: Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention
           items:
             type: string
           type: array
           example: ['H', 'PH', 'H1']
-        attribute:
-          description: A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"
-          type: string
-          example: height
-        traitClass:
-          description: 'Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)'
-          type: string
-          example: phenological
-        traitDescription:
-          description: The description of a trait
-          type: string
-          example: The height of the plant 
-        entity:
-          description: A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"
-          type: string
-          example: Stalk
         mainAbbreviation:
           description: 'Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")'
           type: string
           example: PH
-        ontologyReference:
-          $ref: '#/components/schemas/OntologyReference'
-        status:
-          description: 'Trait status (examples: "recommended", "obsolete", "legacy", etc.)'
-          type: string
-          example: recommended
         synonyms:
           description: Other trait names
           items:
             type: string
           type: array
           example: ['Height', 'Plant Height', 'Stalk Height', 'Canopy Height']
+        ontologyReference:
+          $ref: '#/components/schemas/OntologyReference'
+        status:
+          description: 'Trait status (examples: "recommended", "obsolete", "legacy", etc.)'
+          type: string
+          example: recommended
+        attribute:
+          description: A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"
+          type: string
+          example: height
+        attributePUI:
+          description: |-
+            The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI
+            <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"
+          type: string
+          example: http://my-traits.com/trait/PO:00012345
+        entity:
+          description: A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"
+          type: string
+          example: Stalk 
+        entityPUI:
+          description: |-
+            The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI
+            <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" 
+          type: string
+          example: http://my-traits.com/trait/PATO:00098765
         traitName:
           description: |-
             The human readable name of a trait
-            
-            MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation
+            <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation
           type: string
           example: Height
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
+        traitPUI:
+          description: The Permanent Unique Identifier of a Trait, usually in the form of a URI
+          type: string
+          example: http://my-traits.com/trait/CO_123:0000012
+        traitClass:
+          description: |-
+            A classification to describe the type of trait and the context it should be considered in.
+            <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.
+          type: string
+          example: phenological
+        traitDescription:
+          description: The description of a trait
+          type: string
+          example: The height of the plant 
 

@@ -5,7 +5,7 @@ The '/serverinfo' call is used to find the available BrAPI calls on a particular
 
 
 
-### Get - /serverinfo [GET /brapi/v2/serverinfo{?dataType}]
+### Get - /serverinfo [GET /brapi/v2/serverinfo{?contentType}{?dataType}]
 
 Implementation Notes
 
@@ -46,7 +46,8 @@ BAD    "call": "germplasm/<germplasmDbId>/pedigree"
 |Field|Type|Description|
 |---|---|---| 
 |calls|array[object]|Array of available calls on this server|
-|dataTypes|array[string]|The possible data formats returned by the available call|
+|contentTypes|array[string]|The possible content types returned by the service endpoint|
+|dataTypes|array[string]|**Deprecated in v2.1** Please use `contentTypes`. Github issue number #443  <br/>The possible data formats returned by the available call |
 |methods|array[string]|The possible HTTP Methods to be used with the available call|
 |service|string|The name of the available call as recorded in the documentation|
 |versions|array[string]|The supported versions of a particular call|
@@ -62,7 +63,8 @@ BAD    "call": "germplasm/<germplasmDbId>/pedigree"
  
 
 + Parameters
-    + dataType (Optional, ) ... The data format supported by the call.
+    + contentType (Optional, ) ... Filter the list of endpoints based on the response content type.
+    + dataType (Optional, ) ... **Deprecated in v2.1** Please use `contentType`. Github issue number #443The data format supported by the call.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
@@ -75,16 +77,7 @@ BAD    "call": "germplasm/<germplasmDbId>/pedigree"
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -101,6 +94,9 @@ BAD    "call": "germplasm/<germplasmDbId>/pedigree"
     "result": {
         "calls": [
             {
+                "contentTypes": [
+                    "application/json"
+                ],
                 "dataTypes": [
                     "application/json"
                 ],

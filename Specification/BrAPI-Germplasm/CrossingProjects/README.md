@@ -5,7 +5,7 @@
 
 
 
-### Get - /crossingprojects [GET /brapi/v2/crossingprojects{?crossingProjectDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /crossingprojects [GET /brapi/v2/crossingprojects{?crossingProjectDbId}{?crossingProjectName}{?includePotentialParents}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Crossing Projects.
 
@@ -18,12 +18,19 @@ Get a filtered list of Crossing Projects.
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|the common name of a crop (for multi-crop systems)|
-|crossingProjectDbId|string|the unique identifier for a crossing project|
+|crossingProjectDbId|string|The unique identifier for a crossing project|
 |crossingProjectDescription|string|the description for a crossing project|
-|crossingProjectName|string|the human readable name for a crossing project|
+|crossingProjectName|string|The human readable name for a crossing project|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|potentialParents|array[object]|A list of all the potential parents in the crossing block, available in the crossing project <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.|
+|germplasmDbId|string|the unique identifier for a germplasm|
+|germplasmName|string|the human readable name for a germplasm|
+|observationUnitDbId|string|the unique identifier for an observation unit|
+|observationUnitName|string|the human readable name for an observation unit|
+|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |programDbId|string|the unique identifier for a program|
 |programName|string|the human readable name for a program|
 
@@ -32,8 +39,13 @@ Get a filtered list of Crossing Projects.
 
 + Parameters
     + crossingProjectDbId (Optional, ) ... Search for Crossing Projects with this unique id
-    + externalReferenceID (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceID` parameter)
+    + crossingProjectName (Optional, ) ... The human readable name for a crossing project
+    + includePotentialParents (Optional, ) ... If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.
+    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
+    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -48,16 +60,7 @@ Get a filtered list of Crossing Projects.
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -81,16 +84,21 @@ Get a filtered list of Crossing Projects.
                 "crossingProjectName": "Crosses_2018",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
+                    }
+                ],
+                "potentialParents": [
+                    {
+                        "germplasmDbId": "d34b10c3",
+                        "germplasmName": "TME_419",
+                        "observationUnitDbId": "2e1926a7",
+                        "observationUnitName": "my_Plot_9001",
+                        "parentType": "MALE"
                     }
                 ],
                 "programDbId": "a088176c",
@@ -130,10 +138,17 @@ Create new Crossing Project entities on this server
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|the common name of a crop (for multi-crop systems)|
 |crossingProjectDescription|string|the description for a crossing project|
-|crossingProjectName|string|the human readable name for a crossing project|
+|crossingProjectName|string|The human readable name for a crossing project|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|potentialParents|array[object]|A list of all the potential parents in the crossing block, available in the crossing project <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.|
+|germplasmDbId|string|the unique identifier for a germplasm|
+|germplasmName|string|the human readable name for a germplasm|
+|observationUnitDbId|string|the unique identifier for an observation unit|
+|observationUnitName|string|the human readable name for an observation unit|
+|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |programDbId|string|the unique identifier for a program|
 |programName|string|the human readable name for a program|
 
@@ -145,12 +160,19 @@ Create new Crossing Project entities on this server
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|the common name of a crop (for multi-crop systems)|
-|crossingProjectDbId|string|the unique identifier for a crossing project|
+|crossingProjectDbId|string|The unique identifier for a crossing project|
 |crossingProjectDescription|string|the description for a crossing project|
-|crossingProjectName|string|the human readable name for a crossing project|
+|crossingProjectName|string|The human readable name for a crossing project|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|potentialParents|array[object]|A list of all the potential parents in the crossing block, available in the crossing project <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.|
+|germplasmDbId|string|the unique identifier for a germplasm|
+|germplasmName|string|the human readable name for a germplasm|
+|observationUnitDbId|string|the unique identifier for an observation unit|
+|observationUnitName|string|the human readable name for an observation unit|
+|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |programDbId|string|the unique identifier for a program|
 |programName|string|the human readable name for a program|
 
@@ -172,16 +194,21 @@ Create new Crossing Project entities on this server
         "crossingProjectName": "Crosses_2018",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
+            }
+        ],
+        "potentialParents": [
+            {
+                "germplasmDbId": "d34b10c3",
+                "germplasmName": "TME_419",
+                "observationUnitDbId": "2e1926a7",
+                "observationUnitName": "my_Plot_9001",
+                "parentType": "MALE"
             }
         ],
         "programDbId": "a088176c",
@@ -199,16 +226,7 @@ Create new Crossing Project entities on this server
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -232,16 +250,21 @@ Create new Crossing Project entities on this server
                 "crossingProjectName": "Crosses_2018",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
+                    }
+                ],
+                "potentialParents": [
+                    {
+                        "germplasmDbId": "d34b10c3",
+                        "germplasmName": "TME_419",
+                        "observationUnitDbId": "2e1926a7",
+                        "observationUnitName": "my_Plot_9001",
+                        "parentType": "MALE"
                     }
                 ],
                 "programDbId": "a088176c",
@@ -282,12 +305,19 @@ Get a filtered list of Crossing Projects.
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|the common name of a crop (for multi-crop systems)|
-|crossingProjectDbId|string|the unique identifier for a crossing project|
+|crossingProjectDbId|string|The unique identifier for a crossing project|
 |crossingProjectDescription|string|the description for a crossing project|
-|crossingProjectName|string|the human readable name for a crossing project|
+|crossingProjectName|string|The human readable name for a crossing project|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|potentialParents|array[object]|A list of all the potential parents in the crossing block, available in the crossing project <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.|
+|germplasmDbId|string|the unique identifier for a germplasm|
+|germplasmName|string|the human readable name for a germplasm|
+|observationUnitDbId|string|the unique identifier for an observation unit|
+|observationUnitName|string|the human readable name for an observation unit|
+|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |programDbId|string|the unique identifier for a program|
 |programName|string|the human readable name for a program|
 
@@ -295,7 +325,7 @@ Get a filtered list of Crossing Projects.
  
 
 + Parameters
-    + crossingProjectDbId (Required, ) ... Search for Crossing Projects with this unique id
+    + crossingProjectDbId (Required, ) ... The unique identifier for a crossing project
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
@@ -308,16 +338,7 @@ Get a filtered list of Crossing Projects.
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -339,16 +360,21 @@ Get a filtered list of Crossing Projects.
         "crossingProjectName": "Crosses_2018",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
+            }
+        ],
+        "potentialParents": [
+            {
+                "germplasmDbId": "d34b10c3",
+                "germplasmName": "TME_419",
+                "observationUnitDbId": "2e1926a7",
+                "observationUnitName": "my_Plot_9001",
+                "parentType": "MALE"
             }
         ],
         "programDbId": "a088176c",
@@ -386,10 +412,17 @@ Update an existing Crossing Project entity on this server
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|the common name of a crop (for multi-crop systems)|
 |crossingProjectDescription|string|the description for a crossing project|
-|crossingProjectName|string|the human readable name for a crossing project|
+|crossingProjectName|string|The human readable name for a crossing project|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|potentialParents|array[object]|A list of all the potential parents in the crossing block, available in the crossing project <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.|
+|germplasmDbId|string|the unique identifier for a germplasm|
+|germplasmName|string|the human readable name for a germplasm|
+|observationUnitDbId|string|the unique identifier for an observation unit|
+|observationUnitName|string|the human readable name for an observation unit|
+|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |programDbId|string|the unique identifier for a program|
 |programName|string|the human readable name for a program|
 
@@ -400,12 +433,19 @@ Update an existing Crossing Project entity on this server
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|the common name of a crop (for multi-crop systems)|
-|crossingProjectDbId|string|the unique identifier for a crossing project|
+|crossingProjectDbId|string|The unique identifier for a crossing project|
 |crossingProjectDescription|string|the description for a crossing project|
-|crossingProjectName|string|the human readable name for a crossing project|
+|crossingProjectName|string|The human readable name for a crossing project|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|potentialParents|array[object]|A list of all the potential parents in the crossing block, available in the crossing project <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.|
+|germplasmDbId|string|the unique identifier for a germplasm|
+|germplasmName|string|the human readable name for a germplasm|
+|observationUnitDbId|string|the unique identifier for an observation unit|
+|observationUnitName|string|the human readable name for an observation unit|
+|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |programDbId|string|the unique identifier for a program|
 |programName|string|the human readable name for a program|
 
@@ -427,16 +467,21 @@ Update an existing Crossing Project entity on this server
     "crossingProjectName": "Crosses_2018",
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12341234",
+            "referenceId": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
-            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-            "referenceSource": "OBO Library"
-        },
-        {
-            "referenceID": "75a50e76",
+            "referenceId": "75a50e76",
             "referenceSource": "Remote Data Collection Upload Tool"
+        }
+    ],
+    "potentialParents": [
+        {
+            "germplasmDbId": "d34b10c3",
+            "germplasmName": "TME_419",
+            "observationUnitDbId": "2e1926a7",
+            "observationUnitName": "my_Plot_9001",
+            "parentType": "MALE"
         }
     ],
     "programDbId": "a088176c",
@@ -453,16 +498,7 @@ Update an existing Crossing Project entity on this server
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -484,16 +520,21 @@ Update an existing Crossing Project entity on this server
         "crossingProjectName": "Crosses_2018",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
+            }
+        ],
+        "potentialParents": [
+            {
+                "germplasmDbId": "d34b10c3",
+                "germplasmName": "TME_419",
+                "observationUnitDbId": "2e1926a7",
+                "observationUnitName": "my_Plot_9001",
+                "parentType": "MALE"
             }
         ],
         "programDbId": "a088176c",

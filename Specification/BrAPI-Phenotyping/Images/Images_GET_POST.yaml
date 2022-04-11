@@ -5,15 +5,17 @@ openapi: 3.0.0
 paths:
   /images:
     get:
-      summary: Get the image meta data summaries
+      summary: Get the image metadata summaries
       description: |-
-        Get filtered set of image meta data
+        Get filtered set of image metadata
 
         Implementation Notes
 
-        - ''imageURL'' should be a complete URL describing the location of the image. There is no BrAPI call for retrieving the image content, so it could be on a different path, or a different host.
+        - ''imageURL'' should be a complete URL describing the location of the image. There is no BrAPI call for 
+        retrieving the image content, so it could be on a different path, or a different host.
 
-        - ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI''s.
+        - ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive 
+        words, or ontology references, or full ontology URI''s.
       parameters:
       - description: The unique identifier for a image
         in: query
@@ -45,7 +47,10 @@ paths:
         required: false
         schema:
           type: string
+      - $ref: '#/components/parameters/commonCropName'
+      - $ref: '#/components/parameters/programDbId'
       - $ref: '#/components/parameters/externalReferenceID'
+      - $ref: '#/components/parameters/externalReferenceId'
       - $ref: '#/components/parameters/externalReferenceSource'
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
@@ -62,21 +67,30 @@ paths:
       tags:
       - Images
     post:
-      summary: Create new image meta data objects
+      summary: Create new image metadata records
       description: |-
-        Create new image meta data objects
+        Create new image metadata records
 
         Implementation Notes
+        
+        - This endpoint should be implemented with 'PUT /images/{imageDbId}/imagecontent' for full image upload capability
 
-        - ''imageURL'' should be a complete URL describing the location of the image. There is no BrAPI call for retrieving the image content, so it could be on a different path, or a different host.
+        - ''imageURL'' should be a complete URL describing the location of the image. There is no BrAPI call for retrieving 
+        the image content, so it could be on a different path, or a different host.
 
-        - ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI''s.
+        - ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or 
+        ontology references, or full ontology URI's.
 
-        - The '/images' calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON only supports two of the possible geometries: Points and Polygons.
+        - The '/images' calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON 
+        only supports two of the possible geometries; Points and Polygons.
 
         - With most images, the Point geometry should be used, and it should indicate the longitude and latitude of the camera.
 
-        - For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content. '
+        - For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and 
+        latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the 
+        image content.
+
+        An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/index.php/Image_Upload
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
@@ -114,7 +128,7 @@ components:
                 type: object
                 properties:
                   data:
-                    description: Array of image meta data
+                    description: Array of image metadata
                     items:
                       $ref: '#/components/schemas/Image'
                     type: array

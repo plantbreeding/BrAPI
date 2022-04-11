@@ -21,6 +21,8 @@ components:
           description: Name of the germplasm. It can be the preferred name and does not have to be unique.
           type: string
           example: A0000003
+        geoCoordinates:
+          $ref: '#/components/schemas/geoJSON'
         observationTimeStamp:
           description: The date and time when this observation was made
           format: date-time
@@ -46,7 +48,7 @@ components:
           type: string
           example: 917d3ae0
         season:
-          $ref: '#/components/schemas/Season'
+          $ref: '#/components/schemas/SeasonObs'
         studyDbId:
           description: The ID which uniquely identifies a study within the given database server
           type: string

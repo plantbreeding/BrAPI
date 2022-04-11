@@ -14,7 +14,13 @@ paths:
         required: false
         schema:
           type: string
-      - description: The unique ID of a germplasm (accession) to filter on
+      - description: The human readable identifier for an Observation Unit
+        in: query
+        name: observationUnitName
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of a germplasm (accession) to filter on 
         in: query
         name: germplasmDbId
         required: false
@@ -38,46 +44,32 @@ paths:
         required: false
         schema:
           type: string
-      - description: The unique ID of a program to filter on
-        in: query
-        name: programDbId
-        required: false
-        schema:
-          type: string
       - description: The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
         in: query
         name: seasonDbId
         required: false
         schema:
           type: string
-      - description: The Observation Unit Level. Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelName
-        in: query
-        name: observationUnitLevelName
-        required: false
-        schema:
-          type: string
-      - description: The Observation Unit Level Order Number. Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder
-        in: query
-        name: observationUnitLevelOrder
-        required: false
-        schema:
-          type: string
-      - description: The Observation Unit Level Code. This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode
-        in: query
-        name: observationUnitLevelCode
-        required: false
-        schema:
-          type: string
       - description: |-
           Use this parameter to include a list of observations embedded in each ObservationUnit object. 
           
-          CAUTION - Use this parameter at your own risk. It may return large, unpaginated lists of observation data. Only set this value to True if you are sure you need to.
+          CAUTION - Use this parameter at your own risk. It may return large, unpaginated lists of observation data. Only set this value to True if you are sure you need to. 
         in: query
         name: includeObservations
         required: false
         schema:
           type: boolean
+      - $ref: '#/components/parameters/observationUnitLevelName'
+      - $ref: '#/components/parameters/observationUnitLevelOrder'
+      - $ref: '#/components/parameters/observationUnitLevelCode'
+      - $ref: '#/components/parameters/observationUnitLevelRelationshipName'
+      - $ref: '#/components/parameters/observationUnitLevelRelationshipOrder'
+      - $ref: '#/components/parameters/observationUnitLevelRelationshipCode' 
+      - $ref: '#/components/parameters/observationUnitLevelRelationshipDbId'
+      - $ref: '#/components/parameters/commonCropName'
+      - $ref: '#/components/parameters/programDbId'
       - $ref: '#/components/parameters/externalReferenceID'
+      - $ref: '#/components/parameters/externalReferenceId'
       - $ref: '#/components/parameters/externalReferenceSource'
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
@@ -119,9 +111,9 @@ paths:
     put:
       summary: Update a set of Observation Units
       description: |-
-        Update a set of Observation Units
+        Update a set of Observation Units 
         
-        Note - In strictly typed languages, this structure can be represented as a Map or Dictionary of objects and parsed directly to JSON.
+        Note - In strictly typed languages, this structure can be represented as a Map or Dictionary of objects and parsed directly to JSON. 
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
@@ -202,7 +194,7 @@ paths:
                       levelCode: Plot_123
                     observationLevelRelationships:
                     - levelCode: Field_1
-                      levelName: field
+                      levelName: field 
                       levelOrder: 0
                     - levelCode: Block_12
                       levelName: block
@@ -213,11 +205,11 @@ paths:
                     positionCoordinateX: '74'
                     positionCoordinateXType: GRID_COL
                     positionCoordinateY: '03'
-                    positionCoordinateYType: GRID_ROW
+                    positionCoordinateYType: GRID_ROW 
                   programDbId: 2d763a7a
                   programName: The Perfect Breeding Program
                   seedLotDbId: 261ecb09
-                  studyDbId: 9865addc
+                  studyDbId: 9865addc 
                   studyName: Purple_Tomato_1
                   treatments:
                   - factor: fertilizer

@@ -44,7 +44,7 @@ components:
           format: date-time
           type: string
         sampleName:
-          description: The name of the sample
+          description: The human readable name of the sample
           type: string
           example: Sample_alpha_20191022
         samplePUI:

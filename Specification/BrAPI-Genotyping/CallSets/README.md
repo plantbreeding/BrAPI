@@ -4,7 +4,7 @@
 
 
 
-### Get - /callsets [GET /brapi/v2/callsets{?callSetDbId}{?callSetName}{?variantSetDbId}{?sampleDbId}{?germplasmDbId}{?page}{?pageSize}]
+### Get - /callsets [GET /brapi/v2/callsets{?callSetDbId}{?callSetName}{?variantSetDbId}{?sampleDbId}{?germplasmDbId}{?page}{?pageSize}{?externalReferenceId}{?externalReferenceSource}]
 
 Gets a filtered list of `CallSet` JSON objects.
 
@@ -19,6 +19,10 @@ Gets a filtered list of `CallSet` JSON objects.
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
 |created|string (date-time)|The date this call set was created|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |updated|string (date-time)|The time at which this call set was last updated|
@@ -35,6 +39,8 @@ Gets a filtered list of `CallSet` JSON objects.
     + germplasmDbId (Optional, ) ... Return only call sets generated from the Sample of this Germplasm
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
@@ -47,16 +53,7 @@ Gets a filtered list of `CallSet` JSON objects.
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -77,6 +74,16 @@ Gets a filtered list of `CallSet` JSON objects.
                 "callSetDbId": "eb2bfd3d",
                 "callSetName": "Sample_123_DNA_Run_456",
                 "created": "2018-01-01T14:47:23-0600",
+                "externalReferences": [
+                    {
+                        "referenceId": "doi:10.155454/12341234",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceId": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    }
+                ],
                 "sampleDbId": "5e50e11d",
                 "studyDbId": "708149c1",
                 "updated": "2018-01-01T14:47:23-0600",
@@ -122,6 +129,10 @@ Gets a `CallSet` by ID.
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
 |created|string (date-time)|The date this call set was created|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |updated|string (date-time)|The time at which this call set was last updated|
@@ -144,16 +155,7 @@ Gets a `CallSet` by ID.
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -172,6 +174,16 @@ Gets a `CallSet` by ID.
         "callSetDbId": "eb2bfd3d",
         "callSetName": "Sample_123_DNA_Run_456",
         "created": "2018-01-01T14:47:23-0600",
+        "externalReferences": [
+            {
+                "referenceId": "doi:10.155454/12341234",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceId": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            }
+        ],
         "sampleDbId": "5e50e11d",
         "studyDbId": "708149c1",
         "updated": "2018-01-01T14:47:23-0600",
@@ -228,6 +240,8 @@ Gets a list of `Calls` associated with a `CallSet`.
 |phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.|
 |variantDbId|string|The ID of the variant this call belongs to.|
 |variantName|string|The name of the variant this call belongs to.|
+|variantSetDbId|string|The unique identifier for a VariantSet|
+|variantSetName|string|The human readable name for a VariantSet|
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
@@ -256,16 +270,7 @@ Gets a list of `Calls` associated with a `CallSet`.
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPageToken": "48bc6ac1",
             "nextPageToken": "cb668f63",
@@ -297,13 +302,15 @@ Gets a list of `Calls` associated with a `CallSet`.
                 ],
                 "phaseSet": "6410afc5",
                 "variantDbId": "538c8ecf",
-                "variantName": "Marker A"
+                "variantName": "Marker A",
+                "variantSetDbId": "87a6ac1e",
+                "variantSetName": "Maize QC DataSet 002334"
             }
         ],
         "expandHomozygotes": true,
-        "sepPhased": "~",
-        "sepUnphased": "|",
-        "unknownString": "-"
+        "sepPhased": "|",
+        "sepUnphased": "/",
+        "unknownString": "."
     }
 }
 ```
@@ -340,12 +347,22 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |---|---|---| 
 |callSetDbIds|array[string]|Only return call sets with these DbIds (case-sensitive, exact match).|
 |callSetNames|array[string]|Only return call sets with these names (case-sensitive, exact match).|
+|commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
+|externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
 |germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
 |germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
+|programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
+|programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
 |sampleDbIds|array[string]|Return only call sets generated from the provided Biosample IDs.|
 |sampleNames|array[string]|Return only call sets generated from the provided Biosample human readable names.|
+|studyDbIds|array[string]|List of study identifiers to search for|
+|studyNames|array[string]|List of study names to filter search results|
+|trialDbIds|array[string]|The ID which uniquely identifies a trial to search for|
+|trialNames|array[string]|The human readable name of a trial to search for|
 |variantSetDbIds|array[string]|The VariantSet to search.|
 
 
@@ -358,6 +375,10 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
 |created|string (date-time)|The date this call set was created|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |updated|string (date-time)|The time at which this call set was last updated|
@@ -382,6 +403,22 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "Sample_123_DNA_Run_456",
         "Sample_789_DNA_Run_101"
     ],
+    "commonCropNames": [
+        "Tomatillo",
+        "Paw Paw"
+    ],
+    "externalReferenceIDs": [
+        "doi:10.155454/12341234",
+        "14a19841"
+    ],
+    "externalReferenceIds": [
+        "doi:10.155454/12341234",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "DOI",
+        "Field App Name"
+    ],
     "germplasmDbIds": [
         "e9c6edd7",
         "1b1df4a6"
@@ -392,6 +429,14 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
     ],
     "page": 0,
     "pageSize": 1000,
+    "programDbIds": [
+        "8f5de35b",
+        "0e2d4a13"
+    ],
+    "programNames": [
+        "Better Breeding Program",
+        "Best Breeding Program"
+    ],
     "sampleDbIds": [
         "758d3f6d",
         "39c0a3f7"
@@ -399,6 +444,22 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
     "sampleNames": [
         "Sample_123",
         "Sample_789"
+    ],
+    "studyDbIds": [
+        "cf6c4bd4",
+        "691e69d6"
+    ],
+    "studyNames": [
+        "The First Bob Study 2017",
+        "Wheat Yield Trial 246"
+    ],
+    "trialDbIds": [
+        "d2593dc2",
+        "9431a731"
+    ],
+    "trialNames": [
+        "All Yield Trials 2016",
+        "Disease Resistance Study Comparison Group"
     ],
     "variantSetDbIds": [
         "8a9a8972",
@@ -416,16 +477,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -446,6 +498,16 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "callSetDbId": "eb2bfd3d",
                 "callSetName": "Sample_123_DNA_Run_456",
                 "created": "2018-01-01T14:47:23-0600",
+                "externalReferences": [
+                    {
+                        "referenceId": "doi:10.155454/12341234",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceId": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    }
+                ],
                 "sampleDbId": "5e50e11d",
                 "studyDbId": "708149c1",
                 "updated": "2018-01-01T14:47:23-0600",
@@ -466,16 +528,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -533,6 +586,10 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
 |created|string (date-time)|The date this call set was created|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |updated|string (date-time)|The time at which this call set was last updated|
@@ -557,16 +614,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -587,6 +635,16 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "callSetDbId": "eb2bfd3d",
                 "callSetName": "Sample_123_DNA_Run_456",
                 "created": "2018-01-01T14:47:23-0600",
+                "externalReferences": [
+                    {
+                        "referenceId": "doi:10.155454/12341234",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceId": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    }
+                ],
                 "sampleDbId": "5e50e11d",
                 "studyDbId": "708149c1",
                 "updated": "2018-01-01T14:47:23-0600",
@@ -607,16 +665,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,

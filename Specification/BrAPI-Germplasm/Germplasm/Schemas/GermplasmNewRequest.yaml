@@ -67,6 +67,10 @@ components:
           description: The unique identifier for the breeding method used to create this germplasm
           type: string
           example: ffcce7ef
+        breedingMethodName:
+          description: human readable name of the breeding method
+          type: string
+          example: Male Backcross
         collection:
           description: A specific panel/collection/population name this germplasm belongs to.
           type: string
@@ -101,28 +105,16 @@ components:
               donorAccessionNumber:
                 description: |-
                   The accession number assigned by the donor
-            
-                  MIAPPE V1.1 (DM-50) Material source ID (Holding institute/stock centre, accession) - An identifier for the source of the biological material, in the form of a key-value pair comprising the name/identifier of the repository from which the material was sourced plus the accession number of the repository for that material. Where an accession number has not been assigned, but the material has been derived from the crossing of known accessions, the material can be defined as follows: "mother_accession X father_accession", or, if father is unknown, as "mother_accession X UNKNOWN". For in situ material, the region of provenance may be used when an accession is not available.
-                                    
+                                                
                   MCPD (v2.1) (DONORNUMB) 23. Identifier assigned to an accession by the donor. Follows ACCENUMB standard.
                 type: string
                 example: A0000123
               donorInstituteCode:
                 description: |-
                   The institute code for the donor institute
-            
-                  MIAPPE V1.1 (DM-50) Material source ID (Holding institute/stock centre, accession) - An identifier for the source of the biological material, in the form of a key-value pair comprising the name/identifier of the repository from which the material was sourced plus the accession number of the repository for that material. Where an accession number has not been assigned, but the material has been derived from the crossing of known accessions, the material can be defined as follows: "mother_accession X father_accession", or, if father is unknown, as "mother_accession X UNKNOWN". For in situ material, the region of provenance may be used when an accession is not available.
-                  
-                  MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.
+                  <br/>MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.
                 type: string
                 example: PER001
-              germplasmPUI:
-                description: |-
-                  The Permanent Unique Identifier which represents a germplasm from the source or donor
-            
-                  MIAPPE V1.1 (DM-51) Material source DOI - Digital Object Identifier (DOI) of the material source
-                type: string
-                example: http://pui.per/accession/A0000003
             type: object
           type: array
         genus:
@@ -147,6 +139,8 @@ components:
             
             MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
             
+            MIAPPE V1.1 (DM-51) Material source DOI - Digital Object Identifier (DOI) of the material source
+
             MCPD (v2.1) (PUID) 0. Any persistent, unique identifier assigned to the accession so it can be unambiguously referenced at the global level and the information associated with it harvested through automated means. Report one PUID for each accession. The Secretariat of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) is facilitating the assignment of a persistent unique identifier (PUID), in the form of a DOI, to PGRFA at the accession level. Genebanks not applying a true PUID to their accessions should use, and request recipients to use, the concatenation of INSTCODE, ACCENUMB, and GENUS as a globally unique identifier similar in most respects to the PUID whenever they exchange information on accessions with third parties.
           type: string
           example: http://pui.per/accession/A0000003
@@ -178,9 +172,11 @@ components:
           type: string
           example: A0000001/A0000002
         seedSource:
-          description: 'The source of the seed '
+          description: |-
+            An identifier for the source of the biological material
+            <br/>MIAPPE V1.1 (DM-50) Material source ID (Holding institute/stock centre, accession) - An identifier for the source of the biological material, in the form of a key-value pair comprising the name/identifier of the repository from which the material was sourced plus the accession number of the repository for that material. Where an accession number has not been assigned, but the material has been derived from the crossing of known accessions, the material can be defined as follows: "mother_accession X father_accession", or, if father is unknown, as "mother_accession X UNKNOWN". For in situ material, the region of provenance may be used when an accession is not available.
           type: string
-          example: A0000001/A0000002
+          example: INRA:095115_inra
         speciesAuthority:
           description: |-
             The authority organization responsible for tracking and maintaining the species name 

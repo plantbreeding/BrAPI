@@ -1,0 +1,30 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ObservationUnitLevel: 
+      allOf:
+      - $ref: '#/components/schemas/ObservationUnitHierarchyLevel'
+      - type: object
+        title: ObservationUnitLevel
+        description: |-
+          Observation levels indicate the granularity level at which the measurements are taken. `levelName` 
+          defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. 
+          `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are 
+          at the bottom of the hierarchy (ie plant > 6). `levelCode` is an ID code for this level tag. Identify 
+          this observation unit by each level of the hierarchy where it exists. 
+
+          For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+
+          **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** 
+        properties:
+          levelCode:
+            description: |-
+              An ID code or number to represent a real thing that may or may not be an an observation unit.
+              <br/>For example, if the 'levelName' is 'plot', then the 'levelCode' would be the plot number or plot barcode. If this plot is also considered an ObservationUnit, then the appropriate observationUnitDbId should also be recorded.
+              <br/>If the 'levelName' is 'field', then the 'levelCode' might be something like '3' or 'F3' to indicate the third field at a research station. 
+            type: string
+            example: Plot_123

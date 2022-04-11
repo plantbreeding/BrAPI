@@ -22,7 +22,7 @@ components:
           type: string
           example: my_Crosses_2018
         plannedCrossName: 
-          description: the human readable name for a cross
+          description: the human readable name for a planned cross
           type: string
           example: my_Crosses_2018_01
         crossType: 
@@ -37,6 +37,14 @@ components:
           - BULK_OPEN_POLLINATED
           - DOUBLE_HAPLOID
           example: BIPARENTAL
+        status: 
+          description: The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').
+          type: string
+          enum:
+          - TODO
+          - DONE
+          - SKIPPED
+          example: TODO
         parent1: 
           $ref: '#/components/schemas/CrossParent'
         parent2: 

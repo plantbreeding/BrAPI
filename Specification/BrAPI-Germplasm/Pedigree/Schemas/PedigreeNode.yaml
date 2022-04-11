@@ -1,0 +1,153 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    PedigreeNode:
+      type: object
+      properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+        germplasmName:
+          description: A human readable name for a germplasm
+          type: string
+          example: A0021004
+        germplasmDbId:
+          description: The ID which uniquely identifies a germplasm
+          type: string
+          example: 1098ebaf
+        germplasmPUI:
+          description: |-
+            The Permanent Unique Identifier which represents a germplasm
+            
+            MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
+            
+            MIAPPE V1.1 (DM-51) Material source DOI - Digital Object Identifier (DOI) of the material source
+
+            MCPD (v2.1) (PUID) 0. Any persistent, unique identifier assigned to the accession so it can be unambiguously referenced at the global level and the information associated with it harvested through automated means. Report one PUID for each accession. The Secretariat of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) is facilitating the assignment of a persistent unique identifier (PUID), in the form of a DOI, to PGRFA at the accession level. Genebanks not applying a true PUID to their accessions should use, and request recipients to use, the concatenation of INSTCODE, ACCENUMB, and GENUS as a globally unique identifier similar in most respects to the PUID whenever they exchange information on accessions with third parties.
+          type: string
+          example: http://pui.per/accession/A0000003
+        defaultDisplayName:
+          description: Human readable name used for display purposes
+          type: string
+          example: A0000003
+        crossingProjectDbId:
+          description: The crossing project used to generate this germplasm
+          type: string
+          example: 625e745a
+        crossingYear:
+          description: The year the parents were originally crossed
+          type: integer
+          example: 2005
+        familyCode:
+          description: The code representing the family of this germplasm
+          type: string
+          example: F0000203
+        breedingMethodDbId:
+          description: The unique identifier for the breeding method used to create this germplasm
+          type: string
+          example: ffcce7ef
+        breedingMethodName:
+          description: The human readable name of the breeding method used to create this germplasm
+          type: string
+          example: Male Backcross
+        pedigreeString:
+          description: The string representation of the pedigree for this germplasm in PURDY notation
+          type: string
+          example: A0000001/A0000002
+        parents:
+          description: |-
+            A list of parent germplasm references in the pedigree tree for this germplasm. These represent edges in the tree, connecting to other nodes.
+            <br/> Typically, this array should only have one parent (clonal or self) or two parents (cross). In some special cases, there may be more parents, usually when the exact parent is not known. 
+            <br/> If the parameter 'includeParents' is set to false, then this array should be empty, null, or not present in the response.
+          type: array
+          items:
+            required: 
+            - germplasmDbId
+            - parentType
+            type: object
+            properties:
+              germplasmDbId:
+                description: The ID which uniquely identifies a germplasm
+                type: string
+                example: a55847ed
+              germplasmName:
+                description: A human readable name for a germplasm
+                type: string
+                example: A0000592
+              parentType:
+                $ref: '#/components/schemas/ParentType'
+          example:
+          - germplasmDbId: b66958de
+            germplasmName: A0000592
+            parentType: MALE
+          - germplasmDbId: a55847ed
+            germplasmName: A0000592
+            parentType: FEMALE
+        siblings:
+          description: |-
+            A list of sibling germplasm references in the pedigree tree for this germplasm. These represent edges in the tree, connecting to other nodes.
+            <br/> Siblings share at least one parent with the given germplasm. 
+            <br/> If the parameter 'includeSiblings' is set to false, then this array should be empty, null, or not present in the response.
+          type: array
+          items:
+            required: 
+            - germplasmDbId
+            type: object
+            properties:
+              germplasmDbId:
+                description: The ID which uniquely identifies a germplasm
+                type: string
+                example: a55847ed
+              germplasmName:
+                description: A human readable name for a germplasm
+                type: string
+                example: A0000592
+          example: 
+          - germplasmName: A0021005
+            germplasmDbId: 334f53a3
+          - germplasmName: A0021006
+            germplasmDbId: 7bbbda8c
+          - germplasmName: A0021007
+            germplasmDbId: ab1d9b26
+        progeny:
+          description: |-
+            A list of germplasm references that are direct children of this germplasm. These represent edges in the tree, connecting to other nodes.
+            <br/> The given germplasm could have a large number of progeny, across a number of different breeding methods. The 'parentType' shows 
+                  the type of parent this germplasm is to each of the child germplasm references.
+            <br/> If the parameter 'includeProgeny' is set to false, then this array should be empty, null, or not present in the response.
+          items:
+            required: 
+            - germplasmDbId
+            - parentType
+            properties:
+              germplasmDbId:
+                description: The ID which uniquely identifies a germplasm
+                type: string
+                example: a55847ed
+              germplasmName:
+                description: A human readable name for a germplasm
+                type: string
+                example: A0000592
+              parentType: 
+                $ref: '#/components/schemas/ParentType'
+            type: object
+          type: array
+          example:
+          - germplasmName: A0021011
+            germplasmDbId: e8d5dad7
+            parentType: FEMALE
+          - germplasmName: A0021012
+            germplasmDbId: ac07fbd8
+            parentType: FEMALE
+          - germplasmName: A0021013
+            germplasmDbId: 07f45f67
+            parentType: FEMALE
+

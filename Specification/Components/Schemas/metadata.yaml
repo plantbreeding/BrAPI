@@ -24,6 +24,7 @@ components:
             $ref: '#/components/schemas/dataFile'
           example: []
           type: array
+          example: []
         status:
           description: |-
             The status field contains a list of informational status messages from the server. 

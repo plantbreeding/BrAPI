@@ -3,44 +3,43 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /ontologies:
-    get:
-      summary: Get the Ontologies
-      description: Call to retrieve a list of observation variable ontologies available in the system.
+  /lists/{listDbId}/data:
+    post:
+      summary: Add new data members to a specific List
+      description: Add new data members to a specific List
       parameters:
-      - description: The unique identifier for an ontology definition
-        in: query
-        name: ontologyDbId
-        required: false
+      - description: The unique identifier of a generic List
+        in: path
+        name: listDbId
+        required: true
         schema:
           type: string
-      - $ref: '#/components/parameters/page'
-      - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                type: string
+              type: array
+              example: ['758a78c0', '2c78f9ee']
       responses:
         '200':
           content:
             application/json:
               schema:
-                title: OntologyListResponse
-                type: object
                 properties:
                   '@context':
                     $ref: '#/components/schemas/Context'
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/Ontology'
-                        type: array
-                    required:
-                    - data
-                    type: object
+                    $ref: '#/components/schemas/ListDetails'
                 required:
                 - metadata
                 - result
+                title: listResponse
+                type: object
           description: OK
           headers: {}
         '400':
@@ -49,5 +48,7 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
       tags:
-      - Ontologies
+      - Lists

@@ -17,12 +17,17 @@ components:
             description: An identifier for the source system or database of this reference
             type: string
           referenceID:
+            deprecated: true
+            description: |-
+              **Deprecated in v2.1** Please use `referenceId`. Github issue number #460 
+
+              The external reference ID. Could be a simple string or a URI.
+            type: string
+          referenceId:
             description: The external reference ID. Could be a simple string or a URI.
             type: string
       example: 
         - referenceSource: DOI
-          referenceID: doi:10.155454/12341234
-        - referenceSource: OBO Library
-          referenceID: http://purl.obolibrary.org/obo/ro.owl
+          referenceId: doi:10.155454/12341234
         - referenceSource: Remote Data Collection Upload Tool
-          referenceID: 75a50e76
+          referenceId: 75a50e76

@@ -25,6 +25,14 @@ components:
           description: the human readable name for a cross
           type: string
           example: my_Crosses_2018_01
+        plannedCrossDbId:
+          description: the unique identifier for a planned cross
+          type: string
+          example: c8905568
+        plannedCrossName: 
+          description: the human readable name for a planned cross
+          type: string
+          example: my_Crosses_2018_01
         crossType: 
           description: the type of cross
           type: string
@@ -42,9 +50,29 @@ components:
         parent2: 
           $ref: '#/components/schemas/CrossParent'
         pollinationTimeStamp: 
-          description: the timestamp when the pollination took place
+          description: |-
+            **Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265 
+
+            the timestamp when the pollination took place
           type: string
           format: date-time
+          deprecated: true
+        pollinationEvents:
+          descriptions: The list of pollination events that occurred for this cross
+          type: array
+          items:
+            type: object
+            properties:
+              pollinationTimeStamp: 
+                description: The timestamp when the pollination took place
+                type: string
+                format: date-time
+              pollinationSuccessful:
+                description: True if the pollination was successful
+                type: boolean
+              pollinationNumber:
+                description: The unique identifier for this pollination event
+                type: string
         crossAttributes: 
           description: Set of custom attributes associated with a cross
           type: array

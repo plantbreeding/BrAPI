@@ -1,0 +1,85 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /ontologies/ontologyDbId:
+    get:
+      summary: Get a specific Ontology record by its ontologyDbId
+      description: |-
+        Use this endpoint to retrieve a specific Ontology record by its ontologyDbId. 
+        Each Ontology record describes the metadata of an existing ontology, it does not include all the terms that are part of that ontology.
+      parameters:
+      - description: |-
+          The unique identifier for an ontology definition. Use this parameter to filter results based on a specific ontology 
+
+          Use `GET /ontologies` to find the list of available ontologies on a server.
+        in: path
+        name: ontologyDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/OntologySingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Ontologies
+    put:
+      summary: Update a specific Ontology record
+      description: |-
+        Use this endpoint to update a specific Ontology record. 
+        Each Ontology record describes the metadata of an existing ontology, it does not include all the terms that are part of that ontology.
+      parameters:
+      - description: |-
+          The unique identifier for an ontology definition. Use this parameter to filter results based on a specific ontology 
+
+          Use `GET /ontologies` to find the list of available ontologies on a server.
+        in: path
+        name: ontologyDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OntologyNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/OntologySingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Ontologies
+components:
+  responses:
+    OntologySingleResponse:
+      content:
+        application/json:
+          schema:
+            title: OntologySingleResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/Ontology'
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}

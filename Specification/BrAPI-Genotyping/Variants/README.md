@@ -20,12 +20,24 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 |Field|Type|Description|
 |---|---|---| 
-|callSetDbIds|array[string]|Only return variant calls which belong to call sets with these IDs. If unspecified, return all variants and no variant call objects.|
+|callSetDbIds|array[string]|**Deprecated in v2.1** Parameter unnecessary. Github issue number #474  <br/>Only return variant calls which belong to call sets with these IDs. If unspecified, return all variants and no variant call objects.|
+|commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
 |end|integer|The end of the window (0-based, exclusive) for which overlapping variants should be returned.|
+|externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |pageToken|string|Used to request a specific page of data to be returned.  Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. |
-|referenceDbId|string|Only return variants on this reference.|
+|programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
+|programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
+|referenceDbId|string|**Deprecated in v2.1** Please use `referenceDbIds`. Github issue number #472 <br/>Only return variants on this reference.|
+|referenceDbIds|array[string]|The unique identifier representing a genotype Reference|
+|referenceSetDbIds|array[string]|The unique identifier representing a genotype ReferenceSet|
 |start|integer|The beginning of the window (0-based, inclusive) for which overlapping variants should be returned. Genomic positions are non-negative integers less than reference length. Requests spanning the join of circular genomes are represented as two requests one on each side of the join (position 0).|
+|studyDbIds|array[string]|List of study identifiers to search for|
+|studyNames|array[string]|List of study names to filter search results|
+|trialDbIds|array[string]|The ID which uniquely identifies a trial to search for|
+|trialNames|array[string]|The human readable name of a trial to search for|
 |variantDbIds|array[string]|The `Variant`s to search.|
 |variantSetDbIds|array[string]|The `VariantSet` to search.|
 
@@ -41,11 +53,18 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2|
 |created|string (date-time)|The timestamp when this variant was created.|
 |end|integer|This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
 |filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
 |filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
 |referenceBases|string|The reference bases for this variant. They start at the given start position.|
+|referenceDbId|string|The unique identifier for a Reference|
 |referenceName|string|The reference on which this variant occurs. (e.g. `chr_20` or `X`)|
+|referenceSetDbId|string|The unique identifier for a ReferenceSet|
+|referenceSetName|string|The human readable name of the ReferenceSet|
 |start|integer|This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The start position at which this variant occurs (0-based). This corresponds to the first base of the string  of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning  the join of circular genomes are represented as two variants one on each side of the join (position 0).|
 |svlen|integer|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2|
 |updated|string (date-time)|The time at which this variant was last updated.|
@@ -69,11 +88,59 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "4639fe3e",
         "b60d900b"
     ],
+    "commonCropNames": [
+        "Tomatillo",
+        "Paw Paw"
+    ],
     "end": 1500,
+    "externalReferenceIDs": [
+        "doi:10.155454/12341234",
+        "14a19841"
+    ],
+    "externalReferenceIds": [
+        "doi:10.155454/12341234",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "DOI",
+        "Field App Name"
+    ],
     "pageSize": 1000,
     "pageToken": "33c27874",
+    "programDbIds": [
+        "8f5de35b",
+        "0e2d4a13"
+    ],
+    "programNames": [
+        "Better Breeding Program",
+        "Best Breeding Program"
+    ],
     "referenceDbId": "120a2d5c",
+    "referenceDbIds": [
+        "89ab4d17",
+        "74d3b63d"
+    ],
+    "referenceSetDbIds": [
+        "d3b63d4d",
+        "3b63d74b"
+    ],
     "start": 100,
+    "studyDbIds": [
+        "cf6c4bd4",
+        "691e69d6"
+    ],
+    "studyNames": [
+        "The First Bob Study 2017",
+        "Wheat Yield Trial 246"
+    ],
+    "trialDbIds": [
+        "d2593dc2",
+        "9431a731"
+    ],
+    "trialNames": [
+        "All Yield Trials 2016",
+        "Disease Resistance Study Comparison Group"
+    ],
     "variantDbIds": [
         "3b63d889",
         "ab4d174d"
@@ -94,16 +161,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPageToken": "48bc6ac1",
             "nextPageToken": "cb668f63",
@@ -136,6 +194,16 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 ],
                 "created": "2018-01-01T14:47:23-0600",
                 "end": 518,
+                "externalReferences": [
+                    {
+                        "referenceId": "doi:10.155454/12341234",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceId": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    }
+                ],
                 "filtersApplied": true,
                 "filtersFailed": [
                     "d629a669",
@@ -143,7 +211,10 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 ],
                 "filtersPassed": true,
                 "referenceBases": "TAGGATTGAGCTCTATAT",
+                "referenceDbId": "fc0a81d0",
                 "referenceName": "chr_20",
+                "referenceSetDbId": "c1ecfef1",
+                "referenceSetName": "The Best Assembly Ever",
                 "start": 500,
                 "svlen": 1500,
                 "updated": "2018-01-01T14:47:23-0600",
@@ -170,16 +241,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -243,11 +305,18 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2|
 |created|string (date-time)|The timestamp when this variant was created.|
 |end|integer|This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
 |filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
 |filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
 |referenceBases|string|The reference bases for this variant. They start at the given start position.|
+|referenceDbId|string|The unique identifier for a Reference|
 |referenceName|string|The reference on which this variant occurs. (e.g. `chr_20` or `X`)|
+|referenceSetDbId|string|The unique identifier for a ReferenceSet|
+|referenceSetName|string|The human readable name of the ReferenceSet|
 |start|integer|This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The start position at which this variant occurs (0-based). This corresponds to the first base of the string  of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning  the join of circular genomes are represented as two variants one on each side of the join (position 0).|
 |svlen|integer|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2|
 |updated|string (date-time)|The time at which this variant was last updated.|
@@ -275,16 +344,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPageToken": "48bc6ac1",
             "nextPageToken": "cb668f63",
@@ -317,6 +377,16 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 ],
                 "created": "2018-01-01T14:47:23-0600",
                 "end": 518,
+                "externalReferences": [
+                    {
+                        "referenceId": "doi:10.155454/12341234",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceId": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    }
+                ],
                 "filtersApplied": true,
                 "filtersFailed": [
                     "d629a669",
@@ -324,7 +394,10 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 ],
                 "filtersPassed": true,
                 "referenceBases": "TAGGATTGAGCTCTATAT",
+                "referenceDbId": "fc0a81d0",
                 "referenceName": "chr_20",
+                "referenceSetDbId": "c1ecfef1",
+                "referenceSetName": "The Best Assembly Ever",
                 "start": 500,
                 "svlen": 1500,
                 "updated": "2018-01-01T14:47:23-0600",
@@ -351,16 +424,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -398,7 +462,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 
 
-### Get - /variants [GET /brapi/v2/variants{?variantDbId}{?variantSetDbId}{?pageToken}{?pageSize}]
+### Get - /variants [GET /brapi/v2/variants{?variantDbId}{?variantSetDbId}{?referenceDbId}{?referenceSetDbId}{?pageToken}{?pageSize}{?externalReferenceId}{?externalReferenceSource}]
 
 Gets a filtered list of `Variants`.
 
@@ -417,11 +481,18 @@ Gets a filtered list of `Variants`.
 |cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2|
 |created|string (date-time)|The timestamp when this variant was created.|
 |end|integer|This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
 |filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
 |filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
 |referenceBases|string|The reference bases for this variant. They start at the given start position.|
+|referenceDbId|string|The unique identifier for a Reference|
 |referenceName|string|The reference on which this variant occurs. (e.g. `chr_20` or `X`)|
+|referenceSetDbId|string|The unique identifier for a ReferenceSet|
+|referenceSetName|string|The human readable name of the ReferenceSet|
 |start|integer|This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The start position at which this variant occurs (0-based). This corresponds to the first base of the string  of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning  the join of circular genomes are represented as two variants one on each side of the join (position 0).|
 |svlen|integer|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2|
 |updated|string (date-time)|The time at which this variant was last updated.|
@@ -436,8 +507,12 @@ Gets a filtered list of `Variants`.
 + Parameters
     + variantDbId (Optional, ) ... The ID of the `Variant` to be retrieved.
     + variantSetDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
+    + referenceDbId (Optional, ) ... The ID of the `Reference` to be retrieved.
+    + referenceSetDbId (Optional, ) ... The ID of the `ReferenceSet` to be retrieved.
     + pageToken (Optional, ) ... Used to request a specific page of data to be returned.Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. 
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
@@ -450,16 +525,7 @@ Gets a filtered list of `Variants`.
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPageToken": "48bc6ac1",
             "nextPageToken": "cb668f63",
@@ -492,6 +558,16 @@ Gets a filtered list of `Variants`.
                 ],
                 "created": "2018-01-01T14:47:23-0600",
                 "end": 518,
+                "externalReferences": [
+                    {
+                        "referenceId": "doi:10.155454/12341234",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceId": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    }
+                ],
                 "filtersApplied": true,
                 "filtersFailed": [
                     "d629a669",
@@ -499,7 +575,10 @@ Gets a filtered list of `Variants`.
                 ],
                 "filtersPassed": true,
                 "referenceBases": "TAGGATTGAGCTCTATAT",
+                "referenceDbId": "fc0a81d0",
                 "referenceName": "chr_20",
+                "referenceSetDbId": "c1ecfef1",
+                "referenceSetName": "The Best Assembly Ever",
                 "start": 500,
                 "svlen": 1500,
                 "updated": "2018-01-01T14:47:23-0600",
@@ -553,11 +632,18 @@ Gets a filtered list of `Variants`.
 |cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2|
 |created|string (date-time)|The timestamp when this variant was created.|
 |end|integer|This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
 |filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
 |filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
 |referenceBases|string|The reference bases for this variant. They start at the given start position.|
+|referenceDbId|string|The unique identifier for a Reference|
 |referenceName|string|The reference on which this variant occurs. (e.g. `chr_20` or `X`)|
+|referenceSetDbId|string|The unique identifier for a ReferenceSet|
+|referenceSetName|string|The human readable name of the ReferenceSet|
 |start|integer|This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The start position at which this variant occurs (0-based). This corresponds to the first base of the string  of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning  the join of circular genomes are represented as two variants one on each side of the join (position 0).|
 |svlen|integer|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2|
 |updated|string (date-time)|The time at which this variant was last updated.|
@@ -583,16 +669,7 @@ Gets a filtered list of `Variants`.
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -621,6 +698,16 @@ Gets a filtered list of `Variants`.
         ],
         "created": "2018-01-01T14:47:23-0600",
         "end": 518,
+        "externalReferences": [
+            {
+                "referenceId": "doi:10.155454/12341234",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceId": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            }
+        ],
         "filtersApplied": true,
         "filtersFailed": [
             "d629a669",
@@ -628,7 +715,10 @@ Gets a filtered list of `Variants`.
         ],
         "filtersPassed": true,
         "referenceBases": "TAGGATTGAGCTCTATAT",
+        "referenceDbId": "fc0a81d0",
         "referenceName": "chr_20",
+        "referenceSetDbId": "c1ecfef1",
+        "referenceSetName": "The Best Assembly Ever",
         "start": 500,
         "svlen": 1500,
         "updated": "2018-01-01T14:47:23-0600",
@@ -691,6 +781,8 @@ The variant calls for this particular variant. Each one represents the determina
 |phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.|
 |variantDbId|string|The ID of the variant this call belongs to.|
 |variantName|string|The name of the variant this call belongs to.|
+|variantSetDbId|string|The unique identifier for a VariantSet|
+|variantSetName|string|The human readable name for a VariantSet|
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
@@ -719,16 +811,7 @@ The variant calls for this particular variant. Each one represents the determina
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPageToken": "48bc6ac1",
             "nextPageToken": "cb668f63",
@@ -760,13 +843,15 @@ The variant calls for this particular variant. Each one represents the determina
                 ],
                 "phaseSet": "6410afc5",
                 "variantDbId": "538c8ecf",
-                "variantName": "Marker A"
+                "variantName": "Marker A",
+                "variantSetDbId": "87a6ac1e",
+                "variantSetName": "Maize QC DataSet 002334"
             }
         ],
         "expandHomozygotes": true,
-        "sepPhased": "~",
-        "sepUnphased": "|",
-        "unknownString": "-"
+        "sepPhased": "|",
+        "sepUnphased": "/",
+        "unknownString": "."
     }
 }
 ```

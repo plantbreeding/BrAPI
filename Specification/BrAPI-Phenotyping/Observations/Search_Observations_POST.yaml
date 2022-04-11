@@ -18,7 +18,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ObservationSearchRequest'
+              allOf:
+              - $ref: '#/components/schemas/SearchRequestParametersPaging'
+              - $ref: '#/components/schemas/ObservationSearchRequest'
       responses:
         '200':
           $ref: '#/components/responses/ObservationListResponse'

@@ -7,7 +7,7 @@ components:
   schemas:
     SeedLotTransaction:
       allOf:
-      - $ref: '#/components/schemas/SeedLotNewTransactionRequest'
+      - $ref: '#/components/schemas/SeedLotTransactionNewRequest'
       - type: object
         properties: 
           transactionDbId:

@@ -3,49 +3,26 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /samples:
+  /ontologies:
     get:
-      summary: Get the Samples
-      description: Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
+      summary: Get a filtered list of Ontologies
+      description: |-
+        Retrieve a list of ontologies available in the system. 
+        Each Ontology record describes the metadata of an existing ontology, it does not include all the terms that are part of that ontology.
       parameters:
-      - description: the internal DB id for a sample
+      - description: The human readable identifier for an ontology definition
         in: query
-        name: sampleDbId
+        name: ontologyName
         required: false
         schema:
           type: string
-      - description: the internal DB id for an observation unit where a sample was taken from
-        in: query
-        name: observationUnitDbId
-        required: false
-        schema:
-          type: string
-      - description: the internal DB id for a plate of samples
-        in: query
-        name: plateDbId
-        required: false
-        schema:
-          type: string
-      - description: the internal DB id for a germplasm
-        in: query
-        name: germplasmDbId
-        required: false
-        schema:
-          type: string
-      - description: Filter by study DbId
-        in: query
-        name: studyDbId
-        required: false
-        schema:
-          type: string
-      - $ref: '#/components/parameters/externalReferenceID'
-      - $ref: '#/components/parameters/externalReferenceSource'
+      - $ref: '#/components/parameters/ontologyDbId'
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          $ref: '#/components/responses/SampleListResponse'
+          $ref: '#/components/responses/OntologyListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -53,10 +30,12 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - Samples
+      - Ontologies
     post:
-      summary: Add new Samples
-      description: Call to register the event of a sample being taken. Sample ID is assigned as a result of the operation and returned in response.
+      summary: Create a new Ontology record in the database
+      description: |-
+        Use this endpoint to create a new Ontology record in the database
+        Each Ontology record describes the metadata of an existing ontology, it does not include all the terms that are part of that ontology.
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
@@ -65,10 +44,10 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/SampleNewRequest'
+                $ref: '#/components/schemas/OntologyNewRequest'
       responses:
         '200':
-          $ref: '#/components/responses/SampleListResponse'
+          $ref: '#/components/responses/OntologyListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -76,14 +55,14 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - Samples
+      - Ontologies
 components:
   responses:
-    SampleListResponse:
+    OntologyListResponse:
       content:
         application/json:
           schema:
-            title: SampleListResponse
+            title: OntologyListResponse
             type: object
             properties:
               '@context':
@@ -94,7 +73,7 @@ components:
                 properties:
                   data:
                     items:
-                      $ref: '#/components/schemas/Sample'
+                      $ref: '#/components/schemas/Ontology'
                     type: array
                 required:
                 - data
@@ -104,4 +83,3 @@ components:
             - result
       description: OK
       headers: {}
-      

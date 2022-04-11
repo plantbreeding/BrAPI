@@ -14,7 +14,7 @@ components:
           description: Additional arbitrary info
           type: object
         crossingProjectName:
-          description: the human readable name for a crossing project
+          description: The human readable name for a crossing project
           type: string
           example: Crosses_2018
         crossingProjectDescription:
@@ -33,6 +33,13 @@ components:
           description: the common name of a crop (for multi-crop systems)
           type: string
           example: Cassava
+        potentialParents:
+          description: |-
+            A list of all the potential parents in the crossing block, available in the crossing project
+            <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.
+          type: array
+          items:
+            $ref: '#/components/schemas/CrossParent'
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
           

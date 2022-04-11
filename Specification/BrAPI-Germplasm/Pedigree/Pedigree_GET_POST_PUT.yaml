@@ -1,0 +1,249 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /pedigree:
+    get:
+      summary: Get a filtered list of pedigree nodes which represent a subset of a pedigree tree
+      description: Get a filtered list of pedigree nodes which represent a subset of a pedigree tree
+      parameters:
+      - name: germplasmPUI
+        description: The Permanent Unique Identifier (DOI, URI, etc.) for a germplasm
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: germplasmDbId
+        description: The ID which uniquely identifies a germplasm
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: germplasmName
+        description: A human readable name for a germplasm
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: accessionNumber
+        description: The unique identifier for an accession within a genebank
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: collection
+        description: A specific panel/collection/population name this germplasm belongs to.
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: familyCode
+        description: A familyCode representing the family this germplasm belongs to.
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: binomialName
+        description: The full binomial name (scientific name) of a germplasm
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: genus
+        description: The scientific genus of a germplasm
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: species
+        description: The scientific species of a germplasm
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: trialDbId
+        description: The ID which uniquely identifies a Trial within the given database server
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: studyDbId
+        description: The ID which uniquely identifies a Study within the given database server
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: synonym 
+        description: An alternative name or ID used to reference this germplasm
+        in: query
+        required: false
+        schema:
+          type: string
+      - description: If this parameter is true, include the array of parents in the response
+        in: query
+        name: includeParents
+        required: false
+        schema:
+          type: boolean
+      - description: If this parameter is true, include the array of siblings in the response
+        in: query
+        name: includeSiblings
+        required: false
+        schema:
+          type: boolean
+      - description: If this parameter is true, include the array of progeny in the response
+        in: query
+        name: includeProgeny
+        required: false
+        schema:
+          type: boolean
+      - description: Recursively include ALL of the nodes present in this pedigree tree. 
+        in: query
+        name: includeFullTree
+        required: false
+        schema:
+          type: boolean
+      - description: Recursively include this number of levels up the tree in the response
+        in: query
+        name: pedigreeDepth
+        required: false
+        schema:
+          type: integer
+      - description: Recursively include this number of levels down the tree in the response
+        in: query
+        name: progenyDepth
+        required: false
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/commonCropName'
+      - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/externalReferenceId'
+      - $ref: '#/components/parameters/externalReferenceSource'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/PedigreeListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Pedigree
+    post:
+      summary: Send a list of new pedigree nodes to a server
+      description: Send a list of new pedigree nodes to a server
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items: 
+                $ref: '#/components/schemas/PedigreeNode'
+      responses:
+        '200':
+          $ref: '#/components/responses/PedigreeListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Pedigree
+    put:
+      summary: Send a list of pedigree nodes to update existing information on a server
+      description: Send a list of pedigree nodes to update existing information on a server
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                  $ref: '#/components/schemas/PedigreeNode'
+              example:
+                '<germplasmDbId_1>':
+                  germplasmName: A0021004
+                  germplasmDbId: <germplasmDbId_1>
+                  germplasmPUI: http://pui.per/accession/A0000003
+                  defaultDisplayName: A0021004
+                  crossingProjectDbId: 625e745a
+                  crossingYear: 2005
+                  familyCode: F0000203
+                  breedingMethodDbId: ffcce7ef
+                  breedingMethodName: Male Backcross
+                  pedigreeString: A0000592/A0036658
+                  parents:  [{ germplasmDbId: b66958de, germplasmName: A0000592, parentType: MALE },
+                             { germplasmDbId: a55847ed, germplasmName: A0036658, parentType: FEMALE }]
+                  siblings: [{ germplasmDbId: 46c9785f, germplasmName: A0001126 },
+                             { germplasmDbId: d7534a70, germplasmName: A0009514 }]
+                  progeny:  [{ germplasmDbId: c66ddf14, germplasmName: A0006842, parentType: FEMALE },
+                             { germplasmDbId: 3a548793, germplasmName: A0037593, parentType: FEMALE },
+                             { germplasmDbId: <germplasmDbId_2>, germplasmName: A0031485, parentType: MALE }]
+                '<germplasmDbId_2>': 
+                  germplasmName: A0031485
+                  germplasmDbId: <germplasmDbId_2>
+                  germplasmPUI: http://pui.per/accession/A0000003
+                  defaultDisplayName: A0031485
+                  crossingProjectDbId: 745ad753
+                  crossingYear: 2005
+                  familyCode: F0000203
+                  breedingMethodDbId: ffcce7ef
+                  breedingMethodName: Male Backcross
+                  pedigreeString: A0021004/A0001126
+                  parents:  [{ germplasmDbId: <germplasmDbId_1>, germplasmName: A0021004, parentType: MALE },
+                             { germplasmDbId: 7eda5584, germplasmName: A0001126, parentType: FEMALE }]
+                  siblings: [{ germplasmDbId: 5f46c978, germplasmName: A0005469 }]
+                  progeny:  [{ germplasmDbId: ddf14c66, germplasmName: A0001466, parentType: MALE }]
+      responses:
+        '200':
+          $ref: '#/components/responses/PedigreeListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Pedigree
+components:
+  responses:
+    PedigreeListResponse:
+      content:
+        application/json:
+          schema:
+            title: PedigreeListResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/PedigreeNode'
+                    type: array
+                required:
+                - data
+                type: object
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}

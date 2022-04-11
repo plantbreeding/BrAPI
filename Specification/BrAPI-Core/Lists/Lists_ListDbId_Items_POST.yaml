@@ -5,7 +5,10 @@ openapi: 3.0.0
 paths:
   /lists/{listDbId}/items:
     post:
-      description: Add new data to a specific generic lists
+      deprecated: true
+      description: |-
+        **Deprecated in v2.1** Please use `POST /lists/{listDbId}/data`. Github issue number #444 
+        <br/> Add new data to a specific generic lists
       parameters:
       - description: The unique ID of this generic list
         in: path

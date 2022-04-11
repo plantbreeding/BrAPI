@@ -24,6 +24,8 @@ components:
             type: string
           description: Additional arbitrary info
           type: object
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
         ciend:
           items:
             type: integer
@@ -79,14 +81,26 @@ components:
             type: string
           type: array
           example: ['RefSNP_ID_1', '06ea312e']
-        referenceBases:
-          description: The reference bases for this variant. They start at the given start position.
+        referenceDbId:
+          description: The unique identifier for a Reference
           type: string
-          example: TAGGATTGAGCTCTATAT
+          example: fc0a81d0
         referenceName:
           description: The reference on which this variant occurs. (e.g. `chr_20` or `X`)
           type: string
           example: chr_20
+        referenceBases:
+          description: The reference bases for this variant. They start at the given start position.
+          type: string
+          example: TAGGATTGAGCTCTATAT
+        referenceSetDbId:
+          description: The unique identifier for a ReferenceSet
+          type: string
+          example: c1ecfef1
+        referenceSetName:
+          description: The human readable name of the ReferenceSet
+          type: string
+          example: The Best Assembly Ever
         start:
           description: |-
             This field is optional and may be ignored if there is no relevant map or reference to be associated with.

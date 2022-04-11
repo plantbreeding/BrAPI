@@ -12,5 +12,5 @@ components:
       name: Accept
       required: true
       schema:
-        $ref: '#/components/schemas/WSMIMEDataTypes'
+        $ref: '#/components/schemas/ContentTypes'
 

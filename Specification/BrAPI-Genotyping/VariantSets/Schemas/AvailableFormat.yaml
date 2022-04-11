@@ -1,0 +1,50 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    AvailableFormat:
+      type: object
+      description: Each 'availableFormat' object is a pairing of dataFormat and fileFormat. These must be communicated in pairs because they are not independant parameters and sometimes one influences the other.
+      properties:
+        dataFormat:
+          description: dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)
+          type: string
+          enum:
+          - DartSeq
+          - VCF
+          - Hapmap
+          - tabular
+          - JSON 
+        fileFormat:
+          description: fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.
+          type: string
+          enum:
+          - text/csv
+          - text/tsv
+          - application/excel
+          - application/zip
+          - application/json
+        fileURL:
+          description: A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.
+          type: string
+          format: uri
+        expandHomozygotes: 
+          description: Should homozygotes be expanded (true) or collapsed into a single occurrence (false)
+          type: boolean
+          example: true
+        sepPhased:
+          description: The string used as a separator for phased allele calls.
+          type: string
+          example: '|'
+        sepUnphased:
+          description: The string used as a separator for unphased allele calls.
+          type: string
+          example: '/'
+        unknownString:
+          description: The string used as a representation for missing data.
+          type: string
+          example: '.'
+

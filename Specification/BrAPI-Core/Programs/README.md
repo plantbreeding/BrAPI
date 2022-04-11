@@ -1,12 +1,12 @@
 
 # Group Programs
 
-A Program can contain multiple Trials. A Trial can contain multiple Studies. 
+A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. A Program can contain multiple Trials. A Trial can contain multiple Studies. 
 
 
 
 
-### Get - /programs [GET /brapi/v2/programs{?commonCropName}{?programDbId}{?programName}{?abbreviation}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /programs [GET /brapi/v2/programs{?commonCropName}{?programDbId}{?programName}{?abbreviation}{?programType}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of breeding Programs. This list can be filtered by common crop name to narrow results to a specific crop.
 
@@ -22,24 +22,29 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|fundingInformation|string|Information describing the grant or funding source for this program|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
 |programDbId|string|The ID which uniquely identifies the program|
 |programName|string|Human readable name of the program|
+|programType|string|The type of program entity this object represents <br/> 'STANARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   |
 
 
  
 
 + Parameters
-    + commonCropName (Optional, ) ... Filter by the common crop name. Exact match.
-    + programDbId (Optional, ) ... Program filter to only return trials associated with given program id.
+    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
     + programName (Optional, ) ... Filter by program name. Exact match.
     + abbreviation (Optional, ) ... Filter by program abbreviation. Exact match.
-    + externalReferenceID (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceID` parameter)
+    + programType (Optional, ) ... The type of program entity this object represents<br/> 'STANARD' represents a standard, permenant breeding program<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding 
+    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -54,16 +59,7 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -86,23 +82,21 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
                 "documentationURL": "https://wiki.brapi.org",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
+                "fundingInformation": "EU: FP7-244374",
                 "leadPersonDbId": "fe6f5c50",
                 "leadPersonName": "Bob Robertson",
                 "objective": "Make a better tomatillo",
                 "programDbId": "f60f15b2",
-                "programName": "Tomatillo_Breeding_Program"
+                "programName": "Tomatillo_Breeding_Program",
+                "programType": "STANARD"
             }
         ]
     }
@@ -140,12 +134,15 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|fundingInformation|string|Information describing the grant or funding source for this program|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
 |programName|string|Human readable name of the program|
+|programType|string|The type of program entity this object represents <br/> 'STANARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   |
 
 
 **Response Fields** 
@@ -158,13 +155,16 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|fundingInformation|string|Information describing the grant or funding source for this program|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
 |programDbId|string|The ID which uniquely identifies the program|
 |programName|string|Human readable name of the program|
+|programType|string|The type of program entity this object represents <br/> 'STANARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   |
 
 
  
@@ -184,22 +184,20 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
         "documentationURL": "https://wiki.brapi.org",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
+        "fundingInformation": "EU: FP7-244374",
         "leadPersonDbId": "fe6f5c50",
         "leadPersonName": "Bob Robertson",
         "objective": "Make a better tomatillo",
-        "programName": "Tomatillo_Breeding_Program"
+        "programName": "Tomatillo_Breeding_Program",
+        "programType": "STANARD"
     }
 ]
 ```
@@ -213,16 +211,7 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -245,23 +234,21 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
                 "documentationURL": "https://wiki.brapi.org",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
+                "fundingInformation": "EU: FP7-244374",
                 "leadPersonDbId": "fe6f5c50",
                 "leadPersonName": "Bob Robertson",
                 "objective": "Make a better tomatillo",
                 "programDbId": "f60f15b2",
-                "programName": "Tomatillo_Breeding_Program"
+                "programName": "Tomatillo_Breeding_Program",
+                "programType": "STANARD"
             }
         ]
     }
@@ -301,13 +288,16 @@ Get a single breeding Program by Id. This can be used to quickly get the details
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|fundingInformation|string|Information describing the grant or funding source for this program|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
 |programDbId|string|The ID which uniquely identifies the program|
 |programName|string|Human readable name of the program|
+|programType|string|The type of program entity this object represents <br/> 'STANARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   |
 
 
  
@@ -326,16 +316,7 @@ Get a single breeding Program by Id. This can be used to quickly get the details
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -356,23 +337,21 @@ Get a single breeding Program by Id. This can be used to quickly get the details
         "documentationURL": "https://wiki.brapi.org",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
+        "fundingInformation": "EU: FP7-244374",
         "leadPersonDbId": "fe6f5c50",
         "leadPersonName": "Bob Robertson",
         "objective": "Make a better tomatillo",
         "programDbId": "f60f15b2",
-        "programName": "Tomatillo_Breeding_Program"
+        "programName": "Tomatillo_Breeding_Program",
+        "programType": "STANARD"
     }
 }
 ```
@@ -408,12 +387,15 @@ Update the details of an existing breeding Program.
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|fundingInformation|string|Information describing the grant or funding source for this program|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
 |programName|string|Human readable name of the program|
+|programType|string|The type of program entity this object represents <br/> 'STANARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   |
 
 
 **Response Fields** 
@@ -425,13 +407,16 @@ Update the details of an existing breeding Program.
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|fundingInformation|string|Information describing the grant or funding source for this program|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
 |programDbId|string|The ID which uniquely identifies the program|
 |programName|string|Human readable name of the program|
+|programType|string|The type of program entity this object represents <br/> 'STANARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   |
 
 
  
@@ -451,22 +436,20 @@ Update the details of an existing breeding Program.
     "documentationURL": "https://wiki.brapi.org",
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12341234",
+            "referenceId": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
-            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-            "referenceSource": "OBO Library"
-        },
-        {
-            "referenceID": "75a50e76",
+            "referenceId": "75a50e76",
             "referenceSource": "Remote Data Collection Upload Tool"
         }
     ],
+    "fundingInformation": "EU: FP7-244374",
     "leadPersonDbId": "fe6f5c50",
     "leadPersonName": "Bob Robertson",
     "objective": "Make a better tomatillo",
-    "programName": "Tomatillo_Breeding_Program"
+    "programName": "Tomatillo_Breeding_Program",
+    "programType": "STANARD"
 }
 ```
 
@@ -479,16 +462,7 @@ Update the details of an existing breeding Program.
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -509,23 +483,21 @@ Update the details of an existing breeding Program.
         "documentationURL": "https://wiki.brapi.org",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
+        "fundingInformation": "EU: FP7-244374",
         "leadPersonDbId": "fe6f5c50",
         "leadPersonName": "Bob Robertson",
         "objective": "Make a better tomatillo",
         "programDbId": "f60f15b2",
-        "programName": "Tomatillo_Breeding_Program"
+        "programName": "Tomatillo_Breeding_Program",
+        "programType": "STANARD"
     }
 }
 ```
@@ -561,16 +533,18 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |Field|Type|Description|
 |---|---|---| 
 |abbreviations|array[string]|An abbreviation of a program to search for|
-|commonCropNames|array[string]|Common name for the crop which this program is for|
-|externalReferenceIDs|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
+|externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
 |externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
 |leadPersonDbIds|array[string]|The person DbIds of the program leader to search for|
 |leadPersonNames|array[string]|The names of the program leader to search for|
 |objectives|array[string]|A program objective to search for|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
-|programDbIds|array[string]|A program identifier to search for|
-|programNames|array[string]|A name of a program to search for|
+|programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
+|programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
+|programTypes|array[string]|The type of program entity this object represents <br/> 'STANARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding |
 
 
 **Response Fields** 
@@ -583,13 +557,16 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|fundingInformation|string|Information describing the grant or funding source for this program|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
 |programDbId|string|The ID which uniquely identifies the program|
 |programName|string|Human readable name of the program|
+|programType|string|The type of program entity this object represents <br/> 'STANARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   |
 
 
  
@@ -611,11 +588,15 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "Paw Paw"
     ],
     "externalReferenceIDs": [
-        "http://purl.obolibrary.org/obo/ro.owl",
+        "doi:10.155454/12341234",
+        "14a19841"
+    ],
+    "externalReferenceIds": [
+        "doi:10.155454/12341234",
         "14a19841"
     ],
     "externalReferenceSources": [
-        "OBO Library",
+        "DOI",
         "Field App Name"
     ],
     "leadPersonDbIds": [
@@ -639,6 +620,10 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
     "programNames": [
         "Better Breeding Program",
         "Best Breeding Program"
+    ],
+    "programTypes": [
+        "STANARD",
+        "PROJECT"
     ]
 }
 ```
@@ -652,16 +637,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -684,23 +660,21 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "documentationURL": "https://wiki.brapi.org",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
+                "fundingInformation": "EU: FP7-244374",
                 "leadPersonDbId": "fe6f5c50",
                 "leadPersonName": "Bob Robertson",
                 "objective": "Make a better tomatillo",
                 "programDbId": "f60f15b2",
-                "programName": "Tomatillo_Breeding_Program"
+                "programName": "Tomatillo_Breeding_Program",
+                "programType": "STANARD"
             }
         ]
     }
@@ -714,16 +688,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -782,13 +747,16 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
+|fundingInformation|string|Information describing the grant or funding source for this program|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
 |programDbId|string|The ID which uniquely identifies the program|
 |programName|string|Human readable name of the program|
+|programType|string|The type of program entity this object represents <br/> 'STANARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   |
 
 
  
@@ -809,16 +777,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -841,23 +800,21 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "documentationURL": "https://wiki.brapi.org",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
+                "fundingInformation": "EU: FP7-244374",
                 "leadPersonDbId": "fe6f5c50",
                 "leadPersonName": "Bob Robertson",
                 "objective": "Make a better tomatillo",
                 "programDbId": "f60f15b2",
-                "programName": "Tomatillo_Breeding_Program"
+                "programName": "Tomatillo_Breeding_Program",
+                "programType": "STANARD"
             }
         ]
     }
@@ -871,16 +828,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,

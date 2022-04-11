@@ -42,6 +42,20 @@ components:
           description: Human readable name of the program
           type: string
           example: Tomatillo_Breeding_Program
+        programType:
+          description: |-
+            The type of program entity this object represents
+            <br/> 'STANARD' represents a standard, permenant breeding program
+            <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   
+          type: string
+          enum:
+          - STANARD
+          - PROJECT
+          example: STANARD
+        fundingInformation:
+          description: Information describing the grant or funding source for this program
+          type: string
+          example: 'EU: FP7-244374'
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
           

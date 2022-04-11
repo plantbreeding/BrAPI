@@ -33,12 +33,6 @@ paths:
         required: false
         schema:
           type: string
-      - name: commonCropName
-        description: The common crop name related to this germplasm
-        in: query
-        required: false
-        schema:
-          type: string
       - name: accessionNumber
         description: Unique identifiers for accessions within a genebank
         in: query
@@ -51,6 +45,12 @@ paths:
         required: false
         schema:
           type: string
+      - name: binomialName
+        description: The full binomial name (scientific name) to identify a germplasm
+        in: query
+        required: false
+        schema:
+          type: string
       - name: genus
         description: Genus name to identify germplasm
         in: query
@@ -59,6 +59,12 @@ paths:
           type: string
       - name: species
         description: Species name to identify germplasm
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: trialDbId
+        description: Search for Germplasm that are associated with a particular Study
         in: query
         required: false
         schema:
@@ -87,7 +93,10 @@ paths:
         required: false
         schema:
           type: string
+      - $ref: '#/components/parameters/commonCropName'
+      - $ref: '#/components/parameters/programDbId'
       - $ref: '#/components/parameters/externalReferenceID'
+      - $ref: '#/components/parameters/externalReferenceId'
       - $ref: '#/components/parameters/externalReferenceSource'
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'

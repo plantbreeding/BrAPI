@@ -1,0 +1,18 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    Plate:
+      allOf:
+      - $ref: '#/components/schemas/PlateNewRequest'
+      - type: object
+        properties:
+          plateDbId:
+            description: |-
+              The ID which uniquely identifies a plate
+            type: string
+            example: a106467f
+

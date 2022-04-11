@@ -27,10 +27,20 @@ components:
         scaleName:
           description: |- 
             Name of the scale
-            
-            MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable
+            <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable
           type: string
           example: Meters
+        scalePUI:
+          description: The Permanent Unique Identifier of a Scale, usually in the form of a URI
+          type: string
+          example: http://my-traits.com/trait/CO_123:0000112
+        units:
+          description: |-
+            This field can be used to describe the units used for this scale. This should be the abbreviated 
+            form of the units, intended to be displayed with every value using this scale. Usually this only 
+            applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.
+          type: string
+          example: m
         validValues:
           type: object
           properties:
@@ -54,13 +64,28 @@ components:
                 - value: "10"
                   label: "high"
             max:
-              description: Maximum value (used for field data capture control).
+              description: |-
+                **Deprecated in v2.1** Please use `maximumValue`. Github issue number #450 
+
+                Maximum value for numerical scales. Typically used for data capture control and QC.
               type: integer
               example: 9999
+              deprecated: true
             min:
-              description: Minimum value (used for data capture control) for numerical and date scales
+              description: |-
+                **Deprecated in v2.1** Please use `minimumValue`. Github issue number #450 
+                <br/>Minimum value for numerical scales. Typically used for data capture control and QC.
               type: integer
               example: 2
+              deprecated: true
+            maximumValue:
+              description: Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.
+              type: string
+              example: '9999'
+            minimumValue:
+              description: Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.
+              type: string
+              example: '2'
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
 

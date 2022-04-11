@@ -9,14 +9,24 @@ components:
       type: object
       properties:
         externalReferenceIDs: 
+          deprecated: true
+          description:  |-
+            **Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460 
+
+            List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)
+          items:
+            type: string
+          type: array
+          example: ['doi:10.155454/12341234', '14a19841']
+        externalReferenceIds: 
           description: List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)
           items:
             type: string
           type: array
-          example: ['http://purl.obolibrary.org/obo/ro.owl', '14a19841']
+          example: ['doi:10.155454/12341234', '14a19841']
         externalReferenceSources: 
           description: List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)
           items:
             type: string
           type: array
-          example: ['OBO Library', 'Field App Name']
+          example: ['DOI', 'Field App Name']

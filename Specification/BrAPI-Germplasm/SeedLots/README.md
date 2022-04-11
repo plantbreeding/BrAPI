@@ -5,7 +5,7 @@
 
 
 
-### Get - /seedlots [GET /brapi/v2/seedlots{?seedLotDbId}{?germplasmDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /seedlots [GET /brapi/v2/seedlots{?seedLotDbId}{?germplasmDbId}{?germplasmName}{?crossDbId}{?crossName}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Seed Lot descriptions available in a system.
 
@@ -18,14 +18,22 @@ Get a filtered list of Seed Lot descriptions available in a system.
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
+|contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
+|crossDbId|string|The unique DbId for a cross contained in this seed lot|
+|crossName|string|The human readable name for a cross contained in this seed lot|
+|germplasmDbId|string|The unique DbId of the Germplasm contained in this Seed Lot|
+|germplasmName|string|The human readable name of the Germplasm contained in this Seed Lot|
+|mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
-|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|locationDbId|string|DbId of the storage location|
-|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
+|locationDbId|string|The unique identifier for a Location|
+|locationName|string|A human readable name for a location|
+|programDbId|string|The unique DbId of the breeding program this Seed Lot belongs to|
+|programName|string|The human readable name of the breeding program this Seed Lot belongs to|
 |seedLotDbId|string|Unique DbId for the Seed Lot|
 |seedLotDescription|string|A general description of this Seed Lot|
 |seedLotName|string|A human readable name for this Seed Lot|
@@ -39,8 +47,14 @@ Get a filtered list of Seed Lot descriptions available in a system.
 + Parameters
     + seedLotDbId (Optional, ) ... Unique id for a seed lot on this server
     + germplasmDbId (Optional, ) ... The internal id of the germplasm
-    + externalReferenceID (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceID` parameter)
+    + germplasmName (Optional, ) ... Name of the germplasm
+    + crossDbId (Optional, ) ... Search for Cross with this unique id
+    + crossName (Optional, ) ... Search for Cross with this human readable name
+    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
+    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -55,16 +69,7 @@ Get a filtered list of Seed Lot descriptions available in a system.
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -83,25 +88,31 @@ Get a filtered list of Seed Lot descriptions available in a system.
             {
                 "additionalInfo": {},
                 "amount": 561,
+                "contentMixture": [
+                    {
+                        "crossDbId": "d105fd6f",
+                        "crossName": "my_Crosses_2018_01",
+                        "germplasmDbId": "029d705d",
+                        "germplasmName": "A0000003",
+                        "mixturePercentage": 100
+                    }
+                ],
                 "createdDate": "2018-01-01T14:47:23-0600",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
-                "germplasmDbId": "029d705d",
                 "lastUpdated": "2018-01-01T14:47:23-0600",
-                "locationDbId": "7989c44c",
+                "locationDbId": "3cfdd67d",
+                "locationName": "Location 1",
                 "programDbId": "e972d569",
+                "programName": "Tomatillo_Breeding_Program",
                 "seedLotDbId": "261ecb09",
                 "seedLotDescription": "This is a description of a seed lot",
                 "seedLotName": "Seed Lot Alpha",
@@ -142,14 +153,22 @@ Add new Seed Lot descriptions to a server
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
+|contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
+|crossDbId|string|The unique DbId for a cross contained in this seed lot|
+|crossName|string|The human readable name for a cross contained in this seed lot|
+|germplasmDbId|string|The unique DbId of the Germplasm contained in this Seed Lot|
+|germplasmName|string|The human readable name of the Germplasm contained in this Seed Lot|
+|mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
-|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|locationDbId|string|DbId of the storage location|
-|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
+|locationDbId|string|The unique identifier for a Location|
+|locationName|string|A human readable name for a location|
+|programDbId|string|The unique DbId of the breeding program this Seed Lot belongs to|
+|programName|string|The human readable name of the breeding program this Seed Lot belongs to|
 |seedLotDescription|string|A general description of this Seed Lot|
 |seedLotName|string|A human readable name for this Seed Lot|
 |sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
@@ -164,14 +183,22 @@ Add new Seed Lot descriptions to a server
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
+|contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
+|crossDbId|string|The unique DbId for a cross contained in this seed lot|
+|crossName|string|The human readable name for a cross contained in this seed lot|
+|germplasmDbId|string|The unique DbId of the Germplasm contained in this Seed Lot|
+|germplasmName|string|The human readable name of the Germplasm contained in this Seed Lot|
+|mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
-|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|locationDbId|string|DbId of the storage location|
-|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
+|locationDbId|string|The unique identifier for a Location|
+|locationName|string|A human readable name for a location|
+|programDbId|string|The unique DbId of the breeding program this Seed Lot belongs to|
+|programName|string|The human readable name of the breeding program this Seed Lot belongs to|
 |seedLotDbId|string|Unique DbId for the Seed Lot|
 |seedLotDescription|string|A general description of this Seed Lot|
 |seedLotName|string|A human readable name for this Seed Lot|
@@ -193,25 +220,31 @@ Add new Seed Lot descriptions to a server
     {
         "additionalInfo": {},
         "amount": 561,
+        "contentMixture": [
+            {
+                "crossDbId": "d105fd6f",
+                "crossName": "my_Crosses_2018_01",
+                "germplasmDbId": "029d705d",
+                "germplasmName": "A0000003",
+                "mixturePercentage": 100
+            }
+        ],
         "createdDate": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
-        "germplasmDbId": "029d705d",
         "lastUpdated": "2018-01-01T14:47:23-0600",
-        "locationDbId": "7989c44c",
+        "locationDbId": "3cfdd67d",
+        "locationName": "Location 1",
         "programDbId": "e972d569",
+        "programName": "Tomatillo_Breeding_Program",
         "seedLotDescription": "This is a description of a seed lot",
         "seedLotName": "Seed Lot Alpha",
         "sourceCollection": "nursery",
@@ -230,16 +263,7 @@ Add new Seed Lot descriptions to a server
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -258,25 +282,31 @@ Add new Seed Lot descriptions to a server
             {
                 "additionalInfo": {},
                 "amount": 561,
+                "contentMixture": [
+                    {
+                        "crossDbId": "d105fd6f",
+                        "crossName": "my_Crosses_2018_01",
+                        "germplasmDbId": "029d705d",
+                        "germplasmName": "A0000003",
+                        "mixturePercentage": 100
+                    }
+                ],
                 "createdDate": "2018-01-01T14:47:23-0600",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
-                "germplasmDbId": "029d705d",
                 "lastUpdated": "2018-01-01T14:47:23-0600",
-                "locationDbId": "7989c44c",
+                "locationDbId": "3cfdd67d",
+                "locationName": "Location 1",
                 "programDbId": "e972d569",
+                "programName": "Tomatillo_Breeding_Program",
                 "seedLotDbId": "261ecb09",
                 "seedLotDescription": "This is a description of a seed lot",
                 "seedLotName": "Seed Lot Alpha",
@@ -307,7 +337,7 @@ Add new Seed Lot descriptions to a server
 
 
 
-### Get - /seedlots/transactions [GET /brapi/v2/seedlots/transactions{?transactionDbId}{?seedLotDbId}{?germplasmDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /seedlots/transactions [GET /brapi/v2/seedlots/transactions{?transactionDbId}{?seedLotDbId}{?germplasmDbId}{?germplasmName}{?crossDbId}{?crossName}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Seed Lot Transactions
 
@@ -321,7 +351,8 @@ Get a filtered list of Seed Lot Transactions
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
 |toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
@@ -337,8 +368,14 @@ Get a filtered list of Seed Lot Transactions
     + transactionDbId (Optional, ) ... Unique id for a transaction on this server
     + seedLotDbId (Optional, ) ... Unique id for a seed lot on this server
     + germplasmDbId (Optional, ) ... The internal id of the germplasm
-    + externalReferenceID (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceID` parameter)
+    + germplasmName (Optional, ) ... Name of the germplasm
+    + crossDbId (Optional, ) ... Search for Cross with this unique id
+    + crossName (Optional, ) ... Search for Cross with this human readable name
+    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
+    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -353,16 +390,7 @@ Get a filtered list of Seed Lot Transactions
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -383,15 +411,11 @@ Get a filtered list of Seed Lot Transactions
                 "amount": 45,
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -436,7 +460,8 @@ Add new Seed Lot Transaction to be recorded
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
 |toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
@@ -453,7 +478,8 @@ Add new Seed Lot Transaction to be recorded
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
 |toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
@@ -478,15 +504,11 @@ Add new Seed Lot Transaction to be recorded
         "amount": 45,
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
@@ -508,16 +530,7 @@ Add new Seed Lot Transaction to be recorded
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -538,15 +551,11 @@ Add new Seed Lot Transaction to be recorded
                 "amount": 45,
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
@@ -592,14 +601,22 @@ Get a specific Seed Lot by seedLotDbId
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
+|contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
+|crossDbId|string|The unique DbId for a cross contained in this seed lot|
+|crossName|string|The human readable name for a cross contained in this seed lot|
+|germplasmDbId|string|The unique DbId of the Germplasm contained in this Seed Lot|
+|germplasmName|string|The human readable name of the Germplasm contained in this Seed Lot|
+|mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
-|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|locationDbId|string|DbId of the storage location|
-|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
+|locationDbId|string|The unique identifier for a Location|
+|locationName|string|A human readable name for a location|
+|programDbId|string|The unique DbId of the breeding program this Seed Lot belongs to|
+|programName|string|The human readable name of the breeding program this Seed Lot belongs to|
 |seedLotDbId|string|Unique DbId for the Seed Lot|
 |seedLotDescription|string|A general description of this Seed Lot|
 |seedLotName|string|A human readable name for this Seed Lot|
@@ -624,16 +641,7 @@ Get a specific Seed Lot by seedLotDbId
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -650,25 +658,31 @@ Get a specific Seed Lot by seedLotDbId
     "result": {
         "additionalInfo": {},
         "amount": 561,
+        "contentMixture": [
+            {
+                "crossDbId": "d105fd6f",
+                "crossName": "my_Crosses_2018_01",
+                "germplasmDbId": "029d705d",
+                "germplasmName": "A0000003",
+                "mixturePercentage": 100
+            }
+        ],
         "createdDate": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
-        "germplasmDbId": "029d705d",
         "lastUpdated": "2018-01-01T14:47:23-0600",
-        "locationDbId": "7989c44c",
+        "locationDbId": "3cfdd67d",
+        "locationName": "Location 1",
         "programDbId": "e972d569",
+        "programName": "Tomatillo_Breeding_Program",
         "seedLotDbId": "261ecb09",
         "seedLotDescription": "This is a description of a seed lot",
         "seedLotName": "Seed Lot Alpha",
@@ -712,14 +726,22 @@ Update an existing Seed Lot
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
+|contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
+|crossDbId|string|The unique DbId for a cross contained in this seed lot|
+|crossName|string|The human readable name for a cross contained in this seed lot|
+|germplasmDbId|string|The unique DbId of the Germplasm contained in this Seed Lot|
+|germplasmName|string|The human readable name of the Germplasm contained in this Seed Lot|
+|mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
-|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|locationDbId|string|DbId of the storage location|
-|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
+|locationDbId|string|The unique identifier for a Location|
+|locationName|string|A human readable name for a location|
+|programDbId|string|The unique DbId of the breeding program this Seed Lot belongs to|
+|programName|string|The human readable name of the breeding program this Seed Lot belongs to|
 |seedLotDescription|string|A general description of this Seed Lot|
 |seedLotName|string|A human readable name for this Seed Lot|
 |sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
@@ -733,14 +755,22 @@ Update an existing Seed Lot
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
+|contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
+|crossDbId|string|The unique DbId for a cross contained in this seed lot|
+|crossName|string|The human readable name for a cross contained in this seed lot|
+|germplasmDbId|string|The unique DbId of the Germplasm contained in this Seed Lot|
+|germplasmName|string|The human readable name of the Germplasm contained in this Seed Lot|
+|mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
-|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|locationDbId|string|DbId of the storage location|
-|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
+|locationDbId|string|The unique identifier for a Location|
+|locationName|string|A human readable name for a location|
+|programDbId|string|The unique DbId of the breeding program this Seed Lot belongs to|
+|programName|string|The human readable name of the breeding program this Seed Lot belongs to|
 |seedLotDbId|string|Unique DbId for the Seed Lot|
 |seedLotDescription|string|A general description of this Seed Lot|
 |seedLotName|string|A human readable name for this Seed Lot|
@@ -762,25 +792,31 @@ Update an existing Seed Lot
 {
     "additionalInfo": {},
     "amount": 561,
+    "contentMixture": [
+        {
+            "crossDbId": "d105fd6f",
+            "crossName": "my_Crosses_2018_01",
+            "germplasmDbId": "029d705d",
+            "germplasmName": "A0000003",
+            "mixturePercentage": 100
+        }
+    ],
     "createdDate": "2018-01-01T14:47:23-0600",
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12341234",
+            "referenceId": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
-            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-            "referenceSource": "OBO Library"
-        },
-        {
-            "referenceID": "75a50e76",
+            "referenceId": "75a50e76",
             "referenceSource": "Remote Data Collection Upload Tool"
         }
     ],
-    "germplasmDbId": "029d705d",
     "lastUpdated": "2018-01-01T14:47:23-0600",
-    "locationDbId": "7989c44c",
+    "locationDbId": "3cfdd67d",
+    "locationName": "Location 1",
     "programDbId": "e972d569",
+    "programName": "Tomatillo_Breeding_Program",
     "seedLotDescription": "This is a description of a seed lot",
     "seedLotName": "Seed Lot Alpha",
     "sourceCollection": "nursery",
@@ -798,16 +834,7 @@ Update an existing Seed Lot
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -824,25 +851,31 @@ Update an existing Seed Lot
     "result": {
         "additionalInfo": {},
         "amount": 561,
+        "contentMixture": [
+            {
+                "crossDbId": "d105fd6f",
+                "crossName": "my_Crosses_2018_01",
+                "germplasmDbId": "029d705d",
+                "germplasmName": "A0000003",
+                "mixturePercentage": 100
+            }
+        ],
         "createdDate": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12341234",
+                "referenceId": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
+                "referenceId": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
-        "germplasmDbId": "029d705d",
         "lastUpdated": "2018-01-01T14:47:23-0600",
-        "locationDbId": "7989c44c",
+        "locationDbId": "3cfdd67d",
+        "locationName": "Location 1",
         "programDbId": "e972d569",
+        "programName": "Tomatillo_Breeding_Program",
         "seedLotDbId": "261ecb09",
         "seedLotDescription": "This is a description of a seed lot",
         "seedLotName": "Seed Lot Alpha",
@@ -890,7 +923,8 @@ Get all Transactions related to a specific Seed Lot
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
+|referenceId|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
 |toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
@@ -920,16 +954,7 @@ Get all Transactions related to a specific Seed Lot
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
@@ -950,15 +975,11 @@ Get all Transactions related to a specific Seed Lot
                 "amount": 45,
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12341234",
+                        "referenceId": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
-                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                        "referenceSource": "OBO Library"
-                    },
-                    {
-                        "referenceID": "75a50e76",
+                        "referenceId": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
