@@ -18,18 +18,22 @@ Get list of events
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
-|date|array[string]|A list of dates when the event occurred  MIAPPE V1.1 (DM-68) Event date - Date and time of the event.|
+|date|object||
+|discreteDates|array[string]|A list of dates when the event occurred <br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.|
+|endDate|string (date-time)|The end of a continous or regularly repetative event <br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.|
+|startDate|string (date-time)|The begining of a continous or regularly repetative event <br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.|
 |eventDbId|string|Internal database identifier|
-|eventDescription|string|A detailed, human-readable description of this event  MIAPPE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. |
+|eventDescription|string|A detailed, human-readable description of this event <br/>MIAPPE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. |
 |eventParameters|array[object]|A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI|
 |code|string|The shortened code name of an event parameter  ICASA "Code_Display"|
 |name|string|The full name of an event parameter  ICASA "Variable_Name"|
 |unit|string|The unit or data type of the value. If the value IS NOT a number, then this field should specify a data type eg. text, boolean, date, etc. If the value IS a number, then this field should specify the units used eg. ml, cm, etc  ICASA "Unit_or_type"|
 |value|string|The value of this event parameter|
-|eventType|string|General category for this event (e.g. Sowing, Watering, Rain). Each eventType should correspond to exactly one eventTypeDbId, if provided.  ICASA "event"  MIAPPE V1.1 (DM-65) Event type - Short name of the event.|
-|eventTypeDbId|string|An identifier for this event type, in the form of an ontology class reference  MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).|
+|eventType|string|General category for this event (e.g. fertilizer, irrigation, tillage). Each eventType should correspond to exactly one eventTypeDbId, if provided. <br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other <br/>MIAPPE V1.1 (DM-65) Event type - Short name of the event.|
+|eventTypeDbId|string|An identifier for this event type, in the form of an ontology class reference <br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other <br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).|
 |observationUnitDbIds|array[string]|A list of the affected observation units. If this parameter is not given, it is understood that the event affected all units in the study|
 |studyDbId|string|The study in which the event occurred|
+|studyName|string|The human readable name of a study|
 
 
  
@@ -73,10 +77,14 @@ Get list of events
         "data": [
             {
                 "additionalInfo": {},
-                "date": [
-                    "2018-10-08T18:15:11Z",
-                    "2018-11-09T18:16:12Z"
-                ],
+                "date": {
+                    "discreteDates": [
+                        "2018-10-08T18:15:11Z",
+                        "2018-11-09T18:16:12Z"
+                    ],
+                    "endDate": "2018-10-08T18:15:11Z",
+                    "startDate": "2018-10-08T18:15:11Z"
+                },
                 "eventDbId": "8566d4cb",
                 "eventDescription": "A set of plots was watered",
                 "eventParameters": [
@@ -106,7 +114,8 @@ Get list of events
                     "d7682e7a",
                     "305ae51c"
                 ],
-                "studyDbId": "2cc2001f"
+                "studyDbId": "2cc2001f",
+                "studyName": "2cc2001f"
             }
         ]
     }
