@@ -16,19 +16,19 @@ paths:
           required: false
           schema:
             type: string
-        - name: dimensionVariantPage
+        - name: dimensionVariantPageSize
           description: The requested page size for the Variant dimension of the matrix
           in: query
           required: false
           schema:
             type: string
-        - name: dimensionVariantPage
+        - name: dimensionCallSetPage
           description: The requested page number for the CallSet dimension of the matrix
           in: query
           required: false
           schema:
             type: string
-        - name: dimensionVariantPage
+        - name: dimensionCallSetPageSize
           description: The requested page size for the CallSet dimension of the matrix
           in: query
           required: false
