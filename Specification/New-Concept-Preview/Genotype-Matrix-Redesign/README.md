@@ -669,7 +669,7 @@ Use this endpoint to retrive a two dimensional matrix of genotype data. The resp
 
 
 
-### Get - /variantmatrix [GET /brapi/v2/variantmatrix{?dimensionVariantPage}{?dimensionVariantPage}{?dimensionVariantPage}{?dimensionVariantPage}{?positionRange}{?germplasmDbId}{?germplasmName}{?germplasmPUI}{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}]
+### Get - /variantmatrix [GET /brapi/v2/variantmatrix{?dimensionVariantPage}{?dimensionVariantPageSize}{?dimensionCallSetPage}{?dimensionCallSetPageSize}{?positionRange}{?germplasmDbId}{?germplasmName}{?germplasmPUI}{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}]
 
 Use this endpoint to retrive a two dimensional matrix of genotype data. The response structure is based on the VCF format, with the enhanced ability to slice and merge data sets. This allows the user to return the subset of data they are interested in, without having to download the entire genotype file.
 <br/>Each row of data (outer array) corresponds to a variant definition, and each column (inner array) corresponds to a callSet.    
@@ -710,9 +710,9 @@ Use this endpoint to retrive a two dimensional matrix of genotype data. The resp
 
 + Parameters
     + dimensionVariantPage (Optional, ) ... The requested page number for the Variant dimension of the matrix
-    + dimensionVariantPage (Optional, ) ... The requested page size for the Variant dimension of the matrix
-    + dimensionVariantPage (Optional, ) ... The requested page number for the CallSet dimension of the matrix
-    + dimensionVariantPage (Optional, ) ... The requested page size for the CallSet dimension of the matrix
+    + dimensionVariantPageSize (Optional, ) ... The requested page size for the Variant dimension of the matrix
+    + dimensionCallSetPage (Optional, ) ... The requested page number for the CallSet dimension of the matrix
+    + dimensionCallSetPageSize (Optional, ) ... The requested page size for the CallSet dimension of the matrix
     + positionRange (Optional, ) ... The postion range to search<br/>Uses the format "<chrom>:<start>-<end>" where <chrom> is the chromosome name, <start> is the starting position of the range, and <end> is the ending position of the range
     + germplasmDbId (Optional, ) ... Internal database identifier
     + germplasmName (Optional, ) ... Name of the germplasm
