@@ -14,59 +14,60 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|callSetDbIds|array[string]|The unique identifier representing a CallSet|
-|commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
-|externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
-|externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
-|externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
-|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
-|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
-|programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
-|programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
-|referenceDbIds|array[string]|The unique identifier representing a genotype Reference|
-|referenceSetDbIds|array[string]|The unique identifier representing a genotype ReferenceSet|
-|studyDbIds|array[string]|List of study identifiers to search for|
-|studyNames|array[string]|List of study names to filter search results|
-|trialDbIds|array[string]|The ID which uniquely identifies a trial to search for|
-|trialNames|array[string]|The human readable name of a trial to search for|
-|variantDbIds|array[string]|The unique identifier representing a Variant|
-|variantSetDbIds|array[string]|The unique identifier representing a VariantSet|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>callSetDbIds</td><td>array[string]</td><td>The unique identifier representing a CallSet</td></tr>
+<tr><td>commonCropNames</td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
+<tr><td>externalReferenceIDs</td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td>externalReferenceIds</td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td>externalReferenceSources</td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
+<tr><td>page</td><td>integer</td><td>Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.</td></tr>
+<tr><td>pageSize</td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
+<tr><td>programDbIds</td><td>array[string]</td><td>A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.</td></tr>
+<tr><td>programNames</td><td>array[string]</td><td>Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.</td></tr>
+<tr><td>referenceDbIds</td><td>array[string]</td><td>The unique identifier representing a genotype Reference</td></tr>
+<tr><td>referenceSetDbIds</td><td>array[string]</td><td>The unique identifier representing a genotype ReferenceSet</td></tr>
+<tr><td>studyDbIds</td><td>array[string]</td><td>List of study identifiers to search for</td></tr>
+<tr><td>studyNames</td><td>array[string]</td><td>List of study names to filter search results</td></tr>
+<tr><td>trialDbIds</td><td>array[string]</td><td>The ID which uniquely identifies a trial to search for</td></tr>
+<tr><td>trialNames</td><td>array[string]</td><td>The human readable name of a trial to search for</td></tr>
+<tr><td>variantDbIds</td><td>array[string]</td><td>The unique identifier representing a Variant</td></tr>
+<tr><td>variantSetDbIds</td><td>array[string]</td><td>The unique identifier representing a VariantSet</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|analysis|array[object]|Set of Analysis descriptors for this VariantSet|
-|analysisDbId|string|Unique identifier for this analysis description|
-|analysisName|string|A human readable name for this analysis|
-|created|string (date-time)|The time at which this record was created, in ISO 8601 format.|
-|description|string|A human readable description of the analysis|
-|software|array[string]|The software run to generate this analysis.|
-|type|string|The type of analysis.|
-|updated|string (date-time)|The time at which this record was last updated, in ISO 8601 format.|
-|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.  <br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc) <br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
-|dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
-|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
-|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
-|fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
-|sepPhased|string|The string used as a separator for phased allele calls.|
-|sepUnphased|string|The string used as a separator for unphased allele calls.|
-|unknownString|string|The string used as a representation for missing data.|
-|callSetCount|integer|The number of CallSets included in this VariantSet|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
-|studyDbId|string|The ID of the dataset this variant set belongs to.|
-|variantCount|integer|The number of Variants included in this VariantSet|
-|variantSetDbId|string|The unique identifier for a VariantSet|
-|variantSetName|string|The human readable name for a VariantSet|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>analysis</td><td>array[object]</td><td>Set of Analysis descriptors for this VariantSet</td></tr>
+<tr><td>analysis.<br>analysisDbId</td><td>string</td><td>Unique identifier for this analysis description</td></tr>
+<tr><td>analysis.<br>analysisName</td><td>string</td><td>A human readable name for this analysis</td></tr>
+<tr><td>analysis.<br>created</td><td>string (date-time)</td><td>The time at which this record was created, in ISO 8601 format.</td></tr>
+<tr><td>analysis.<br>description</td><td>string</td><td>A human readable description of the analysis</td></tr>
+<tr><td>analysis.<br>software</td><td>array[string]</td><td>The software run to generate this analysis.</td></tr>
+<tr><td>analysis.<br>type</td><td>string</td><td>The type of analysis.</td></tr>
+<tr><td>analysis.<br>updated</td><td>string (date-time)</td><td>The time at which this record was last updated, in ISO 8601 format.</td></tr>
+<tr><td>availableFormats</td><td>array[object]</td><td>When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.  <br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc) <br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.</td></tr>
+<tr><td>availableFormats.<br>dataFormat</td><td>string</td><td>dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)</td></tr>
+<tr><td>availableFormats.<br>expandHomozygotes</td><td>boolean</td><td>Should homozygotes be expanded (true) or collapsed into a single occurrence (false)</td></tr>
+<tr><td>availableFormats.<br>fileFormat</td><td>string</td><td>fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.</td></tr>
+<tr><td>availableFormats.<br>fileURL</td><td>string (uri)</td><td>A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.</td></tr>
+<tr><td>availableFormats.<br>sepPhased</td><td>string</td><td>The string used as a separator for phased allele calls.</td></tr>
+<tr><td>availableFormats.<br>sepUnphased</td><td>string</td><td>The string used as a separator for unphased allele calls.</td></tr>
+<tr><td>availableFormats.<br>unknownString</td><td>string</td><td>The string used as a representation for missing data.</td></tr>
+<tr><td>callSetCount</td><td>integer</td><td>The number of CallSets included in this VariantSet</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>referenceSetDbId</td><td>string</td><td>The ID of the reference set that describes the sequences used by the variants in this set.</td></tr>
+<tr><td>studyDbId</td><td>string</td><td>The ID of the dataset this variant set belongs to.</td></tr>
+<tr><td>variantCount</td><td>integer</td><td>The number of Variants included in this VariantSet</td></tr>
+<tr><td>variantSetDbId</td><td>string</td><td>The unique identifier for a VariantSet</td></tr>
+<tr><td>variantSetName</td><td>string</td><td>The human readable name for a VariantSet</td></tr>
+</table>
 
 
  
@@ -287,36 +288,36 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|analysis|array[object]|Set of Analysis descriptors for this VariantSet|
-|analysisDbId|string|Unique identifier for this analysis description|
-|analysisName|string|A human readable name for this analysis|
-|created|string (date-time)|The time at which this record was created, in ISO 8601 format.|
-|description|string|A human readable description of the analysis|
-|software|array[string]|The software run to generate this analysis.|
-|type|string|The type of analysis.|
-|updated|string (date-time)|The time at which this record was last updated, in ISO 8601 format.|
-|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.  <br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc) <br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
-|dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
-|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
-|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
-|fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
-|sepPhased|string|The string used as a separator for phased allele calls.|
-|sepUnphased|string|The string used as a separator for unphased allele calls.|
-|unknownString|string|The string used as a representation for missing data.|
-|callSetCount|integer|The number of CallSets included in this VariantSet|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
-|studyDbId|string|The ID of the dataset this variant set belongs to.|
-|variantCount|integer|The number of Variants included in this VariantSet|
-|variantSetDbId|string|The unique identifier for a VariantSet|
-|variantSetName|string|The human readable name for a VariantSet|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>analysis</td><td>array[object]</td><td>Set of Analysis descriptors for this VariantSet</td></tr>
+<tr><td>analysis.<br>analysisDbId</td><td>string</td><td>Unique identifier for this analysis description</td></tr>
+<tr><td>analysis.<br>analysisName</td><td>string</td><td>A human readable name for this analysis</td></tr>
+<tr><td>analysis.<br>created</td><td>string (date-time)</td><td>The time at which this record was created, in ISO 8601 format.</td></tr>
+<tr><td>analysis.<br>description</td><td>string</td><td>A human readable description of the analysis</td></tr>
+<tr><td>analysis.<br>software</td><td>array[string]</td><td>The software run to generate this analysis.</td></tr>
+<tr><td>analysis.<br>type</td><td>string</td><td>The type of analysis.</td></tr>
+<tr><td>analysis.<br>updated</td><td>string (date-time)</td><td>The time at which this record was last updated, in ISO 8601 format.</td></tr>
+<tr><td>availableFormats</td><td>array[object]</td><td>When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.  <br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc) <br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.</td></tr>
+<tr><td>availableFormats.<br>dataFormat</td><td>string</td><td>dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)</td></tr>
+<tr><td>availableFormats.<br>expandHomozygotes</td><td>boolean</td><td>Should homozygotes be expanded (true) or collapsed into a single occurrence (false)</td></tr>
+<tr><td>availableFormats.<br>fileFormat</td><td>string</td><td>fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.</td></tr>
+<tr><td>availableFormats.<br>fileURL</td><td>string (uri)</td><td>A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.</td></tr>
+<tr><td>availableFormats.<br>sepPhased</td><td>string</td><td>The string used as a separator for phased allele calls.</td></tr>
+<tr><td>availableFormats.<br>sepUnphased</td><td>string</td><td>The string used as a separator for unphased allele calls.</td></tr>
+<tr><td>availableFormats.<br>unknownString</td><td>string</td><td>The string used as a representation for missing data.</td></tr>
+<tr><td>callSetCount</td><td>integer</td><td>The number of CallSets included in this VariantSet</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>referenceSetDbId</td><td>string</td><td>The ID of the reference set that describes the sequences used by the variants in this set.</td></tr>
+<tr><td>studyDbId</td><td>string</td><td>The ID of the dataset this variant set belongs to.</td></tr>
+<tr><td>variantCount</td><td>integer</td><td>The number of Variants included in this VariantSet</td></tr>
+<tr><td>variantSetDbId</td><td>string</td><td>The unique identifier for a VariantSet</td></tr>
+<tr><td>variantSetName</td><td>string</td><td>The human readable name for a VariantSet</td></tr>
+</table>
 
 
  
@@ -466,36 +467,36 @@ Will return a filtered list of `VariantSet`.
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|analysis|array[object]|Set of Analysis descriptors for this VariantSet|
-|analysisDbId|string|Unique identifier for this analysis description|
-|analysisName|string|A human readable name for this analysis|
-|created|string (date-time)|The time at which this record was created, in ISO 8601 format.|
-|description|string|A human readable description of the analysis|
-|software|array[string]|The software run to generate this analysis.|
-|type|string|The type of analysis.|
-|updated|string (date-time)|The time at which this record was last updated, in ISO 8601 format.|
-|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.  <br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc) <br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
-|dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
-|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
-|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
-|fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
-|sepPhased|string|The string used as a separator for phased allele calls.|
-|sepUnphased|string|The string used as a separator for unphased allele calls.|
-|unknownString|string|The string used as a representation for missing data.|
-|callSetCount|integer|The number of CallSets included in this VariantSet|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
-|studyDbId|string|The ID of the dataset this variant set belongs to.|
-|variantCount|integer|The number of Variants included in this VariantSet|
-|variantSetDbId|string|The unique identifier for a VariantSet|
-|variantSetName|string|The human readable name for a VariantSet|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>analysis</td><td>array[object]</td><td>Set of Analysis descriptors for this VariantSet</td></tr>
+<tr><td>analysis.<br>analysisDbId</td><td>string</td><td>Unique identifier for this analysis description</td></tr>
+<tr><td>analysis.<br>analysisName</td><td>string</td><td>A human readable name for this analysis</td></tr>
+<tr><td>analysis.<br>created</td><td>string (date-time)</td><td>The time at which this record was created, in ISO 8601 format.</td></tr>
+<tr><td>analysis.<br>description</td><td>string</td><td>A human readable description of the analysis</td></tr>
+<tr><td>analysis.<br>software</td><td>array[string]</td><td>The software run to generate this analysis.</td></tr>
+<tr><td>analysis.<br>type</td><td>string</td><td>The type of analysis.</td></tr>
+<tr><td>analysis.<br>updated</td><td>string (date-time)</td><td>The time at which this record was last updated, in ISO 8601 format.</td></tr>
+<tr><td>availableFormats</td><td>array[object]</td><td>When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.  <br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc) <br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.</td></tr>
+<tr><td>availableFormats.<br>dataFormat</td><td>string</td><td>dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)</td></tr>
+<tr><td>availableFormats.<br>expandHomozygotes</td><td>boolean</td><td>Should homozygotes be expanded (true) or collapsed into a single occurrence (false)</td></tr>
+<tr><td>availableFormats.<br>fileFormat</td><td>string</td><td>fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.</td></tr>
+<tr><td>availableFormats.<br>fileURL</td><td>string (uri)</td><td>A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.</td></tr>
+<tr><td>availableFormats.<br>sepPhased</td><td>string</td><td>The string used as a separator for phased allele calls.</td></tr>
+<tr><td>availableFormats.<br>sepUnphased</td><td>string</td><td>The string used as a separator for unphased allele calls.</td></tr>
+<tr><td>availableFormats.<br>unknownString</td><td>string</td><td>The string used as a representation for missing data.</td></tr>
+<tr><td>callSetCount</td><td>integer</td><td>The number of CallSets included in this VariantSet</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>referenceSetDbId</td><td>string</td><td>The ID of the reference set that describes the sequences used by the variants in this set.</td></tr>
+<tr><td>studyDbId</td><td>string</td><td>The ID of the dataset this variant set belongs to.</td></tr>
+<tr><td>variantCount</td><td>integer</td><td>The number of Variants included in this VariantSet</td></tr>
+<tr><td>variantSetDbId</td><td>string</td><td>The unique identifier for a VariantSet</td></tr>
+<tr><td>variantSetName</td><td>string</td><td>The human readable name for a VariantSet</td></tr>
+</table>
 
 
  
@@ -625,50 +626,52 @@ Will perform a search for `Calls` which match the search criteria in `variantSet
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|callSetDbIds|array[string]|The CallSet to search.|
-|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
-|sepPhased|string|The string used as a separator for phased allele calls.|
-|sepUnphased|string|The string used as a separator for unphased allele calls.|
-|studyDbIds|array[string]|List of study identifiers to search for|
-|studyNames|array[string]|List of study names to filter search results|
-|unknownString|string|The string used as a representation for missing data.|
-|variantDbIds|array[string]|The Variant to search.|
-|variantSetDbIds|array[string]|The VariantSet to search.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>callSetDbIds</td><td>array[string]</td><td>The CallSet to search.</td></tr>
+<tr><td>expandHomozygotes</td><td>boolean</td><td>Should homozygotes be expanded (true) or collapsed into a single occurrence (false)</td></tr>
+<tr><td>sepPhased</td><td>string</td><td>The string used as a separator for phased allele calls.</td></tr>
+<tr><td>sepUnphased</td><td>string</td><td>The string used as a separator for unphased allele calls.</td></tr>
+<tr><td>studyDbIds</td><td>array[string]</td><td>List of study identifiers to search for</td></tr>
+<tr><td>studyNames</td><td>array[string]</td><td>List of study names to filter search results</td></tr>
+<tr><td>unknownString</td><td>string</td><td>The string used as a representation for missing data.</td></tr>
+<tr><td>variantDbIds</td><td>array[string]</td><td>The Variant to search.</td></tr>
+<tr><td>variantSetDbIds</td><td>array[string]</td><td>The VariantSet to search.</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|analysis|array[object]|Set of Analysis descriptors for this VariantSet|
-|analysisDbId|string|Unique identifier for this analysis description|
-|analysisName|string|A human readable name for this analysis|
-|created|string (date-time)|The time at which this record was created, in ISO 8601 format.|
-|description|string|A human readable description of the analysis|
-|software|array[string]|The software run to generate this analysis.|
-|type|string|The type of analysis.|
-|updated|string (date-time)|The time at which this record was last updated, in ISO 8601 format.|
-|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.  <br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc) <br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
-|dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
-|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
-|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
-|fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
-|sepPhased|string|The string used as a separator for phased allele calls.|
-|sepUnphased|string|The string used as a separator for unphased allele calls.|
-|unknownString|string|The string used as a representation for missing data.|
-|callSetCount|integer|The number of CallSets included in this VariantSet|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
-|studyDbId|string|The ID of the dataset this variant set belongs to.|
-|variantCount|integer|The number of Variants included in this VariantSet|
-|variantSetDbId|string|The unique identifier for a VariantSet|
-|variantSetName|string|The human readable name for a VariantSet|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>analysis</td><td>array[object]</td><td>Set of Analysis descriptors for this VariantSet</td></tr>
+<tr><td>analysis.<br>analysisDbId</td><td>string</td><td>Unique identifier for this analysis description</td></tr>
+<tr><td>analysis.<br>analysisName</td><td>string</td><td>A human readable name for this analysis</td></tr>
+<tr><td>analysis.<br>created</td><td>string (date-time)</td><td>The time at which this record was created, in ISO 8601 format.</td></tr>
+<tr><td>analysis.<br>description</td><td>string</td><td>A human readable description of the analysis</td></tr>
+<tr><td>analysis.<br>software</td><td>array[string]</td><td>The software run to generate this analysis.</td></tr>
+<tr><td>analysis.<br>type</td><td>string</td><td>The type of analysis.</td></tr>
+<tr><td>analysis.<br>updated</td><td>string (date-time)</td><td>The time at which this record was last updated, in ISO 8601 format.</td></tr>
+<tr><td>availableFormats</td><td>array[object]</td><td>When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.  <br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc) <br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.</td></tr>
+<tr><td>availableFormats.<br>dataFormat</td><td>string</td><td>dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)</td></tr>
+<tr><td>availableFormats.<br>expandHomozygotes</td><td>boolean</td><td>Should homozygotes be expanded (true) or collapsed into a single occurrence (false)</td></tr>
+<tr><td>availableFormats.<br>fileFormat</td><td>string</td><td>fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.</td></tr>
+<tr><td>availableFormats.<br>fileURL</td><td>string (uri)</td><td>A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.</td></tr>
+<tr><td>availableFormats.<br>sepPhased</td><td>string</td><td>The string used as a separator for phased allele calls.</td></tr>
+<tr><td>availableFormats.<br>sepUnphased</td><td>string</td><td>The string used as a separator for unphased allele calls.</td></tr>
+<tr><td>availableFormats.<br>unknownString</td><td>string</td><td>The string used as a representation for missing data.</td></tr>
+<tr><td>callSetCount</td><td>integer</td><td>The number of CallSets included in this VariantSet</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>referenceSetDbId</td><td>string</td><td>The ID of the reference set that describes the sequences used by the variants in this set.</td></tr>
+<tr><td>studyDbId</td><td>string</td><td>The ID of the dataset this variant set belongs to.</td></tr>
+<tr><td>variantCount</td><td>integer</td><td>The number of Variants included in this VariantSet</td></tr>
+<tr><td>variantSetDbId</td><td>string</td><td>The unique identifier for a VariantSet</td></tr>
+<tr><td>variantSetName</td><td>string</td><td>The human readable name for a VariantSet</td></tr>
+</table>
 
 
  
@@ -820,35 +823,36 @@ This call will return a JSON version of a `VariantSet`.
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|analysis|array[object]|Set of Analysis descriptors for this VariantSet|
-|analysisDbId|string|Unique identifier for this analysis description|
-|analysisName|string|A human readable name for this analysis|
-|created|string (date-time)|The time at which this record was created, in ISO 8601 format.|
-|description|string|A human readable description of the analysis|
-|software|array[string]|The software run to generate this analysis.|
-|type|string|The type of analysis.|
-|updated|string (date-time)|The time at which this record was last updated, in ISO 8601 format.|
-|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.  <br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc) <br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
-|dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
-|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
-|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
-|fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
-|sepPhased|string|The string used as a separator for phased allele calls.|
-|sepUnphased|string|The string used as a separator for unphased allele calls.|
-|unknownString|string|The string used as a representation for missing data.|
-|callSetCount|integer|The number of CallSets included in this VariantSet|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
-|studyDbId|string|The ID of the dataset this variant set belongs to.|
-|variantCount|integer|The number of Variants included in this VariantSet|
-|variantSetDbId|string|The unique identifier for a VariantSet|
-|variantSetName|string|The human readable name for a VariantSet|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>analysis</td><td>array[object]</td><td>Set of Analysis descriptors for this VariantSet</td></tr>
+<tr><td>analysis.<br>analysisDbId</td><td>string</td><td>Unique identifier for this analysis description</td></tr>
+<tr><td>analysis.<br>analysisName</td><td>string</td><td>A human readable name for this analysis</td></tr>
+<tr><td>analysis.<br>created</td><td>string (date-time)</td><td>The time at which this record was created, in ISO 8601 format.</td></tr>
+<tr><td>analysis.<br>description</td><td>string</td><td>A human readable description of the analysis</td></tr>
+<tr><td>analysis.<br>software</td><td>array[string]</td><td>The software run to generate this analysis.</td></tr>
+<tr><td>analysis.<br>type</td><td>string</td><td>The type of analysis.</td></tr>
+<tr><td>analysis.<br>updated</td><td>string (date-time)</td><td>The time at which this record was last updated, in ISO 8601 format.</td></tr>
+<tr><td>availableFormats</td><td>array[object]</td><td>When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.  <br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc) <br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.</td></tr>
+<tr><td>availableFormats.<br>dataFormat</td><td>string</td><td>dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)</td></tr>
+<tr><td>availableFormats.<br>expandHomozygotes</td><td>boolean</td><td>Should homozygotes be expanded (true) or collapsed into a single occurrence (false)</td></tr>
+<tr><td>availableFormats.<br>fileFormat</td><td>string</td><td>fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.</td></tr>
+<tr><td>availableFormats.<br>fileURL</td><td>string (uri)</td><td>A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.</td></tr>
+<tr><td>availableFormats.<br>sepPhased</td><td>string</td><td>The string used as a separator for phased allele calls.</td></tr>
+<tr><td>availableFormats.<br>sepUnphased</td><td>string</td><td>The string used as a separator for unphased allele calls.</td></tr>
+<tr><td>availableFormats.<br>unknownString</td><td>string</td><td>The string used as a representation for missing data.</td></tr>
+<tr><td>callSetCount</td><td>integer</td><td>The number of CallSets included in this VariantSet</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>referenceSetDbId</td><td>string</td><td>The ID of the reference set that describes the sequences used by the variants in this set.</td></tr>
+<tr><td>studyDbId</td><td>string</td><td>The ID of the dataset this variant set belongs to.</td></tr>
+<tr><td>variantCount</td><td>integer</td><td>The number of Variants included in this VariantSet</td></tr>
+<tr><td>variantSetDbId</td><td>string</td><td>The unique identifier for a VariantSet</td></tr>
+<tr><td>variantSetName</td><td>string</td><td>The human readable name for a VariantSet</td></tr>
+</table>
 
 
  
@@ -972,24 +976,25 @@ Gets a list of `Calls` associated with a `VariantSet`.
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|callSetDbId|string|The ID of the call set this variant call belongs to.  If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
-|callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
-|genotype|object|`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.|
-|values|array|Repeated field of dynamically typed values.|
-|genotype_likelihood|array[number]|The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
-|phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.|
-|variantDbId|string|The ID of the variant this call belongs to.|
-|variantName|string|The name of the variant this call belongs to.|
-|variantSetDbId|string|The unique identifier for a VariantSet|
-|variantSetName|string|The human readable name for a VariantSet|
-|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
-|sepPhased|string|The string used as a separator for phased allele calls.|
-|sepUnphased|string|The string used as a separator for unphased allele calls.|
-|unknownString|string|The string used as a representation for missing data.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>data</td><td>array[object]</td><td></td></tr>
+<tr><td>data.<br>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>data.<br>callSetDbId</td><td>string</td><td>The ID of the call set this variant call belongs to.  If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.</td></tr>
+<tr><td>data.<br>callSetName</td><td>string</td><td>The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.</td></tr>
+<tr><td>data.<br>genotype</td><td>object</td><td>`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.</td></tr>
+<tr><td>data.<br>genotype.<br>values</td><td>array</td><td>Repeated field of dynamically typed values.</td></tr>
+<tr><td>data.<br>genotype_likelihood</td><td>array[number]</td><td>The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.</td></tr>
+<tr><td>data.<br>phaseSet</td><td>string</td><td>If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.</td></tr>
+<tr><td>data.<br>variantDbId</td><td>string</td><td>The ID of the variant this call belongs to.</td></tr>
+<tr><td>data.<br>variantName</td><td>string</td><td>The name of the variant this call belongs to.</td></tr>
+<tr><td>data.<br>variantSetDbId</td><td>string</td><td>The unique identifier for a VariantSet</td></tr>
+<tr><td>data.<br>variantSetName</td><td>string</td><td>The human readable name for a VariantSet</td></tr>
+<tr><td>expandHomozygotes</td><td>boolean</td><td>Should homozygotes be expanded (true) or collapsed into a single occurrence (false)</td></tr>
+<tr><td>sepPhased</td><td>string</td><td>The string used as a separator for phased allele calls.</td></tr>
+<tr><td>sepUnphased</td><td>string</td><td>The string used as a separator for unphased allele calls.</td></tr>
+<tr><td>unknownString</td><td>string</td><td>The string used as a representation for missing data.</td></tr>
+</table>
 
 
  
@@ -1085,21 +1090,21 @@ Gets a list of `CallSets` associated with a `VariantSet`.
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|callSetDbId|string|The call set ID.|
-|callSetName|string|The call set name.|
-|created|string (date-time)|The date this call set was created|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|sampleDbId|string|The Biosample entity the call set data was generated from.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|string (date-time)|The time at which this call set was last updated|
-|variantSetDbIds|array[string]|The IDs of the variant sets this call set has calls in.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>callSetDbId</td><td>string</td><td>The call set ID.</td></tr>
+<tr><td>callSetName</td><td>string</td><td>The call set name.</td></tr>
+<tr><td>created</td><td>string (date-time)</td><td>The date this call set was created</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>sampleDbId</td><td>string</td><td>The Biosample entity the call set data was generated from.</td></tr>
+<tr><td>studyDbId</td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
+<tr><td>updated</td><td>string (date-time)</td><td>The time at which this call set was last updated</td></tr>
+<tr><td>variantSetDbIds</td><td>array[string]</td><td>The IDs of the variant sets this call set has calls in.</td></tr>
+</table>
 
 
  
@@ -1194,34 +1199,34 @@ This call will return an array of `Variants`.
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
-|ciend|array[integer]|Similar to "cipos", but for the variant's end position (which is derived from start + svlen).|
-|cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2|
-|created|string (date-time)|The timestamp when this variant was created.|
-|end|integer|This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
-|filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
-|filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
-|referenceBases|string|The reference bases for this variant. They start at the given start position.|
-|referenceDbId|string|The unique identifier for a Reference|
-|referenceName|string|The reference on which this variant occurs. (e.g. `chr_20` or `X`)|
-|referenceSetDbId|string|The unique identifier for a ReferenceSet|
-|referenceSetName|string|The human readable name of the ReferenceSet|
-|start|integer|This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The start position at which this variant occurs (0-based). This corresponds to the first base of the string  of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning  the join of circular genomes are represented as two variants one on each side of the join (position 0).|
-|svlen|integer|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2|
-|updated|string (date-time)|The time at which this variant was last updated.|
-|variantDbId|string|The variant ID.|
-|variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
-|variantSetDbId|array[string]|An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
-|variantType|string|The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"   DEL  : deletion of sequence following "start"|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>alternate_bases</td><td>array[string]</td><td>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
+<tr><td>ciend</td><td>array[integer]</td><td>Similar to "cipos", but for the variant's end position (which is derived from start + svlen).</td></tr>
+<tr><td>cipos</td><td>array[integer]</td><td>In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2</td></tr>
+<tr><td>created</td><td>string (date-time)</td><td>The timestamp when this variant was created.</td></tr>
+<tr><td>end</td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>filtersApplied</td><td>boolean (boolean)</td><td>True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.</td></tr>
+<tr><td>filtersFailed</td><td>array[string]</td><td>Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.</td></tr>
+<tr><td>filtersPassed</td><td>boolean (boolean)</td><td>True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.</td></tr>
+<tr><td>referenceBases</td><td>string</td><td>The reference bases for this variant. They start at the given start position.</td></tr>
+<tr><td>referenceDbId</td><td>string</td><td>The unique identifier for a Reference</td></tr>
+<tr><td>referenceName</td><td>string</td><td>The reference on which this variant occurs. (e.g. `chr_20` or `X`)</td></tr>
+<tr><td>referenceSetDbId</td><td>string</td><td>The unique identifier for a ReferenceSet</td></tr>
+<tr><td>referenceSetName</td><td>string</td><td>The human readable name of the ReferenceSet</td></tr>
+<tr><td>start</td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The start position at which this variant occurs (0-based). This corresponds to the first base of the string  of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning  the join of circular genomes are represented as two variants one on each side of the join (position 0).</td></tr>
+<tr><td>svlen</td><td>integer</td><td>Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2</td></tr>
+<tr><td>updated</td><td>string (date-time)</td><td>The time at which this variant was last updated.</td></tr>
+<tr><td>variantDbId</td><td>string</td><td>The variant ID.</td></tr>
+<tr><td>variantNames</td><td>array[string]</td><td>Names for the variant, for example a RefSNP ID.</td></tr>
+<tr><td>variantSetDbId</td><td>array[string]</td><td>An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.</td></tr>
+<tr><td>variantType</td><td>string</td><td>The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"   DEL  : deletion of sequence following "start"</td></tr>
+</table>
 
 
  

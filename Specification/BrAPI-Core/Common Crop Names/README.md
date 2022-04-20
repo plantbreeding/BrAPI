@@ -26,9 +26,9 @@ Studies, and Germplasm.
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[string]|array of crop names available on the server|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+</table>
 
 
  

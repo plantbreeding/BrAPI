@@ -20,12 +20,12 @@ program like "PlantingTime_3" or "Season E"
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
-|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|year|integer|The 4 digit year of the season.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>seasonDbId</td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>seasonName</td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
+<tr><td>year</td><td>integer</td><td>The 4 digit year of the season.</td></tr>
+</table>
 
 
  
@@ -98,21 +98,22 @@ Add new season entries to the database
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
-|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|year|integer|The 4 digit year of the season.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>seasonDbId</td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>seasonName</td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
+<tr><td>year</td><td>integer</td><td>The 4 digit year of the season.</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
-|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|year|integer|The 4 digit year of the season.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>seasonDbId</td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>seasonName</td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
+<tr><td>year</td><td>integer</td><td>The 4 digit year of the season.</td></tr>
+</table>
 
 
  
@@ -194,11 +195,12 @@ Get the a single Season
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
-|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|year|integer|The 4 digit year of the season.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>seasonDbId</td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>seasonName</td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
+<tr><td>year</td><td>integer</td><td>The 4 digit year of the season.</td></tr>
+</table>
 
 
  
@@ -263,20 +265,22 @@ Update existing Seasons
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
-|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|year|integer|The 4 digit year of the season.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>seasonDbId</td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>seasonName</td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
+<tr><td>year</td><td>integer</td><td>The 4 digit year of the season.</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
-|seasonName|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|year|integer|The 4 digit year of the season.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>seasonDbId</td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>seasonName</td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
+<tr><td>year</td><td>integer</td><td>The 4 digit year of the season.</td></tr>
+</table>
 
 
  

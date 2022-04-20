@@ -16,21 +16,21 @@ Get the Germplasm Attribute Values
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
-|attributeName|string|A human readable name for this attribute|
-|attributeValueDbId|string|The ID which uniquely identifies this attribute value within the given database server|
-|determinedDate|string (date-time)|The date the value of this attribute was determined for a given germplasm|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|value|string|The value of this attribute for a given germplasm|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>attributeDbId</td><td>string</td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
+<tr><td>attributeName</td><td>string</td><td>A human readable name for this attribute</td></tr>
+<tr><td>attributeValueDbId</td><td>string</td><td>The ID which uniquely identifies this attribute value within the given database server</td></tr>
+<tr><td>determinedDate</td><td>string (date-time)</td><td>The date the value of this attribute was determined for a given germplasm</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>germplasmDbId</td><td>string</td><td>The ID which uniquely identifies a germplasm within the given database server</td></tr>
+<tr><td>germplasmName</td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
+<tr><td>value</td><td>string</td><td>The value of this attribute for a given germplasm</td></tr>
+</table>
 
 
  
@@ -124,38 +124,39 @@ Create new Germplasm Attribute Values
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
-|attributeName|string|A human readable name for this attribute|
-|determinedDate|string (date-time)|The date the value of this attribute was determined for a given germplasm|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|value|string|The value of this attribute for a given germplasm|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>attributeDbId</td><td>string</td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
+<tr><td>attributeName</td><td>string</td><td>A human readable name for this attribute</td></tr>
+<tr><td>determinedDate</td><td>string (date-time)</td><td>The date the value of this attribute was determined for a given germplasm</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>germplasmDbId</td><td>string</td><td>The ID which uniquely identifies a germplasm within the given database server</td></tr>
+<tr><td>germplasmName</td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
+<tr><td>value</td><td>string</td><td>The value of this attribute for a given germplasm</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
-|attributeName|string|A human readable name for this attribute|
-|attributeValueDbId|string|The ID which uniquely identifies this attribute value within the given database server|
-|determinedDate|string (date-time)|The date the value of this attribute was determined for a given germplasm|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|value|string|The value of this attribute for a given germplasm|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>attributeDbId</td><td>string</td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
+<tr><td>attributeName</td><td>string</td><td>A human readable name for this attribute</td></tr>
+<tr><td>attributeValueDbId</td><td>string</td><td>The ID which uniquely identifies this attribute value within the given database server</td></tr>
+<tr><td>determinedDate</td><td>string (date-time)</td><td>The date the value of this attribute was determined for a given germplasm</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>germplasmDbId</td><td>string</td><td>The ID which uniquely identifies a germplasm within the given database server</td></tr>
+<tr><td>germplasmName</td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
+<tr><td>value</td><td>string</td><td>The value of this attribute for a given germplasm</td></tr>
+</table>
 
 
  
@@ -266,20 +267,21 @@ Get the details for a specific Germplasm Attribute
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
-|attributeName|string|A human readable name for this attribute|
-|attributeValueDbId|string|The ID which uniquely identifies this attribute value within the given database server|
-|determinedDate|string (date-time)|The date the value of this attribute was determined for a given germplasm|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|value|string|The value of this attribute for a given germplasm|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>attributeDbId</td><td>string</td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
+<tr><td>attributeName</td><td>string</td><td>A human readable name for this attribute</td></tr>
+<tr><td>attributeValueDbId</td><td>string</td><td>The ID which uniquely identifies this attribute value within the given database server</td></tr>
+<tr><td>determinedDate</td><td>string (date-time)</td><td>The date the value of this attribute was determined for a given germplasm</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>germplasmDbId</td><td>string</td><td>The ID which uniquely identifies a germplasm within the given database server</td></tr>
+<tr><td>germplasmName</td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
+<tr><td>value</td><td>string</td><td>The value of this attribute for a given germplasm</td></tr>
+</table>
 
 
  
@@ -359,37 +361,39 @@ Update an existing Germplasm Attribute Value
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
-|attributeName|string|A human readable name for this attribute|
-|determinedDate|string (date-time)|The date the value of this attribute was determined for a given germplasm|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|value|string|The value of this attribute for a given germplasm|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>attributeDbId</td><td>string</td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
+<tr><td>attributeName</td><td>string</td><td>A human readable name for this attribute</td></tr>
+<tr><td>determinedDate</td><td>string (date-time)</td><td>The date the value of this attribute was determined for a given germplasm</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>germplasmDbId</td><td>string</td><td>The ID which uniquely identifies a germplasm within the given database server</td></tr>
+<tr><td>germplasmName</td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
+<tr><td>value</td><td>string</td><td>The value of this attribute for a given germplasm</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
-|attributeName|string|A human readable name for this attribute|
-|attributeValueDbId|string|The ID which uniquely identifies this attribute value within the given database server|
-|determinedDate|string (date-time)|The date the value of this attribute was determined for a given germplasm|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|value|string|The value of this attribute for a given germplasm|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>attributeDbId</td><td>string</td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
+<tr><td>attributeName</td><td>string</td><td>A human readable name for this attribute</td></tr>
+<tr><td>attributeValueDbId</td><td>string</td><td>The ID which uniquely identifies this attribute value within the given database server</td></tr>
+<tr><td>determinedDate</td><td>string (date-time)</td><td>The date the value of this attribute was determined for a given germplasm</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>germplasmDbId</td><td>string</td><td>The ID which uniquely identifies a germplasm within the given database server</td></tr>
+<tr><td>germplasmName</td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
+<tr><td>value</td><td>string</td><td>The value of this attribute for a given germplasm</td></tr>
+</table>
 
 
  
@@ -497,46 +501,47 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|attributeDbIds|array[string]|List of Germplasm Attribute IDs to search for|
-|attributeNames|array[string]|List of human readable Germplasm Attribute names to search for|
-|attributeValueDbIds|array[string]|List of Germplasm Attribute Value IDs to search for|
-|commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
-|dataTypes|array[string]|List of scale data types to filter search results|
-|externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
-|externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
-|externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
-|germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
-|germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
-|methodDbIds|array[string]|List of methods to filter search results|
-|ontologyDbIds|array[string]|List of ontology IDs to search for|
-|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
-|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
-|programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
-|programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
-|scaleDbIds|array[string]|List of scales to filter search results|
-|traitClasses|array[string]|List of trait classes to filter search results|
-|traitDbIds|array[string]|List of trait unique ID to filter search results|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>attributeDbIds</td><td>array[string]</td><td>List of Germplasm Attribute IDs to search for</td></tr>
+<tr><td>attributeNames</td><td>array[string]</td><td>List of human readable Germplasm Attribute names to search for</td></tr>
+<tr><td>attributeValueDbIds</td><td>array[string]</td><td>List of Germplasm Attribute Value IDs to search for</td></tr>
+<tr><td>commonCropNames</td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
+<tr><td>dataTypes</td><td>array[string]</td><td>List of scale data types to filter search results</td></tr>
+<tr><td>externalReferenceIDs</td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td>externalReferenceIds</td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td>externalReferenceSources</td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
+<tr><td>germplasmDbIds</td><td>array[string]</td><td>List of IDs which uniquely identify germplasm to search for</td></tr>
+<tr><td>germplasmNames</td><td>array[string]</td><td>List of human readable names to identify germplasm to search for</td></tr>
+<tr><td>methodDbIds</td><td>array[string]</td><td>List of methods to filter search results</td></tr>
+<tr><td>ontologyDbIds</td><td>array[string]</td><td>List of ontology IDs to search for</td></tr>
+<tr><td>page</td><td>integer</td><td>Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.</td></tr>
+<tr><td>pageSize</td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
+<tr><td>programDbIds</td><td>array[string]</td><td>A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.</td></tr>
+<tr><td>programNames</td><td>array[string]</td><td>Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.</td></tr>
+<tr><td>scaleDbIds</td><td>array[string]</td><td>List of scales to filter search results</td></tr>
+<tr><td>traitClasses</td><td>array[string]</td><td>List of trait classes to filter search results</td></tr>
+<tr><td>traitDbIds</td><td>array[string]</td><td>List of trait unique ID to filter search results</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
-|attributeName|string|A human readable name for this attribute|
-|attributeValueDbId|string|The ID which uniquely identifies this attribute value within the given database server|
-|determinedDate|string (date-time)|The date the value of this attribute was determined for a given germplasm|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|value|string|The value of this attribute for a given germplasm|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>attributeDbId</td><td>string</td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
+<tr><td>attributeName</td><td>string</td><td>A human readable name for this attribute</td></tr>
+<tr><td>attributeValueDbId</td><td>string</td><td>The ID which uniquely identifies this attribute value within the given database server</td></tr>
+<tr><td>determinedDate</td><td>string (date-time)</td><td>The date the value of this attribute was determined for a given germplasm</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>germplasmDbId</td><td>string</td><td>The ID which uniquely identifies a germplasm within the given database server</td></tr>
+<tr><td>germplasmName</td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
+<tr><td>value</td><td>string</td><td>The value of this attribute for a given germplasm</td></tr>
+</table>
 
 
  
@@ -732,21 +737,21 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
-|attributeName|string|A human readable name for this attribute|
-|attributeValueDbId|string|The ID which uniquely identifies this attribute value within the given database server|
-|determinedDate|string (date-time)|The date the value of this attribute was determined for a given germplasm|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|value|string|The value of this attribute for a given germplasm|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>attributeDbId</td><td>string</td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
+<tr><td>attributeName</td><td>string</td><td>A human readable name for this attribute</td></tr>
+<tr><td>attributeValueDbId</td><td>string</td><td>The ID which uniquely identifies this attribute value within the given database server</td></tr>
+<tr><td>determinedDate</td><td>string (date-time)</td><td>The date the value of this attribute was determined for a given germplasm</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>germplasmDbId</td><td>string</td><td>The ID which uniquely identifies a germplasm within the given database server</td></tr>
+<tr><td>germplasmName</td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
+<tr><td>value</td><td>string</td><td>The value of this attribute for a given germplasm</td></tr>
+</table>
 
 
  

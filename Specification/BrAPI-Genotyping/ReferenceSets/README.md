@@ -12,29 +12,29 @@ Gets a filtered list of `ReferenceSets`.
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|assemblyPUI|string|The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.|
-|commonCropName|string|Common name for the crop|
-|description|string|Optional free text description of this reference set.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|isDerived|boolean (boolean)|A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).|
-|md5checksum|string|Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.|
-|referenceSetDbId|string|The unique identifier for a ReferenceSet|
-|referenceSetName|string|The human readable name of a ReferenceSet|
-|sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.|
-|sourceGermplasm|array[object]|All known corresponding Germplasm|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
-|germplasmName|string|The human readable name of a germplasm|
-|sourceURI|string|Specifies a FASTA format file/string.|
-|species|object|An ontology term describing an attribute.|
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>assemblyPUI</td><td>string</td><td>The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.</td></tr>
+<tr><td>commonCropName</td><td>string</td><td>Common name for the crop</td></tr>
+<tr><td>description</td><td>string</td><td>Optional free text description of this reference set.</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>isDerived</td><td>boolean (boolean)</td><td>A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).</td></tr>
+<tr><td>md5checksum</td><td>string</td><td>Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.</td></tr>
+<tr><td>referenceSetDbId</td><td>string</td><td>The unique identifier for a ReferenceSet</td></tr>
+<tr><td>referenceSetName</td><td>string</td><td>The human readable name of a ReferenceSet</td></tr>
+<tr><td>sourceAccessions</td><td>array[string]</td><td>All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.</td></tr>
+<tr><td>sourceGermplasm</td><td>array[object]</td><td>All known corresponding Germplasm</td></tr>
+<tr><td>sourceGermplasm.<br>germplasmDbId</td><td>string</td><td>The ID which uniquely identifies a germplasm within the given database server</td></tr>
+<tr><td>sourceGermplasm.<br>germplasmName</td><td>string</td><td>The human readable name of a germplasm</td></tr>
+<tr><td>sourceURI</td><td>string</td><td>Specifies a FASTA format file/string.</td></tr>
+<tr><td>species</td><td>object</td><td>An ontology term describing an attribute.</td></tr>
+<tr><td>species.<br>term</td><td>string</td><td>Ontology term - the label of the ontology term the termId is pointing to.</td></tr>
+<tr><td>species.<br>termURI</td><td>string</td><td>Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.</td></tr>
+</table>
 
 
  
@@ -145,28 +145,29 @@ Gets a `ReferenceSet` by ID.
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|assemblyPUI|string|The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.|
-|commonCropName|string|Common name for the crop|
-|description|string|Optional free text description of this reference set.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|isDerived|boolean (boolean)|A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).|
-|md5checksum|string|Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.|
-|referenceSetDbId|string|The unique identifier for a ReferenceSet|
-|referenceSetName|string|The human readable name of a ReferenceSet|
-|sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.|
-|sourceGermplasm|array[object]|All known corresponding Germplasm|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
-|germplasmName|string|The human readable name of a germplasm|
-|sourceURI|string|Specifies a FASTA format file/string.|
-|species|object|An ontology term describing an attribute.|
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>assemblyPUI</td><td>string</td><td>The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.</td></tr>
+<tr><td>commonCropName</td><td>string</td><td>Common name for the crop</td></tr>
+<tr><td>description</td><td>string</td><td>Optional free text description of this reference set.</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>isDerived</td><td>boolean (boolean)</td><td>A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).</td></tr>
+<tr><td>md5checksum</td><td>string</td><td>Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.</td></tr>
+<tr><td>referenceSetDbId</td><td>string</td><td>The unique identifier for a ReferenceSet</td></tr>
+<tr><td>referenceSetName</td><td>string</td><td>The human readable name of a ReferenceSet</td></tr>
+<tr><td>sourceAccessions</td><td>array[string]</td><td>All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.</td></tr>
+<tr><td>sourceGermplasm</td><td>array[object]</td><td>All known corresponding Germplasm</td></tr>
+<tr><td>sourceGermplasm.<br>germplasmDbId</td><td>string</td><td>The ID which uniquely identifies a germplasm within the given database server</td></tr>
+<tr><td>sourceGermplasm.<br>germplasmName</td><td>string</td><td>The human readable name of a germplasm</td></tr>
+<tr><td>sourceURI</td><td>string</td><td>Specifies a FASTA format file/string.</td></tr>
+<tr><td>species</td><td>object</td><td>An ontology term describing an attribute.</td></tr>
+<tr><td>species.<br>term</td><td>string</td><td>Ontology term - the label of the ontology term the termId is pointing to.</td></tr>
+<tr><td>species.<br>termURI</td><td>string</td><td>Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.</td></tr>
+</table>
 
 
  
@@ -249,53 +250,54 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|accessions|array[string]|If set, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).|
-|assemblyPUIs|array[string]|If set, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).|
-|commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
-|externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
-|externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
-|externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
-|germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
-|germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
-|md5checksums|array[string]|If set, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match).|
-|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
-|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
-|programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
-|programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
-|referenceSetDbIds|array[string]|The `ReferenceSets` to search.|
-|studyDbIds|array[string]|List of study identifiers to search for|
-|studyNames|array[string]|List of study names to filter search results|
-|trialDbIds|array[string]|The ID which uniquely identifies a trial to search for|
-|trialNames|array[string]|The human readable name of a trial to search for|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>accessions</td><td>array[string]</td><td>If set, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).</td></tr>
+<tr><td>assemblyPUIs</td><td>array[string]</td><td>If set, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).</td></tr>
+<tr><td>commonCropNames</td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
+<tr><td>externalReferenceIDs</td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td>externalReferenceIds</td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td>externalReferenceSources</td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
+<tr><td>germplasmDbIds</td><td>array[string]</td><td>List of IDs which uniquely identify germplasm to search for</td></tr>
+<tr><td>germplasmNames</td><td>array[string]</td><td>List of human readable names to identify germplasm to search for</td></tr>
+<tr><td>md5checksums</td><td>array[string]</td><td>If set, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match).</td></tr>
+<tr><td>page</td><td>integer</td><td>Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.</td></tr>
+<tr><td>pageSize</td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
+<tr><td>programDbIds</td><td>array[string]</td><td>A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.</td></tr>
+<tr><td>programNames</td><td>array[string]</td><td>Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.</td></tr>
+<tr><td>referenceSetDbIds</td><td>array[string]</td><td>The `ReferenceSets` to search.</td></tr>
+<tr><td>studyDbIds</td><td>array[string]</td><td>List of study identifiers to search for</td></tr>
+<tr><td>studyNames</td><td>array[string]</td><td>List of study names to filter search results</td></tr>
+<tr><td>trialDbIds</td><td>array[string]</td><td>The ID which uniquely identifies a trial to search for</td></tr>
+<tr><td>trialNames</td><td>array[string]</td><td>The human readable name of a trial to search for</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|assemblyPUI|string|The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.|
-|commonCropName|string|Common name for the crop|
-|description|string|Optional free text description of this reference set.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|isDerived|boolean (boolean)|A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).|
-|md5checksum|string|Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.|
-|referenceSetDbId|string|The unique identifier for a ReferenceSet|
-|referenceSetName|string|The human readable name of a ReferenceSet|
-|sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.|
-|sourceGermplasm|array[object]|All known corresponding Germplasm|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
-|germplasmName|string|The human readable name of a germplasm|
-|sourceURI|string|Specifies a FASTA format file/string.|
-|species|object|An ontology term describing an attribute.|
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>assemblyPUI</td><td>string</td><td>The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.</td></tr>
+<tr><td>commonCropName</td><td>string</td><td>Common name for the crop</td></tr>
+<tr><td>description</td><td>string</td><td>Optional free text description of this reference set.</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>isDerived</td><td>boolean (boolean)</td><td>A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).</td></tr>
+<tr><td>md5checksum</td><td>string</td><td>Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.</td></tr>
+<tr><td>referenceSetDbId</td><td>string</td><td>The unique identifier for a ReferenceSet</td></tr>
+<tr><td>referenceSetName</td><td>string</td><td>The human readable name of a ReferenceSet</td></tr>
+<tr><td>sourceAccessions</td><td>array[string]</td><td>All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.</td></tr>
+<tr><td>sourceGermplasm</td><td>array[object]</td><td>All known corresponding Germplasm</td></tr>
+<tr><td>sourceGermplasm.<br>germplasmDbId</td><td>string</td><td>The ID which uniquely identifies a germplasm within the given database server</td></tr>
+<tr><td>sourceGermplasm.<br>germplasmName</td><td>string</td><td>The human readable name of a germplasm</td></tr>
+<tr><td>sourceURI</td><td>string</td><td>Specifies a FASTA format file/string.</td></tr>
+<tr><td>species</td><td>object</td><td>An ontology term describing an attribute.</td></tr>
+<tr><td>species.<br>term</td><td>string</td><td>Ontology term - the label of the ontology term the termId is pointing to.</td></tr>
+<tr><td>species.<br>termURI</td><td>string</td><td>Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.</td></tr>
+</table>
 
 
  
@@ -498,29 +500,29 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|assemblyPUI|string|The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.|
-|commonCropName|string|Common name for the crop|
-|description|string|Optional free text description of this reference set.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|isDerived|boolean (boolean)|A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).|
-|md5checksum|string|Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.|
-|referenceSetDbId|string|The unique identifier for a ReferenceSet|
-|referenceSetName|string|The human readable name of a ReferenceSet|
-|sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.|
-|sourceGermplasm|array[object]|All known corresponding Germplasm|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
-|germplasmName|string|The human readable name of a germplasm|
-|sourceURI|string|Specifies a FASTA format file/string.|
-|species|object|An ontology term describing an attribute.|
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>assemblyPUI</td><td>string</td><td>The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.</td></tr>
+<tr><td>commonCropName</td><td>string</td><td>Common name for the crop</td></tr>
+<tr><td>description</td><td>string</td><td>Optional free text description of this reference set.</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>isDerived</td><td>boolean (boolean)</td><td>A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).</td></tr>
+<tr><td>md5checksum</td><td>string</td><td>Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.</td></tr>
+<tr><td>referenceSetDbId</td><td>string</td><td>The unique identifier for a ReferenceSet</td></tr>
+<tr><td>referenceSetName</td><td>string</td><td>The human readable name of a ReferenceSet</td></tr>
+<tr><td>sourceAccessions</td><td>array[string]</td><td>All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.</td></tr>
+<tr><td>sourceGermplasm</td><td>array[object]</td><td>All known corresponding Germplasm</td></tr>
+<tr><td>sourceGermplasm.<br>germplasmDbId</td><td>string</td><td>The ID which uniquely identifies a germplasm within the given database server</td></tr>
+<tr><td>sourceGermplasm.<br>germplasmName</td><td>string</td><td>The human readable name of a germplasm</td></tr>
+<tr><td>sourceURI</td><td>string</td><td>Specifies a FASTA format file/string.</td></tr>
+<tr><td>species</td><td>object</td><td>An ontology term describing an attribute.</td></tr>
+<tr><td>species.<br>term</td><td>string</td><td>Ontology term - the label of the ontology term the termId is pointing to.</td></tr>
+<tr><td>species.<br>termURI</td><td>string</td><td>Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.</td></tr>
+</table>
 
 
  

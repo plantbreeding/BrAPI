@@ -21,102 +21,103 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|active|boolean|Is this study currently active|
-|commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
-|externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
-|externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
-|externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
-|germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
-|germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
-|locationDbIds|array[string]|The location ids to search for|
-|locationNames|array[string]|A human readable names to search for|
-|observationVariableDbIds|array[string]|The DbIds of Variables to search for|
-|observationVariableNames|array[string]|The names of Variables to search for|
-|observationVariablePUIs|array[string]|The Permanent Unique Identifier of an Observation Variable, usually in the form of a URI|
-|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
-|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
-|programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
-|programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
-|seasonDbIds|array[string]|The ID which uniquely identifies a season|
-|sortBy|string|Name of one of the fields within the study object on which results can be sorted|
-|sortOrder|string|Order results should be sorted. ex. "ASC" or "DESC"|
-|studyCodes|array[string]|A short human readable code for a study|
-|studyDbIds|array[string]|List of study identifiers to search for|
-|studyNames|array[string]|List of study names to filter search results|
-|studyPUIs|array[string]|Permanent unique identifier associated with study data. For example, a URI or DOI|
-|studyTypes|array[string]|The type of study being performed. ex. "Yield Trial", etc|
-|trialDbIds|array[string]|The ID which uniquely identifies a trial to search for|
-|trialNames|array[string]|The human readable name of a trial to search for|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>active</td><td>boolean</td><td>Is this study currently active</td></tr>
+<tr><td>commonCropNames</td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
+<tr><td>externalReferenceIDs</td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td>externalReferenceIds</td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td>externalReferenceSources</td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
+<tr><td>germplasmDbIds</td><td>array[string]</td><td>List of IDs which uniquely identify germplasm to search for</td></tr>
+<tr><td>germplasmNames</td><td>array[string]</td><td>List of human readable names to identify germplasm to search for</td></tr>
+<tr><td>locationDbIds</td><td>array[string]</td><td>The location ids to search for</td></tr>
+<tr><td>locationNames</td><td>array[string]</td><td>A human readable names to search for</td></tr>
+<tr><td>observationVariableDbIds</td><td>array[string]</td><td>The DbIds of Variables to search for</td></tr>
+<tr><td>observationVariableNames</td><td>array[string]</td><td>The names of Variables to search for</td></tr>
+<tr><td>observationVariablePUIs</td><td>array[string]</td><td>The Permanent Unique Identifier of an Observation Variable, usually in the form of a URI</td></tr>
+<tr><td>page</td><td>integer</td><td>Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.</td></tr>
+<tr><td>pageSize</td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
+<tr><td>programDbIds</td><td>array[string]</td><td>A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.</td></tr>
+<tr><td>programNames</td><td>array[string]</td><td>Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.</td></tr>
+<tr><td>seasonDbIds</td><td>array[string]</td><td>The ID which uniquely identifies a season</td></tr>
+<tr><td>sortBy</td><td>string</td><td>Name of one of the fields within the study object on which results can be sorted</td></tr>
+<tr><td>sortOrder</td><td>string</td><td>Order results should be sorted. ex. "ASC" or "DESC"</td></tr>
+<tr><td>studyCodes</td><td>array[string]</td><td>A short human readable code for a study</td></tr>
+<tr><td>studyDbIds</td><td>array[string]</td><td>List of study identifiers to search for</td></tr>
+<tr><td>studyNames</td><td>array[string]</td><td>List of study names to filter search results</td></tr>
+<tr><td>studyPUIs</td><td>array[string]</td><td>Permanent unique identifier associated with study data. For example, a URI or DOI</td></tr>
+<tr><td>studyTypes</td><td>array[string]</td><td>The type of study being performed. ex. "Yield Trial", etc</td></tr>
+<tr><td>trialDbIds</td><td>array[string]</td><td>The ID which uniquely identifies a trial to search for</td></tr>
+<tr><td>trialNames</td><td>array[string]</td><td>The human readable name of a trial to search for</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|active|boolean|Is this study currently active|
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop associated with this study|
-|contacts|array[object]|List of contact entities associated with this study|
-|contactDbId|string|The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
-|email|string|The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.|
-|instituteName|string|The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to|
-|name|string|The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
-|culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
-|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|description|string|The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|name|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|provenance|string|The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.|
-|scientificType|string|The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc|
-|url|string (uri)|URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
-|version|string|The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).|
-|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|parameterName|string|Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. |
-|parameterPUI|string|URI pointing to an ontology class for the parameter|
-|unit|string|Unit of the value for this parameter|
-|unitPUI|string|URI pointing to an ontology class for the unit|
-|value|string|Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.|
-|valuePUI|string|URI pointing to an ontology class for the parameter value|
-|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
-|description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|growthFacility|object|Short description of the facility in which the study was carried out.|
-|PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
-|description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
-|lastUpdate|object|The date and time when this study was last modified|
-|timestamp|string (date-time)||
-|version|string||
-|license|string|The usage license associated with the study data|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
-|observationLevels|array[object]|Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). |
-|levelName|string|A name for this level   **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
-|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
-|observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
-|observationVariableDbIds|array[string]|The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. |
-|seasons|array[string]|List of seasons over which this study was performed.|
-|startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
-|studyCode|string|A short human readable code for a study|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.|
-|studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
-|studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
-|studyPUI|string|A permanent unique identifier associated with this study data. For example, a URI or DOI|
-|studyType|string|The type of study being performed. ex. "Yield Trial", etc|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|trialName|string|The human readable name of a trial|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>active</td><td>boolean</td><td>Is this study currently active</td></tr>
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>commonCropName</td><td>string</td><td>Common name for the crop associated with this study</td></tr>
+<tr><td>contacts</td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
+<tr><td>contacts.<br>contactDbId</td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts.<br>email</td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
+<tr><td>contacts.<br>instituteName</td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
+<tr><td>contacts.<br>name</td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
+<tr><td>contacts.<br>orcid</td><td>string</td><td>The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts.<br>type</td><td>string</td><td>The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation</td></tr>
+<tr><td>culturalPractices</td><td>string</td><td>MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.</td></tr>
+<tr><td>dataLinks</td><td>array[object]</td><td>List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.</td></tr>
+<tr><td>dataLinks.<br>dataFormat</td><td>string</td><td>The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>description</td><td>string</td><td>The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>fileFormat</td><td>string</td><td>The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>name</td><td>string</td><td>The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>provenance</td><td>string</td><td>The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.</td></tr>
+<tr><td>dataLinks.<br>scientificType</td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
+<tr><td>dataLinks.<br>url</td><td>string (uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
+<tr><td>dataLinks.<br>version</td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
+<tr><td>documentationURL</td><td>string (uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td>endDate</td><td>string (date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
+<tr><td>environmentParameters</td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
+<tr><td>environmentParameters.<br>description</td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
+<tr><td>environmentParameters.<br>parameterName</td><td>string</td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
+<tr><td>environmentParameters.<br>parameterPUI</td><td>string</td><td>URI pointing to an ontology class for the parameter</td></tr>
+<tr><td>environmentParameters.<br>unit</td><td>string</td><td>Unit of the value for this parameter</td></tr>
+<tr><td>environmentParameters.<br>unitPUI</td><td>string</td><td>URI pointing to an ontology class for the unit</td></tr>
+<tr><td>environmentParameters.<br>value</td><td>string</td><td>Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.</td></tr>
+<tr><td>environmentParameters.<br>valuePUI</td><td>string</td><td>URI pointing to an ontology class for the parameter value</td></tr>
+<tr><td>experimentalDesign</td><td>object</td><td>The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology</td></tr>
+<tr><td>experimentalDesign.<br>PUI</td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign.<br>description</td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>growthFacility</td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
+<tr><td>growthFacility.<br>PUI</td><td>string</td><td>MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>growthFacility.<br>description</td><td>string</td><td>MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.</td></tr>
+<tr><td>lastUpdate</td><td>object</td><td>The date and time when this study was last modified</td></tr>
+<tr><td>lastUpdate.<br>timestamp</td><td>string (date-time)</td><td></td></tr>
+<tr><td>lastUpdate.<br>version</td><td>string</td><td></td></tr>
+<tr><td>license</td><td>string</td><td>The usage license associated with the study data</td></tr>
+<tr><td>locationDbId</td><td>string</td><td>The unique identifier for a Location</td></tr>
+<tr><td>locationName</td><td>string</td><td>A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
+<tr><td>observationLevels</td><td>array[object]</td><td>Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). </td></tr>
+<tr><td>observationLevels.<br>levelName</td><td>string</td><td>A name for this level   **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. </td></tr>
+<tr><td>observationLevels.<br>levelOrder</td><td>integer</td><td>`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. </td></tr>
+<tr><td>observationUnitsDescription</td><td>string</td><td>MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.</td></tr>
+<tr><td>observationVariableDbIds</td><td>array[string]</td><td>The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. </td></tr>
+<tr><td>seasons</td><td>array[string]</td><td>List of seasons over which this study was performed.</td></tr>
+<tr><td>startDate</td><td>string (date-time)</td><td>The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started</td></tr>
+<tr><td>studyCode</td><td>string</td><td>A short human readable code for a study</td></tr>
+<tr><td>studyDbId</td><td>string</td><td>The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.</td></tr>
+<tr><td>studyDescription</td><td>string</td><td>The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study</td></tr>
+<tr><td>studyName</td><td>string</td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
+<tr><td>studyPUI</td><td>string</td><td>A permanent unique identifier associated with this study data. For example, a URI or DOI</td></tr>
+<tr><td>studyType</td><td>string</td><td>The type of study being performed. ex. "Yield Trial", etc</td></tr>
+<tr><td>trialDbId</td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
+<tr><td>trialName</td><td>string</td><td>The human readable name of a trial</td></tr>
+</table>
 
 
  
@@ -422,70 +423,70 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|active|boolean|Is this study currently active|
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop associated with this study|
-|contacts|array[object]|List of contact entities associated with this study|
-|contactDbId|string|The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
-|email|string|The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.|
-|instituteName|string|The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to|
-|name|string|The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
-|culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
-|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|description|string|The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|name|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|provenance|string|The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.|
-|scientificType|string|The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc|
-|url|string (uri)|URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
-|version|string|The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).|
-|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|parameterName|string|Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. |
-|parameterPUI|string|URI pointing to an ontology class for the parameter|
-|unit|string|Unit of the value for this parameter|
-|unitPUI|string|URI pointing to an ontology class for the unit|
-|value|string|Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.|
-|valuePUI|string|URI pointing to an ontology class for the parameter value|
-|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
-|description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|growthFacility|object|Short description of the facility in which the study was carried out.|
-|PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
-|description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
-|lastUpdate|object|The date and time when this study was last modified|
-|timestamp|string (date-time)||
-|version|string||
-|license|string|The usage license associated with the study data|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
-|observationLevels|array[object]|Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). |
-|levelName|string|A name for this level   **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
-|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
-|observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
-|observationVariableDbIds|array[string]|The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. |
-|seasons|array[string]|List of seasons over which this study was performed.|
-|startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
-|studyCode|string|A short human readable code for a study|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.|
-|studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
-|studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
-|studyPUI|string|A permanent unique identifier associated with this study data. For example, a URI or DOI|
-|studyType|string|The type of study being performed. ex. "Yield Trial", etc|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|trialName|string|The human readable name of a trial|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>active</td><td>boolean</td><td>Is this study currently active</td></tr>
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>commonCropName</td><td>string</td><td>Common name for the crop associated with this study</td></tr>
+<tr><td>contacts</td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
+<tr><td>contacts.<br>contactDbId</td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts.<br>email</td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
+<tr><td>contacts.<br>instituteName</td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
+<tr><td>contacts.<br>name</td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
+<tr><td>contacts.<br>orcid</td><td>string</td><td>The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts.<br>type</td><td>string</td><td>The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation</td></tr>
+<tr><td>culturalPractices</td><td>string</td><td>MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.</td></tr>
+<tr><td>dataLinks</td><td>array[object]</td><td>List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.</td></tr>
+<tr><td>dataLinks.<br>dataFormat</td><td>string</td><td>The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>description</td><td>string</td><td>The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>fileFormat</td><td>string</td><td>The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>name</td><td>string</td><td>The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>provenance</td><td>string</td><td>The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.</td></tr>
+<tr><td>dataLinks.<br>scientificType</td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
+<tr><td>dataLinks.<br>url</td><td>string (uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
+<tr><td>dataLinks.<br>version</td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
+<tr><td>documentationURL</td><td>string (uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td>endDate</td><td>string (date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
+<tr><td>environmentParameters</td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
+<tr><td>environmentParameters.<br>description</td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
+<tr><td>environmentParameters.<br>parameterName</td><td>string</td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
+<tr><td>environmentParameters.<br>parameterPUI</td><td>string</td><td>URI pointing to an ontology class for the parameter</td></tr>
+<tr><td>environmentParameters.<br>unit</td><td>string</td><td>Unit of the value for this parameter</td></tr>
+<tr><td>environmentParameters.<br>unitPUI</td><td>string</td><td>URI pointing to an ontology class for the unit</td></tr>
+<tr><td>environmentParameters.<br>value</td><td>string</td><td>Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.</td></tr>
+<tr><td>environmentParameters.<br>valuePUI</td><td>string</td><td>URI pointing to an ontology class for the parameter value</td></tr>
+<tr><td>experimentalDesign</td><td>object</td><td>The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology</td></tr>
+<tr><td>experimentalDesign.<br>PUI</td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign.<br>description</td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>growthFacility</td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
+<tr><td>growthFacility.<br>PUI</td><td>string</td><td>MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>growthFacility.<br>description</td><td>string</td><td>MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.</td></tr>
+<tr><td>lastUpdate</td><td>object</td><td>The date and time when this study was last modified</td></tr>
+<tr><td>lastUpdate.<br>timestamp</td><td>string (date-time)</td><td></td></tr>
+<tr><td>lastUpdate.<br>version</td><td>string</td><td></td></tr>
+<tr><td>license</td><td>string</td><td>The usage license associated with the study data</td></tr>
+<tr><td>locationDbId</td><td>string</td><td>The unique identifier for a Location</td></tr>
+<tr><td>locationName</td><td>string</td><td>A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
+<tr><td>observationLevels</td><td>array[object]</td><td>Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). </td></tr>
+<tr><td>observationLevels.<br>levelName</td><td>string</td><td>A name for this level   **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. </td></tr>
+<tr><td>observationLevels.<br>levelOrder</td><td>integer</td><td>`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. </td></tr>
+<tr><td>observationUnitsDescription</td><td>string</td><td>MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.</td></tr>
+<tr><td>observationVariableDbIds</td><td>array[string]</td><td>The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. </td></tr>
+<tr><td>seasons</td><td>array[string]</td><td>List of seasons over which this study was performed.</td></tr>
+<tr><td>startDate</td><td>string (date-time)</td><td>The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started</td></tr>
+<tr><td>studyCode</td><td>string</td><td>A short human readable code for a study</td></tr>
+<tr><td>studyDbId</td><td>string</td><td>The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.</td></tr>
+<tr><td>studyDescription</td><td>string</td><td>The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study</td></tr>
+<tr><td>studyName</td><td>string</td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
+<tr><td>studyPUI</td><td>string</td><td>A permanent unique identifier associated with this study data. For example, a URI or DOI</td></tr>
+<tr><td>studyType</td><td>string</td><td>The type of study being performed. ex. "Yield Trial", etc</td></tr>
+<tr><td>trialDbId</td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
+<tr><td>trialName</td><td>string</td><td>The human readable name of a trial</td></tr>
+</table>
 
 
  
@@ -685,70 +686,70 @@ StartDate and endDate should be ISO-8601 format for dates
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|active|boolean|Is this study currently active|
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop associated with this study|
-|contacts|array[object]|List of contact entities associated with this study|
-|contactDbId|string|The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
-|email|string|The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.|
-|instituteName|string|The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to|
-|name|string|The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
-|culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
-|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|description|string|The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|name|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|provenance|string|The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.|
-|scientificType|string|The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc|
-|url|string (uri)|URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
-|version|string|The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).|
-|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|parameterName|string|Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. |
-|parameterPUI|string|URI pointing to an ontology class for the parameter|
-|unit|string|Unit of the value for this parameter|
-|unitPUI|string|URI pointing to an ontology class for the unit|
-|value|string|Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.|
-|valuePUI|string|URI pointing to an ontology class for the parameter value|
-|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
-|description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|growthFacility|object|Short description of the facility in which the study was carried out.|
-|PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
-|description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
-|lastUpdate|object|The date and time when this study was last modified|
-|timestamp|string (date-time)||
-|version|string||
-|license|string|The usage license associated with the study data|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
-|observationLevels|array[object]|Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). |
-|levelName|string|A name for this level   **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
-|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
-|observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
-|observationVariableDbIds|array[string]|The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. |
-|seasons|array[string]|List of seasons over which this study was performed.|
-|startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
-|studyCode|string|A short human readable code for a study|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.|
-|studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
-|studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
-|studyPUI|string|A permanent unique identifier associated with this study data. For example, a URI or DOI|
-|studyType|string|The type of study being performed. ex. "Yield Trial", etc|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|trialName|string|The human readable name of a trial|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>active</td><td>boolean</td><td>Is this study currently active</td></tr>
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>commonCropName</td><td>string</td><td>Common name for the crop associated with this study</td></tr>
+<tr><td>contacts</td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
+<tr><td>contacts.<br>contactDbId</td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts.<br>email</td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
+<tr><td>contacts.<br>instituteName</td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
+<tr><td>contacts.<br>name</td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
+<tr><td>contacts.<br>orcid</td><td>string</td><td>The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts.<br>type</td><td>string</td><td>The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation</td></tr>
+<tr><td>culturalPractices</td><td>string</td><td>MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.</td></tr>
+<tr><td>dataLinks</td><td>array[object]</td><td>List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.</td></tr>
+<tr><td>dataLinks.<br>dataFormat</td><td>string</td><td>The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>description</td><td>string</td><td>The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>fileFormat</td><td>string</td><td>The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>name</td><td>string</td><td>The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>provenance</td><td>string</td><td>The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.</td></tr>
+<tr><td>dataLinks.<br>scientificType</td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
+<tr><td>dataLinks.<br>url</td><td>string (uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
+<tr><td>dataLinks.<br>version</td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
+<tr><td>documentationURL</td><td>string (uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td>endDate</td><td>string (date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
+<tr><td>environmentParameters</td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
+<tr><td>environmentParameters.<br>description</td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
+<tr><td>environmentParameters.<br>parameterName</td><td>string</td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
+<tr><td>environmentParameters.<br>parameterPUI</td><td>string</td><td>URI pointing to an ontology class for the parameter</td></tr>
+<tr><td>environmentParameters.<br>unit</td><td>string</td><td>Unit of the value for this parameter</td></tr>
+<tr><td>environmentParameters.<br>unitPUI</td><td>string</td><td>URI pointing to an ontology class for the unit</td></tr>
+<tr><td>environmentParameters.<br>value</td><td>string</td><td>Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.</td></tr>
+<tr><td>environmentParameters.<br>valuePUI</td><td>string</td><td>URI pointing to an ontology class for the parameter value</td></tr>
+<tr><td>experimentalDesign</td><td>object</td><td>The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology</td></tr>
+<tr><td>experimentalDesign.<br>PUI</td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign.<br>description</td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>growthFacility</td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
+<tr><td>growthFacility.<br>PUI</td><td>string</td><td>MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>growthFacility.<br>description</td><td>string</td><td>MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.</td></tr>
+<tr><td>lastUpdate</td><td>object</td><td>The date and time when this study was last modified</td></tr>
+<tr><td>lastUpdate.<br>timestamp</td><td>string (date-time)</td><td></td></tr>
+<tr><td>lastUpdate.<br>version</td><td>string</td><td></td></tr>
+<tr><td>license</td><td>string</td><td>The usage license associated with the study data</td></tr>
+<tr><td>locationDbId</td><td>string</td><td>The unique identifier for a Location</td></tr>
+<tr><td>locationName</td><td>string</td><td>A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
+<tr><td>observationLevels</td><td>array[object]</td><td>Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). </td></tr>
+<tr><td>observationLevels.<br>levelName</td><td>string</td><td>A name for this level   **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. </td></tr>
+<tr><td>observationLevels.<br>levelOrder</td><td>integer</td><td>`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. </td></tr>
+<tr><td>observationUnitsDescription</td><td>string</td><td>MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.</td></tr>
+<tr><td>observationVariableDbIds</td><td>array[string]</td><td>The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. </td></tr>
+<tr><td>seasons</td><td>array[string]</td><td>List of seasons over which this study was performed.</td></tr>
+<tr><td>startDate</td><td>string (date-time)</td><td>The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started</td></tr>
+<tr><td>studyCode</td><td>string</td><td>A short human readable code for a study</td></tr>
+<tr><td>studyDbId</td><td>string</td><td>The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.</td></tr>
+<tr><td>studyDescription</td><td>string</td><td>The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study</td></tr>
+<tr><td>studyName</td><td>string</td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
+<tr><td>studyPUI</td><td>string</td><td>A permanent unique identifier associated with this study data. For example, a URI or DOI</td></tr>
+<tr><td>studyType</td><td>string</td><td>The type of study being performed. ex. "Yield Trial", etc</td></tr>
+<tr><td>trialDbId</td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
+<tr><td>trialName</td><td>string</td><td>The human readable name of a trial</td></tr>
+</table>
 
 
  
@@ -935,136 +936,137 @@ StartDate and endDate should be ISO-8601 format for dates
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|active|boolean|Is this study currently active|
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop associated with this study|
-|contacts|array[object]|List of contact entities associated with this study|
-|contactDbId|string|The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
-|email|string|The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.|
-|instituteName|string|The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to|
-|name|string|The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
-|culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
-|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|description|string|The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|name|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|provenance|string|The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.|
-|scientificType|string|The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc|
-|url|string (uri)|URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
-|version|string|The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).|
-|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|parameterName|string|Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. |
-|parameterPUI|string|URI pointing to an ontology class for the parameter|
-|unit|string|Unit of the value for this parameter|
-|unitPUI|string|URI pointing to an ontology class for the unit|
-|value|string|Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.|
-|valuePUI|string|URI pointing to an ontology class for the parameter value|
-|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
-|description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|growthFacility|object|Short description of the facility in which the study was carried out.|
-|PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
-|description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
-|lastUpdate|object|The date and time when this study was last modified|
-|timestamp|string (date-time)||
-|version|string||
-|license|string|The usage license associated with the study data|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
-|observationLevels|array[object]|Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). |
-|levelName|string|A name for this level   **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
-|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
-|observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
-|observationVariableDbIds|array[string]|The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. |
-|seasons|array[string]|List of seasons over which this study was performed.|
-|startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
-|studyCode|string|A short human readable code for a study|
-|studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
-|studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
-|studyPUI|string|A permanent unique identifier associated with this study data. For example, a URI or DOI|
-|studyType|string|The type of study being performed. ex. "Yield Trial", etc|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|trialName|string|The human readable name of a trial|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>active</td><td>boolean</td><td>Is this study currently active</td></tr>
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>commonCropName</td><td>string</td><td>Common name for the crop associated with this study</td></tr>
+<tr><td>contacts</td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
+<tr><td>contacts.<br>contactDbId</td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts.<br>email</td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
+<tr><td>contacts.<br>instituteName</td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
+<tr><td>contacts.<br>name</td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
+<tr><td>contacts.<br>orcid</td><td>string</td><td>The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts.<br>type</td><td>string</td><td>The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation</td></tr>
+<tr><td>culturalPractices</td><td>string</td><td>MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.</td></tr>
+<tr><td>dataLinks</td><td>array[object]</td><td>List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.</td></tr>
+<tr><td>dataLinks.<br>dataFormat</td><td>string</td><td>The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>description</td><td>string</td><td>The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>fileFormat</td><td>string</td><td>The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>name</td><td>string</td><td>The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>provenance</td><td>string</td><td>The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.</td></tr>
+<tr><td>dataLinks.<br>scientificType</td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
+<tr><td>dataLinks.<br>url</td><td>string (uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
+<tr><td>dataLinks.<br>version</td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
+<tr><td>documentationURL</td><td>string (uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td>endDate</td><td>string (date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
+<tr><td>environmentParameters</td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
+<tr><td>environmentParameters.<br>description</td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
+<tr><td>environmentParameters.<br>parameterName</td><td>string</td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
+<tr><td>environmentParameters.<br>parameterPUI</td><td>string</td><td>URI pointing to an ontology class for the parameter</td></tr>
+<tr><td>environmentParameters.<br>unit</td><td>string</td><td>Unit of the value for this parameter</td></tr>
+<tr><td>environmentParameters.<br>unitPUI</td><td>string</td><td>URI pointing to an ontology class for the unit</td></tr>
+<tr><td>environmentParameters.<br>value</td><td>string</td><td>Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.</td></tr>
+<tr><td>environmentParameters.<br>valuePUI</td><td>string</td><td>URI pointing to an ontology class for the parameter value</td></tr>
+<tr><td>experimentalDesign</td><td>object</td><td>The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology</td></tr>
+<tr><td>experimentalDesign.<br>PUI</td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign.<br>description</td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>growthFacility</td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
+<tr><td>growthFacility.<br>PUI</td><td>string</td><td>MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>growthFacility.<br>description</td><td>string</td><td>MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.</td></tr>
+<tr><td>lastUpdate</td><td>object</td><td>The date and time when this study was last modified</td></tr>
+<tr><td>lastUpdate.<br>timestamp</td><td>string (date-time)</td><td></td></tr>
+<tr><td>lastUpdate.<br>version</td><td>string</td><td></td></tr>
+<tr><td>license</td><td>string</td><td>The usage license associated with the study data</td></tr>
+<tr><td>locationDbId</td><td>string</td><td>The unique identifier for a Location</td></tr>
+<tr><td>locationName</td><td>string</td><td>A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
+<tr><td>observationLevels</td><td>array[object]</td><td>Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). </td></tr>
+<tr><td>observationLevels.<br>levelName</td><td>string</td><td>A name for this level   **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. </td></tr>
+<tr><td>observationLevels.<br>levelOrder</td><td>integer</td><td>`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. </td></tr>
+<tr><td>observationUnitsDescription</td><td>string</td><td>MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.</td></tr>
+<tr><td>observationVariableDbIds</td><td>array[string]</td><td>The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. </td></tr>
+<tr><td>seasons</td><td>array[string]</td><td>List of seasons over which this study was performed.</td></tr>
+<tr><td>startDate</td><td>string (date-time)</td><td>The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started</td></tr>
+<tr><td>studyCode</td><td>string</td><td>A short human readable code for a study</td></tr>
+<tr><td>studyDescription</td><td>string</td><td>The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study</td></tr>
+<tr><td>studyName</td><td>string</td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
+<tr><td>studyPUI</td><td>string</td><td>A permanent unique identifier associated with this study data. For example, a URI or DOI</td></tr>
+<tr><td>studyType</td><td>string</td><td>The type of study being performed. ex. "Yield Trial", etc</td></tr>
+<tr><td>trialDbId</td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
+<tr><td>trialName</td><td>string</td><td>The human readable name of a trial</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|active|boolean|Is this study currently active|
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop associated with this study|
-|contacts|array[object]|List of contact entities associated with this study|
-|contactDbId|string|The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
-|email|string|The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.|
-|instituteName|string|The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to|
-|name|string|The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
-|culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
-|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|description|string|The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|name|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|provenance|string|The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.|
-|scientificType|string|The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc|
-|url|string (uri)|URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
-|version|string|The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).|
-|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|parameterName|string|Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. |
-|parameterPUI|string|URI pointing to an ontology class for the parameter|
-|unit|string|Unit of the value for this parameter|
-|unitPUI|string|URI pointing to an ontology class for the unit|
-|value|string|Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.|
-|valuePUI|string|URI pointing to an ontology class for the parameter value|
-|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
-|description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|growthFacility|object|Short description of the facility in which the study was carried out.|
-|PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
-|description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
-|lastUpdate|object|The date and time when this study was last modified|
-|timestamp|string (date-time)||
-|version|string||
-|license|string|The usage license associated with the study data|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
-|observationLevels|array[object]|Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). |
-|levelName|string|A name for this level   **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
-|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
-|observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
-|observationVariableDbIds|array[string]|The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. |
-|seasons|array[string]|List of seasons over which this study was performed.|
-|startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
-|studyCode|string|A short human readable code for a study|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.|
-|studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
-|studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
-|studyPUI|string|A permanent unique identifier associated with this study data. For example, a URI or DOI|
-|studyType|string|The type of study being performed. ex. "Yield Trial", etc|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|trialName|string|The human readable name of a trial|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>active</td><td>boolean</td><td>Is this study currently active</td></tr>
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>commonCropName</td><td>string</td><td>Common name for the crop associated with this study</td></tr>
+<tr><td>contacts</td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
+<tr><td>contacts.<br>contactDbId</td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts.<br>email</td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
+<tr><td>contacts.<br>instituteName</td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
+<tr><td>contacts.<br>name</td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
+<tr><td>contacts.<br>orcid</td><td>string</td><td>The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts.<br>type</td><td>string</td><td>The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation</td></tr>
+<tr><td>culturalPractices</td><td>string</td><td>MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.</td></tr>
+<tr><td>dataLinks</td><td>array[object]</td><td>List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.</td></tr>
+<tr><td>dataLinks.<br>dataFormat</td><td>string</td><td>The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>description</td><td>string</td><td>The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>fileFormat</td><td>string</td><td>The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>name</td><td>string</td><td>The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>provenance</td><td>string</td><td>The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.</td></tr>
+<tr><td>dataLinks.<br>scientificType</td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
+<tr><td>dataLinks.<br>url</td><td>string (uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
+<tr><td>dataLinks.<br>version</td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
+<tr><td>documentationURL</td><td>string (uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td>endDate</td><td>string (date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
+<tr><td>environmentParameters</td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
+<tr><td>environmentParameters.<br>description</td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
+<tr><td>environmentParameters.<br>parameterName</td><td>string</td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
+<tr><td>environmentParameters.<br>parameterPUI</td><td>string</td><td>URI pointing to an ontology class for the parameter</td></tr>
+<tr><td>environmentParameters.<br>unit</td><td>string</td><td>Unit of the value for this parameter</td></tr>
+<tr><td>environmentParameters.<br>unitPUI</td><td>string</td><td>URI pointing to an ontology class for the unit</td></tr>
+<tr><td>environmentParameters.<br>value</td><td>string</td><td>Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.</td></tr>
+<tr><td>environmentParameters.<br>valuePUI</td><td>string</td><td>URI pointing to an ontology class for the parameter value</td></tr>
+<tr><td>experimentalDesign</td><td>object</td><td>The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology</td></tr>
+<tr><td>experimentalDesign.<br>PUI</td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign.<br>description</td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>growthFacility</td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
+<tr><td>growthFacility.<br>PUI</td><td>string</td><td>MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>growthFacility.<br>description</td><td>string</td><td>MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.</td></tr>
+<tr><td>lastUpdate</td><td>object</td><td>The date and time when this study was last modified</td></tr>
+<tr><td>lastUpdate.<br>timestamp</td><td>string (date-time)</td><td></td></tr>
+<tr><td>lastUpdate.<br>version</td><td>string</td><td></td></tr>
+<tr><td>license</td><td>string</td><td>The usage license associated with the study data</td></tr>
+<tr><td>locationDbId</td><td>string</td><td>The unique identifier for a Location</td></tr>
+<tr><td>locationName</td><td>string</td><td>A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
+<tr><td>observationLevels</td><td>array[object]</td><td>Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). </td></tr>
+<tr><td>observationLevels.<br>levelName</td><td>string</td><td>A name for this level   **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. </td></tr>
+<tr><td>observationLevels.<br>levelOrder</td><td>integer</td><td>`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. </td></tr>
+<tr><td>observationUnitsDescription</td><td>string</td><td>MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.</td></tr>
+<tr><td>observationVariableDbIds</td><td>array[string]</td><td>The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. </td></tr>
+<tr><td>seasons</td><td>array[string]</td><td>List of seasons over which this study was performed.</td></tr>
+<tr><td>startDate</td><td>string (date-time)</td><td>The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started</td></tr>
+<tr><td>studyCode</td><td>string</td><td>A short human readable code for a study</td></tr>
+<tr><td>studyDbId</td><td>string</td><td>The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.</td></tr>
+<tr><td>studyDescription</td><td>string</td><td>The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study</td></tr>
+<tr><td>studyName</td><td>string</td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
+<tr><td>studyPUI</td><td>string</td><td>A permanent unique identifier associated with this study data. For example, a URI or DOI</td></tr>
+<tr><td>studyType</td><td>string</td><td>The type of study being performed. ex. "Yield Trial", etc</td></tr>
+<tr><td>trialDbId</td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
+<tr><td>trialName</td><td>string</td><td>The human readable name of a trial</td></tr>
+</table>
 
 
  
@@ -1333,69 +1335,70 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|active|boolean|Is this study currently active|
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop associated with this study|
-|contacts|array[object]|List of contact entities associated with this study|
-|contactDbId|string|The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
-|email|string|The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.|
-|instituteName|string|The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to|
-|name|string|The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
-|culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
-|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|description|string|The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|name|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|provenance|string|The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.|
-|scientificType|string|The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc|
-|url|string (uri)|URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
-|version|string|The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).|
-|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|parameterName|string|Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. |
-|parameterPUI|string|URI pointing to an ontology class for the parameter|
-|unit|string|Unit of the value for this parameter|
-|unitPUI|string|URI pointing to an ontology class for the unit|
-|value|string|Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.|
-|valuePUI|string|URI pointing to an ontology class for the parameter value|
-|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
-|description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|growthFacility|object|Short description of the facility in which the study was carried out.|
-|PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
-|description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
-|lastUpdate|object|The date and time when this study was last modified|
-|timestamp|string (date-time)||
-|version|string||
-|license|string|The usage license associated with the study data|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
-|observationLevels|array[object]|Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). |
-|levelName|string|A name for this level   **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
-|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
-|observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
-|observationVariableDbIds|array[string]|The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. |
-|seasons|array[string]|List of seasons over which this study was performed.|
-|startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
-|studyCode|string|A short human readable code for a study|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.|
-|studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
-|studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
-|studyPUI|string|A permanent unique identifier associated with this study data. For example, a URI or DOI|
-|studyType|string|The type of study being performed. ex. "Yield Trial", etc|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|trialName|string|The human readable name of a trial|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>active</td><td>boolean</td><td>Is this study currently active</td></tr>
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>commonCropName</td><td>string</td><td>Common name for the crop associated with this study</td></tr>
+<tr><td>contacts</td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
+<tr><td>contacts.<br>contactDbId</td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts.<br>email</td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
+<tr><td>contacts.<br>instituteName</td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
+<tr><td>contacts.<br>name</td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
+<tr><td>contacts.<br>orcid</td><td>string</td><td>The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts.<br>type</td><td>string</td><td>The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation</td></tr>
+<tr><td>culturalPractices</td><td>string</td><td>MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.</td></tr>
+<tr><td>dataLinks</td><td>array[object]</td><td>List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.</td></tr>
+<tr><td>dataLinks.<br>dataFormat</td><td>string</td><td>The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>description</td><td>string</td><td>The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>fileFormat</td><td>string</td><td>The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>name</td><td>string</td><td>The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>provenance</td><td>string</td><td>The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.</td></tr>
+<tr><td>dataLinks.<br>scientificType</td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
+<tr><td>dataLinks.<br>url</td><td>string (uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
+<tr><td>dataLinks.<br>version</td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
+<tr><td>documentationURL</td><td>string (uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td>endDate</td><td>string (date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
+<tr><td>environmentParameters</td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
+<tr><td>environmentParameters.<br>description</td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
+<tr><td>environmentParameters.<br>parameterName</td><td>string</td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
+<tr><td>environmentParameters.<br>parameterPUI</td><td>string</td><td>URI pointing to an ontology class for the parameter</td></tr>
+<tr><td>environmentParameters.<br>unit</td><td>string</td><td>Unit of the value for this parameter</td></tr>
+<tr><td>environmentParameters.<br>unitPUI</td><td>string</td><td>URI pointing to an ontology class for the unit</td></tr>
+<tr><td>environmentParameters.<br>value</td><td>string</td><td>Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.</td></tr>
+<tr><td>environmentParameters.<br>valuePUI</td><td>string</td><td>URI pointing to an ontology class for the parameter value</td></tr>
+<tr><td>experimentalDesign</td><td>object</td><td>The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology</td></tr>
+<tr><td>experimentalDesign.<br>PUI</td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign.<br>description</td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>growthFacility</td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
+<tr><td>growthFacility.<br>PUI</td><td>string</td><td>MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>growthFacility.<br>description</td><td>string</td><td>MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.</td></tr>
+<tr><td>lastUpdate</td><td>object</td><td>The date and time when this study was last modified</td></tr>
+<tr><td>lastUpdate.<br>timestamp</td><td>string (date-time)</td><td></td></tr>
+<tr><td>lastUpdate.<br>version</td><td>string</td><td></td></tr>
+<tr><td>license</td><td>string</td><td>The usage license associated with the study data</td></tr>
+<tr><td>locationDbId</td><td>string</td><td>The unique identifier for a Location</td></tr>
+<tr><td>locationName</td><td>string</td><td>A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
+<tr><td>observationLevels</td><td>array[object]</td><td>Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). </td></tr>
+<tr><td>observationLevels.<br>levelName</td><td>string</td><td>A name for this level   **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. </td></tr>
+<tr><td>observationLevels.<br>levelOrder</td><td>integer</td><td>`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. </td></tr>
+<tr><td>observationUnitsDescription</td><td>string</td><td>MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.</td></tr>
+<tr><td>observationVariableDbIds</td><td>array[string]</td><td>The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. </td></tr>
+<tr><td>seasons</td><td>array[string]</td><td>List of seasons over which this study was performed.</td></tr>
+<tr><td>startDate</td><td>string (date-time)</td><td>The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started</td></tr>
+<tr><td>studyCode</td><td>string</td><td>A short human readable code for a study</td></tr>
+<tr><td>studyDbId</td><td>string</td><td>The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.</td></tr>
+<tr><td>studyDescription</td><td>string</td><td>The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study</td></tr>
+<tr><td>studyName</td><td>string</td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
+<tr><td>studyPUI</td><td>string</td><td>A permanent unique identifier associated with this study data. For example, a URI or DOI</td></tr>
+<tr><td>studyType</td><td>string</td><td>The type of study being performed. ex. "Yield Trial", etc</td></tr>
+<tr><td>trialDbId</td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
+<tr><td>trialName</td><td>string</td><td>The human readable name of a trial</td></tr>
+</table>
 
 
  
@@ -1558,135 +1561,137 @@ Update an existing Study with new data
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|active|boolean|Is this study currently active|
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop associated with this study|
-|contacts|array[object]|List of contact entities associated with this study|
-|contactDbId|string|The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
-|email|string|The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.|
-|instituteName|string|The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to|
-|name|string|The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
-|culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
-|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|description|string|The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|name|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|provenance|string|The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.|
-|scientificType|string|The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc|
-|url|string (uri)|URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
-|version|string|The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).|
-|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|parameterName|string|Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. |
-|parameterPUI|string|URI pointing to an ontology class for the parameter|
-|unit|string|Unit of the value for this parameter|
-|unitPUI|string|URI pointing to an ontology class for the unit|
-|value|string|Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.|
-|valuePUI|string|URI pointing to an ontology class for the parameter value|
-|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
-|description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|growthFacility|object|Short description of the facility in which the study was carried out.|
-|PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
-|description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
-|lastUpdate|object|The date and time when this study was last modified|
-|timestamp|string (date-time)||
-|version|string||
-|license|string|The usage license associated with the study data|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
-|observationLevels|array[object]|Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). |
-|levelName|string|A name for this level   **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
-|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
-|observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
-|observationVariableDbIds|array[string]|The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. |
-|seasons|array[string]|List of seasons over which this study was performed.|
-|startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
-|studyCode|string|A short human readable code for a study|
-|studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
-|studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
-|studyPUI|string|A permanent unique identifier associated with this study data. For example, a URI or DOI|
-|studyType|string|The type of study being performed. ex. "Yield Trial", etc|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|trialName|string|The human readable name of a trial|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>active</td><td>boolean</td><td>Is this study currently active</td></tr>
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>commonCropName</td><td>string</td><td>Common name for the crop associated with this study</td></tr>
+<tr><td>contacts</td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
+<tr><td>contacts.<br>contactDbId</td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts.<br>email</td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
+<tr><td>contacts.<br>instituteName</td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
+<tr><td>contacts.<br>name</td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
+<tr><td>contacts.<br>orcid</td><td>string</td><td>The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts.<br>type</td><td>string</td><td>The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation</td></tr>
+<tr><td>culturalPractices</td><td>string</td><td>MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.</td></tr>
+<tr><td>dataLinks</td><td>array[object]</td><td>List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.</td></tr>
+<tr><td>dataLinks.<br>dataFormat</td><td>string</td><td>The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>description</td><td>string</td><td>The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>fileFormat</td><td>string</td><td>The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>name</td><td>string</td><td>The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>provenance</td><td>string</td><td>The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.</td></tr>
+<tr><td>dataLinks.<br>scientificType</td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
+<tr><td>dataLinks.<br>url</td><td>string (uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
+<tr><td>dataLinks.<br>version</td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
+<tr><td>documentationURL</td><td>string (uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td>endDate</td><td>string (date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
+<tr><td>environmentParameters</td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
+<tr><td>environmentParameters.<br>description</td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
+<tr><td>environmentParameters.<br>parameterName</td><td>string</td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
+<tr><td>environmentParameters.<br>parameterPUI</td><td>string</td><td>URI pointing to an ontology class for the parameter</td></tr>
+<tr><td>environmentParameters.<br>unit</td><td>string</td><td>Unit of the value for this parameter</td></tr>
+<tr><td>environmentParameters.<br>unitPUI</td><td>string</td><td>URI pointing to an ontology class for the unit</td></tr>
+<tr><td>environmentParameters.<br>value</td><td>string</td><td>Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.</td></tr>
+<tr><td>environmentParameters.<br>valuePUI</td><td>string</td><td>URI pointing to an ontology class for the parameter value</td></tr>
+<tr><td>experimentalDesign</td><td>object</td><td>The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology</td></tr>
+<tr><td>experimentalDesign.<br>PUI</td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign.<br>description</td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>growthFacility</td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
+<tr><td>growthFacility.<br>PUI</td><td>string</td><td>MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>growthFacility.<br>description</td><td>string</td><td>MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.</td></tr>
+<tr><td>lastUpdate</td><td>object</td><td>The date and time when this study was last modified</td></tr>
+<tr><td>lastUpdate.<br>timestamp</td><td>string (date-time)</td><td></td></tr>
+<tr><td>lastUpdate.<br>version</td><td>string</td><td></td></tr>
+<tr><td>license</td><td>string</td><td>The usage license associated with the study data</td></tr>
+<tr><td>locationDbId</td><td>string</td><td>The unique identifier for a Location</td></tr>
+<tr><td>locationName</td><td>string</td><td>A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
+<tr><td>observationLevels</td><td>array[object]</td><td>Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). </td></tr>
+<tr><td>observationLevels.<br>levelName</td><td>string</td><td>A name for this level   **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. </td></tr>
+<tr><td>observationLevels.<br>levelOrder</td><td>integer</td><td>`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. </td></tr>
+<tr><td>observationUnitsDescription</td><td>string</td><td>MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.</td></tr>
+<tr><td>observationVariableDbIds</td><td>array[string]</td><td>The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. </td></tr>
+<tr><td>seasons</td><td>array[string]</td><td>List of seasons over which this study was performed.</td></tr>
+<tr><td>startDate</td><td>string (date-time)</td><td>The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started</td></tr>
+<tr><td>studyCode</td><td>string</td><td>A short human readable code for a study</td></tr>
+<tr><td>studyDescription</td><td>string</td><td>The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study</td></tr>
+<tr><td>studyName</td><td>string</td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
+<tr><td>studyPUI</td><td>string</td><td>A permanent unique identifier associated with this study data. For example, a URI or DOI</td></tr>
+<tr><td>studyType</td><td>string</td><td>The type of study being performed. ex. "Yield Trial", etc</td></tr>
+<tr><td>trialDbId</td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
+<tr><td>trialName</td><td>string</td><td>The human readable name of a trial</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|active|boolean|Is this study currently active|
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop associated with this study|
-|contacts|array[object]|List of contact entities associated with this study|
-|contactDbId|string|The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
-|email|string|The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.|
-|instituteName|string|The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to|
-|name|string|The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
-|culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
-|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|description|string|The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|name|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|provenance|string|The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.|
-|scientificType|string|The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc|
-|url|string (uri)|URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
-|version|string|The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).|
-|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|parameterName|string|Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. |
-|parameterPUI|string|URI pointing to an ontology class for the parameter|
-|unit|string|Unit of the value for this parameter|
-|unitPUI|string|URI pointing to an ontology class for the unit|
-|value|string|Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.|
-|valuePUI|string|URI pointing to an ontology class for the parameter value|
-|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
-|description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|growthFacility|object|Short description of the facility in which the study was carried out.|
-|PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
-|description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
-|lastUpdate|object|The date and time when this study was last modified|
-|timestamp|string (date-time)||
-|version|string||
-|license|string|The usage license associated with the study data|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
-|observationLevels|array[object]|Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). |
-|levelName|string|A name for this level   **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
-|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. |
-|observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
-|observationVariableDbIds|array[string]|The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. |
-|seasons|array[string]|List of seasons over which this study was performed.|
-|startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
-|studyCode|string|A short human readable code for a study|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.|
-|studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
-|studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
-|studyPUI|string|A permanent unique identifier associated with this study data. For example, a URI or DOI|
-|studyType|string|The type of study being performed. ex. "Yield Trial", etc|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|trialName|string|The human readable name of a trial|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>active</td><td>boolean</td><td>Is this study currently active</td></tr>
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>commonCropName</td><td>string</td><td>Common name for the crop associated with this study</td></tr>
+<tr><td>contacts</td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
+<tr><td>contacts.<br>contactDbId</td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts.<br>email</td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
+<tr><td>contacts.<br>instituteName</td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
+<tr><td>contacts.<br>name</td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
+<tr><td>contacts.<br>orcid</td><td>string</td><td>The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts.<br>type</td><td>string</td><td>The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation</td></tr>
+<tr><td>culturalPractices</td><td>string</td><td>MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.</td></tr>
+<tr><td>dataLinks</td><td>array[object]</td><td>List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.</td></tr>
+<tr><td>dataLinks.<br>dataFormat</td><td>string</td><td>The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>description</td><td>string</td><td>The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>fileFormat</td><td>string</td><td>The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>name</td><td>string</td><td>The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.</td></tr>
+<tr><td>dataLinks.<br>provenance</td><td>string</td><td>The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.</td></tr>
+<tr><td>dataLinks.<br>scientificType</td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
+<tr><td>dataLinks.<br>url</td><td>string (uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
+<tr><td>dataLinks.<br>version</td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
+<tr><td>documentationURL</td><td>string (uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td>endDate</td><td>string (date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
+<tr><td>environmentParameters</td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
+<tr><td>environmentParameters.<br>description</td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
+<tr><td>environmentParameters.<br>parameterName</td><td>string</td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
+<tr><td>environmentParameters.<br>parameterPUI</td><td>string</td><td>URI pointing to an ontology class for the parameter</td></tr>
+<tr><td>environmentParameters.<br>unit</td><td>string</td><td>Unit of the value for this parameter</td></tr>
+<tr><td>environmentParameters.<br>unitPUI</td><td>string</td><td>URI pointing to an ontology class for the unit</td></tr>
+<tr><td>environmentParameters.<br>value</td><td>string</td><td>Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.</td></tr>
+<tr><td>environmentParameters.<br>valuePUI</td><td>string</td><td>URI pointing to an ontology class for the parameter value</td></tr>
+<tr><td>experimentalDesign</td><td>object</td><td>The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology</td></tr>
+<tr><td>experimentalDesign.<br>PUI</td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign.<br>description</td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>growthFacility</td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
+<tr><td>growthFacility.<br>PUI</td><td>string</td><td>MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>growthFacility.<br>description</td><td>string</td><td>MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.</td></tr>
+<tr><td>lastUpdate</td><td>object</td><td>The date and time when this study was last modified</td></tr>
+<tr><td>lastUpdate.<br>timestamp</td><td>string (date-time)</td><td></td></tr>
+<tr><td>lastUpdate.<br>version</td><td>string</td><td></td></tr>
+<tr><td>license</td><td>string</td><td>The usage license associated with the study data</td></tr>
+<tr><td>locationDbId</td><td>string</td><td>The unique identifier for a Location</td></tr>
+<tr><td>locationName</td><td>string</td><td>A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
+<tr><td>observationLevels</td><td>array[object]</td><td>Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). </td></tr>
+<tr><td>observationLevels.<br>levelName</td><td>string</td><td>A name for this level   **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample**   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. </td></tr>
+<tr><td>observationLevels.<br>levelOrder</td><td>integer</td><td>`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).   For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. </td></tr>
+<tr><td>observationUnitsDescription</td><td>string</td><td>MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.</td></tr>
+<tr><td>observationVariableDbIds</td><td>array[string]</td><td>The list of Observation Variables being used in this study.   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. </td></tr>
+<tr><td>seasons</td><td>array[string]</td><td>List of seasons over which this study was performed.</td></tr>
+<tr><td>startDate</td><td>string (date-time)</td><td>The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started</td></tr>
+<tr><td>studyCode</td><td>string</td><td>A short human readable code for a study</td></tr>
+<tr><td>studyDbId</td><td>string</td><td>The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.</td></tr>
+<tr><td>studyDescription</td><td>string</td><td>The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study</td></tr>
+<tr><td>studyName</td><td>string</td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
+<tr><td>studyPUI</td><td>string</td><td>A permanent unique identifier associated with this study data. For example, a URI or DOI</td></tr>
+<tr><td>studyType</td><td>string</td><td>The type of study being performed. ex. "Yield Trial", etc</td></tr>
+<tr><td>trialDbId</td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
+<tr><td>trialName</td><td>string</td><td>The human readable name of a trial</td></tr>
+</table>
 
 
  
@@ -1953,9 +1958,9 @@ Call to retrieve the list of study types.
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[string]|the list of all study types available in this server.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+</table>
 
 
  
