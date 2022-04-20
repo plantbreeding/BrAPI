@@ -15,23 +15,23 @@ Get a filtered list of Crossing Projects.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>commonCropName</td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
-<tr><td>crossingProjectDbId</td><td>string</td><td>The unique identifier for a crossing project</td></tr>
-<tr><td>crossingProjectDescription</td><td>string</td><td>the description for a crossing project</td></tr>
-<tr><td>crossingProjectName</td><td>string</td><td>The human readable name for a crossing project</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>potentialParents</td><td>array[object]</td><td>A list of all the potential parents in the crossing block, available in the crossing project <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.</td></tr>
-<tr><td>potentialParents.<br>germplasmDbId</td><td>string</td><td>the unique identifier for a germplasm</td></tr>
-<tr><td>potentialParents.<br>germplasmName</td><td>string</td><td>the human readable name for a germplasm</td></tr>
-<tr><td>potentialParents.<br>observationUnitDbId</td><td>string</td><td>the unique identifier for an observation unit</td></tr>
-<tr><td>potentialParents.<br>observationUnitName</td><td>string</td><td>the human readable name for an observation unit</td></tr>
-<tr><td>potentialParents.<br>parentType</td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
-<tr><td>programDbId</td><td>string</td><td>the unique identifier for a program</td></tr>
-<tr><td>programName</td><td>string</td><td>the human readable name for a program</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>The unique identifier for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectDescription</span></td><td>string</td><td>the description for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string</td><td>The human readable name for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">potentialParents</span></td><td>array[object]</td><td>A list of all the potential parents in the crossing block, available in the crossing project <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.germplasmDbId</span></td><td>string</td><td>the unique identifier for a germplasm</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.germplasmName</span></td><td>string</td><td>the human readable name for a germplasm</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.observationUnitDbId</span></td><td>string</td><td>the unique identifier for an observation unit</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.observationUnitName</span></td><td>string</td><td>the human readable name for an observation unit</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.parentType</span></td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
+<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>the unique identifier for a program</td></tr>
+<tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>the human readable name for a program</td></tr>
 </table>
 
 
@@ -135,22 +135,22 @@ Create new Crossing Project entities on this server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>commonCropName</td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
-<tr><td>crossingProjectDescription</td><td>string</td><td>the description for a crossing project</td></tr>
-<tr><td>crossingProjectName</td><td>string</td><td>The human readable name for a crossing project</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>potentialParents</td><td>array[object]</td><td>A list of all the potential parents in the crossing block, available in the crossing project <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.</td></tr>
-<tr><td>potentialParents.<br>germplasmDbId</td><td>string</td><td>the unique identifier for a germplasm</td></tr>
-<tr><td>potentialParents.<br>germplasmName</td><td>string</td><td>the human readable name for a germplasm</td></tr>
-<tr><td>potentialParents.<br>observationUnitDbId</td><td>string</td><td>the unique identifier for an observation unit</td></tr>
-<tr><td>potentialParents.<br>observationUnitName</td><td>string</td><td>the human readable name for an observation unit</td></tr>
-<tr><td>potentialParents.<br>parentType</td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
-<tr><td>programDbId</td><td>string</td><td>the unique identifier for a program</td></tr>
-<tr><td>programName</td><td>string</td><td>the human readable name for a program</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectDescription</span></td><td>string</td><td>the description for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string</td><td>The human readable name for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">potentialParents</span></td><td>array[object]</td><td>A list of all the potential parents in the crossing block, available in the crossing project <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.germplasmDbId</span></td><td>string</td><td>the unique identifier for a germplasm</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.germplasmName</span></td><td>string</td><td>the human readable name for a germplasm</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.observationUnitDbId</span></td><td>string</td><td>the unique identifier for an observation unit</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.observationUnitName</span></td><td>string</td><td>the human readable name for an observation unit</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.parentType</span></td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
+<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>the unique identifier for a program</td></tr>
+<tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>the human readable name for a program</td></tr>
 </table>
 
 
@@ -158,23 +158,23 @@ Create new Crossing Project entities on this server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>commonCropName</td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
-<tr><td>crossingProjectDbId</td><td>string</td><td>The unique identifier for a crossing project</td></tr>
-<tr><td>crossingProjectDescription</td><td>string</td><td>the description for a crossing project</td></tr>
-<tr><td>crossingProjectName</td><td>string</td><td>The human readable name for a crossing project</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>potentialParents</td><td>array[object]</td><td>A list of all the potential parents in the crossing block, available in the crossing project <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.</td></tr>
-<tr><td>potentialParents.<br>germplasmDbId</td><td>string</td><td>the unique identifier for a germplasm</td></tr>
-<tr><td>potentialParents.<br>germplasmName</td><td>string</td><td>the human readable name for a germplasm</td></tr>
-<tr><td>potentialParents.<br>observationUnitDbId</td><td>string</td><td>the unique identifier for an observation unit</td></tr>
-<tr><td>potentialParents.<br>observationUnitName</td><td>string</td><td>the human readable name for an observation unit</td></tr>
-<tr><td>potentialParents.<br>parentType</td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
-<tr><td>programDbId</td><td>string</td><td>the unique identifier for a program</td></tr>
-<tr><td>programName</td><td>string</td><td>the human readable name for a program</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>The unique identifier for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectDescription</span></td><td>string</td><td>the description for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string</td><td>The human readable name for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">potentialParents</span></td><td>array[object]</td><td>A list of all the potential parents in the crossing block, available in the crossing project <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.germplasmDbId</span></td><td>string</td><td>the unique identifier for a germplasm</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.germplasmName</span></td><td>string</td><td>the human readable name for a germplasm</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.observationUnitDbId</span></td><td>string</td><td>the unique identifier for an observation unit</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.observationUnitName</span></td><td>string</td><td>the human readable name for an observation unit</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.parentType</span></td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
+<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>the unique identifier for a program</td></tr>
+<tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>the human readable name for a program</td></tr>
 </table>
 
 
@@ -304,23 +304,23 @@ Get a filtered list of Crossing Projects.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>commonCropName</td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
-<tr><td>crossingProjectDbId</td><td>string</td><td>The unique identifier for a crossing project</td></tr>
-<tr><td>crossingProjectDescription</td><td>string</td><td>the description for a crossing project</td></tr>
-<tr><td>crossingProjectName</td><td>string</td><td>The human readable name for a crossing project</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>potentialParents</td><td>array[object]</td><td>A list of all the potential parents in the crossing block, available in the crossing project <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.</td></tr>
-<tr><td>potentialParents.<br>germplasmDbId</td><td>string</td><td>the unique identifier for a germplasm</td></tr>
-<tr><td>potentialParents.<br>germplasmName</td><td>string</td><td>the human readable name for a germplasm</td></tr>
-<tr><td>potentialParents.<br>observationUnitDbId</td><td>string</td><td>the unique identifier for an observation unit</td></tr>
-<tr><td>potentialParents.<br>observationUnitName</td><td>string</td><td>the human readable name for an observation unit</td></tr>
-<tr><td>potentialParents.<br>parentType</td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
-<tr><td>programDbId</td><td>string</td><td>the unique identifier for a program</td></tr>
-<tr><td>programName</td><td>string</td><td>the human readable name for a program</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>The unique identifier for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectDescription</span></td><td>string</td><td>the description for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string</td><td>The human readable name for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">potentialParents</span></td><td>array[object]</td><td>A list of all the potential parents in the crossing block, available in the crossing project <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.germplasmDbId</span></td><td>string</td><td>the unique identifier for a germplasm</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.germplasmName</span></td><td>string</td><td>the human readable name for a germplasm</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.observationUnitDbId</span></td><td>string</td><td>the unique identifier for an observation unit</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.observationUnitName</span></td><td>string</td><td>the human readable name for an observation unit</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.parentType</span></td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
+<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>the unique identifier for a program</td></tr>
+<tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>the human readable name for a program</td></tr>
 </table>
 
 
@@ -411,22 +411,22 @@ Update an existing Crossing Project entity on this server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>commonCropName</td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
-<tr><td>crossingProjectDescription</td><td>string</td><td>the description for a crossing project</td></tr>
-<tr><td>crossingProjectName</td><td>string</td><td>The human readable name for a crossing project</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>potentialParents</td><td>array[object]</td><td>A list of all the potential parents in the crossing block, available in the crossing project <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.</td></tr>
-<tr><td>potentialParents.<br>germplasmDbId</td><td>string</td><td>the unique identifier for a germplasm</td></tr>
-<tr><td>potentialParents.<br>germplasmName</td><td>string</td><td>the human readable name for a germplasm</td></tr>
-<tr><td>potentialParents.<br>observationUnitDbId</td><td>string</td><td>the unique identifier for an observation unit</td></tr>
-<tr><td>potentialParents.<br>observationUnitName</td><td>string</td><td>the human readable name for an observation unit</td></tr>
-<tr><td>potentialParents.<br>parentType</td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
-<tr><td>programDbId</td><td>string</td><td>the unique identifier for a program</td></tr>
-<tr><td>programName</td><td>string</td><td>the human readable name for a program</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectDescription</span></td><td>string</td><td>the description for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string</td><td>The human readable name for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">potentialParents</span></td><td>array[object]</td><td>A list of all the potential parents in the crossing block, available in the crossing project <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.germplasmDbId</span></td><td>string</td><td>the unique identifier for a germplasm</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.germplasmName</span></td><td>string</td><td>the human readable name for a germplasm</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.observationUnitDbId</span></td><td>string</td><td>the unique identifier for an observation unit</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.observationUnitName</span></td><td>string</td><td>the human readable name for an observation unit</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.parentType</span></td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
+<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>the unique identifier for a program</td></tr>
+<tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>the human readable name for a program</td></tr>
 </table>
 
 
@@ -434,23 +434,23 @@ Update an existing Crossing Project entity on this server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>commonCropName</td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
-<tr><td>crossingProjectDbId</td><td>string</td><td>The unique identifier for a crossing project</td></tr>
-<tr><td>crossingProjectDescription</td><td>string</td><td>the description for a crossing project</td></tr>
-<tr><td>crossingProjectName</td><td>string</td><td>The human readable name for a crossing project</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>potentialParents</td><td>array[object]</td><td>A list of all the potential parents in the crossing block, available in the crossing project <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.</td></tr>
-<tr><td>potentialParents.<br>germplasmDbId</td><td>string</td><td>the unique identifier for a germplasm</td></tr>
-<tr><td>potentialParents.<br>germplasmName</td><td>string</td><td>the human readable name for a germplasm</td></tr>
-<tr><td>potentialParents.<br>observationUnitDbId</td><td>string</td><td>the unique identifier for an observation unit</td></tr>
-<tr><td>potentialParents.<br>observationUnitName</td><td>string</td><td>the human readable name for an observation unit</td></tr>
-<tr><td>potentialParents.<br>parentType</td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
-<tr><td>programDbId</td><td>string</td><td>the unique identifier for a program</td></tr>
-<tr><td>programName</td><td>string</td><td>the human readable name for a program</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>The unique identifier for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectDescription</span></td><td>string</td><td>the description for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string</td><td>The human readable name for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">potentialParents</span></td><td>array[object]</td><td>A list of all the potential parents in the crossing block, available in the crossing project <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.germplasmDbId</span></td><td>string</td><td>the unique identifier for a germplasm</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.germplasmName</span></td><td>string</td><td>the human readable name for a germplasm</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.observationUnitDbId</span></td><td>string</td><td>the unique identifier for an observation unit</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.observationUnitName</span></td><td>string</td><td>the human readable name for an observation unit</td></tr>
+<tr><td>potentialParents<br><span style="font-weight:bold;margin-left:5px">.parentType</span></td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
+<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>the unique identifier for a program</td></tr>
+<tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>the human readable name for a program</td></tr>
 </table>
 
 

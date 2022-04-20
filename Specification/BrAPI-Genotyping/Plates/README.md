@@ -17,19 +17,19 @@ Get a filtered list of Plates. Each Plate is a collection of samples that are ph
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>plateBarcode</td><td>string</td><td>A unique identifier physically attached to the plate</td></tr>
-<tr><td>plateDbId</td><td>string</td><td>The ID which uniquely identifies a plate</td></tr>
-<tr><td>plateFormat</td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
-<tr><td>plateName</td><td>string</td><td>A human readable name for a plate</td></tr>
-<tr><td>programDbId</td><td>string</td><td>The ID which uniquely identifies a program within the given database server</td></tr>
-<tr><td>sampleType</td><td>string</td><td>The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
-<tr><td>studyDbId</td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
-<tr><td>trialDbId</td><td>string</td><td>The ID which uniquely identifies a trial within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">plateBarcode</span></td><td>string</td><td>A unique identifier physically attached to the plate</td></tr>
+<tr><td><span style="font-weight:bold;">plateDbId</span></td><td>string</td><td>The ID which uniquely identifies a plate</td></tr>
+<tr><td><span style="font-weight:bold;">plateFormat</span></td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
+<tr><td><span style="font-weight:bold;">plateName</span></td><td>string</td><td>A human readable name for a plate</td></tr>
+<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies a program within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
+<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial within the given database server</td></tr>
 </table>
 
 
@@ -132,18 +132,18 @@ Submit new Plate entities to the server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>plateBarcode</td><td>string</td><td>A unique identifier physically attached to the plate</td></tr>
-<tr><td>plateFormat</td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
-<tr><td>plateName</td><td>string</td><td>A human readable name for a plate</td></tr>
-<tr><td>programDbId</td><td>string</td><td>The ID which uniquely identifies a program within the given database server</td></tr>
-<tr><td>sampleType</td><td>string</td><td>The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
-<tr><td>studyDbId</td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
-<tr><td>trialDbId</td><td>string</td><td>The ID which uniquely identifies a trial within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">plateBarcode</span></td><td>string</td><td>A unique identifier physically attached to the plate</td></tr>
+<tr><td><span style="font-weight:bold;">plateFormat</span></td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
+<tr><td><span style="font-weight:bold;">plateName</span></td><td>string</td><td>A human readable name for a plate</td></tr>
+<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies a program within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
+<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial within the given database server</td></tr>
 </table>
 
 
@@ -151,19 +151,19 @@ Submit new Plate entities to the server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>plateBarcode</td><td>string</td><td>A unique identifier physically attached to the plate</td></tr>
-<tr><td>plateDbId</td><td>string</td><td>The ID which uniquely identifies a plate</td></tr>
-<tr><td>plateFormat</td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
-<tr><td>plateName</td><td>string</td><td>A human readable name for a plate</td></tr>
-<tr><td>programDbId</td><td>string</td><td>The ID which uniquely identifies a program within the given database server</td></tr>
-<tr><td>sampleType</td><td>string</td><td>The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
-<tr><td>studyDbId</td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
-<tr><td>trialDbId</td><td>string</td><td>The ID which uniquely identifies a trial within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">plateBarcode</span></td><td>string</td><td>A unique identifier physically attached to the plate</td></tr>
+<tr><td><span style="font-weight:bold;">plateDbId</span></td><td>string</td><td>The ID which uniquely identifies a plate</td></tr>
+<tr><td><span style="font-weight:bold;">plateFormat</span></td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
+<tr><td><span style="font-weight:bold;">plateName</span></td><td>string</td><td>A human readable name for a plate</td></tr>
+<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies a program within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
+<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial within the given database server</td></tr>
 </table>
 
 
@@ -284,19 +284,19 @@ Update the details of existing Plates
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>plateBarcode</td><td>string</td><td>A unique identifier physically attached to the plate</td></tr>
-<tr><td>plateDbId</td><td>string</td><td>The ID which uniquely identifies a plate</td></tr>
-<tr><td>plateFormat</td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
-<tr><td>plateName</td><td>string</td><td>A human readable name for a plate</td></tr>
-<tr><td>programDbId</td><td>string</td><td>The ID which uniquely identifies a program within the given database server</td></tr>
-<tr><td>sampleType</td><td>string</td><td>The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
-<tr><td>studyDbId</td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
-<tr><td>trialDbId</td><td>string</td><td>The ID which uniquely identifies a trial within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">plateBarcode</span></td><td>string</td><td>A unique identifier physically attached to the plate</td></tr>
+<tr><td><span style="font-weight:bold;">plateDbId</span></td><td>string</td><td>The ID which uniquely identifies a plate</td></tr>
+<tr><td><span style="font-weight:bold;">plateFormat</span></td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
+<tr><td><span style="font-weight:bold;">plateName</span></td><td>string</td><td>A human readable name for a plate</td></tr>
+<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies a program within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
+<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial within the given database server</td></tr>
 </table>
 
 
@@ -419,19 +419,19 @@ Get the details of a specific Plate. Each Plate is a collection of samples that 
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>plateBarcode</td><td>string</td><td>A unique identifier physically attached to the plate</td></tr>
-<tr><td>plateDbId</td><td>string</td><td>The ID which uniquely identifies a plate</td></tr>
-<tr><td>plateFormat</td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
-<tr><td>plateName</td><td>string</td><td>A human readable name for a plate</td></tr>
-<tr><td>programDbId</td><td>string</td><td>The ID which uniquely identifies a program within the given database server</td></tr>
-<tr><td>sampleType</td><td>string</td><td>The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
-<tr><td>studyDbId</td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
-<tr><td>trialDbId</td><td>string</td><td>The ID which uniquely identifies a trial within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">plateBarcode</span></td><td>string</td><td>A unique identifier physically attached to the plate</td></tr>
+<tr><td><span style="font-weight:bold;">plateDbId</span></td><td>string</td><td>The ID which uniquely identifies a plate</td></tr>
+<tr><td><span style="font-weight:bold;">plateFormat</span></td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
+<tr><td><span style="font-weight:bold;">plateName</span></td><td>string</td><td>A human readable name for a plate</td></tr>
+<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies a program within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
+<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial within the given database server</td></tr>
 </table>
 
 
@@ -524,27 +524,27 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>commonCropNames</td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
-<tr><td>externalReferenceIDs</td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
-<tr><td>externalReferenceIds</td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
-<tr><td>externalReferenceSources</td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
-<tr><td>germplasmDbIds</td><td>array[string]</td><td>The ID which uniquely identifies a germplasm</td></tr>
-<tr><td>germplasmNames</td><td>array[string]</td><td>List of human readable names to identify germplasm to search for</td></tr>
-<tr><td>observationUnitDbIds</td><td>array[string]</td><td>The ID which uniquely identifies an observation unit</td></tr>
-<tr><td>page</td><td>integer</td><td>Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.</td></tr>
-<tr><td>pageSize</td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
-<tr><td>plateBarcodes</td><td>array[string]</td><td>A unique identifier physically attached to the plate</td></tr>
-<tr><td>plateDbIds</td><td>array[string]</td><td>The ID which uniquely identifies a plate of samples</td></tr>
-<tr><td>plateNames</td><td>array[string]</td><td>The human readable name of a plate of samples</td></tr>
-<tr><td>programDbIds</td><td>array[string]</td><td>A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.</td></tr>
-<tr><td>programNames</td><td>array[string]</td><td>Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.</td></tr>
-<tr><td>sampleDbIds</td><td>array[string]</td><td>The ID which uniquely identifies a sample</td></tr>
-<tr><td>sampleGroupDbIds</td><td>array[string]</td><td>The unique identifier for a group of related Samples</td></tr>
-<tr><td>sampleNames</td><td>array[string]</td><td>The human readable name of the sample</td></tr>
-<tr><td>studyDbIds</td><td>array[string]</td><td>List of study identifiers to search for</td></tr>
-<tr><td>studyNames</td><td>array[string]</td><td>List of study names to filter search results</td></tr>
-<tr><td>trialDbIds</td><td>array[string]</td><td>The ID which uniquely identifies a trial to search for</td></tr>
-<tr><td>trialNames</td><td>array[string]</td><td>The human readable name of a trial to search for</td></tr>
+<tr><td><span style="font-weight:bold;">commonCropNames</span></td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferenceIds</span></td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferenceSources</span></td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
+<tr><td><span style="font-weight:bold;">germplasmDbIds</span></td><td>array[string]</td><td>The ID which uniquely identifies a germplasm</td></tr>
+<tr><td><span style="font-weight:bold;">germplasmNames</span></td><td>array[string]</td><td>List of human readable names to identify germplasm to search for</td></tr>
+<tr><td><span style="font-weight:bold;">observationUnitDbIds</span></td><td>array[string]</td><td>The ID which uniquely identifies an observation unit</td></tr>
+<tr><td><span style="font-weight:bold;">page</span></td><td>integer</td><td>Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.</td></tr>
+<tr><td><span style="font-weight:bold;">pageSize</span></td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
+<tr><td><span style="font-weight:bold;">plateBarcodes</span></td><td>array[string]</td><td>A unique identifier physically attached to the plate</td></tr>
+<tr><td><span style="font-weight:bold;">plateDbIds</span></td><td>array[string]</td><td>The ID which uniquely identifies a plate of samples</td></tr>
+<tr><td><span style="font-weight:bold;">plateNames</span></td><td>array[string]</td><td>The human readable name of a plate of samples</td></tr>
+<tr><td><span style="font-weight:bold;">programDbIds</span></td><td>array[string]</td><td>A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.</td></tr>
+<tr><td><span style="font-weight:bold;">programNames</span></td><td>array[string]</td><td>Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.</td></tr>
+<tr><td><span style="font-weight:bold;">sampleDbIds</span></td><td>array[string]</td><td>The ID which uniquely identifies a sample</td></tr>
+<tr><td><span style="font-weight:bold;">sampleGroupDbIds</span></td><td>array[string]</td><td>The unique identifier for a group of related Samples</td></tr>
+<tr><td><span style="font-weight:bold;">sampleNames</span></td><td>array[string]</td><td>The human readable name of the sample</td></tr>
+<tr><td><span style="font-weight:bold;">studyDbIds</span></td><td>array[string]</td><td>List of study identifiers to search for</td></tr>
+<tr><td><span style="font-weight:bold;">studyNames</span></td><td>array[string]</td><td>List of study names to filter search results</td></tr>
+<tr><td><span style="font-weight:bold;">trialDbIds</span></td><td>array[string]</td><td>The ID which uniquely identifies a trial to search for</td></tr>
+<tr><td><span style="font-weight:bold;">trialNames</span></td><td>array[string]</td><td>The human readable name of a trial to search for</td></tr>
 </table>
 
 
@@ -552,19 +552,19 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>plateBarcode</td><td>string</td><td>A unique identifier physically attached to the plate</td></tr>
-<tr><td>plateDbId</td><td>string</td><td>The ID which uniquely identifies a plate</td></tr>
-<tr><td>plateFormat</td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
-<tr><td>plateName</td><td>string</td><td>A human readable name for a plate</td></tr>
-<tr><td>programDbId</td><td>string</td><td>The ID which uniquely identifies a program within the given database server</td></tr>
-<tr><td>sampleType</td><td>string</td><td>The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
-<tr><td>studyDbId</td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
-<tr><td>trialDbId</td><td>string</td><td>The ID which uniquely identifies a trial within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">plateBarcode</span></td><td>string</td><td>A unique identifier physically attached to the plate</td></tr>
+<tr><td><span style="font-weight:bold;">plateDbId</span></td><td>string</td><td>The ID which uniquely identifies a plate</td></tr>
+<tr><td><span style="font-weight:bold;">plateFormat</span></td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
+<tr><td><span style="font-weight:bold;">plateName</span></td><td>string</td><td>A human readable name for a plate</td></tr>
+<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies a program within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
+<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial within the given database server</td></tr>
 </table>
 
 
@@ -770,19 +770,19 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>plateBarcode</td><td>string</td><td>A unique identifier physically attached to the plate</td></tr>
-<tr><td>plateDbId</td><td>string</td><td>The ID which uniquely identifies a plate</td></tr>
-<tr><td>plateFormat</td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
-<tr><td>plateName</td><td>string</td><td>A human readable name for a plate</td></tr>
-<tr><td>programDbId</td><td>string</td><td>The ID which uniquely identifies a program within the given database server</td></tr>
-<tr><td>sampleType</td><td>string</td><td>The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
-<tr><td>studyDbId</td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
-<tr><td>trialDbId</td><td>string</td><td>The ID which uniquely identifies a trial within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">plateBarcode</span></td><td>string</td><td>A unique identifier physically attached to the plate</td></tr>
+<tr><td><span style="font-weight:bold;">plateDbId</span></td><td>string</td><td>The ID which uniquely identifies a plate</td></tr>
+<tr><td><span style="font-weight:bold;">plateFormat</span></td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
+<tr><td><span style="font-weight:bold;">plateName</span></td><td>string</td><td>A human readable name for a plate</td></tr>
+<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies a program within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
+<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial within the given database server</td></tr>
 </table>
 
 

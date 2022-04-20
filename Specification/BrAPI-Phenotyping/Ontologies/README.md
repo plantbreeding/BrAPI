@@ -19,15 +19,15 @@ Each Ontology record describes the metadata of an existing ontology, it does not
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>authors</td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
-<tr><td>copyright</td><td>string</td><td>Ontology copyright</td></tr>
-<tr><td>description</td><td>string</td><td>Human readable description of Ontology</td></tr>
-<tr><td>documentationURL</td><td>string (uri)</td><td>A URL to the human readable documentation of this object</td></tr>
-<tr><td>licence</td><td>string</td><td>Ontology licence</td></tr>
-<tr><td>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>ontologyName</td><td>string</td><td>Ontology name</td></tr>
-<tr><td>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">authors</span></td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
+<tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>Ontology copyright</td></tr>
+<tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Human readable description of Ontology</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">licence</span></td><td>string</td><td>Ontology licence</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
+<tr><td><span style="font-weight:bold;">version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 </table>
 
 
@@ -109,14 +109,14 @@ Each Ontology record describes the metadata of an existing ontology, it does not
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>authors</td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
-<tr><td>copyright</td><td>string</td><td>Ontology copyright</td></tr>
-<tr><td>description</td><td>string</td><td>Human readable description of Ontology</td></tr>
-<tr><td>documentationURL</td><td>string (uri)</td><td>A URL to the human readable documentation of this object</td></tr>
-<tr><td>licence</td><td>string</td><td>Ontology licence</td></tr>
-<tr><td>ontologyName</td><td>string</td><td>Ontology name</td></tr>
-<tr><td>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">authors</span></td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
+<tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>Ontology copyright</td></tr>
+<tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Human readable description of Ontology</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">licence</span></td><td>string</td><td>Ontology licence</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
+<tr><td><span style="font-weight:bold;">version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 </table>
 
 
@@ -124,15 +124,15 @@ Each Ontology record describes the metadata of an existing ontology, it does not
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>authors</td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
-<tr><td>copyright</td><td>string</td><td>Ontology copyright</td></tr>
-<tr><td>description</td><td>string</td><td>Human readable description of Ontology</td></tr>
-<tr><td>documentationURL</td><td>string (uri)</td><td>A URL to the human readable documentation of this object</td></tr>
-<tr><td>licence</td><td>string</td><td>Ontology licence</td></tr>
-<tr><td>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>ontologyName</td><td>string</td><td>Ontology name</td></tr>
-<tr><td>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">authors</span></td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
+<tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>Ontology copyright</td></tr>
+<tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Human readable description of Ontology</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">licence</span></td><td>string</td><td>Ontology licence</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
+<tr><td><span style="font-weight:bold;">version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 </table>
 
 
@@ -229,15 +229,15 @@ Each Ontology record describes the metadata of an existing ontology, it does not
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>authors</td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
-<tr><td>copyright</td><td>string</td><td>Ontology copyright</td></tr>
-<tr><td>description</td><td>string</td><td>Human readable description of Ontology</td></tr>
-<tr><td>documentationURL</td><td>string (uri)</td><td>A URL to the human readable documentation of this object</td></tr>
-<tr><td>licence</td><td>string</td><td>Ontology licence</td></tr>
-<tr><td>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>ontologyName</td><td>string</td><td>Ontology name</td></tr>
-<tr><td>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">authors</span></td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
+<tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>Ontology copyright</td></tr>
+<tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Human readable description of Ontology</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">licence</span></td><td>string</td><td>Ontology licence</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
+<tr><td><span style="font-weight:bold;">version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 </table>
 
 
@@ -312,14 +312,14 @@ Each Ontology record describes the metadata of an existing ontology, it does not
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>authors</td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
-<tr><td>copyright</td><td>string</td><td>Ontology copyright</td></tr>
-<tr><td>description</td><td>string</td><td>Human readable description of Ontology</td></tr>
-<tr><td>documentationURL</td><td>string (uri)</td><td>A URL to the human readable documentation of this object</td></tr>
-<tr><td>licence</td><td>string</td><td>Ontology licence</td></tr>
-<tr><td>ontologyName</td><td>string</td><td>Ontology name</td></tr>
-<tr><td>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">authors</span></td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
+<tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>Ontology copyright</td></tr>
+<tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Human readable description of Ontology</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">licence</span></td><td>string</td><td>Ontology licence</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
+<tr><td><span style="font-weight:bold;">version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 </table>
 
 
@@ -327,15 +327,15 @@ Each Ontology record describes the metadata of an existing ontology, it does not
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>authors</td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
-<tr><td>copyright</td><td>string</td><td>Ontology copyright</td></tr>
-<tr><td>description</td><td>string</td><td>Human readable description of Ontology</td></tr>
-<tr><td>documentationURL</td><td>string (uri)</td><td>A URL to the human readable documentation of this object</td></tr>
-<tr><td>licence</td><td>string</td><td>Ontology licence</td></tr>
-<tr><td>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>ontologyName</td><td>string</td><td>Ontology name</td></tr>
-<tr><td>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">authors</span></td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
+<tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>Ontology copyright</td></tr>
+<tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Human readable description of Ontology</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">licence</span></td><td>string</td><td>Ontology licence</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
+<tr><td><span style="font-weight:bold;">version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 </table>
 
 

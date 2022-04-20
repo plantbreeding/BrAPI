@@ -16,18 +16,18 @@ Get list of events
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>date</td><td>array[string]</td><td>A list of dates when the event occurred  MIAPPE V1.1 (DM-68) Event date - Date and time of the event.</td></tr>
-<tr><td>eventDbId</td><td>string</td><td>Internal database identifier</td></tr>
-<tr><td>eventDescription</td><td>string</td><td>A detailed, human-readable description of this event  MIAPPE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. </td></tr>
-<tr><td>eventParameters</td><td>array[object]</td><td>A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI</td></tr>
-<tr><td>eventParameters.<br>key</td><td>string</td><td>Specifies the relationship between the event and the given property. E.g. fertilizer, operator</td></tr>
-<tr><td>eventParameters.<br>rdfValue</td><td>string</td><td>The type of the value given above, e.g. http://xmlns.com/foaf/0.1/Agent</td></tr>
-<tr><td>eventParameters.<br>value</td><td>string</td><td>The value of the property for this event. E.g. nitrogen, John Doe</td></tr>
-<tr><td>eventType</td><td>string</td><td>General category for this event (e.g. Sowing, Watering, Rain). Each eventType should correspond to exactly one eventTypeDbId, if provided.  MIAPPE V1.1 (DM-65) Event type - Short name of the event.</td></tr>
-<tr><td>eventTypeDbId</td><td>string</td><td>An identifier for this event type, in the form of an ontology class reference  MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>observationUnitDbIds</td><td>array[string]</td><td>A list of the affected observation units. If this parameter is not given, it is understood that the event affected all units in the study</td></tr>
-<tr><td>studyDbId</td><td>string</td><td>The study in which the event occurred</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">date</span></td><td>array[string]</td><td>A list of dates when the event occurred  MIAPPE V1.1 (DM-68) Event date - Date and time of the event.</td></tr>
+<tr><td><span style="font-weight:bold;">eventDbId</span></td><td>string</td><td>Internal database identifier</td></tr>
+<tr><td><span style="font-weight:bold;">eventDescription</span></td><td>string</td><td>A detailed, human-readable description of this event  MIAPPE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. </td></tr>
+<tr><td><span style="font-weight:bold;">eventParameters</span></td><td>array[object]</td><td>A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI</td></tr>
+<tr><td>eventParameters<br><span style="font-weight:bold;margin-left:5px">.key</span></td><td>string</td><td>Specifies the relationship between the event and the given property. E.g. fertilizer, operator</td></tr>
+<tr><td>eventParameters<br><span style="font-weight:bold;margin-left:5px">.rdfValue</span></td><td>string</td><td>The type of the value given above, e.g. http://xmlns.com/foaf/0.1/Agent</td></tr>
+<tr><td>eventParameters<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>string</td><td>The value of the property for this event. E.g. nitrogen, John Doe</td></tr>
+<tr><td><span style="font-weight:bold;">eventType</span></td><td>string</td><td>General category for this event (e.g. Sowing, Watering, Rain). Each eventType should correspond to exactly one eventTypeDbId, if provided.  MIAPPE V1.1 (DM-65) Event type - Short name of the event.</td></tr>
+<tr><td><span style="font-weight:bold;">eventTypeDbId</span></td><td>string</td><td>An identifier for this event type, in the form of an ontology class reference  MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td><span style="font-weight:bold;">observationUnitDbIds</span></td><td>array[string]</td><td>A list of the affected observation units. If this parameter is not given, it is understood that the event affected all units in the study</td></tr>
+<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The study in which the event occurred</td></tr>
 </table>
 
 

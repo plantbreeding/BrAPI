@@ -19,11 +19,11 @@ List current available orders
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>clientId</td><td>string</td><td>A unique, alpha-numeric ID which identifies the client to the vendor. Used to connect the order to the correct billing and contact info.</td></tr>
-<tr><td>numberOfSamples</td><td>integer</td><td>The total number of samples contained in this request. Used for billing and basic validation of the request.</td></tr>
-<tr><td>orderId</td><td>string</td><td>The order id returned by the vendor when the order was successfully submitted.</td></tr>
-<tr><td>requiredServiceInfo</td><td>object</td><td>A map of additional data required by the requested service. This includes things like Volume and Concentration.</td></tr>
-<tr><td>serviceIds</td><td>array[string]</td><td>A list of unique, alpha-numeric ID which identify the requested services to be applied to this order.  A Vendor Service defines what platform, technology, and markers will be used.  A list of available service IDs can be retrieved from the Vendor Specs.</td></tr>
+<tr><td><span style="font-weight:bold;">clientId</span></td><td>string</td><td>A unique, alpha-numeric ID which identifies the client to the vendor. Used to connect the order to the correct billing and contact info.</td></tr>
+<tr><td><span style="font-weight:bold;">numberOfSamples</span></td><td>integer</td><td>The total number of samples contained in this request. Used for billing and basic validation of the request.</td></tr>
+<tr><td><span style="font-weight:bold;">orderId</span></td><td>string</td><td>The order id returned by the vendor when the order was successfully submitted.</td></tr>
+<tr><td><span style="font-weight:bold;">requiredServiceInfo</span></td><td>object</td><td>A map of additional data required by the requested service. This includes things like Volume and Concentration.</td></tr>
+<tr><td><span style="font-weight:bold;">serviceIds</span></td><td>array[string]</td><td>A list of unique, alpha-numeric ID which identify the requested services to be applied to this order.  A Vendor Service defines what platform, technology, and markers will be used.  A list of available service IDs can be retrieved from the Vendor Specs.</td></tr>
 </table>
 
 
@@ -109,45 +109,45 @@ Submit a new order to a vendor
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>clientId</td><td>string</td><td>A unique, alpha-numeric ID which identifies the client to the vendor. Used to connect the order to the contract, billing, and contact info.</td></tr>
-<tr><td>numberOfSamples</td><td>integer</td><td>The total number of samples contained in this request. Used for billing and basic validation of the request.</td></tr>
-<tr><td>plates</td><td>array[object]</td><td>Array of new plates to be submitted to a vendor</td></tr>
-<tr><td>plates.<br>clientPlateBarcode</td><td>string</td><td>(Optional) The value of the bar code attached to this plate</td></tr>
-<tr><td>plates.<br>clientPlateId</td><td>string</td><td>The ID which uniquely identifies this plate to the client making the request</td></tr>
-<tr><td>plates.<br>sampleSubmissionFormat</td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
-<tr><td>plates.<br>samples</td><td>array[object]</td><td></td></tr>
-<tr><td>plates.<br>samples.<br>clientSampleBarCode</td><td>string</td><td>(Optional) The value of the bar code attached to this sample</td></tr>
-<tr><td>plates.<br>samples.<br>clientSampleId</td><td>string</td><td>The ID which uniquely identifies this sample to the client making the request</td></tr>
-<tr><td>plates.<br>samples.<br>column</td><td>integer</td><td>The Column identifier for this samples location in the plate</td></tr>
-<tr><td>plates.<br>samples.<br>comments</td><td>string</td><td>Generic comments about this sample for the vendor</td></tr>
-<tr><td>plates.<br>samples.<br>concentration</td><td>object</td><td>A value with units</td></tr>
-<tr><td>plates.<br>samples.<br>concentration.<br>units</td><td>string</td><td>Units (example: "ng/ul")</td></tr>
-<tr><td>plates.<br>samples.<br>concentration.<br>value</td><td>number</td><td>Value (example: "2.3")</td></tr>
-<tr><td>plates.<br>samples.<br>organismName</td><td>string</td><td>Scientific organism name</td></tr>
-<tr><td>plates.<br>samples.<br>row</td><td>string</td><td>The Row identifier for this samples location in the plate</td></tr>
-<tr><td>plates.<br>samples.<br>speciesName</td><td>string</td><td>Scientific species name</td></tr>
-<tr><td>plates.<br>samples.<br>taxonomyOntologyReference</td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>plates.<br>samples.<br>taxonomyOntologyReference.<br>documentationLinks</td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>plates.<br>samples.<br>taxonomyOntologyReference.<br>documentationLinks.<br>URL</td><td>string (uri)</td><td></td></tr>
-<tr><td>plates.<br>samples.<br>taxonomyOntologyReference.<br>documentationLinks.<br>type</td><td>string</td><td></td></tr>
-<tr><td>plates.<br>samples.<br>taxonomyOntologyReference.<br>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>plates.<br>samples.<br>taxonomyOntologyReference.<br>ontologyName</td><td>string</td><td>Ontology name</td></tr>
-<tr><td>plates.<br>samples.<br>taxonomyOntologyReference.<br>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>plates.<br>samples.<br>tissueType</td><td>string</td><td>The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.</td></tr>
-<tr><td>plates.<br>samples.<br>tissueTypeOntologyReference</td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>plates.<br>samples.<br>tissueTypeOntologyReference.<br>documentationLinks</td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>plates.<br>samples.<br>tissueTypeOntologyReference.<br>documentationLinks.<br>URL</td><td>string (uri)</td><td></td></tr>
-<tr><td>plates.<br>samples.<br>tissueTypeOntologyReference.<br>documentationLinks.<br>type</td><td>string</td><td></td></tr>
-<tr><td>plates.<br>samples.<br>tissueTypeOntologyReference.<br>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>plates.<br>samples.<br>tissueTypeOntologyReference.<br>ontologyName</td><td>string</td><td>Ontology name</td></tr>
-<tr><td>plates.<br>samples.<br>tissueTypeOntologyReference.<br>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>plates.<br>samples.<br>volume</td><td>object</td><td>A value with units</td></tr>
-<tr><td>plates.<br>samples.<br>volume.<br>units</td><td>string</td><td>Units (example: "ng/ul")</td></tr>
-<tr><td>plates.<br>samples.<br>volume.<br>value</td><td>number</td><td>Value (example: "2.3")</td></tr>
-<tr><td>plates.<br>samples.<br>well</td><td>string</td><td>The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.</td></tr>
-<tr><td>requiredServiceInfo</td><td>object</td><td>A map of additional data required by the requested service. This includes things like Volume and Concentration.</td></tr>
-<tr><td>sampleType</td><td>string</td><td>The type of Samples being submitted</td></tr>
-<tr><td>serviceIds</td><td>array[string]</td><td>A list of unique, alpha-numeric ID which identify the requested services to be applied to this order.  A Vendor Service defines what platform, technology, and markers will be used.  A list of available service IDs can be retrieved from the Vendor Specs.</td></tr>
+<tr><td><span style="font-weight:bold;">clientId</span></td><td>string</td><td>A unique, alpha-numeric ID which identifies the client to the vendor. Used to connect the order to the contract, billing, and contact info.</td></tr>
+<tr><td><span style="font-weight:bold;">numberOfSamples</span></td><td>integer</td><td>The total number of samples contained in this request. Used for billing and basic validation of the request.</td></tr>
+<tr><td><span style="font-weight:bold;">plates</span></td><td>array[object]</td><td>Array of new plates to be submitted to a vendor</td></tr>
+<tr><td>plates<br><span style="font-weight:bold;margin-left:5px">.clientPlateBarcode</span></td><td>string</td><td>(Optional) The value of the bar code attached to this plate</td></tr>
+<tr><td>plates<br><span style="font-weight:bold;margin-left:5px">.clientPlateId</span></td><td>string</td><td>The ID which uniquely identifies this plate to the client making the request</td></tr>
+<tr><td>plates<br><span style="font-weight:bold;margin-left:5px">.sampleSubmissionFormat</span></td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
+<tr><td>plates<br><span style="font-weight:bold;margin-left:5px">.samples</span></td><td>array[object]</td><td></td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.clientSampleBarCode</span></td><td>string</td><td>(Optional) The value of the bar code attached to this sample</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.clientSampleId</span></td><td>string</td><td>The ID which uniquely identifies this sample to the client making the request</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.column</span></td><td>integer</td><td>The Column identifier for this samples location in the plate</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.comments</span></td><td>string</td><td>Generic comments about this sample for the vendor</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.concentration</span></td><td>object</td><td>A value with units</td></tr>
+<tr><td>plates<br>.samples<br>.concentration<br><span style="font-weight:bold;margin-left:5px">.units</span></td><td>string</td><td>Units (example: "ng/ul")</td></tr>
+<tr><td>plates<br>.samples<br>.concentration<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>number</td><td>Value (example: "2.3")</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.organismName</span></td><td>string</td><td>Scientific organism name</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.row</span></td><td>string</td><td>The Row identifier for this samples location in the plate</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.speciesName</span></td><td>string</td><td>Scientific species name</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.taxonomyOntologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>plates<br>.samples<br>.taxonomyOntologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
+<tr><td>plates<br>.samples<br>.taxonomyOntologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
+<tr><td>plates<br>.samples<br>.taxonomyOntologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
+<tr><td>plates<br>.samples<br>.taxonomyOntologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>plates<br>.samples<br>.taxonomyOntologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
+<tr><td>plates<br>.samples<br>.taxonomyOntologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.tissueType</span></td><td>string</td><td>The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.tissueTypeOntologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>plates<br>.samples<br>.tissueTypeOntologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
+<tr><td>plates<br>.samples<br>.tissueTypeOntologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
+<tr><td>plates<br>.samples<br>.tissueTypeOntologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
+<tr><td>plates<br>.samples<br>.tissueTypeOntologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>plates<br>.samples<br>.tissueTypeOntologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
+<tr><td>plates<br>.samples<br>.tissueTypeOntologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.volume</span></td><td>object</td><td>A value with units</td></tr>
+<tr><td>plates<br>.samples<br>.volume<br><span style="font-weight:bold;margin-left:5px">.units</span></td><td>string</td><td>Units (example: "ng/ul")</td></tr>
+<tr><td>plates<br>.samples<br>.volume<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>number</td><td>Value (example: "2.3")</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.well</span></td><td>string</td><td>The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.</td></tr>
+<tr><td><span style="font-weight:bold;">requiredServiceInfo</span></td><td>object</td><td>A map of additional data required by the requested service. This includes things like Volume and Concentration.</td></tr>
+<tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of Samples being submitted</td></tr>
+<tr><td><span style="font-weight:bold;">serviceIds</span></td><td>array[string]</td><td>A list of unique, alpha-numeric ID which identify the requested services to be applied to this order.  A Vendor Service defines what platform, technology, and markers will be used.  A list of available service IDs can be retrieved from the Vendor Specs.</td></tr>
 </table>
 
 
@@ -155,11 +155,11 @@ Submit a new order to a vendor
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>orderId</td><td>string</td><td>A unique, alpha-numeric ID which identifies the order</td></tr>
-<tr><td>shipmentForms</td><td>array[object]</td><td>Array of paper forms which need to be printed and included with the physical shipment</td></tr>
-<tr><td>shipmentForms.<br>fileDescription</td><td>string</td><td>The human readable long description for this form</td></tr>
-<tr><td>shipmentForms.<br>fileName</td><td>string</td><td>The human readable name for this form</td></tr>
-<tr><td>shipmentForms.<br>fileURL</td><td>string (uri)</td><td>The URL to download this form</td></tr>
+<tr><td><span style="font-weight:bold;">orderId</span></td><td>string</td><td>A unique, alpha-numeric ID which identifies the order</td></tr>
+<tr><td><span style="font-weight:bold;">shipmentForms</span></td><td>array[object]</td><td>Array of paper forms which need to be printed and included with the physical shipment</td></tr>
+<tr><td>shipmentForms<br><span style="font-weight:bold;margin-left:5px">.fileDescription</span></td><td>string</td><td>The human readable long description for this form</td></tr>
+<tr><td>shipmentForms<br><span style="font-weight:bold;margin-left:5px">.fileName</span></td><td>string</td><td>The human readable name for this form</td></tr>
+<tr><td>shipmentForms<br><span style="font-weight:bold;margin-left:5px">.fileURL</span></td><td>string<br>(uri)</td><td>The URL to download this form</td></tr>
 </table>
 
 
@@ -304,39 +304,39 @@ Retrieve the plate and sample details of an order being processed
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>clientPlateBarcode</td><td>string</td><td>(Optional) The value of the bar code attached to this plate</td></tr>
-<tr><td>clientPlateId</td><td>string</td><td>The ID which uniquely identifies this plate to the client making the request</td></tr>
-<tr><td>sampleSubmissionFormat</td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
-<tr><td>samples</td><td>array[object]</td><td></td></tr>
-<tr><td>samples.<br>clientSampleBarCode</td><td>string</td><td>(Optional) The value of the bar code attached to this sample</td></tr>
-<tr><td>samples.<br>clientSampleId</td><td>string</td><td>The ID which uniquely identifies this sample to the client making the request</td></tr>
-<tr><td>samples.<br>column</td><td>integer</td><td>The Column identifier for this samples location in the plate</td></tr>
-<tr><td>samples.<br>comments</td><td>string</td><td>Generic comments about this sample for the vendor</td></tr>
-<tr><td>samples.<br>concentration</td><td>object</td><td>A value with units</td></tr>
-<tr><td>samples.<br>concentration.<br>units</td><td>string</td><td>Units (example: "ng/ul")</td></tr>
-<tr><td>samples.<br>concentration.<br>value</td><td>number</td><td>Value (example: "2.3")</td></tr>
-<tr><td>samples.<br>organismName</td><td>string</td><td>Scientific organism name</td></tr>
-<tr><td>samples.<br>row</td><td>string</td><td>The Row identifier for this samples location in the plate</td></tr>
-<tr><td>samples.<br>speciesName</td><td>string</td><td>Scientific species name</td></tr>
-<tr><td>samples.<br>taxonomyOntologyReference</td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>samples.<br>taxonomyOntologyReference.<br>documentationLinks</td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>samples.<br>taxonomyOntologyReference.<br>documentationLinks.<br>URL</td><td>string (uri)</td><td></td></tr>
-<tr><td>samples.<br>taxonomyOntologyReference.<br>documentationLinks.<br>type</td><td>string</td><td></td></tr>
-<tr><td>samples.<br>taxonomyOntologyReference.<br>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>samples.<br>taxonomyOntologyReference.<br>ontologyName</td><td>string</td><td>Ontology name</td></tr>
-<tr><td>samples.<br>taxonomyOntologyReference.<br>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>samples.<br>tissueType</td><td>string</td><td>The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.</td></tr>
-<tr><td>samples.<br>tissueTypeOntologyReference</td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>samples.<br>tissueTypeOntologyReference.<br>documentationLinks</td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>samples.<br>tissueTypeOntologyReference.<br>documentationLinks.<br>URL</td><td>string (uri)</td><td></td></tr>
-<tr><td>samples.<br>tissueTypeOntologyReference.<br>documentationLinks.<br>type</td><td>string</td><td></td></tr>
-<tr><td>samples.<br>tissueTypeOntologyReference.<br>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>samples.<br>tissueTypeOntologyReference.<br>ontologyName</td><td>string</td><td>Ontology name</td></tr>
-<tr><td>samples.<br>tissueTypeOntologyReference.<br>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>samples.<br>volume</td><td>object</td><td>A value with units</td></tr>
-<tr><td>samples.<br>volume.<br>units</td><td>string</td><td>Units (example: "ng/ul")</td></tr>
-<tr><td>samples.<br>volume.<br>value</td><td>number</td><td>Value (example: "2.3")</td></tr>
-<tr><td>samples.<br>well</td><td>string</td><td>The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.</td></tr>
+<tr><td><span style="font-weight:bold;">clientPlateBarcode</span></td><td>string</td><td>(Optional) The value of the bar code attached to this plate</td></tr>
+<tr><td><span style="font-weight:bold;">clientPlateId</span></td><td>string</td><td>The ID which uniquely identifies this plate to the client making the request</td></tr>
+<tr><td><span style="font-weight:bold;">sampleSubmissionFormat</span></td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
+<tr><td><span style="font-weight:bold;">samples</span></td><td>array[object]</td><td></td></tr>
+<tr><td>samples<br><span style="font-weight:bold;margin-left:5px">.clientSampleBarCode</span></td><td>string</td><td>(Optional) The value of the bar code attached to this sample</td></tr>
+<tr><td>samples<br><span style="font-weight:bold;margin-left:5px">.clientSampleId</span></td><td>string</td><td>The ID which uniquely identifies this sample to the client making the request</td></tr>
+<tr><td>samples<br><span style="font-weight:bold;margin-left:5px">.column</span></td><td>integer</td><td>The Column identifier for this samples location in the plate</td></tr>
+<tr><td>samples<br><span style="font-weight:bold;margin-left:5px">.comments</span></td><td>string</td><td>Generic comments about this sample for the vendor</td></tr>
+<tr><td>samples<br><span style="font-weight:bold;margin-left:5px">.concentration</span></td><td>object</td><td>A value with units</td></tr>
+<tr><td>samples<br>.concentration<br><span style="font-weight:bold;margin-left:5px">.units</span></td><td>string</td><td>Units (example: "ng/ul")</td></tr>
+<tr><td>samples<br>.concentration<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>number</td><td>Value (example: "2.3")</td></tr>
+<tr><td>samples<br><span style="font-weight:bold;margin-left:5px">.organismName</span></td><td>string</td><td>Scientific organism name</td></tr>
+<tr><td>samples<br><span style="font-weight:bold;margin-left:5px">.row</span></td><td>string</td><td>The Row identifier for this samples location in the plate</td></tr>
+<tr><td>samples<br><span style="font-weight:bold;margin-left:5px">.speciesName</span></td><td>string</td><td>Scientific species name</td></tr>
+<tr><td>samples<br><span style="font-weight:bold;margin-left:5px">.taxonomyOntologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>samples<br>.taxonomyOntologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
+<tr><td>samples<br>.taxonomyOntologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
+<tr><td>samples<br>.taxonomyOntologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
+<tr><td>samples<br>.taxonomyOntologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>samples<br>.taxonomyOntologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
+<tr><td>samples<br>.taxonomyOntologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td>samples<br><span style="font-weight:bold;margin-left:5px">.tissueType</span></td><td>string</td><td>The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.</td></tr>
+<tr><td>samples<br><span style="font-weight:bold;margin-left:5px">.tissueTypeOntologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>samples<br>.tissueTypeOntologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
+<tr><td>samples<br>.tissueTypeOntologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
+<tr><td>samples<br>.tissueTypeOntologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
+<tr><td>samples<br>.tissueTypeOntologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>samples<br>.tissueTypeOntologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
+<tr><td>samples<br>.tissueTypeOntologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td>samples<br><span style="font-weight:bold;margin-left:5px">.volume</span></td><td>object</td><td>A value with units</td></tr>
+<tr><td>samples<br>.volume<br><span style="font-weight:bold;margin-left:5px">.units</span></td><td>string</td><td>Units (example: "ng/ul")</td></tr>
+<tr><td>samples<br>.volume<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>number</td><td>Value (example: "2.3")</td></tr>
+<tr><td>samples<br><span style="font-weight:bold;margin-left:5px">.well</span></td><td>string</td><td>The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.</td></tr>
 </table>
 
 
@@ -460,12 +460,12 @@ Retrieve the data files generated by the vendors analysis
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>clientSampleIds</td><td>array[string]</td><td>The list of sampleDbIds included in the file</td></tr>
-<tr><td>fileName</td><td>string</td><td>Name of the file</td></tr>
-<tr><td>fileType</td><td>string</td><td>Format of the file</td></tr>
-<tr><td>fileURL</td><td>string (uri)</td><td>The URL to a file with the results of a vendor analysis</td></tr>
-<tr><td>md5sum</td><td>string</td><td>MD5 Hash Check Sum for the file to confirm download without error</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">clientSampleIds</span></td><td>array[string]</td><td>The list of sampleDbIds included in the file</td></tr>
+<tr><td><span style="font-weight:bold;">fileName</span></td><td>string</td><td>Name of the file</td></tr>
+<tr><td><span style="font-weight:bold;">fileType</span></td><td>string</td><td>Format of the file</td></tr>
+<tr><td><span style="font-weight:bold;">fileURL</span></td><td>string<br>(uri)</td><td>The URL to a file with the results of a vendor analysis</td></tr>
+<tr><td><span style="font-weight:bold;">md5sum</span></td><td>string</td><td>MD5 Hash Check Sum for the file to confirm download without error</td></tr>
 </table>
 
 
@@ -553,7 +553,7 @@ Retrieve the current status of an order being processed
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>status</td><td>string</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">status</span></td><td>string</td><td></td></tr>
 </table>
 
 
@@ -630,43 +630,43 @@ Submit a new set of Sample data
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>clientId</td><td>string</td><td>A unique, alpha-numeric ID which identifies the client to the vendor. Used to connect the order to the contract, billing, and contact info.</td></tr>
-<tr><td>numberOfSamples</td><td>integer</td><td>The total number of samples contained in this request. Used for billing and basic validation of the request.</td></tr>
-<tr><td>plates</td><td>array[object]</td><td>Array of new plates to be submitted to a vendor</td></tr>
-<tr><td>plates.<br>clientPlateBarcode</td><td>string</td><td>(Optional) The value of the bar code attached to this plate</td></tr>
-<tr><td>plates.<br>clientPlateId</td><td>string</td><td>The ID which uniquely identifies this plate to the client making the request</td></tr>
-<tr><td>plates.<br>sampleSubmissionFormat</td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
-<tr><td>plates.<br>samples</td><td>array[object]</td><td></td></tr>
-<tr><td>plates.<br>samples.<br>clientSampleBarCode</td><td>string</td><td>(Optional) The value of the bar code attached to this sample</td></tr>
-<tr><td>plates.<br>samples.<br>clientSampleId</td><td>string</td><td>The ID which uniquely identifies this sample to the client making the request</td></tr>
-<tr><td>plates.<br>samples.<br>column</td><td>integer</td><td>The Column identifier for this samples location in the plate</td></tr>
-<tr><td>plates.<br>samples.<br>comments</td><td>string</td><td>Generic comments about this sample for the vendor</td></tr>
-<tr><td>plates.<br>samples.<br>concentration</td><td>object</td><td>A value with units</td></tr>
-<tr><td>plates.<br>samples.<br>concentration.<br>units</td><td>string</td><td>Units (example: "ng/ul")</td></tr>
-<tr><td>plates.<br>samples.<br>concentration.<br>value</td><td>number</td><td>Value (example: "2.3")</td></tr>
-<tr><td>plates.<br>samples.<br>organismName</td><td>string</td><td>Scientific organism name</td></tr>
-<tr><td>plates.<br>samples.<br>row</td><td>string</td><td>The Row identifier for this samples location in the plate</td></tr>
-<tr><td>plates.<br>samples.<br>speciesName</td><td>string</td><td>Scientific species name</td></tr>
-<tr><td>plates.<br>samples.<br>taxonomyOntologyReference</td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>plates.<br>samples.<br>taxonomyOntologyReference.<br>documentationLinks</td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>plates.<br>samples.<br>taxonomyOntologyReference.<br>documentationLinks.<br>URL</td><td>string (uri)</td><td></td></tr>
-<tr><td>plates.<br>samples.<br>taxonomyOntologyReference.<br>documentationLinks.<br>type</td><td>string</td><td></td></tr>
-<tr><td>plates.<br>samples.<br>taxonomyOntologyReference.<br>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>plates.<br>samples.<br>taxonomyOntologyReference.<br>ontologyName</td><td>string</td><td>Ontology name</td></tr>
-<tr><td>plates.<br>samples.<br>taxonomyOntologyReference.<br>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>plates.<br>samples.<br>tissueType</td><td>string</td><td>The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.</td></tr>
-<tr><td>plates.<br>samples.<br>tissueTypeOntologyReference</td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>plates.<br>samples.<br>tissueTypeOntologyReference.<br>documentationLinks</td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>plates.<br>samples.<br>tissueTypeOntologyReference.<br>documentationLinks.<br>URL</td><td>string (uri)</td><td></td></tr>
-<tr><td>plates.<br>samples.<br>tissueTypeOntologyReference.<br>documentationLinks.<br>type</td><td>string</td><td></td></tr>
-<tr><td>plates.<br>samples.<br>tissueTypeOntologyReference.<br>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>plates.<br>samples.<br>tissueTypeOntologyReference.<br>ontologyName</td><td>string</td><td>Ontology name</td></tr>
-<tr><td>plates.<br>samples.<br>tissueTypeOntologyReference.<br>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>plates.<br>samples.<br>volume</td><td>object</td><td>A value with units</td></tr>
-<tr><td>plates.<br>samples.<br>volume.<br>units</td><td>string</td><td>Units (example: "ng/ul")</td></tr>
-<tr><td>plates.<br>samples.<br>volume.<br>value</td><td>number</td><td>Value (example: "2.3")</td></tr>
-<tr><td>plates.<br>samples.<br>well</td><td>string</td><td>The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.</td></tr>
-<tr><td>sampleType</td><td>string</td><td>The type of Samples being submitted</td></tr>
+<tr><td><span style="font-weight:bold;">clientId</span></td><td>string</td><td>A unique, alpha-numeric ID which identifies the client to the vendor. Used to connect the order to the contract, billing, and contact info.</td></tr>
+<tr><td><span style="font-weight:bold;">numberOfSamples</span></td><td>integer</td><td>The total number of samples contained in this request. Used for billing and basic validation of the request.</td></tr>
+<tr><td><span style="font-weight:bold;">plates</span></td><td>array[object]</td><td>Array of new plates to be submitted to a vendor</td></tr>
+<tr><td>plates<br><span style="font-weight:bold;margin-left:5px">.clientPlateBarcode</span></td><td>string</td><td>(Optional) The value of the bar code attached to this plate</td></tr>
+<tr><td>plates<br><span style="font-weight:bold;margin-left:5px">.clientPlateId</span></td><td>string</td><td>The ID which uniquely identifies this plate to the client making the request</td></tr>
+<tr><td>plates<br><span style="font-weight:bold;margin-left:5px">.sampleSubmissionFormat</span></td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
+<tr><td>plates<br><span style="font-weight:bold;margin-left:5px">.samples</span></td><td>array[object]</td><td></td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.clientSampleBarCode</span></td><td>string</td><td>(Optional) The value of the bar code attached to this sample</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.clientSampleId</span></td><td>string</td><td>The ID which uniquely identifies this sample to the client making the request</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.column</span></td><td>integer</td><td>The Column identifier for this samples location in the plate</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.comments</span></td><td>string</td><td>Generic comments about this sample for the vendor</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.concentration</span></td><td>object</td><td>A value with units</td></tr>
+<tr><td>plates<br>.samples<br>.concentration<br><span style="font-weight:bold;margin-left:5px">.units</span></td><td>string</td><td>Units (example: "ng/ul")</td></tr>
+<tr><td>plates<br>.samples<br>.concentration<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>number</td><td>Value (example: "2.3")</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.organismName</span></td><td>string</td><td>Scientific organism name</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.row</span></td><td>string</td><td>The Row identifier for this samples location in the plate</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.speciesName</span></td><td>string</td><td>Scientific species name</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.taxonomyOntologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>plates<br>.samples<br>.taxonomyOntologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
+<tr><td>plates<br>.samples<br>.taxonomyOntologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
+<tr><td>plates<br>.samples<br>.taxonomyOntologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
+<tr><td>plates<br>.samples<br>.taxonomyOntologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>plates<br>.samples<br>.taxonomyOntologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
+<tr><td>plates<br>.samples<br>.taxonomyOntologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.tissueType</span></td><td>string</td><td>The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.tissueTypeOntologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>plates<br>.samples<br>.tissueTypeOntologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
+<tr><td>plates<br>.samples<br>.tissueTypeOntologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
+<tr><td>plates<br>.samples<br>.tissueTypeOntologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
+<tr><td>plates<br>.samples<br>.tissueTypeOntologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>plates<br>.samples<br>.tissueTypeOntologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
+<tr><td>plates<br>.samples<br>.tissueTypeOntologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.volume</span></td><td>object</td><td>A value with units</td></tr>
+<tr><td>plates<br>.samples<br>.volume<br><span style="font-weight:bold;margin-left:5px">.units</span></td><td>string</td><td>Units (example: "ng/ul")</td></tr>
+<tr><td>plates<br>.samples<br>.volume<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>number</td><td>Value (example: "2.3")</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.well</span></td><td>string</td><td>The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.</td></tr>
+<tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of Samples being submitted</td></tr>
 </table>
 
 
@@ -674,7 +674,7 @@ Submit a new set of Sample data
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>submissionId</td><td>string</td><td>A unique, alpha-numeric ID which identifies a set of plates which have been successfully submitted.</td></tr>
+<tr><td><span style="font-weight:bold;">submissionId</span></td><td>string</td><td>A unique, alpha-numeric ID which identifies a set of plates which have been successfully submitted.</td></tr>
 </table>
 
 
@@ -801,42 +801,42 @@ Get data for a submitted set of plates
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>clientId</td><td>string</td><td>A unique, alpha-numeric ID which identifies the client to the vendor. Used to connect the order to the contract, billing, and contact info.</td></tr>
-<tr><td>numberOfSamples</td><td>integer</td><td>The total number of samples contained in this request. Used for billing and basic validation of the request.</td></tr>
-<tr><td>plates</td><td>array[object]</td><td>Array of new plates to be submitted to a vendor</td></tr>
-<tr><td>plates.<br>clientPlateBarcode</td><td>string</td><td>(Optional) The value of the bar code attached to this plate</td></tr>
-<tr><td>plates.<br>clientPlateId</td><td>string</td><td>The ID which uniquely identifies this plate to the client making the request</td></tr>
-<tr><td>plates.<br>sampleSubmissionFormat</td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
-<tr><td>plates.<br>samples</td><td>array[object]</td><td></td></tr>
-<tr><td>plates.<br>samples.<br>clientSampleBarCode</td><td>string</td><td>(Optional) The value of the bar code attached to this sample</td></tr>
-<tr><td>plates.<br>samples.<br>clientSampleId</td><td>string</td><td>The ID which uniquely identifies this sample to the client making the request</td></tr>
-<tr><td>plates.<br>samples.<br>column</td><td>integer</td><td>The Column identifier for this samples location in the plate</td></tr>
-<tr><td>plates.<br>samples.<br>comments</td><td>string</td><td>Generic comments about this sample for the vendor</td></tr>
-<tr><td>plates.<br>samples.<br>concentration</td><td>object</td><td>A value with units</td></tr>
-<tr><td>plates.<br>samples.<br>concentration.<br>units</td><td>string</td><td>Units (example: "ng/ul")</td></tr>
-<tr><td>plates.<br>samples.<br>concentration.<br>value</td><td>number</td><td>Value (example: "2.3")</td></tr>
-<tr><td>plates.<br>samples.<br>organismName</td><td>string</td><td>Scientific organism name</td></tr>
-<tr><td>plates.<br>samples.<br>row</td><td>string</td><td>The Row identifier for this samples location in the plate</td></tr>
-<tr><td>plates.<br>samples.<br>speciesName</td><td>string</td><td>Scientific species name</td></tr>
-<tr><td>plates.<br>samples.<br>taxonomyOntologyReference</td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>plates.<br>samples.<br>taxonomyOntologyReference.<br>documentationLinks</td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>plates.<br>samples.<br>taxonomyOntologyReference.<br>documentationLinks.<br>URL</td><td>string (uri)</td><td></td></tr>
-<tr><td>plates.<br>samples.<br>taxonomyOntologyReference.<br>documentationLinks.<br>type</td><td>string</td><td></td></tr>
-<tr><td>plates.<br>samples.<br>taxonomyOntologyReference.<br>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>plates.<br>samples.<br>taxonomyOntologyReference.<br>ontologyName</td><td>string</td><td>Ontology name</td></tr>
-<tr><td>plates.<br>samples.<br>taxonomyOntologyReference.<br>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>plates.<br>samples.<br>tissueType</td><td>string</td><td>The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.</td></tr>
-<tr><td>plates.<br>samples.<br>tissueTypeOntologyReference</td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>plates.<br>samples.<br>tissueTypeOntologyReference.<br>documentationLinks</td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>plates.<br>samples.<br>tissueTypeOntologyReference.<br>documentationLinks.<br>URL</td><td>string (uri)</td><td></td></tr>
-<tr><td>plates.<br>samples.<br>tissueTypeOntologyReference.<br>documentationLinks.<br>type</td><td>string</td><td></td></tr>
-<tr><td>plates.<br>samples.<br>tissueTypeOntologyReference.<br>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>plates.<br>samples.<br>tissueTypeOntologyReference.<br>ontologyName</td><td>string</td><td>Ontology name</td></tr>
-<tr><td>plates.<br>samples.<br>tissueTypeOntologyReference.<br>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>plates.<br>samples.<br>volume</td><td>object</td><td>A value with units</td></tr>
-<tr><td>plates.<br>samples.<br>volume.<br>units</td><td>string</td><td>Units (example: "ng/ul")</td></tr>
-<tr><td>plates.<br>samples.<br>volume.<br>value</td><td>number</td><td>Value (example: "2.3")</td></tr>
-<tr><td>plates.<br>samples.<br>well</td><td>string</td><td>The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.</td></tr>
+<tr><td><span style="font-weight:bold;">clientId</span></td><td>string</td><td>A unique, alpha-numeric ID which identifies the client to the vendor. Used to connect the order to the contract, billing, and contact info.</td></tr>
+<tr><td><span style="font-weight:bold;">numberOfSamples</span></td><td>integer</td><td>The total number of samples contained in this request. Used for billing and basic validation of the request.</td></tr>
+<tr><td><span style="font-weight:bold;">plates</span></td><td>array[object]</td><td>Array of new plates to be submitted to a vendor</td></tr>
+<tr><td>plates<br><span style="font-weight:bold;margin-left:5px">.clientPlateBarcode</span></td><td>string</td><td>(Optional) The value of the bar code attached to this plate</td></tr>
+<tr><td>plates<br><span style="font-weight:bold;margin-left:5px">.clientPlateId</span></td><td>string</td><td>The ID which uniquely identifies this plate to the client making the request</td></tr>
+<tr><td>plates<br><span style="font-weight:bold;margin-left:5px">.sampleSubmissionFormat</span></td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
+<tr><td>plates<br><span style="font-weight:bold;margin-left:5px">.samples</span></td><td>array[object]</td><td></td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.clientSampleBarCode</span></td><td>string</td><td>(Optional) The value of the bar code attached to this sample</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.clientSampleId</span></td><td>string</td><td>The ID which uniquely identifies this sample to the client making the request</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.column</span></td><td>integer</td><td>The Column identifier for this samples location in the plate</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.comments</span></td><td>string</td><td>Generic comments about this sample for the vendor</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.concentration</span></td><td>object</td><td>A value with units</td></tr>
+<tr><td>plates<br>.samples<br>.concentration<br><span style="font-weight:bold;margin-left:5px">.units</span></td><td>string</td><td>Units (example: "ng/ul")</td></tr>
+<tr><td>plates<br>.samples<br>.concentration<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>number</td><td>Value (example: "2.3")</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.organismName</span></td><td>string</td><td>Scientific organism name</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.row</span></td><td>string</td><td>The Row identifier for this samples location in the plate</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.speciesName</span></td><td>string</td><td>Scientific species name</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.taxonomyOntologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>plates<br>.samples<br>.taxonomyOntologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
+<tr><td>plates<br>.samples<br>.taxonomyOntologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
+<tr><td>plates<br>.samples<br>.taxonomyOntologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
+<tr><td>plates<br>.samples<br>.taxonomyOntologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>plates<br>.samples<br>.taxonomyOntologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
+<tr><td>plates<br>.samples<br>.taxonomyOntologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.tissueType</span></td><td>string</td><td>The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.tissueTypeOntologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>plates<br>.samples<br>.tissueTypeOntologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
+<tr><td>plates<br>.samples<br>.tissueTypeOntologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
+<tr><td>plates<br>.samples<br>.tissueTypeOntologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
+<tr><td>plates<br>.samples<br>.tissueTypeOntologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>plates<br>.samples<br>.tissueTypeOntologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
+<tr><td>plates<br>.samples<br>.tissueTypeOntologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.volume</span></td><td>object</td><td>A value with units</td></tr>
+<tr><td>plates<br>.samples<br>.volume<br><span style="font-weight:bold;margin-left:5px">.units</span></td><td>string</td><td>Units (example: "ng/ul")</td></tr>
+<tr><td>plates<br>.samples<br>.volume<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>number</td><td>Value (example: "2.3")</td></tr>
+<tr><td>plates<br>.samples<br><span style="font-weight:bold;margin-left:5px">.well</span></td><td>string</td><td>The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.</td></tr>
 </table>
 
 
@@ -960,26 +960,26 @@ Defines the plate format specification for the vendor.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary information specific to a particular Vendor. Look for the Vendors specific API documentation for more details</td></tr>
-<tr><td>services</td><td>array[object]</td><td>List of platform specifications available at the vendor</td></tr>
-<tr><td>services.<br>serviceDescription</td><td>string</td><td>Description of the vendor platform</td></tr>
-<tr><td>services.<br>serviceId</td><td>string</td><td>Unique identifier for this service</td></tr>
-<tr><td>services.<br>serviceName</td><td>string</td><td>The human readable name of a platform</td></tr>
-<tr><td>services.<br>servicePlatformMarkerType</td><td>string</td><td>The type of markers used in this services platform</td></tr>
-<tr><td>services.<br>servicePlatformName</td><td>string</td><td>The technology platform used by this service</td></tr>
-<tr><td>services.<br>specificRequirements</td><td>array[object]</td><td>Additional arbitrary requirements for a particular platform</td></tr>
-<tr><td>services.<br>specificRequirements.<br>description</td><td>string</td><td></td></tr>
-<tr><td>services.<br>specificRequirements.<br>key</td><td>string</td><td></td></tr>
-<tr><td>vendorContact</td><td>object</td><td></td></tr>
-<tr><td>vendorContact.<br>vendorAddress</td><td>string</td><td>The street address of the vendor</td></tr>
-<tr><td>vendorContact.<br>vendorCity</td><td>string</td><td>The name of the city where the vendor is located</td></tr>
-<tr><td>vendorContact.<br>vendorContactName</td><td>string</td><td>The name or identifier of the primary vendor contact</td></tr>
-<tr><td>vendorContact.<br>vendorCountry</td><td>string</td><td>The name of the country where the vendor is located</td></tr>
-<tr><td>vendorContact.<br>vendorDescription</td><td>string</td><td>A description of the vendor</td></tr>
-<tr><td>vendorContact.<br>vendorEmail</td><td>string</td><td>The primary email address used to contact the vendor</td></tr>
-<tr><td>vendorContact.<br>vendorName</td><td>string</td><td>The human readable name of the vendor</td></tr>
-<tr><td>vendorContact.<br>vendorPhone</td><td>string</td><td>The primary phone number used to contact the vendor</td></tr>
-<tr><td>vendorContact.<br>vendorURL</td><td>string</td><td>The primary URL for the vendor</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary information specific to a particular Vendor. Look for the Vendors specific API documentation for more details</td></tr>
+<tr><td><span style="font-weight:bold;">services</span></td><td>array[object]</td><td>List of platform specifications available at the vendor</td></tr>
+<tr><td>services<br><span style="font-weight:bold;margin-left:5px">.serviceDescription</span></td><td>string</td><td>Description of the vendor platform</td></tr>
+<tr><td>services<br><span style="font-weight:bold;margin-left:5px">.serviceId</span></td><td>string</td><td>Unique identifier for this service</td></tr>
+<tr><td>services<br><span style="font-weight:bold;margin-left:5px">.serviceName</span></td><td>string</td><td>The human readable name of a platform</td></tr>
+<tr><td>services<br><span style="font-weight:bold;margin-left:5px">.servicePlatformMarkerType</span></td><td>string</td><td>The type of markers used in this services platform</td></tr>
+<tr><td>services<br><span style="font-weight:bold;margin-left:5px">.servicePlatformName</span></td><td>string</td><td>The technology platform used by this service</td></tr>
+<tr><td>services<br><span style="font-weight:bold;margin-left:5px">.specificRequirements</span></td><td>array[object]</td><td>Additional arbitrary requirements for a particular platform</td></tr>
+<tr><td>services<br>.specificRequirements<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td></td></tr>
+<tr><td>services<br>.specificRequirements<br><span style="font-weight:bold;margin-left:5px">.key</span></td><td>string</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">vendorContact</span></td><td>object</td><td></td></tr>
+<tr><td>vendorContact<br><span style="font-weight:bold;margin-left:5px">.vendorAddress</span></td><td>string</td><td>The street address of the vendor</td></tr>
+<tr><td>vendorContact<br><span style="font-weight:bold;margin-left:5px">.vendorCity</span></td><td>string</td><td>The name of the city where the vendor is located</td></tr>
+<tr><td>vendorContact<br><span style="font-weight:bold;margin-left:5px">.vendorContactName</span></td><td>string</td><td>The name or identifier of the primary vendor contact</td></tr>
+<tr><td>vendorContact<br><span style="font-weight:bold;margin-left:5px">.vendorCountry</span></td><td>string</td><td>The name of the country where the vendor is located</td></tr>
+<tr><td>vendorContact<br><span style="font-weight:bold;margin-left:5px">.vendorDescription</span></td><td>string</td><td>A description of the vendor</td></tr>
+<tr><td>vendorContact<br><span style="font-weight:bold;margin-left:5px">.vendorEmail</span></td><td>string</td><td>The primary email address used to contact the vendor</td></tr>
+<tr><td>vendorContact<br><span style="font-weight:bold;margin-left:5px">.vendorName</span></td><td>string</td><td>The human readable name of the vendor</td></tr>
+<tr><td>vendorContact<br><span style="font-weight:bold;margin-left:5px">.vendorPhone</span></td><td>string</td><td>The primary phone number used to contact the vendor</td></tr>
+<tr><td>vendorContact<br><span style="font-weight:bold;margin-left:5px">.vendorURL</span></td><td>string</td><td>The primary URL for the vendor</td></tr>
 </table>
 
 
