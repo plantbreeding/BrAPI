@@ -12,31 +12,31 @@
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
-|length|integer|The length of this reference's sequence.|
-|md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
-|referenceDbId|string|The unique identifier for a Reference|
-|referenceName|string|The human readable name of a Reference within a Reference Set.|
-|referenceSetDbId|string|The unique identifier for a ReferenceSet|
-|referenceSetName|string|The human readable name of a ReferenceSet|
-|sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.|
-|sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
-|sourceGermplasm|array[object]|All known corresponding Germplasm|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
-|germplasmName|string|The human readable name of a germplasm|
-|sourceURI|string|The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.|
-|species|object|An ontology term describing an attribute.|
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>commonCropName</td><td>string</td><td>Common name for the crop</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>isDerived</td><td>boolean (boolean)</td><td>A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.</td></tr>
+<tr><td>length</td><td>integer</td><td>The length of this reference's sequence.</td></tr>
+<tr><td>md5checksum</td><td>string</td><td>The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).</td></tr>
+<tr><td>referenceDbId</td><td>string</td><td>The unique identifier for a Reference</td></tr>
+<tr><td>referenceName</td><td>string</td><td>The human readable name of a Reference within a Reference Set.</td></tr>
+<tr><td>referenceSetDbId</td><td>string</td><td>The unique identifier for a ReferenceSet</td></tr>
+<tr><td>referenceSetName</td><td>string</td><td>The human readable name of a ReferenceSet</td></tr>
+<tr><td>sourceAccessions</td><td>array[string]</td><td>All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.</td></tr>
+<tr><td>sourceDivergence</td><td>number (float)</td><td>The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.</td></tr>
+<tr><td>sourceGermplasm</td><td>array[object]</td><td>All known corresponding Germplasm</td></tr>
+<tr><td>sourceGermplasm.<br>germplasmDbId</td><td>string</td><td>The ID which uniquely identifies a germplasm within the given database server</td></tr>
+<tr><td>sourceGermplasm.<br>germplasmName</td><td>string</td><td>The human readable name of a germplasm</td></tr>
+<tr><td>sourceURI</td><td>string</td><td>The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.</td></tr>
+<tr><td>species</td><td>object</td><td>An ontology term describing an attribute.</td></tr>
+<tr><td>species.<br>term</td><td>string</td><td>Ontology term - the label of the ontology term the termId is pointing to.</td></tr>
+<tr><td>species.<br>termURI</td><td>string</td><td>Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.</td></tr>
+</table>
 
 
  
@@ -153,30 +153,31 @@
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
-|length|integer|The length of this reference's sequence.|
-|md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
-|referenceDbId|string|The unique identifier for a Reference|
-|referenceName|string|The human readable name of a Reference within a Reference Set.|
-|referenceSetDbId|string|The unique identifier for a ReferenceSet|
-|referenceSetName|string|The human readable name of a ReferenceSet|
-|sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.|
-|sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
-|sourceGermplasm|array[object]|All known corresponding Germplasm|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
-|germplasmName|string|The human readable name of a germplasm|
-|sourceURI|string|The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.|
-|species|object|An ontology term describing an attribute.|
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>commonCropName</td><td>string</td><td>Common name for the crop</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>isDerived</td><td>boolean (boolean)</td><td>A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.</td></tr>
+<tr><td>length</td><td>integer</td><td>The length of this reference's sequence.</td></tr>
+<tr><td>md5checksum</td><td>string</td><td>The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).</td></tr>
+<tr><td>referenceDbId</td><td>string</td><td>The unique identifier for a Reference</td></tr>
+<tr><td>referenceName</td><td>string</td><td>The human readable name of a Reference within a Reference Set.</td></tr>
+<tr><td>referenceSetDbId</td><td>string</td><td>The unique identifier for a ReferenceSet</td></tr>
+<tr><td>referenceSetName</td><td>string</td><td>The human readable name of a ReferenceSet</td></tr>
+<tr><td>sourceAccessions</td><td>array[string]</td><td>All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.</td></tr>
+<tr><td>sourceDivergence</td><td>number (float)</td><td>The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.</td></tr>
+<tr><td>sourceGermplasm</td><td>array[object]</td><td>All known corresponding Germplasm</td></tr>
+<tr><td>sourceGermplasm.<br>germplasmDbId</td><td>string</td><td>The ID which uniquely identifies a germplasm within the given database server</td></tr>
+<tr><td>sourceGermplasm.<br>germplasmName</td><td>string</td><td>The human readable name of a germplasm</td></tr>
+<tr><td>sourceURI</td><td>string</td><td>The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.</td></tr>
+<tr><td>species</td><td>object</td><td>An ontology term describing an attribute.</td></tr>
+<tr><td>species.<br>term</td><td>string</td><td>Ontology term - the label of the ontology term the termId is pointing to.</td></tr>
+<tr><td>species.<br>termURI</td><td>string</td><td>Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.</td></tr>
+</table>
 
 
  
@@ -279,11 +280,12 @@ Lists `Reference` bases by ID and optional range.
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|nextPageToken|string|The continuation token, which is used to page through large result sets. Provide this value in a subsequent request to return the next page of results. This field will be empty if there are not any additional results.|
-|offset|integer|The offset position (0-based) of the given sequence from the start of this `Reference`. This value will differ for each page in a request.|
-|sequence|string|A sub-string of the bases that make up this reference. Bases are represented as IUPAC-IUB codes; this string matches the regular expression `[ACGTMRWSYKVHDBN]*`.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>nextPageToken</td><td>string</td><td>The continuation token, which is used to page through large result sets. Provide this value in a subsequent request to return the next page of results. This field will be empty if there are not any additional results.</td></tr>
+<tr><td>offset</td><td>integer</td><td>The offset position (0-based) of the given sequence from the start of this `Reference`. This value will differ for each page in a request.</td></tr>
+<tr><td>sequence</td><td>string</td><td>A sub-string of the bases that make up this reference. Bases are represented as IUPAC-IUB codes; this string matches the regular expression `[ACGTMRWSYKVHDBN]*`.</td></tr>
+</table>
 
 
  
@@ -360,58 +362,59 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|accessions|array[string]|If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).|
-|commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
-|externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
-|externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
-|externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
-|germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
-|germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
-|isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
-|maxLength|integer|The minimum length of this reference's sequence.|
-|md5checksums|array[string]|If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match).|
-|minLength|integer|The minimum length of this reference's sequence.|
-|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
-|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
-|programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
-|programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
-|referenceDbIds|array[string]|The `References` to search.|
-|referenceSetDbIds|array[string]|The `ReferenceSets` to search.|
-|studyDbIds|array[string]|List of study identifiers to search for|
-|studyNames|array[string]|List of study names to filter search results|
-|trialDbIds|array[string]|The ID which uniquely identifies a trial to search for|
-|trialNames|array[string]|The human readable name of a trial to search for|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>accessions</td><td>array[string]</td><td>If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).</td></tr>
+<tr><td>commonCropNames</td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
+<tr><td>externalReferenceIDs</td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td>externalReferenceIds</td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td>externalReferenceSources</td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
+<tr><td>germplasmDbIds</td><td>array[string]</td><td>List of IDs which uniquely identify germplasm to search for</td></tr>
+<tr><td>germplasmNames</td><td>array[string]</td><td>List of human readable names to identify germplasm to search for</td></tr>
+<tr><td>isDerived</td><td>boolean (boolean)</td><td>A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.</td></tr>
+<tr><td>maxLength</td><td>integer</td><td>The minimum length of this reference's sequence.</td></tr>
+<tr><td>md5checksums</td><td>array[string]</td><td>If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match).</td></tr>
+<tr><td>minLength</td><td>integer</td><td>The minimum length of this reference's sequence.</td></tr>
+<tr><td>page</td><td>integer</td><td>Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.</td></tr>
+<tr><td>pageSize</td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
+<tr><td>programDbIds</td><td>array[string]</td><td>A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.</td></tr>
+<tr><td>programNames</td><td>array[string]</td><td>Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.</td></tr>
+<tr><td>referenceDbIds</td><td>array[string]</td><td>The `References` to search.</td></tr>
+<tr><td>referenceSetDbIds</td><td>array[string]</td><td>The `ReferenceSets` to search.</td></tr>
+<tr><td>studyDbIds</td><td>array[string]</td><td>List of study identifiers to search for</td></tr>
+<tr><td>studyNames</td><td>array[string]</td><td>List of study names to filter search results</td></tr>
+<tr><td>trialDbIds</td><td>array[string]</td><td>The ID which uniquely identifies a trial to search for</td></tr>
+<tr><td>trialNames</td><td>array[string]</td><td>The human readable name of a trial to search for</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
-|length|integer|The length of this reference's sequence.|
-|md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
-|referenceDbId|string|The unique identifier for a Reference|
-|referenceName|string|The human readable name of a Reference within a Reference Set.|
-|referenceSetDbId|string|The unique identifier for a ReferenceSet|
-|referenceSetName|string|The human readable name of a ReferenceSet|
-|sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.|
-|sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
-|sourceGermplasm|array[object]|All known corresponding Germplasm|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
-|germplasmName|string|The human readable name of a germplasm|
-|sourceURI|string|The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.|
-|species|object|An ontology term describing an attribute.|
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>commonCropName</td><td>string</td><td>Common name for the crop</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>isDerived</td><td>boolean (boolean)</td><td>A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.</td></tr>
+<tr><td>length</td><td>integer</td><td>The length of this reference's sequence.</td></tr>
+<tr><td>md5checksum</td><td>string</td><td>The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).</td></tr>
+<tr><td>referenceDbId</td><td>string</td><td>The unique identifier for a Reference</td></tr>
+<tr><td>referenceName</td><td>string</td><td>The human readable name of a Reference within a Reference Set.</td></tr>
+<tr><td>referenceSetDbId</td><td>string</td><td>The unique identifier for a ReferenceSet</td></tr>
+<tr><td>referenceSetName</td><td>string</td><td>The human readable name of a ReferenceSet</td></tr>
+<tr><td>sourceAccessions</td><td>array[string]</td><td>All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.</td></tr>
+<tr><td>sourceDivergence</td><td>number (float)</td><td>The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.</td></tr>
+<tr><td>sourceGermplasm</td><td>array[object]</td><td>All known corresponding Germplasm</td></tr>
+<tr><td>sourceGermplasm.<br>germplasmDbId</td><td>string</td><td>The ID which uniquely identifies a germplasm within the given database server</td></tr>
+<tr><td>sourceGermplasm.<br>germplasmName</td><td>string</td><td>The human readable name of a germplasm</td></tr>
+<tr><td>sourceURI</td><td>string</td><td>The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.</td></tr>
+<tr><td>species</td><td>object</td><td>An ontology term describing an attribute.</td></tr>
+<tr><td>species.<br>term</td><td>string</td><td>Ontology term - the label of the ontology term the termId is pointing to.</td></tr>
+<tr><td>species.<br>termURI</td><td>string</td><td>Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.</td></tr>
+</table>
 
 
  
@@ -618,31 +621,31 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
-|length|integer|The length of this reference's sequence.|
-|md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
-|referenceDbId|string|The unique identifier for a Reference|
-|referenceName|string|The human readable name of a Reference within a Reference Set.|
-|referenceSetDbId|string|The unique identifier for a ReferenceSet|
-|referenceSetName|string|The human readable name of a ReferenceSet|
-|sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.|
-|sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
-|sourceGermplasm|array[object]|All known corresponding Germplasm|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
-|germplasmName|string|The human readable name of a germplasm|
-|sourceURI|string|The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.|
-|species|object|An ontology term describing an attribute.|
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>commonCropName</td><td>string</td><td>Common name for the crop</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>isDerived</td><td>boolean (boolean)</td><td>A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.</td></tr>
+<tr><td>length</td><td>integer</td><td>The length of this reference's sequence.</td></tr>
+<tr><td>md5checksum</td><td>string</td><td>The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).</td></tr>
+<tr><td>referenceDbId</td><td>string</td><td>The unique identifier for a Reference</td></tr>
+<tr><td>referenceName</td><td>string</td><td>The human readable name of a Reference within a Reference Set.</td></tr>
+<tr><td>referenceSetDbId</td><td>string</td><td>The unique identifier for a ReferenceSet</td></tr>
+<tr><td>referenceSetName</td><td>string</td><td>The human readable name of a ReferenceSet</td></tr>
+<tr><td>sourceAccessions</td><td>array[string]</td><td>All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.</td></tr>
+<tr><td>sourceDivergence</td><td>number (float)</td><td>The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.</td></tr>
+<tr><td>sourceGermplasm</td><td>array[object]</td><td>All known corresponding Germplasm</td></tr>
+<tr><td>sourceGermplasm.<br>germplasmDbId</td><td>string</td><td>The ID which uniquely identifies a germplasm within the given database server</td></tr>
+<tr><td>sourceGermplasm.<br>germplasmName</td><td>string</td><td>The human readable name of a germplasm</td></tr>
+<tr><td>sourceURI</td><td>string</td><td>The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.</td></tr>
+<tr><td>species</td><td>object</td><td>An ontology term describing an attribute.</td></tr>
+<tr><td>species.<br>term</td><td>string</td><td>Ontology term - the label of the ontology term the termId is pointing to.</td></tr>
+<tr><td>species.<br>termURI</td><td>string</td><td>Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.</td></tr>
+</table>
 
 
  

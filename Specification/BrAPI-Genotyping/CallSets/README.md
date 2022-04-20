@@ -12,21 +12,21 @@ Gets a filtered list of `CallSet` JSON objects.
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|callSetDbId|string|The call set ID.|
-|callSetName|string|The call set name.|
-|created|string (date-time)|The date this call set was created|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|sampleDbId|string|The Biosample entity the call set data was generated from.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|string (date-time)|The time at which this call set was last updated|
-|variantSetDbIds|array[string]|The IDs of the variant sets this call set has calls in.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>callSetDbId</td><td>string</td><td>The call set ID.</td></tr>
+<tr><td>callSetName</td><td>string</td><td>The call set name.</td></tr>
+<tr><td>created</td><td>string (date-time)</td><td>The date this call set was created</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>sampleDbId</td><td>string</td><td>The Biosample entity the call set data was generated from.</td></tr>
+<tr><td>studyDbId</td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
+<tr><td>updated</td><td>string (date-time)</td><td>The time at which this call set was last updated</td></tr>
+<tr><td>variantSetDbIds</td><td>array[string]</td><td>The IDs of the variant sets this call set has calls in.</td></tr>
+</table>
 
 
  
@@ -123,20 +123,21 @@ Gets a `CallSet` by ID.
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|callSetDbId|string|The call set ID.|
-|callSetName|string|The call set name.|
-|created|string (date-time)|The date this call set was created|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|sampleDbId|string|The Biosample entity the call set data was generated from.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|string (date-time)|The time at which this call set was last updated|
-|variantSetDbIds|array[string]|The IDs of the variant sets this call set has calls in.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>callSetDbId</td><td>string</td><td>The call set ID.</td></tr>
+<tr><td>callSetName</td><td>string</td><td>The call set name.</td></tr>
+<tr><td>created</td><td>string (date-time)</td><td>The date this call set was created</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>sampleDbId</td><td>string</td><td>The Biosample entity the call set data was generated from.</td></tr>
+<tr><td>studyDbId</td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
+<tr><td>updated</td><td>string (date-time)</td><td>The time at which this call set was last updated</td></tr>
+<tr><td>variantSetDbIds</td><td>array[string]</td><td>The IDs of the variant sets this call set has calls in.</td></tr>
+</table>
 
 
  
@@ -228,24 +229,25 @@ Gets a list of `Calls` associated with a `CallSet`.
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|callSetDbId|string|The ID of the call set this variant call belongs to.  If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
-|callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
-|genotype|object|`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.|
-|values|array|Repeated field of dynamically typed values.|
-|genotype_likelihood|array[number]|The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
-|phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.|
-|variantDbId|string|The ID of the variant this call belongs to.|
-|variantName|string|The name of the variant this call belongs to.|
-|variantSetDbId|string|The unique identifier for a VariantSet|
-|variantSetName|string|The human readable name for a VariantSet|
-|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
-|sepPhased|string|The string used as a separator for phased allele calls.|
-|sepUnphased|string|The string used as a separator for unphased allele calls.|
-|unknownString|string|The string used as a representation for missing data.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>data</td><td>array[object]</td><td></td></tr>
+<tr><td>data.<br>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>data.<br>callSetDbId</td><td>string</td><td>The ID of the call set this variant call belongs to.  If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.</td></tr>
+<tr><td>data.<br>callSetName</td><td>string</td><td>The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.</td></tr>
+<tr><td>data.<br>genotype</td><td>object</td><td>`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.</td></tr>
+<tr><td>data.<br>genotype.<br>values</td><td>array</td><td>Repeated field of dynamically typed values.</td></tr>
+<tr><td>data.<br>genotype_likelihood</td><td>array[number]</td><td>The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.</td></tr>
+<tr><td>data.<br>phaseSet</td><td>string</td><td>If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.</td></tr>
+<tr><td>data.<br>variantDbId</td><td>string</td><td>The ID of the variant this call belongs to.</td></tr>
+<tr><td>data.<br>variantName</td><td>string</td><td>The name of the variant this call belongs to.</td></tr>
+<tr><td>data.<br>variantSetDbId</td><td>string</td><td>The unique identifier for a VariantSet</td></tr>
+<tr><td>data.<br>variantSetName</td><td>string</td><td>The human readable name for a VariantSet</td></tr>
+<tr><td>expandHomozygotes</td><td>boolean</td><td>Should homozygotes be expanded (true) or collapsed into a single occurrence (false)</td></tr>
+<tr><td>sepPhased</td><td>string</td><td>The string used as a separator for phased allele calls.</td></tr>
+<tr><td>sepUnphased</td><td>string</td><td>The string used as a separator for unphased allele calls.</td></tr>
+<tr><td>unknownString</td><td>string</td><td>The string used as a representation for missing data.</td></tr>
+</table>
 
 
  
@@ -343,46 +345,47 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|callSetDbIds|array[string]|Only return call sets with these DbIds (case-sensitive, exact match).|
-|callSetNames|array[string]|Only return call sets with these names (case-sensitive, exact match).|
-|commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
-|externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
-|externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
-|externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
-|germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
-|germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
-|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
-|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
-|programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
-|programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
-|sampleDbIds|array[string]|Return only call sets generated from the provided Biosample IDs.|
-|sampleNames|array[string]|Return only call sets generated from the provided Biosample human readable names.|
-|studyDbIds|array[string]|List of study identifiers to search for|
-|studyNames|array[string]|List of study names to filter search results|
-|trialDbIds|array[string]|The ID which uniquely identifies a trial to search for|
-|trialNames|array[string]|The human readable name of a trial to search for|
-|variantSetDbIds|array[string]|The VariantSet to search.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>callSetDbIds</td><td>array[string]</td><td>Only return call sets with these DbIds (case-sensitive, exact match).</td></tr>
+<tr><td>callSetNames</td><td>array[string]</td><td>Only return call sets with these names (case-sensitive, exact match).</td></tr>
+<tr><td>commonCropNames</td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
+<tr><td>externalReferenceIDs</td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td>externalReferenceIds</td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td>externalReferenceSources</td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
+<tr><td>germplasmDbIds</td><td>array[string]</td><td>List of IDs which uniquely identify germplasm to search for</td></tr>
+<tr><td>germplasmNames</td><td>array[string]</td><td>List of human readable names to identify germplasm to search for</td></tr>
+<tr><td>page</td><td>integer</td><td>Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.</td></tr>
+<tr><td>pageSize</td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
+<tr><td>programDbIds</td><td>array[string]</td><td>A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.</td></tr>
+<tr><td>programNames</td><td>array[string]</td><td>Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.</td></tr>
+<tr><td>sampleDbIds</td><td>array[string]</td><td>Return only call sets generated from the provided Biosample IDs.</td></tr>
+<tr><td>sampleNames</td><td>array[string]</td><td>Return only call sets generated from the provided Biosample human readable names.</td></tr>
+<tr><td>studyDbIds</td><td>array[string]</td><td>List of study identifiers to search for</td></tr>
+<tr><td>studyNames</td><td>array[string]</td><td>List of study names to filter search results</td></tr>
+<tr><td>trialDbIds</td><td>array[string]</td><td>The ID which uniquely identifies a trial to search for</td></tr>
+<tr><td>trialNames</td><td>array[string]</td><td>The human readable name of a trial to search for</td></tr>
+<tr><td>variantSetDbIds</td><td>array[string]</td><td>The VariantSet to search.</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|callSetDbId|string|The call set ID.|
-|callSetName|string|The call set name.|
-|created|string (date-time)|The date this call set was created|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|sampleDbId|string|The Biosample entity the call set data was generated from.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|string (date-time)|The time at which this call set was last updated|
-|variantSetDbIds|array[string]|The IDs of the variant sets this call set has calls in.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>callSetDbId</td><td>string</td><td>The call set ID.</td></tr>
+<tr><td>callSetName</td><td>string</td><td>The call set name.</td></tr>
+<tr><td>created</td><td>string (date-time)</td><td>The date this call set was created</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>sampleDbId</td><td>string</td><td>The Biosample entity the call set data was generated from.</td></tr>
+<tr><td>studyDbId</td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
+<tr><td>updated</td><td>string (date-time)</td><td>The time at which this call set was last updated</td></tr>
+<tr><td>variantSetDbIds</td><td>array[string]</td><td>The IDs of the variant sets this call set has calls in.</td></tr>
+</table>
 
 
  
@@ -579,21 +582,21 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|callSetDbId|string|The call set ID.|
-|callSetName|string|The call set name.|
-|created|string (date-time)|The date this call set was created|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|sampleDbId|string|The Biosample entity the call set data was generated from.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|string (date-time)|The time at which this call set was last updated|
-|variantSetDbIds|array[string]|The IDs of the variant sets this call set has calls in.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>callSetDbId</td><td>string</td><td>The call set ID.</td></tr>
+<tr><td>callSetName</td><td>string</td><td>The call set name.</td></tr>
+<tr><td>created</td><td>string (date-time)</td><td>The date this call set was created</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>sampleDbId</td><td>string</td><td>The Biosample entity the call set data was generated from.</td></tr>
+<tr><td>studyDbId</td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
+<tr><td>updated</td><td>string (date-time)</td><td>The time at which this call set was last updated</td></tr>
+<tr><td>variantSetDbIds</td><td>array[string]</td><td>The IDs of the variant sets this call set has calls in.</td></tr>
+</table>
 
 
  

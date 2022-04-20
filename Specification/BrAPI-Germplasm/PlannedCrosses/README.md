@@ -13,32 +13,32 @@ Get a filtered list of Planned Cross entities.
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|crossType|string|the type of cross|
-|crossingProjectDbId|string|the unique identifier for a crossing project|
-|crossingProjectName|string|the human readable name for a crossing project|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|parent1|object||
-|germplasmDbId|string|the unique identifier for a germplasm|
-|germplasmName|string|the human readable name for a germplasm|
-|observationUnitDbId|string|the unique identifier for an observation unit|
-|observationUnitName|string|the human readable name for an observation unit|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|parent2|object||
-|germplasmDbId|string|the unique identifier for a germplasm|
-|germplasmName|string|the human readable name for a germplasm|
-|observationUnitDbId|string|the unique identifier for an observation unit|
-|observationUnitName|string|the human readable name for an observation unit|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|plannedCrossDbId|string|the unique identifier for a planned cross|
-|plannedCrossName|string|the human readable name for a planned cross|
-|status|string|The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>crossType</td><td>string</td><td>the type of cross</td></tr>
+<tr><td>crossingProjectDbId</td><td>string</td><td>the unique identifier for a crossing project</td></tr>
+<tr><td>crossingProjectName</td><td>string</td><td>the human readable name for a crossing project</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>parent1</td><td>object</td><td></td></tr>
+<tr><td>parent1.<br>germplasmDbId</td><td>string</td><td>the unique identifier for a germplasm</td></tr>
+<tr><td>parent1.<br>germplasmName</td><td>string</td><td>the human readable name for a germplasm</td></tr>
+<tr><td>parent1.<br>observationUnitDbId</td><td>string</td><td>the unique identifier for an observation unit</td></tr>
+<tr><td>parent1.<br>observationUnitName</td><td>string</td><td>the human readable name for an observation unit</td></tr>
+<tr><td>parent1.<br>parentType</td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
+<tr><td>parent2</td><td>object</td><td></td></tr>
+<tr><td>parent2.<br>germplasmDbId</td><td>string</td><td>the unique identifier for a germplasm</td></tr>
+<tr><td>parent2.<br>germplasmName</td><td>string</td><td>the human readable name for a germplasm</td></tr>
+<tr><td>parent2.<br>observationUnitDbId</td><td>string</td><td>the unique identifier for an observation unit</td></tr>
+<tr><td>parent2.<br>observationUnitName</td><td>string</td><td>the human readable name for an observation unit</td></tr>
+<tr><td>parent2.<br>parentType</td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
+<tr><td>plannedCrossDbId</td><td>string</td><td>the unique identifier for a planned cross</td></tr>
+<tr><td>plannedCrossName</td><td>string</td><td>the human readable name for a planned cross</td></tr>
+<tr><td>status</td><td>string</td><td>The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').</td></tr>
+</table>
 
 
  
@@ -145,60 +145,61 @@ Create new Planned Cross entities on this server
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|crossType|string|the type of cross|
-|crossingProjectDbId|string|the unique identifier for a crossing project|
-|crossingProjectName|string|the human readable name for a crossing project|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|parent1|object||
-|germplasmDbId|string|the unique identifier for a germplasm|
-|germplasmName|string|the human readable name for a germplasm|
-|observationUnitDbId|string|the unique identifier for an observation unit|
-|observationUnitName|string|the human readable name for an observation unit|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|parent2|object||
-|germplasmDbId|string|the unique identifier for a germplasm|
-|germplasmName|string|the human readable name for a germplasm|
-|observationUnitDbId|string|the unique identifier for an observation unit|
-|observationUnitName|string|the human readable name for an observation unit|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|plannedCrossName|string|the human readable name for a planned cross|
-|status|string|The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>crossType</td><td>string</td><td>the type of cross</td></tr>
+<tr><td>crossingProjectDbId</td><td>string</td><td>the unique identifier for a crossing project</td></tr>
+<tr><td>crossingProjectName</td><td>string</td><td>the human readable name for a crossing project</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>parent1</td><td>object</td><td></td></tr>
+<tr><td>parent1.<br>germplasmDbId</td><td>string</td><td>the unique identifier for a germplasm</td></tr>
+<tr><td>parent1.<br>germplasmName</td><td>string</td><td>the human readable name for a germplasm</td></tr>
+<tr><td>parent1.<br>observationUnitDbId</td><td>string</td><td>the unique identifier for an observation unit</td></tr>
+<tr><td>parent1.<br>observationUnitName</td><td>string</td><td>the human readable name for an observation unit</td></tr>
+<tr><td>parent1.<br>parentType</td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
+<tr><td>parent2</td><td>object</td><td></td></tr>
+<tr><td>parent2.<br>germplasmDbId</td><td>string</td><td>the unique identifier for a germplasm</td></tr>
+<tr><td>parent2.<br>germplasmName</td><td>string</td><td>the human readable name for a germplasm</td></tr>
+<tr><td>parent2.<br>observationUnitDbId</td><td>string</td><td>the unique identifier for an observation unit</td></tr>
+<tr><td>parent2.<br>observationUnitName</td><td>string</td><td>the human readable name for an observation unit</td></tr>
+<tr><td>parent2.<br>parentType</td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
+<tr><td>plannedCrossName</td><td>string</td><td>the human readable name for a planned cross</td></tr>
+<tr><td>status</td><td>string</td><td>The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|crossType|string|the type of cross|
-|crossingProjectDbId|string|the unique identifier for a crossing project|
-|crossingProjectName|string|the human readable name for a crossing project|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|parent1|object||
-|germplasmDbId|string|the unique identifier for a germplasm|
-|germplasmName|string|the human readable name for a germplasm|
-|observationUnitDbId|string|the unique identifier for an observation unit|
-|observationUnitName|string|the human readable name for an observation unit|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|parent2|object||
-|germplasmDbId|string|the unique identifier for a germplasm|
-|germplasmName|string|the human readable name for a germplasm|
-|observationUnitDbId|string|the unique identifier for an observation unit|
-|observationUnitName|string|the human readable name for an observation unit|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|plannedCrossDbId|string|the unique identifier for a planned cross|
-|plannedCrossName|string|the human readable name for a planned cross|
-|status|string|The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>crossType</td><td>string</td><td>the type of cross</td></tr>
+<tr><td>crossingProjectDbId</td><td>string</td><td>the unique identifier for a crossing project</td></tr>
+<tr><td>crossingProjectName</td><td>string</td><td>the human readable name for a crossing project</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>parent1</td><td>object</td><td></td></tr>
+<tr><td>parent1.<br>germplasmDbId</td><td>string</td><td>the unique identifier for a germplasm</td></tr>
+<tr><td>parent1.<br>germplasmName</td><td>string</td><td>the human readable name for a germplasm</td></tr>
+<tr><td>parent1.<br>observationUnitDbId</td><td>string</td><td>the unique identifier for an observation unit</td></tr>
+<tr><td>parent1.<br>observationUnitName</td><td>string</td><td>the human readable name for an observation unit</td></tr>
+<tr><td>parent1.<br>parentType</td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
+<tr><td>parent2</td><td>object</td><td></td></tr>
+<tr><td>parent2.<br>germplasmDbId</td><td>string</td><td>the unique identifier for a germplasm</td></tr>
+<tr><td>parent2.<br>germplasmName</td><td>string</td><td>the human readable name for a germplasm</td></tr>
+<tr><td>parent2.<br>observationUnitDbId</td><td>string</td><td>the unique identifier for an observation unit</td></tr>
+<tr><td>parent2.<br>observationUnitName</td><td>string</td><td>the human readable name for an observation unit</td></tr>
+<tr><td>parent2.<br>parentType</td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
+<tr><td>plannedCrossDbId</td><td>string</td><td>the unique identifier for a planned cross</td></tr>
+<tr><td>plannedCrossName</td><td>string</td><td>the human readable name for a planned cross</td></tr>
+<tr><td>status</td><td>string</td><td>The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').</td></tr>
+</table>
 
 
  
@@ -333,38 +334,39 @@ Update existing Planned Cross entities on this server
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|crossType|string|the type of cross|
-|crossingProjectDbId|string|the unique identifier for a crossing project|
-|crossingProjectName|string|the human readable name for a crossing project|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|parent1|object||
-|germplasmDbId|string|the unique identifier for a germplasm|
-|germplasmName|string|the human readable name for a germplasm|
-|observationUnitDbId|string|the unique identifier for an observation unit|
-|observationUnitName|string|the human readable name for an observation unit|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|parent2|object||
-|germplasmDbId|string|the unique identifier for a germplasm|
-|germplasmName|string|the human readable name for a germplasm|
-|observationUnitDbId|string|the unique identifier for an observation unit|
-|observationUnitName|string|the human readable name for an observation unit|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|plannedCrossDbId|string|the unique identifier for a planned cross|
-|plannedCrossName|string|the human readable name for a planned cross|
-|status|string|The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>crossType</td><td>string</td><td>the type of cross</td></tr>
+<tr><td>crossingProjectDbId</td><td>string</td><td>the unique identifier for a crossing project</td></tr>
+<tr><td>crossingProjectName</td><td>string</td><td>the human readable name for a crossing project</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>parent1</td><td>object</td><td></td></tr>
+<tr><td>parent1.<br>germplasmDbId</td><td>string</td><td>the unique identifier for a germplasm</td></tr>
+<tr><td>parent1.<br>germplasmName</td><td>string</td><td>the human readable name for a germplasm</td></tr>
+<tr><td>parent1.<br>observationUnitDbId</td><td>string</td><td>the unique identifier for an observation unit</td></tr>
+<tr><td>parent1.<br>observationUnitName</td><td>string</td><td>the human readable name for an observation unit</td></tr>
+<tr><td>parent1.<br>parentType</td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
+<tr><td>parent2</td><td>object</td><td></td></tr>
+<tr><td>parent2.<br>germplasmDbId</td><td>string</td><td>the unique identifier for a germplasm</td></tr>
+<tr><td>parent2.<br>germplasmName</td><td>string</td><td>the human readable name for a germplasm</td></tr>
+<tr><td>parent2.<br>observationUnitDbId</td><td>string</td><td>the unique identifier for an observation unit</td></tr>
+<tr><td>parent2.<br>observationUnitName</td><td>string</td><td>the human readable name for an observation unit</td></tr>
+<tr><td>parent2.<br>parentType</td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
+<tr><td>plannedCrossDbId</td><td>string</td><td>the unique identifier for a planned cross</td></tr>
+<tr><td>plannedCrossName</td><td>string</td><td>the human readable name for a planned cross</td></tr>
+<tr><td>status</td><td>string</td><td>The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').</td></tr>
+</table>
 
 
  

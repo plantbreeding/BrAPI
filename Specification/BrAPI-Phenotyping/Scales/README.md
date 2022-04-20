@@ -18,35 +18,35 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
-|decimalPlaces|integer|For numerical, number of decimal places to be reported|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
-|documentationLinks|array[object]|links to various ontology documentation|
-|URL|string (uri)||
-|type|string||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
-|scalePUI|string|The Permanent Unique Identifier of a Scale, usually in the form of a URI|
-|units|string|This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
-|validValues|object||
-|categories|array[object]|List of possible values with optional labels|
-|label|string|A text label for a category|
-|value|string|The actual value for a category|
-|max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
-|maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
-|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.|
-|minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>dataType</td><td>string</td><td><p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p></td></tr>
+<tr><td>decimalPlaces</td><td>integer</td><td>For numerical, number of decimal places to be reported</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>ontologyReference</td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>ontologyReference.<br>documentationLinks</td><td>array[object]</td><td>links to various ontology documentation</td></tr>
+<tr><td>ontologyReference.<br>documentationLinks.<br>URL</td><td>string (uri)</td><td></td></tr>
+<tr><td>ontologyReference.<br>documentationLinks.<br>type</td><td>string</td><td></td></tr>
+<tr><td>ontologyReference.<br>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyReference.<br>ontologyName</td><td>string</td><td>Ontology name</td></tr>
+<tr><td>ontologyReference.<br>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td>scaleDbId</td><td>string</td><td>Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.</td></tr>
+<tr><td>scaleName</td><td>string</td><td>Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable</td></tr>
+<tr><td>scalePUI</td><td>string</td><td>The Permanent Unique Identifier of a Scale, usually in the form of a URI</td></tr>
+<tr><td>units</td><td>string</td><td>This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.</td></tr>
+<tr><td>validValues</td><td>object</td><td></td></tr>
+<tr><td>validValues.<br>categories</td><td>array[object]</td><td>List of possible values with optional labels</td></tr>
+<tr><td>validValues.<br>categories.<br>label</td><td>string</td><td>A text label for a category</td></tr>
+<tr><td>validValues.<br>categories.<br>value</td><td>string</td><td>The actual value for a category</td></tr>
+<tr><td>validValues.<br>max</td><td>integer</td><td>**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.</td></tr>
+<tr><td>validValues.<br>maximumValue</td><td>string</td><td>Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
+<tr><td>validValues.<br>min</td><td>integer</td><td>**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.</td></tr>
+<tr><td>validValues.<br>minimumValue</td><td>string</td><td>Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
+</table>
 
 
  
@@ -169,66 +169,67 @@ Create new scale objects in the database
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
-|decimalPlaces|integer|For numerical, number of decimal places to be reported|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
-|documentationLinks|array[object]|links to various ontology documentation|
-|URL|string (uri)||
-|type|string||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|scaleName|string|Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
-|scalePUI|string|The Permanent Unique Identifier of a Scale, usually in the form of a URI|
-|units|string|This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
-|validValues|object||
-|categories|array[object]|List of possible values with optional labels|
-|label|string|A text label for a category|
-|value|string|The actual value for a category|
-|max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
-|maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
-|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.|
-|minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>dataType</td><td>string</td><td><p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p></td></tr>
+<tr><td>decimalPlaces</td><td>integer</td><td>For numerical, number of decimal places to be reported</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>ontologyReference</td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>ontologyReference.<br>documentationLinks</td><td>array[object]</td><td>links to various ontology documentation</td></tr>
+<tr><td>ontologyReference.<br>documentationLinks.<br>URL</td><td>string (uri)</td><td></td></tr>
+<tr><td>ontologyReference.<br>documentationLinks.<br>type</td><td>string</td><td></td></tr>
+<tr><td>ontologyReference.<br>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyReference.<br>ontologyName</td><td>string</td><td>Ontology name</td></tr>
+<tr><td>ontologyReference.<br>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td>scaleName</td><td>string</td><td>Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable</td></tr>
+<tr><td>scalePUI</td><td>string</td><td>The Permanent Unique Identifier of a Scale, usually in the form of a URI</td></tr>
+<tr><td>units</td><td>string</td><td>This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.</td></tr>
+<tr><td>validValues</td><td>object</td><td></td></tr>
+<tr><td>validValues.<br>categories</td><td>array[object]</td><td>List of possible values with optional labels</td></tr>
+<tr><td>validValues.<br>categories.<br>label</td><td>string</td><td>A text label for a category</td></tr>
+<tr><td>validValues.<br>categories.<br>value</td><td>string</td><td>The actual value for a category</td></tr>
+<tr><td>validValues.<br>max</td><td>integer</td><td>**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.</td></tr>
+<tr><td>validValues.<br>maximumValue</td><td>string</td><td>Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
+<tr><td>validValues.<br>min</td><td>integer</td><td>**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.</td></tr>
+<tr><td>validValues.<br>minimumValue</td><td>string</td><td>Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
-|decimalPlaces|integer|For numerical, number of decimal places to be reported|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
-|documentationLinks|array[object]|links to various ontology documentation|
-|URL|string (uri)||
-|type|string||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
-|scalePUI|string|The Permanent Unique Identifier of a Scale, usually in the form of a URI|
-|units|string|This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
-|validValues|object||
-|categories|array[object]|List of possible values with optional labels|
-|label|string|A text label for a category|
-|value|string|The actual value for a category|
-|max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
-|maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
-|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.|
-|minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>dataType</td><td>string</td><td><p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p></td></tr>
+<tr><td>decimalPlaces</td><td>integer</td><td>For numerical, number of decimal places to be reported</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>ontologyReference</td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>ontologyReference.<br>documentationLinks</td><td>array[object]</td><td>links to various ontology documentation</td></tr>
+<tr><td>ontologyReference.<br>documentationLinks.<br>URL</td><td>string (uri)</td><td></td></tr>
+<tr><td>ontologyReference.<br>documentationLinks.<br>type</td><td>string</td><td></td></tr>
+<tr><td>ontologyReference.<br>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyReference.<br>ontologyName</td><td>string</td><td>Ontology name</td></tr>
+<tr><td>ontologyReference.<br>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td>scaleDbId</td><td>string</td><td>Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.</td></tr>
+<tr><td>scaleName</td><td>string</td><td>Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable</td></tr>
+<tr><td>scalePUI</td><td>string</td><td>The Permanent Unique Identifier of a Scale, usually in the form of a URI</td></tr>
+<tr><td>units</td><td>string</td><td>This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.</td></tr>
+<tr><td>validValues</td><td>object</td><td></td></tr>
+<tr><td>validValues.<br>categories</td><td>array[object]</td><td>List of possible values with optional labels</td></tr>
+<tr><td>validValues.<br>categories.<br>label</td><td>string</td><td>A text label for a category</td></tr>
+<tr><td>validValues.<br>categories.<br>value</td><td>string</td><td>The actual value for a category</td></tr>
+<tr><td>validValues.<br>max</td><td>integer</td><td>**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.</td></tr>
+<tr><td>validValues.<br>maximumValue</td><td>string</td><td>Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
+<tr><td>validValues.<br>min</td><td>integer</td><td>**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.</td></tr>
+<tr><td>validValues.<br>minimumValue</td><td>string</td><td>Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
+</table>
 
 
  
@@ -401,34 +402,35 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
-|decimalPlaces|integer|For numerical, number of decimal places to be reported|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
-|documentationLinks|array[object]|links to various ontology documentation|
-|URL|string (uri)||
-|type|string||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
-|scalePUI|string|The Permanent Unique Identifier of a Scale, usually in the form of a URI|
-|units|string|This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
-|validValues|object||
-|categories|array[object]|List of possible values with optional labels|
-|label|string|A text label for a category|
-|value|string|The actual value for a category|
-|max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
-|maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
-|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.|
-|minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>dataType</td><td>string</td><td><p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p></td></tr>
+<tr><td>decimalPlaces</td><td>integer</td><td>For numerical, number of decimal places to be reported</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>ontologyReference</td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>ontologyReference.<br>documentationLinks</td><td>array[object]</td><td>links to various ontology documentation</td></tr>
+<tr><td>ontologyReference.<br>documentationLinks.<br>URL</td><td>string (uri)</td><td></td></tr>
+<tr><td>ontologyReference.<br>documentationLinks.<br>type</td><td>string</td><td></td></tr>
+<tr><td>ontologyReference.<br>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyReference.<br>ontologyName</td><td>string</td><td>Ontology name</td></tr>
+<tr><td>ontologyReference.<br>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td>scaleDbId</td><td>string</td><td>Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.</td></tr>
+<tr><td>scaleName</td><td>string</td><td>Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable</td></tr>
+<tr><td>scalePUI</td><td>string</td><td>The Permanent Unique Identifier of a Scale, usually in the form of a URI</td></tr>
+<tr><td>units</td><td>string</td><td>This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.</td></tr>
+<tr><td>validValues</td><td>object</td><td></td></tr>
+<tr><td>validValues.<br>categories</td><td>array[object]</td><td>List of possible values with optional labels</td></tr>
+<tr><td>validValues.<br>categories.<br>label</td><td>string</td><td>A text label for a category</td></tr>
+<tr><td>validValues.<br>categories.<br>value</td><td>string</td><td>The actual value for a category</td></tr>
+<tr><td>validValues.<br>max</td><td>integer</td><td>**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.</td></tr>
+<tr><td>validValues.<br>maximumValue</td><td>string</td><td>Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
+<tr><td>validValues.<br>min</td><td>integer</td><td>**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.</td></tr>
+<tr><td>validValues.<br>minimumValue</td><td>string</td><td>Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
+</table>
 
 
  
@@ -543,65 +545,67 @@ Update the details of an existing scale
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
-|decimalPlaces|integer|For numerical, number of decimal places to be reported|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
-|documentationLinks|array[object]|links to various ontology documentation|
-|URL|string (uri)||
-|type|string||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|scaleName|string|Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
-|scalePUI|string|The Permanent Unique Identifier of a Scale, usually in the form of a URI|
-|units|string|This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
-|validValues|object||
-|categories|array[object]|List of possible values with optional labels|
-|label|string|A text label for a category|
-|value|string|The actual value for a category|
-|max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
-|maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
-|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.|
-|minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>dataType</td><td>string</td><td><p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p></td></tr>
+<tr><td>decimalPlaces</td><td>integer</td><td>For numerical, number of decimal places to be reported</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>ontologyReference</td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>ontologyReference.<br>documentationLinks</td><td>array[object]</td><td>links to various ontology documentation</td></tr>
+<tr><td>ontologyReference.<br>documentationLinks.<br>URL</td><td>string (uri)</td><td></td></tr>
+<tr><td>ontologyReference.<br>documentationLinks.<br>type</td><td>string</td><td></td></tr>
+<tr><td>ontologyReference.<br>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyReference.<br>ontologyName</td><td>string</td><td>Ontology name</td></tr>
+<tr><td>ontologyReference.<br>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td>scaleName</td><td>string</td><td>Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable</td></tr>
+<tr><td>scalePUI</td><td>string</td><td>The Permanent Unique Identifier of a Scale, usually in the form of a URI</td></tr>
+<tr><td>units</td><td>string</td><td>This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.</td></tr>
+<tr><td>validValues</td><td>object</td><td></td></tr>
+<tr><td>validValues.<br>categories</td><td>array[object]</td><td>List of possible values with optional labels</td></tr>
+<tr><td>validValues.<br>categories.<br>label</td><td>string</td><td>A text label for a category</td></tr>
+<tr><td>validValues.<br>categories.<br>value</td><td>string</td><td>The actual value for a category</td></tr>
+<tr><td>validValues.<br>max</td><td>integer</td><td>**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.</td></tr>
+<tr><td>validValues.<br>maximumValue</td><td>string</td><td>Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
+<tr><td>validValues.<br>min</td><td>integer</td><td>**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.</td></tr>
+<tr><td>validValues.<br>minimumValue</td><td>string</td><td>Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
-|decimalPlaces|integer|For numerical, number of decimal places to be reported|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
-|documentationLinks|array[object]|links to various ontology documentation|
-|URL|string (uri)||
-|type|string||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
-|scalePUI|string|The Permanent Unique Identifier of a Scale, usually in the form of a URI|
-|units|string|This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.|
-|validValues|object||
-|categories|array[object]|List of possible values with optional labels|
-|label|string|A text label for a category|
-|value|string|The actual value for a category|
-|max|integer|**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.|
-|maximumValue|string|Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.|
-|min|integer|**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.|
-|minimumValue|string|Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>dataType</td><td>string</td><td><p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p></td></tr>
+<tr><td>decimalPlaces</td><td>integer</td><td>For numerical, number of decimal places to be reported</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>ontologyReference</td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>ontologyReference.<br>documentationLinks</td><td>array[object]</td><td>links to various ontology documentation</td></tr>
+<tr><td>ontologyReference.<br>documentationLinks.<br>URL</td><td>string (uri)</td><td></td></tr>
+<tr><td>ontologyReference.<br>documentationLinks.<br>type</td><td>string</td><td></td></tr>
+<tr><td>ontologyReference.<br>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyReference.<br>ontologyName</td><td>string</td><td>Ontology name</td></tr>
+<tr><td>ontologyReference.<br>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td>scaleDbId</td><td>string</td><td>Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.</td></tr>
+<tr><td>scaleName</td><td>string</td><td>Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable</td></tr>
+<tr><td>scalePUI</td><td>string</td><td>The Permanent Unique Identifier of a Scale, usually in the form of a URI</td></tr>
+<tr><td>units</td><td>string</td><td>This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.</td></tr>
+<tr><td>validValues</td><td>object</td><td></td></tr>
+<tr><td>validValues.<br>categories</td><td>array[object]</td><td>List of possible values with optional labels</td></tr>
+<tr><td>validValues.<br>categories.<br>label</td><td>string</td><td>A text label for a category</td></tr>
+<tr><td>validValues.<br>categories.<br>value</td><td>string</td><td>The actual value for a category</td></tr>
+<tr><td>validValues.<br>max</td><td>integer</td><td>**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.</td></tr>
+<tr><td>validValues.<br>maximumValue</td><td>string</td><td>Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
+<tr><td>validValues.<br>min</td><td>integer</td><td>**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.</td></tr>
+<tr><td>validValues.<br>minimumValue</td><td>string</td><td>Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
+</table>
 
 
  

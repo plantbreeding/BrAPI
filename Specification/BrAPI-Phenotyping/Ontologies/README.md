@@ -17,18 +17,18 @@ Each Ontology record describes the metadata of an existing ontology, it does not
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|authors|string|Ontology's list of authors (no specific format)|
-|copyright|string|Ontology copyright|
-|description|string|Human readable description of Ontology|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|licence|string|Ontology licence|
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>authors</td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
+<tr><td>copyright</td><td>string</td><td>Ontology copyright</td></tr>
+<tr><td>description</td><td>string</td><td>Human readable description of Ontology</td></tr>
+<tr><td>documentationURL</td><td>string (uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td>licence</td><td>string</td><td>Ontology licence</td></tr>
+<tr><td>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyName</td><td>string</td><td>Ontology name</td></tr>
+<tr><td>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+</table>
 
 
  
@@ -107,32 +107,33 @@ Each Ontology record describes the metadata of an existing ontology, it does not
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|authors|string|Ontology's list of authors (no specific format)|
-|copyright|string|Ontology copyright|
-|description|string|Human readable description of Ontology|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|licence|string|Ontology licence|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>authors</td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
+<tr><td>copyright</td><td>string</td><td>Ontology copyright</td></tr>
+<tr><td>description</td><td>string</td><td>Human readable description of Ontology</td></tr>
+<tr><td>documentationURL</td><td>string (uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td>licence</td><td>string</td><td>Ontology licence</td></tr>
+<tr><td>ontologyName</td><td>string</td><td>Ontology name</td></tr>
+<tr><td>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|authors|string|Ontology's list of authors (no specific format)|
-|copyright|string|Ontology copyright|
-|description|string|Human readable description of Ontology|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|licence|string|Ontology licence|
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>authors</td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
+<tr><td>copyright</td><td>string</td><td>Ontology copyright</td></tr>
+<tr><td>description</td><td>string</td><td>Human readable description of Ontology</td></tr>
+<tr><td>documentationURL</td><td>string (uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td>licence</td><td>string</td><td>Ontology licence</td></tr>
+<tr><td>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyName</td><td>string</td><td>Ontology name</td></tr>
+<tr><td>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+</table>
 
 
  
@@ -226,17 +227,18 @@ Each Ontology record describes the metadata of an existing ontology, it does not
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|authors|string|Ontology's list of authors (no specific format)|
-|copyright|string|Ontology copyright|
-|description|string|Human readable description of Ontology|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|licence|string|Ontology licence|
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>authors</td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
+<tr><td>copyright</td><td>string</td><td>Ontology copyright</td></tr>
+<tr><td>description</td><td>string</td><td>Human readable description of Ontology</td></tr>
+<tr><td>documentationURL</td><td>string (uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td>licence</td><td>string</td><td>Ontology licence</td></tr>
+<tr><td>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyName</td><td>string</td><td>Ontology name</td></tr>
+<tr><td>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+</table>
 
 
  
@@ -308,31 +310,33 @@ Each Ontology record describes the metadata of an existing ontology, it does not
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|authors|string|Ontology's list of authors (no specific format)|
-|copyright|string|Ontology copyright|
-|description|string|Human readable description of Ontology|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|licence|string|Ontology licence|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>authors</td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
+<tr><td>copyright</td><td>string</td><td>Ontology copyright</td></tr>
+<tr><td>description</td><td>string</td><td>Human readable description of Ontology</td></tr>
+<tr><td>documentationURL</td><td>string (uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td>licence</td><td>string</td><td>Ontology licence</td></tr>
+<tr><td>ontologyName</td><td>string</td><td>Ontology name</td></tr>
+<tr><td>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|authors|string|Ontology's list of authors (no specific format)|
-|copyright|string|Ontology copyright|
-|description|string|Human readable description of Ontology|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|licence|string|Ontology licence|
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>authors</td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
+<tr><td>copyright</td><td>string</td><td>Ontology copyright</td></tr>
+<tr><td>description</td><td>string</td><td>Human readable description of Ontology</td></tr>
+<tr><td>documentationURL</td><td>string (uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td>licence</td><td>string</td><td>Ontology licence</td></tr>
+<tr><td>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyName</td><td>string</td><td>Ontology name</td></tr>
+<tr><td>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+</table>
 
 
  

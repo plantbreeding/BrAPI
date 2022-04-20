@@ -19,39 +19,41 @@ Submit a delete request for `Images`
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
-|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image to search for. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
-|externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
-|externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
-|externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
-|imageDbIds|array[string]|A list of image Ids to search for|
-|imageFileNames|array[string]|Image file names to search for.|
-|imageFileSizeMax|integer|A maximum image file size to search for.|
-|imageFileSizeMin|integer|A minimum image file size to search for.|
-|imageHeightMax|integer|A maximum image height to search for.|
-|imageHeightMin|integer|A minimum image height to search for.|
-|imageLocation|object|A GeoJSON Polygon which describes an area to search for other GeoJSON objects. All contained Points and intersecting Polygons should be returned as search results.   All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
-|type|string|The literal string "Feature"|
-|imageNames|array[string]|Human readable names to search for.|
-|imageTimeStampRangeEnd|string (date-time)|The latest timestamp to search for.|
-|imageTimeStampRangeStart|string (date-time)|The earliest timestamp to search for.|
-|imageWidthMax|integer|A maximum image width to search for.|
-|imageWidthMin|integer|A minimum image width to search for.|
-|mimeTypes|array[string]|A set of image file types to search for.|
-|observationDbIds|array[string]|A list of observation Ids this image is associated with to search for|
-|observationUnitDbIds|array[string]|A set of observation unit identifiers to search for.|
-|programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
-|programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>commonCropNames</td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
+<tr><td>descriptiveOntologyTerms</td><td>array[string]</td><td>A list of terms to formally describe the image to search for. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
+<tr><td>externalReferenceIDs</td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td>externalReferenceIds</td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td>externalReferenceSources</td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
+<tr><td>imageDbIds</td><td>array[string]</td><td>A list of image Ids to search for</td></tr>
+<tr><td>imageFileNames</td><td>array[string]</td><td>Image file names to search for.</td></tr>
+<tr><td>imageFileSizeMax</td><td>integer</td><td>A maximum image file size to search for.</td></tr>
+<tr><td>imageFileSizeMin</td><td>integer</td><td>A minimum image file size to search for.</td></tr>
+<tr><td>imageHeightMax</td><td>integer</td><td>A maximum image height to search for.</td></tr>
+<tr><td>imageHeightMin</td><td>integer</td><td>A minimum image height to search for.</td></tr>
+<tr><td>imageLocation</td><td>object</td><td>A GeoJSON Polygon which describes an area to search for other GeoJSON objects. All contained Points and intersecting Polygons should be returned as search results.   All coordinates are decimal values on the WGS84 geographic coordinate reference system.</td></tr>
+<tr><td>imageLocation.<br>geometry</td><td>object</td><td>A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.</td></tr>
+<tr><td>imageLocation.<br>type</td><td>string</td><td>The literal string "Feature"</td></tr>
+<tr><td>imageNames</td><td>array[string]</td><td>Human readable names to search for.</td></tr>
+<tr><td>imageTimeStampRangeEnd</td><td>string (date-time)</td><td>The latest timestamp to search for.</td></tr>
+<tr><td>imageTimeStampRangeStart</td><td>string (date-time)</td><td>The earliest timestamp to search for.</td></tr>
+<tr><td>imageWidthMax</td><td>integer</td><td>A maximum image width to search for.</td></tr>
+<tr><td>imageWidthMin</td><td>integer</td><td>A minimum image width to search for.</td></tr>
+<tr><td>mimeTypes</td><td>array[string]</td><td>A set of image file types to search for.</td></tr>
+<tr><td>observationDbIds</td><td>array[string]</td><td>A list of observation Ids this image is associated with to search for</td></tr>
+<tr><td>observationUnitDbIds</td><td>array[string]</td><td>A set of observation unit identifiers to search for.</td></tr>
+<tr><td>programDbIds</td><td>array[string]</td><td>A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.</td></tr>
+<tr><td>programNames</td><td>array[string]</td><td>Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|imageDbIds|array[string]|The unique ids of the Image records which have been successfully deleted|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>imageDbIds</td><td>array[string]</td><td>The unique ids of the Image records which have been successfully deleted</td></tr>
+</table>
 
 
  
@@ -221,31 +223,31 @@ words, or ontology references, or full ontology URI''s.
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]|Array of image metadata|
-|additionalInfo|object||
-|copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
-|description|string|The human readable description of an image.|
-|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|imageDbId|string|The unique identifier of an image|
-|imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
-|imageFileSize|integer|The size of the image in Bytes.|
-|imageHeight|integer|The height of the image in Pixels.|
-|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
-|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
-|type|string|The literal string "Feature"|
-|imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
-|imageTimeStamp|string (date-time)|The date and time the image was taken|
-|imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
-|imageWidth|integer|The width of the image in Pixels.|
-|mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
-|observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
-|observationUnitDbId|string|The related observation unit identifier, if relevant.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td></td></tr>
+<tr><td>copyright</td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
+<tr><td>description</td><td>string</td><td>The human readable description of an image.</td></tr>
+<tr><td>descriptiveOntologyTerms</td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>imageDbId</td><td>string</td><td>The unique identifier of an image</td></tr>
+<tr><td>imageFileName</td><td>string</td><td>The name of the image file. Might be the same as 'imageName', but could be different.</td></tr>
+<tr><td>imageFileSize</td><td>integer</td><td>The size of the image in Bytes.</td></tr>
+<tr><td>imageHeight</td><td>integer</td><td>The height of the image in Pixels.</td></tr>
+<tr><td>imageLocation</td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
+<tr><td>imageLocation.<br>geometry</td><td>object</td><td>A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.</td></tr>
+<tr><td>imageLocation.<br>type</td><td>string</td><td>The literal string "Feature"</td></tr>
+<tr><td>imageName</td><td>string</td><td>The human readable name of an image. Might be the same as 'imageFileName', but could be different.</td></tr>
+<tr><td>imageTimeStamp</td><td>string (date-time)</td><td>The date and time the image was taken</td></tr>
+<tr><td>imageURL</td><td>string</td><td>The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.</td></tr>
+<tr><td>imageWidth</td><td>integer</td><td>The width of the image in Pixels.</td></tr>
+<tr><td>mimeType</td><td>string</td><td>The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc</td></tr>
+<tr><td>observationDbIds</td><td>array[string]</td><td>A list of observation Ids this image is associated with, if applicable.</td></tr>
+<tr><td>observationUnitDbId</td><td>string</td><td>The related observation unit identifier, if relevant.</td></tr>
+</table>
 
 
  
@@ -387,58 +389,59 @@ An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/ind
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object||
-|copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
-|description|string|The human readable description of an image.|
-|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
-|imageFileSize|integer|The size of the image in Bytes.|
-|imageHeight|integer|The height of the image in Pixels.|
-|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
-|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
-|type|string|The literal string "Feature"|
-|imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
-|imageTimeStamp|string (date-time)|The date and time the image was taken|
-|imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
-|imageWidth|integer|The width of the image in Pixels.|
-|mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
-|observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
-|observationUnitDbId|string|The related observation unit identifier, if relevant.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td></td></tr>
+<tr><td>copyright</td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
+<tr><td>description</td><td>string</td><td>The human readable description of an image.</td></tr>
+<tr><td>descriptiveOntologyTerms</td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>imageFileName</td><td>string</td><td>The name of the image file. Might be the same as 'imageName', but could be different.</td></tr>
+<tr><td>imageFileSize</td><td>integer</td><td>The size of the image in Bytes.</td></tr>
+<tr><td>imageHeight</td><td>integer</td><td>The height of the image in Pixels.</td></tr>
+<tr><td>imageLocation</td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
+<tr><td>imageLocation.<br>geometry</td><td>object</td><td>A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.</td></tr>
+<tr><td>imageLocation.<br>type</td><td>string</td><td>The literal string "Feature"</td></tr>
+<tr><td>imageName</td><td>string</td><td>The human readable name of an image. Might be the same as 'imageFileName', but could be different.</td></tr>
+<tr><td>imageTimeStamp</td><td>string (date-time)</td><td>The date and time the image was taken</td></tr>
+<tr><td>imageURL</td><td>string</td><td>The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.</td></tr>
+<tr><td>imageWidth</td><td>integer</td><td>The width of the image in Pixels.</td></tr>
+<tr><td>mimeType</td><td>string</td><td>The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc</td></tr>
+<tr><td>observationDbIds</td><td>array[string]</td><td>A list of observation Ids this image is associated with, if applicable.</td></tr>
+<tr><td>observationUnitDbId</td><td>string</td><td>The related observation unit identifier, if relevant.</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]|Array of image metadata|
-|additionalInfo|object||
-|copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
-|description|string|The human readable description of an image.|
-|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|imageDbId|string|The unique identifier of an image|
-|imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
-|imageFileSize|integer|The size of the image in Bytes.|
-|imageHeight|integer|The height of the image in Pixels.|
-|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
-|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
-|type|string|The literal string "Feature"|
-|imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
-|imageTimeStamp|string (date-time)|The date and time the image was taken|
-|imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
-|imageWidth|integer|The width of the image in Pixels.|
-|mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
-|observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
-|observationUnitDbId|string|The related observation unit identifier, if relevant.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td></td></tr>
+<tr><td>copyright</td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
+<tr><td>description</td><td>string</td><td>The human readable description of an image.</td></tr>
+<tr><td>descriptiveOntologyTerms</td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>imageDbId</td><td>string</td><td>The unique identifier of an image</td></tr>
+<tr><td>imageFileName</td><td>string</td><td>The name of the image file. Might be the same as 'imageName', but could be different.</td></tr>
+<tr><td>imageFileSize</td><td>integer</td><td>The size of the image in Bytes.</td></tr>
+<tr><td>imageHeight</td><td>integer</td><td>The height of the image in Pixels.</td></tr>
+<tr><td>imageLocation</td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
+<tr><td>imageLocation.<br>geometry</td><td>object</td><td>A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.</td></tr>
+<tr><td>imageLocation.<br>type</td><td>string</td><td>The literal string "Feature"</td></tr>
+<tr><td>imageName</td><td>string</td><td>The human readable name of an image. Might be the same as 'imageFileName', but could be different.</td></tr>
+<tr><td>imageTimeStamp</td><td>string (date-time)</td><td>The date and time the image was taken</td></tr>
+<tr><td>imageURL</td><td>string</td><td>The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.</td></tr>
+<tr><td>imageWidth</td><td>integer</td><td>The width of the image in Pixels.</td></tr>
+<tr><td>mimeType</td><td>string</td><td>The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc</td></tr>
+<tr><td>observationDbIds</td><td>array[string]</td><td>A list of observation Ids this image is associated with, if applicable.</td></tr>
+<tr><td>observationUnitDbId</td><td>string</td><td>The related observation unit identifier, if relevant.</td></tr>
+</table>
 
 
  
@@ -609,30 +612,31 @@ words, or ontology references, or full ontology URI''s.
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object||
-|copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
-|description|string|The human readable description of an image.|
-|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|imageDbId|string|The unique identifier of an image|
-|imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
-|imageFileSize|integer|The size of the image in Bytes.|
-|imageHeight|integer|The height of the image in Pixels.|
-|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
-|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
-|type|string|The literal string "Feature"|
-|imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
-|imageTimeStamp|string (date-time)|The date and time the image was taken|
-|imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
-|imageWidth|integer|The width of the image in Pixels.|
-|mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
-|observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
-|observationUnitDbId|string|The related observation unit identifier, if relevant.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td></td></tr>
+<tr><td>copyright</td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
+<tr><td>description</td><td>string</td><td>The human readable description of an image.</td></tr>
+<tr><td>descriptiveOntologyTerms</td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>imageDbId</td><td>string</td><td>The unique identifier of an image</td></tr>
+<tr><td>imageFileName</td><td>string</td><td>The name of the image file. Might be the same as 'imageName', but could be different.</td></tr>
+<tr><td>imageFileSize</td><td>integer</td><td>The size of the image in Bytes.</td></tr>
+<tr><td>imageHeight</td><td>integer</td><td>The height of the image in Pixels.</td></tr>
+<tr><td>imageLocation</td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
+<tr><td>imageLocation.<br>geometry</td><td>object</td><td>A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.</td></tr>
+<tr><td>imageLocation.<br>type</td><td>string</td><td>The literal string "Feature"</td></tr>
+<tr><td>imageName</td><td>string</td><td>The human readable name of an image. Might be the same as 'imageFileName', but could be different.</td></tr>
+<tr><td>imageTimeStamp</td><td>string (date-time)</td><td>The date and time the image was taken</td></tr>
+<tr><td>imageURL</td><td>string</td><td>The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.</td></tr>
+<tr><td>imageWidth</td><td>integer</td><td>The width of the image in Pixels.</td></tr>
+<tr><td>mimeType</td><td>string</td><td>The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc</td></tr>
+<tr><td>observationDbIds</td><td>array[string]</td><td>A list of observation Ids this image is associated with, if applicable.</td></tr>
+<tr><td>observationUnitDbId</td><td>string</td><td>The related observation unit identifier, if relevant.</td></tr>
+</table>
 
 
  
@@ -766,57 +770,59 @@ An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/ind
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object||
-|copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
-|description|string|The human readable description of an image.|
-|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
-|imageFileSize|integer|The size of the image in Bytes.|
-|imageHeight|integer|The height of the image in Pixels.|
-|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
-|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
-|type|string|The literal string "Feature"|
-|imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
-|imageTimeStamp|string (date-time)|The date and time the image was taken|
-|imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
-|imageWidth|integer|The width of the image in Pixels.|
-|mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
-|observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
-|observationUnitDbId|string|The related observation unit identifier, if relevant.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td></td></tr>
+<tr><td>copyright</td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
+<tr><td>description</td><td>string</td><td>The human readable description of an image.</td></tr>
+<tr><td>descriptiveOntologyTerms</td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>imageFileName</td><td>string</td><td>The name of the image file. Might be the same as 'imageName', but could be different.</td></tr>
+<tr><td>imageFileSize</td><td>integer</td><td>The size of the image in Bytes.</td></tr>
+<tr><td>imageHeight</td><td>integer</td><td>The height of the image in Pixels.</td></tr>
+<tr><td>imageLocation</td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
+<tr><td>imageLocation.<br>geometry</td><td>object</td><td>A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.</td></tr>
+<tr><td>imageLocation.<br>type</td><td>string</td><td>The literal string "Feature"</td></tr>
+<tr><td>imageName</td><td>string</td><td>The human readable name of an image. Might be the same as 'imageFileName', but could be different.</td></tr>
+<tr><td>imageTimeStamp</td><td>string (date-time)</td><td>The date and time the image was taken</td></tr>
+<tr><td>imageURL</td><td>string</td><td>The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.</td></tr>
+<tr><td>imageWidth</td><td>integer</td><td>The width of the image in Pixels.</td></tr>
+<tr><td>mimeType</td><td>string</td><td>The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc</td></tr>
+<tr><td>observationDbIds</td><td>array[string]</td><td>A list of observation Ids this image is associated with, if applicable.</td></tr>
+<tr><td>observationUnitDbId</td><td>string</td><td>The related observation unit identifier, if relevant.</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object||
-|copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
-|description|string|The human readable description of an image.|
-|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|imageDbId|string|The unique identifier of an image|
-|imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
-|imageFileSize|integer|The size of the image in Bytes.|
-|imageHeight|integer|The height of the image in Pixels.|
-|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
-|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
-|type|string|The literal string "Feature"|
-|imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
-|imageTimeStamp|string (date-time)|The date and time the image was taken|
-|imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
-|imageWidth|integer|The width of the image in Pixels.|
-|mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
-|observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
-|observationUnitDbId|string|The related observation unit identifier, if relevant.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td></td></tr>
+<tr><td>copyright</td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
+<tr><td>description</td><td>string</td><td>The human readable description of an image.</td></tr>
+<tr><td>descriptiveOntologyTerms</td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>imageDbId</td><td>string</td><td>The unique identifier of an image</td></tr>
+<tr><td>imageFileName</td><td>string</td><td>The name of the image file. Might be the same as 'imageName', but could be different.</td></tr>
+<tr><td>imageFileSize</td><td>integer</td><td>The size of the image in Bytes.</td></tr>
+<tr><td>imageHeight</td><td>integer</td><td>The height of the image in Pixels.</td></tr>
+<tr><td>imageLocation</td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
+<tr><td>imageLocation.<br>geometry</td><td>object</td><td>A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.</td></tr>
+<tr><td>imageLocation.<br>type</td><td>string</td><td>The literal string "Feature"</td></tr>
+<tr><td>imageName</td><td>string</td><td>The human readable name of an image. Might be the same as 'imageFileName', but could be different.</td></tr>
+<tr><td>imageTimeStamp</td><td>string (date-time)</td><td>The date and time the image was taken</td></tr>
+<tr><td>imageURL</td><td>string</td><td>The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.</td></tr>
+<tr><td>imageWidth</td><td>integer</td><td>The width of the image in Pixels.</td></tr>
+<tr><td>mimeType</td><td>string</td><td>The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc</td></tr>
+<tr><td>observationDbIds</td><td>array[string]</td><td>A list of observation Ids this image is associated with, if applicable.</td></tr>
+<tr><td>observationUnitDbId</td><td>string</td><td>The related observation unit identifier, if relevant.</td></tr>
+</table>
 
 
  
@@ -995,30 +1001,31 @@ An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/ind
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object||
-|copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
-|description|string|The human readable description of an image.|
-|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|imageDbId|string|The unique identifier of an image|
-|imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
-|imageFileSize|integer|The size of the image in Bytes.|
-|imageHeight|integer|The height of the image in Pixels.|
-|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
-|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
-|type|string|The literal string "Feature"|
-|imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
-|imageTimeStamp|string (date-time)|The date and time the image was taken|
-|imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
-|imageWidth|integer|The width of the image in Pixels.|
-|mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
-|observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
-|observationUnitDbId|string|The related observation unit identifier, if relevant.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td></td></tr>
+<tr><td>copyright</td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
+<tr><td>description</td><td>string</td><td>The human readable description of an image.</td></tr>
+<tr><td>descriptiveOntologyTerms</td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>imageDbId</td><td>string</td><td>The unique identifier of an image</td></tr>
+<tr><td>imageFileName</td><td>string</td><td>The name of the image file. Might be the same as 'imageName', but could be different.</td></tr>
+<tr><td>imageFileSize</td><td>integer</td><td>The size of the image in Bytes.</td></tr>
+<tr><td>imageHeight</td><td>integer</td><td>The height of the image in Pixels.</td></tr>
+<tr><td>imageLocation</td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
+<tr><td>imageLocation.<br>geometry</td><td>object</td><td>A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.</td></tr>
+<tr><td>imageLocation.<br>type</td><td>string</td><td>The literal string "Feature"</td></tr>
+<tr><td>imageName</td><td>string</td><td>The human readable name of an image. Might be the same as 'imageFileName', but could be different.</td></tr>
+<tr><td>imageTimeStamp</td><td>string (date-time)</td><td>The date and time the image was taken</td></tr>
+<tr><td>imageURL</td><td>string</td><td>The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.</td></tr>
+<tr><td>imageWidth</td><td>integer</td><td>The width of the image in Pixels.</td></tr>
+<tr><td>mimeType</td><td>string</td><td>The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc</td></tr>
+<tr><td>observationDbIds</td><td>array[string]</td><td>A list of observation Ids this image is associated with, if applicable.</td></tr>
+<tr><td>observationUnitDbId</td><td>string</td><td>The related observation unit identifier, if relevant.</td></tr>
+</table>
 
 
  
@@ -1138,63 +1145,64 @@ Image Implementation Notes<br/>
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|commonCropNames|array[string]|The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.|
-|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image to search for. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
-|externalReferenceIDs|array[string]|**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
-|externalReferenceIds|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
-|externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
-|imageDbIds|array[string]|A list of image Ids to search for|
-|imageFileNames|array[string]|Image file names to search for.|
-|imageFileSizeMax|integer|A maximum image file size to search for.|
-|imageFileSizeMin|integer|A minimum image file size to search for.|
-|imageHeightMax|integer|A maximum image height to search for.|
-|imageHeightMin|integer|A minimum image height to search for.|
-|imageLocation|object|A GeoJSON Polygon which describes an area to search for other GeoJSON objects. All contained Points and intersecting Polygons should be returned as search results.   All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
-|type|string|The literal string "Feature"|
-|imageNames|array[string]|Human readable names to search for.|
-|imageTimeStampRangeEnd|string (date-time)|The latest timestamp to search for.|
-|imageTimeStampRangeStart|string (date-time)|The earliest timestamp to search for.|
-|imageWidthMax|integer|A maximum image width to search for.|
-|imageWidthMin|integer|A minimum image width to search for.|
-|mimeTypes|array[string]|A set of image file types to search for.|
-|observationDbIds|array[string]|A list of observation Ids this image is associated with to search for|
-|observationUnitDbIds|array[string]|A set of observation unit identifiers to search for.|
-|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
-|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
-|programDbIds|array[string]|A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.|
-|programNames|array[string]|Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>commonCropNames</td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
+<tr><td>descriptiveOntologyTerms</td><td>array[string]</td><td>A list of terms to formally describe the image to search for. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
+<tr><td>externalReferenceIDs</td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td>externalReferenceIds</td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td>externalReferenceSources</td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
+<tr><td>imageDbIds</td><td>array[string]</td><td>A list of image Ids to search for</td></tr>
+<tr><td>imageFileNames</td><td>array[string]</td><td>Image file names to search for.</td></tr>
+<tr><td>imageFileSizeMax</td><td>integer</td><td>A maximum image file size to search for.</td></tr>
+<tr><td>imageFileSizeMin</td><td>integer</td><td>A minimum image file size to search for.</td></tr>
+<tr><td>imageHeightMax</td><td>integer</td><td>A maximum image height to search for.</td></tr>
+<tr><td>imageHeightMin</td><td>integer</td><td>A minimum image height to search for.</td></tr>
+<tr><td>imageLocation</td><td>object</td><td>A GeoJSON Polygon which describes an area to search for other GeoJSON objects. All contained Points and intersecting Polygons should be returned as search results.   All coordinates are decimal values on the WGS84 geographic coordinate reference system.</td></tr>
+<tr><td>imageLocation.<br>geometry</td><td>object</td><td>A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.</td></tr>
+<tr><td>imageLocation.<br>type</td><td>string</td><td>The literal string "Feature"</td></tr>
+<tr><td>imageNames</td><td>array[string]</td><td>Human readable names to search for.</td></tr>
+<tr><td>imageTimeStampRangeEnd</td><td>string (date-time)</td><td>The latest timestamp to search for.</td></tr>
+<tr><td>imageTimeStampRangeStart</td><td>string (date-time)</td><td>The earliest timestamp to search for.</td></tr>
+<tr><td>imageWidthMax</td><td>integer</td><td>A maximum image width to search for.</td></tr>
+<tr><td>imageWidthMin</td><td>integer</td><td>A minimum image width to search for.</td></tr>
+<tr><td>mimeTypes</td><td>array[string]</td><td>A set of image file types to search for.</td></tr>
+<tr><td>observationDbIds</td><td>array[string]</td><td>A list of observation Ids this image is associated with to search for</td></tr>
+<tr><td>observationUnitDbIds</td><td>array[string]</td><td>A set of observation unit identifiers to search for.</td></tr>
+<tr><td>page</td><td>integer</td><td>Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.</td></tr>
+<tr><td>pageSize</td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
+<tr><td>programDbIds</td><td>array[string]</td><td>A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.</td></tr>
+<tr><td>programNames</td><td>array[string]</td><td>Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]|Array of image metadata|
-|additionalInfo|object||
-|copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
-|description|string|The human readable description of an image.|
-|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|imageDbId|string|The unique identifier of an image|
-|imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
-|imageFileSize|integer|The size of the image in Bytes.|
-|imageHeight|integer|The height of the image in Pixels.|
-|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
-|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
-|type|string|The literal string "Feature"|
-|imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
-|imageTimeStamp|string (date-time)|The date and time the image was taken|
-|imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
-|imageWidth|integer|The width of the image in Pixels.|
-|mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
-|observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
-|observationUnitDbId|string|The related observation unit identifier, if relevant.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td></td></tr>
+<tr><td>copyright</td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
+<tr><td>description</td><td>string</td><td>The human readable description of an image.</td></tr>
+<tr><td>descriptiveOntologyTerms</td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>imageDbId</td><td>string</td><td>The unique identifier of an image</td></tr>
+<tr><td>imageFileName</td><td>string</td><td>The name of the image file. Might be the same as 'imageName', but could be different.</td></tr>
+<tr><td>imageFileSize</td><td>integer</td><td>The size of the image in Bytes.</td></tr>
+<tr><td>imageHeight</td><td>integer</td><td>The height of the image in Pixels.</td></tr>
+<tr><td>imageLocation</td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
+<tr><td>imageLocation.<br>geometry</td><td>object</td><td>A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.</td></tr>
+<tr><td>imageLocation.<br>type</td><td>string</td><td>The literal string "Feature"</td></tr>
+<tr><td>imageName</td><td>string</td><td>The human readable name of an image. Might be the same as 'imageFileName', but could be different.</td></tr>
+<tr><td>imageTimeStamp</td><td>string (date-time)</td><td>The date and time the image was taken</td></tr>
+<tr><td>imageURL</td><td>string</td><td>The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.</td></tr>
+<tr><td>imageWidth</td><td>integer</td><td>The width of the image in Pixels.</td></tr>
+<tr><td>mimeType</td><td>string</td><td>The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc</td></tr>
+<tr><td>observationDbIds</td><td>array[string]</td><td>A list of observation Ids this image is associated with, if applicable.</td></tr>
+<tr><td>observationUnitDbId</td><td>string</td><td>The related observation unit identifier, if relevant.</td></tr>
+</table>
 
 
  
@@ -1439,31 +1447,31 @@ Image Implementation Notes<br/>
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]|Array of image metadata|
-|additionalInfo|object||
-|copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
-|description|string|The human readable description of an image.|
-|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|imageDbId|string|The unique identifier of an image|
-|imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
-|imageFileSize|integer|The size of the image in Bytes.|
-|imageHeight|integer|The height of the image in Pixels.|
-|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
-|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
-|type|string|The literal string "Feature"|
-|imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
-|imageTimeStamp|string (date-time)|The date and time the image was taken|
-|imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
-|imageWidth|integer|The width of the image in Pixels.|
-|mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
-|observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
-|observationUnitDbId|string|The related observation unit identifier, if relevant.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td></td></tr>
+<tr><td>copyright</td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
+<tr><td>description</td><td>string</td><td>The human readable description of an image.</td></tr>
+<tr><td>descriptiveOntologyTerms</td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>imageDbId</td><td>string</td><td>The unique identifier of an image</td></tr>
+<tr><td>imageFileName</td><td>string</td><td>The name of the image file. Might be the same as 'imageName', but could be different.</td></tr>
+<tr><td>imageFileSize</td><td>integer</td><td>The size of the image in Bytes.</td></tr>
+<tr><td>imageHeight</td><td>integer</td><td>The height of the image in Pixels.</td></tr>
+<tr><td>imageLocation</td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
+<tr><td>imageLocation.<br>geometry</td><td>object</td><td>A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.</td></tr>
+<tr><td>imageLocation.<br>type</td><td>string</td><td>The literal string "Feature"</td></tr>
+<tr><td>imageName</td><td>string</td><td>The human readable name of an image. Might be the same as 'imageFileName', but could be different.</td></tr>
+<tr><td>imageTimeStamp</td><td>string (date-time)</td><td>The date and time the image was taken</td></tr>
+<tr><td>imageURL</td><td>string</td><td>The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.</td></tr>
+<tr><td>imageWidth</td><td>integer</td><td>The width of the image in Pixels.</td></tr>
+<tr><td>mimeType</td><td>string</td><td>The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc</td></tr>
+<tr><td>observationDbIds</td><td>array[string]</td><td>A list of observation Ids this image is associated with, if applicable.</td></tr>
+<tr><td>observationUnitDbId</td><td>string</td><td>The related observation unit identifier, if relevant.</td></tr>
+</table>
 
 
  

@@ -13,33 +13,33 @@ Get a filtered list of Seed Lot descriptions available in a system.
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
-|contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
-|crossDbId|string|The unique DbId for a cross contained in this seed lot|
-|crossName|string|The human readable name for a cross contained in this seed lot|
-|germplasmDbId|string|The unique DbId of the Germplasm contained in this Seed Lot|
-|germplasmName|string|The human readable name of the Germplasm contained in this Seed Lot|
-|mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
-|createdDate|string (date-time)|The time stamp for when this seed lot was created|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for a location|
-|programDbId|string|The unique DbId of the breeding program this Seed Lot belongs to|
-|programName|string|The human readable name of the breeding program this Seed Lot belongs to|
-|seedLotDbId|string|Unique DbId for the Seed Lot|
-|seedLotDescription|string|A general description of this Seed Lot|
-|seedLotName|string|A human readable name for this Seed Lot|
-|sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
-|storageLocation|string|Description the storage location|
-|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>amount</td><td>number</td><td>Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
+<tr><td>contentMixture</td><td>array[object]</td><td>The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.</td></tr>
+<tr><td>contentMixture.<br>crossDbId</td><td>string</td><td>The unique DbId for a cross contained in this seed lot</td></tr>
+<tr><td>contentMixture.<br>crossName</td><td>string</td><td>The human readable name for a cross contained in this seed lot</td></tr>
+<tr><td>contentMixture.<br>germplasmDbId</td><td>string</td><td>The unique DbId of the Germplasm contained in this Seed Lot</td></tr>
+<tr><td>contentMixture.<br>germplasmName</td><td>string</td><td>The human readable name of the Germplasm contained in this Seed Lot</td></tr>
+<tr><td>contentMixture.<br>mixturePercentage</td><td>integer</td><td>The percentage of the given germplasm in the seed lot mixture.</td></tr>
+<tr><td>createdDate</td><td>string (date-time)</td><td>The time stamp for when this seed lot was created</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>lastUpdated</td><td>string (date-time)</td><td>The timestamp for the last update to this Seed Lot (including transactions)</td></tr>
+<tr><td>locationDbId</td><td>string</td><td>The unique identifier for a Location</td></tr>
+<tr><td>locationName</td><td>string</td><td>A human readable name for a location</td></tr>
+<tr><td>programDbId</td><td>string</td><td>The unique DbId of the breeding program this Seed Lot belongs to</td></tr>
+<tr><td>programName</td><td>string</td><td>The human readable name of the breeding program this Seed Lot belongs to</td></tr>
+<tr><td>seedLotDbId</td><td>string</td><td>Unique DbId for the Seed Lot</td></tr>
+<tr><td>seedLotDescription</td><td>string</td><td>A general description of this Seed Lot</td></tr>
+<tr><td>seedLotName</td><td>string</td><td>A human readable name for this Seed Lot</td></tr>
+<tr><td>sourceCollection</td><td>string</td><td>The description of the source where this material was originally collected (wild, nursery, etc)</td></tr>
+<tr><td>storageLocation</td><td>string</td><td>Description the storage location</td></tr>
+<tr><td>units</td><td>string</td><td>Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)</td></tr>
+</table>
 
 
  
@@ -149,62 +149,63 @@ Add new Seed Lot descriptions to a server
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
-|contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
-|crossDbId|string|The unique DbId for a cross contained in this seed lot|
-|crossName|string|The human readable name for a cross contained in this seed lot|
-|germplasmDbId|string|The unique DbId of the Germplasm contained in this Seed Lot|
-|germplasmName|string|The human readable name of the Germplasm contained in this Seed Lot|
-|mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
-|createdDate|string (date-time)|The time stamp for when this seed lot was created|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for a location|
-|programDbId|string|The unique DbId of the breeding program this Seed Lot belongs to|
-|programName|string|The human readable name of the breeding program this Seed Lot belongs to|
-|seedLotDescription|string|A general description of this Seed Lot|
-|seedLotName|string|A human readable name for this Seed Lot|
-|sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
-|storageLocation|string|Description the storage location|
-|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>amount</td><td>number</td><td>Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
+<tr><td>contentMixture</td><td>array[object]</td><td>The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.</td></tr>
+<tr><td>contentMixture.<br>crossDbId</td><td>string</td><td>The unique DbId for a cross contained in this seed lot</td></tr>
+<tr><td>contentMixture.<br>crossName</td><td>string</td><td>The human readable name for a cross contained in this seed lot</td></tr>
+<tr><td>contentMixture.<br>germplasmDbId</td><td>string</td><td>The unique DbId of the Germplasm contained in this Seed Lot</td></tr>
+<tr><td>contentMixture.<br>germplasmName</td><td>string</td><td>The human readable name of the Germplasm contained in this Seed Lot</td></tr>
+<tr><td>contentMixture.<br>mixturePercentage</td><td>integer</td><td>The percentage of the given germplasm in the seed lot mixture.</td></tr>
+<tr><td>createdDate</td><td>string (date-time)</td><td>The time stamp for when this seed lot was created</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>lastUpdated</td><td>string (date-time)</td><td>The timestamp for the last update to this Seed Lot (including transactions)</td></tr>
+<tr><td>locationDbId</td><td>string</td><td>The unique identifier for a Location</td></tr>
+<tr><td>locationName</td><td>string</td><td>A human readable name for a location</td></tr>
+<tr><td>programDbId</td><td>string</td><td>The unique DbId of the breeding program this Seed Lot belongs to</td></tr>
+<tr><td>programName</td><td>string</td><td>The human readable name of the breeding program this Seed Lot belongs to</td></tr>
+<tr><td>seedLotDescription</td><td>string</td><td>A general description of this Seed Lot</td></tr>
+<tr><td>seedLotName</td><td>string</td><td>A human readable name for this Seed Lot</td></tr>
+<tr><td>sourceCollection</td><td>string</td><td>The description of the source where this material was originally collected (wild, nursery, etc)</td></tr>
+<tr><td>storageLocation</td><td>string</td><td>Description the storage location</td></tr>
+<tr><td>units</td><td>string</td><td>Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
-|contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
-|crossDbId|string|The unique DbId for a cross contained in this seed lot|
-|crossName|string|The human readable name for a cross contained in this seed lot|
-|germplasmDbId|string|The unique DbId of the Germplasm contained in this Seed Lot|
-|germplasmName|string|The human readable name of the Germplasm contained in this Seed Lot|
-|mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
-|createdDate|string (date-time)|The time stamp for when this seed lot was created|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for a location|
-|programDbId|string|The unique DbId of the breeding program this Seed Lot belongs to|
-|programName|string|The human readable name of the breeding program this Seed Lot belongs to|
-|seedLotDbId|string|Unique DbId for the Seed Lot|
-|seedLotDescription|string|A general description of this Seed Lot|
-|seedLotName|string|A human readable name for this Seed Lot|
-|sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
-|storageLocation|string|Description the storage location|
-|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>amount</td><td>number</td><td>Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
+<tr><td>contentMixture</td><td>array[object]</td><td>The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.</td></tr>
+<tr><td>contentMixture.<br>crossDbId</td><td>string</td><td>The unique DbId for a cross contained in this seed lot</td></tr>
+<tr><td>contentMixture.<br>crossName</td><td>string</td><td>The human readable name for a cross contained in this seed lot</td></tr>
+<tr><td>contentMixture.<br>germplasmDbId</td><td>string</td><td>The unique DbId of the Germplasm contained in this Seed Lot</td></tr>
+<tr><td>contentMixture.<br>germplasmName</td><td>string</td><td>The human readable name of the Germplasm contained in this Seed Lot</td></tr>
+<tr><td>contentMixture.<br>mixturePercentage</td><td>integer</td><td>The percentage of the given germplasm in the seed lot mixture.</td></tr>
+<tr><td>createdDate</td><td>string (date-time)</td><td>The time stamp for when this seed lot was created</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>lastUpdated</td><td>string (date-time)</td><td>The timestamp for the last update to this Seed Lot (including transactions)</td></tr>
+<tr><td>locationDbId</td><td>string</td><td>The unique identifier for a Location</td></tr>
+<tr><td>locationName</td><td>string</td><td>A human readable name for a location</td></tr>
+<tr><td>programDbId</td><td>string</td><td>The unique DbId of the breeding program this Seed Lot belongs to</td></tr>
+<tr><td>programName</td><td>string</td><td>The human readable name of the breeding program this Seed Lot belongs to</td></tr>
+<tr><td>seedLotDbId</td><td>string</td><td>Unique DbId for the Seed Lot</td></tr>
+<tr><td>seedLotDescription</td><td>string</td><td>A general description of this Seed Lot</td></tr>
+<tr><td>seedLotName</td><td>string</td><td>A human readable name for this Seed Lot</td></tr>
+<tr><td>sourceCollection</td><td>string</td><td>The description of the source where this material was originally collected (wild, nursery, etc)</td></tr>
+<tr><td>storageLocation</td><td>string</td><td>Description the storage location</td></tr>
+<tr><td>units</td><td>string</td><td>Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)</td></tr>
+</table>
 
 
  
@@ -345,21 +346,21 @@ Get a filtered list of Seed Lot Transactions
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|amount|number|The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
-|toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
-|transactionDbId|string|Unique DbId for the Seed Lot Transaction|
-|transactionDescription|string|A general description of this Seed Lot Transaction|
-|transactionTimestamp|string (date-time)|The time stamp for when the transaction occurred|
-|units|string|Description of the things being transfered in this transaction (seeds, bulbs, kg, etc)|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>amount</td><td>number</td><td>The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>fromSeedLotDbId</td><td>string</td><td>The identifier for the Seed Lot being transfered out of</td></tr>
+<tr><td>toSeedLotDbId</td><td>string</td><td>The identifier for the Seed Lot being transfered into</td></tr>
+<tr><td>transactionDbId</td><td>string</td><td>Unique DbId for the Seed Lot Transaction</td></tr>
+<tr><td>transactionDescription</td><td>string</td><td>A general description of this Seed Lot Transaction</td></tr>
+<tr><td>transactionTimestamp</td><td>string (date-time)</td><td>The time stamp for when the transaction occurred</td></tr>
+<tr><td>units</td><td>string</td><td>Description of the things being transfered in this transaction (seeds, bulbs, kg, etc)</td></tr>
+</table>
 
 
  
@@ -455,38 +456,39 @@ Add new Seed Lot Transaction to be recorded
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|amount|number|The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
-|toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
-|transactionDescription|string|A general description of this Seed Lot Transaction|
-|transactionTimestamp|string (date-time)|The time stamp for when the transaction occurred|
-|units|string|Description of the things being transfered in this transaction (seeds, bulbs, kg, etc)|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>amount</td><td>number</td><td>The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>fromSeedLotDbId</td><td>string</td><td>The identifier for the Seed Lot being transfered out of</td></tr>
+<tr><td>toSeedLotDbId</td><td>string</td><td>The identifier for the Seed Lot being transfered into</td></tr>
+<tr><td>transactionDescription</td><td>string</td><td>A general description of this Seed Lot Transaction</td></tr>
+<tr><td>transactionTimestamp</td><td>string (date-time)</td><td>The time stamp for when the transaction occurred</td></tr>
+<tr><td>units</td><td>string</td><td>Description of the things being transfered in this transaction (seeds, bulbs, kg, etc)</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|amount|number|The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
-|toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
-|transactionDbId|string|Unique DbId for the Seed Lot Transaction|
-|transactionDescription|string|A general description of this Seed Lot Transaction|
-|transactionTimestamp|string (date-time)|The time stamp for when the transaction occurred|
-|units|string|Description of the things being transfered in this transaction (seeds, bulbs, kg, etc)|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>amount</td><td>number</td><td>The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>fromSeedLotDbId</td><td>string</td><td>The identifier for the Seed Lot being transfered out of</td></tr>
+<tr><td>toSeedLotDbId</td><td>string</td><td>The identifier for the Seed Lot being transfered into</td></tr>
+<tr><td>transactionDbId</td><td>string</td><td>Unique DbId for the Seed Lot Transaction</td></tr>
+<tr><td>transactionDescription</td><td>string</td><td>A general description of this Seed Lot Transaction</td></tr>
+<tr><td>transactionTimestamp</td><td>string (date-time)</td><td>The time stamp for when the transaction occurred</td></tr>
+<tr><td>units</td><td>string</td><td>Description of the things being transfered in this transaction (seeds, bulbs, kg, etc)</td></tr>
+</table>
 
 
  
@@ -597,32 +599,33 @@ Get a specific Seed Lot by seedLotDbId
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
-|contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
-|crossDbId|string|The unique DbId for a cross contained in this seed lot|
-|crossName|string|The human readable name for a cross contained in this seed lot|
-|germplasmDbId|string|The unique DbId of the Germplasm contained in this Seed Lot|
-|germplasmName|string|The human readable name of the Germplasm contained in this Seed Lot|
-|mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
-|createdDate|string (date-time)|The time stamp for when this seed lot was created|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for a location|
-|programDbId|string|The unique DbId of the breeding program this Seed Lot belongs to|
-|programName|string|The human readable name of the breeding program this Seed Lot belongs to|
-|seedLotDbId|string|Unique DbId for the Seed Lot|
-|seedLotDescription|string|A general description of this Seed Lot|
-|seedLotName|string|A human readable name for this Seed Lot|
-|sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
-|storageLocation|string|Description the storage location|
-|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>amount</td><td>number</td><td>Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
+<tr><td>contentMixture</td><td>array[object]</td><td>The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.</td></tr>
+<tr><td>contentMixture.<br>crossDbId</td><td>string</td><td>The unique DbId for a cross contained in this seed lot</td></tr>
+<tr><td>contentMixture.<br>crossName</td><td>string</td><td>The human readable name for a cross contained in this seed lot</td></tr>
+<tr><td>contentMixture.<br>germplasmDbId</td><td>string</td><td>The unique DbId of the Germplasm contained in this Seed Lot</td></tr>
+<tr><td>contentMixture.<br>germplasmName</td><td>string</td><td>The human readable name of the Germplasm contained in this Seed Lot</td></tr>
+<tr><td>contentMixture.<br>mixturePercentage</td><td>integer</td><td>The percentage of the given germplasm in the seed lot mixture.</td></tr>
+<tr><td>createdDate</td><td>string (date-time)</td><td>The time stamp for when this seed lot was created</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>lastUpdated</td><td>string (date-time)</td><td>The timestamp for the last update to this Seed Lot (including transactions)</td></tr>
+<tr><td>locationDbId</td><td>string</td><td>The unique identifier for a Location</td></tr>
+<tr><td>locationName</td><td>string</td><td>A human readable name for a location</td></tr>
+<tr><td>programDbId</td><td>string</td><td>The unique DbId of the breeding program this Seed Lot belongs to</td></tr>
+<tr><td>programName</td><td>string</td><td>The human readable name of the breeding program this Seed Lot belongs to</td></tr>
+<tr><td>seedLotDbId</td><td>string</td><td>Unique DbId for the Seed Lot</td></tr>
+<tr><td>seedLotDescription</td><td>string</td><td>A general description of this Seed Lot</td></tr>
+<tr><td>seedLotName</td><td>string</td><td>A human readable name for this Seed Lot</td></tr>
+<tr><td>sourceCollection</td><td>string</td><td>The description of the source where this material was originally collected (wild, nursery, etc)</td></tr>
+<tr><td>storageLocation</td><td>string</td><td>Description the storage location</td></tr>
+<tr><td>units</td><td>string</td><td>Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)</td></tr>
+</table>
 
 
  
@@ -722,61 +725,63 @@ Update an existing Seed Lot
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
-|contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
-|crossDbId|string|The unique DbId for a cross contained in this seed lot|
-|crossName|string|The human readable name for a cross contained in this seed lot|
-|germplasmDbId|string|The unique DbId of the Germplasm contained in this Seed Lot|
-|germplasmName|string|The human readable name of the Germplasm contained in this Seed Lot|
-|mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
-|createdDate|string (date-time)|The time stamp for when this seed lot was created|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for a location|
-|programDbId|string|The unique DbId of the breeding program this Seed Lot belongs to|
-|programName|string|The human readable name of the breeding program this Seed Lot belongs to|
-|seedLotDescription|string|A general description of this Seed Lot|
-|seedLotName|string|A human readable name for this Seed Lot|
-|sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
-|storageLocation|string|Description the storage location|
-|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>amount</td><td>number</td><td>Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
+<tr><td>contentMixture</td><td>array[object]</td><td>The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.</td></tr>
+<tr><td>contentMixture.<br>crossDbId</td><td>string</td><td>The unique DbId for a cross contained in this seed lot</td></tr>
+<tr><td>contentMixture.<br>crossName</td><td>string</td><td>The human readable name for a cross contained in this seed lot</td></tr>
+<tr><td>contentMixture.<br>germplasmDbId</td><td>string</td><td>The unique DbId of the Germplasm contained in this Seed Lot</td></tr>
+<tr><td>contentMixture.<br>germplasmName</td><td>string</td><td>The human readable name of the Germplasm contained in this Seed Lot</td></tr>
+<tr><td>contentMixture.<br>mixturePercentage</td><td>integer</td><td>The percentage of the given germplasm in the seed lot mixture.</td></tr>
+<tr><td>createdDate</td><td>string (date-time)</td><td>The time stamp for when this seed lot was created</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>lastUpdated</td><td>string (date-time)</td><td>The timestamp for the last update to this Seed Lot (including transactions)</td></tr>
+<tr><td>locationDbId</td><td>string</td><td>The unique identifier for a Location</td></tr>
+<tr><td>locationName</td><td>string</td><td>A human readable name for a location</td></tr>
+<tr><td>programDbId</td><td>string</td><td>The unique DbId of the breeding program this Seed Lot belongs to</td></tr>
+<tr><td>programName</td><td>string</td><td>The human readable name of the breeding program this Seed Lot belongs to</td></tr>
+<tr><td>seedLotDescription</td><td>string</td><td>A general description of this Seed Lot</td></tr>
+<tr><td>seedLotName</td><td>string</td><td>A human readable name for this Seed Lot</td></tr>
+<tr><td>sourceCollection</td><td>string</td><td>The description of the source where this material was originally collected (wild, nursery, etc)</td></tr>
+<tr><td>storageLocation</td><td>string</td><td>Description the storage location</td></tr>
+<tr><td>units</td><td>string</td><td>Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
-|contentMixture|array[object]|The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.|
-|crossDbId|string|The unique DbId for a cross contained in this seed lot|
-|crossName|string|The human readable name for a cross contained in this seed lot|
-|germplasmDbId|string|The unique DbId of the Germplasm contained in this Seed Lot|
-|germplasmName|string|The human readable name of the Germplasm contained in this Seed Lot|
-|mixturePercentage|integer|The percentage of the given germplasm in the seed lot mixture.|
-|createdDate|string (date-time)|The time stamp for when this seed lot was created|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for a location|
-|programDbId|string|The unique DbId of the breeding program this Seed Lot belongs to|
-|programName|string|The human readable name of the breeding program this Seed Lot belongs to|
-|seedLotDbId|string|Unique DbId for the Seed Lot|
-|seedLotDescription|string|A general description of this Seed Lot|
-|seedLotName|string|A human readable name for this Seed Lot|
-|sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
-|storageLocation|string|Description the storage location|
-|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>amount</td><td>number</td><td>Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
+<tr><td>contentMixture</td><td>array[object]</td><td>The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.</td></tr>
+<tr><td>contentMixture.<br>crossDbId</td><td>string</td><td>The unique DbId for a cross contained in this seed lot</td></tr>
+<tr><td>contentMixture.<br>crossName</td><td>string</td><td>The human readable name for a cross contained in this seed lot</td></tr>
+<tr><td>contentMixture.<br>germplasmDbId</td><td>string</td><td>The unique DbId of the Germplasm contained in this Seed Lot</td></tr>
+<tr><td>contentMixture.<br>germplasmName</td><td>string</td><td>The human readable name of the Germplasm contained in this Seed Lot</td></tr>
+<tr><td>contentMixture.<br>mixturePercentage</td><td>integer</td><td>The percentage of the given germplasm in the seed lot mixture.</td></tr>
+<tr><td>createdDate</td><td>string (date-time)</td><td>The time stamp for when this seed lot was created</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>lastUpdated</td><td>string (date-time)</td><td>The timestamp for the last update to this Seed Lot (including transactions)</td></tr>
+<tr><td>locationDbId</td><td>string</td><td>The unique identifier for a Location</td></tr>
+<tr><td>locationName</td><td>string</td><td>A human readable name for a location</td></tr>
+<tr><td>programDbId</td><td>string</td><td>The unique DbId of the breeding program this Seed Lot belongs to</td></tr>
+<tr><td>programName</td><td>string</td><td>The human readable name of the breeding program this Seed Lot belongs to</td></tr>
+<tr><td>seedLotDbId</td><td>string</td><td>Unique DbId for the Seed Lot</td></tr>
+<tr><td>seedLotDescription</td><td>string</td><td>A general description of this Seed Lot</td></tr>
+<tr><td>seedLotName</td><td>string</td><td>A human readable name for this Seed Lot</td></tr>
+<tr><td>sourceCollection</td><td>string</td><td>The description of the source where this material was originally collected (wild, nursery, etc)</td></tr>
+<tr><td>storageLocation</td><td>string</td><td>Description the storage location</td></tr>
+<tr><td>units</td><td>string</td><td>Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)</td></tr>
+</table>
 
 
  
@@ -917,21 +922,21 @@ Get all Transactions related to a specific Seed Lot
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|amount|number|The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
-|toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
-|transactionDbId|string|Unique DbId for the Seed Lot Transaction|
-|transactionDescription|string|A general description of this Seed Lot Transaction|
-|transactionTimestamp|string (date-time)|The time stamp for when the transaction occurred|
-|units|string|Description of the things being transfered in this transaction (seeds, bulbs, kg, etc)|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>amount</td><td>number</td><td>The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
+<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>fromSeedLotDbId</td><td>string</td><td>The identifier for the Seed Lot being transfered out of</td></tr>
+<tr><td>toSeedLotDbId</td><td>string</td><td>The identifier for the Seed Lot being transfered into</td></tr>
+<tr><td>transactionDbId</td><td>string</td><td>Unique DbId for the Seed Lot Transaction</td></tr>
+<tr><td>transactionDescription</td><td>string</td><td>A general description of this Seed Lot Transaction</td></tr>
+<tr><td>transactionTimestamp</td><td>string (date-time)</td><td>The time stamp for when the transaction occurred</td></tr>
+<tr><td>units</td><td>string</td><td>Description of the things being transfered in this transaction (seeds, bulbs, kg, etc)</td></tr>
+</table>
 
 
  
