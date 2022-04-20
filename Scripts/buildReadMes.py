@@ -208,22 +208,28 @@ def buildObjectTableRow(schema, parentPrefix = ''):
 				if 'type' in schema['properties'][prop]:
 					type = schema['properties'][prop]['type']
 					if 'format' in schema['properties'][prop]:
-						type += ' (' + schema['properties'][prop]['format'] + ')'
+						type += '<br>(' + schema['properties'][prop]['format'] + ')'
 				if type == 'array' and 'type' in schema['properties'][prop]['items']:
 					type += '[' +  schema['properties'][prop]['items']['type'] + ']'
 				if 'description' in schema['properties'][prop]:
 					desc = schema['properties'][prop]['description'].replace('\n', ' ').replace('|', '')
 				
-				field = prop
-				if parentPrefix != '':
-					field = parentPrefix + '.<br>' + prop
+				field = ''
+				nextParentPrefix = ''
+				
+				if parentPrefix == '':
+					field = '<span style="font-weight:bold;">' + prop + '</span>'
+					nextParentPrefix = prop
+				else:
+					field = parentPrefix + '<br><span style="font-weight:bold;margin-left:5px">.' + prop + '</span>'
+					nextParentPrefix = parentPrefix + '<br>.' + prop
 					
 				row += '<tr><td>' + field + '</td><td>' + type + '</td><td>' + desc + '</td></tr>\n'
 				
 				if type == 'object' and 'properties' in schema['properties'][prop]:
-					row += buildObjectTableRow(schema['properties'][prop], field)
+					row += buildObjectTableRow(schema['properties'][prop], nextParentPrefix)
 				elif type[:5] == 'array' and 'properties' in schema['properties'][prop]['items']:
-					row += buildObjectTableRow(schema['properties'][prop]['items'], field)
+					row += buildObjectTableRow(schema['properties'][prop]['items'], nextParentPrefix)
 	elif 'items' in schema:
 		row += buildObjectTableRow(schema['items'], parentPrefix)
 			
