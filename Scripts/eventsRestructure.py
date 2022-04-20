@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
 ## Usage
-## py eventsRestructure.py 
+## py eventsRestructure.py output_file_path
 
 import requests
 import json

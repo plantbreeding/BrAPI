@@ -1,0 +1,3513 @@
+[
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-09-23 02:03:02.889588",
+            "studyCreateDate": "2019-09-23 01:59:26.285933",
+            "studyDescription": "Assessment of Varieties of Cassava for high yield and disease resistance using Fertilizers  (18 clones)  at Ubiaja 2006/2007 Breeding Season",
+            "studyName": "06Fert18UB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "2006-01-01T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6502",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE002"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Ammonium sulfate"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "fertilizer",
+        "observationUnitDbIds": [
+            "1828451",
+            "1828311",
+            "...",
+            "1828263",
+            "1828452"
+        ],
+        "studyDbId": "6501",
+        "studyName": "06Fert18UB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-09-23 02:04:46.487716",
+            "studyCreateDate": "2019-09-23 01:59:26.285933",
+            "studyDescription": "Assessment of Varieties of Cassava for high yield and disease resistance using Fertilizers  (18 clones)  at Ubiaja 2006/2007 Breeding Season",
+            "studyName": "06Fert18UB",
+            "year": "2006"
+        },
+        "date": {
+            "discreteDates": [
+                "2006-01-01T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6503",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE002"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Ammonium sulfate"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "fertilizer",
+        "observationUnitDbIds": [
+            "1828280",
+            "1828320",
+            "...",
+            "1828435",
+            "1828274"
+        ],
+        "studyDbId": "6501",
+        "studyName": "06Fert18UB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-09-23 02:06:38.28318",
+            "studyCreateDate": "2019-09-23 01:59:26.285933",
+            "studyDescription": "Assessment of Varieties of Cassava for high yield and disease resistance using Fertilizers  (18 clones)  at Ubiaja 2006/2007 Breeding Season",
+            "studyName": "06Fert18UB",
+            "year": "2006"
+        },
+        "date": {
+            "discreteDates": [
+                "2006-01-01T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6504",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE002"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Ammonium sulfate"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "fertilizer",
+        "observationUnitDbIds": [
+            "1828467",
+            "1828302",
+            "...",
+            "1828313",
+            "1828391"
+        ],
+        "studyDbId": "6501",
+        "studyName": "06Fert18UB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-09-23 02:08:38.532095",
+            "studyCreateDate": "2019-09-23 01:59:26.285933",
+            "studyDescription": "Assessment of Varieties of Cassava for high yield and disease resistance using Fertilizers  (18 clones)  at Ubiaja 2006/2007 Breeding Season",
+            "studyName": "06Fert18UB",
+            "year": "2006"
+        },
+        "date": {
+            "discreteDates": [
+                "2006-01-01T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6505",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE002"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Ammonium sulfate"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "fertilizer",
+        "observationUnitDbIds": [
+            "1828243",
+            "1828261",
+            "...",
+            "1828472",
+            "1828364"
+        ],
+        "studyDbId": "6501",
+        "studyName": "06Fert18UB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-09-23 02:18:24.924593",
+            "studyCreateDate": "2019-09-23 02:14:02.835577",
+            "studyDescription": "Assessment of Varieties of Cassava for high yield and disease resistance using Fertilizers  (18 clones)  at Malamadori 2006/2007 Breeding Season",
+            "studyName": "06Fert18MM",
+            "year": "2006"
+        },
+        "date": {
+            "discreteDates": [
+                "2006-01-01T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6507",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE002"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Ammonium sulfate"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "fertilizer",
+        "observationUnitDbIds": [
+            "1828630",
+            "1828510",
+            "...",
+            "1828668",
+            "1828625"
+        ],
+        "studyDbId": "6506",
+        "studyName": "06Fert18MM"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-09-23 02:19:58.881934",
+            "studyCreateDate": "2019-09-23 02:14:02.835577",
+            "studyDescription": "Assessment of Varieties of Cassava for high yield and disease resistance using Fertilizers  (18 clones)  at Malamadori 2006/2007 Breeding Season",
+            "studyName": "06Fert18MM",
+            "year": "2006"
+        },
+        "date": {
+            "discreteDates": [
+                "2006-01-01T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6508",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE002"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Ammonium sulfate"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "fertilizer",
+        "observationUnitDbIds": [
+            "1828514",
+            "1828674",
+            "...",
+            "1828715",
+            "1828584"
+        ],
+        "studyDbId": "6506",
+        "studyName": "06Fert18MM"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-09-23 02:21:30.303825",
+            "studyCreateDate": "2019-09-23 02:14:02.835577",
+            "studyDescription": "Assessment of Varieties of Cassava for high yield and disease resistance using Fertilizers  (18 clones)  at Malamadori 2006/2007 Breeding Season",
+            "studyName": "06Fert18MM",
+            "year": "2006"
+        },
+        "date": {
+            "discreteDates": [
+                "2006-01-01T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6509",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE002"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Ammonium sulfate"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "fertilizer",
+        "observationUnitDbIds": [
+            "1828632",
+            "1828576",
+            "...",
+            "1828550",
+            "1828564"
+        ],
+        "studyDbId": "6506",
+        "studyName": "06Fert18MM"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-09-23 02:23:04.660522",
+            "studyCreateDate": "2019-09-23 02:14:02.835577",
+            "studyDescription": "Assessment of Varieties of Cassava for high yield and disease resistance using Fertilizers  (18 clones)  at Malamadori 2006/2007 Breeding Season",
+            "studyName": "06Fert18MM",
+            "year": "2006"
+        },
+        "date": {
+            "discreteDates": [
+                "2006-01-01T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6511",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE002"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Ammonium sulfate"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "fertilizer",
+        "observationUnitDbIds": [
+            "1828699",
+            "1828712",
+            "...",
+            "1828524",
+            "1828551"
+        ],
+        "studyDbId": "6506",
+        "studyName": "06Fert18MM"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-09-24 07:39:03.39868",
+            "studyCreateDate": "2019-09-24 07:25:31.080691",
+            "studyDescription": "Assessment of Varieties of Cassava for high yield, disease resistance and high total carotenoid retention in an Preliminary Yield Trial (42 clones) in Ibadan 2019/2020 Breeding Season from 2018ikn.ayt(htc18,htc12,&htc20).IB\n",
+            "studyName": "19pyt42HTCbulkIB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "2019-08-01T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6537",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE002"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Ammonium sulfate"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "fertilizer",
+        "observationUnitDbIds": [
+            "1830744",
+            "1830792",
+            "...",
+            "1830893",
+            "1830865"
+        ],
+        "studyDbId": "6536",
+        "studyName": "19pyt42HTCbulkIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-09-24 07:44:03.690647",
+            "studyCreateDate": "2019-09-24 07:25:31.080691",
+            "studyDescription": "Assessment of Varieties of Cassava for high yield, disease resistance and high total carotenoid retention in an Preliminary Yield Trial (42 clones) in Ibadan 2019/2020 Breeding Season from 2018ikn.ayt(htc18,htc12,&htc20).IB\n",
+            "studyName": "19pyt42HTCbulkIB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "2019-08-01T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6538",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE002"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Ammonium sulfate"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "fertilizer",
+        "observationUnitDbIds": [
+            "1830856",
+            "1830738",
+            "...",
+            "1830752",
+            "1830810"
+        ],
+        "studyDbId": "6536",
+        "studyName": "19pyt42HTCbulkIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-09-24 07:47:46.703352",
+            "studyCreateDate": "2019-09-24 07:25:31.080691",
+            "studyDescription": "Assessment of Varieties of Cassava for high yield, disease resistance and high total carotenoid retention in an Preliminary Yield Trial (42 clones) in Ibadan 2019/2020 Breeding Season from 2018ikn.ayt(htc18,htc12,&htc20).IB\n",
+            "studyName": "19pyt42HTCbulkIB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "2019-08-01T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6539",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE002"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Ammonium sulfate"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "fertilizer",
+        "observationUnitDbIds": [
+            "1830749",
+            "1830824",
+            "...",
+            "1830821",
+            "1830720"
+        ],
+        "studyDbId": "6536",
+        "studyName": "19pyt42HTCbulkIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-09-27 08:13:36.468608",
+            "studyCreateDate": "2019-09-27 07:54:18.257519",
+            "studyDescription": "Flowering experiment using PGR Root flower method using 3 clones(180 per genotypes) in ibadan 2019/2020 season ",
+            "studyName": "19flowPGRRtflwrIB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "2019-06-25T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6570",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH101"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethephon"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "hormone treatment",
+        "observationUnitDbIds": [
+            "1839927",
+            "1840104",
+            "...",
+            "1839999",
+            "1840233"
+        ],
+        "studyDbId": "6569",
+        "studyName": "19flowPGRRtflwrIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-10-01 02:29:33.330584",
+            "studyCreateDate": "2019-09-30 12:18:37.967563",
+            "studyDescription": "Flowering experiment using PGR Feminization with 3 clones in Ibadan for 2019-2020 breeding season ",
+            "studyName": "19flowPGRFeminizationIB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "2019-06-25T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6581",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH101"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethephon"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "hormone treatment",
+        "observationUnitDbIds": [
+            "1846369",
+            "1846336",
+            "...",
+            "1846827",
+            "1846899"
+        ],
+        "studyDbId": "6577",
+        "studyName": "19flowPGRFeminizationIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-10-01 02:46:34.282423",
+            "studyCreateDate": "2019-09-30 12:18:37.967563",
+            "studyDescription": "Flowering experiment using PGR Feminization with 3 clones in Ibadan for 2019-2020 breeding season ",
+            "studyName": "19flowPGRFeminizationIB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "2019-06-25T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6582",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH101"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethephon"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "hormone treatment",
+        "observationUnitDbIds": [
+            "1846713",
+            "1846672",
+            "...",
+            "1846631",
+            "1846922"
+        ],
+        "studyDbId": "6577",
+        "studyName": "19flowPGRFeminizationIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-10-01 02:55:36.271872",
+            "studyCreateDate": "2019-09-30 12:18:37.967563",
+            "studyDescription": "Flowering experiment using PGR Feminization with 3 clones in Ibadan for 2019-2020 breeding season ",
+            "studyName": "19flowPGRFeminizationIB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "2019-06-25T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6583",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH101"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethephon"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "hormone treatment",
+        "observationUnitDbIds": [
+            "1846670",
+            "1846840",
+            "...",
+            "1846464",
+            "1846451"
+        ],
+        "studyDbId": "6577",
+        "studyName": "19flowPGRFeminizationIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-10-01 03:06:38.056872",
+            "studyCreateDate": "2019-09-30 12:18:37.967563",
+            "studyDescription": "Flowering experiment using PGR Feminization with 3 clones in Ibadan for 2019-2020 breeding season ",
+            "studyName": "19flowPGRFeminizationIB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "2019-06-25T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6584",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH101"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethephon"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "hormone treatment",
+        "observationUnitDbIds": [
+            "1846668",
+            "1846866",
+            "...",
+            "1846317",
+            "1846380"
+        ],
+        "studyDbId": "6577",
+        "studyName": "19flowPGRFeminizationIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-11-05 09:26:48.842023",
+            "studyCreateDate": "2019-11-05 09:23:21.550916",
+            "studyDescription": "Flowering experiment using PGR Frequency with TMEB419 in Ibadan for 2019-2020 breeding season ",
+            "studyName": "19flowPGRFreqIB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "2019-07-02T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6773",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH101"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethephon"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "hormone treatment",
+        "observationUnitDbIds": [
+            "1888379",
+            "1888609",
+            "...",
+            "1888529",
+            "1888530"
+        ],
+        "studyDbId": "6772",
+        "studyName": "19flowPGRFreqIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-11-05 09:27:58.624637",
+            "studyCreateDate": "2019-11-05 09:23:21.550916",
+            "studyDescription": "Flowering experiment using PGR Frequency with TMEB419 in Ibadan for 2019-2020 breeding season ",
+            "studyName": "19flowPGRFreqIB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "2019-07-02T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6774",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH101"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethephon"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "hormone treatment",
+        "observationUnitDbIds": [
+            "1888399",
+            "1888411",
+            "...",
+            "1888427",
+            "1888428"
+        ],
+        "studyDbId": "6772",
+        "studyName": "19flowPGRFreqIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-11-05 09:29:06.922445",
+            "studyCreateDate": "2019-11-05 09:23:21.550916",
+            "studyDescription": "Flowering experiment using PGR Frequency with TMEB419 in Ibadan for 2019-2020 breeding season ",
+            "studyName": "19flowPGRFreqIB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "2019-07-02T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6775",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH101"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethephon"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "hormone treatment",
+        "observationUnitDbIds": [
+            "1888371",
+            "1888477",
+            "...",
+            "1888631",
+            "1888632"
+        ],
+        "studyDbId": "6772",
+        "studyName": "19flowPGRFreqIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-11-05 09:30:34.890783",
+            "studyCreateDate": "2019-11-05 09:23:21.550916",
+            "studyDescription": "Flowering experiment using PGR Frequency with TMEB419 in Ibadan for 2019-2020 breeding season ",
+            "studyName": "19flowPGRFreqIB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "2019-07-02T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6776",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH101"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethephon"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "hormone treatment",
+        "observationUnitDbIds": [
+            "1888536",
+            "1888378",
+            "...",
+            "1888534",
+            "1888535"
+        ],
+        "studyDbId": "6772",
+        "studyName": "19flowPGRFreqIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-11-05 09:31:38.501618",
+            "studyCreateDate": "2019-11-05 09:23:21.550916",
+            "studyDescription": "Flowering experiment using PGR Frequency with TMEB419 in Ibadan for 2019-2020 breeding season ",
+            "studyName": "19flowPGRFreqIB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "2019-07-02T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6777",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH101"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethephon"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "hormone treatment",
+        "observationUnitDbIds": [
+            "1888402",
+            "1888549",
+            "...",
+            "1888583",
+            "1888584"
+        ],
+        "studyDbId": "6772",
+        "studyName": "19flowPGRFreqIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-11-05 09:32:26.053024",
+            "studyCreateDate": "2019-11-05 09:23:21.550916",
+            "studyDescription": "Flowering experiment using PGR Frequency with TMEB419 in Ibadan for 2019-2020 breeding season ",
+            "studyName": "19flowPGRFreqIB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "2019-07-02T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6778",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH101"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethephon"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "hormone treatment",
+        "observationUnitDbIds": [
+            "1888377",
+            "1888465",
+            "...",
+            "1888505",
+            "1888506"
+        ],
+        "studyDbId": "6772",
+        "studyName": "19flowPGRFreqIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-11-05 10:23:08.20859",
+            "studyCreateDate": "2019-11-05 10:19:10.85494",
+            "studyDescription": "Flowering experiment using PGR Ratio with TMEB419 in Ibadan for 2019-2020 breeding season ",
+            "studyName": "19flowPGRRatioIB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "2019-07-02T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6783",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH101"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethephon"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "hormone treatment",
+        "observationUnitDbIds": [
+            "1888920",
+            "1889161",
+            "...",
+            "1889009",
+            "1889010"
+        ],
+        "studyDbId": "6782",
+        "studyName": "19flowPGRRatioIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-11-05 10:24:06.236859",
+            "studyCreateDate": "2019-11-05 10:19:10.85494",
+            "studyDescription": "Flowering experiment using PGR Ratio with TMEB419 in Ibadan for 2019-2020 breeding season ",
+            "studyName": "19flowPGRRatioIB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "2019-07-02T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6784",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH101"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethephon"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "hormone treatment",
+        "observationUnitDbIds": [
+            "1888926",
+            "1889035",
+            "...",
+            "1889087",
+            "1889088"
+        ],
+        "studyDbId": "6782",
+        "studyName": "19flowPGRRatioIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-11-05 10:25:03.16134",
+            "studyCreateDate": "2019-11-05 10:19:10.85494",
+            "studyDescription": "Flowering experiment using PGR Ratio with TMEB419 in Ibadan for 2019-2020 breeding season ",
+            "studyName": "19flowPGRRatioIB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "2019-07-02T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6785",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH101"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethephon"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "hormone treatment",
+        "observationUnitDbIds": [
+            "1888939",
+            "1889029",
+            "...",
+            "1889045",
+            "1889046"
+        ],
+        "studyDbId": "6782",
+        "studyName": "19flowPGRRatioIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-11-05 10:25:58.268944",
+            "studyCreateDate": "2019-11-05 10:19:10.85494",
+            "studyDescription": "Flowering experiment using PGR Ratio with TMEB419 in Ibadan for 2019-2020 breeding season ",
+            "studyName": "19flowPGRRatioIB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "2019-07-02T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6786",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH101"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethephon"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "hormone treatment",
+        "observationUnitDbIds": [
+            "1889001",
+            "1888930",
+            "...",
+            "1889063",
+            "1889064"
+        ],
+        "studyDbId": "6782",
+        "studyName": "19flowPGRRatioIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-11-05 10:26:59.478258",
+            "studyCreateDate": "2019-11-05 10:19:10.85494",
+            "studyDescription": "Flowering experiment using PGR Ratio with TMEB419 in Ibadan for 2019-2020 breeding season ",
+            "studyName": "19flowPGRRatioIB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "2019-07-02T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6787",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH101"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethephon"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "hormone treatment",
+        "observationUnitDbIds": [
+            "1888927",
+            "1889155",
+            "...",
+            "1888961",
+            "1888962"
+        ],
+        "studyDbId": "6782",
+        "studyName": "19flowPGRRatioIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-11-09 12:58:50.603566",
+            "studyCreateDate": "2019-11-09 12:54:00.243583",
+            "studyDescription": "Assesment of IPM Varieties of Cassava for diseases and pests of 06  genotypes at Ibadan  1996/97 Breeding Season",
+            "studyName": "96IPM6IB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "1996-10-01T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6832",
+        "eventDescription": "Herbicide applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH012"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Glyphosate [Herbicide]"
+            }
+        ],
+        "eventType": "chemicals",
+        "eventTypeDbId": "herbicide",
+        "observationUnitDbIds": [
+            "1902019",
+            "1902020",
+            "...",
+            "1902055",
+            "1902014"
+        ],
+        "studyDbId": "6831",
+        "studyName": "96IPM6IB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-11-09 13:00:57.177311",
+            "studyCreateDate": "2019-11-09 12:54:00.243583",
+            "studyDescription": "Assesment of IPM Varieties of Cassava for diseases and pests of 06  genotypes at Ibadan  1996/97 Breeding Season",
+            "studyName": "96IPM6IB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "1996-10-01T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6833",
+        "eventDescription": "Herbicide applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH012"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Glyphosate [Herbicide]"
+            }
+        ],
+        "eventType": "chemicals",
+        "eventTypeDbId": "herbicide",
+        "observationUnitDbIds": [
+            "1901999",
+            "1902009",
+            "...",
+            "1902031",
+            "1901995"
+        ],
+        "studyDbId": "6831",
+        "studyName": "96IPM6IB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-11-09 13:02:51.234994",
+            "studyCreateDate": "2019-11-09 12:54:00.243583",
+            "studyDescription": "Assesment of IPM Varieties of Cassava for diseases and pests of 06  genotypes at Ibadan  1996/97 Breeding Season",
+            "studyName": "96IPM6IB",
+            "year": "2019"
+        },
+        "date": {
+            "discreteDates": [
+                "1996-10-01T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6834",
+        "eventDescription": "Herbicide applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH012"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Glyphosate [Herbicide]"
+            }
+        ],
+        "eventType": "chemicals",
+        "eventTypeDbId": "herbicide",
+        "observationUnitDbIds": [
+            "1902049",
+            "1901994",
+            "...",
+            "1902025",
+            "1902024"
+        ],
+        "studyDbId": "6831",
+        "studyName": "96IPM6IB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-11-10 01:03:45.782626",
+            "studyCreateDate": "2019-11-10 00:58:24.04893",
+            "studyDescription": "Assessment of cassava varieties   (04 clones) at Ibadan in 1994/95 Breeding Season",
+            "studyName": "94Vincent04IB",
+            "year": "1994"
+        },
+        "date": {
+            "discreteDates": [
+                "1994-01-10T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6848",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE002"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Ammonium sulfate"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "fertilizer",
+        "observationUnitDbIds": [
+            "1904333",
+            "1904318",
+            "...",
+            "1904326",
+            "1904337"
+        ],
+        "studyDbId": "6847",
+        "studyName": "94Vincent04IB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-11-10 01:04:53.955711",
+            "studyCreateDate": "2019-11-10 00:58:24.04893",
+            "studyDescription": "Assessment of cassava varieties   (04 clones) at Ibadan in 1994/95 Breeding Season",
+            "studyName": "94Vincent04IB",
+            "year": "1994"
+        },
+        "date": {
+            "discreteDates": [
+                "1994-01-10T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6849",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE002"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Ammonium sulfate"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "fertilizer",
+        "observationUnitDbIds": [
+            "1904341",
+            "1904338",
+            "...",
+            "1904313",
+            "1904334"
+        ],
+        "studyDbId": "6847",
+        "studyName": "94Vincent04IB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-11-10 01:06:10.097287",
+            "studyCreateDate": "2019-11-10 00:58:24.04893",
+            "studyDescription": "Assessment of cassava varieties   (04 clones) at Ibadan in 1994/95 Breeding Season",
+            "studyName": "94Vincent04IB",
+            "year": "1994"
+        },
+        "date": {
+            "discreteDates": [
+                "1994-01-10T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6850",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE002"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Ammonium sulfate"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "fertilizer",
+        "observationUnitDbIds": [
+            "1904317",
+            "1904345",
+            "...",
+            "1904324",
+            "1904349"
+        ],
+        "studyDbId": "6847",
+        "studyName": "94Vincent04IB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2019-11-10 01:07:18.708364",
+            "studyCreateDate": "2019-11-10 00:58:24.04893",
+            "studyDescription": "Assessment of cassava varieties   (04 clones) at Ibadan in 1994/95 Breeding Season",
+            "studyName": "94Vincent04IB",
+            "year": "1994"
+        },
+        "date": {
+            "discreteDates": [
+                "1994-01-10T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "6851",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE002"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Ammonium sulfate"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "fertilizer",
+        "observationUnitDbIds": [
+            "1904357",
+            "1904331",
+            "...",
+            "1904336",
+            "1904320"
+        ],
+        "studyDbId": "6847",
+        "studyName": "94Vincent04IB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2020-10-04 21:43:24.537533",
+            "studyCreateDate": "2020-10-04 21:43:17.520226",
+            "studyDescription": "Uniform Yield Trials from EMBRAPA Cassava Breeding of 2020",
+            "studyName": "BR.UYT.20.NH1",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-10-04T21:43:24.537533"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "7818",
+        "eventDescription": "Fungicide applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH051"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Captan [Fungicide]"
+            }
+        ],
+        "eventType": "chemicals",
+        "eventTypeDbId": "Fungicide",
+        "observationUnitDbIds": [
+            "2372686",
+            "2372786",
+            "...",
+            "2372816",
+            "2372823"
+        ],
+        "studyDbId": "7817",
+        "studyName": "BR.UYT.20.NH1"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2020-10-04 21:55:44.833806",
+            "studyCreateDate": "2020-10-04 21:55:38.279175",
+            "studyDescription": "Uniform Yield Trials from EMBRAPA Cassava Breeding of 2020",
+            "studyName": "BR.UYT.20.Roger",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-10-04T21:55:44.833806"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "7820",
+        "eventDescription": "Fungicide applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH051"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Captan [Fungicide]"
+            }
+        ],
+        "eventType": "chemicals",
+        "eventTypeDbId": "Fungicide",
+        "observationUnitDbIds": [
+            "2372903",
+            "2372965",
+            "...",
+            "2372847",
+            "2372842"
+        ],
+        "studyDbId": "7819",
+        "studyName": "BR.UYT.20.Roger"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-04-11 22:36:07.72976",
+            "studyCreateDate": "2021-04-11 22:17:33.641156",
+            "studyDescription": "Flowering experiment using 4 known genotypes using best practice in Ibadan for 2020-21 breeding season",
+            "studyName": "20flowBestPracticeIB",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-06-20T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "8793",
+        "eventDescription": "Herbicide applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH001"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Alachlor (Lasso), Metolachlor (Dual) [Herbicide]"
+            }
+        ],
+        "eventType": "chemicals",
+        "eventTypeDbId": "Herbicide",
+        "observationUnitDbIds": [
+            "2866260",
+            "2866140",
+            "...",
+            "2866287",
+            "2866190"
+        ],
+        "studyDbId": "8792",
+        "studyName": "20flowBestPracticeIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-04-11 22:51:02.830372",
+            "studyCreateDate": "2021-04-11 22:17:33.641156",
+            "studyDescription": "Flowering experiment using 4 known genotypes using best practice in Ibadan for 2020-21 breeding season",
+            "studyName": "20flowBestPracticeIB",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-06-20T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "8795",
+        "eventDescription": "Herbicide applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH001"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Alachlor (Lasso), Metolachlor (Dual) [Herbicide]"
+            }
+        ],
+        "eventType": "chemicals",
+        "eventTypeDbId": "Herbicide",
+        "observationUnitDbIds": [
+            "2866268",
+            "2866145",
+            "...",
+            "2866282",
+            "2866191"
+        ],
+        "studyDbId": "8792",
+        "studyName": "20flowBestPracticeIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-04-11 23:08:08.618453",
+            "studyCreateDate": "2021-04-11 22:17:33.641156",
+            "studyDescription": "Flowering experiment using 4 known genotypes using best practice in Ibadan for 2020-21 breeding season",
+            "studyName": "20flowBestPracticeIB",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-06-20T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "8796",
+        "eventDescription": "Herbicide applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH001"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Alachlor (Lasso), Metolachlor (Dual) [Herbicide]"
+            }
+        ],
+        "eventType": "chemicals",
+        "eventTypeDbId": "Herbicide",
+        "observationUnitDbIds": [
+            "2866264",
+            "2866141",
+            "...",
+            "2866286",
+            "2866194"
+        ],
+        "studyDbId": "8792",
+        "studyName": "20flowBestPracticeIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-04-12 01:15:29.076409",
+            "studyCreateDate": "2021-04-11 22:17:33.641156",
+            "studyDescription": "Flowering experiment using 4 known genotypes using best practice in Ibadan for 2020-21 breeding season",
+            "studyName": "20flowBestPracticeIB",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-06-20T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "8797",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH102"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethylene"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "Hormone treatment",
+        "observationUnitDbIds": [
+            "2866263",
+            "2866142",
+            "...",
+            "2866288",
+            "2866196"
+        ],
+        "studyDbId": "8792",
+        "studyName": "20flowBestPracticeIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-04-12 01:21:28.569512",
+            "studyCreateDate": "2021-04-11 22:17:33.641156",
+            "studyDescription": "Flowering experiment using 4 known genotypes using best practice in Ibadan for 2020-21 breeding season",
+            "studyName": "20flowBestPracticeIB",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-06-20T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "8798",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH102"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethylene"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "Hormone treatment",
+        "observationUnitDbIds": [
+            "2866262",
+            "2866146",
+            "...",
+            "2866284",
+            "2866193"
+        ],
+        "studyDbId": "8792",
+        "studyName": "20flowBestPracticeIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-04-12 01:34:42.774176",
+            "studyCreateDate": "2021-04-11 22:17:33.641156",
+            "studyDescription": "Flowering experiment using 4 known genotypes using best practice in Ibadan for 2020-21 breeding season",
+            "studyName": "20flowBestPracticeIB",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-06-20T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "8799",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH102"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethylene"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "Hormone treatment",
+        "observationUnitDbIds": [
+            "2866269",
+            "2866147",
+            "...",
+            "2866285",
+            "2866199"
+        ],
+        "studyDbId": "8792",
+        "studyName": "20flowBestPracticeIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-04-12 01:54:48.413585",
+            "studyCreateDate": "2021-04-11 22:17:33.641156",
+            "studyDescription": "Flowering experiment using 4 known genotypes using best practice in Ibadan for 2020-21 breeding season",
+            "studyName": "20flowBestPracticeIB",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-06-20T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "8801",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH102"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethylene"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "Hormone treatment",
+        "observationUnitDbIds": [
+            "2866265",
+            "2866143",
+            "...",
+            "2866289",
+            "2866197"
+        ],
+        "studyDbId": "8792",
+        "studyName": "20flowBestPracticeIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-04-12 01:59:01.895576",
+            "studyCreateDate": "2021-04-11 22:17:33.641156",
+            "studyDescription": "Flowering experiment using 4 known genotypes using best practice in Ibadan for 2020-21 breeding season",
+            "studyName": "20flowBestPracticeIB",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-06-20T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "8802",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH102"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethylene"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "Hormone treatment",
+        "observationUnitDbIds": [
+            "2866266",
+            "2866148",
+            "...",
+            "2866281",
+            "2866198"
+        ],
+        "studyDbId": "8792",
+        "studyName": "20flowBestPracticeIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-04-12 05:21:54.407102",
+            "studyCreateDate": "2021-04-12 02:03:13.899887",
+            "studyDescription": "Evaluation of Flowering trial using 7 Genotypes using photo growth regulator (PGR) treatment in Ibadan for 2020-2021 breeding season",
+            "studyName": "20flowPGRFreqIB",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-06-20T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "8804",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH102"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethylene"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "Hormone treatment",
+        "observationUnitDbIds": [
+            "2866349",
+            "2866462",
+            "...",
+            "2866556",
+            "2866557"
+        ],
+        "studyDbId": "8803",
+        "studyName": "20flowPGRFreqIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-04-12 05:23:23.283816",
+            "studyCreateDate": "2021-04-12 02:03:13.899887",
+            "studyDescription": "Evaluation of Flowering trial using 7 Genotypes using photo growth regulator (PGR) treatment in Ibadan for 2020-2021 breeding season",
+            "studyName": "20flowPGRFreqIB",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-06-20T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "8805",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH102"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethylene"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "Hormone treatment",
+        "observationUnitDbIds": [
+            "2866385",
+            "2866670",
+            "...",
+            "2866716",
+            "2866717"
+        ],
+        "studyDbId": "8803",
+        "studyName": "20flowPGRFreqIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-04-12 05:24:49.188481",
+            "studyCreateDate": "2021-04-12 02:03:13.899887",
+            "studyDescription": "Evaluation of Flowering trial using 7 Genotypes using photo growth regulator (PGR) treatment in Ibadan for 2020-2021 breeding season",
+            "studyName": "20flowPGRFreqIB",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-06-20T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "8806",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH102"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethylene"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "Hormone treatment",
+        "observationUnitDbIds": [
+            "2866391",
+            "2866392",
+            "...",
+            "2866353",
+            "2866390"
+        ],
+        "studyDbId": "8803",
+        "studyName": "20flowPGRFreqIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-04-12 05:26:08.97221",
+            "studyCreateDate": "2021-04-12 02:03:13.899887",
+            "studyDescription": "Evaluation of Flowering trial using 7 Genotypes using photo growth regulator (PGR) treatment in Ibadan for 2020-2021 breeding season",
+            "studyName": "20flowPGRFreqIB",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-06-20T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "8807",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH102"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethylene"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "Hormone treatment",
+        "observationUnitDbIds": [
+            "2866356",
+            "2866718",
+            "...",
+            "2866628",
+            "2866629"
+        ],
+        "studyDbId": "8803",
+        "studyName": "20flowPGRFreqIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-04-12 05:27:41.502143",
+            "studyCreateDate": "2021-04-12 02:03:13.899887",
+            "studyDescription": "Evaluation of Flowering trial using 7 Genotypes using photo growth regulator (PGR) treatment in Ibadan for 2020-2021 breeding season",
+            "studyName": "20flowPGRFreqIB",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-06-20T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "8808",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH102"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethylene"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "Hormone treatment",
+        "observationUnitDbIds": [
+            "2866350",
+            "2866678",
+            "...",
+            "2866700",
+            "2866701"
+        ],
+        "studyDbId": "8803",
+        "studyName": "20flowPGRFreqIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-04-12 05:33:33.653892",
+            "studyCreateDate": "2021-04-12 02:03:13.899887",
+            "studyDescription": "Evaluation of Flowering trial using 7 Genotypes using photo growth regulator (PGR) treatment in Ibadan for 2020-2021 breeding season",
+            "studyName": "20flowPGRFreqIB",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-06-20T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "8809",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH102"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethylene"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "Hormone treatment",
+        "observationUnitDbIds": [
+            "2866376",
+            "2866654",
+            "...",
+            "2866708",
+            "2866709"
+        ],
+        "studyDbId": "8803",
+        "studyName": "20flowPGRFreqIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-04-12 06:18:11.954051",
+            "studyCreateDate": "2021-04-12 06:07:24.219304",
+            "studyDescription": "Evaluation of Flowering experiment in Ubiaja using 40 clones for best practice in breeding season 2020-2021",
+            "studyName": "20flowBestPracticeUB",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-06-20T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "8812",
+        "eventDescription": "Hormone treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH102"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Ethylene"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "Hormone treatment",
+        "observationUnitDbIds": [
+            "2866928",
+            "2866924",
+            "...",
+            "2867068",
+            "2867054"
+        ],
+        "studyDbId": "8811",
+        "studyName": "20flowBestPracticeUB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-04-12 06:28:17.957154",
+            "studyCreateDate": "2021-04-12 06:22:58.507019",
+            "studyDescription": "Evaluation of Flowering experiment using 7 genotypes using photo growth regulators in Ubiaja for 2020-2021 breeding season",
+            "studyName": "20flowPGRFreqUB",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-06-20T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "8814",
+        "eventDescription": "Herbicide applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH001"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Alachlor (Lasso), Metolachlor (Dual) [Herbicide]"
+            }
+        ],
+        "eventType": "chemicals",
+        "eventTypeDbId": "Herbicide",
+        "observationUnitDbIds": [
+            "2867384",
+            "2867385",
+            "...",
+            "2867230",
+            "2867231"
+        ],
+        "studyDbId": "8813",
+        "studyName": "20flowPGRFreqUB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-04-12 06:29:28.205566",
+            "studyCreateDate": "2021-04-12 06:22:58.507019",
+            "studyDescription": "Evaluation of Flowering experiment using 7 genotypes using photo growth regulators in Ubiaja for 2020-2021 breeding season",
+            "studyName": "20flowPGRFreqUB",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-06-20T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "8815",
+        "eventDescription": "Herbicide applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH001"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Alachlor (Lasso), Metolachlor (Dual) [Herbicide]"
+            }
+        ],
+        "eventType": "chemicals",
+        "eventTypeDbId": "Herbicide",
+        "observationUnitDbIds": [
+            "2867179",
+            "2867184",
+            "...",
+            "2867486",
+            "2867487"
+        ],
+        "studyDbId": "8813",
+        "studyName": "20flowPGRFreqUB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-04-12 06:30:56.05087",
+            "studyCreateDate": "2021-04-12 06:22:58.507019",
+            "studyDescription": "Evaluation of Flowering experiment using 7 genotypes using photo growth regulators in Ubiaja for 2020-2021 breeding season",
+            "studyName": "20flowPGRFreqUB",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-06-20T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "8816",
+        "eventDescription": "Herbicide applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH001"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Alachlor (Lasso), Metolachlor (Dual) [Herbicide]"
+            }
+        ],
+        "eventType": "chemicals",
+        "eventTypeDbId": "Herbicide",
+        "observationUnitDbIds": [
+            "2867169",
+            "2867191",
+            "...",
+            "2867382",
+            "2867383"
+        ],
+        "studyDbId": "8813",
+        "studyName": "20flowPGRFreqUB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-04-12 06:32:34.214818",
+            "studyCreateDate": "2021-04-12 06:22:58.507019",
+            "studyDescription": "Evaluation of Flowering experiment using 7 genotypes using photo growth regulators in Ubiaja for 2020-2021 breeding season",
+            "studyName": "20flowPGRFreqUB",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-06-20T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "8817",
+        "eventDescription": "Herbicide applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH001"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Alachlor (Lasso), Metolachlor (Dual) [Herbicide]"
+            }
+        ],
+        "eventType": "chemicals",
+        "eventTypeDbId": "Herbicide",
+        "observationUnitDbIds": [
+            "2867272",
+            "2867273",
+            "...",
+            "2867534",
+            "2867535"
+        ],
+        "studyDbId": "8813",
+        "studyName": "20flowPGRFreqUB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-04-12 06:35:24.450596",
+            "studyCreateDate": "2021-04-12 06:22:58.507019",
+            "studyDescription": "Evaluation of Flowering experiment using 7 genotypes using photo growth regulators in Ubiaja for 2020-2021 breeding season",
+            "studyName": "20flowPGRFreqUB",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-06-20T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "8818",
+        "eventDescription": "Herbicide applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH001"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Alachlor (Lasso), Metolachlor (Dual) [Herbicide]"
+            }
+        ],
+        "eventType": "chemicals",
+        "eventTypeDbId": "Herbicide",
+        "observationUnitDbIds": [
+            "2867256",
+            "2867257",
+            "...",
+            "2867358",
+            "2867359"
+        ],
+        "studyDbId": "8813",
+        "studyName": "20flowPGRFreqUB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-04-12 06:36:41.55679",
+            "studyCreateDate": "2021-04-12 06:22:58.507019",
+            "studyDescription": "Evaluation of Flowering experiment using 7 genotypes using photo growth regulators in Ubiaja for 2020-2021 breeding season",
+            "studyName": "20flowPGRFreqUB",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-06-20T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "8819",
+        "eventDescription": "Herbicide applied to select plots",
+        "eventParameters": [
+            {
+                "code": "CHCD",
+                "name": "chemical_applic_material",
+                "unit": "code",
+                "value": "CH001"
+            },
+            {
+                "code": "CH_NAME",
+                "name": "chemical_applic_name",
+                "unit": "text",
+                "value": "Alachlor (Lasso), Metolachlor (Dual) [Herbicide]"
+            }
+        ],
+        "eventType": "chemicals",
+        "eventTypeDbId": "Herbicide",
+        "observationUnitDbIds": [
+            "2867173",
+            "2867181",
+            "...",
+            "2867374",
+            "2867375"
+        ],
+        "studyDbId": "8813",
+        "studyName": "20flowPGRFreqUB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-04-12 07:16:46.582723",
+            "studyCreateDate": "2021-04-12 07:05:59.25416",
+            "studyDescription": "Evaluation of Flowering experiment using 32 genotypes using red light  at Ubiaja in 2020-21 Breeding Season",
+            "studyName": "20flowPhotoperiodUB",
+            "year": "2020"
+        },
+        "date": {
+            "discreteDates": [
+                "2020-06-09T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "8821",
+        "eventDescription": "Light treatment applied to select plots",
+        "eventParameters": [
+            {
+                "code": "",
+                "name": "light_intensity",
+                "unit": "cd",
+                "value": "2.5"
+            }
+        ],
+        "eventType": "other",
+        "eventTypeDbId": "Light treatment",
+        "observationUnitDbIds": [
+            "2867668",
+            "2867556",
+            "...",
+            "2868054",
+            "2868055"
+        ],
+        "studyDbId": "8820",
+        "studyName": "20flowPhotoperiodUB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-07-05 08:27:43.045969",
+            "studyCreateDate": "2021-07-05 08:06:45.820908",
+            "studyDescription": "GPR Trial established using 3 clones and 3 treatments in May for 2021-22 breeding season at Abuja",
+            "studyName": "21.GPR.AYT.3.MAY.AB",
+            "year": "2022"
+        },
+        "date": {
+            "discreteDates": [
+                "2022-04-26T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9015",
+        "eventDescription": "Basic weeding performed",
+        "eventParameters": [],
+        "eventType": "weeding",
+        "eventTypeDbId": "Weeding",
+        "observationUnitDbIds": [
+            "3720370",
+            "3551731",
+            "...",
+            "3720745",
+            "3720746"
+        ],
+        "studyDbId": "9010",
+        "studyName": "21.GPR.AYT.3.MAY.AB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-07-05 08:31:50.098285",
+            "studyCreateDate": "2021-07-05 08:06:45.820908",
+            "studyDescription": "GPR Trial established using 3 clones and 3 treatments in May for 2021-22 breeding season at Abuja",
+            "studyName": "21.GPR.AYT.3.MAY.AB",
+            "year": "2022"
+        },
+        "date": {
+            "discreteDates": [
+                "2022-01-26T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9017",
+        "eventDescription": "Basic weeding performed",
+        "eventParameters": [],
+        "eventType": "weeding",
+        "eventTypeDbId": "Weeding",
+        "observationUnitDbIds": [
+            "3551719",
+            "3551717",
+            "...",
+            "3720484",
+            "3720485"
+        ],
+        "studyDbId": "9010",
+        "studyName": "21.GPR.AYT.3.MAY.AB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-07-05 08:45:42.21606",
+            "studyCreateDate": "2021-07-05 08:06:45.820908",
+            "studyDescription": "GPR Trial established using 3 clones and 3 treatments in May for 2021-22 breeding season at Abuja",
+            "studyName": "21.GPR.AYT.3.MAY.AB",
+            "year": "2021"
+        },
+        "date": {
+            "discreteDates": [
+                "2021-10-26T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9018",
+        "eventDescription": "Basic weeding performed",
+        "eventParameters": [],
+        "eventType": "weeding",
+        "eventTypeDbId": "Weeding",
+        "observationUnitDbIds": [
+            "3720486",
+            "3551733",
+            "...",
+            "3720803",
+            "3720804"
+        ],
+        "studyDbId": "9010",
+        "studyName": "21.GPR.AYT.3.MAY.AB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-07-05 09:07:47.232772",
+            "studyCreateDate": "2021-07-05 08:06:45.820908",
+            "studyDescription": "GPR Trial established using 3 clones and 3 treatments in May for 2021-22 breeding season at Abuja",
+            "studyName": "21.GPR.AYT.3.MAY.AB",
+            "year": "2022"
+        },
+        "date": {
+            "discreteDates": [
+                "2022-05-26T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9019",
+        "eventDescription": "Basic weeding performed",
+        "eventParameters": [],
+        "eventType": "weeding",
+        "eventTypeDbId": "Weeding",
+        "observationUnitDbIds": [
+            "3720254",
+            "3551718",
+            "...",
+            "3720310",
+            "3720311"
+        ],
+        "studyDbId": "9010",
+        "studyName": "21.GPR.AYT.3.MAY.AB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-07-06 07:04:10.308768",
+            "studyCreateDate": "2021-07-05 08:13:43.015705",
+            "studyDescription": "GPR Trial established using 3 clones and 3 treatments in May for 2021-22 breeding season at Ikenne",
+            "studyName": "21.GPR.AYT.3.MAY.IK",
+            "year": "2021"
+        },
+        "date": {
+            "discreteDates": [
+                "2021-10-21T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9050",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE900"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Generic fertilizer"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "Fertilizer",
+        "observationUnitDbIds": [
+            "3551758",
+            "3551770",
+            "...",
+            "3722689",
+            "3722692"
+        ],
+        "studyDbId": "9012",
+        "studyName": "21.GPR.AYT.3.MAY.IK"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-07-06 07:06:26.334669",
+            "studyCreateDate": "2021-07-05 08:13:43.015705",
+            "studyDescription": "GPR Trial established using 3 clones and 3 treatments in May for 2021-22 breeding season at Ikenne",
+            "studyName": "21.GPR.AYT.3.MAY.IK",
+            "year": "2022"
+        },
+        "date": {
+            "discreteDates": [
+                "2022-01-21T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9051",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE900"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Generic fertilizer"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "Fertilizer",
+        "observationUnitDbIds": [
+            "3721646",
+            "3551772",
+            "...",
+            "3721749",
+            "3721752"
+        ],
+        "studyDbId": "9012",
+        "studyName": "21.GPR.AYT.3.MAY.IK"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-07-06 07:08:30.771646",
+            "studyCreateDate": "2021-07-05 08:13:43.015705",
+            "studyDescription": "GPR Trial established using 3 clones and 3 treatments in May for 2021-22 breeding season at Ikenne",
+            "studyName": "21.GPR.AYT.3.MAY.IK",
+            "year": "2022"
+        },
+        "date": {
+            "discreteDates": [
+                "2022-04-21T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9052",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE900"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Generic fertilizer"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "Fertilizer",
+        "observationUnitDbIds": [
+            "3551765",
+            "3551773",
+            "...",
+            "3722604",
+            "3722607"
+        ],
+        "studyDbId": "9012",
+        "studyName": "21.GPR.AYT.3.MAY.IK"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-07-06 07:09:45.876018",
+            "studyCreateDate": "2021-07-05 08:13:43.015705",
+            "studyDescription": "GPR Trial established using 3 clones and 3 treatments in May for 2021-22 breeding season at Ikenne",
+            "studyName": "21.GPR.AYT.3.MAY.IK",
+            "year": "2022"
+        },
+        "date": {
+            "discreteDates": [
+                "2022-05-21T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9053",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE900"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Generic fertilizer"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "Fertilizer",
+        "observationUnitDbIds": [
+            "3721928",
+            "3551761",
+            "...",
+            "3722518",
+            "3722521"
+        ],
+        "studyDbId": "9012",
+        "studyName": "21.GPR.AYT.3.MAY.IK"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-07-06 07:14:10.346338",
+            "studyCreateDate": "2021-07-05 08:18:04.834262",
+            "studyDescription": "GPR Trial established using 3 clones and 3 treatments in May for 2021-22 breeding season at Onne",
+            "studyName": "21.GPR.AYT.3.MAY.ON",
+            "year": "2021"
+        },
+        "date": {
+            "discreteDates": [
+                "2021-10-31T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9054",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE900"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Generic fertilizer"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "Fertilizer",
+        "observationUnitDbIds": [
+            "3551790",
+            "3551781",
+            "...",
+            "3723142",
+            "3723144"
+        ],
+        "studyDbId": "9013",
+        "studyName": "21.GPR.AYT.3.MAY.ON"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-07-06 07:15:56.338493",
+            "studyCreateDate": "2021-07-05 08:18:04.834262",
+            "studyDescription": "GPR Trial established using 3 clones and 3 treatments in May for 2021-22 breeding season at Onne",
+            "studyName": "21.GPR.AYT.3.MAY.ON",
+            "year": "2022"
+        },
+        "date": {
+            "discreteDates": [
+                "2022-01-31T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9055",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE900"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Generic fertilizer"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "Fertilizer",
+        "observationUnitDbIds": [
+            "3551796",
+            "3551794",
+            "...",
+            "3722969",
+            "3722971"
+        ],
+        "studyDbId": "9013",
+        "studyName": "21.GPR.AYT.3.MAY.ON"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-07-06 07:17:09.420817",
+            "studyCreateDate": "2021-07-05 08:18:04.834262",
+            "studyDescription": "GPR Trial established using 3 clones and 3 treatments in May for 2021-22 breeding season at Onne",
+            "studyName": "21.GPR.AYT.3.MAY.ON",
+            "year": "2022"
+        },
+        "date": {
+            "discreteDates": [
+                "2022-04-30T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9056",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE900"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Generic fertilizer"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "Fertilizer",
+        "observationUnitDbIds": [
+            "3551777",
+            "3551782",
+            "...",
+            "3722860",
+            "3722862"
+        ],
+        "studyDbId": "9013",
+        "studyName": "21.GPR.AYT.3.MAY.ON"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-07-06 07:17:54.67209",
+            "studyCreateDate": "2021-07-05 08:18:04.834262",
+            "studyDescription": "GPR Trial established using 3 clones and 3 treatments in May for 2021-22 breeding season at Onne",
+            "studyName": "21.GPR.AYT.3.MAY.ON",
+            "year": "2022"
+        },
+        "date": {
+            "discreteDates": [
+                "2022-05-31T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9057",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE900"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Generic fertilizer"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "Fertilizer",
+        "observationUnitDbIds": [
+            "3551778",
+            "3551788",
+            "...",
+            "3722629",
+            "3722632"
+        ],
+        "studyDbId": "9013",
+        "studyName": "21.GPR.AYT.3.MAY.ON"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-07-06 07:20:33.858732",
+            "studyCreateDate": "2021-07-05 08:19:49.369139",
+            "studyDescription": "GPR Trial established using 3 clones and 3 treatments in May for 2021-22 breeding season at Umudike",
+            "studyName": "21.GPR.AYT.3.MAY.UM",
+            "year": "2021"
+        },
+        "date": {
+            "discreteDates": [
+                "2021-10-29T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9059",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE900"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Generic fertilizer"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "Fertilizer",
+        "observationUnitDbIds": [
+            "3551817",
+            "3551804",
+            "...",
+            "3723268",
+            "3723269"
+        ],
+        "studyDbId": "9014",
+        "studyName": "21.GPR.AYT.3.MAY.UM"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-07-06 07:22:01.043387",
+            "studyCreateDate": "2021-07-05 08:19:49.369139",
+            "studyDescription": "GPR Trial established using 3 clones and 3 treatments in May for 2021-22 breeding season at Umudike",
+            "studyName": "21.GPR.AYT.3.MAY.UM",
+            "year": "2022"
+        },
+        "date": {
+            "discreteDates": [
+                "2022-01-29T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9060",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE900"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Generic fertilizer"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "Fertilizer",
+        "observationUnitDbIds": [
+            "3721950",
+            "3551810",
+            "...",
+            "3723297",
+            "3723298"
+        ],
+        "studyDbId": "9014",
+        "studyName": "21.GPR.AYT.3.MAY.UM"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-07-06 07:22:56.590866",
+            "studyCreateDate": "2021-07-05 08:19:49.369139",
+            "studyDescription": "GPR Trial established using 3 clones and 3 treatments in May for 2021-22 breeding season at Umudike",
+            "studyName": "21.GPR.AYT.3.MAY.UM",
+            "year": "2022"
+        },
+        "date": {
+            "discreteDates": [
+                "2022-04-29T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9061",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE900"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Generic fertilizer"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "Fertilizer",
+        "observationUnitDbIds": [
+            "3551806",
+            "3551812",
+            "...",
+            "3723239",
+            "3723240"
+        ],
+        "studyDbId": "9014",
+        "studyName": "21.GPR.AYT.3.MAY.UM"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-07-06 07:24:02.344223",
+            "studyCreateDate": "2021-07-05 08:19:49.369139",
+            "studyDescription": "GPR Trial established using 3 clones and 3 treatments in May for 2021-22 breeding season at Umudike",
+            "studyName": "21.GPR.AYT.3.MAY.UM",
+            "year": "2022"
+        },
+        "date": {
+            "discreteDates": [
+                "2022-05-29T00:00:00.000"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9062",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE900"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Generic fertilizer"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "Fertilizer",
+        "observationUnitDbIds": [
+            "3551811",
+            "3551815",
+            "...",
+            "3723210",
+            "3723211"
+        ],
+        "studyDbId": "9014",
+        "studyName": "21.GPR.AYT.3.MAY.UM"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-10-06 06:11:10.059727",
+            "studyCreateDate": "2021-10-06 04:17:54.981365",
+            "studyDescription": "Flowering experiment using 4 known genotypes using best practice in Ibadan for 2021-2022 breeding season ",
+            "studyName": "21flowBestPracticeIB",
+            "year": "2021"
+        },
+        "date": {
+            "discreteDates": [
+                "2021-10-06T06:11:10.059727"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9455",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE900"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Generic fertilizer"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "Fertilizer",
+        "observationUnitDbIds": [
+            "3826650",
+            "3826550",
+            "...",
+            "3826569",
+            "3826563"
+        ],
+        "studyDbId": "9436",
+        "studyName": "21flowBestPracticeIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-10-06 06:19:29.277106",
+            "studyCreateDate": "2021-10-06 04:17:54.981365",
+            "studyDescription": "Flowering experiment using 4 known genotypes using best practice in Ibadan for 2021-2022 breeding season ",
+            "studyName": "21flowBestPracticeIB",
+            "year": "2021"
+        },
+        "date": {
+            "discreteDates": [
+                "2021-10-06T06:19:29.277106"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9456",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE900"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Generic fertilizer"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "Fertilizer",
+        "observationUnitDbIds": [
+            "3826653",
+            "3826549",
+            "...",
+            "3826567",
+            "3826561"
+        ],
+        "studyDbId": "9436",
+        "studyName": "21flowBestPracticeIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-10-06 06:35:55.40508",
+            "studyCreateDate": "2021-10-06 04:17:54.981365",
+            "studyDescription": "Flowering experiment using 4 known genotypes using best practice in Ibadan for 2021-2022 breeding season ",
+            "studyName": "21flowBestPracticeIB",
+            "year": "2021"
+        },
+        "date": {
+            "discreteDates": [
+                "2021-10-06T06:35:55.40508"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9457",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE900"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Generic fertilizer"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "Fertilizer",
+        "observationUnitDbIds": [
+            "3826654",
+            "3826548",
+            "...",
+            "3826570",
+            "3826562"
+        ],
+        "studyDbId": "9436",
+        "studyName": "21flowBestPracticeIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-10-06 06:47:34.505433",
+            "studyCreateDate": "2021-10-06 04:17:54.981365",
+            "studyDescription": "Flowering experiment using 4 known genotypes using best practice in Ibadan for 2021-2022 breeding season ",
+            "studyName": "21flowBestPracticeIB",
+            "year": "2021"
+        },
+        "date": {
+            "discreteDates": [
+                "2021-10-06T06:47:34.505433"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9458",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE900"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Generic fertilizer"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "Fertilizer",
+        "observationUnitDbIds": [
+            "3826648",
+            "3826554",
+            "...",
+            "3826572",
+            "3826556"
+        ],
+        "studyDbId": "9436",
+        "studyName": "21flowBestPracticeIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-10-06 06:59:41.301797",
+            "studyCreateDate": "2021-10-06 04:17:54.981365",
+            "studyDescription": "Flowering experiment using 4 known genotypes using best practice in Ibadan for 2021-2022 breeding season ",
+            "studyName": "21flowBestPracticeIB",
+            "year": "2021"
+        },
+        "date": {
+            "discreteDates": [
+                "2021-10-06T06:59:41.301797"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9459",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE900"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Generic fertilizer"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "Fertilizer",
+        "observationUnitDbIds": [
+            "3826652",
+            "3826545",
+            "...",
+            "3826574",
+            "3826555"
+        ],
+        "studyDbId": "9436",
+        "studyName": "21flowBestPracticeIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-10-06 07:08:57.911371",
+            "studyCreateDate": "2021-10-06 04:17:54.981365",
+            "studyDescription": "Flowering experiment using 4 known genotypes using best practice in Ibadan for 2021-2022 breeding season ",
+            "studyName": "21flowBestPracticeIB",
+            "year": "2021"
+        },
+        "date": {
+            "discreteDates": [
+                "2021-10-06T07:08:57.911371"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9460",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE900"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Generic fertilizer"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "Fertilizer",
+        "observationUnitDbIds": [
+            "3826645",
+            "3826552",
+            "...",
+            "3826566",
+            "3826564"
+        ],
+        "studyDbId": "9436",
+        "studyName": "21flowBestPracticeIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-10-06 07:18:19.471068",
+            "studyCreateDate": "2021-10-06 04:17:54.981365",
+            "studyDescription": "Flowering experiment using 4 known genotypes using best practice in Ibadan for 2021-2022 breeding season ",
+            "studyName": "21flowBestPracticeIB",
+            "year": "2021"
+        },
+        "date": {
+            "discreteDates": [
+                "2021-10-06T07:18:19.471068"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9461",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE900"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Generic fertilizer"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "Fertilizer",
+        "observationUnitDbIds": [
+            "3826649",
+            "3826547",
+            "...",
+            "3826571",
+            "3826560"
+        ],
+        "studyDbId": "9436",
+        "studyName": "21flowBestPracticeIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-10-06 07:27:18.806094",
+            "studyCreateDate": "2021-10-06 04:17:54.981365",
+            "studyDescription": "Flowering experiment using 4 known genotypes using best practice in Ibadan for 2021-2022 breeding season ",
+            "studyName": "21flowBestPracticeIB",
+            "year": "2021"
+        },
+        "date": {
+            "discreteDates": [
+                "2021-10-06T07:27:18.806094"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9462",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE900"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Generic fertilizer"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "Fertilizer",
+        "observationUnitDbIds": [
+            "3826646",
+            "3826546",
+            "...",
+            "3826568",
+            "3826557"
+        ],
+        "studyDbId": "9436",
+        "studyName": "21flowBestPracticeIB"
+    },
+    {
+        "additionalInfo": {
+            "eventCreateDate": "2021-10-07 03:27:28.184443",
+            "studyCreateDate": "2021-10-06 04:17:54.981365",
+            "studyDescription": "Flowering experiment using 4 known genotypes using best practice in Ibadan for 2021-2022 breeding season ",
+            "studyName": "21flowBestPracticeIB",
+            "year": "2021"
+        },
+        "date": {
+            "discreteDates": [
+                "2021-10-07T03:27:28.184443"
+            ],
+            "endDate": null,
+            "startDate": null
+        },
+        "eventDbId": "9463",
+        "eventDescription": "Fertilizer applied to select plots",
+        "eventParameters": [
+            {
+                "code": "FECD",
+                "name": "fertilizer_material",
+                "unit": "code",
+                "value": "FE900"
+            },
+            {
+                "code": "FECD_NAME",
+                "name": "fertiliz_app_name",
+                "unit": "Text",
+                "value": "Generic fertilizer"
+            }
+        ],
+        "eventType": "fertilizer",
+        "eventTypeDbId": "Fertilizer",
+        "observationUnitDbIds": [
+            "3826647",
+            "3826651",
+            "...",
+            "3826558",
+            "3826559"
+        ],
+        "studyDbId": "9436",
+        "studyName": "21flowBestPracticeIB"
+    }
+]
