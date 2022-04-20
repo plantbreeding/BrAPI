@@ -80,7 +80,5 @@ components:
           description: The human readable name of a trial
           type: string
           example: Purple Tomato
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
           
 
