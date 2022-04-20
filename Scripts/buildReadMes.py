@@ -167,9 +167,12 @@ def buildRequestDefTable(obj):
 	if 'content' in obj:
 		if 'application/json' in obj['content']:
 			if 'schema' in obj['content']['application/json']:
-				table = '**Request Fields** \n\n|Field|Type|Description|\n|---|---|---| \n'
+				table += '**Request Fields** \n\n'
+				table += '<table>\n'
+				table += '<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> \n'
 				schema = obj['content']['application/json']['schema']
 				table += buildObjectTableRow(schema)
+				table += '</table>\n'
 	return table
 
 def buildResponseDefTable(responses):
@@ -180,41 +183,49 @@ def buildResponseDefTable(responses):
 				if 'schema' in responses['200']['content']['application/json']:
 					if 'properties' in responses['200']['content']['application/json']['schema']:
 						if 'result' in responses['200']['content']['application/json']['schema']['properties']:
-							table = '**Response Fields** \n\n|Field|Type|Description|\n|---|---|---| \n'
+							table += '**Response Fields** \n\n'
+							table += '<table>\n'
+							table += '<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> \n'
 							schema = responses['200']['content']['application/json']['schema']['properties']['result']
 							table += buildObjectTableRow(schema)
+							table += '</table>\n'
 	return table
 
 def buildObjectTableRow(schema, parentPrefix = ''):
 	row = ''
 	if 'properties' in schema:
-		for prop in sorted(schema['properties'].keys()):
-			#print(prop)
-			#print(schema['properties'][prop].keys())
-			
-			field = prop
-			type = ''
-			desc = ''
-			
-			if 'type' in schema['properties'][prop]:
-				type = schema['properties'][prop]['type']
-				if 'format' in schema['properties'][prop]:
-					type += ' (' + schema['properties'][prop]['format'] + ')'
-			if type == 'array' and 'type' in schema['properties'][prop]['items']:
-				type += '[' +  schema['properties'][prop]['items']['type'] + ']'
-			if 'description' in schema['properties'][prop]:
-				desc = schema['properties'][prop]['description'].replace('\n', ' ').replace('|', '')
-			
-			
-			row += '|' +  field + '|' + type + '|' + desc + '|\n'
-			
-			
-			if type == 'object' and 'properties' in schema['properties'][prop]:
-				row += buildObjectTableRow(schema['properties'][prop])
-			elif type[:5] == 'array' and 'properties' in schema['properties'][prop]['items']:
-				row += buildObjectTableRow(schema['properties'][prop]['items'])
+		properties = sorted(schema['properties'].keys())
+		if len(properties) == 1 and 'data' in properties:
+			row += buildObjectTableRow(schema['properties']['data'], parentPrefix)
+		else:
+			for prop in properties:
+				#print(prop)
+				#print(schema['properties'][prop].keys())
+				
+				type = ''
+				desc = ''
+				
+				if 'type' in schema['properties'][prop]:
+					type = schema['properties'][prop]['type']
+					if 'format' in schema['properties'][prop]:
+						type += ' (' + schema['properties'][prop]['format'] + ')'
+				if type == 'array' and 'type' in schema['properties'][prop]['items']:
+					type += '[' +  schema['properties'][prop]['items']['type'] + ']'
+				if 'description' in schema['properties'][prop]:
+					desc = schema['properties'][prop]['description'].replace('\n', ' ').replace('|', '')
+				
+				field = prop
+				if parentPrefix != '':
+					field = parentPrefix + '.<br>' + prop
+					
+				row += '<tr><td>' + field + '</td><td>' + type + '</td><td>' + desc + '</td></tr>\n'
+				
+				if type == 'object' and 'properties' in schema['properties'][prop]:
+					row += buildObjectTableRow(schema['properties'][prop], field)
+				elif type[:5] == 'array' and 'properties' in schema['properties'][prop]['items']:
+					row += buildObjectTableRow(schema['properties'][prop]['items'], field)
 	elif 'items' in schema:
-		row += buildObjectTableRow(schema['items'])
+		row += buildObjectTableRow(schema['items'], parentPrefix)
 			
 	return row
 
