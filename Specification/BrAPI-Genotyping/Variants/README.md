@@ -20,26 +20,26 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>callSetDbIds</td><td>array[string]</td><td>**Deprecated in v2.1** Parameter unnecessary. Github issue number #474  <br/>Only return variant calls which belong to call sets with these IDs. If unspecified, return all variants and no variant call objects.</td></tr>
-<tr><td>commonCropNames</td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
-<tr><td>end</td><td>integer</td><td>The end of the window (0-based, exclusive) for which overlapping variants should be returned.</td></tr>
-<tr><td>externalReferenceIDs</td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
-<tr><td>externalReferenceIds</td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
-<tr><td>externalReferenceSources</td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
-<tr><td>pageSize</td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
-<tr><td>pageToken</td><td>string</td><td>Used to request a specific page of data to be returned.  Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. </td></tr>
-<tr><td>programDbIds</td><td>array[string]</td><td>A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.</td></tr>
-<tr><td>programNames</td><td>array[string]</td><td>Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.</td></tr>
-<tr><td>referenceDbId</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceDbIds`. Github issue number #472 <br/>Only return variants on this reference.</td></tr>
-<tr><td>referenceDbIds</td><td>array[string]</td><td>The unique identifier representing a genotype Reference</td></tr>
-<tr><td>referenceSetDbIds</td><td>array[string]</td><td>The unique identifier representing a genotype ReferenceSet</td></tr>
-<tr><td>start</td><td>integer</td><td>The beginning of the window (0-based, inclusive) for which overlapping variants should be returned. Genomic positions are non-negative integers less than reference length. Requests spanning the join of circular genomes are represented as two requests one on each side of the join (position 0).</td></tr>
-<tr><td>studyDbIds</td><td>array[string]</td><td>List of study identifiers to search for</td></tr>
-<tr><td>studyNames</td><td>array[string]</td><td>List of study names to filter search results</td></tr>
-<tr><td>trialDbIds</td><td>array[string]</td><td>The ID which uniquely identifies a trial to search for</td></tr>
-<tr><td>trialNames</td><td>array[string]</td><td>The human readable name of a trial to search for</td></tr>
-<tr><td>variantDbIds</td><td>array[string]</td><td>The `Variant`s to search.</td></tr>
-<tr><td>variantSetDbIds</td><td>array[string]</td><td>The `VariantSet` to search.</td></tr>
+<tr><td><span style="font-weight:bold;">callSetDbIds</span></td><td>array[string]</td><td>**Deprecated in v2.1** Parameter unnecessary. Github issue number #474  <br/>Only return variant calls which belong to call sets with these IDs. If unspecified, return all variants and no variant call objects.</td></tr>
+<tr><td><span style="font-weight:bold;">commonCropNames</span></td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
+<tr><td><span style="font-weight:bold;">end</span></td><td>integer</td><td>The end of the window (0-based, exclusive) for which overlapping variants should be returned.</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferenceIds</span></td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferenceSources</span></td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
+<tr><td><span style="font-weight:bold;">pageSize</span></td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
+<tr><td><span style="font-weight:bold;">pageToken</span></td><td>string</td><td>Used to request a specific page of data to be returned.  Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. </td></tr>
+<tr><td><span style="font-weight:bold;">programDbIds</span></td><td>array[string]</td><td>A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.</td></tr>
+<tr><td><span style="font-weight:bold;">programNames</span></td><td>array[string]</td><td>Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.</td></tr>
+<tr><td><span style="font-weight:bold;">referenceDbId</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceDbIds`. Github issue number #472 <br/>Only return variants on this reference.</td></tr>
+<tr><td><span style="font-weight:bold;">referenceDbIds</span></td><td>array[string]</td><td>The unique identifier representing a genotype Reference</td></tr>
+<tr><td><span style="font-weight:bold;">referenceSetDbIds</span></td><td>array[string]</td><td>The unique identifier representing a genotype ReferenceSet</td></tr>
+<tr><td><span style="font-weight:bold;">start</span></td><td>integer</td><td>The beginning of the window (0-based, inclusive) for which overlapping variants should be returned. Genomic positions are non-negative integers less than reference length. Requests spanning the join of circular genomes are represented as two requests one on each side of the join (position 0).</td></tr>
+<tr><td><span style="font-weight:bold;">studyDbIds</span></td><td>array[string]</td><td>List of study identifiers to search for</td></tr>
+<tr><td><span style="font-weight:bold;">studyNames</span></td><td>array[string]</td><td>List of study names to filter search results</td></tr>
+<tr><td><span style="font-weight:bold;">trialDbIds</span></td><td>array[string]</td><td>The ID which uniquely identifies a trial to search for</td></tr>
+<tr><td><span style="font-weight:bold;">trialNames</span></td><td>array[string]</td><td>The human readable name of a trial to search for</td></tr>
+<tr><td><span style="font-weight:bold;">variantDbIds</span></td><td>array[string]</td><td>The `Variant`s to search.</td></tr>
+<tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>The `VariantSet` to search.</td></tr>
 </table>
 
 
@@ -47,31 +47,31 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>alternate_bases</td><td>array[string]</td><td>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
-<tr><td>ciend</td><td>array[integer]</td><td>Similar to "cipos", but for the variant's end position (which is derived from start + svlen).</td></tr>
-<tr><td>cipos</td><td>array[integer]</td><td>In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2</td></tr>
-<tr><td>created</td><td>string (date-time)</td><td>The timestamp when this variant was created.</td></tr>
-<tr><td>end</td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>filtersApplied</td><td>boolean (boolean)</td><td>True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.</td></tr>
-<tr><td>filtersFailed</td><td>array[string]</td><td>Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.</td></tr>
-<tr><td>filtersPassed</td><td>boolean (boolean)</td><td>True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.</td></tr>
-<tr><td>referenceBases</td><td>string</td><td>The reference bases for this variant. They start at the given start position.</td></tr>
-<tr><td>referenceDbId</td><td>string</td><td>The unique identifier for a Reference</td></tr>
-<tr><td>referenceName</td><td>string</td><td>The reference on which this variant occurs. (e.g. `chr_20` or `X`)</td></tr>
-<tr><td>referenceSetDbId</td><td>string</td><td>The unique identifier for a ReferenceSet</td></tr>
-<tr><td>referenceSetName</td><td>string</td><td>The human readable name of the ReferenceSet</td></tr>
-<tr><td>start</td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The start position at which this variant occurs (0-based). This corresponds to the first base of the string  of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning  the join of circular genomes are represented as two variants one on each side of the join (position 0).</td></tr>
-<tr><td>svlen</td><td>integer</td><td>Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2</td></tr>
-<tr><td>updated</td><td>string (date-time)</td><td>The time at which this variant was last updated.</td></tr>
-<tr><td>variantDbId</td><td>string</td><td>The variant ID.</td></tr>
-<tr><td>variantNames</td><td>array[string]</td><td>Names for the variant, for example a RefSNP ID.</td></tr>
-<tr><td>variantSetDbId</td><td>array[string]</td><td>An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.</td></tr>
-<tr><td>variantType</td><td>string</td><td>The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"   DEL  : deletion of sequence following "start"</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">alternate_bases</span></td><td>array[string]</td><td>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
+<tr><td><span style="font-weight:bold;">ciend</span></td><td>array[integer]</td><td>Similar to "cipos", but for the variant's end position (which is derived from start + svlen).</td></tr>
+<tr><td><span style="font-weight:bold;">cipos</span></td><td>array[integer]</td><td>In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2</td></tr>
+<tr><td><span style="font-weight:bold;">created</span></td><td>string<br>(date-time)</td><td>The timestamp when this variant was created.</td></tr>
+<tr><td><span style="font-weight:bold;">end</span></td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">filtersApplied</span></td><td>boolean<br>(boolean)</td><td>True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.</td></tr>
+<tr><td><span style="font-weight:bold;">filtersFailed</span></td><td>array[string]</td><td>Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.</td></tr>
+<tr><td><span style="font-weight:bold;">filtersPassed</span></td><td>boolean<br>(boolean)</td><td>True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.</td></tr>
+<tr><td><span style="font-weight:bold;">referenceBases</span></td><td>string</td><td>The reference bases for this variant. They start at the given start position.</td></tr>
+<tr><td><span style="font-weight:bold;">referenceDbId</span></td><td>string</td><td>The unique identifier for a Reference</td></tr>
+<tr><td><span style="font-weight:bold;">referenceName</span></td><td>string</td><td>The reference on which this variant occurs. (e.g. `chr_20` or `X`)</td></tr>
+<tr><td><span style="font-weight:bold;">referenceSetDbId</span></td><td>string</td><td>The unique identifier for a ReferenceSet</td></tr>
+<tr><td><span style="font-weight:bold;">referenceSetName</span></td><td>string</td><td>The human readable name of the ReferenceSet</td></tr>
+<tr><td><span style="font-weight:bold;">start</span></td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The start position at which this variant occurs (0-based). This corresponds to the first base of the string  of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning  the join of circular genomes are represented as two variants one on each side of the join (position 0).</td></tr>
+<tr><td><span style="font-weight:bold;">svlen</span></td><td>integer</td><td>Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2</td></tr>
+<tr><td><span style="font-weight:bold;">updated</span></td><td>string<br>(date-time)</td><td>The time at which this variant was last updated.</td></tr>
+<tr><td><span style="font-weight:bold;">variantDbId</span></td><td>string</td><td>The variant ID.</td></tr>
+<tr><td><span style="font-weight:bold;">variantNames</span></td><td>array[string]</td><td>Names for the variant, for example a RefSNP ID.</td></tr>
+<tr><td><span style="font-weight:bold;">variantSetDbId</span></td><td>array[string]</td><td>An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.</td></tr>
+<tr><td><span style="font-weight:bold;">variantType</span></td><td>string</td><td>The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"   DEL  : deletion of sequence following "start"</td></tr>
 </table>
 
 
@@ -299,31 +299,31 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>alternate_bases</td><td>array[string]</td><td>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
-<tr><td>ciend</td><td>array[integer]</td><td>Similar to "cipos", but for the variant's end position (which is derived from start + svlen).</td></tr>
-<tr><td>cipos</td><td>array[integer]</td><td>In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2</td></tr>
-<tr><td>created</td><td>string (date-time)</td><td>The timestamp when this variant was created.</td></tr>
-<tr><td>end</td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>filtersApplied</td><td>boolean (boolean)</td><td>True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.</td></tr>
-<tr><td>filtersFailed</td><td>array[string]</td><td>Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.</td></tr>
-<tr><td>filtersPassed</td><td>boolean (boolean)</td><td>True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.</td></tr>
-<tr><td>referenceBases</td><td>string</td><td>The reference bases for this variant. They start at the given start position.</td></tr>
-<tr><td>referenceDbId</td><td>string</td><td>The unique identifier for a Reference</td></tr>
-<tr><td>referenceName</td><td>string</td><td>The reference on which this variant occurs. (e.g. `chr_20` or `X`)</td></tr>
-<tr><td>referenceSetDbId</td><td>string</td><td>The unique identifier for a ReferenceSet</td></tr>
-<tr><td>referenceSetName</td><td>string</td><td>The human readable name of the ReferenceSet</td></tr>
-<tr><td>start</td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The start position at which this variant occurs (0-based). This corresponds to the first base of the string  of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning  the join of circular genomes are represented as two variants one on each side of the join (position 0).</td></tr>
-<tr><td>svlen</td><td>integer</td><td>Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2</td></tr>
-<tr><td>updated</td><td>string (date-time)</td><td>The time at which this variant was last updated.</td></tr>
-<tr><td>variantDbId</td><td>string</td><td>The variant ID.</td></tr>
-<tr><td>variantNames</td><td>array[string]</td><td>Names for the variant, for example a RefSNP ID.</td></tr>
-<tr><td>variantSetDbId</td><td>array[string]</td><td>An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.</td></tr>
-<tr><td>variantType</td><td>string</td><td>The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"   DEL  : deletion of sequence following "start"</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">alternate_bases</span></td><td>array[string]</td><td>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
+<tr><td><span style="font-weight:bold;">ciend</span></td><td>array[integer]</td><td>Similar to "cipos", but for the variant's end position (which is derived from start + svlen).</td></tr>
+<tr><td><span style="font-weight:bold;">cipos</span></td><td>array[integer]</td><td>In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2</td></tr>
+<tr><td><span style="font-weight:bold;">created</span></td><td>string<br>(date-time)</td><td>The timestamp when this variant was created.</td></tr>
+<tr><td><span style="font-weight:bold;">end</span></td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">filtersApplied</span></td><td>boolean<br>(boolean)</td><td>True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.</td></tr>
+<tr><td><span style="font-weight:bold;">filtersFailed</span></td><td>array[string]</td><td>Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.</td></tr>
+<tr><td><span style="font-weight:bold;">filtersPassed</span></td><td>boolean<br>(boolean)</td><td>True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.</td></tr>
+<tr><td><span style="font-weight:bold;">referenceBases</span></td><td>string</td><td>The reference bases for this variant. They start at the given start position.</td></tr>
+<tr><td><span style="font-weight:bold;">referenceDbId</span></td><td>string</td><td>The unique identifier for a Reference</td></tr>
+<tr><td><span style="font-weight:bold;">referenceName</span></td><td>string</td><td>The reference on which this variant occurs. (e.g. `chr_20` or `X`)</td></tr>
+<tr><td><span style="font-weight:bold;">referenceSetDbId</span></td><td>string</td><td>The unique identifier for a ReferenceSet</td></tr>
+<tr><td><span style="font-weight:bold;">referenceSetName</span></td><td>string</td><td>The human readable name of the ReferenceSet</td></tr>
+<tr><td><span style="font-weight:bold;">start</span></td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The start position at which this variant occurs (0-based). This corresponds to the first base of the string  of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning  the join of circular genomes are represented as two variants one on each side of the join (position 0).</td></tr>
+<tr><td><span style="font-weight:bold;">svlen</span></td><td>integer</td><td>Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2</td></tr>
+<tr><td><span style="font-weight:bold;">updated</span></td><td>string<br>(date-time)</td><td>The time at which this variant was last updated.</td></tr>
+<tr><td><span style="font-weight:bold;">variantDbId</span></td><td>string</td><td>The variant ID.</td></tr>
+<tr><td><span style="font-weight:bold;">variantNames</span></td><td>array[string]</td><td>Names for the variant, for example a RefSNP ID.</td></tr>
+<tr><td><span style="font-weight:bold;">variantSetDbId</span></td><td>array[string]</td><td>An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.</td></tr>
+<tr><td><span style="font-weight:bold;">variantType</span></td><td>string</td><td>The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"   DEL  : deletion of sequence following "start"</td></tr>
 </table>
 
 
@@ -475,31 +475,31 @@ Gets a filtered list of `Variants`.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>alternate_bases</td><td>array[string]</td><td>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
-<tr><td>ciend</td><td>array[integer]</td><td>Similar to "cipos", but for the variant's end position (which is derived from start + svlen).</td></tr>
-<tr><td>cipos</td><td>array[integer]</td><td>In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2</td></tr>
-<tr><td>created</td><td>string (date-time)</td><td>The timestamp when this variant was created.</td></tr>
-<tr><td>end</td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>filtersApplied</td><td>boolean (boolean)</td><td>True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.</td></tr>
-<tr><td>filtersFailed</td><td>array[string]</td><td>Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.</td></tr>
-<tr><td>filtersPassed</td><td>boolean (boolean)</td><td>True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.</td></tr>
-<tr><td>referenceBases</td><td>string</td><td>The reference bases for this variant. They start at the given start position.</td></tr>
-<tr><td>referenceDbId</td><td>string</td><td>The unique identifier for a Reference</td></tr>
-<tr><td>referenceName</td><td>string</td><td>The reference on which this variant occurs. (e.g. `chr_20` or `X`)</td></tr>
-<tr><td>referenceSetDbId</td><td>string</td><td>The unique identifier for a ReferenceSet</td></tr>
-<tr><td>referenceSetName</td><td>string</td><td>The human readable name of the ReferenceSet</td></tr>
-<tr><td>start</td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The start position at which this variant occurs (0-based). This corresponds to the first base of the string  of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning  the join of circular genomes are represented as two variants one on each side of the join (position 0).</td></tr>
-<tr><td>svlen</td><td>integer</td><td>Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2</td></tr>
-<tr><td>updated</td><td>string (date-time)</td><td>The time at which this variant was last updated.</td></tr>
-<tr><td>variantDbId</td><td>string</td><td>The variant ID.</td></tr>
-<tr><td>variantNames</td><td>array[string]</td><td>Names for the variant, for example a RefSNP ID.</td></tr>
-<tr><td>variantSetDbId</td><td>array[string]</td><td>An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.</td></tr>
-<tr><td>variantType</td><td>string</td><td>The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"   DEL  : deletion of sequence following "start"</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">alternate_bases</span></td><td>array[string]</td><td>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
+<tr><td><span style="font-weight:bold;">ciend</span></td><td>array[integer]</td><td>Similar to "cipos", but for the variant's end position (which is derived from start + svlen).</td></tr>
+<tr><td><span style="font-weight:bold;">cipos</span></td><td>array[integer]</td><td>In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2</td></tr>
+<tr><td><span style="font-weight:bold;">created</span></td><td>string<br>(date-time)</td><td>The timestamp when this variant was created.</td></tr>
+<tr><td><span style="font-weight:bold;">end</span></td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">filtersApplied</span></td><td>boolean<br>(boolean)</td><td>True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.</td></tr>
+<tr><td><span style="font-weight:bold;">filtersFailed</span></td><td>array[string]</td><td>Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.</td></tr>
+<tr><td><span style="font-weight:bold;">filtersPassed</span></td><td>boolean<br>(boolean)</td><td>True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.</td></tr>
+<tr><td><span style="font-weight:bold;">referenceBases</span></td><td>string</td><td>The reference bases for this variant. They start at the given start position.</td></tr>
+<tr><td><span style="font-weight:bold;">referenceDbId</span></td><td>string</td><td>The unique identifier for a Reference</td></tr>
+<tr><td><span style="font-weight:bold;">referenceName</span></td><td>string</td><td>The reference on which this variant occurs. (e.g. `chr_20` or `X`)</td></tr>
+<tr><td><span style="font-weight:bold;">referenceSetDbId</span></td><td>string</td><td>The unique identifier for a ReferenceSet</td></tr>
+<tr><td><span style="font-weight:bold;">referenceSetName</span></td><td>string</td><td>The human readable name of the ReferenceSet</td></tr>
+<tr><td><span style="font-weight:bold;">start</span></td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The start position at which this variant occurs (0-based). This corresponds to the first base of the string  of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning  the join of circular genomes are represented as two variants one on each side of the join (position 0).</td></tr>
+<tr><td><span style="font-weight:bold;">svlen</span></td><td>integer</td><td>Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2</td></tr>
+<tr><td><span style="font-weight:bold;">updated</span></td><td>string<br>(date-time)</td><td>The time at which this variant was last updated.</td></tr>
+<tr><td><span style="font-weight:bold;">variantDbId</span></td><td>string</td><td>The variant ID.</td></tr>
+<tr><td><span style="font-weight:bold;">variantNames</span></td><td>array[string]</td><td>Names for the variant, for example a RefSNP ID.</td></tr>
+<tr><td><span style="font-weight:bold;">variantSetDbId</span></td><td>array[string]</td><td>An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.</td></tr>
+<tr><td><span style="font-weight:bold;">variantType</span></td><td>string</td><td>The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"   DEL  : deletion of sequence following "start"</td></tr>
 </table>
 
 
@@ -627,31 +627,31 @@ Gets a filtered list of `Variants`.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>alternate_bases</td><td>array[string]</td><td>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
-<tr><td>ciend</td><td>array[integer]</td><td>Similar to "cipos", but for the variant's end position (which is derived from start + svlen).</td></tr>
-<tr><td>cipos</td><td>array[integer]</td><td>In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2</td></tr>
-<tr><td>created</td><td>string (date-time)</td><td>The timestamp when this variant was created.</td></tr>
-<tr><td>end</td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>filtersApplied</td><td>boolean (boolean)</td><td>True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.</td></tr>
-<tr><td>filtersFailed</td><td>array[string]</td><td>Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.</td></tr>
-<tr><td>filtersPassed</td><td>boolean (boolean)</td><td>True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.</td></tr>
-<tr><td>referenceBases</td><td>string</td><td>The reference bases for this variant. They start at the given start position.</td></tr>
-<tr><td>referenceDbId</td><td>string</td><td>The unique identifier for a Reference</td></tr>
-<tr><td>referenceName</td><td>string</td><td>The reference on which this variant occurs. (e.g. `chr_20` or `X`)</td></tr>
-<tr><td>referenceSetDbId</td><td>string</td><td>The unique identifier for a ReferenceSet</td></tr>
-<tr><td>referenceSetName</td><td>string</td><td>The human readable name of the ReferenceSet</td></tr>
-<tr><td>start</td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The start position at which this variant occurs (0-based). This corresponds to the first base of the string  of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning  the join of circular genomes are represented as two variants one on each side of the join (position 0).</td></tr>
-<tr><td>svlen</td><td>integer</td><td>Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2</td></tr>
-<tr><td>updated</td><td>string (date-time)</td><td>The time at which this variant was last updated.</td></tr>
-<tr><td>variantDbId</td><td>string</td><td>The variant ID.</td></tr>
-<tr><td>variantNames</td><td>array[string]</td><td>Names for the variant, for example a RefSNP ID.</td></tr>
-<tr><td>variantSetDbId</td><td>array[string]</td><td>An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.</td></tr>
-<tr><td>variantType</td><td>string</td><td>The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"   DEL  : deletion of sequence following "start"</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">alternate_bases</span></td><td>array[string]</td><td>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
+<tr><td><span style="font-weight:bold;">ciend</span></td><td>array[integer]</td><td>Similar to "cipos", but for the variant's end position (which is derived from start + svlen).</td></tr>
+<tr><td><span style="font-weight:bold;">cipos</span></td><td>array[integer]</td><td>In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2</td></tr>
+<tr><td><span style="font-weight:bold;">created</span></td><td>string<br>(date-time)</td><td>The timestamp when this variant was created.</td></tr>
+<tr><td><span style="font-weight:bold;">end</span></td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">filtersApplied</span></td><td>boolean<br>(boolean)</td><td>True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.</td></tr>
+<tr><td><span style="font-weight:bold;">filtersFailed</span></td><td>array[string]</td><td>Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.</td></tr>
+<tr><td><span style="font-weight:bold;">filtersPassed</span></td><td>boolean<br>(boolean)</td><td>True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.</td></tr>
+<tr><td><span style="font-weight:bold;">referenceBases</span></td><td>string</td><td>The reference bases for this variant. They start at the given start position.</td></tr>
+<tr><td><span style="font-weight:bold;">referenceDbId</span></td><td>string</td><td>The unique identifier for a Reference</td></tr>
+<tr><td><span style="font-weight:bold;">referenceName</span></td><td>string</td><td>The reference on which this variant occurs. (e.g. `chr_20` or `X`)</td></tr>
+<tr><td><span style="font-weight:bold;">referenceSetDbId</span></td><td>string</td><td>The unique identifier for a ReferenceSet</td></tr>
+<tr><td><span style="font-weight:bold;">referenceSetName</span></td><td>string</td><td>The human readable name of the ReferenceSet</td></tr>
+<tr><td><span style="font-weight:bold;">start</span></td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The start position at which this variant occurs (0-based). This corresponds to the first base of the string  of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning  the join of circular genomes are represented as two variants one on each side of the join (position 0).</td></tr>
+<tr><td><span style="font-weight:bold;">svlen</span></td><td>integer</td><td>Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2</td></tr>
+<tr><td><span style="font-weight:bold;">updated</span></td><td>string<br>(date-time)</td><td>The time at which this variant was last updated.</td></tr>
+<tr><td><span style="font-weight:bold;">variantDbId</span></td><td>string</td><td>The variant ID.</td></tr>
+<tr><td><span style="font-weight:bold;">variantNames</span></td><td>array[string]</td><td>Names for the variant, for example a RefSNP ID.</td></tr>
+<tr><td><span style="font-weight:bold;">variantSetDbId</span></td><td>array[string]</td><td>An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.</td></tr>
+<tr><td><span style="font-weight:bold;">variantType</span></td><td>string</td><td>The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"   DEL  : deletion of sequence following "start"</td></tr>
 </table>
 
 
@@ -773,22 +773,22 @@ The variant calls for this particular variant. Each one represents the determina
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>data</td><td>array[object]</td><td></td></tr>
-<tr><td>data.<br>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>data.<br>callSetDbId</td><td>string</td><td>The ID of the call set this variant call belongs to.  If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.</td></tr>
-<tr><td>data.<br>callSetName</td><td>string</td><td>The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.</td></tr>
-<tr><td>data.<br>genotype</td><td>object</td><td>`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.</td></tr>
-<tr><td>data.<br>genotype.<br>values</td><td>array</td><td>Repeated field of dynamically typed values.</td></tr>
-<tr><td>data.<br>genotype_likelihood</td><td>array[number]</td><td>The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.</td></tr>
-<tr><td>data.<br>phaseSet</td><td>string</td><td>If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.</td></tr>
-<tr><td>data.<br>variantDbId</td><td>string</td><td>The ID of the variant this call belongs to.</td></tr>
-<tr><td>data.<br>variantName</td><td>string</td><td>The name of the variant this call belongs to.</td></tr>
-<tr><td>data.<br>variantSetDbId</td><td>string</td><td>The unique identifier for a VariantSet</td></tr>
-<tr><td>data.<br>variantSetName</td><td>string</td><td>The human readable name for a VariantSet</td></tr>
-<tr><td>expandHomozygotes</td><td>boolean</td><td>Should homozygotes be expanded (true) or collapsed into a single occurrence (false)</td></tr>
-<tr><td>sepPhased</td><td>string</td><td>The string used as a separator for phased allele calls.</td></tr>
-<tr><td>sepUnphased</td><td>string</td><td>The string used as a separator for unphased allele calls.</td></tr>
-<tr><td>unknownString</td><td>string</td><td>The string used as a representation for missing data.</td></tr>
+<tr><td><span style="font-weight:bold;">data</span></td><td>array[object]</td><td></td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.callSetDbId</span></td><td>string</td><td>The ID of the call set this variant call belongs to.  If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.callSetName</span></td><td>string</td><td>The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.genotype</span></td><td>object</td><td>`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.</td></tr>
+<tr><td>data<br>.genotype<br><span style="font-weight:bold;margin-left:5px">.values</span></td><td>array</td><td>Repeated field of dynamically typed values.</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.genotype_likelihood</span></td><td>array[number]</td><td>The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.phaseSet</span></td><td>string</td><td>If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.variantDbId</span></td><td>string</td><td>The ID of the variant this call belongs to.</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.variantName</span></td><td>string</td><td>The name of the variant this call belongs to.</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.variantSetDbId</span></td><td>string</td><td>The unique identifier for a VariantSet</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.variantSetName</span></td><td>string</td><td>The human readable name for a VariantSet</td></tr>
+<tr><td><span style="font-weight:bold;">expandHomozygotes</span></td><td>boolean</td><td>Should homozygotes be expanded (true) or collapsed into a single occurrence (false)</td></tr>
+<tr><td><span style="font-weight:bold;">sepPhased</span></td><td>string</td><td>The string used as a separator for phased allele calls.</td></tr>
+<tr><td><span style="font-weight:bold;">sepUnphased</span></td><td>string</td><td>The string used as a separator for unphased allele calls.</td></tr>
+<tr><td><span style="font-weight:bold;">unknownString</span></td><td>string</td><td>The string used as a representation for missing data.</td></tr>
 </table>
 
 

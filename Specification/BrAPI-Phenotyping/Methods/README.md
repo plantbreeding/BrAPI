@@ -20,25 +20,25 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>bibliographicalReference</td><td>string</td><td>Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.</td></tr>
-<tr><td>description</td><td>string</td><td>Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>formula</td><td>string</td><td>For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation</td></tr>
-<tr><td>methodClass</td><td>string</td><td>Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)</td></tr>
-<tr><td>methodDbId</td><td>string</td><td>Method unique identifier</td></tr>
-<tr><td>methodName</td><td>string</td><td>Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation</td></tr>
-<tr><td>methodPUI</td><td>string</td><td>The Permanent Unique Identifier of a Method, usually in the form of a URI</td></tr>
-<tr><td>ontologyReference</td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>ontologyReference.<br>documentationLinks</td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>ontologyReference.<br>documentationLinks.<br>URL</td><td>string (uri)</td><td></td></tr>
-<tr><td>ontologyReference.<br>documentationLinks.<br>type</td><td>string</td><td></td></tr>
-<tr><td>ontologyReference.<br>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>ontologyReference.<br>ontologyName</td><td>string</td><td>Ontology name</td></tr>
-<tr><td>ontologyReference.<br>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">bibliographicalReference</span></td><td>string</td><td>Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.</td></tr>
+<tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">formula</span></td><td>string</td><td>For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation</td></tr>
+<tr><td><span style="font-weight:bold;">methodClass</span></td><td>string</td><td>Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)</td></tr>
+<tr><td><span style="font-weight:bold;">methodDbId</span></td><td>string</td><td>Method unique identifier</td></tr>
+<tr><td><span style="font-weight:bold;">methodName</span></td><td>string</td><td>Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation</td></tr>
+<tr><td><span style="font-weight:bold;">methodPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Method, usually in the form of a URI</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
+<tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
+<tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 </table>
 
 
@@ -145,24 +145,24 @@ Create new method objects in the database
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>bibliographicalReference</td><td>string</td><td>Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.</td></tr>
-<tr><td>description</td><td>string</td><td>Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>formula</td><td>string</td><td>For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation</td></tr>
-<tr><td>methodClass</td><td>string</td><td>Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)</td></tr>
-<tr><td>methodName</td><td>string</td><td>Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation</td></tr>
-<tr><td>methodPUI</td><td>string</td><td>The Permanent Unique Identifier of a Method, usually in the form of a URI</td></tr>
-<tr><td>ontologyReference</td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>ontologyReference.<br>documentationLinks</td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>ontologyReference.<br>documentationLinks.<br>URL</td><td>string (uri)</td><td></td></tr>
-<tr><td>ontologyReference.<br>documentationLinks.<br>type</td><td>string</td><td></td></tr>
-<tr><td>ontologyReference.<br>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>ontologyReference.<br>ontologyName</td><td>string</td><td>Ontology name</td></tr>
-<tr><td>ontologyReference.<br>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">bibliographicalReference</span></td><td>string</td><td>Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.</td></tr>
+<tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">formula</span></td><td>string</td><td>For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation</td></tr>
+<tr><td><span style="font-weight:bold;">methodClass</span></td><td>string</td><td>Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)</td></tr>
+<tr><td><span style="font-weight:bold;">methodName</span></td><td>string</td><td>Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation</td></tr>
+<tr><td><span style="font-weight:bold;">methodPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Method, usually in the form of a URI</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
+<tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
+<tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 </table>
 
 
@@ -170,25 +170,25 @@ Create new method objects in the database
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>bibliographicalReference</td><td>string</td><td>Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.</td></tr>
-<tr><td>description</td><td>string</td><td>Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>formula</td><td>string</td><td>For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation</td></tr>
-<tr><td>methodClass</td><td>string</td><td>Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)</td></tr>
-<tr><td>methodDbId</td><td>string</td><td>Method unique identifier</td></tr>
-<tr><td>methodName</td><td>string</td><td>Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation</td></tr>
-<tr><td>methodPUI</td><td>string</td><td>The Permanent Unique Identifier of a Method, usually in the form of a URI</td></tr>
-<tr><td>ontologyReference</td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>ontologyReference.<br>documentationLinks</td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>ontologyReference.<br>documentationLinks.<br>URL</td><td>string (uri)</td><td></td></tr>
-<tr><td>ontologyReference.<br>documentationLinks.<br>type</td><td>string</td><td></td></tr>
-<tr><td>ontologyReference.<br>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>ontologyReference.<br>ontologyName</td><td>string</td><td>Ontology name</td></tr>
-<tr><td>ontologyReference.<br>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">bibliographicalReference</span></td><td>string</td><td>Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.</td></tr>
+<tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">formula</span></td><td>string</td><td>For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation</td></tr>
+<tr><td><span style="font-weight:bold;">methodClass</span></td><td>string</td><td>Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)</td></tr>
+<tr><td><span style="font-weight:bold;">methodDbId</span></td><td>string</td><td>Method unique identifier</td></tr>
+<tr><td><span style="font-weight:bold;">methodName</span></td><td>string</td><td>Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation</td></tr>
+<tr><td><span style="font-weight:bold;">methodPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Method, usually in the form of a URI</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
+<tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
+<tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 </table>
 
 
@@ -326,25 +326,25 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>bibliographicalReference</td><td>string</td><td>Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.</td></tr>
-<tr><td>description</td><td>string</td><td>Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>formula</td><td>string</td><td>For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation</td></tr>
-<tr><td>methodClass</td><td>string</td><td>Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)</td></tr>
-<tr><td>methodDbId</td><td>string</td><td>Method unique identifier</td></tr>
-<tr><td>methodName</td><td>string</td><td>Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation</td></tr>
-<tr><td>methodPUI</td><td>string</td><td>The Permanent Unique Identifier of a Method, usually in the form of a URI</td></tr>
-<tr><td>ontologyReference</td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>ontologyReference.<br>documentationLinks</td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>ontologyReference.<br>documentationLinks.<br>URL</td><td>string (uri)</td><td></td></tr>
-<tr><td>ontologyReference.<br>documentationLinks.<br>type</td><td>string</td><td></td></tr>
-<tr><td>ontologyReference.<br>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>ontologyReference.<br>ontologyName</td><td>string</td><td>Ontology name</td></tr>
-<tr><td>ontologyReference.<br>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">bibliographicalReference</span></td><td>string</td><td>Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.</td></tr>
+<tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">formula</span></td><td>string</td><td>For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation</td></tr>
+<tr><td><span style="font-weight:bold;">methodClass</span></td><td>string</td><td>Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)</td></tr>
+<tr><td><span style="font-weight:bold;">methodDbId</span></td><td>string</td><td>Method unique identifier</td></tr>
+<tr><td><span style="font-weight:bold;">methodName</span></td><td>string</td><td>Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation</td></tr>
+<tr><td><span style="font-weight:bold;">methodPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Method, usually in the form of a URI</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
+<tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
+<tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 </table>
 
 
@@ -443,24 +443,24 @@ Update the details of an existing method
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>bibliographicalReference</td><td>string</td><td>Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.</td></tr>
-<tr><td>description</td><td>string</td><td>Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>formula</td><td>string</td><td>For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation</td></tr>
-<tr><td>methodClass</td><td>string</td><td>Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)</td></tr>
-<tr><td>methodName</td><td>string</td><td>Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation</td></tr>
-<tr><td>methodPUI</td><td>string</td><td>The Permanent Unique Identifier of a Method, usually in the form of a URI</td></tr>
-<tr><td>ontologyReference</td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>ontologyReference.<br>documentationLinks</td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>ontologyReference.<br>documentationLinks.<br>URL</td><td>string (uri)</td><td></td></tr>
-<tr><td>ontologyReference.<br>documentationLinks.<br>type</td><td>string</td><td></td></tr>
-<tr><td>ontologyReference.<br>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>ontologyReference.<br>ontologyName</td><td>string</td><td>Ontology name</td></tr>
-<tr><td>ontologyReference.<br>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">bibliographicalReference</span></td><td>string</td><td>Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.</td></tr>
+<tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">formula</span></td><td>string</td><td>For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation</td></tr>
+<tr><td><span style="font-weight:bold;">methodClass</span></td><td>string</td><td>Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)</td></tr>
+<tr><td><span style="font-weight:bold;">methodName</span></td><td>string</td><td>Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation</td></tr>
+<tr><td><span style="font-weight:bold;">methodPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Method, usually in the form of a URI</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
+<tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
+<tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 </table>
 
 
@@ -468,25 +468,25 @@ Update the details of an existing method
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>bibliographicalReference</td><td>string</td><td>Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.</td></tr>
-<tr><td>description</td><td>string</td><td>Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>formula</td><td>string</td><td>For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation</td></tr>
-<tr><td>methodClass</td><td>string</td><td>Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)</td></tr>
-<tr><td>methodDbId</td><td>string</td><td>Method unique identifier</td></tr>
-<tr><td>methodName</td><td>string</td><td>Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation</td></tr>
-<tr><td>methodPUI</td><td>string</td><td>The Permanent Unique Identifier of a Method, usually in the form of a URI</td></tr>
-<tr><td>ontologyReference</td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>ontologyReference.<br>documentationLinks</td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>ontologyReference.<br>documentationLinks.<br>URL</td><td>string (uri)</td><td></td></tr>
-<tr><td>ontologyReference.<br>documentationLinks.<br>type</td><td>string</td><td></td></tr>
-<tr><td>ontologyReference.<br>ontologyDbId</td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>ontologyReference.<br>ontologyName</td><td>string</td><td>Ontology name</td></tr>
-<tr><td>ontologyReference.<br>version</td><td>string</td><td>Ontology version (no specific format)</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">bibliographicalReference</span></td><td>string</td><td>Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.</td></tr>
+<tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">formula</span></td><td>string</td><td>For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation</td></tr>
+<tr><td><span style="font-weight:bold;">methodClass</span></td><td>string</td><td>Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)</td></tr>
+<tr><td><span style="font-weight:bold;">methodDbId</span></td><td>string</td><td>Method unique identifier</td></tr>
+<tr><td><span style="font-weight:bold;">methodName</span></td><td>string</td><td>Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation</td></tr>
+<tr><td><span style="font-weight:bold;">methodPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Method, usually in the form of a URI</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
+<tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
+<tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 </table>
 
 

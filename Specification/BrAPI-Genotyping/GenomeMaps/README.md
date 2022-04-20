@@ -22,19 +22,19 @@ Get list of maps
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>comments</td><td>string</td><td>Additional comments</td></tr>
-<tr><td>commonCropName</td><td>string</td><td>The common name of the crop</td></tr>
-<tr><td>documentationURL</td><td>string (uri)</td><td>A URL to the human readable documentation of this object</td></tr>
-<tr><td>linkageGroupCount</td><td>integer</td><td>The number of linkage groups present in this genomic map</td></tr>
-<tr><td>mapDbId</td><td>string</td><td>The ID which uniquely identifies this genomic map</td></tr>
-<tr><td>mapName</td><td>string</td><td>A human readable name for this genomic map</td></tr>
-<tr><td>mapPUI</td><td>string</td><td>The DOI or other permanent identifier for this genomic map</td></tr>
-<tr><td>markerCount</td><td>integer</td><td>The number of markers present in this genomic map</td></tr>
-<tr><td>publishedDate</td><td>string (date-time)</td><td>The date this genome was published</td></tr>
-<tr><td>scientificName</td><td>string</td><td>Full scientific binomial format name. This includes Genus, Species, and Sub-species</td></tr>
-<tr><td>type</td><td>string</td><td>The type of map this represents, usually "Genetic"</td></tr>
-<tr><td>unit</td><td>string</td><td>The units used to describe the data in this map</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">comments</span></td><td>string</td><td>Additional comments</td></tr>
+<tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>The common name of the crop</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">linkageGroupCount</span></td><td>integer</td><td>The number of linkage groups present in this genomic map</td></tr>
+<tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string</td><td>The ID which uniquely identifies this genomic map</td></tr>
+<tr><td><span style="font-weight:bold;">mapName</span></td><td>string</td><td>A human readable name for this genomic map</td></tr>
+<tr><td><span style="font-weight:bold;">mapPUI</span></td><td>string</td><td>The DOI or other permanent identifier for this genomic map</td></tr>
+<tr><td><span style="font-weight:bold;">markerCount</span></td><td>integer</td><td>The number of markers present in this genomic map</td></tr>
+<tr><td><span style="font-weight:bold;">publishedDate</span></td><td>string<br>(date-time)</td><td>The date this genome was published</td></tr>
+<tr><td><span style="font-weight:bold;">scientificName</span></td><td>string</td><td>Full scientific binomial format name. This includes Genus, Species, and Sub-species</td></tr>
+<tr><td><span style="font-weight:bold;">type</span></td><td>string</td><td>The type of map this represents, usually "Genetic"</td></tr>
+<tr><td><span style="font-weight:bold;">unit</span></td><td>string</td><td>The units used to describe the data in this map</td></tr>
 </table>
 
 
@@ -127,19 +127,19 @@ Provides the number of markers on each linkageGroup and the max position on the 
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>comments</td><td>string</td><td>Additional comments</td></tr>
-<tr><td>commonCropName</td><td>string</td><td>The common name of the crop</td></tr>
-<tr><td>documentationURL</td><td>string (uri)</td><td>A URL to the human readable documentation of this object</td></tr>
-<tr><td>linkageGroupCount</td><td>integer</td><td>The number of linkage groups present in this genomic map</td></tr>
-<tr><td>mapDbId</td><td>string</td><td>The ID which uniquely identifies this genomic map</td></tr>
-<tr><td>mapName</td><td>string</td><td>A human readable name for this genomic map</td></tr>
-<tr><td>mapPUI</td><td>string</td><td>The DOI or other permanent identifier for this genomic map</td></tr>
-<tr><td>markerCount</td><td>integer</td><td>The number of markers present in this genomic map</td></tr>
-<tr><td>publishedDate</td><td>string (date-time)</td><td>The date this genome was published</td></tr>
-<tr><td>scientificName</td><td>string</td><td>Full scientific binomial format name. This includes Genus, Species, and Sub-species</td></tr>
-<tr><td>type</td><td>string</td><td>The type of map this represents, usually "Genetic"</td></tr>
-<tr><td>unit</td><td>string</td><td>The units used to describe the data in this map</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">comments</span></td><td>string</td><td>Additional comments</td></tr>
+<tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>The common name of the crop</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">linkageGroupCount</span></td><td>integer</td><td>The number of linkage groups present in this genomic map</td></tr>
+<tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string</td><td>The ID which uniquely identifies this genomic map</td></tr>
+<tr><td><span style="font-weight:bold;">mapName</span></td><td>string</td><td>A human readable name for this genomic map</td></tr>
+<tr><td><span style="font-weight:bold;">mapPUI</span></td><td>string</td><td>The DOI or other permanent identifier for this genomic map</td></tr>
+<tr><td><span style="font-weight:bold;">markerCount</span></td><td>integer</td><td>The number of markers present in this genomic map</td></tr>
+<tr><td><span style="font-weight:bold;">publishedDate</span></td><td>string<br>(date-time)</td><td>The date this genome was published</td></tr>
+<tr><td><span style="font-weight:bold;">scientificName</span></td><td>string</td><td>Full scientific binomial format name. This includes Genus, Species, and Sub-species</td></tr>
+<tr><td><span style="font-weight:bold;">type</span></td><td>string</td><td>The type of map this represents, usually "Genetic"</td></tr>
+<tr><td><span style="font-weight:bold;">unit</span></td><td>string</td><td>The units used to describe the data in this map</td></tr>
 </table>
 
 
@@ -224,10 +224,10 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>linkageGroupName</td><td>string</td><td>The Uniquely Identifiable name of this linkage group</td></tr>
-<tr><td>markerCount</td><td>integer</td><td>The number of markers associated with this linkage group</td></tr>
-<tr><td>maxPosition</td><td>integer</td><td>The maximum position of a marker within this linkage group</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">linkageGroupName</span></td><td>string</td><td>The Uniquely Identifiable name of this linkage group</td></tr>
+<tr><td><span style="font-weight:bold;">markerCount</span></td><td>integer</td><td>The number of markers associated with this linkage group</td></tr>
+<tr><td><span style="font-weight:bold;">maxPosition</span></td><td>integer</td><td>The maximum position of a marker within this linkage group</td></tr>
 </table>
 
 
@@ -309,13 +309,13 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>linkageGroupName</td><td>string</td><td>The Uniquely Identifiable name of this linkage group</td></tr>
-<tr><td>mapDbId</td><td>string</td><td>The unique ID of the map</td></tr>
-<tr><td>mapName</td><td>string</td><td>The human readable name of the map</td></tr>
-<tr><td>position</td><td>integer</td><td>The position of a marker within a linkage group</td></tr>
-<tr><td>variantDbId</td><td>string</td><td>Internal db identifier</td></tr>
-<tr><td>variantName</td><td>string</td><td>The human readable name for a marker</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">linkageGroupName</span></td><td>string</td><td>The Uniquely Identifiable name of this linkage group</td></tr>
+<tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string</td><td>The unique ID of the map</td></tr>
+<tr><td><span style="font-weight:bold;">mapName</span></td><td>string</td><td>The human readable name of the map</td></tr>
+<tr><td><span style="font-weight:bold;">position</span></td><td>integer</td><td>The position of a marker within a linkage group</td></tr>
+<tr><td><span style="font-weight:bold;">variantDbId</span></td><td>string</td><td>Internal db identifier</td></tr>
+<tr><td><span style="font-weight:bold;">variantName</span></td><td>string</td><td>The human readable name for a marker</td></tr>
 </table>
 
 
@@ -401,13 +401,13 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>linkageGroupNames</td><td>array[string]</td><td>The Uniquely Identifiable name of this linkage group</td></tr>
-<tr><td>mapDbIds</td><td>array[string]</td><td>The unique ID of the map</td></tr>
-<tr><td>maxPosition</td><td>integer</td><td>The maximum position</td></tr>
-<tr><td>minPosition</td><td>integer</td><td>The minimum position</td></tr>
-<tr><td>page</td><td>integer</td><td>Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.</td></tr>
-<tr><td>pageSize</td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
-<tr><td>variantDbIds</td><td>array[string]</td><td>Internal db identifier</td></tr>
+<tr><td><span style="font-weight:bold;">linkageGroupNames</span></td><td>array[string]</td><td>The Uniquely Identifiable name of this linkage group</td></tr>
+<tr><td><span style="font-weight:bold;">mapDbIds</span></td><td>array[string]</td><td>The unique ID of the map</td></tr>
+<tr><td><span style="font-weight:bold;">maxPosition</span></td><td>integer</td><td>The maximum position</td></tr>
+<tr><td><span style="font-weight:bold;">minPosition</span></td><td>integer</td><td>The minimum position</td></tr>
+<tr><td><span style="font-weight:bold;">page</span></td><td>integer</td><td>Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.</td></tr>
+<tr><td><span style="font-weight:bold;">pageSize</span></td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
+<tr><td><span style="font-weight:bold;">variantDbIds</span></td><td>array[string]</td><td>Internal db identifier</td></tr>
 </table>
 
 
@@ -415,13 +415,13 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>linkageGroupName</td><td>string</td><td>The Uniquely Identifiable name of this linkage group</td></tr>
-<tr><td>mapDbId</td><td>string</td><td>The unique ID of the map</td></tr>
-<tr><td>mapName</td><td>string</td><td>The human readable name of the map</td></tr>
-<tr><td>position</td><td>integer</td><td>The position of a marker within a linkage group</td></tr>
-<tr><td>variantDbId</td><td>string</td><td>Internal db identifier</td></tr>
-<tr><td>variantName</td><td>string</td><td>The human readable name for a marker</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">linkageGroupName</span></td><td>string</td><td>The Uniquely Identifiable name of this linkage group</td></tr>
+<tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string</td><td>The unique ID of the map</td></tr>
+<tr><td><span style="font-weight:bold;">mapName</span></td><td>string</td><td>The human readable name of the map</td></tr>
+<tr><td><span style="font-weight:bold;">position</span></td><td>integer</td><td>The position of a marker within a linkage group</td></tr>
+<tr><td><span style="font-weight:bold;">variantDbId</span></td><td>string</td><td>Internal db identifier</td></tr>
+<tr><td><span style="font-weight:bold;">variantName</span></td><td>string</td><td>The human readable name for a marker</td></tr>
 </table>
 
 
@@ -553,13 +553,13 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>linkageGroupName</td><td>string</td><td>The Uniquely Identifiable name of this linkage group</td></tr>
-<tr><td>mapDbId</td><td>string</td><td>The unique ID of the map</td></tr>
-<tr><td>mapName</td><td>string</td><td>The human readable name of the map</td></tr>
-<tr><td>position</td><td>integer</td><td>The position of a marker within a linkage group</td></tr>
-<tr><td>variantDbId</td><td>string</td><td>Internal db identifier</td></tr>
-<tr><td>variantName</td><td>string</td><td>The human readable name for a marker</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">linkageGroupName</span></td><td>string</td><td>The Uniquely Identifiable name of this linkage group</td></tr>
+<tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string</td><td>The unique ID of the map</td></tr>
+<tr><td><span style="font-weight:bold;">mapName</span></td><td>string</td><td>The human readable name of the map</td></tr>
+<tr><td><span style="font-weight:bold;">position</span></td><td>integer</td><td>The position of a marker within a linkage group</td></tr>
+<tr><td><span style="font-weight:bold;">variantDbId</span></td><td>string</td><td>Internal db identifier</td></tr>
+<tr><td><span style="font-weight:bold;">variantName</span></td><td>string</td><td>The human readable name for a marker</td></tr>
 </table>
 
 

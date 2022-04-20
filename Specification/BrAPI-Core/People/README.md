@@ -15,20 +15,20 @@ Get filtered list of people
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>description</td><td>string</td><td>description of this person</td></tr>
-<tr><td>emailAddress</td><td>string</td><td>email address for this person</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>firstName</td><td>string</td><td>Persons first name</td></tr>
-<tr><td>lastName</td><td>string</td><td>Persons last name</td></tr>
-<tr><td>mailingAddress</td><td>string</td><td>physical address of this person</td></tr>
-<tr><td>middleName</td><td>string</td><td>Persons middle name</td></tr>
-<tr><td>personDbId</td><td>string</td><td>Unique ID for a person</td></tr>
-<tr><td>phoneNumber</td><td>string</td><td>phone number of this person</td></tr>
-<tr><td>userID</td><td>string</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>description of this person</td></tr>
+<tr><td><span style="font-weight:bold;">emailAddress</span></td><td>string</td><td>email address for this person</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">firstName</span></td><td>string</td><td>Persons first name</td></tr>
+<tr><td><span style="font-weight:bold;">lastName</span></td><td>string</td><td>Persons last name</td></tr>
+<tr><td><span style="font-weight:bold;">mailingAddress</span></td><td>string</td><td>physical address of this person</td></tr>
+<tr><td><span style="font-weight:bold;">middleName</span></td><td>string</td><td>Persons middle name</td></tr>
+<tr><td><span style="font-weight:bold;">personDbId</span></td><td>string</td><td>Unique ID for a person</td></tr>
+<tr><td><span style="font-weight:bold;">phoneNumber</span></td><td>string</td><td>phone number of this person</td></tr>
+<tr><td><span style="font-weight:bold;">userID</span></td><td>string</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
 </table>
 
 
@@ -127,19 +127,19 @@ Create new People entities. `personDbId` is generated and managed by the server.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>description</td><td>string</td><td>description of this person</td></tr>
-<tr><td>emailAddress</td><td>string</td><td>email address for this person</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>firstName</td><td>string</td><td>Persons first name</td></tr>
-<tr><td>lastName</td><td>string</td><td>Persons last name</td></tr>
-<tr><td>mailingAddress</td><td>string</td><td>physical address of this person</td></tr>
-<tr><td>middleName</td><td>string</td><td>Persons middle name</td></tr>
-<tr><td>phoneNumber</td><td>string</td><td>phone number of this person</td></tr>
-<tr><td>userID</td><td>string</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>description of this person</td></tr>
+<tr><td><span style="font-weight:bold;">emailAddress</span></td><td>string</td><td>email address for this person</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">firstName</span></td><td>string</td><td>Persons first name</td></tr>
+<tr><td><span style="font-weight:bold;">lastName</span></td><td>string</td><td>Persons last name</td></tr>
+<tr><td><span style="font-weight:bold;">mailingAddress</span></td><td>string</td><td>physical address of this person</td></tr>
+<tr><td><span style="font-weight:bold;">middleName</span></td><td>string</td><td>Persons middle name</td></tr>
+<tr><td><span style="font-weight:bold;">phoneNumber</span></td><td>string</td><td>phone number of this person</td></tr>
+<tr><td><span style="font-weight:bold;">userID</span></td><td>string</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
 </table>
 
 
@@ -147,20 +147,20 @@ Create new People entities. `personDbId` is generated and managed by the server.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>description</td><td>string</td><td>description of this person</td></tr>
-<tr><td>emailAddress</td><td>string</td><td>email address for this person</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>firstName</td><td>string</td><td>Persons first name</td></tr>
-<tr><td>lastName</td><td>string</td><td>Persons last name</td></tr>
-<tr><td>mailingAddress</td><td>string</td><td>physical address of this person</td></tr>
-<tr><td>middleName</td><td>string</td><td>Persons middle name</td></tr>
-<tr><td>personDbId</td><td>string</td><td>Unique ID for a person</td></tr>
-<tr><td>phoneNumber</td><td>string</td><td>phone number of this person</td></tr>
-<tr><td>userID</td><td>string</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>description of this person</td></tr>
+<tr><td><span style="font-weight:bold;">emailAddress</span></td><td>string</td><td>email address for this person</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">firstName</span></td><td>string</td><td>Persons first name</td></tr>
+<tr><td><span style="font-weight:bold;">lastName</span></td><td>string</td><td>Persons last name</td></tr>
+<tr><td><span style="font-weight:bold;">mailingAddress</span></td><td>string</td><td>physical address of this person</td></tr>
+<tr><td><span style="font-weight:bold;">middleName</span></td><td>string</td><td>Persons middle name</td></tr>
+<tr><td><span style="font-weight:bold;">personDbId</span></td><td>string</td><td>Unique ID for a person</td></tr>
+<tr><td><span style="font-weight:bold;">phoneNumber</span></td><td>string</td><td>phone number of this person</td></tr>
+<tr><td><span style="font-weight:bold;">userID</span></td><td>string</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
 </table>
 
 
@@ -278,20 +278,20 @@ Get the details for a specific Person
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>description</td><td>string</td><td>description of this person</td></tr>
-<tr><td>emailAddress</td><td>string</td><td>email address for this person</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>firstName</td><td>string</td><td>Persons first name</td></tr>
-<tr><td>lastName</td><td>string</td><td>Persons last name</td></tr>
-<tr><td>mailingAddress</td><td>string</td><td>physical address of this person</td></tr>
-<tr><td>middleName</td><td>string</td><td>Persons middle name</td></tr>
-<tr><td>personDbId</td><td>string</td><td>Unique ID for a person</td></tr>
-<tr><td>phoneNumber</td><td>string</td><td>phone number of this person</td></tr>
-<tr><td>userID</td><td>string</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>description of this person</td></tr>
+<tr><td><span style="font-weight:bold;">emailAddress</span></td><td>string</td><td>email address for this person</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">firstName</span></td><td>string</td><td>Persons first name</td></tr>
+<tr><td><span style="font-weight:bold;">lastName</span></td><td>string</td><td>Persons last name</td></tr>
+<tr><td><span style="font-weight:bold;">mailingAddress</span></td><td>string</td><td>physical address of this person</td></tr>
+<tr><td><span style="font-weight:bold;">middleName</span></td><td>string</td><td>Persons middle name</td></tr>
+<tr><td><span style="font-weight:bold;">personDbId</span></td><td>string</td><td>Unique ID for a person</td></tr>
+<tr><td><span style="font-weight:bold;">phoneNumber</span></td><td>string</td><td>phone number of this person</td></tr>
+<tr><td><span style="font-weight:bold;">userID</span></td><td>string</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
 </table>
 
 
@@ -381,19 +381,19 @@ Update an existing Person
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>description</td><td>string</td><td>description of this person</td></tr>
-<tr><td>emailAddress</td><td>string</td><td>email address for this person</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>firstName</td><td>string</td><td>Persons first name</td></tr>
-<tr><td>lastName</td><td>string</td><td>Persons last name</td></tr>
-<tr><td>mailingAddress</td><td>string</td><td>physical address of this person</td></tr>
-<tr><td>middleName</td><td>string</td><td>Persons middle name</td></tr>
-<tr><td>phoneNumber</td><td>string</td><td>phone number of this person</td></tr>
-<tr><td>userID</td><td>string</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>description of this person</td></tr>
+<tr><td><span style="font-weight:bold;">emailAddress</span></td><td>string</td><td>email address for this person</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">firstName</span></td><td>string</td><td>Persons first name</td></tr>
+<tr><td><span style="font-weight:bold;">lastName</span></td><td>string</td><td>Persons last name</td></tr>
+<tr><td><span style="font-weight:bold;">mailingAddress</span></td><td>string</td><td>physical address of this person</td></tr>
+<tr><td><span style="font-weight:bold;">middleName</span></td><td>string</td><td>Persons middle name</td></tr>
+<tr><td><span style="font-weight:bold;">phoneNumber</span></td><td>string</td><td>phone number of this person</td></tr>
+<tr><td><span style="font-weight:bold;">userID</span></td><td>string</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
 </table>
 
 
@@ -401,20 +401,20 @@ Update an existing Person
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>description</td><td>string</td><td>description of this person</td></tr>
-<tr><td>emailAddress</td><td>string</td><td>email address for this person</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>firstName</td><td>string</td><td>Persons first name</td></tr>
-<tr><td>lastName</td><td>string</td><td>Persons last name</td></tr>
-<tr><td>mailingAddress</td><td>string</td><td>physical address of this person</td></tr>
-<tr><td>middleName</td><td>string</td><td>Persons middle name</td></tr>
-<tr><td>personDbId</td><td>string</td><td>Unique ID for a person</td></tr>
-<tr><td>phoneNumber</td><td>string</td><td>phone number of this person</td></tr>
-<tr><td>userID</td><td>string</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>description of this person</td></tr>
+<tr><td><span style="font-weight:bold;">emailAddress</span></td><td>string</td><td>email address for this person</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">firstName</span></td><td>string</td><td>Persons first name</td></tr>
+<tr><td><span style="font-weight:bold;">lastName</span></td><td>string</td><td>Persons last name</td></tr>
+<tr><td><span style="font-weight:bold;">mailingAddress</span></td><td>string</td><td>physical address of this person</td></tr>
+<tr><td><span style="font-weight:bold;">middleName</span></td><td>string</td><td>Persons middle name</td></tr>
+<tr><td><span style="font-weight:bold;">personDbId</span></td><td>string</td><td>Unique ID for a person</td></tr>
+<tr><td><span style="font-weight:bold;">phoneNumber</span></td><td>string</td><td>phone number of this person</td></tr>
+<tr><td><span style="font-weight:bold;">userID</span></td><td>string</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
 </table>
 
 
@@ -534,22 +534,22 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>commonCropNames</td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
-<tr><td>emailAddresses</td><td>array[string]</td><td>email address for this person</td></tr>
-<tr><td>externalReferenceIDs</td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
-<tr><td>externalReferenceIds</td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
-<tr><td>externalReferenceSources</td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
-<tr><td>firstNames</td><td>array[string]</td><td>Persons first name</td></tr>
-<tr><td>lastNames</td><td>array[string]</td><td>Persons last name</td></tr>
-<tr><td>mailingAddresses</td><td>array[string]</td><td>physical address of this person</td></tr>
-<tr><td>middleNames</td><td>array[string]</td><td>Persons middle name</td></tr>
-<tr><td>page</td><td>integer</td><td>Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.</td></tr>
-<tr><td>pageSize</td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
-<tr><td>personDbIds</td><td>array[string]</td><td>Unique ID for this person</td></tr>
-<tr><td>phoneNumbers</td><td>array[string]</td><td>phone number of this person</td></tr>
-<tr><td>programDbIds</td><td>array[string]</td><td>A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.</td></tr>
-<tr><td>programNames</td><td>array[string]</td><td>Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.</td></tr>
-<tr><td>userIDs</td><td>array[string]</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
+<tr><td><span style="font-weight:bold;">commonCropNames</span></td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
+<tr><td><span style="font-weight:bold;">emailAddresses</span></td><td>array[string]</td><td>email address for this person</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferenceIds</span></td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferenceSources</span></td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
+<tr><td><span style="font-weight:bold;">firstNames</span></td><td>array[string]</td><td>Persons first name</td></tr>
+<tr><td><span style="font-weight:bold;">lastNames</span></td><td>array[string]</td><td>Persons last name</td></tr>
+<tr><td><span style="font-weight:bold;">mailingAddresses</span></td><td>array[string]</td><td>physical address of this person</td></tr>
+<tr><td><span style="font-weight:bold;">middleNames</span></td><td>array[string]</td><td>Persons middle name</td></tr>
+<tr><td><span style="font-weight:bold;">page</span></td><td>integer</td><td>Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.</td></tr>
+<tr><td><span style="font-weight:bold;">pageSize</span></td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
+<tr><td><span style="font-weight:bold;">personDbIds</span></td><td>array[string]</td><td>Unique ID for this person</td></tr>
+<tr><td><span style="font-weight:bold;">phoneNumbers</span></td><td>array[string]</td><td>phone number of this person</td></tr>
+<tr><td><span style="font-weight:bold;">programDbIds</span></td><td>array[string]</td><td>A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.</td></tr>
+<tr><td><span style="font-weight:bold;">programNames</span></td><td>array[string]</td><td>Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.</td></tr>
+<tr><td><span style="font-weight:bold;">userIDs</span></td><td>array[string]</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
 </table>
 
 
@@ -557,20 +557,20 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>description</td><td>string</td><td>description of this person</td></tr>
-<tr><td>emailAddress</td><td>string</td><td>email address for this person</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>firstName</td><td>string</td><td>Persons first name</td></tr>
-<tr><td>lastName</td><td>string</td><td>Persons last name</td></tr>
-<tr><td>mailingAddress</td><td>string</td><td>physical address of this person</td></tr>
-<tr><td>middleName</td><td>string</td><td>Persons middle name</td></tr>
-<tr><td>personDbId</td><td>string</td><td>Unique ID for a person</td></tr>
-<tr><td>phoneNumber</td><td>string</td><td>phone number of this person</td></tr>
-<tr><td>userID</td><td>string</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>description of this person</td></tr>
+<tr><td><span style="font-weight:bold;">emailAddress</span></td><td>string</td><td>email address for this person</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">firstName</span></td><td>string</td><td>Persons first name</td></tr>
+<tr><td><span style="font-weight:bold;">lastName</span></td><td>string</td><td>Persons last name</td></tr>
+<tr><td><span style="font-weight:bold;">mailingAddress</span></td><td>string</td><td>physical address of this person</td></tr>
+<tr><td><span style="font-weight:bold;">middleName</span></td><td>string</td><td>Persons middle name</td></tr>
+<tr><td><span style="font-weight:bold;">personDbId</span></td><td>string</td><td>Unique ID for a person</td></tr>
+<tr><td><span style="font-weight:bold;">phoneNumber</span></td><td>string</td><td>phone number of this person</td></tr>
+<tr><td><span style="font-weight:bold;">userID</span></td><td>string</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
 </table>
 
 
@@ -757,20 +757,20 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td>additionalInfo</td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>description</td><td>string</td><td>description of this person</td></tr>
-<tr><td>emailAddress</td><td>string</td><td>email address for this person</td></tr>
-<tr><td>externalReferences</td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceID</td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceId</td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences.<br>referenceSource</td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>firstName</td><td>string</td><td>Persons first name</td></tr>
-<tr><td>lastName</td><td>string</td><td>Persons last name</td></tr>
-<tr><td>mailingAddress</td><td>string</td><td>physical address of this person</td></tr>
-<tr><td>middleName</td><td>string</td><td>Persons middle name</td></tr>
-<tr><td>personDbId</td><td>string</td><td>Unique ID for a person</td></tr>
-<tr><td>phoneNumber</td><td>string</td><td>phone number of this person</td></tr>
-<tr><td>userID</td><td>string</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>description of this person</td></tr>
+<tr><td><span style="font-weight:bold;">emailAddress</span></td><td>string</td><td>email address for this person</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">firstName</span></td><td>string</td><td>Persons first name</td></tr>
+<tr><td><span style="font-weight:bold;">lastName</span></td><td>string</td><td>Persons last name</td></tr>
+<tr><td><span style="font-weight:bold;">mailingAddress</span></td><td>string</td><td>physical address of this person</td></tr>
+<tr><td><span style="font-weight:bold;">middleName</span></td><td>string</td><td>Persons middle name</td></tr>
+<tr><td><span style="font-weight:bold;">personDbId</span></td><td>string</td><td>Unique ID for a person</td></tr>
+<tr><td><span style="font-weight:bold;">phoneNumber</span></td><td>string</td><td>phone number of this person</td></tr>
+<tr><td><span style="font-weight:bold;">userID</span></td><td>string</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
 </table>
 
 
