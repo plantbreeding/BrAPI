@@ -14,26 +14,26 @@ Get list of events
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|date|object||
-|discreteDates|array[string]|A list of dates when the event occurred <br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.|
-|endDate|string (date-time)|The end of a continous or regularly repetative event <br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.|
-|startDate|string (date-time)|The begining of a continous or regularly repetative event <br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.|
-|eventDbId|string|Internal database identifier|
-|eventDescription|string|A detailed, human-readable description of this event <br/>MIAPPE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. |
-|eventParameters|array[object]|A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI|
-|code|string|The shortened code name of an event parameter  ICASA "Code_Display"|
-|name|string|The full name of an event parameter  ICASA "Variable_Name"|
-|unit|string|The unit or data type of the value. If the value IS NOT a number, then this field should specify a data type eg. text, boolean, date, etc. If the value IS a number, then this field should specify the units used eg. ml, cm, etc  ICASA "Unit_or_type"|
-|value|string|The value of this event parameter|
-|eventType|string|General category for this event (e.g. fertilizer, irrigation, tillage). Each eventType should correspond to exactly one eventTypeDbId, if provided. <br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other <br/>MIAPPE V1.1 (DM-65) Event type - Short name of the event.|
-|eventTypeDbId|string|An identifier for this event type, in the form of an ontology class reference <br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other <br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).|
-|observationUnitDbIds|array[string]|A list of the affected observation units. If this parameter is not given, it is understood that the event affected all units in the study|
-|studyDbId|string|The study in which the event occurred|
-|studyName|string|The human readable name of a study|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">date</span></td><td>object</td><td></td></tr>
+<tr><td>date<br><span style="font-weight:bold;margin-left:5px">.discreteDates</span></td><td>array[string]</td><td>A list of dates when the event occurred <br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.</td></tr>
+<tr><td>date<br><span style="font-weight:bold;margin-left:5px">.endDate</span></td><td>string<br>(date-time)</td><td>The end of a continous or regularly repetitive event <br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.</td></tr>
+<tr><td>date<br><span style="font-weight:bold;margin-left:5px">.startDate</span></td><td>string<br>(date-time)</td><td>The begining of a continous or regularly repetitive event <br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.</td></tr>
+<tr><td><span style="font-weight:bold;">eventDbId</span></td><td>string</td><td>Internal database identifier</td></tr>
+<tr><td><span style="font-weight:bold;">eventDescription</span></td><td>string</td><td>A detailed, human-readable description of this event <br/>MIAPPE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. </td></tr>
+<tr><td><span style="font-weight:bold;">eventParameters</span></td><td>array[object]</td><td>A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI</td></tr>
+<tr><td>eventParameters<br><span style="font-weight:bold;margin-left:5px">.code</span></td><td>string</td><td>The shortened code name of an event parameter  ICASA "Code_Display"</td></tr>
+<tr><td>eventParameters<br><span style="font-weight:bold;margin-left:5px">.name</span></td><td>string</td><td>The full name of an event parameter  ICASA "Variable_Name"</td></tr>
+<tr><td>eventParameters<br><span style="font-weight:bold;margin-left:5px">.unit</span></td><td>string</td><td>The unit or data type of the value. If the value IS NOT a number, then this field should specify a data type eg. text, boolean, date, etc. If the value IS a number, then this field should specify the units used eg. ml, cm, etc  ICASA "Unit_or_type"</td></tr>
+<tr><td>eventParameters<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>string</td><td>The value of this event parameter</td></tr>
+<tr><td><span style="font-weight:bold;">eventType</span></td><td>string</td><td>General category for this event (e.g. fertilizer, irrigation, tillage). Each eventType should correspond to exactly one eventTypeDbId, if provided. <br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other <br/>MIAPPE V1.1 (DM-65) Event type - Short name of the event.</td></tr>
+<tr><td><span style="font-weight:bold;">eventTypeDbId</span></td><td>string</td><td>An identifier for this event type, in the form of an ontology class reference <br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other <br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td><span style="font-weight:bold;">observationUnitDbIds</span></td><td>array[string]</td><td>A list of the affected observation units. If this parameter is not given, it is understood that the event affected all units in the study</td></tr>
+<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The study in which the event occurred</td></tr>
+<tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name of a study</td></tr>
+</table>
 
 
  

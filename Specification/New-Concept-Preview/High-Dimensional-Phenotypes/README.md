@@ -14,50 +14,50 @@ Get a filtered list of Metabolomics Protocols
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|documentationURL|string (uri)|description|
-|equipment|object||
-|analysisType|string|MS or NMR. If NMR is selected, the rest of Equipment are not needed|
-|chromatographyColumn|string|User free text to specify brand of chromotography column|
-|chromatographySystem|string|User free text to specify brand of chromotography system|
-|chromatographyType|string|description|
-|msInstrumentName|string|User free text to specify brand of MS system|
-|msInstrumentType|string|User free text, e.g. time of flight (TOF), triple quadropole|
-|msIonMode|string|Negative, Positive, Both|
-|msType|string|Electron Ionization (EI), Electrospray Ionization (ESI), Atmospheric Pressure Chemical Ionization (APCI), Matrix Assisted Laser Desorption Ionization (MALDI), Other (please specify below)|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|headerColumns|array[object]|Column definitions for any matrix with this protocol|
-|chebi|string|CHEBI id; standard formula|
-|chemicalFormula|string|standard formula|
-|chemicalSpecies|object|Family of chemical|
-|compoundDbId|string|compound ID in this (breedbase) database to link to other files|
-|inchi|string|InCHI is another standard universal formula|
-|inchiKey|string|shortened version of inchi; users choose one or the other|
-|massToCharge|double|m/z ratio, standard from output, should be a number|
-|metaboliteIdentification|string|Name of compound|
-|pubChemURL|string|pubchem URL is another standard|
-|retentionTime|double|retention time, also standard from machine output; users shoud confirm that unit is 'seconds'|
-|spectraSource|object|The source database that defines the connection between spectra and compound|
-|database|string|Database identifier (Name or URL)|
-|databaseVersion|string|Family of chemical|
-|synonyms|array[string]|Name of compound|
-|phenotypeUnits|string|Free text, e.g. relative abundance, BLUP, drBLUP, concentration (specifiy units, e.g. ug/g)|
-|protocol|object||
-|chromatography|string|the LC protocol, instrument settings, calibration procedure|
-|massSpectrometry|string|instrument settings, calibration procedure|
-|metaboliteIdentification|string|metabolite annotations were assigned to peaks|
-|phenotype|string|BLUPs were calculated from the peak area|
-|rawDataTransformation|string|the LCMS machine files were transformed into peak area|
-|sampleCollection|string|the tissue, time point, if the sample was frozen|
-|sampleExtraction|string|the extraction protocol used|
-|protocolDbId|string|The ID which uniquely identifies the Metabolomics Matrix|
-|publications|array[string]|Relevent publication(s), DOI with details|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">equipment</span></td><td>object</td><td></td></tr>
+<tr><td>equipment<br><span style="font-weight:bold;margin-left:5px">.analysisType</span></td><td>string</td><td>MS or NMR. If NMR is selected, the rest of Equipment are not needed</td></tr>
+<tr><td>equipment<br><span style="font-weight:bold;margin-left:5px">.chromatographyColumn</span></td><td>string</td><td>User free text to specify brand of chromotography column</td></tr>
+<tr><td>equipment<br><span style="font-weight:bold;margin-left:5px">.chromatographySystem</span></td><td>string</td><td>User free text to specify brand of chromotography system</td></tr>
+<tr><td>equipment<br><span style="font-weight:bold;margin-left:5px">.chromatographyType</span></td><td>string</td><td>description</td></tr>
+<tr><td>equipment<br><span style="font-weight:bold;margin-left:5px">.msInstrumentName</span></td><td>string</td><td>User free text to specify brand of MS system</td></tr>
+<tr><td>equipment<br><span style="font-weight:bold;margin-left:5px">.msInstrumentType</span></td><td>string</td><td>User free text, e.g. time of flight (TOF), triple quadropole</td></tr>
+<tr><td>equipment<br><span style="font-weight:bold;margin-left:5px">.msIonMode</span></td><td>string</td><td>Negative, Positive, Both</td></tr>
+<tr><td>equipment<br><span style="font-weight:bold;margin-left:5px">.msType</span></td><td>string</td><td>Electron Ionization (EI), Electrospray Ionization (ESI), Atmospheric Pressure Chemical Ionization (APCI), Matrix Assisted Laser Desorption Ionization (MALDI), Other (please specify below)</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">headerColumns</span></td><td>array[object]</td><td>Column definitions for any matrix with this protocol</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.chebi</span></td><td>string</td><td>CHEBI id; standard formula</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.chemicalFormula</span></td><td>string</td><td>standard formula</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.chemicalSpecies</span></td><td>object</td><td>Family of chemical</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.compoundDbId</span></td><td>string</td><td>The Unique Compound ID in this database to link to other data sets</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.inchi</span></td><td>string</td><td>InCHI is another standard universal formula</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.inchiKey</span></td><td>string</td><td>shortened version of inchi; users choose one or the other</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.massToCharge</span></td><td>number<br>(double)</td><td>m/z ratio, standard from output, should be a number</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.metaboliteIdentification</span></td><td>string</td><td>Name of compound</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.pubChemURL</span></td><td></td><td>The PubChem reference URL connected to this compound</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.retentionTime</span></td><td>number<br>(double)</td><td>retention time, also standard from machine output; users shoud confirm that unit is 'seconds'</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.spectraSource</span></td><td>object</td><td>The source database that defines the connection between spectra and compound</td></tr>
+<tr><td>headerColumns<br>.spectraSource<br><span style="font-weight:bold;margin-left:5px">.database</span></td><td>string</td><td>Database identifier (Name or URL)</td></tr>
+<tr><td>headerColumns<br>.spectraSource<br><span style="font-weight:bold;margin-left:5px">.databaseVersion</span></td><td>string</td><td>Family of chemical</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.synonyms</span></td><td>array[string]</td><td>Name of compound</td></tr>
+<tr><td><span style="font-weight:bold;">phenotypeUnits</span></td><td>string</td><td>Free text, e.g. relative abundance, BLUP, drBLUP, concentration (specify units, e.g. ug/g)</td></tr>
+<tr><td><span style="font-weight:bold;">protocol</span></td><td>object</td><td></td></tr>
+<tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.chromatography</span></td><td>string</td><td>the LC protocol, instrument settings, calibration procedure</td></tr>
+<tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.massSpectrometry</span></td><td>string</td><td>instrument settings, calibration procedure</td></tr>
+<tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.metaboliteIdentification</span></td><td>string</td><td>metabolite annotations were assigned to peaks</td></tr>
+<tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.phenotype</span></td><td>string</td><td>BLUPs were calculated from the peak area</td></tr>
+<tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.rawDataTransformation</span></td><td>string</td><td>the LCMS machine files were transformed into peak area</td></tr>
+<tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.sampleCollection</span></td><td>string</td><td>the tissue, time point, if the sample was frozen</td></tr>
+<tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.sampleExtraction</span></td><td>string</td><td>the extraction protocol used</td></tr>
+<tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string</td><td>The ID which uniquely identifies the Metabolomics Matrix</td></tr>
+<tr><td><span style="font-weight:bold;">publications</span></td><td>array[string]</td><td>Relevant publication(s), DOI with details</td></tr>
+</table>
 
 
  
@@ -102,7 +102,7 @@ Get a filtered list of Metabolomics Protocols
                 "documentationURL": "https://wiki.brapi.org",
                 "equipment": {
                     "analysisType": "MS",
-                    "chromatographyColumn": "Waters 164 Acquity UPLC CSH Phenyl Hexyl column (1.7 \u03bcM, 1.0 x 100 mm)",
+                    "chromatographyColumn": "Waters 164 Acquity UPLC CSH Phenyl Hexyl column (1.7 IM, 1.0 x 100 mm)",
                     "chromatographySystem": "Waters Acuity UPLC",
                     "chromatographyType": "LC",
                     "msInstrumentName": "Waters Xevo G2 TOF-MS",
@@ -134,7 +134,7 @@ Get a filtered list of Metabolomics Protocols
                         "retentionTime": 342.256063,
                         "spectraSource": {
                             "database": "gmd.mpimp-golm.mpg.de",
-                            "databaseVersion": "var5 alk 161212"
+                            "databaseVersion": "var alk 161212"
                         },
                         "synonyms": [
                             "Avenacoside A"
@@ -147,9 +147,9 @@ Get a filtered list of Metabolomics Protocols
                     "massSpectrometry": "scanning 50-2000 m/z at 0.2 seconds per scan, alternating between MS (6 V collision energy) and MSE mode (15-30 V ramp)",
                     "metaboliteIdentification": "RAMSearch, MSFinder",
                     "phenotype": "NA",
-                    "rawDataTransformation": "XCMS, centWave, RamClustR",
-                    "sampleCollection": "seed, mature, dehulled",
-                    "sampleExtraction": "biphasic, polar extract with methanol from 100mg of tissue"
+                    "rawDataTransformation": "XCMS, centWave, RamCLUSTR",
+                    "sampleCollection": "seed, mature",
+                    "sampleExtraction": "biphasic, polar extract with methanol from 100 mg of tissue"
                 },
                 "protocolDbId": "f60f15b2",
                 "publications": [
@@ -188,49 +188,50 @@ Get a single Metabolomics Protocol by Id. This can be used to quickly get the de
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|documentationURL|string (uri)|description|
-|equipment|object||
-|analysisType|string|MS or NMR. If NMR is selected, the rest of Equipment are not needed|
-|chromatographyColumn|string|User free text to specify brand of chromotography column|
-|chromatographySystem|string|User free text to specify brand of chromotography system|
-|chromatographyType|string|description|
-|msInstrumentName|string|User free text to specify brand of MS system|
-|msInstrumentType|string|User free text, e.g. time of flight (TOF), triple quadropole|
-|msIonMode|string|Negative, Positive, Both|
-|msType|string|Electron Ionization (EI), Electrospray Ionization (ESI), Atmospheric Pressure Chemical Ionization (APCI), Matrix Assisted Laser Desorption Ionization (MALDI), Other (please specify below)|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|headerColumns|array[object]|Column definitions for any matrix with this protocol|
-|chebi|string|CHEBI id; standard formula|
-|chemicalFormula|string|standard formula|
-|chemicalSpecies|object|Family of chemical|
-|compoundDbId|string|compound ID in this (breedbase) database to link to other files|
-|inchi|string|InCHI is another standard universal formula|
-|inchiKey|string|shortened version of inchi; users choose one or the other|
-|massToCharge|double|m/z ratio, standard from output, should be a number|
-|metaboliteIdentification|string|Name of compound|
-|pubChemURL|string|pubchem URL is another standard|
-|retentionTime|double|retention time, also standard from machine output; users shoud confirm that unit is 'seconds'|
-|spectraSource|object|The source database that defines the connection between spectra and compound|
-|database|string|Database identifier (Name or URL)|
-|databaseVersion|string|Family of chemical|
-|synonyms|array[string]|Name of compound|
-|phenotypeUnits|string|Free text, e.g. relative abundance, BLUP, drBLUP, concentration (specifiy units, e.g. ug/g)|
-|protocol|object||
-|chromatography|string|the LC protocol, instrument settings, calibration procedure|
-|massSpectrometry|string|instrument settings, calibration procedure|
-|metaboliteIdentification|string|metabolite annotations were assigned to peaks|
-|phenotype|string|BLUPs were calculated from the peak area|
-|rawDataTransformation|string|the LCMS machine files were transformed into peak area|
-|sampleCollection|string|the tissue, time point, if the sample was frozen|
-|sampleExtraction|string|the extraction protocol used|
-|protocolDbId|string|The ID which uniquely identifies the Metabolomics Matrix|
-|publications|array[string]|Relevent publication(s), DOI with details|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">equipment</span></td><td>object</td><td></td></tr>
+<tr><td>equipment<br><span style="font-weight:bold;margin-left:5px">.analysisType</span></td><td>string</td><td>MS or NMR. If NMR is selected, the rest of Equipment are not needed</td></tr>
+<tr><td>equipment<br><span style="font-weight:bold;margin-left:5px">.chromatographyColumn</span></td><td>string</td><td>User free text to specify brand of chromotography column</td></tr>
+<tr><td>equipment<br><span style="font-weight:bold;margin-left:5px">.chromatographySystem</span></td><td>string</td><td>User free text to specify brand of chromotography system</td></tr>
+<tr><td>equipment<br><span style="font-weight:bold;margin-left:5px">.chromatographyType</span></td><td>string</td><td>description</td></tr>
+<tr><td>equipment<br><span style="font-weight:bold;margin-left:5px">.msInstrumentName</span></td><td>string</td><td>User free text to specify brand of MS system</td></tr>
+<tr><td>equipment<br><span style="font-weight:bold;margin-left:5px">.msInstrumentType</span></td><td>string</td><td>User free text, e.g. time of flight (TOF), triple quadropole</td></tr>
+<tr><td>equipment<br><span style="font-weight:bold;margin-left:5px">.msIonMode</span></td><td>string</td><td>Negative, Positive, Both</td></tr>
+<tr><td>equipment<br><span style="font-weight:bold;margin-left:5px">.msType</span></td><td>string</td><td>Electron Ionization (EI), Electrospray Ionization (ESI), Atmospheric Pressure Chemical Ionization (APCI), Matrix Assisted Laser Desorption Ionization (MALDI), Other (please specify below)</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">headerColumns</span></td><td>array[object]</td><td>Column definitions for any matrix with this protocol</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.chebi</span></td><td>string</td><td>CHEBI id; standard formula</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.chemicalFormula</span></td><td>string</td><td>standard formula</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.chemicalSpecies</span></td><td>object</td><td>Family of chemical</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.compoundDbId</span></td><td>string</td><td>The Unique Compound ID in this database to link to other data sets</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.inchi</span></td><td>string</td><td>InCHI is another standard universal formula</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.inchiKey</span></td><td>string</td><td>shortened version of inchi; users choose one or the other</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.massToCharge</span></td><td>number<br>(double)</td><td>m/z ratio, standard from output, should be a number</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.metaboliteIdentification</span></td><td>string</td><td>Name of compound</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.pubChemURL</span></td><td></td><td>The PubChem reference URL connected to this compound</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.retentionTime</span></td><td>number<br>(double)</td><td>retention time, also standard from machine output; users shoud confirm that unit is 'seconds'</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.spectraSource</span></td><td>object</td><td>The source database that defines the connection between spectra and compound</td></tr>
+<tr><td>headerColumns<br>.spectraSource<br><span style="font-weight:bold;margin-left:5px">.database</span></td><td>string</td><td>Database identifier (Name or URL)</td></tr>
+<tr><td>headerColumns<br>.spectraSource<br><span style="font-weight:bold;margin-left:5px">.databaseVersion</span></td><td>string</td><td>Family of chemical</td></tr>
+<tr><td>headerColumns<br><span style="font-weight:bold;margin-left:5px">.synonyms</span></td><td>array[string]</td><td>Name of compound</td></tr>
+<tr><td><span style="font-weight:bold;">phenotypeUnits</span></td><td>string</td><td>Free text, e.g. relative abundance, BLUP, drBLUP, concentration (specify units, e.g. ug/g)</td></tr>
+<tr><td><span style="font-weight:bold;">protocol</span></td><td>object</td><td></td></tr>
+<tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.chromatography</span></td><td>string</td><td>the LC protocol, instrument settings, calibration procedure</td></tr>
+<tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.massSpectrometry</span></td><td>string</td><td>instrument settings, calibration procedure</td></tr>
+<tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.metaboliteIdentification</span></td><td>string</td><td>metabolite annotations were assigned to peaks</td></tr>
+<tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.phenotype</span></td><td>string</td><td>BLUPs were calculated from the peak area</td></tr>
+<tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.rawDataTransformation</span></td><td>string</td><td>the LCMS machine files were transformed into peak area</td></tr>
+<tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.sampleCollection</span></td><td>string</td><td>the tissue, time point, if the sample was frozen</td></tr>
+<tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.sampleExtraction</span></td><td>string</td><td>the extraction protocol used</td></tr>
+<tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string</td><td>The ID which uniquely identifies the Metabolomics Matrix</td></tr>
+<tr><td><span style="font-weight:bold;">publications</span></td><td>array[string]</td><td>Relevant publication(s), DOI with details</td></tr>
+</table>
 
 
  
@@ -268,7 +269,7 @@ Get a single Metabolomics Protocol by Id. This can be used to quickly get the de
         "documentationURL": "https://wiki.brapi.org",
         "equipment": {
             "analysisType": "MS",
-            "chromatographyColumn": "Waters 164 Acquity UPLC CSH Phenyl Hexyl column (1.7 \u03bcM, 1.0 x 100 mm)",
+            "chromatographyColumn": "Waters 164 Acquity UPLC CSH Phenyl Hexyl column (1.7 IM, 1.0 x 100 mm)",
             "chromatographySystem": "Waters Acuity UPLC",
             "chromatographyType": "LC",
             "msInstrumentName": "Waters Xevo G2 TOF-MS",
@@ -300,7 +301,7 @@ Get a single Metabolomics Protocol by Id. This can be used to quickly get the de
                 "retentionTime": 342.256063,
                 "spectraSource": {
                     "database": "gmd.mpimp-golm.mpg.de",
-                    "databaseVersion": "var5 alk 161212"
+                    "databaseVersion": "var alk 161212"
                 },
                 "synonyms": [
                     "Avenacoside A"
@@ -313,9 +314,9 @@ Get a single Metabolomics Protocol by Id. This can be used to quickly get the de
             "massSpectrometry": "scanning 50-2000 m/z at 0.2 seconds per scan, alternating between MS (6 V collision energy) and MSE mode (15-30 V ramp)",
             "metaboliteIdentification": "RAMSearch, MSFinder",
             "phenotype": "NA",
-            "rawDataTransformation": "XCMS, centWave, RamClustR",
-            "sampleCollection": "seed, mature, dehulled",
-            "sampleExtraction": "biphasic, polar extract with methanol from 100mg of tissue"
+            "rawDataTransformation": "XCMS, centWave, RamCLUSTR",
+            "sampleCollection": "seed, mature",
+            "sampleExtraction": "biphasic, polar extract with methanol from 100 mg of tissue"
         },
         "protocolDbId": "f60f15b2",
         "publications": [
@@ -352,17 +353,17 @@ Get a Metabolomics data matrix by MetabolomicsProtocolDbId
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|observationTimeStamp|string (date-time)|The date and time when this observation was made|
-|observationUnitDbId|string|description|
-|observationUnitName|string|description|
-|protocolDbId|string|description|
-|row|array[string]|description|
-|sampleDbId|string|description|
-|tissue_type|string|description|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">observationTimeStamp</span></td><td>string<br>(date-time)</td><td>The date and time when this observation was made</td></tr>
+<tr><td><span style="font-weight:bold;">observationUnitDbId</span></td><td>string</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">observationUnitName</span></td><td>string</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">row</span></td><td>array[string]</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">tissue_type</span></td><td>string</td><td>description</td></tr>
+</table>
 
 
  
@@ -445,18 +446,18 @@ Get a filtered list of NIRS Protocols
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|deviceType|string|description|
-|documentationURL|string (uri)|description|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|header_column_names|array[integer]|description|
-|protocolDbId|string|The ID which uniquely identifies the NIRS Matrix|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">deviceType</span></td><td>string</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">header_column_names</span></td><td>array[integer]</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string</td><td>The ID which uniquely identifies the NIRS Matrix</td></tr>
+</table>
 
 
  
@@ -549,17 +550,18 @@ Get a single NIRS Protocol by Id. This can be used to quickly get the details of
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|deviceType|string|description|
-|documentationURL|string (uri)|description|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID|string|**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.|
-|referenceId|string|The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|header_column_names|array[integer]|description|
-|protocolDbId|string|The ID which uniquely identifies the NIRS Matrix|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">deviceType</span></td><td>string</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">header_column_names</span></td><td>array[integer]</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string</td><td>The ID which uniquely identifies the NIRS Matrix</td></tr>
+</table>
 
 
  
@@ -643,17 +645,17 @@ Get a NIRS data matrix by NIRSProtocolDbId
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|observationTimeStamp|string (date-time)|The date and time when this observation was made|
-|observationUnitDbId|string|description|
-|observationUnitName|string|description|
-|protocolDbId|string|description|
-|row|array[string]|description|
-|sampleDbId|string|description|
-|tissue_type|string|description|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">observationTimeStamp</span></td><td>string<br>(date-time)</td><td>The date and time when this observation was made</td></tr>
+<tr><td><span style="font-weight:bold;">observationUnitDbId</span></td><td>string</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">observationUnitName</span></td><td>string</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">row</span></td><td>array[string]</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">tissue_type</span></td><td>string</td><td>description</td></tr>
+</table>
 
 
  

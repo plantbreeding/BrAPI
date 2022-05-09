@@ -19,47 +19,49 @@ in the genotype matrix. This action is dangerous and can cause data collisions.
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|callSetDbId|string|The ID of the call set this variant call belongs to. <br/>If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet`  is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
-|callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
-|genotype|string|The value of this genotype|
-|genotypeFields|array[object]||
-|fieldAbbreviation|string||
-|fieldName|string||
-|fieldType|string||
-|fieldvalue|string||
-|phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and  is consistent with any other variant calls on the same contig which have the same phase set string.|
-|variantDbId|string|The ID of the Variant this call belongs to.|
-|variantName|string|The name of the Variant this call belongs to.|
-|variantSetDbId|string|The ID of the Variant Set this call belongs to.|
-|variantSetName|string|The name of the Variant Set this call belongs to.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">callSetDbId</span></td><td>string</td><td>The ID of the call set this variant call belongs to. <br/>If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet`  is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.</td></tr>
+<tr><td><span style="font-weight:bold;">callSetName</span></td><td>string</td><td>The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.</td></tr>
+<tr><td><span style="font-weight:bold;">genotype</span></td><td>string</td><td>The value of this genotype</td></tr>
+<tr><td><span style="font-weight:bold;">genotypeFields</span></td><td>array[object]</td><td>Genotype fields are additional layers of metadata associated with each genotype.</td></tr>
+<tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldAbbreviation</span></td><td>string</td><td>The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"</td></tr>
+<tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldName</span></td><td>string</td><td>The name of the field represented in this Genotype Field. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"</td></tr>
+<tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldType</span></td><td>string</td><td>The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.</td></tr>
+<tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldValue</span></td><td>string</td><td>The additional metadata value associated with this genotype call</td></tr>
+<tr><td><span style="font-weight:bold;">phaseSet</span></td><td>string</td><td>If this field is populated, this variant call's genotype ordering implies the phase of the bases and  is consistent with any other variant calls on the same contig which have the same phase set string.</td></tr>
+<tr><td><span style="font-weight:bold;">variantDbId</span></td><td>string</td><td>The ID of the Variant this call belongs to.</td></tr>
+<tr><td><span style="font-weight:bold;">variantName</span></td><td>string</td><td>The name of the Variant this call belongs to.</td></tr>
+<tr><td><span style="font-weight:bold;">variantSetDbId</span></td><td>string</td><td>The ID of the Variant Set this call belongs to.</td></tr>
+<tr><td><span style="font-weight:bold;">variantSetName</span></td><td>string</td><td>The name of the Variant Set this call belongs to.</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|callSetDbId|string|The ID of the call set this variant call belongs to. <br/>If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet`  is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
-|callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
-|genotype|string|The value of this genotype|
-|genotypeFields|array[object]||
-|fieldAbbreviation|string||
-|fieldName|string||
-|fieldType|string||
-|fieldvalue|string||
-|phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and  is consistent with any other variant calls on the same contig which have the same phase set string.|
-|variantDbId|string|The ID of the Variant this call belongs to.|
-|variantName|string|The name of the Variant this call belongs to.|
-|variantSetDbId|string|The ID of the Variant Set this call belongs to.|
-|variantSetName|string|The name of the Variant Set this call belongs to.|
-|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
-|sepPhased|string|The string used as a separator for phased allele calls.|
-|sepUnphased|string|The string used as a separator for unphased allele calls.|
-|unknownString|string|The string used as a representation for missing data.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">data</span></td><td>array[object]</td><td></td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.callSetDbId</span></td><td>string</td><td>The ID of the call set this variant call belongs to. <br/>If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet`  is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.callSetName</span></td><td>string</td><td>The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.genotype</span></td><td>string</td><td>The value of this genotype</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.genotypeFields</span></td><td>array[object]</td><td>Genotype fields are additional layers of metadata associated with each genotype.</td></tr>
+<tr><td>data<br>.genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldAbbreviation</span></td><td>string</td><td>The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"</td></tr>
+<tr><td>data<br>.genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldName</span></td><td>string</td><td>The name of the field represented in this Genotype Field. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"</td></tr>
+<tr><td>data<br>.genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldType</span></td><td>string</td><td>The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.</td></tr>
+<tr><td>data<br>.genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldValue</span></td><td>string</td><td>The additional metadata value associated with this genotype call</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.phaseSet</span></td><td>string</td><td>If this field is populated, this variant call's genotype ordering implies the phase of the bases and  is consistent with any other variant calls on the same contig which have the same phase set string.</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.variantDbId</span></td><td>string</td><td>The ID of the Variant this call belongs to.</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.variantName</span></td><td>string</td><td>The name of the Variant this call belongs to.</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.variantSetDbId</span></td><td>string</td><td>The ID of the Variant Set this call belongs to.</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.variantSetName</span></td><td>string</td><td>The name of the Variant Set this call belongs to.</td></tr>
+<tr><td><span style="font-weight:bold;">expandHomozygotes</span></td><td>boolean</td><td>Should homozygotes be expanded (true) or collapsed into a single occurrence (false)</td></tr>
+<tr><td><span style="font-weight:bold;">sepPhased</span></td><td>string</td><td>The string used as a separator for phased allele calls.</td></tr>
+<tr><td><span style="font-weight:bold;">sepUnphased</span></td><td>string</td><td>The string used as a separator for unphased allele calls.</td></tr>
+<tr><td><span style="font-weight:bold;">unknownString</span></td><td>string</td><td>The string used as a representation for missing data.</td></tr>
+</table>
 
 
  
@@ -82,7 +84,7 @@ in the genotype matrix. This action is dangerous and can cause data collisions.
                 "fieldAbbreviation": "GQ",
                 "fieldName": "Genotype Quality",
                 "fieldType": "integer",
-                "fieldvalue": "45.2"
+                "fieldValue": "45.2"
             }
         ],
         "phaseSet": "6410afc5",
@@ -131,7 +133,7 @@ in the genotype matrix. This action is dangerous and can cause data collisions.
                         "fieldAbbreviation": "GQ",
                         "fieldName": "Genotype Quality",
                         "fieldType": "integer",
-                        "fieldvalue": "45.2"
+                        "fieldValue": "45.2"
                     }
                 ],
                 "phaseSet": "6410afc5",
@@ -169,62 +171,66 @@ in the genotype matrix. This action is dangerous and can cause data collisions.
 
 ### Post - /search/variantmatrix [POST /brapi/v2/search/variantmatrix]
 
-Use this endpoint to retrive a two dimensional matrix of genotype data. The response structure is based on the VCF format, with the enhanced ability to slice and merge data sets. This allows the user to return the subset of data they are interested in, without having to download the entire genotype file.
+Use this endpoint to retrieve a two dimensional matrix of genotype data. The response structure is based on the VCF format, with the enhanced ability to slice and merge data sets. This allows the user to return the subset of data they are interested in, without having to download the entire genotype file.
 <br/>Each row of data (outer array) corresponds to a variant definition, and each column (inner array) corresponds to a callSet. 
 <br/>Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. If a server needs more time to process the request, it might respond with a `searchResultsDbId`. Use the corresponding `GET /search/calls/{searchResultsDbId}` to retrieve the results of the search. 
 <br/>Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
 
 **Request Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|callSetDbIds|array[string]|The CallSet to search.|
-|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
-|germplasmDbIds|array[string]|The germplasm to search|
-|germplasmNames|array[string]|The germplasm to search|
-|germplasmPUIs|array[string]|The germplasm to search|
-|pagination|array[object]|Pagination for the matrix|
-|dimension|string|the dimension of the matrix being paginated|
-|page|integer|the requested page number (zero indexed)|
-|pageSize|integer|the maximum number of elements per page in this dimension of the matrix|
-|positionRanges|array[string]|The postion range to search <br/> Uses the format "<chrom>:<start>-<end>" where <chrom> is the chromosome name, <start> is  the starting position of the range, and <end> is the ending position of the range|
-|preview|boolean|Default Value = false <br/> If 'preview' is set to true, then the server should only return the lists of 'callSetDbIds',  'variantDbIds', and 'variantSetDbIds'. The server should not return any matrix data. This is intended to be a preview and give the client a sense of how large the matrix returned will be <br/> If 'preview' is set to false or not set (default), then the server should return all the matrix data as requested.|
-|sampleDbIds|array[string]|The samples to search|
-|sepPhased|string|The string used as a separator for phased allele calls.|
-|sepUnphased|string|The string used as a separator for unphased allele calls.|
-|unknownString|string|The string used as a representation for missing data.|
-|variantDbIds|array[string]|The Variant to search.|
-|variantSetDbIds|array[string]|The VariantSet to search.|
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">callSetDbIds</span></td><td>array[string]</td><td>The CallSet to search.</td></tr>
+<tr><td><span style="font-weight:bold;">expandHomozygotes</span></td><td>boolean</td><td>Should homozygotes be expanded (true) or collapsed into a single occurrence (false)</td></tr>
+<tr><td><span style="font-weight:bold;">genotypeFields</span></td><td>array[string]</td><td>If `includeGenotypeFields` is true and `preview` is false, this array controls which Genotype Field matrices are returned. Each Genotype Field matrix can be identified by its name or abbreviation.</td></tr>
+<tr><td><span style="font-weight:bold;">germplasmDbIds</span></td><td>array[string]</td><td>The germplasm to search</td></tr>
+<tr><td><span style="font-weight:bold;">germplasmNames</span></td><td>array[string]</td><td>The germplasm to search</td></tr>
+<tr><td><span style="font-weight:bold;">germplasmPUIs</span></td><td>array[string]</td><td>The germplasm to search</td></tr>
+<tr><td><span style="font-weight:bold;">includeGenotypeFields</span></td><td>boolean</td><td>Default Value = true <br/> If 'includeGenotypeFields' is set to false, then the `genotypeFields` array should be omitted or returned null in the response <br/> If 'includeGenotypeFields' is set to true or not set (default), then the server should return all `genotypeFields` metadata it has available</td></tr>
+<tr><td><span style="font-weight:bold;">pagination</span></td><td>array[object]</td><td>Pagination for the matrix</td></tr>
+<tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.dimension</span></td><td>string</td><td>the dimension of the matrix being paginated</td></tr>
+<tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.page</span></td><td>integer</td><td>the requested page number (zero indexed)</td></tr>
+<tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.pageSize</span></td><td>integer</td><td>the maximum number of elements per page in this dimension of the matrix</td></tr>
+<tr><td><span style="font-weight:bold;">positionRanges</span></td><td>array[string]</td><td>The postion range to search <br/> Uses the format "<chrom>:<start>-<end>" where <chrom> is the chromosome name, <start> is  the starting position of the range, and <end> is the ending position of the range</td></tr>
+<tr><td><span style="font-weight:bold;">preview</span></td><td>boolean</td><td>Default Value = false <br/> If 'preview' is set to true, then the server should only return the lists of 'callSetDbIds',  'variantDbIds', and 'variantSetDbIds'. The server should not return any matrix data. This is intended to be a preview and give the client a sense of how large the matrix returned will be <br/> If 'preview' is set to false or not set (default), then the server should return all the matrix data as requested.</td></tr>
+<tr><td><span style="font-weight:bold;">sampleDbIds</span></td><td>array[string]</td><td>The samples to search</td></tr>
+<tr><td><span style="font-weight:bold;">sepPhased</span></td><td>string</td><td>The string used as a separator for phased allele calls.</td></tr>
+<tr><td><span style="font-weight:bold;">sepUnphased</span></td><td>string</td><td>The string used as a separator for unphased allele calls.</td></tr>
+<tr><td><span style="font-weight:bold;">unknownString</span></td><td>string</td><td>The string used as a representation for missing data.</td></tr>
+<tr><td><span style="font-weight:bold;">variantDbIds</span></td><td>array[string]</td><td>The Variant to search.</td></tr>
+<tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>The VariantSet to search.</td></tr>
+</table>
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|callSetDbIds|array[string]||
-|data|array[array]||
-|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
-|genotypeFields|array[object]||
-|fieldAbbreviation|string||
-|fieldMatrix|array[array]||
-|fieldName|string||
-|fieldType|string||
-|pagination|array[object]|Pagination for the matrix|
-|dimension|string|the dimension of the matrix being paginated|
-|page|integer|the requested page number (zero indexed)|
-|pageSize|integer|the maximum number of elements per page in this dimension of the matrix|
-|totalCount|integer|The total number of elements that are available on the server and match the requested query parameters.|
-|totalPages|integer|The total number of pages of elements available on the server. This should be calculated with the following formula.  <br/>totalPages = CEILING( totalCount / requested_page_size)|
-|sepPhased|string|The string used as a separator for phased allele calls.|
-|sepUnphased|string|The string used as a separator for unphased allele calls.|
-|unknownString|string|The string used as a representation for missing data.|
-|variantSetDbIds|array[string]||
-|variants|array[object]||
-|contig|string||
-|end|integer||
-|ploidy|integer||
-|start|integer||
-|variantDbId|string||
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">callSetDbIds</span></td><td>array[string]</td><td>A list of unique identifiers for the CallSets contained in the matrix response. A CallSet is a unique combination of a Sample and a sequencing event. CallSets often have a 1-to-1 relationship with Samples, but this is not always the case.</td></tr>
+<tr><td><span style="font-weight:bold;">data</span></td><td>array[array]</td><td>The whole genotype matrix, as a two dimensional array.</td></tr>
+<tr><td><span style="font-weight:bold;">expandHomozygotes</span></td><td>boolean</td><td>Should homozygotes be expanded (true) or collapsed into a single occurrence (false)</td></tr>
+<tr><td><span style="font-weight:bold;">genotypeFields</span></td><td>array[object]</td><td>Genotype fields are additional layers of metadata associated with each genotype. They are organized here as a collection of additional matrices the same size and orientation as the genotype matrix.</td></tr>
+<tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldAbbreviation</span></td><td>string</td><td>The abbreviated code of the field represented in this Genotype Field matrix. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"</td></tr>
+<tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldMatrix</span></td><td>array[array]</td><td>The Genotype Field matrix data, providing an additional layer of metadata associated with each genotype value. This matrix should be the same size and orientation as the genotype matrix.</td></tr>
+<tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldName</span></td><td>string</td><td>The name of the field represented in this Genotype Field matrix. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"</td></tr>
+<tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldType</span></td><td>string</td><td>The type of field represented in this Genotype Field matrix. This is intended to help parse the data out of JSON.</td></tr>
+<tr><td><span style="font-weight:bold;">pagination</span></td><td>array[object]</td><td>Pagination for the matrix</td></tr>
+<tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.dimension</span></td><td>string</td><td>The dimension of the matrix being paginated</td></tr>
+<tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.page</span></td><td>integer</td><td>the requested page number (zero indexed)</td></tr>
+<tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.pageSize</span></td><td>integer</td><td>the maximum number of elements per page in this dimension of the matrix</td></tr>
+<tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.totalCount</span></td><td>integer</td><td>The total number of elements that are available on the server and match the requested query parameters.</td></tr>
+<tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.totalPages</span></td><td>integer</td><td>The total number of pages of elements available on the server. This should be calculated with the following formula.  <br/>totalPages = CEILING( totalCount / requested_page_size)</td></tr>
+<tr><td><span style="font-weight:bold;">sepPhased</span></td><td>string</td><td>The string used as a separator for phased allele calls.</td></tr>
+<tr><td><span style="font-weight:bold;">sepUnphased</span></td><td>string</td><td>The string used as a separator for unphased allele calls.</td></tr>
+<tr><td><span style="font-weight:bold;">unknownString</span></td><td>string</td><td>The string used as a representation for missing data.</td></tr>
+<tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>A list of unique identifiers for the VariantSets contained in the matrix response. A VariantSet is a data set originating from a sequencing event. Often, users will only be interested in data from a single VariantSet, but in some cases a user might be interested in a matrix with data from multiple VariantSets.</td></tr>
+<tr><td><span style="font-weight:bold;">variants</span></td><td>array[object]</td><td>A list of unique identifiers and other metadata for the Variants contained in the matrix response. This is a subset of fields from the `GET /variant` data model. These metadata fields were chosen to mimic the metadata in a VCF file.</td></tr>
+<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.contig</span></td><td>string</td><td>The chromosome or linkage group name where this variant exists</td></tr>
+<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.end</span></td><td>integer</td><td>The end position of this variant</td></tr>
+<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.ploidy</span></td><td>integer</td><td>The number of copies of the genome for this organism. This value indicates how to parse the genotype value string.</td></tr>
+<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.start</span></td><td>integer</td><td>The start position of this variant</td></tr>
+<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.variantDbId</span></td><td>string</td><td>The unique identifier of a Variant</td></tr>
+</table>
 
 
  
@@ -242,6 +248,10 @@ Use this endpoint to retrive a two dimensional matrix of genotype data. The resp
         "274e4f63"
     ],
     "expandHomozygotes": true,
+    "genotypeFields": [
+        "Read Depth",
+        "GQ"
+    ],
     "germplasmDbIds": [
         "a03202ec",
         "274e4f63"
@@ -254,6 +264,7 @@ Use this endpoint to retrive a two dimensional matrix of genotype data. The resp
         "a03202ec",
         "274e4f63"
     ],
+    "includeGenotypeFields": false,
     "pagination": [
         {
             "dimension": "variants",
@@ -386,21 +397,21 @@ Use this endpoint to retrive a two dimensional matrix of genotype data. The resp
         ],
         "variants": [
             {
-                "contig": "CHROM20",
+                "contig": "CHROM_20",
                 "end": 24370,
                 "ploidy": 2,
                 "start": 14370,
                 "variantDbId": "feb54257"
             },
             {
-                "contig": "CHROM20",
+                "contig": "CHROM_20",
                 "end": 1113696,
                 "ploidy": 2,
                 "start": 1110696,
                 "variantDbId": "feb40355"
             },
             {
-                "contig": "CHROM20",
+                "contig": "CHROM_20",
                 "end": 1237567,
                 "ploidy": 2,
                 "start": 1234567,
@@ -458,7 +469,7 @@ Use this endpoint to retrive a two dimensional matrix of genotype data. The resp
 
 ### Get - /search/variantmatrix/{searchResultsDbId} [GET /brapi/v2/search/variantmatrix/{searchResultsDbId}]
 
-Use this endpoint to retrive a two dimensional matrix of genotype data. The response structure is based on the VCF format, with the enhanced ability to slice and merge data sets. This allows the user to return the subset of data they are interested in, without having to download the entire genotype file.
+Use this endpoint to retrieve a two dimensional matrix of genotype data. The response structure is based on the VCF format, with the enhanced ability to slice and merge data sets. This allows the user to return the subset of data they are interested in, without having to download the entire genotype file.
 <br/>Each row of data (outer array) corresponds to a variant definition, and each column (inner array) corresponds to a callSet. 
 <br/>Clients should submit a search request using the corresponding `POST /search/variantmatrix` endpoint. Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. If a server needs more time to process the request, it might respond with a `searchResultsDbId`. Use this endpoint to retrieve the results of the search. 
 <br/>Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
@@ -467,32 +478,33 @@ Use this endpoint to retrive a two dimensional matrix of genotype data. The resp
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|callSetDbIds|array[string]||
-|data|array[array]||
-|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
-|genotypeFields|array[object]||
-|fieldAbbreviation|string||
-|fieldMatrix|array[array]||
-|fieldName|string||
-|fieldType|string||
-|pagination|array[object]|Pagination for the matrix|
-|dimension|string|the dimension of the matrix being paginated|
-|page|integer|the requested page number (zero indexed)|
-|pageSize|integer|the maximum number of elements per page in this dimension of the matrix|
-|totalCount|integer|The total number of elements that are available on the server and match the requested query parameters.|
-|totalPages|integer|The total number of pages of elements available on the server. This should be calculated with the following formula.  <br/>totalPages = CEILING( totalCount / requested_page_size)|
-|sepPhased|string|The string used as a separator for phased allele calls.|
-|sepUnphased|string|The string used as a separator for unphased allele calls.|
-|unknownString|string|The string used as a representation for missing data.|
-|variantSetDbIds|array[string]||
-|variants|array[object]||
-|contig|string||
-|end|integer||
-|ploidy|integer||
-|start|integer||
-|variantDbId|string||
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">callSetDbIds</span></td><td>array[string]</td><td>A list of unique identifiers for the CallSets contained in the matrix response. A CallSet is a unique combination of a Sample and a sequencing event. CallSets often have a 1-to-1 relationship with Samples, but this is not always the case.</td></tr>
+<tr><td><span style="font-weight:bold;">data</span></td><td>array[array]</td><td>The whole genotype matrix, as a two dimensional array.</td></tr>
+<tr><td><span style="font-weight:bold;">expandHomozygotes</span></td><td>boolean</td><td>Should homozygotes be expanded (true) or collapsed into a single occurrence (false)</td></tr>
+<tr><td><span style="font-weight:bold;">genotypeFields</span></td><td>array[object]</td><td>Genotype fields are additional layers of metadata associated with each genotype. They are organized here as a collection of additional matrices the same size and orientation as the genotype matrix.</td></tr>
+<tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldAbbreviation</span></td><td>string</td><td>The abbreviated code of the field represented in this Genotype Field matrix. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"</td></tr>
+<tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldMatrix</span></td><td>array[array]</td><td>The Genotype Field matrix data, providing an additional layer of metadata associated with each genotype value. This matrix should be the same size and orientation as the genotype matrix.</td></tr>
+<tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldName</span></td><td>string</td><td>The name of the field represented in this Genotype Field matrix. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"</td></tr>
+<tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldType</span></td><td>string</td><td>The type of field represented in this Genotype Field matrix. This is intended to help parse the data out of JSON.</td></tr>
+<tr><td><span style="font-weight:bold;">pagination</span></td><td>array[object]</td><td>Pagination for the matrix</td></tr>
+<tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.dimension</span></td><td>string</td><td>The dimension of the matrix being paginated</td></tr>
+<tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.page</span></td><td>integer</td><td>the requested page number (zero indexed)</td></tr>
+<tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.pageSize</span></td><td>integer</td><td>the maximum number of elements per page in this dimension of the matrix</td></tr>
+<tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.totalCount</span></td><td>integer</td><td>The total number of elements that are available on the server and match the requested query parameters.</td></tr>
+<tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.totalPages</span></td><td>integer</td><td>The total number of pages of elements available on the server. This should be calculated with the following formula.  <br/>totalPages = CEILING( totalCount / requested_page_size)</td></tr>
+<tr><td><span style="font-weight:bold;">sepPhased</span></td><td>string</td><td>The string used as a separator for phased allele calls.</td></tr>
+<tr><td><span style="font-weight:bold;">sepUnphased</span></td><td>string</td><td>The string used as a separator for unphased allele calls.</td></tr>
+<tr><td><span style="font-weight:bold;">unknownString</span></td><td>string</td><td>The string used as a representation for missing data.</td></tr>
+<tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>A list of unique identifiers for the VariantSets contained in the matrix response. A VariantSet is a data set originating from a sequencing event. Often, users will only be interested in data from a single VariantSet, but in some cases a user might be interested in a matrix with data from multiple VariantSets.</td></tr>
+<tr><td><span style="font-weight:bold;">variants</span></td><td>array[object]</td><td>A list of unique identifiers and other metadata for the Variants contained in the matrix response. This is a subset of fields from the `GET /variant` data model. These metadata fields were chosen to mimic the metadata in a VCF file.</td></tr>
+<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.contig</span></td><td>string</td><td>The chromosome or linkage group name where this variant exists</td></tr>
+<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.end</span></td><td>integer</td><td>The end position of this variant</td></tr>
+<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.ploidy</span></td><td>integer</td><td>The number of copies of the genome for this organism. This value indicates how to parse the genotype value string.</td></tr>
+<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.start</span></td><td>integer</td><td>The start position of this variant</td></tr>
+<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.variantDbId</span></td><td>string</td><td>The unique identifier of a Variant</td></tr>
+</table>
 
 
  
@@ -599,21 +611,21 @@ Use this endpoint to retrive a two dimensional matrix of genotype data. The resp
         ],
         "variants": [
             {
-                "contig": "CHROM20",
+                "contig": "CHROM_20",
                 "end": 24370,
                 "ploidy": 2,
                 "start": 14370,
                 "variantDbId": "feb54257"
             },
             {
-                "contig": "CHROM20",
+                "contig": "CHROM_20",
                 "end": 1113696,
                 "ploidy": 2,
                 "start": 1110696,
                 "variantDbId": "feb40355"
             },
             {
-                "contig": "CHROM20",
+                "contig": "CHROM_20",
                 "end": 1237567,
                 "ploidy": 2,
                 "start": 1234567,
@@ -671,39 +683,40 @@ Use this endpoint to retrive a two dimensional matrix of genotype data. The resp
 
 ### Get - /variantmatrix [GET /brapi/v2/variantmatrix{?dimensionVariantPage}{?dimensionVariantPageSize}{?dimensionCallSetPage}{?dimensionCallSetPageSize}{?positionRange}{?germplasmDbId}{?germplasmName}{?germplasmPUI}{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}]
 
-Use this endpoint to retrive a two dimensional matrix of genotype data. The response structure is based on the VCF format, with the enhanced ability to slice and merge data sets. This allows the user to return the subset of data they are interested in, without having to download the entire genotype file.
+Use this endpoint to retrieve a two dimensional matrix of genotype data. The response structure is based on the VCF format, with the enhanced ability to slice and merge data sets. This allows the user to return the subset of data they are interested in, without having to download the entire genotype file.
 <br/>Each row of data (outer array) corresponds to a variant definition, and each column (inner array) corresponds to a callSet.    
 
 
 
 **Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|callSetDbIds|array[string]||
-|data|array[array]||
-|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurrence (false)|
-|genotypeFields|array[object]||
-|fieldAbbreviation|string||
-|fieldMatrix|array[array]||
-|fieldName|string||
-|fieldType|string||
-|pagination|array[object]|Pagination for the matrix|
-|dimension|string|the dimension of the matrix being paginated|
-|page|integer|the requested page number (zero indexed)|
-|pageSize|integer|the maximum number of elements per page in this dimension of the matrix|
-|totalCount|integer|The total number of elements that are available on the server and match the requested query parameters.|
-|totalPages|integer|The total number of pages of elements available on the server. This should be calculated with the following formula.  <br/>totalPages = CEILING( totalCount / requested_page_size)|
-|sepPhased|string|The string used as a separator for phased allele calls.|
-|sepUnphased|string|The string used as a separator for unphased allele calls.|
-|unknownString|string|The string used as a representation for missing data.|
-|variantSetDbIds|array[string]||
-|variants|array[object]||
-|contig|string||
-|end|integer||
-|ploidy|integer||
-|start|integer||
-|variantDbId|string||
+<table>
+<tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">callSetDbIds</span></td><td>array[string]</td><td>A list of unique identifiers for the CallSets contained in the matrix response. A CallSet is a unique combination of a Sample and a sequencing event. CallSets often have a 1-to-1 relationship with Samples, but this is not always the case.</td></tr>
+<tr><td><span style="font-weight:bold;">data</span></td><td>array[array]</td><td>The whole genotype matrix, as a two dimensional array.</td></tr>
+<tr><td><span style="font-weight:bold;">expandHomozygotes</span></td><td>boolean</td><td>Should homozygotes be expanded (true) or collapsed into a single occurrence (false)</td></tr>
+<tr><td><span style="font-weight:bold;">genotypeFields</span></td><td>array[object]</td><td>Genotype fields are additional layers of metadata associated with each genotype. They are organized here as a collection of additional matrices the same size and orientation as the genotype matrix.</td></tr>
+<tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldAbbreviation</span></td><td>string</td><td>The abbreviated code of the field represented in this Genotype Field matrix. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"</td></tr>
+<tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldMatrix</span></td><td>array[array]</td><td>The Genotype Field matrix data, providing an additional layer of metadata associated with each genotype value. This matrix should be the same size and orientation as the genotype matrix.</td></tr>
+<tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldName</span></td><td>string</td><td>The name of the field represented in this Genotype Field matrix. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"</td></tr>
+<tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldType</span></td><td>string</td><td>The type of field represented in this Genotype Field matrix. This is intended to help parse the data out of JSON.</td></tr>
+<tr><td><span style="font-weight:bold;">pagination</span></td><td>array[object]</td><td>Pagination for the matrix</td></tr>
+<tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.dimension</span></td><td>string</td><td>The dimension of the matrix being paginated</td></tr>
+<tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.page</span></td><td>integer</td><td>the requested page number (zero indexed)</td></tr>
+<tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.pageSize</span></td><td>integer</td><td>the maximum number of elements per page in this dimension of the matrix</td></tr>
+<tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.totalCount</span></td><td>integer</td><td>The total number of elements that are available on the server and match the requested query parameters.</td></tr>
+<tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.totalPages</span></td><td>integer</td><td>The total number of pages of elements available on the server. This should be calculated with the following formula.  <br/>totalPages = CEILING( totalCount / requested_page_size)</td></tr>
+<tr><td><span style="font-weight:bold;">sepPhased</span></td><td>string</td><td>The string used as a separator for phased allele calls.</td></tr>
+<tr><td><span style="font-weight:bold;">sepUnphased</span></td><td>string</td><td>The string used as a separator for unphased allele calls.</td></tr>
+<tr><td><span style="font-weight:bold;">unknownString</span></td><td>string</td><td>The string used as a representation for missing data.</td></tr>
+<tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>A list of unique identifiers for the VariantSets contained in the matrix response. A VariantSet is a data set originating from a sequencing event. Often, users will only be interested in data from a single VariantSet, but in some cases a user might be interested in a matrix with data from multiple VariantSets.</td></tr>
+<tr><td><span style="font-weight:bold;">variants</span></td><td>array[object]</td><td>A list of unique identifiers and other metadata for the Variants contained in the matrix response. This is a subset of fields from the `GET /variant` data model. These metadata fields were chosen to mimic the metadata in a VCF file.</td></tr>
+<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.contig</span></td><td>string</td><td>The chromosome or linkage group name where this variant exists</td></tr>
+<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.end</span></td><td>integer</td><td>The end position of this variant</td></tr>
+<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.ploidy</span></td><td>integer</td><td>The number of copies of the genome for this organism. This value indicates how to parse the genotype value string.</td></tr>
+<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.start</span></td><td>integer</td><td>The start position of this variant</td></tr>
+<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.variantDbId</span></td><td>string</td><td>The unique identifier of a Variant</td></tr>
+</table>
 
 
  
@@ -713,7 +726,7 @@ Use this endpoint to retrive a two dimensional matrix of genotype data. The resp
     + dimensionVariantPageSize (Optional, ) ... The requested page size for the Variant dimension of the matrix
     + dimensionCallSetPage (Optional, ) ... The requested page number for the CallSet dimension of the matrix
     + dimensionCallSetPageSize (Optional, ) ... The requested page size for the CallSet dimension of the matrix
-    + positionRange (Optional, ) ... The postion range to search<br/>Uses the format "<chrom>:<start>-<end>" where <chrom> is the chromosome name, <start> is the starting position of the range, and <end> is the ending position of the range
+    + positionRange (Optional, ) ... The postion range to search<br/>Uses the format "contig:start-end" where "contig" is the chromosome or contig name, "start" is the starting position of the range, and "end" is the ending position of the range
     + germplasmDbId (Optional, ) ... Internal database identifier
     + germplasmName (Optional, ) ... Name of the germplasm
     + germplasmPUI (Optional, ) ... Permanent unique identifier (DOI, URI, etc.)
@@ -824,21 +837,21 @@ Use this endpoint to retrive a two dimensional matrix of genotype data. The resp
         ],
         "variants": [
             {
-                "contig": "CHROM20",
+                "contig": "CHROM_20",
                 "end": 24370,
                 "ploidy": 2,
                 "start": 14370,
                 "variantDbId": "feb54257"
             },
             {
-                "contig": "CHROM20",
+                "contig": "CHROM_20",
                 "end": 1113696,
                 "ploidy": 2,
                 "start": 1110696,
                 "variantDbId": "feb40355"
             },
             {
-                "contig": "CHROM20",
+                "contig": "CHROM_20",
                 "end": 1237567,
                 "ploidy": 2,
                 "start": 1234567,
