@@ -17,7 +17,7 @@ components:
             type: object
             properties:
               dimension:
-                description: the dimension of the matrix being paginated
+                description: The dimension of the matrix being paginated
                 type: string
                 enum:
                 - CALLSETS
@@ -52,50 +52,69 @@ components:
                page: 4
                totalCount: 10000
                totalPages: 10
-        callSetDbIds:
+        callSetDbIds: 
+          description: A list of unique identifiers for the CallSets contained in the matrix response. A CallSet is a unique combination of a Sample and a sequencing event. CallSets often have a 1-to-1 relationship with Samples, but this is not always the case.
           type: array
           items:
             type: string
           example: ['aca00001', 'aca00002', 'aca00003']
         variantSetDbIds:
+          description: A list of unique identifiers for the VariantSets contained in the matrix response. A VariantSet is a data set originating from a sequencing event. Often, users will only be interested in data from a single VariantSet, but in some cases a user might be interested in a matrix with data from multiple VariantSets.
           type: array
           items:
             type: string
           example: ['cfde3944', 'cfde2077', 'cfde4424']
         variants:
+          description: A list of unique identifiers and other metadata for the Variants contained in the matrix response. This is a subset of fields from the `GET /variant` data model. These metadata fields were chosen to mimic the metadata in a VCF file.  
           type: array
           items:
             type: object
             properties:
               variantDbId:
+                description: The unique identifier of a Variant
                 type: string
+                example: b54a57fe
               contig: 
+                description: The chromosome or linkage group name where this variant exists
                 type: string
+                example: CHROM_20
               start:
+                description: The start position of this variant
                 type: integer
+                example: 14370
               end:
+                description: The end position of this variant
                 type: integer
+                example: 24370
               ploidy:
+                description: The number of copies of the genome for this organism. This value indicates how to parse the genotype value string.  
                 type: integer
-          example: [{'variantDbId': 'feb54257', 'contig': 'CHROM20', 'start': 14370, 'end': 24370, 'ploidy': 2},
-                    {'variantDbId': 'feb40355', 'contig': 'CHROM20', 'start': 1110696, 'end': 1113696, 'ploidy': 2},
-                    {'variantDbId': 'feb40323', 'contig': 'CHROM20', 'start': 1234567, 'end': 1237567, 'ploidy': 2}]
+                example: 2
+          example: [{'variantDbId': 'feb54257', 'contig': 'CHROM_20', 'start': 14370, 'end': 24370, 'ploidy': 2},
+                    {'variantDbId': 'feb40355', 'contig': 'CHROM_20', 'start': 1110696, 'end': 1113696, 'ploidy': 2},
+                    {'variantDbId': 'feb40323', 'contig': 'CHROM_20', 'start': 1234567, 'end': 1237567, 'ploidy': 2}]
         data:
+          description: The whole genotype matrix, as a two dimensional array.  
           type: array
           items:
+            description: The array of rows in the genotype matrix. Each row contains all the genotype data for a particular variant. These rows are ordered the same way as the `variants` array. 
             type: array
             items:
+              description: The array of genotype values per row (columns) in the matrix. Each genotype value should be represented as a list of integers seperated by the phased or unphased separators. These columns are ordered the same way as the `callSetDbIds` array.
               type: string
           example:
           - ['0|0', '1|0', '1/1']
           - ['0|0', '1|0', '1/1']
           - ['0|0', '1|0', '1/1']
         genotypeFields:
+          description: Genotype fields are additional layers of metadata associated with each genotype. They are organized here as a collection of additional matrices the same size and orientation as the genotype matrix.  
           type: array
           items:
+            description: This is a single Genotype Field matrix, providing some additional layer of metadata associated with each genotype value.  
             type: object
             properties:
               fieldType:
+                description: The type of field represented in this Genotype Field matrix. This is intended to help parse the data out of JSON.
                 type: string
                 enum:
                 - string
@@ -104,24 +123,23 @@ components:
                 - boolean
                 example: integer
               fieldName:
+                description: |-
+                  The name of the field represented in this Genotype Field matrix. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"
                 type: string
-                enum:
-                - Genotype Quality
-                - Read Depth
-                - Haplotype Quality
                 example: Genotype Quality
               fieldAbbreviation:
+                description: |-
+                  The abbreviated code of the field represented in this Genotype Field matrix. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"
                 type: string
-                enum:
-                - GQ
-                - RD
-                - HQ
                 example: GQ
               fieldMatrix:
+                description: The Genotype Field matrix data, providing an additional layer of metadata associated with each genotype value. This matrix should be the same size and orientation as the genotype matrix.
                 type: array
                 items:
+                  description: An array of rows in the Genotype Field matrix
                   type: array
                   items:
+                    description: All the values per row (columns) in the Genotype Field matrix
                     type: string
                 example:
                 - ['48', '48', '43']

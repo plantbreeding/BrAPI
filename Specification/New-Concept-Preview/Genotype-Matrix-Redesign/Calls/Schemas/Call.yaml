@@ -49,11 +49,13 @@ components:
           type: string
           example: '1/1'
         genotypeFields:
+          description: Genotype fields are additional layers of metadata associated with each genotype.
           type: array
           items:
             type: object
             properties:
               fieldType:
+                description: The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.
                 type: string
                 enum:
                 - string
@@ -62,20 +64,17 @@ components:
                 - boolean
                 example: integer
               fieldName:
+                description: |-
+                  The name of the field represented in this Genotype Field. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"
                 type: string
-                enum:
-                - Genotype Quality
-                - Read Depth
-                - Haplotype Quality
                 example: Genotype Quality
               fieldAbbreviation:
+                description: |-
+                  The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"
                 type: string
-                enum:
-                - GQ
-                - RD
-                - HQ
                 example: GQ
-              fieldvalue:
+              fieldValue:
+                description: The additional metadata value associated with this genotype call
                 type: string
                 example: '45.2'
         phaseSet:

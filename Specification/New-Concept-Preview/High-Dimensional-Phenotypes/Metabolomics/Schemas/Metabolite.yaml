@@ -9,16 +9,18 @@ components:
       type: object
       properties:
         compoundDbId:
-          description: compound ID in this (breedbase) database to link to other files
+          description: The Unique Compound ID in this database to link to other data sets
           type: string
           example: LC.03.0001
         massToCharge:
           description: m/z ratio, standard from output, should be a number
-          type: double
+          type: number
+          format: double
           example: 1062.5227
         retentionTime:
           description: retention time, also standard from machine output; users shoud confirm that unit is 'seconds'
-          type: double
+          type: number
+          format: double
           example: 342.256063
         chemicalFormula:
           description: standard formula
@@ -37,8 +39,7 @@ components:
           type: string
           example: MQGBAQLIFKSMEM-ZHARMHCNSA-N
         pubChemURL:
-          description: pubchem URL is another standard 
-          type: string
+          description: The PubChem reference URL connected to this compound
           example: https://pubchem.ncbi.nlm.nih.gov/compound/5988
         metaboliteIdentification:
           description: Name of compound
@@ -65,6 +66,6 @@ components:
             databaseVersion:
               description: Family of chemical
               type: string
-              example: var5 alk 161212
+              example: var alk 161212
 
 

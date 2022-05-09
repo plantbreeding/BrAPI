@@ -22,10 +22,10 @@ boolean ordinal recursively
 
 2px 5px 10px 20px #ddd ddd btn
 thh hhmm yyyy o8601 timezone date-time timestamp s84 t18 easting northing
-
+separators
 
 bioinformatics plantbreeding datasets
-germplasm genebank genebanks
+germplasm genebank genebanks metabolomics
 multi-crop subblock
 pui peco envo puid r001 geodetic georeference georeferencing gazetteer
 
@@ -38,18 +38,25 @@ summarising submitter descriptors hyphens
 mcpd ncbi miappe ebi biosample biosamples inra gnpis cipos ciend svlen bioversity FAO nirs
 
 subtaxa subtaxon subform subvariety infraspecific convar convariety amphiploids aneuploids landrace cryo ruderal shrubland situ clonal backcross
-accessions subsp cultivar cultivars seq homozygotes methylation quantification contig haplotype ploidy
+accessions subsp cultivar cultivars seq homozygotes methylation quantification contig haplotype ploidy inorg variantmatrix CHROM chromotography
  
-obo rdf obolibrary ontologies vcf hapmap MLS chr
+obo rdf obolibrary ontologies vcf hapmap MLS chr chebi inchi
 malting carotenoid pipet plateless indel parent1 parent2
 
-Zea mays fructus c2365e900c81a89cf74d83dab60df146 
+Zea mays fructus c2365e900c81a89cf74d83dab60df146 Avenacoside
+Waters 164 Acquity UPLC CSH Phenyl Hexyl column (1.7 IM, 1.0 x 100 mm)
+Waters Xevo G2 TOF-MS
+e.g. time of flight (TOF), triple quadropole
+Electron Ionization (EI), Electrospray Ionization (ESI), Atmospheric Pressure Chemical Ionization (APCI), Matrix Assisted Laser Desorption Ionization (MALDI), Other (please specify below)
+gradient of solvent A (2mM ammonium hydroxide and 0.1% formic acid) to solvent B (Acetonitrile, 0.1% formic acid)
 
 tomatillo hadron coladas townsville
 
 https://www.bioversityInternational.org/fileadmin/user_upload/online_library/publications/pdfs/FAOBIOVERSITY_MULTI-CROP_PASSPORT_DESCRIPTORS_V.2.1_2015_2020.pdf
 https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3
 http://orcid.org/0000-0001-8640-1750
+https://pubchem.ncbi.nlm.nih.gov/compound/5988
+gmd.mpimp-golm.mpg.de
 
 tiimp tidep timix i001
 
@@ -72,3 +79,6 @@ tiimp tidep timix i001
 ##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
 ##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Read Depth">
 ##FORMAT=<ID=HQ,Number=2,Type=Integer,Description="Haplotype Quality">
+
+InChI=1S/C39H68O5/c1-3-5-7-9-11-13-15-17-19-21-23-25-27-29-31-33-38(41)43-36-37(35-40)44-39(42)34-32-30-28-26-24-22-20-18-16-14-12-10-8-6-4-2/h11-14,17-20,37,40H,3-10,15-16,21-36H2,1-2H3/b13-11-,14-12-,19-17-,20-18-/t37-/m0/s1 c39, h68
+

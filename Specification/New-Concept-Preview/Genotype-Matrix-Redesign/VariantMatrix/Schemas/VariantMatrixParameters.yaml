@@ -12,6 +12,33 @@ components:
       required: true
       schema:
         type: string
+    preview:
+      name: preview
+      description: |- 
+            Default Value = false
+            <br/>
+            If 'preview' is set to true, then the server should only return the lists of 'callSetDbIds', 
+            'variantDbIds', and 'variantSetDbIds'. The server should not return any matrix data. This
+            is intended to be a preview and give the client a sense of how large the matrix returned will be
+            <br/>
+            If 'preview' is set to false or not set (default), then the server should return all the matrix
+            data as requested.
+      in: query
+      required: false
+      schema:
+        type: boolean
+    includeGenotypeFields:
+      name: includeGenotypeFields
+      description: |- 
+            Default Value = true
+            <br/>
+            If 'includeGenotypeFields' is set to false, then the `genotypeFields` array should be omitted or returned null in the response
+            <br/>
+            If 'includeGenotypeFields' is set to true or not set (default), then the server should return all `genotypeFields` metadata it has available
+      in: query
+      required: false
+      schema:
+        type: boolean
     callSetDbId:
       name: callSetDbId
       description: The ID of the `CallSet` to be retrieved.

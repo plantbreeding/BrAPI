@@ -26,15 +26,15 @@ components:
           items:
             $ref: '#/components/schemas/Metabolite'
         phenotypeUnits: 
-          description: Free text, e.g. relative abundance, BLUP, drBLUP, concentration (specifiy units, e.g. ug/g)
+          description: Free text, e.g. relative abundance, BLUP, drBLUP, concentration (specify units, e.g. ug/g)
           type: string
           example: relative abundance
         publications: 
-          description: Relevent publication(s), DOI with details
+          description: Relevant publication(s), DOI with details
           type: array
           items:
             type: string
-            example: https://doi.org/10.1093/g3journal/jkab419
+            example: https://doi.org/10.1093/example
         equipment: 
           type: object
           properties:
@@ -55,7 +55,7 @@ components:
             chromatographyColumn:  
               description: User free text to specify brand of chromotography column
               type: string
-              example: Waters 164 Acquity UPLC CSH Phenyl Hexyl column (1.7 μM, 1.0 x 100 mm)
+              example: Waters 164 Acquity UPLC CSH Phenyl Hexyl column (1.7 IM, 1.0 x 100 mm)
             msInstrumentName:  
               description: User free text to specify brand of MS system
               type: string
@@ -78,11 +78,11 @@ components:
             sampleCollection: 
               description: the tissue, time point, if the sample was frozen
               type: string
-              example: seed, mature, dehulled
+              example: seed, mature
             sampleExtraction: 
               description: the extraction protocol used
               type: string
-              example: biphasic, polar extract with methanol from 100mg of tissue
+              example: biphasic, polar extract with methanol from 100 mg of tissue
             chromatography: 
               description: the LC protocol, instrument settings, calibration procedure
               type: string
@@ -94,7 +94,7 @@ components:
             rawDataTransformation: 
               description: the LCMS machine files were transformed into peak area
               type: string
-              example: XCMS, centWave, RamClustR
+              example: XCMS, centWave, RamCLUSTR
             metaboliteIdentification: 
               description: metabolite annotations were assigned to peaks
               type: string

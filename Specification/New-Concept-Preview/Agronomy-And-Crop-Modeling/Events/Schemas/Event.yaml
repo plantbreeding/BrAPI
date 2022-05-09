@@ -68,14 +68,14 @@ components:
               example: ['2018-10-08T18:15:11Z', '2018-11-09T18:16:12Z']
             startDate:
               description: |-
-                The begining of a continous or regularly repetative event
+                The begining of a continous or regularly repetitive event
                 <br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.
               format: date-time
               type: string
               example: '2018-10-08T18:15:11Z'
             endDate:
               description: |-
-                The end of a continous or regularly repetative event
+                The end of a continous or regularly repetitive event
                 <br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.
               format: date-time
               type: string
