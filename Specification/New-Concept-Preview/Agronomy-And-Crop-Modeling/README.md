@@ -42,15 +42,15 @@ Get list of events
  
 
 + Parameters
-    + studyDbId (Optional, ) ... Filter based on study unique identifier in which the events occurred
-    + observationUnitDbId (Optional, ) ... Filter based on an ObservationUnit unique identifier in which the events occurred
-    + eventDbId (Optional, ) ... Filter based on an Event DbId
-    + eventType (Optional, ) ... Filter based on an Event Type
-    + dateRangeStart (Optional, ) ... Filter based on an Date Range
-    + dateRangeEnd (Optional, ) ... Filter based on an Date Range
-    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + studyDbId (Optional, string) ... Filter based on study unique identifier in which the events occurred
+    + observationUnitDbId (Optional, string) ... Filter based on an ObservationUnit unique identifier in which the events occurred
+    + eventDbId (Optional, string) ... Filter based on an Event DbId
+    + eventType (Optional, string) ... Filter based on an Event Type
+    + dateRangeStart (Optional, string) ... Filter based on an Date Range
+    + dateRangeEnd (Optional, string) ... Filter based on an Date Range
+    + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 

@@ -67,7 +67,7 @@ in the genotype matrix. This action is dangerous and can cause data collisions.
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -238,7 +238,7 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -530,8 +530,8 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
  
 
 + Parameters
-    + searchResultsDbId (Required, ) ... Unique identifier which references the search results
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + searchResultsDbId (Required, string) ... Unique identifier which references the search results
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -760,22 +760,22 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
  
 
 + Parameters
-    + dimensionVariantPage (Optional, ) ... The requested page number for the Variant dimension of the matrix
-    + dimensionVariantPageSize (Optional, ) ... The requested page size for the Variant dimension of the matrix
-    + dimensionCallSetPage (Optional, ) ... The requested page number for the CallSet dimension of the matrix
-    + dimensionCallSetPageSize (Optional, ) ... The requested page size for the CallSet dimension of the matrix
-    + positionRange (Optional, ) ... The postion range to search<br/>Uses the format "contig:start-end" where "contig" is the chromosome or contig name, "start" is the starting position of the range, and "end" is the ending position of the range
-    + germplasmDbId (Optional, ) ... Internal database identifier
-    + germplasmName (Optional, ) ... Name of the germplasm
-    + germplasmPUI (Optional, ) ... Permanent unique identifier (DOI, URI, etc.)
-    + callSetDbId (Optional, ) ... The ID of the `CallSet` to be retrieved.
-    + variantDbId (Optional, ) ... The ID of the `Variant` to be retrieved.
-    + variantSetDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
-    + expandHomozygotes (Optional, ) ... Should homozygotes be expanded (true) or collapsed into a single occurrence (false)
-    + unknownString (Optional, ) ... The string to use as a representation for missing data
-    + sepPhased (Optional, ) ... The string to use as a separator for phased allele calls
-    + sepUnphased (Optional, ) ... The string to use as a separator for unphased allele calls
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + dimensionVariantPage (Optional, integer) ... The requested page number for the Variant dimension of the matrix
+    + dimensionVariantPageSize (Optional, integer) ... The requested page size for the Variant dimension of the matrix
+    + dimensionCallSetPage (Optional, integer) ... The requested page number for the CallSet dimension of the matrix
+    + dimensionCallSetPageSize (Optional, integer) ... The requested page size for the CallSet dimension of the matrix
+    + positionRange (Optional, string) ... The postion range to search<br/>Uses the format "contig:start-end" where "contig" is the chromosome or contig name, "start" is the starting position of the range, and "end" is the ending position of the range
+    + germplasmDbId (Optional, string) ... Internal database identifier
+    + germplasmName (Optional, string) ... Name of the germplasm
+    + germplasmPUI (Optional, string) ... Permanent unique identifier (DOI, URI, etc.)
+    + callSetDbId (Optional, string) ... The ID of the `CallSet` to be retrieved.
+    + variantDbId (Optional, string) ... The ID of the `Variant` to be retrieved.
+    + variantSetDbId (Optional, string) ... The ID of the `VariantSet` to be retrieved.
+    + expandHomozygotes (Optional, boolean) ... Should homozygotes be expanded (true) or collapsed into a single occurrence (false)
+    + unknownString (Optional, string) ... The string to use as a representation for missing data
+    + sepPhased (Optional, string) ... The string to use as a separator for phased allele calls
+    + sepUnphased (Optional, string) ... The string to use as a separator for unphased allele calls
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 

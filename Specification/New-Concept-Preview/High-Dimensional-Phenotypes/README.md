@@ -63,13 +63,13 @@ Get a filtered list of Metabolomics Protocols
  
 
 + Parameters
-    + metabolomicsProtocolDbId (Optional, ) ... description
-    + observationUnitDbId (Optional, ) ... description
-    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
-    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + metabolomicsProtocolDbId (Optional, string) ... description
+    + observationUnitDbId (Optional, string) ... description
+    + externalReferenceID (Optional, string) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, string) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
+    + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -237,8 +237,8 @@ Get a single Metabolomics Protocol by Id. This can be used to quickly get the de
  
 
 + Parameters
-    + metabolomicsProtocolDbId (Required, ) ... Filter by the common crop name. Exact match.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + metabolomicsProtocolDbId (Required, string) ... Filter by the common crop name. Exact match.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -369,10 +369,10 @@ Get a Metabolomics data matrix by MetabolomicsProtocolDbId
  
 
 + Parameters
-    + metabolomicsProtocolDbId (Required, ) ... Path parameter protocol id
-    + studyDbId (Optional, ) ... filter by study
-    + observationUnitDbId (Optional, ) ... filter by study
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + metabolomicsProtocolDbId (Required, string) ... Path parameter protocol id
+    + studyDbId (Optional, string) ... filter by study
+    + observationUnitDbId (Optional, string) ... filter by study
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -463,13 +463,13 @@ Get a filtered list of NIRS Protocols
  
 
 + Parameters
-    + nirsProtocolDbId (Optional, ) ... description
-    + observationUnitDbId (Optional, ) ... description
-    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
-    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + nirsProtocolDbId (Optional, string) ... description
+    + observationUnitDbId (Optional, string) ... description
+    + externalReferenceID (Optional, string) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, string) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
+    + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -567,8 +567,8 @@ Get a single NIRS Protocol by Id. This can be used to quickly get the details of
  
 
 + Parameters
-    + nirsProtocolDbId (Required, ) ... Filter by the common crop name. Exact match.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + nirsProtocolDbId (Required, string) ... Filter by the common crop name. Exact match.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -661,10 +661,10 @@ Get a NIRS data matrix by NIRSProtocolDbId
  
 
 + Parameters
-    + nirsProtocolDbId (Required, ) ... Path parameter protocol id
-    + studyDbId (Optional, ) ... filter by study
-    + observationUnitDbId (Optional, ) ... filter by study
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + nirsProtocolDbId (Required, string) ... Path parameter protocol id
+    + studyDbId (Optional, string) ... filter by study
+    + observationUnitDbId (Optional, string) ... filter by study
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
