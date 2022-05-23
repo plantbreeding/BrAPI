@@ -111,12 +111,16 @@ def buildParametersList(params):
 	for param in params:
 		parametersStr += '    + ' + param['name'] 
 		
-		if ('required' in param) : 
-			parametersStr += ' (Required, ' if param['required'] else ' (Optional, '
+		if ('required' in param and param['required']) : 
+			parametersStr += ' (Required, '
 		else:
 			parametersStr += ' (Optional, '
 		
-		parametersStr += param['type'] + ') ... ' if 'type' in param else ') ... '
+		if ('schema' in param and param['schema'] and 'type' in param['schema'] and param['schema']['type']) :
+			parametersStr += param['schema']['type'] + ') ... '
+		else :
+			parametersStr += 'NA) ... '
+				
 		parametersStr += re.sub(r'\n', '', param['description']) if 'description' in param else ''
 		parametersStr += '\n'
 	
