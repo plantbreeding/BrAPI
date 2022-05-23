@@ -65,7 +65,7 @@ components:
                 format: date-time
                 type: string
               type: array
-              example: ['2018-10-08T18:15:11Z', '2018-11-09T18:16:12Z']
+              example: ['2018-10-08T18:15:11Z', '2018-11-09T18:16:12Z', '2018-11-19T18:16:12Z']
             startDate:
               description: |-
                 The begining of a continous or regularly repetitive event
@@ -102,16 +102,31 @@ components:
                 example: tiimp
               unit:
                 description: |-
-                  The unit or data type of the value. If the value IS NOT a number, then this field should specify a data type eg. text, boolean, date, etc. If the value IS a number, then this field should specify the units used eg. ml, cm, etc
-
-                  ICASA "Unit_or_type"
+                  The unit or data type of the value. 
+                  <br>If the 'value' comes from a standardized vocabulary or an encoded list of values, then 'unit' should be 'code'. 
+                  <br>If the 'value' IS NOT a number, then 'unit' should specify a data type eg. 'text', 'boolean', 'date', etc. 
+                  <br>If the value IS a number, then 'unit' should specify the units used eg. 'ml', 'cm', etc
+                  <br>ICASA "Unit_or_type"
                 type: string
-                example: text
+                example: code
               value:
-                description: |-
-                  The value of this event parameter
+                description: The single value of this event parameter. This single value is accurate for all the dates in the date range. If 'value' is populated then 'valuesByDate' should NOT be populated.
                 type: string
                 example: TI001
+              valuesByDate:
+                description: An array of values corrisponding to each timestamp in the 'discreteDates' array of this event. The 'valuesByDate' array should exactly match the size of the 'discreteDates' array. If 'valuesByDate' is populated then 'value' should NOT be populated.
+                type: array
+                items:
+                  type: string
+                example: ['TI001', 'TI002', 'TI001']
+              parameterDescription:
+                description: A human readable description of this event parameter. This description is ussually associated with the 'name' and 'code' of an event parameter.
+                type: string
+                example: Implement or tool used for tillage
+              codeValueDescription:
+                description: If the event parameter 'unit' field is 'code', then use 'codeValueDescription' to add a human readable description to the value.
+                type: string
+                example: Standard V-Ripper (TI001)
           example:
           - name: "tillage_implement"
             code: "tiimp"

@@ -53,7 +53,7 @@ components:
                totalCount: 10000
                totalPages: 10
         callSetDbIds: 
-          description: A list of unique identifiers for the CallSets contained in the matrix response. A CallSet is a unique combination of a Sample and a sequencing event. CallSets often have a 1-to-1 relationship with Samples, but this is not always the case.
+          description: A list of unique identifiers for the CallSets contained in the matrix response. This array should match the ordering for columns in the matrix. A CallSet is a unique combination of a Sample and a sequencing event. CallSets often have a 1-to-1 relationship with Samples, but this is not always the case.
           type: array
           items:
             type: string
@@ -64,6 +64,12 @@ components:
           items:
             type: string
           example: ['cfde3944', 'cfde2077', 'cfde4424']
+        variantDbIds: 
+          description: A list of unique identifiers for the Variants contained in the matrix response. This array should match the ordering for rows in the matrix.
+          type: array
+          items:
+            type: string
+          example: ['feb54257', 'feb40355', 'feb40323']
         variants:
           description: A list of unique identifiers and other metadata for the Variants contained in the matrix response. This is a subset of fields from the `GET /variant` data model. These metadata fields were chosen to mimic the metadata in a VCF file.  
           type: array
@@ -86,14 +92,20 @@ components:
                 description: The end position of this variant
                 type: integer
                 example: 24370
-              ploidy:
-                description: The number of copies of the genome for this organism. This value indicates how to parse the genotype value string.  
-                type: integer
-                example: 2
-          example: [{'variantDbId': 'feb54257', 'contig': 'CHROM_20', 'start': 14370, 'end': 24370, 'ploidy': 2},
-                    {'variantDbId': 'feb40355', 'contig': 'CHROM_20', 'start': 1110696, 'end': 1113696, 'ploidy': 2},
-                    {'variantDbId': 'feb40323', 'contig': 'CHROM_20', 'start': 1234567, 'end': 1237567, 'ploidy': 2}]
-        data:
+              alternateBases:
+                description: The bases that appear instead of the reference bases. Multiple alternate alleles are possible.
+                items:
+                  type: string
+                type: array
+                example: ['G', 'T']
+              referenceBases:
+                description: The reference bases for this variant. They start at the given start position.
+                type: string
+                example: 'A'
+          example: [{'variantDbId': 'feb54257', 'contig': 'CHROM_20', 'start': 14370, 'end': 24370, 'referenceBases': 'G', 'alternateBases':['A']},
+                    {'variantDbId': 'feb40355', 'contig': 'CHROM_20', 'start': 1110696, 'end': 1113696, 'referenceBases': 'A', 'alternateBases':['G', 'T']},
+                    {'variantDbId': 'feb40323', 'contig': 'CHROM_20', 'start': 1234567, 'end': 1237567, 'referenceBases': 'GTC', 'alternateBases':['G', 'GTCA']}]
+        genotypeMatrix:
           description: The whole genotype matrix, as a two dimensional array.  
           type: array
           items:
