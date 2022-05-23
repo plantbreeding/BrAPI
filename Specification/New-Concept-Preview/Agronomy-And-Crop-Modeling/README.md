@@ -25,9 +25,12 @@ Get list of events
 <tr><td><span style="font-weight:bold;">eventDescription</span></td><td>string</td><td>A detailed, human-readable description of this event <br/>MIAPPE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. </td></tr>
 <tr><td><span style="font-weight:bold;">eventParameters</span></td><td>array[object]</td><td>A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI</td></tr>
 <tr><td>eventParameters<br><span style="font-weight:bold;margin-left:5px">.code</span></td><td>string</td><td>The shortened code name of an event parameter  ICASA "Code_Display"</td></tr>
+<tr><td>eventParameters<br><span style="font-weight:bold;margin-left:5px">.codeValueDescription</span></td><td>string</td><td>If the event parameter 'unit' field is 'code', then use 'codeValueDescription' to add a human readable description to the value.</td></tr>
 <tr><td>eventParameters<br><span style="font-weight:bold;margin-left:5px">.name</span></td><td>string</td><td>The full name of an event parameter  ICASA "Variable_Name"</td></tr>
-<tr><td>eventParameters<br><span style="font-weight:bold;margin-left:5px">.unit</span></td><td>string</td><td>The unit or data type of the value. If the value IS NOT a number, then this field should specify a data type eg. text, boolean, date, etc. If the value IS a number, then this field should specify the units used eg. ml, cm, etc  ICASA "Unit_or_type"</td></tr>
-<tr><td>eventParameters<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>string</td><td>The value of this event parameter</td></tr>
+<tr><td>eventParameters<br><span style="font-weight:bold;margin-left:5px">.parameterDescription</span></td><td>string</td><td>A human readable description of this event parameter. This description is ussually associated with the 'name' and 'code' of an event parameter.</td></tr>
+<tr><td>eventParameters<br><span style="font-weight:bold;margin-left:5px">.unit</span></td><td>string</td><td>The unit or data type of the value.  <br>If the 'value' comes from a standardized vocabulary or an encoded list of values, then 'unit' should be 'code'.  <br>If the 'value' IS NOT a number, then 'unit' should specify a data type eg. 'text', 'boolean', 'date', etc.  <br>If the value IS a number, then 'unit' should specify the units used eg. 'ml', 'cm', etc <br>ICASA "Unit_or_type"</td></tr>
+<tr><td>eventParameters<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>string</td><td>The single value of this event parameter. This single value is accurate for all the dates in the date range. If 'value' is populated then 'valuesByDate' should NOT be populated.</td></tr>
+<tr><td>eventParameters<br><span style="font-weight:bold;margin-left:5px">.valuesByDate</span></td><td>array[string]</td><td>An array of values corrisponding to each timestamp in the 'discreteDates' array of this event. The 'valuesByDate' array should exactly match the size of the 'discreteDates' array. If 'valuesByDate' is populated then 'value' should NOT be populated.</td></tr>
 <tr><td><span style="font-weight:bold;">eventType</span></td><td>string</td><td>General category for this event (e.g. fertilizer, irrigation, tillage). Each eventType should correspond to exactly one eventTypeDbId, if provided. <br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other <br/>MIAPPE V1.1 (DM-65) Event type - Short name of the event.</td></tr>
 <tr><td><span style="font-weight:bold;">eventTypeDbId</span></td><td>string</td><td>An identifier for this event type, in the form of an ontology class reference <br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other <br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).</td></tr>
 <tr><td><span style="font-weight:bold;">observationUnitDbIds</span></td><td>array[string]</td><td>A list of the affected observation units. If this parameter is not given, it is understood that the event affected all units in the study</td></tr>
@@ -80,7 +83,8 @@ Get list of events
                 "date": {
                     "discreteDates": [
                         "2018-10-08T18:15:11Z",
-                        "2018-11-09T18:16:12Z"
+                        "2018-11-09T18:16:12Z",
+                        "2018-11-19T18:16:12Z"
                     ],
                     "endDate": "2018-10-08T18:15:11Z",
                     "startDate": "2018-10-08T18:15:11Z"

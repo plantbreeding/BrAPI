@@ -206,14 +206,14 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">callSetDbIds</span></td><td>array[string]</td><td>A list of unique identifiers for the CallSets contained in the matrix response. A CallSet is a unique combination of a Sample and a sequencing event. CallSets often have a 1-to-1 relationship with Samples, but this is not always the case.</td></tr>
-<tr><td><span style="font-weight:bold;">data</span></td><td>array[array]</td><td>The whole genotype matrix, as a two dimensional array.</td></tr>
+<tr><td><span style="font-weight:bold;">callSetDbIds</span></td><td>array[string]</td><td>A list of unique identifiers for the CallSets contained in the matrix response. This array should match the ordering for columns in the matrix. A CallSet is a unique combination of a Sample and a sequencing event. CallSets often have a 1-to-1 relationship with Samples, but this is not always the case.</td></tr>
 <tr><td><span style="font-weight:bold;">expandHomozygotes</span></td><td>boolean</td><td>Should homozygotes be expanded (true) or collapsed into a single occurrence (false)</td></tr>
 <tr><td><span style="font-weight:bold;">genotypeFields</span></td><td>array[object]</td><td>Genotype fields are additional layers of metadata associated with each genotype. They are organized here as a collection of additional matrices the same size and orientation as the genotype matrix.</td></tr>
 <tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldAbbreviation</span></td><td>string</td><td>The abbreviated code of the field represented in this Genotype Field matrix. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"</td></tr>
 <tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldMatrix</span></td><td>array[array]</td><td>The Genotype Field matrix data, providing an additional layer of metadata associated with each genotype value. This matrix should be the same size and orientation as the genotype matrix.</td></tr>
 <tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldName</span></td><td>string</td><td>The name of the field represented in this Genotype Field matrix. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"</td></tr>
 <tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldType</span></td><td>string</td><td>The type of field represented in this Genotype Field matrix. This is intended to help parse the data out of JSON.</td></tr>
+<tr><td><span style="font-weight:bold;">genotypeMatrix</span></td><td>array[array]</td><td>The whole genotype matrix, as a two dimensional array.</td></tr>
 <tr><td><span style="font-weight:bold;">pagination</span></td><td>array[object]</td><td>Pagination for the matrix</td></tr>
 <tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.dimension</span></td><td>string</td><td>The dimension of the matrix being paginated</td></tr>
 <tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.page</span></td><td>integer</td><td>the requested page number (zero indexed)</td></tr>
@@ -223,11 +223,13 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
 <tr><td><span style="font-weight:bold;">sepPhased</span></td><td>string</td><td>The string used as a separator for phased allele calls.</td></tr>
 <tr><td><span style="font-weight:bold;">sepUnphased</span></td><td>string</td><td>The string used as a separator for unphased allele calls.</td></tr>
 <tr><td><span style="font-weight:bold;">unknownString</span></td><td>string</td><td>The string used as a representation for missing data.</td></tr>
+<tr><td><span style="font-weight:bold;">variantDbIds</span></td><td>array[string]</td><td>A list of unique identifiers for the Variants contained in the matrix response. This array should match the ordering for rows in the matrix.</td></tr>
 <tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>A list of unique identifiers for the VariantSets contained in the matrix response. A VariantSet is a data set originating from a sequencing event. Often, users will only be interested in data from a single VariantSet, but in some cases a user might be interested in a matrix with data from multiple VariantSets.</td></tr>
 <tr><td><span style="font-weight:bold;">variants</span></td><td>array[object]</td><td>A list of unique identifiers and other metadata for the Variants contained in the matrix response. This is a subset of fields from the `GET /variant` data model. These metadata fields were chosen to mimic the metadata in a VCF file.</td></tr>
+<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.alternateBases</span></td><td>array[string]</td><td>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
 <tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.contig</span></td><td>string</td><td>The chromosome or linkage group name where this variant exists</td></tr>
 <tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.end</span></td><td>integer</td><td>The end position of this variant</td></tr>
-<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.ploidy</span></td><td>integer</td><td>The number of copies of the genome for this organism. This value indicates how to parse the genotype value string.</td></tr>
+<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.referenceBases</span></td><td>string</td><td>The reference bases for this variant. They start at the given start position.</td></tr>
 <tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.start</span></td><td>integer</td><td>The start position of this variant</td></tr>
 <tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.variantDbId</span></td><td>string</td><td>The unique identifier of a Variant</td></tr>
 </table>
@@ -329,23 +331,6 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
             "aca00002",
             "aca00003"
         ],
-        "data": [
-            [
-                "0|0",
-                "1|0",
-                "1/1"
-            ],
-            [
-                "0|0",
-                "1|0",
-                "1/1"
-            ],
-            [
-                "0|0",
-                "1|0",
-                "1/1"
-            ]
-        ],
         "expandHomozygotes": true,
         "genotypeFields": [
             {
@@ -371,6 +356,23 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
                 "fieldType": "integer"
             }
         ],
+        "genotypeMatrix": [
+            [
+                "0|0",
+                "1|0",
+                "1/1"
+            ],
+            [
+                "0|0",
+                "1|0",
+                "1/1"
+            ],
+            [
+                "0|0",
+                "1|0",
+                "1/1"
+            ]
+        ],
         "pagination": [
             {
                 "dimension": "VARIANTS",
@@ -390,6 +392,11 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
         "sepPhased": "|",
         "sepUnphased": "/",
         "unknownString": ".",
+        "variantDbIds": [
+            "feb54257",
+            "feb40355",
+            "feb40323"
+        ],
         "variantSetDbIds": [
             "cfde3944",
             "cfde2077",
@@ -397,23 +404,34 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
         ],
         "variants": [
             {
+                "alternateBases": [
+                    "A"
+                ],
                 "contig": "CHROM_20",
                 "end": 24370,
-                "ploidy": 2,
+                "referenceBases": "G",
                 "start": 14370,
                 "variantDbId": "feb54257"
             },
             {
+                "alternateBases": [
+                    "G",
+                    "T"
+                ],
                 "contig": "CHROM_20",
                 "end": 1113696,
-                "ploidy": 2,
+                "referenceBases": "A",
                 "start": 1110696,
                 "variantDbId": "feb40355"
             },
             {
+                "alternateBases": [
+                    "G",
+                    "GTCA"
+                ],
                 "contig": "CHROM_20",
                 "end": 1237567,
-                "ploidy": 2,
+                "referenceBases": "GTC",
                 "start": 1234567,
                 "variantDbId": "feb40323"
             }
@@ -480,14 +498,14 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">callSetDbIds</span></td><td>array[string]</td><td>A list of unique identifiers for the CallSets contained in the matrix response. A CallSet is a unique combination of a Sample and a sequencing event. CallSets often have a 1-to-1 relationship with Samples, but this is not always the case.</td></tr>
-<tr><td><span style="font-weight:bold;">data</span></td><td>array[array]</td><td>The whole genotype matrix, as a two dimensional array.</td></tr>
+<tr><td><span style="font-weight:bold;">callSetDbIds</span></td><td>array[string]</td><td>A list of unique identifiers for the CallSets contained in the matrix response. This array should match the ordering for columns in the matrix. A CallSet is a unique combination of a Sample and a sequencing event. CallSets often have a 1-to-1 relationship with Samples, but this is not always the case.</td></tr>
 <tr><td><span style="font-weight:bold;">expandHomozygotes</span></td><td>boolean</td><td>Should homozygotes be expanded (true) or collapsed into a single occurrence (false)</td></tr>
 <tr><td><span style="font-weight:bold;">genotypeFields</span></td><td>array[object]</td><td>Genotype fields are additional layers of metadata associated with each genotype. They are organized here as a collection of additional matrices the same size and orientation as the genotype matrix.</td></tr>
 <tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldAbbreviation</span></td><td>string</td><td>The abbreviated code of the field represented in this Genotype Field matrix. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"</td></tr>
 <tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldMatrix</span></td><td>array[array]</td><td>The Genotype Field matrix data, providing an additional layer of metadata associated with each genotype value. This matrix should be the same size and orientation as the genotype matrix.</td></tr>
 <tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldName</span></td><td>string</td><td>The name of the field represented in this Genotype Field matrix. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"</td></tr>
 <tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldType</span></td><td>string</td><td>The type of field represented in this Genotype Field matrix. This is intended to help parse the data out of JSON.</td></tr>
+<tr><td><span style="font-weight:bold;">genotypeMatrix</span></td><td>array[array]</td><td>The whole genotype matrix, as a two dimensional array.</td></tr>
 <tr><td><span style="font-weight:bold;">pagination</span></td><td>array[object]</td><td>Pagination for the matrix</td></tr>
 <tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.dimension</span></td><td>string</td><td>The dimension of the matrix being paginated</td></tr>
 <tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.page</span></td><td>integer</td><td>the requested page number (zero indexed)</td></tr>
@@ -497,11 +515,13 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
 <tr><td><span style="font-weight:bold;">sepPhased</span></td><td>string</td><td>The string used as a separator for phased allele calls.</td></tr>
 <tr><td><span style="font-weight:bold;">sepUnphased</span></td><td>string</td><td>The string used as a separator for unphased allele calls.</td></tr>
 <tr><td><span style="font-weight:bold;">unknownString</span></td><td>string</td><td>The string used as a representation for missing data.</td></tr>
+<tr><td><span style="font-weight:bold;">variantDbIds</span></td><td>array[string]</td><td>A list of unique identifiers for the Variants contained in the matrix response. This array should match the ordering for rows in the matrix.</td></tr>
 <tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>A list of unique identifiers for the VariantSets contained in the matrix response. A VariantSet is a data set originating from a sequencing event. Often, users will only be interested in data from a single VariantSet, but in some cases a user might be interested in a matrix with data from multiple VariantSets.</td></tr>
 <tr><td><span style="font-weight:bold;">variants</span></td><td>array[object]</td><td>A list of unique identifiers and other metadata for the Variants contained in the matrix response. This is a subset of fields from the `GET /variant` data model. These metadata fields were chosen to mimic the metadata in a VCF file.</td></tr>
+<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.alternateBases</span></td><td>array[string]</td><td>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
 <tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.contig</span></td><td>string</td><td>The chromosome or linkage group name where this variant exists</td></tr>
 <tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.end</span></td><td>integer</td><td>The end position of this variant</td></tr>
-<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.ploidy</span></td><td>integer</td><td>The number of copies of the genome for this organism. This value indicates how to parse the genotype value string.</td></tr>
+<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.referenceBases</span></td><td>string</td><td>The reference bases for this variant. They start at the given start position.</td></tr>
 <tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.start</span></td><td>integer</td><td>The start position of this variant</td></tr>
 <tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.variantDbId</span></td><td>string</td><td>The unique identifier of a Variant</td></tr>
 </table>
@@ -543,23 +563,6 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
             "aca00002",
             "aca00003"
         ],
-        "data": [
-            [
-                "0|0",
-                "1|0",
-                "1/1"
-            ],
-            [
-                "0|0",
-                "1|0",
-                "1/1"
-            ],
-            [
-                "0|0",
-                "1|0",
-                "1/1"
-            ]
-        ],
         "expandHomozygotes": true,
         "genotypeFields": [
             {
@@ -585,6 +588,23 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
                 "fieldType": "integer"
             }
         ],
+        "genotypeMatrix": [
+            [
+                "0|0",
+                "1|0",
+                "1/1"
+            ],
+            [
+                "0|0",
+                "1|0",
+                "1/1"
+            ],
+            [
+                "0|0",
+                "1|0",
+                "1/1"
+            ]
+        ],
         "pagination": [
             {
                 "dimension": "VARIANTS",
@@ -604,6 +624,11 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
         "sepPhased": "|",
         "sepUnphased": "/",
         "unknownString": ".",
+        "variantDbIds": [
+            "feb54257",
+            "feb40355",
+            "feb40323"
+        ],
         "variantSetDbIds": [
             "cfde3944",
             "cfde2077",
@@ -611,23 +636,34 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
         ],
         "variants": [
             {
+                "alternateBases": [
+                    "A"
+                ],
                 "contig": "CHROM_20",
                 "end": 24370,
-                "ploidy": 2,
+                "referenceBases": "G",
                 "start": 14370,
                 "variantDbId": "feb54257"
             },
             {
+                "alternateBases": [
+                    "G",
+                    "T"
+                ],
                 "contig": "CHROM_20",
                 "end": 1113696,
-                "ploidy": 2,
+                "referenceBases": "A",
                 "start": 1110696,
                 "variantDbId": "feb40355"
             },
             {
+                "alternateBases": [
+                    "G",
+                    "GTCA"
+                ],
                 "contig": "CHROM_20",
                 "end": 1237567,
-                "ploidy": 2,
+                "referenceBases": "GTC",
                 "start": 1234567,
                 "variantDbId": "feb40323"
             }
@@ -692,14 +728,14 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">callSetDbIds</span></td><td>array[string]</td><td>A list of unique identifiers for the CallSets contained in the matrix response. A CallSet is a unique combination of a Sample and a sequencing event. CallSets often have a 1-to-1 relationship with Samples, but this is not always the case.</td></tr>
-<tr><td><span style="font-weight:bold;">data</span></td><td>array[array]</td><td>The whole genotype matrix, as a two dimensional array.</td></tr>
+<tr><td><span style="font-weight:bold;">callSetDbIds</span></td><td>array[string]</td><td>A list of unique identifiers for the CallSets contained in the matrix response. This array should match the ordering for columns in the matrix. A CallSet is a unique combination of a Sample and a sequencing event. CallSets often have a 1-to-1 relationship with Samples, but this is not always the case.</td></tr>
 <tr><td><span style="font-weight:bold;">expandHomozygotes</span></td><td>boolean</td><td>Should homozygotes be expanded (true) or collapsed into a single occurrence (false)</td></tr>
 <tr><td><span style="font-weight:bold;">genotypeFields</span></td><td>array[object]</td><td>Genotype fields are additional layers of metadata associated with each genotype. They are organized here as a collection of additional matrices the same size and orientation as the genotype matrix.</td></tr>
 <tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldAbbreviation</span></td><td>string</td><td>The abbreviated code of the field represented in this Genotype Field matrix. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"</td></tr>
 <tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldMatrix</span></td><td>array[array]</td><td>The Genotype Field matrix data, providing an additional layer of metadata associated with each genotype value. This matrix should be the same size and orientation as the genotype matrix.</td></tr>
 <tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldName</span></td><td>string</td><td>The name of the field represented in this Genotype Field matrix. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"</td></tr>
 <tr><td>genotypeFields<br><span style="font-weight:bold;margin-left:5px">.fieldType</span></td><td>string</td><td>The type of field represented in this Genotype Field matrix. This is intended to help parse the data out of JSON.</td></tr>
+<tr><td><span style="font-weight:bold;">genotypeMatrix</span></td><td>array[array]</td><td>The whole genotype matrix, as a two dimensional array.</td></tr>
 <tr><td><span style="font-weight:bold;">pagination</span></td><td>array[object]</td><td>Pagination for the matrix</td></tr>
 <tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.dimension</span></td><td>string</td><td>The dimension of the matrix being paginated</td></tr>
 <tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.page</span></td><td>integer</td><td>the requested page number (zero indexed)</td></tr>
@@ -709,11 +745,13 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
 <tr><td><span style="font-weight:bold;">sepPhased</span></td><td>string</td><td>The string used as a separator for phased allele calls.</td></tr>
 <tr><td><span style="font-weight:bold;">sepUnphased</span></td><td>string</td><td>The string used as a separator for unphased allele calls.</td></tr>
 <tr><td><span style="font-weight:bold;">unknownString</span></td><td>string</td><td>The string used as a representation for missing data.</td></tr>
+<tr><td><span style="font-weight:bold;">variantDbIds</span></td><td>array[string]</td><td>A list of unique identifiers for the Variants contained in the matrix response. This array should match the ordering for rows in the matrix.</td></tr>
 <tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>A list of unique identifiers for the VariantSets contained in the matrix response. A VariantSet is a data set originating from a sequencing event. Often, users will only be interested in data from a single VariantSet, but in some cases a user might be interested in a matrix with data from multiple VariantSets.</td></tr>
 <tr><td><span style="font-weight:bold;">variants</span></td><td>array[object]</td><td>A list of unique identifiers and other metadata for the Variants contained in the matrix response. This is a subset of fields from the `GET /variant` data model. These metadata fields were chosen to mimic the metadata in a VCF file.</td></tr>
+<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.alternateBases</span></td><td>array[string]</td><td>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
 <tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.contig</span></td><td>string</td><td>The chromosome or linkage group name where this variant exists</td></tr>
 <tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.end</span></td><td>integer</td><td>The end position of this variant</td></tr>
-<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.ploidy</span></td><td>integer</td><td>The number of copies of the genome for this organism. This value indicates how to parse the genotype value string.</td></tr>
+<tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.referenceBases</span></td><td>string</td><td>The reference bases for this variant. They start at the given start position.</td></tr>
 <tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.start</span></td><td>integer</td><td>The start position of this variant</td></tr>
 <tr><td>variants<br><span style="font-weight:bold;margin-left:5px">.variantDbId</span></td><td>string</td><td>The unique identifier of a Variant</td></tr>
 </table>
@@ -769,23 +807,6 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
             "aca00002",
             "aca00003"
         ],
-        "data": [
-            [
-                "0|0",
-                "1|0",
-                "1/1"
-            ],
-            [
-                "0|0",
-                "1|0",
-                "1/1"
-            ],
-            [
-                "0|0",
-                "1|0",
-                "1/1"
-            ]
-        ],
         "expandHomozygotes": true,
         "genotypeFields": [
             {
@@ -811,6 +832,23 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
                 "fieldType": "integer"
             }
         ],
+        "genotypeMatrix": [
+            [
+                "0|0",
+                "1|0",
+                "1/1"
+            ],
+            [
+                "0|0",
+                "1|0",
+                "1/1"
+            ],
+            [
+                "0|0",
+                "1|0",
+                "1/1"
+            ]
+        ],
         "pagination": [
             {
                 "dimension": "VARIANTS",
@@ -830,6 +868,11 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
         "sepPhased": "|",
         "sepUnphased": "/",
         "unknownString": ".",
+        "variantDbIds": [
+            "feb54257",
+            "feb40355",
+            "feb40323"
+        ],
         "variantSetDbIds": [
             "cfde3944",
             "cfde2077",
@@ -837,23 +880,34 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
         ],
         "variants": [
             {
+                "alternateBases": [
+                    "A"
+                ],
                 "contig": "CHROM_20",
                 "end": 24370,
-                "ploidy": 2,
+                "referenceBases": "G",
                 "start": 14370,
                 "variantDbId": "feb54257"
             },
             {
+                "alternateBases": [
+                    "G",
+                    "T"
+                ],
                 "contig": "CHROM_20",
                 "end": 1113696,
-                "ploidy": 2,
+                "referenceBases": "A",
                 "start": 1110696,
                 "variantDbId": "feb40355"
             },
             {
+                "alternateBases": [
+                    "G",
+                    "GTCA"
+                ],
                 "contig": "CHROM_20",
                 "end": 1237567,
-                "ploidy": 2,
+                "referenceBases": "GTC",
                 "start": 1234567,
                 "variantDbId": "feb40323"
             }
