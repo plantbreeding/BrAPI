@@ -118,7 +118,7 @@ components:
                 type: array
                 items:
                   type: string
-                example: ['TI001', 'TI002', 'TI001']
+                example: ['20', '50', '40']
               parameterDescription:
                 description: A human readable description of this event parameter. This description is ussually associated with the 'name' and 'code' of an event parameter.
                 type: string
@@ -130,14 +130,18 @@ components:
           example:
           - name: "tillage_implement"
             code: "tiimp"
+            parameterDescription: Implement or tool used for tillage
             unit: "code"
             value: "TI001"
+            codeValueDescription: Standard V-Ripper (TI001)
           - name: "tillage_operations_depth"
             code: "tidep"
+            parameterDescription: Tillage operations depth in centimeters
             unit: "cm"
-            value: "20"
+            valuesByDate: ['20', '50', '40']
           - name: "till_mix_effectiveness"
             code: "timix"
+            parameterDescription: Tillage operations mixing effectiveness
             unit: "percent"
             value: "50"
 
