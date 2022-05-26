@@ -94,19 +94,27 @@ Get list of events
                 "eventParameters": [
                     {
                         "code": "tiimp",
+                        "codeValueDescription": "Standard V-Ripper (TI001)",
                         "name": "tillage_implement",
+                        "parameterDescription": "Implement or tool used for tillage",
                         "unit": "code",
                         "value": "TI001"
                     },
                     {
                         "code": "tidep",
                         "name": "tillage_operations_depth",
+                        "parameterDescription": "Tillage operations depth in centimeters",
                         "unit": "cm",
-                        "value": "20"
+                        "valuesByDate": [
+                            "20",
+                            "50",
+                            "40"
+                        ]
                     },
                     {
                         "code": "timix",
                         "name": "till_mix_effectiveness",
+                        "parameterDescription": "Tillage operations mixing effectiveness",
                         "unit": "percent",
                         "value": "50"
                     }
