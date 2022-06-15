@@ -12,7 +12,7 @@ import dereferenceAll
 varRegex = re.compile('\{([^\{\}]*)\}')
 secondTestRegex = re.compile('^\/\w+\/\{\w+\}$')
 
-def buildCollection(parent):
+def buildCollection(parent, verbose):
 	collection = {
 					"info": {
 						"name": "Complete BrAPI test",
@@ -25,6 +25,8 @@ def buildCollection(parent):
 	if('tags' in parent):
 		for tagObj in parent['tags']:
 			if tagObj['name'] != 'Search Services':
+				if verbose:
+					print("Adding Tag: " + tagObj['name'])
 				collection['item'].append(
 									{
 									"name": tagObj['name'],
@@ -39,43 +41,50 @@ def buildCollection(parent):
 		method = pathObj['method']
 		for tag in collection['item']:
 			tagName = tag['name']
-			if tagName in parent['paths'][path][method]['tags'] and isNotDeprecated(parent['paths'][path][method]):	
-				
-				buildJSONSchemas(method, path, tagName.replace(' ', ''), parent)
-				newTest = {
-							"name": method.upper() + ' ' + path,
-							"endpoint": path,
-							"description": parent['paths'][path][method]['description'],
-							"requires": getRequiresList(method, path),
-							"request": {
-								"url": "{baseurl}" + replacePathParams(method, path),
-								"method": method.upper()
-							},
-							"event": [
-								{
-									"listen": "test",
-									"type": "text/plain",
-									"exec": getExecList(method, path, tagName.replace(' ', ''))
-								}
-							],
-							"parameters": getParamsList(method, path)
-						}
+			if tagName in parent['paths'][path][method]['tags']:
+				if not isNotDeprecated(parent['paths'][path][method]):
+					if verbose:
+						print('Deprecated path "' + method + path)
+				else:	
+					if verbose:
+						print('Added test for path "' + method + path)
+					buildJSONSchemas(method, path, tagName.replace(' ', ''), parent)
+					newTest = {
+								"name": method.upper() + ' ' + path,
+								"endpoint": path,
+								"description": parent['paths'][path][method]['description'],
+								"requires": getRequiresList(method, path),
+								"request": {
+									"url": "{baseurl}" + replacePathParams(method, path),
+									"method": method.upper()
+								},
+								"event": [
+									{
+										"listen": "test",
+										"type": "text/plain",
+										"exec": getExecList(method, path, tagName.replace(' ', ''))
+									}
+								],
+								"parameters": getParamsList(method, path)
+							}
+						
+					tag['item'].append(newTest)
 					
-				tag['item'].append(newTest)
+					if method.lower() == 'get' and secondTestRegex.match(path):
+						secondTest = deepcopy(newTest)
+						secondTest['name'] += ' with second DbId' 
+						secondTest['requires'] = getRequiresList(method, path, '1')
+						secondTest['request']['url'] = "{baseurl}" + replacePathParams(method, path, '1')
+						secondTest['event'][0]['exec'] = getExecList(method, path, tagName.replace(' ', ''), '1')
+						tag['item'].append(secondTest)
+					break
 				
-				if method.lower() == 'get' and secondTestRegex.match(path):
-					secondTest = deepcopy(newTest)
-					secondTest['name'] += ' with second DbId' 
-					secondTest['requires'] = getRequiresList(method, path, '1')
-					secondTest['request']['url'] = "{baseurl}" + replacePathParams(method, path, '1')
-					secondTest['event'][0]['exec'] = getExecList(method, path, tagName.replace(' ', ''), '1')
-					tag['item'].append(secondTest)
-				break
-	
+	            	
 	filename = outPath + 'collections/CompleteBrapiTest.' + versionNumber + '.json'
 	os.makedirs(os.path.dirname(filename), exist_ok=True)
 	with open(filename, 'w') as outfile:
 		json.dump(collection, outfile, indent=4, sort_keys=True)
+	print(filename)
 
 def sortPaths(parent):
 	
@@ -320,6 +329,7 @@ def fixSchema(schema, method, path):
 	schema = removeSwaggerTerms(schema)
 	schema = fixStringFormats(schema)
 	schema = allowNullFields(schema)
+	schema = addRequired(schema)
 	return schema
 
 def addMinItems(parent, method, path):
@@ -339,6 +349,16 @@ def removeDeprecated(parent):
 					newParent.pop(childKey)
 				else:
 					newParent[childKey] = removeDeprecated(child)
+	return newParent
+
+def addRequired(parent):
+	newParent = deepcopy(parent)
+	if type(newParent) is dict:
+		if 'properties' in newParent:
+			newParent['required'] = list(newParent['properties'].keys());
+		for childKey in newParent:
+			newParent[childKey] = addRequired(newParent[childKey])
+
 	return newParent
 
 def removeSwaggerTerms(parent):
@@ -436,11 +456,12 @@ if '-brapi' in sys.argv:
 if '-out' in sys.argv:
 	ri = sys.argv.index('-out')
 	outPath = sys.argv[ri + 1]
+	
 if outPath[-1] != '/':
 	outPath = outPath + '/'
 
-parentFile = dereferenceAll.dereferenceBrAPI(filePath = yamlPath)
+print('input YAML file: ' + yamlPath)
+parentFile = dereferenceAll.dereferenceBrAPI(yamlPath, verbose)
 
-buildCollection(parentFile)
+buildCollection(parentFile, verbose)
 buildMetaData(parentFile)
-	

@@ -3,7 +3,7 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /ontologies/ontologyDbId:
+  /ontologies/{ontologyDbId}:
     get:
       summary: Get a specific Ontology record by its ontologyDbId
       description: |-

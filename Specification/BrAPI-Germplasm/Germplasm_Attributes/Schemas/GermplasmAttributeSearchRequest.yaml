@@ -8,6 +8,7 @@ components:
     GermplasmAttributeSearchRequest:
       allOf:
       - $ref: '#/components/schemas/SearchRequestParametersVariableBaseClass'
+      - $ref: '#/components/schemas/SearchRequestParametersGermplasm'
       - type: object
         properties:
           attributeDbIds:
@@ -28,4 +29,10 @@ components:
               type: string
             type: array
             example: ['http://my-traits.com/trait/CO_123:0008012', 'http://my-traits.com/trait/CO_123:0007261']
+          attributeCategories:
+            description: General category for the attribute. very similar to Trait class.
+            items:
+              type: string
+            type: array
+            example: ['Morphological', 'Physical']
   

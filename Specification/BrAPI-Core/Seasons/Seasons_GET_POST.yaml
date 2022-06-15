@@ -28,6 +28,13 @@ paths:
         required: false
         schema:
           type: string
+      - description: The term to describe a given season. Example "Spring" OR "May" OR "Planting_Time_7".
+        example: Spring
+        in: query
+        name: seasonName
+        required: false
+        schema:
+          type: string
       - description: The 4 digit year of a season. Example "2017"
         example: 2017
         in: query
