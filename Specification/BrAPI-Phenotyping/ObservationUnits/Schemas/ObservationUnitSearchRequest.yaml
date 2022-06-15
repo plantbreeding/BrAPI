@@ -57,4 +57,10 @@ components:
               CAUTION - Use this parameter at your own risk. It may return large, unpaginated lists of observation data. Only set this value to True if you are sure you need to.
             type: boolean
             example: False
+          seasonDbIds: 
+            description: The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
+            items:
+              type: string
+            type: array
+            example: ['Spring 2018', 'Season A']
 

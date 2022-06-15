@@ -58,7 +58,7 @@ components:
           format: date-time
           deprecated: true
         pollinationEvents:
-          descriptions: The list of pollination events that occurred for this cross
+          description: The list of pollination events that occurred for this cross
           type: array
           items:
             type: object
