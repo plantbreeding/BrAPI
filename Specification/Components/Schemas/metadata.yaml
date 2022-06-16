@@ -80,22 +80,28 @@ components:
       - $ref: '#/components/schemas/basePagination'
       - type: object
         description: |-
-          The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. 
-          
-          Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken to construct an additional query and move to the next or previous page respectively.  
+          **Deprecated in v2.1** Please use `page`. Github issue number #451 
+          <br>The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. 
+          <br>Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken to construct an additional query and move to the next or previous page respectively.  
         required:
         - nextPageToken
         properties:
           nextPageToken:
-            description: The string token used to query the next page of data.
+            description: |- 
+              **Deprecated in v2.1** Please use `page`. Github issue number #451 
+              <br>The string token used to query the next page of data.
             type: string
             example: cb668f63
           currentPageToken:
-            description: The string token used to query the current page of data.
+            description: |- 
+              **Deprecated in v2.1** Please use `page`. Github issue number #451 
+              <br>The string token used to query the current page of data.
             type: string
             example: 48bc6ac1
           prevPageToken:
-            description: The string token used to query the previous page of data.
+            description: |- 
+              **Deprecated in v2.1** Please use `page`. Github issue number #451 
+              <br>The string token used to query the previous page of data.
             type: string
             example: 9659857e
     dataFile:

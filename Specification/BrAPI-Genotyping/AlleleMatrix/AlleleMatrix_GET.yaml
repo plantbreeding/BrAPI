@@ -1,0 +1,84 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /allelematrix:
+    get:
+      summary: Use this endpoint to retrieve a two dimensional matrix of genotype data
+      description: |-
+        Use this endpoint to retrieve a two dimensional matrix of genotype data. The response structure is based on the VCF format, with the enhanced ability to slice and merge data sets. This allows the user to return the subset of data they are interested in, without having to download the entire genotype file.
+        <br/>Each row of data (outer array) corresponds to a variant definition, and each column (inner array) corresponds to a callSet.    
+      parameters:
+        - name: dimensionVariantPage
+          description: The requested page number for the Variant dimension of the matrix
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: dimensionVariantPageSize
+          description: The requested page size for the Variant dimension of the matrix
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: dimensionCallSetPage
+          description: The requested page number for the CallSet dimension of the matrix
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: dimensionCallSetPageSize
+          description: The requested page size for the CallSet dimension of the matrix
+          in: query
+          required: false
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/searchResultsDbId'
+        - $ref: '#/components/parameters/preview'
+        - $ref: '#/components/parameters/dataMatrixNames'
+        - $ref: '#/components/parameters/dataMatrixAbbreviations'
+        - $ref: '#/components/parameters/positionRange'
+        - $ref: '#/components/parameters/germplasmDbId'
+        - $ref: '#/components/parameters/germplasmName'
+        - $ref: '#/components/parameters/germplasmPUI'
+        - $ref: '#/components/parameters/callSetDbId'
+        - $ref: '#/components/parameters/variantDbId'
+        - $ref: '#/components/parameters/variantSetDbId'
+        - $ref: '#/components/parameters/expandHomozygotes'
+        - $ref: '#/components/parameters/unknownString'
+        - $ref: '#/components/parameters/sepPhased'
+        - $ref: '#/components/parameters/sepUnphased'
+        - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/AlleleMatrixResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+        - Genotype-Matrix-Redesign
+
+components:
+  responses:
+    AlleleMatrixResponse: 
+      description: OK
+      headers: {}
+      content:
+        application/json:
+          schema:
+            title: AlleleMatrixResponse
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/AlleleMatrix'

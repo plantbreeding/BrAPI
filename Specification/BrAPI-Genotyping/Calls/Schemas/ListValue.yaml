@@ -8,13 +8,15 @@ components:
     ListValue:
       type: object
       description: |-
-        `ListValue` is a wrapper around a repeated field of values.
-
-        The JSON representation for `ListValue` is JSON array.
+        **Deprecated in v2.1** Please use `genotypeValue` or `genotypeMetadata`. Github issue number #491             
+        <br>`ListValue` is a wrapper around a repeated field of values.
+        <br>The JSON representation for `ListValue` is JSON array.
       properties:
         values:
           type: array
-          description: Repeated field of dynamically typed values.
+          description: |-
+            **Deprecated in v2.1** Please use `genotypeValue` or `genotypeMetadata`. Github issue number #491             
+            <br>Repeated field of dynamically typed values.
           items:
             oneOf:
             - description: Represents a boolean value.

@@ -44,17 +44,54 @@ components:
           description: The human readable name for a VariantSet
           type: string
           example: Maize QC DataSet 002334 
+        genotypeValue:
+          description: The value of this genotype call
+          type: string
+          example: '1/1'
+        genotypeMetadata:
+          description: Genotype Metadata are additional layers of metadata associated with each genotype.
+          type: array
+          items:
+            type: object
+            properties:
+              dataType:
+                description: The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.
+                type: string
+                enum:
+                - string
+                - integer
+                - float
+                - boolean
+                example: integer
+              fieldName:
+                description: |-
+                  The name of the field represented in this Genotype Field. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"
+                type: string
+                example: Genotype Quality
+              fieldAbbreviation:
+                description: |-
+                  The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"
+                type: string
+                example: GQ
+              fieldValue:
+                description: The additional metadata value associated with this genotype call
+                type: string
+                example: '45.2'
+        phaseSet:
+          description: |-
+            If this field is populated, this variant call's genotype ordering implies the phase of the bases and 
+            is consistent with any other variant calls on the same contig which have the same phase set string.
+          type: string
+          example: 6410afc5
         genotype:
           $ref: '#/components/schemas/ListValue'
         genotype_likelihood:
-          description: The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data | genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.
+          description: |-
+            **Deprecated in v2.1** Please use `genotypeMetadata`. Github issue number #491             
+            <br>The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data | genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.
           items:
             format: double
             type: number
           type: array
           example: [ 1.0 ]
-        phaseSet:
-          description: If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.
-          type: string
-          example: 6410afc5
 

@@ -24,6 +24,35 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AvailableFormat'
+        metadataFields:
+          description: |-
+            The 'metadataFields' array indicates which types of genotyping data and metadata are available in the VariantSet. 
+            <br> When possible, these field names and abbreviations should follow the VCF standard 
+          type: array
+          items:
+            description: |-
+              This represents a type of genotyping data or metadata available in this VariantSet
+            type: object
+            properties:
+              dataType:
+                description: The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.
+                type: string
+                enum:
+                - string
+                - integer
+                - float
+                - boolean
+                example: integer
+              fieldName:
+                description: |-
+                  The name of the field represented in this Genotype Field. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"
+                type: string
+                example: Genotype Quality
+              fieldAbbreviation:
+                description: |-
+                  The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"
+                type: string
+                example: GQ
         analysis:
           description: Set of Analysis descriptors for this VariantSet 
           type: array

@@ -4,7 +4,7 @@ brapicore20 brapiphenotyping20 brapigenotyping20 brapigermplasm20
 brapicore21 brapiphenotyping21 brapigenotyping21 brapigermplasm21
 
 observationunits attributevalues callsets markerpositions referencesets variantsets commoncropnames
-openapi apiary github swaggerhub ga4gh apis auth restfulness RESTfulness tfulness
+openapi apiary github swaggerhub ga4gh apis auth restfulness RESTfulness tfulness paginated
 
 json jsonld csv tsv flapjack jpg svg png postgres xlsx vnd tabular datafiles datafile
 md5sum md5checksum md5checksums checksum
@@ -28,7 +28,7 @@ germplasm genebank genebanks
 multi-crop subblock
 pui peco envo puid r001 geodetic georeference georeferencing gazetteer
 
-phenotypes phenotyping genotyping agronomy agronomic phenological agronomical cytogenetic
+phenotypes phenotyping genotyping agronomy agronomic phenological agronomical cytogenetic Haplotype
 
 authorships
 centimeter centimeters unphased log10 
@@ -45,6 +45,8 @@ malting carotenoid pipet plateless indel parent1 parent2
 Zea mays fructus c2365e900c81a89cf74d83dab60df146 
 
 tomatillo hadron coladas townsville
+
+inorg tiimp i001 tidep timix allelematrix
 
 https://www.bioversityInternational.org/fileadmin/user_upload/online_library/publications/pdfs/FAOBIOVERSITY_MULTI-CROP_PASSPORT_DESCRIPTORS_V.2.1_2015_2020.pdf
 https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3

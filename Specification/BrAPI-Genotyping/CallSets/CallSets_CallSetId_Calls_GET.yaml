@@ -8,8 +8,6 @@ paths:
       summary: Gets a list of `Calls` associated with a `CallSet`.
       description: |-
         Gets a list of `Calls` associated with a `CallSet`.
-        
-        ** THIS ENDPOINT USES TOKEN BASED PAGING **
       parameters:
         - name: callSetDbId
           description: The ID of the `CallSet` to be retrieved.
@@ -42,6 +40,7 @@ paths:
           schema:
             type: string
         - $ref: '#/components/parameters/pageToken'
+        - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/authorizationHeader'
       responses:

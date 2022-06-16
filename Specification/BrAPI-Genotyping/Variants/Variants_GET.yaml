@@ -8,8 +8,6 @@ paths:
       summary: Gets a filtered list of `Variants`.
       description: |-
         Gets a filtered list of `Variants`.
-        
-        ** THIS ENDPOINT USES TOKEN BASED PAGING **
       parameters:
         - name: variantDbId
           description: The ID of the `Variant` to be retrieved.
@@ -36,6 +34,7 @@ paths:
           schema:
             type: string
         - $ref: '#/components/parameters/pageToken'
+        - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/externalReferenceId'
         - $ref: '#/components/parameters/externalReferenceSource'
