@@ -7,7 +7,7 @@ A season is made of 2 parts; the primary year and a term which defines a segment
 
 
 
-### Get - /seasons [GET /brapi/v2/seasons{?seasonDbId}{?season}{?year}{?page}{?pageSize}]
+### Get - /seasons [GET /brapi/v2/seasons{?seasonDbId}{?season}{?seasonName}{?year}{?page}{?pageSize}]
 
 Call to retrieve all seasons in the database.
 
@@ -33,6 +33,7 @@ program like "PlantingTime_3" or "Season E"
 + Parameters
     + seasonDbId (Optional, ) ... The unique identifier for a season. For backward compatibility it can be a string like '2012', '1957-2004'
     + season (Optional, ) ... The term to describe a given season. Example "Spring" OR "May" OR "Planting_Time_7".
+    + seasonName (Optional, ) ... The term to describe a given season. Example "Spring" OR "May" OR "Planting_Time_7".
     + year (Optional, ) ... The 4 digit year of a season. Example "2017"
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.

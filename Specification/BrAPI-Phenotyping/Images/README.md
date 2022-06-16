@@ -43,6 +43,8 @@ Submit a delete request for `Images`
 <tr><td><span style="font-weight:bold;">mimeTypes</span></td><td>array[string]</td><td>A set of image file types to search for.</td></tr>
 <tr><td><span style="font-weight:bold;">observationDbIds</span></td><td>array[string]</td><td>A list of observation Ids this image is associated with to search for</td></tr>
 <tr><td><span style="font-weight:bold;">observationUnitDbIds</span></td><td>array[string]</td><td>A set of observation unit identifiers to search for.</td></tr>
+<tr><td><span style="font-weight:bold;">page</span></td><td>integer</td><td>Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.</td></tr>
+<tr><td><span style="font-weight:bold;">pageSize</span></td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
 <tr><td><span style="font-weight:bold;">programDbIds</span></td><td>array[string]</td><td>A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.</td></tr>
 <tr><td><span style="font-weight:bold;">programNames</span></td><td>array[string]</td><td>Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.</td></tr>
 </table>
@@ -146,6 +148,8 @@ Submit a delete request for `Images`
         "f5e4b273",
         "328c9424"
     ],
+    "page": 0,
+    "pageSize": 1000,
     "programDbIds": [
         "8f5de35b",
         "0e2d4a13"

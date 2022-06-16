@@ -218,7 +218,7 @@ Each Ontology record describes the metadata of an existing ontology, it does not
 
 
 
-### Get - /ontologies/ontologyDbId [GET /brapi/v2/ontologies/ontologyDbId]
+### Get - /ontologies/{ontologyDbId} [GET /brapi/v2/ontologies/{ontologyDbId}]
 
 Use this endpoint to retrieve a specific Ontology record by its ontologyDbId. 
 Each Ontology record describes the metadata of an existing ontology, it does not include all the terms that are part of that ontology.
@@ -303,7 +303,7 @@ Each Ontology record describes the metadata of an existing ontology, it does not
 
 
 
-### Put - /ontologies/ontologyDbId [PUT /brapi/v2/ontologies/ontologyDbId/]
+### Put - /ontologies/{ontologyDbId} [PUT /brapi/v2/ontologies/{ontologyDbId}/]
 
 Use this endpoint to update a specific Ontology record. 
 Each Ontology record describes the metadata of an existing ontology, it does not include all the terms that are part of that ontology.

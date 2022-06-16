@@ -2042,6 +2042,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">attributeCategories</span></td><td>array[string]</td><td>General category for the attribute. very similar to Trait class.</td></tr>
 <tr><td><span style="font-weight:bold;">attributeDbIds</span></td><td>array[string]</td><td>List of Germplasm Attribute IDs to search for</td></tr>
 <tr><td><span style="font-weight:bold;">attributeNames</span></td><td>array[string]</td><td>List of human readable Germplasm Attribute names to search for</td></tr>
 <tr><td><span style="font-weight:bold;">attributePUIs</span></td><td>array[string]</td><td>The Permanent Unique Identifier of an Attribute, usually in the form of a URI</td></tr>
@@ -2050,6 +2051,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceIds</span></td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceSources</span></td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
+<tr><td><span style="font-weight:bold;">germplasmDbIds</span></td><td>array[string]</td><td>List of IDs which uniquely identify germplasm to search for</td></tr>
+<tr><td><span style="font-weight:bold;">germplasmNames</span></td><td>array[string]</td><td>List of human readable names to identify germplasm to search for</td></tr>
 <tr><td><span style="font-weight:bold;">methodDbIds</span></td><td>array[string]</td><td>List of methods to filter search results</td></tr>
 <tr><td><span style="font-weight:bold;">methodNames</span></td><td>array[string]</td><td>Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation</td></tr>
 <tr><td><span style="font-weight:bold;">methodPUIs</span></td><td>array[string]</td><td>The Permanent Unique Identifier of a Method, usually in the form of a URI</td></tr>
@@ -2195,6 +2198,10 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 + Request (application/json)
 ```
 {
+    "attributeCategories": [
+        "Morphological",
+        "Physical"
+    ],
     "attributeDbIds": [
         "2ef15c9f",
         "318e7f7d"
@@ -2227,6 +2234,14 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
     "externalReferenceSources": [
         "DOI",
         "Field App Name"
+    ],
+    "germplasmDbIds": [
+        "e9c6edd7",
+        "1b1df4a6"
+    ],
+    "germplasmNames": [
+        "A0000003",
+        "A0000477"
     ],
     "methodDbIds": [
         "07e34f83",

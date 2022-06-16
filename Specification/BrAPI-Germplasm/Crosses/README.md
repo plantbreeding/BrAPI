@@ -42,7 +42,7 @@ Get a filtered list of Cross entities.
 <tr><td>parent2<br><span style="font-weight:bold;margin-left:5px">.parentType</span></td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
 <tr><td><span style="font-weight:bold;">plannedCrossDbId</span></td><td>string</td><td>the unique identifier for a planned cross</td></tr>
 <tr><td><span style="font-weight:bold;">plannedCrossName</span></td><td>string</td><td>the human readable name for a planned cross</td></tr>
-<tr><td><span style="font-weight:bold;">pollinationEvents</span></td><td>array[object]</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">pollinationEvents</span></td><td>array[object]</td><td>The list of pollination events that occurred for this cross</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationNumber</span></td><td>string</td><td>The unique identifier for this pollination event</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationSuccessful</span></td><td>boolean</td><td>True if the pollination was successful</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationTimeStamp</span></td><td>string<br>(date-time)</td><td>The timestamp when the pollination took place</td></tr>
@@ -196,7 +196,7 @@ Create new Cross entities on this server
 <tr><td>parent2<br><span style="font-weight:bold;margin-left:5px">.parentType</span></td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
 <tr><td><span style="font-weight:bold;">plannedCrossDbId</span></td><td>string</td><td>the unique identifier for a planned cross</td></tr>
 <tr><td><span style="font-weight:bold;">plannedCrossName</span></td><td>string</td><td>the human readable name for a planned cross</td></tr>
-<tr><td><span style="font-weight:bold;">pollinationEvents</span></td><td>array[object]</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">pollinationEvents</span></td><td>array[object]</td><td>The list of pollination events that occurred for this cross</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationNumber</span></td><td>string</td><td>The unique identifier for this pollination event</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationSuccessful</span></td><td>boolean</td><td>True if the pollination was successful</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationTimeStamp</span></td><td>string<br>(date-time)</td><td>The timestamp when the pollination took place</td></tr>
@@ -235,7 +235,7 @@ Create new Cross entities on this server
 <tr><td>parent2<br><span style="font-weight:bold;margin-left:5px">.parentType</span></td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
 <tr><td><span style="font-weight:bold;">plannedCrossDbId</span></td><td>string</td><td>the unique identifier for a planned cross</td></tr>
 <tr><td><span style="font-weight:bold;">plannedCrossName</span></td><td>string</td><td>the human readable name for a planned cross</td></tr>
-<tr><td><span style="font-weight:bold;">pollinationEvents</span></td><td>array[object]</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">pollinationEvents</span></td><td>array[object]</td><td>The list of pollination events that occurred for this cross</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationNumber</span></td><td>string</td><td>The unique identifier for this pollination event</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationSuccessful</span></td><td>boolean</td><td>True if the pollination was successful</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationTimeStamp</span></td><td>string<br>(date-time)</td><td>The timestamp when the pollination took place</td></tr>
@@ -439,7 +439,7 @@ Update existing Cross entities on this server
 <tr><td>parent2<br><span style="font-weight:bold;margin-left:5px">.parentType</span></td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
 <tr><td><span style="font-weight:bold;">plannedCrossDbId</span></td><td>string</td><td>the unique identifier for a planned cross</td></tr>
 <tr><td><span style="font-weight:bold;">plannedCrossName</span></td><td>string</td><td>the human readable name for a planned cross</td></tr>
-<tr><td><span style="font-weight:bold;">pollinationEvents</span></td><td>array[object]</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">pollinationEvents</span></td><td>array[object]</td><td>The list of pollination events that occurred for this cross</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationNumber</span></td><td>string</td><td>The unique identifier for this pollination event</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationSuccessful</span></td><td>boolean</td><td>True if the pollination was successful</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationTimeStamp</span></td><td>string<br>(date-time)</td><td>The timestamp when the pollination took place</td></tr>
