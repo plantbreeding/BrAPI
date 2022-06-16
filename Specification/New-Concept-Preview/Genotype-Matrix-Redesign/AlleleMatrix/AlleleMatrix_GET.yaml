@@ -34,6 +34,10 @@ paths:
           required: false
           schema:
             type: integer
+        - $ref: '#/components/parameters/searchResultsDbId'
+        - $ref: '#/components/parameters/preview'
+        - $ref: '#/components/parameters/dataMatrixNames'
+        - $ref: '#/components/parameters/dataMatrixAbbreviations'
         - $ref: '#/components/parameters/positionRange'
         - $ref: '#/components/parameters/germplasmDbId'
         - $ref: '#/components/parameters/germplasmName'
