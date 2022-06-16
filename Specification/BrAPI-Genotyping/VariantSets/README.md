@@ -62,6 +62,10 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">metadataFields</span></td><td>array[object]</td><td>The 'metadataFields' array indicates which types of genotyping data and metadata are available in the VariantSet.  <br> When possible, these field names and abbreviations should follow the VCF standard </td></tr>
+<tr><td>metadataFields<br><span style="font-weight:bold;margin-left:5px">.dataType</span></td><td>string</td><td>The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.</td></tr>
+<tr><td>metadataFields<br><span style="font-weight:bold;margin-left:5px">.fieldAbbreviation</span></td><td>string</td><td>The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"</td></tr>
+<tr><td>metadataFields<br><span style="font-weight:bold;margin-left:5px">.fieldName</span></td><td>string</td><td>The name of the field represented in this Genotype Field. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"</td></tr>
 <tr><td><span style="font-weight:bold;">referenceSetDbId</span></td><td>string</td><td>The ID of the reference set that describes the sequences used by the variants in this set.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID of the dataset this variant set belongs to.</td></tr>
 <tr><td><span style="font-weight:bold;">variantCount</span></td><td>integer</td><td>The number of Variants included in this VariantSet</td></tr>
@@ -219,6 +223,13 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
+                "metadataFields": [
+                    {
+                        "dataType": "integer",
+                        "fieldAbbreviation": "GQ",
+                        "fieldName": "Genotype Quality"
+                    }
+                ],
                 "referenceSetDbId": "57eae639",
                 "studyDbId": "2fc3b034",
                 "variantCount": 250,
@@ -312,6 +323,10 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">metadataFields</span></td><td>array[object]</td><td>The 'metadataFields' array indicates which types of genotyping data and metadata are available in the VariantSet.  <br> When possible, these field names and abbreviations should follow the VCF standard </td></tr>
+<tr><td>metadataFields<br><span style="font-weight:bold;margin-left:5px">.dataType</span></td><td>string</td><td>The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.</td></tr>
+<tr><td>metadataFields<br><span style="font-weight:bold;margin-left:5px">.fieldAbbreviation</span></td><td>string</td><td>The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"</td></tr>
+<tr><td>metadataFields<br><span style="font-weight:bold;margin-left:5px">.fieldName</span></td><td>string</td><td>The name of the field represented in this Genotype Field. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"</td></tr>
 <tr><td><span style="font-weight:bold;">referenceSetDbId</span></td><td>string</td><td>The ID of the reference set that describes the sequences used by the variants in this set.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID of the dataset this variant set belongs to.</td></tr>
 <tr><td><span style="font-weight:bold;">variantCount</span></td><td>integer</td><td>The number of Variants included in this VariantSet</td></tr>
@@ -403,6 +418,13 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
+                "metadataFields": [
+                    {
+                        "dataType": "integer",
+                        "fieldAbbreviation": "GQ",
+                        "fieldName": "Genotype Quality"
+                    }
+                ],
                 "referenceSetDbId": "57eae639",
                 "studyDbId": "2fc3b034",
                 "variantCount": 250,
@@ -491,6 +513,10 @@ Will return a filtered list of `VariantSet`.
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">metadataFields</span></td><td>array[object]</td><td>The 'metadataFields' array indicates which types of genotyping data and metadata are available in the VariantSet.  <br> When possible, these field names and abbreviations should follow the VCF standard </td></tr>
+<tr><td>metadataFields<br><span style="font-weight:bold;margin-left:5px">.dataType</span></td><td>string</td><td>The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.</td></tr>
+<tr><td>metadataFields<br><span style="font-weight:bold;margin-left:5px">.fieldAbbreviation</span></td><td>string</td><td>The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"</td></tr>
+<tr><td>metadataFields<br><span style="font-weight:bold;margin-left:5px">.fieldName</span></td><td>string</td><td>The name of the field represented in this Genotype Field. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"</td></tr>
 <tr><td><span style="font-weight:bold;">referenceSetDbId</span></td><td>string</td><td>The ID of the reference set that describes the sequences used by the variants in this set.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID of the dataset this variant set belongs to.</td></tr>
 <tr><td><span style="font-weight:bold;">variantCount</span></td><td>integer</td><td>The number of Variants included in this VariantSet</td></tr>
@@ -591,6 +617,13 @@ Will return a filtered list of `VariantSet`.
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
+                "metadataFields": [
+                    {
+                        "dataType": "integer",
+                        "fieldAbbreviation": "GQ",
+                        "fieldName": "Genotype Quality"
+                    }
+                ],
                 "referenceSetDbId": "57eae639",
                 "studyDbId": "2fc3b034",
                 "variantCount": 250,
@@ -666,6 +699,10 @@ Will perform a search for `Calls` which match the search criteria in `variantSet
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">metadataFields</span></td><td>array[object]</td><td>The 'metadataFields' array indicates which types of genotyping data and metadata are available in the VariantSet.  <br> When possible, these field names and abbreviations should follow the VCF standard </td></tr>
+<tr><td>metadataFields<br><span style="font-weight:bold;margin-left:5px">.dataType</span></td><td>string</td><td>The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.</td></tr>
+<tr><td>metadataFields<br><span style="font-weight:bold;margin-left:5px">.fieldAbbreviation</span></td><td>string</td><td>The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"</td></tr>
+<tr><td>metadataFields<br><span style="font-weight:bold;margin-left:5px">.fieldName</span></td><td>string</td><td>The name of the field represented in this Genotype Field. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"</td></tr>
 <tr><td><span style="font-weight:bold;">referenceSetDbId</span></td><td>string</td><td>The ID of the reference set that describes the sequences used by the variants in this set.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID of the dataset this variant set belongs to.</td></tr>
 <tr><td><span style="font-weight:bold;">variantCount</span></td><td>integer</td><td>The number of Variants included in this VariantSet</td></tr>
@@ -783,6 +820,13 @@ Will perform a search for `Calls` which match the search criteria in `variantSet
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
+        "metadataFields": [
+            {
+                "dataType": "integer",
+                "fieldAbbreviation": "GQ",
+                "fieldName": "Genotype Quality"
+            }
+        ],
         "referenceSetDbId": "57eae639",
         "studyDbId": "2fc3b034",
         "variantCount": 250,
@@ -847,6 +891,10 @@ This call will return a JSON version of a `VariantSet`.
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">metadataFields</span></td><td>array[object]</td><td>The 'metadataFields' array indicates which types of genotyping data and metadata are available in the VariantSet.  <br> When possible, these field names and abbreviations should follow the VCF standard </td></tr>
+<tr><td>metadataFields<br><span style="font-weight:bold;margin-left:5px">.dataType</span></td><td>string</td><td>The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.</td></tr>
+<tr><td>metadataFields<br><span style="font-weight:bold;margin-left:5px">.fieldAbbreviation</span></td><td>string</td><td>The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"</td></tr>
+<tr><td>metadataFields<br><span style="font-weight:bold;margin-left:5px">.fieldName</span></td><td>string</td><td>The name of the field represented in this Genotype Field. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"</td></tr>
 <tr><td><span style="font-weight:bold;">referenceSetDbId</span></td><td>string</td><td>The ID of the reference set that describes the sequences used by the variants in this set.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID of the dataset this variant set belongs to.</td></tr>
 <tr><td><span style="font-weight:bold;">variantCount</span></td><td>integer</td><td>The number of Variants included in this VariantSet</td></tr>
@@ -934,6 +982,13 @@ This call will return a JSON version of a `VariantSet`.
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
+        "metadataFields": [
+            {
+                "dataType": "integer",
+                "fieldAbbreviation": "GQ",
+                "fieldName": "Genotype Quality"
+            }
+        ],
         "referenceSetDbId": "57eae639",
         "studyDbId": "2fc3b034",
         "variantCount": 250,
@@ -966,11 +1021,9 @@ This call will return a JSON version of a `VariantSet`.
 
 
 
-### Get - /variantsets/{variantSetDbId}/calls [GET /brapi/v2/variantsets/{variantSetDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
+### Get - /variantsets/{variantSetDbId}/calls [GET /brapi/v2/variantsets/{variantSetDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?page}{?pageSize}]
 
 Gets a list of `Calls` associated with a `VariantSet`.
-
-** THIS ENDPOINT USES TOKEN BASED PAGING **
 
 
 
@@ -982,10 +1035,16 @@ Gets a list of `Calls` associated with a `VariantSet`.
 <tr><td>data<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
 <tr><td>data<br><span style="font-weight:bold;margin-left:5px">.callSetDbId</span></td><td>string</td><td>The ID of the call set this variant call belongs to.  If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.</td></tr>
 <tr><td>data<br><span style="font-weight:bold;margin-left:5px">.callSetName</span></td><td>string</td><td>The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.</td></tr>
-<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.genotype</span></td><td>object</td><td>`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.</td></tr>
-<tr><td>data<br>.genotype<br><span style="font-weight:bold;margin-left:5px">.values</span></td><td>array</td><td>Repeated field of dynamically typed values.</td></tr>
-<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.genotype_likelihood</span></td><td>array[number]</td><td>The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.</td></tr>
-<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.phaseSet</span></td><td>string</td><td>If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.genotype</span></td><td>object</td><td>**Deprecated in v2.1** Please use `genotypeValue` or `genotypeMetadata`. Github issue number #491              <br>`ListValue` is a wrapper around a repeated field of values. <br>The JSON representation for `ListValue` is JSON array.</td></tr>
+<tr><td>data<br>.genotype<br><span style="font-weight:bold;margin-left:5px">.values</span></td><td>array</td><td>**Deprecated in v2.1** Please use `genotypeValue` or `genotypeMetadata`. Github issue number #491              <br>Repeated field of dynamically typed values.</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.genotypeMetadata</span></td><td>array[object]</td><td>Genotype Metadata are additional layers of metadata associated with each genotype.</td></tr>
+<tr><td>data<br>.genotypeMetadata<br><span style="font-weight:bold;margin-left:5px">.dataType</span></td><td>string</td><td>The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.</td></tr>
+<tr><td>data<br>.genotypeMetadata<br><span style="font-weight:bold;margin-left:5px">.fieldAbbreviation</span></td><td>string</td><td>The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"</td></tr>
+<tr><td>data<br>.genotypeMetadata<br><span style="font-weight:bold;margin-left:5px">.fieldName</span></td><td>string</td><td>The name of the field represented in this Genotype Field. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"</td></tr>
+<tr><td>data<br>.genotypeMetadata<br><span style="font-weight:bold;margin-left:5px">.fieldValue</span></td><td>string</td><td>The additional metadata value associated with this genotype call</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.genotypeValue</span></td><td>string</td><td>The value of this genotype call</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.genotype_likelihood</span></td><td>array[number]</td><td>**Deprecated in v2.1** Please use `genotypeMetadata`. Github issue number #491              <br>The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.phaseSet</span></td><td>string</td><td>If this field is populated, this variant call's genotype ordering implies the phase of the bases and  is consistent with any other variant calls on the same contig which have the same phase set string.</td></tr>
 <tr><td>data<br><span style="font-weight:bold;margin-left:5px">.variantDbId</span></td><td>string</td><td>The ID of the variant this call belongs to.</td></tr>
 <tr><td>data<br><span style="font-weight:bold;margin-left:5px">.variantName</span></td><td>string</td><td>The name of the variant this call belongs to.</td></tr>
 <tr><td>data<br><span style="font-weight:bold;margin-left:5px">.variantSetDbId</span></td><td>string</td><td>The unique identifier for a VariantSet</td></tr>
@@ -1005,7 +1064,8 @@ Gets a list of `Calls` associated with a `VariantSet`.
     + unknownString (Optional, ) ... The string to use as a representation for missing data
     + sepPhased (Optional, ) ... The string to use as a separator for phased allele calls
     + sepUnphased (Optional, ) ... The string to use as a separator for unphased allele calls
-    + pageToken (Optional, ) ... Used to request a specific page of data to be returned.Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. 
+    + pageToken (Optional, ) ... **Deprecated in v2.1** Please use `page`. Github issue number #451 <br> Used to request a specific page of data to be returned.<br> Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. 
+    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
@@ -1046,6 +1106,15 @@ Gets a list of `Calls` associated with a `VariantSet`.
                         "AA"
                     ]
                 },
+                "genotypeMetadata": [
+                    {
+                        "dataType": "integer",
+                        "fieldAbbreviation": "GQ",
+                        "fieldName": "Genotype Quality",
+                        "fieldValue": "45.2"
+                    }
+                ],
+                "genotypeValue": "1/1",
                 "genotype_likelihood": [
                     1.0
                 ],
@@ -1189,11 +1258,9 @@ Gets a list of `CallSets` associated with a `VariantSet`.
 
 
 
-### Get - /variantsets/{variantSetDbId}/variants [GET /brapi/v2/variantsets/{variantSetDbId}/variants{?variantDbId}{?pageToken}{?pageSize}]
+### Get - /variantsets/{variantSetDbId}/variants [GET /brapi/v2/variantsets/{variantSetDbId}/variants{?variantDbId}{?pageToken}{?page}{?pageSize}]
 
 This call will return an array of `Variants`.
-
-** THIS ENDPOINT USES TOKEN BASED PAGING **
 
 
 
@@ -1234,7 +1301,8 @@ This call will return an array of `Variants`.
 + Parameters
     + variantDbId (Optional, ) ... The ID of the `Variant` to be retrieved.
     + variantSetDbId (Required, ) ... The ID of the `VariantSet` to be retrieved.
-    + pageToken (Optional, ) ... Used to request a specific page of data to be returned.Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. 
+    + pageToken (Optional, ) ... **Deprecated in v2.1** Please use `page`. Github issue number #451 <br> Used to request a specific page of data to be returned.<br> Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. 
+    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
