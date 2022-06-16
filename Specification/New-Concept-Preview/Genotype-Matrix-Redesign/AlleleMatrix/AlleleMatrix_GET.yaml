@@ -3,7 +3,7 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /variantmatrix:
+  /allelematrix:
     get:
       summary: Use this endpoint to retrieve a two dimensional matrix of genotype data
       description: |-
@@ -48,7 +48,7 @@ paths:
         - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          $ref: '#/components/responses/VariantMatrixResponse'
+          $ref: '#/components/responses/AlleleMatrixResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -60,13 +60,13 @@ paths:
 
 components:
   responses:
-    VariantMatrixResponse: 
+    AlleleMatrixResponse: 
       description: OK
       headers: {}
       content:
         application/json:
           schema:
-            title: VariantMatrixResponse
+            title: AlleleMatrixResponse
             required:
             - metadata
             - result
@@ -77,4 +77,4 @@ components:
               metadata:
                 $ref: '#/components/schemas/metadata'
               result:
-                $ref: '#/components/schemas/VariantMatrix'
+                $ref: '#/components/schemas/AlleleMatrix'

@@ -27,18 +27,20 @@ components:
       required: false
       schema:
         type: boolean
-    includeGenotypeFields:
-      name: includeGenotypeFields
-      description: |- 
-            Default Value = true
-            <br/>
-            If 'includeGenotypeFields' is set to false, then the `genotypeFields` array should be omitted or returned null in the response
-            <br/>
-            If 'includeGenotypeFields' is set to true or not set (default), then the server should return all `genotypeFields` metadata it has available
+    dataMatrixNames:
+      name: dataMatrixNames
+      description: dataMatrixNames is a comma seperated list of names (ie 'Genotype, Read Depth' etc). This list controls which data matrices are returned in the response.
       in: query
       required: false
       schema:
-        type: boolean
+        type: string
+    dataMatrixAbbreviations:
+      name: dataMatrixAbbreviations
+      description: dataMatrixAbbreviations is a comma seperated list of abbreviations (ie 'GT, RD' etc). This list controls which data matrices are returned in the response.
+      in: query
+      required: false
+      schema:
+        type: string
     callSetDbId:
       name: callSetDbId
       description: The ID of the `CallSet` to be retrieved.

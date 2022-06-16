@@ -100,9 +100,9 @@ components:
                   ICASA "Code_Display"
                 type: string
                 example: tiimp
-              unit:
+              units:
                 description: |-
-                  The unit or data type of the value. 
+                  The units or data type of the 'value'. 
                   <br>If the 'value' comes from a standardized vocabulary or an encoded list of values, then 'unit' should be 'code'. 
                   <br>If the 'value' IS NOT a number, then 'unit' should specify a data type eg. 'text', 'boolean', 'date', etc. 
                   <br>If the value IS a number, then 'unit' should specify the units used eg. 'ml', 'cm', etc
@@ -119,29 +119,29 @@ components:
                 items:
                   type: string
                 example: ['20', '50', '40']
-              parameterDescription:
+              description:
                 description: A human readable description of this event parameter. This description is ussually associated with the 'name' and 'code' of an event parameter.
                 type: string
                 example: Implement or tool used for tillage
-              codeValueDescription:
-                description: If the event parameter 'unit' field is 'code', then use 'codeValueDescription' to add a human readable description to the value.
+              valueDescription:
+                description: If the event parameter 'unit' field is 'code', then use 'valueDescription' to add a human readable description to the value.
                 type: string
                 example: Standard V-Ripper (TI001)
           example:
           - name: "tillage_implement"
             code: "tiimp"
-            parameterDescription: Implement or tool used for tillage
+            description: Implement or tool used for tillage
             unit: "code"
             value: "TI001"
-            codeValueDescription: Standard V-Ripper (TI001)
+            valueDescription: Standard V-Ripper (TI001)
           - name: "tillage_operations_depth"
             code: "tidep"
-            parameterDescription: Tillage operations depth in centimeters
+            description: Tillage operations depth in centimeters
             unit: "cm"
             valuesByDate: ['20', '50', '40']
           - name: "till_mix_effectiveness"
             code: "timix"
-            parameterDescription: Tillage operations mixing effectiveness
+            description: Tillage operations mixing effectiveness
             unit: "percent"
             value: "50"
 

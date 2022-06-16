@@ -5,7 +5,7 @@ openapi: 3.0.0
 paths: {}
 components:
   schemas:
-    CallsSearchRequest: 
+    AlleleMatrixSearchRequest: 
       type: object
       properties:
         pagination:
@@ -49,22 +49,18 @@ components:
           type: boolean
           default: false
           example: true
-        includeGenotypeFields:
-          description: |- 
-            Default Value = true
-            <br/>
-            If 'includeGenotypeFields' is set to false, then the `genotypeFields` array should be omitted or returned null in the response
-            <br/>
-            If 'includeGenotypeFields' is set to true or not set (default), then the server should return all `genotypeFields` metadata it has available
-          type: boolean
-          default: true
-          example: false
-        genotypeFields:
-          description: If `includeGenotypeFields` is true and `preview` is false, this array controls which Genotype Field matrices are returned. Each Genotype Field matrix can be identified by its name or abbreviation. 
+        dataMatrixNames:
+          description: dataMatrixNames is a list of names (ie 'Genotype', 'Read Depth' etc). This list controls which data matrices are returned in the response.
           type: array
           items:
             type: string
-          example: ['Read Depth', 'GQ']
+          example: ['Genotype', 'Read Depth']
+        dataMatrixAbbreviations:
+          description: dataMatrixAbbreviations is a comma seperated list of abbreviations (ie 'GT', 'RD' etc). This list controls which data matrices are returned in the response.
+          type: array
+          items:
+            type: string
+          example: ['GT', 'RD']
         positionRanges:
           description: |-
             The postion range to search

@@ -5,7 +5,7 @@ openapi: 3.0.0
 paths: {}
 components:
   schemas:
-    VariantMatrix:
+    AlleleMatrix:
       type: object
       required:
       - data
@@ -70,58 +70,60 @@ components:
           items:
             type: string
           example: ['feb54257', 'feb40355', 'feb40323']
-        genotypeMatrix:
-          description: The whole genotype matrix, as a two dimensional array.  
+        dataMatricies:
+          description: The 'dataMatricies' are an array of matrix objects that hold the allele data and associated metdata. Each matrix should be the same size and orientation, aligned with the "callSetDbIds" as columns and the "variantDbIds" as rows.
           type: array
           items:
-            description: The array of rows in the genotype matrix. Each row contains all the genotype data for a particular variant. These rows are ordered the same way as the `variants` array. 
-            type: array
-            items:
-              description: The array of genotype values per row (columns) in the matrix. Each genotype value should be represented as a list of integers seperated by the phased or unphased separators. These columns are ordered the same way as the `callSetDbIds` array.
-              type: string
-          example:
-          - ['0|0', '1|0', '1/1']
-          - ['0|0', '1|0', '1/1']
-          - ['0|0', '1|0', '1/1']
-        genotypeFields:
-          description: Genotype fields are additional layers of metadata associated with each genotype. They are organized here as a collection of additional matrices the same size and orientation as the genotype matrix.  
-          type: array
-          items:
-            description: This is a single Genotype Field matrix, providing some additional layer of metadata associated with each genotype value.  
+            description: This is a single data matrix. It could be the allele matrix or an additional layer of metadata associated with each genotype value.
             type: object
             properties:
-              fieldType:
-                description: The type of field represented in this Genotype Field matrix. This is intended to help parse the data out of JSON.
+              dataType:
+                description: The type of field represented in this data matrix. This is intended to help parse the data out of JSON.
                 type: string
                 enum:
                 - string
                 - integer
                 - float
                 - boolean
-                example: integer
-              fieldName:
+                example: string
+              dataMatrixName:
                 description: |-
-                  The name of the field represented in this Genotype Field matrix. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"
+                  The name of the field represented in this data matrix. The key word "Genotype" is reserved for the allele matrix. Examples of other metadata matricies include: "Genotype Quality", "Read Depth", and "Haplotype Quality"
                 type: string
-                example: Genotype Quality
-              fieldAbbreviation:
+                example: Genotype
+              dataMatrixAbbreviation:
                 description: |-
-                  The abbreviated code of the field represented in this Genotype Field matrix. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"
+                  The abbreviated code of the field represented in this data matrix. These codes should match the VCF standard when possible and the key word "GT" is reserved for the allele matrix. Examples of other metadata matricies include: "GQ", "RD", and "HQ"
                 type: string
-                example: GQ
-              fieldMatrix:
-                description: The Genotype Field matrix data, providing an additional layer of metadata associated with each genotype value. This matrix should be the same size and orientation as the genotype matrix.
+                example: GT
+              dataMatrix:
+                description: The two dimensional array of data, providing the allele matrix or an additional layer of metadata associated with each genotype value. Each matrix should be the same size and orientation, aligned with the "callSetDbIds" as columns and the "variantDbIds" as rows.
                 type: array
                 items:
-                  description: An array of rows in the Genotype Field matrix
+                  description: An array of rows in the data matrix
                   type: array
                   items:
-                    description: All the values per row (columns) in the Genotype Field matrix
+                    description: All the values per row (columns) in the data matrix
                     type: string
                 example:
-                - ['48', '48', '43']
-                - ['49', '3', '41']
-                - ['21', '2', '35']
+                - ['0|0', '1|0', '1/1']
+                - ['0|0', '1|0', '1/1']
+                - ['0|0', '1|0', '1/1']
+          example:
+          - dataType: string
+            dataMatrixName: Genotype
+            dataMatrixAbbreviation: GT
+            dataMatrix:
+            - ['0|0', '1|0', '1/1']
+            - ['0|0', '1|0', '1/1']
+            - ['0|0', '1|0', '1/1']
+          - dataType: integer
+            dataMatrixName: Genotype Quality
+            dataMatrixAbbreviation: GQ
+            dataMatrix:
+            - ['48', '48', '43']
+            - ['49',  '3', '41']
+            - ['21',  '2', '35']
         expandHomozygotes: 
           description: Should homozygotes be expanded (true) or collapsed into a single occurrence (false)
           type: boolean

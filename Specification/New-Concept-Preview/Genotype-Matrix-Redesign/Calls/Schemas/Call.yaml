@@ -48,13 +48,13 @@ components:
           description: The value of this genotype 
           type: string
           example: '1/1'
-        genotypeFields:
-          description: Genotype fields are additional layers of metadata associated with each genotype.
+        genotypeMetadata:
+          description: Genotype Metadata are additional layers of metadata associated with each genotype.
           type: array
           items:
             type: object
             properties:
-              fieldType:
+              dataType:
                 description: The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.
                 type: string
                 enum:
