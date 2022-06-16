@@ -7,7 +7,7 @@ Genotype Matrix Redesign description
 
 
 
-### Get - /allelematrix [GET /brapi/v2/allelematrix{?dimensionVariantPage}{?dimensionVariantPageSize}{?dimensionCallSetPage}{?dimensionCallSetPageSize}{?positionRange}{?germplasmDbId}{?germplasmName}{?germplasmPUI}{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}]
+### Get - /allelematrix [GET /brapi/v2/allelematrix{?dimensionVariantPage}{?dimensionVariantPageSize}{?dimensionCallSetPage}{?dimensionCallSetPageSize}{?preview}{?dataMatrixNames}{?dataMatrixAbbreviations}{?positionRange}{?germplasmDbId}{?germplasmName}{?germplasmPUI}{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}]
 
 Use this endpoint to retrieve a two dimensional matrix of genotype data. The response structure is based on the VCF format, with the enhanced ability to slice and merge data sets. This allows the user to return the subset of data they are interested in, without having to download the entire genotype file.
 <br/>Each row of data (outer array) corresponds to a variant definition, and each column (inner array) corresponds to a callSet.    
@@ -46,6 +46,10 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
     + dimensionVariantPageSize (Optional, integer) ... The requested page size for the Variant dimension of the matrix
     + dimensionCallSetPage (Optional, integer) ... The requested page number for the CallSet dimension of the matrix
     + dimensionCallSetPageSize (Optional, integer) ... The requested page size for the CallSet dimension of the matrix
+    + searchResultsDbId (Required, string) ... Unique identifier which references the search results
+    + preview (Optional, boolean) ... Default Value = false<br/>If 'preview' is set to true, then the server should only return the lists of 'callSetDbIds', 'variantDbIds', and 'variantSetDbIds'. The server should not return any matrix data. Thisis intended to be a preview and give the client a sense of how large the matrix returned will be<br/>If 'preview' is set to false or not set (default), then the server should return all the matrixdata as requested.
+    + dataMatrixNames (Optional, string) ... dataMatrixNames is a comma seperated list of names (ie 'Genotype, Read Depth' etc). This list controls which data matrices are returned in the response.
+    + dataMatrixAbbreviations (Optional, string) ... dataMatrixAbbreviations is a comma seperated list of abbreviations (ie 'GT, RD' etc). This list controls which data matrices are returned in the response.
     + positionRange (Optional, string) ... The postion range to search<br/>Uses the format "contig:start-end" where "contig" is the chromosome or contig name, "start" is the starting position of the range, and "end" is the ending position of the range
     + germplasmDbId (Optional, string) ... Internal database identifier
     + germplasmName (Optional, string) ... Name of the germplasm
