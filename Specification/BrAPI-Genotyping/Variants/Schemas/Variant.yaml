@@ -14,11 +14,20 @@ components:
         This is equivalent to a row in VCF.
       properties:
         alternate_bases:
+          deprecated: true
+          description: |-
+            **Deprecated in v2.1** Please use `alternateBases`. Github issue number #549
+            <br>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.
+          items:
+            type: string
+          type: array
+          example: ['T', 'TAC']
+        alternateBases:
           description: The bases that appear instead of the reference bases. Multiple alternate alleles are possible.
           items:
             type: string
           type: array
-          example: ['TAGGATTGAGCTCTATAT']
+          example: ['T', 'TAC']
         additionalInfo:
           additionalProperties:
             type: string
@@ -92,7 +101,7 @@ components:
         referenceBases:
           description: The reference bases for this variant. They start at the given start position.
           type: string
-          example: TAGGATTGAGCTCTATAT
+          example: A
         referenceSetDbId:
           description: The unique identifier for a ReferenceSet
           type: string

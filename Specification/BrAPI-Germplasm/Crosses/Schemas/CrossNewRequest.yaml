@@ -52,8 +52,7 @@ components:
         pollinationTimeStamp: 
           description: |-
             **Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265 
-
-            the timestamp when the pollination took place
+            <br>The timestamp when the pollination took place
           type: string
           format: date-time
           deprecated: true

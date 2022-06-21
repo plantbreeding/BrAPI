@@ -79,6 +79,7 @@ components:
       allOf:
       - $ref: '#/components/schemas/basePagination'
       - type: object
+        deprecated: true
         description: |-
           **Deprecated in v2.1** Please use `page`. Github issue number #451 
           <br>The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. 
@@ -87,18 +88,21 @@ components:
         - nextPageToken
         properties:
           nextPageToken:
+            deprecated: true
             description: |- 
               **Deprecated in v2.1** Please use `page`. Github issue number #451 
               <br>The string token used to query the next page of data.
             type: string
             example: cb668f63
           currentPageToken:
+            deprecated: true
             description: |- 
               **Deprecated in v2.1** Please use `page`. Github issue number #451 
               <br>The string token used to query the current page of data.
             type: string
             example: 48bc6ac1
           prevPageToken:
+            deprecated: true
             description: |- 
               **Deprecated in v2.1** Please use `page`. Github issue number #451 
               <br>The string token used to query the previous page of data.

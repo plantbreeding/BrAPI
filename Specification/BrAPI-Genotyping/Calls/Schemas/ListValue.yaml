@@ -6,6 +6,7 @@ paths: {}
 components:
   schemas:
     ListValue:
+      deprecated: true
       type: object
       description: |-
         **Deprecated in v2.1** Please use `genotypeValue` or `genotypeMetadata`. Github issue number #491             
@@ -14,6 +15,7 @@ components:
       properties:
         values:
           type: array
+          deprecated: true
           description: |-
             **Deprecated in v2.1** Please use `genotypeValue` or `genotypeMetadata`. Github issue number #491             
             <br>Repeated field of dynamically typed values.

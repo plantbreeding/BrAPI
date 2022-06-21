@@ -96,14 +96,13 @@ paths:
           type: string
       - description: |-
           **Deprecated in v2.1** Please use `observationUnitLevelName`. Github issue number #464 
-
-          The type of the observationUnit. Returns only the observation unit of the specified type; 
-          the parent levels ID can be accessed through observationUnitStructure. 
+          <br>The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnitStructure. 
         in: query
         name: observationLevel
         required: false
         schema:
           type: string
+        deprecated: true
       - description: Permanent unique identifier which references the search results
         in: query
         name: searchResultsDbId

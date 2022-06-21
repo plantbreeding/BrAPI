@@ -9,6 +9,7 @@ components:
       type: object
       properties:
         pageToken:
+          deprecated: true
           description: |-
             **Deprecated in v2.1** Please use `page`. Github issue number #451 
             <br>Used to request a specific page of data to be returned.

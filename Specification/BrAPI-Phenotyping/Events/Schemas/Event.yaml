@@ -81,6 +81,7 @@ components:
               type: string
               example: '2018-10-08T18:15:11Z'
         date:
+          deprecated: true
           description: |-
             **Deprecated in v2.1** Please use `eventDateRange.discreteDates`. Github issue number #440             
             <br>A list of dates when the event occurred
@@ -136,12 +137,14 @@ components:
                 type: string
                 example: Standard V-Ripper (TI001)
               key:
+                deprecated: true
                 description: |-
                   **Deprecated in v2.1** Please use `name`. Github issue number #440             
                   <br>Specifies the relationship between the event and the given property. E.g. fertilizer, operator
                 type: string
                 example: operator
               rdfValue:
+                deprecated: true
                 description: |-
                   **Deprecated in v2.1** Please use `code`. Github issue number #440             
                   <brThe type of the value given above, e.g. http://xmlns.com/foaf/0.1/Agent

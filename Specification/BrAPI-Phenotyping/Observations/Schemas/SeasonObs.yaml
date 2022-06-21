@@ -18,8 +18,7 @@ components:
           deprecated: true
           description: |-
             **Deprecated in v2.1** Please use `seasonName`. Github issue number #456 
-
-            Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.
+            <br>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.
           type: string
           example: Spring
         seasonDbId:
