@@ -23,7 +23,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">callSetDbIds</span></td><td>array[string]</td><td>**Deprecated in v2.1** Parameter unnecessary. Github issue number #474  <br/>Only return variant calls which belong to call sets with these IDs. If unspecified, return all variants and no variant call objects.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropNames</span></td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
 <tr><td><span style="font-weight:bold;">end</span></td><td>integer</td><td>The end of the window (0-based, exclusive) for which overlapping variants should be returned.</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460  <br>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceIds</span></td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceSources</span></td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">page</span></td><td>integer</td><td>Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.</td></tr>
@@ -49,13 +49,14 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">alternate_bases</span></td><td>array[string]</td><td>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
+<tr><td><span style="font-weight:bold;">alternateBases</span></td><td>array[string]</td><td>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
+<tr><td><span style="font-weight:bold;">alternate_bases</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `alternateBases`. Github issue number #549 <br>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
 <tr><td><span style="font-weight:bold;">ciend</span></td><td>array[integer]</td><td>Similar to "cipos", but for the variant's end position (which is derived from start + svlen).</td></tr>
 <tr><td><span style="font-weight:bold;">cipos</span></td><td>array[integer]</td><td>In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2</td></tr>
 <tr><td><span style="font-weight:bold;">created</span></td><td>string<br>(date-time)</td><td>The timestamp when this variant was created.</td></tr>
 <tr><td><span style="font-weight:bold;">end</span></td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">filtersApplied</span></td><td>boolean<br>(boolean)</td><td>True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.</td></tr>
@@ -184,8 +185,13 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "data": [
             {
                 "additionalInfo": {},
+                "alternateBases": [
+                    "T",
+                    "TAC"
+                ],
                 "alternate_bases": [
-                    "TAGGATTGAGCTCTATAT"
+                    "T",
+                    "TAC"
                 ],
                 "ciend": [
                     -1000,
@@ -213,7 +219,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                     "3f14f578"
                 ],
                 "filtersPassed": true,
-                "referenceBases": "TAGGATTGAGCTCTATAT",
+                "referenceBases": "A",
                 "referenceDbId": "fc0a81d0",
                 "referenceName": "chr_20",
                 "referenceSetDbId": "c1ecfef1",
@@ -299,13 +305,14 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">alternate_bases</span></td><td>array[string]</td><td>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
+<tr><td><span style="font-weight:bold;">alternateBases</span></td><td>array[string]</td><td>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
+<tr><td><span style="font-weight:bold;">alternate_bases</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `alternateBases`. Github issue number #549 <br>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
 <tr><td><span style="font-weight:bold;">ciend</span></td><td>array[integer]</td><td>Similar to "cipos", but for the variant's end position (which is derived from start + svlen).</td></tr>
 <tr><td><span style="font-weight:bold;">cipos</span></td><td>array[integer]</td><td>In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2</td></tr>
 <tr><td><span style="font-weight:bold;">created</span></td><td>string<br>(date-time)</td><td>The timestamp when this variant was created.</td></tr>
 <tr><td><span style="font-weight:bold;">end</span></td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">filtersApplied</span></td><td>boolean<br>(boolean)</td><td>True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.</td></tr>
@@ -365,8 +372,13 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "data": [
             {
                 "additionalInfo": {},
+                "alternateBases": [
+                    "T",
+                    "TAC"
+                ],
                 "alternate_bases": [
-                    "TAGGATTGAGCTCTATAT"
+                    "T",
+                    "TAC"
                 ],
                 "ciend": [
                     -1000,
@@ -394,7 +406,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                     "3f14f578"
                 ],
                 "filtersPassed": true,
-                "referenceBases": "TAGGATTGAGCTCTATAT",
+                "referenceBases": "A",
                 "referenceDbId": "fc0a81d0",
                 "referenceName": "chr_20",
                 "referenceSetDbId": "c1ecfef1",
@@ -474,13 +486,14 @@ Gets a filtered list of `Variants`.
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">alternate_bases</span></td><td>array[string]</td><td>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
+<tr><td><span style="font-weight:bold;">alternateBases</span></td><td>array[string]</td><td>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
+<tr><td><span style="font-weight:bold;">alternate_bases</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `alternateBases`. Github issue number #549 <br>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
 <tr><td><span style="font-weight:bold;">ciend</span></td><td>array[integer]</td><td>Similar to "cipos", but for the variant's end position (which is derived from start + svlen).</td></tr>
 <tr><td><span style="font-weight:bold;">cipos</span></td><td>array[integer]</td><td>In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2</td></tr>
 <tr><td><span style="font-weight:bold;">created</span></td><td>string<br>(date-time)</td><td>The timestamp when this variant was created.</td></tr>
 <tr><td><span style="font-weight:bold;">end</span></td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">filtersApplied</span></td><td>boolean<br>(boolean)</td><td>True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.</td></tr>
@@ -545,8 +558,13 @@ Gets a filtered list of `Variants`.
         "data": [
             {
                 "additionalInfo": {},
+                "alternateBases": [
+                    "T",
+                    "TAC"
+                ],
                 "alternate_bases": [
-                    "TAGGATTGAGCTCTATAT"
+                    "T",
+                    "TAC"
                 ],
                 "ciend": [
                     -1000,
@@ -574,7 +592,7 @@ Gets a filtered list of `Variants`.
                     "3f14f578"
                 ],
                 "filtersPassed": true,
-                "referenceBases": "TAGGATTGAGCTCTATAT",
+                "referenceBases": "A",
                 "referenceDbId": "fc0a81d0",
                 "referenceName": "chr_20",
                 "referenceSetDbId": "c1ecfef1",
@@ -627,13 +645,14 @@ Gets a filtered list of `Variants`.
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">alternate_bases</span></td><td>array[string]</td><td>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
+<tr><td><span style="font-weight:bold;">alternateBases</span></td><td>array[string]</td><td>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
+<tr><td><span style="font-weight:bold;">alternate_bases</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `alternateBases`. Github issue number #549 <br>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.</td></tr>
 <tr><td><span style="font-weight:bold;">ciend</span></td><td>array[integer]</td><td>Similar to "cipos", but for the variant's end position (which is derived from start + svlen).</td></tr>
 <tr><td><span style="font-weight:bold;">cipos</span></td><td>array[integer]</td><td>In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2</td></tr>
 <tr><td><span style="font-weight:bold;">created</span></td><td>string<br>(date-time)</td><td>The timestamp when this variant was created.</td></tr>
 <tr><td><span style="font-weight:bold;">end</span></td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">filtersApplied</span></td><td>boolean<br>(boolean)</td><td>True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.</td></tr>
@@ -686,8 +705,13 @@ Gets a filtered list of `Variants`.
     },
     "result": {
         "additionalInfo": {},
+        "alternateBases": [
+            "T",
+            "TAC"
+        ],
         "alternate_bases": [
-            "TAGGATTGAGCTCTATAT"
+            "T",
+            "TAC"
         ],
         "ciend": [
             -1000,
@@ -715,7 +739,7 @@ Gets a filtered list of `Variants`.
             "3f14f578"
         ],
         "filtersPassed": true,
-        "referenceBases": "TAGGATTGAGCTCTATAT",
+        "referenceBases": "A",
         "referenceDbId": "fc0a81d0",
         "referenceName": "chr_20",
         "referenceSetDbId": "c1ecfef1",

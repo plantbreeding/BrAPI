@@ -65,7 +65,7 @@ BAD    "call": "germplasm/<germplasmDbId>/pedigree"
 
 + Parameters
     + contentType (Optional, ) ... Filter the list of endpoints based on the response content type.
-    + dataType (Optional, ) ... **Deprecated in v2.1** Please use `contentType`. Github issue number #443The data format supported by the call.
+    + dataType (Optional, ) ... **Deprecated in v2.1** Please use `contentType`. Github issue number #443<br>The data format supported by the call.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
