@@ -6,7 +6,7 @@ A BrAPI Program represents the high level organization or group who is responsib
 
 
 
-### Get - /programs [GET /brapi/v2/programs{?commonCropName}{?programDbId}{?programName}{?abbreviation}{?programType}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /programs [GET /brapi/v2/programs{?abbreviation}{?programType}{?commonCropName}{?programDbId}{?programName}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of breeding Programs. This list can be filtered by common crop name to narrow results to a specific crop.
 
@@ -37,11 +37,11 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
  
 
 + Parameters
-    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
-    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
-    + programName (Optional, ) ... Filter by program name. Exact match.
     + abbreviation (Optional, ) ... Filter by program abbreviation. Exact match.
     + programType (Optional, ) ... The type of program entity this object represents<br/> 'STANARD' represents a standard, permenant breeding program<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding 
+    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given `Program` unique identifier. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
+    + programName (Optional, ) ... Use this parameter to only return results associated with the given `Program` by its human readable name. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
     + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)

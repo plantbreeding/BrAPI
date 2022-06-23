@@ -8,7 +8,7 @@ hardness.  They are often evaluated by genotyping for diagnostic markers.
 
 
 
-### Get - /attributevalues [GET /brapi/v2/attributevalues{?attributeValueDbId}{?attributeDbId}{?attributeName}{?germplasmDbId}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /attributevalues [GET /brapi/v2/attributevalues{?attributeValueDbId}{?attributeDbId}{?attributeName}{?commonCropName}{?programDbId}{?germplasmDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get the Germplasm Attribute Values
 
@@ -39,9 +39,9 @@ Get the Germplasm Attribute Values
     + attributeValueDbId (Optional, ) ... The unique id for an attribute value
     + attributeDbId (Optional, ) ... The unique id for an attribute
     + attributeName (Optional, ) ... The human readable name for an attribute
-    + germplasmDbId (Optional, ) ... Get all attributes associated with this germplasm
     + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
-    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
+    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given `Program` unique identifier. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
+    + germplasmDbId (Optional, ) ... Use this parameter to only return results associated with the given `Germplasm` unique identifier. <br/>Use `GET /germplasm` to find the list of available `Germplasm` on a server.
     + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)

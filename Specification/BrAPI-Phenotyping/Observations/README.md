@@ -227,7 +227,7 @@ Submit a delete request for `Observations`
 
 
 
-### Get - /observations [GET /brapi/v2/observations{?observationDbId}{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?seasonDbId}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?observationUnitLevelName}{?observationUnitLevelOrder}{?observationUnitLevelCode}{?observationUnitLevelRelationshipName}{?observationUnitLevelRelationshipOrder}{?observationUnitLevelRelationshipCode}{?observationUnitLevelRelationshipDbId}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /observations [GET /brapi/v2/observations{?observationDbId}{?observationUnitDbId}{?observationVariableDbId}{?locationDbId}{?seasonDbId}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?observationUnitLevelName}{?observationUnitLevelOrder}{?observationUnitLevelCode}{?observationUnitLevelRelationshipName}{?observationUnitLevelRelationshipOrder}{?observationUnitLevelRelationshipCode}{?observationUnitLevelRelationshipDbId}{?commonCropName}{?programDbId}{?trialDbId}{?studyDbId}{?germplasmDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Retrieve all observations where there are measurements for the given observation variables. 
 
@@ -272,11 +272,8 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 + Parameters
     + observationDbId (Optional, ) ... The unique ID of an Observation
     + observationUnitDbId (Optional, ) ... The unique ID of an Observation Unit
-    + germplasmDbId (Optional, ) ... The unique ID of a germplasm (accession) to filter on
     + observationVariableDbId (Optional, ) ... The unique ID of an observation variable
-    + studyDbId (Optional, ) ... The unique ID of a studies to filter on
     + locationDbId (Optional, ) ... The unique ID of a location where these observations were collected
-    + trialDbId (Optional, ) ... The unique ID of a trial to filter on
     + seasonDbId (Optional, ) ... The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
     + observationTimeStampRangeStart (Optional, ) ... Timestamp range start
     + observationTimeStampRangeEnd (Optional, ) ... Timestamp range end
@@ -288,7 +285,10 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
     + observationUnitLevelRelationshipCode (Optional, ) ... The Observation Unit Level Code. <br/>This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
     + observationUnitLevelRelationshipDbId (Optional, ) ... The observationUnitDbId associated with a particular level and code.<br/>This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->observationUnitDbId <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
     + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
-    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
+    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given `Program` unique identifier. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
+    + trialDbId (Optional, ) ... Use this parameter to only return results associated with the given `Trial` unique identifier. <br/>Use `GET /trials` to find the list of available `Trials` on a server.
+    + studyDbId (Optional, ) ... Use this parameter to only return results associated with the given `Study` unique identifier. <br/>Use `GET /studies` to find the list of available `Studies` on a server.
+    + germplasmDbId (Optional, ) ... Use this parameter to only return results associated with the given `Germplasm` unique identifier. <br/>Use `GET /germplasm` to find the list of available `Germplasm` on a server.
     + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
@@ -808,7 +808,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 
 
 
-### Get - /observations/table [GET /brapi/v2/observations/table{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?searchResultsDbId}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?observationUnitLevelName}{?observationUnitLevelOrder}{?observationUnitLevelCode}{?observationUnitLevelRelationshipName}{?observationUnitLevelRelationshipOrder}{?observationUnitLevelRelationshipCode}{?observationUnitLevelRelationshipDbId}]
+### Get - /observations/table [GET /brapi/v2/observations/table{?observationUnitDbId}{?observationVariableDbId}{?locationDbId}{?seasonDbId}{?observationLevel}{?searchResultsDbId}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?programDbId}{?trialDbId}{?studyDbId}{?germplasmDbId}{?observationUnitLevelName}{?observationUnitLevelOrder}{?observationUnitLevelCode}{?observationUnitLevelRelationshipName}{?observationUnitLevelRelationshipOrder}{?observationUnitLevelRelationshipCode}{?observationUnitLevelRelationshipDbId}]
 
 <p>This service is designed to retrieve a table of time dependant observation values as a matrix of Observation Units and Observation Variables.
 This is also sometimes called a Time Series. This service takes the "Sparse Table" approach for representing this time dependant data.</p>
@@ -867,17 +867,17 @@ See the example responses below</p>
 
 + Parameters
     + observationUnitDbId (Optional, ) ... The unique ID of an Observation Unit
-    + germplasmDbId (Optional, ) ... The unique ID of a germplasm (accession) to filter on
     + observationVariableDbId (Optional, ) ... The unique ID of an observation variable
-    + studyDbId (Optional, ) ... The unique ID of a studies to filter on
     + locationDbId (Optional, ) ... The unique ID of a location where these observations were collected
-    + trialDbId (Optional, ) ... The unique ID of a trial to filter on
-    + programDbId (Optional, ) ... The unique ID of a program to filter on
     + seasonDbId (Optional, ) ... The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
     + observationLevel (Optional, ) ... **Deprecated in v2.1** Please use `observationUnitLevelName`. Github issue number #464 <br>The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnitStructure. 
     + searchResultsDbId (Optional, ) ... Permanent unique identifier which references the search results
     + observationTimeStampRangeStart (Optional, ) ... Timestamp range start
     + observationTimeStampRangeEnd (Optional, ) ... Timestamp range end
+    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given `Program` unique identifier. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
+    + trialDbId (Optional, ) ... Use this parameter to only return results associated with the given `Trial` unique identifier. <br/>Use `GET /trials` to find the list of available `Trials` on a server.
+    + studyDbId (Optional, ) ... Use this parameter to only return results associated with the given `Study` unique identifier. <br/>Use `GET /studies` to find the list of available `Studies` on a server.
+    + germplasmDbId (Optional, ) ... Use this parameter to only return results associated with the given `Germplasm` unique identifier. <br/>Use `GET /germplasm` to find the list of available `Germplasm` on a server.
     + observationUnitLevelName (Optional, ) ... The Observation Unit Level. Returns only the observation unit of the specified Level. <br/>References ObservationUnit->observationUnitPosition->observationLevel->levelName <br/>**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
     + observationUnitLevelOrder (Optional, ) ... The Observation Unit Level Order Number. Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
     + observationUnitLevelCode (Optional, ) ... The Observation Unit Level Code. This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 

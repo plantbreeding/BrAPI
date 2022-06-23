@@ -9,7 +9,7 @@ ICASA Management Events allow for the following types: planting, fertilizer, irr
 
 
 
-### Get - /events [GET /brapi/v2/events{?studyDbId}{?observationUnitDbId}{?eventDbId}{?eventType}{?dateRangeStart}{?dateRangeEnd}{?page}{?pageSize}]
+### Get - /events [GET /brapi/v2/events{?observationUnitDbId}{?eventDbId}{?eventType}{?dateRangeStart}{?dateRangeEnd}{?studyDbId}{?page}{?pageSize}]
 
 Get list of events
 
@@ -48,12 +48,12 @@ Get list of events
  
 
 + Parameters
-    + studyDbId (Optional, ) ... Filter based on study unique identifier in which the events occurred
     + observationUnitDbId (Optional, ) ... Filter based on an ObservationUnit unique identifier in which the events occurred
     + eventDbId (Optional, ) ... Filter based on an Event DbId
     + eventType (Optional, ) ... Filter based on an Event Type
     + dateRangeStart (Optional, ) ... Filter based on an Date Range
     + dateRangeEnd (Optional, ) ... Filter based on an Date Range
+    + studyDbId (Optional, ) ... Use this parameter to only return results associated with the given `Study` unique identifier. <br/>Use `GET /studies` to find the list of available `Studies` on a server.
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>

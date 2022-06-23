@@ -8,7 +8,7 @@ hardness.  They are often evaluated by genotyping for diagnostic markers.
 
 
 
-### Get - /attributes [GET /brapi/v2/attributes{?attributeCategory}{?attributeDbId}{?attributeName}{?attributePUI}{?germplasmDbId}{?methodDbId}{?methodName}{?methodPUI}{?scaleDbId}{?scaleName}{?scalePUI}{?traitDbId}{?traitName}{?traitPUI}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /attributes [GET /brapi/v2/attributes{?attributeCategory}{?attributeDbId}{?attributeName}{?attributePUI}{?methodDbId}{?methodName}{?methodPUI}{?scaleDbId}{?scaleName}{?scalePUI}{?traitDbId}{?traitName}{?traitPUI}{?commonCropName}{?programDbId}{?germplasmDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 List available attributes.
 
@@ -129,7 +129,6 @@ List available attributes.
     + attributeDbId (Optional, ) ... The unique id for an attribute
     + attributeName (Optional, ) ... The human readable name for an attribute
     + attributePUI (Optional, ) ... The Permanent Unique Identifier of an Attribute, usually in the form of a URI
-    + germplasmDbId (Optional, ) ... Get all attributes associated with this germplasm
     + methodDbId (Optional, ) ... Method unique identifier
     + methodName (Optional, ) ... Human readable name for the method<br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation
     + methodPUI (Optional, ) ... The Permanent Unique Identifier of a Method, usually in the form of a URI
@@ -140,7 +139,8 @@ List available attributes.
     + traitName (Optional, ) ... Human readable name for the trait<br/>MIAPPE V1.1 (DM-88) Trait  Name of the trait of observation
     + traitPUI (Optional, ) ... The Permanent Unique Identifier of a Trait, usually in the form of a URI
     + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
-    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
+    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given `Program` unique identifier. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
+    + germplasmDbId (Optional, ) ... Use this parameter to only return results associated with the given `Germplasm` unique identifier. <br/>Use `GET /germplasm` to find the list of available `Germplasm` on a server.
     + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)

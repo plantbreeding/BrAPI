@@ -1,7 +1,7 @@
 
 # Group Genome Maps
 
-Retrieving genetic or physical maps
+Notes on the `GenomeMaps` objects:
 - type: [Genetic | Physical]
 - unit: [cM | Mb]
 - linkageGroup: may be scaffold (i.e. linkageGroupCount may consist of chromosomes or scaffolds or a combination of the two)
@@ -12,7 +12,7 @@ Retrieving genetic or physical maps
 
 
 
-### Get - /maps [GET /brapi/v2/maps{?mapDbId}{?mapPUI}{?scientificName}{?type}{?trialDbId}{?studyDbId}{?commonCropName}{?programDbId}{?page}{?pageSize}]
+### Get - /maps [GET /brapi/v2/maps{?mapDbId}{?mapPUI}{?scientificName}{?type}{?commonCropName}{?programDbId}{?trialDbId}{?studyDbId}{?page}{?pageSize}]
 
 Get list of maps
 
@@ -23,32 +23,32 @@ Get list of maps
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">comments</span></td><td>string</td><td>Additional comments</td></tr>
-<tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>The common name of the crop</td></tr>
+<tr><td><span style="font-weight:bold;">comments</span></td><td>string</td><td>Additional comments about a `GenomeMap`</td></tr>
+<tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>The common name of the `Crop`</td></tr>
 <tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
-<tr><td><span style="font-weight:bold;">linkageGroupCount</span></td><td>integer</td><td>The number of linkage groups present in this genomic map</td></tr>
-<tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string</td><td>The ID which uniquely identifies this genomic map</td></tr>
-<tr><td><span style="font-weight:bold;">mapName</span></td><td>string</td><td>A human readable name for this genomic map</td></tr>
-<tr><td><span style="font-weight:bold;">mapPUI</span></td><td>string</td><td>The DOI or other permanent identifier for this genomic map</td></tr>
-<tr><td><span style="font-weight:bold;">markerCount</span></td><td>integer</td><td>The number of markers present in this genomic map</td></tr>
-<tr><td><span style="font-weight:bold;">publishedDate</span></td><td>string<br>(date-time)</td><td>The date this genome was published</td></tr>
+<tr><td><span style="font-weight:bold;">linkageGroupCount</span></td><td>integer</td><td>The number of linkage groups present in a `GenomeMap`</td></tr>
+<tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string</td><td>The ID which uniquely identifies a `GenomeMap`</td></tr>
+<tr><td><span style="font-weight:bold;">mapName</span></td><td>string</td><td>A human readable name for a `GenomeMap`</td></tr>
+<tr><td><span style="font-weight:bold;">mapPUI</span></td><td>string</td><td>The DOI or other permanent identifier for a `GenomeMap`</td></tr>
+<tr><td><span style="font-weight:bold;">markerCount</span></td><td>integer</td><td>The number of markers present in a `GenomeMap`</td></tr>
+<tr><td><span style="font-weight:bold;">publishedDate</span></td><td>string<br>(date-time)</td><td>The date this `GenomeMap` was published</td></tr>
 <tr><td><span style="font-weight:bold;">scientificName</span></td><td>string</td><td>Full scientific binomial format name. This includes Genus, Species, and Sub-species</td></tr>
-<tr><td><span style="font-weight:bold;">type</span></td><td>string</td><td>The type of map this represents, usually "Genetic"</td></tr>
-<tr><td><span style="font-weight:bold;">unit</span></td><td>string</td><td>The units used to describe the data in this map</td></tr>
+<tr><td><span style="font-weight:bold;">type</span></td><td>string</td><td>The type of map this represents, usually "Genetic" or "Physical"</td></tr>
+<tr><td><span style="font-weight:bold;">unit</span></td><td>string</td><td>The units used to describe the data in a `GenomeMap`</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + mapDbId (Optional, ) ... The primary DbId for this genomic map
-    + mapPUI (Optional, ) ... The DOI or other permanent identifier for this genomic map
+    + mapDbId (Optional, ) ... The ID which uniquely identifies a `GenomeMap`
+    + mapPUI (Optional, ) ... The DOI or other permanent identifier for a `GenomeMap`
     + scientificName (Optional, ) ... Full scientific binomial format name. This includes Genus, Species, and Sub-species
-    + type (Optional, ) ... Type of map
-    + trialDbId (Optional, ) ... Unique Id to filter by Trial
-    + studyDbId (Optional, ) ... Unique Id to filter by Study
+    + type (Optional, ) ... The type of map, usually "Genetic" or "Physical"
     + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
-    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
+    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given `Program` unique identifier. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
+    + trialDbId (Optional, ) ... Use this parameter to only return results associated with the given `Trial` unique identifier. <br/>Use `GET /trials` to find the list of available `Trials` on a server.
+    + studyDbId (Optional, ) ... Use this parameter to only return results associated with the given `Study` unique identifier. <br/>Use `GET /studies` to find the list of available `Studies` on a server.
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -128,25 +128,25 @@ Provides the number of markers on each linkageGroup and the max position on the 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">comments</span></td><td>string</td><td>Additional comments</td></tr>
-<tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>The common name of the crop</td></tr>
+<tr><td><span style="font-weight:bold;">comments</span></td><td>string</td><td>Additional comments about a `GenomeMap`</td></tr>
+<tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>The common name of the `Crop`</td></tr>
 <tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
-<tr><td><span style="font-weight:bold;">linkageGroupCount</span></td><td>integer</td><td>The number of linkage groups present in this genomic map</td></tr>
-<tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string</td><td>The ID which uniquely identifies this genomic map</td></tr>
-<tr><td><span style="font-weight:bold;">mapName</span></td><td>string</td><td>A human readable name for this genomic map</td></tr>
-<tr><td><span style="font-weight:bold;">mapPUI</span></td><td>string</td><td>The DOI or other permanent identifier for this genomic map</td></tr>
-<tr><td><span style="font-weight:bold;">markerCount</span></td><td>integer</td><td>The number of markers present in this genomic map</td></tr>
-<tr><td><span style="font-weight:bold;">publishedDate</span></td><td>string<br>(date-time)</td><td>The date this genome was published</td></tr>
+<tr><td><span style="font-weight:bold;">linkageGroupCount</span></td><td>integer</td><td>The number of linkage groups present in a `GenomeMap`</td></tr>
+<tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string</td><td>The ID which uniquely identifies a `GenomeMap`</td></tr>
+<tr><td><span style="font-weight:bold;">mapName</span></td><td>string</td><td>A human readable name for a `GenomeMap`</td></tr>
+<tr><td><span style="font-weight:bold;">mapPUI</span></td><td>string</td><td>The DOI or other permanent identifier for a `GenomeMap`</td></tr>
+<tr><td><span style="font-weight:bold;">markerCount</span></td><td>integer</td><td>The number of markers present in a `GenomeMap`</td></tr>
+<tr><td><span style="font-weight:bold;">publishedDate</span></td><td>string<br>(date-time)</td><td>The date this `GenomeMap` was published</td></tr>
 <tr><td><span style="font-weight:bold;">scientificName</span></td><td>string</td><td>Full scientific binomial format name. This includes Genus, Species, and Sub-species</td></tr>
-<tr><td><span style="font-weight:bold;">type</span></td><td>string</td><td>The type of map this represents, usually "Genetic"</td></tr>
-<tr><td><span style="font-weight:bold;">unit</span></td><td>string</td><td>The units used to describe the data in this map</td></tr>
+<tr><td><span style="font-weight:bold;">type</span></td><td>string</td><td>The type of map this represents, usually "Genetic" or "Physical"</td></tr>
+<tr><td><span style="font-weight:bold;">unit</span></td><td>string</td><td>The units used to describe the data in a `GenomeMap`</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + mapDbId (Required, ) ... The internal db id of a selected map
+    + mapDbId (Required, ) ... The ID which uniquely identifies a `GenomeMap`
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
@@ -225,16 +225,16 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">linkageGroupName</span></td><td>string</td><td>The Uniquely Identifiable name of this linkage group</td></tr>
-<tr><td><span style="font-weight:bold;">markerCount</span></td><td>integer</td><td>The number of markers associated with this linkage group</td></tr>
-<tr><td><span style="font-weight:bold;">maxPosition</span></td><td>integer</td><td>The maximum position of a marker within this linkage group</td></tr>
+<tr><td><span style="font-weight:bold;">linkageGroupName</span></td><td>string</td><td>The Uniquely Identifiable name of a `LinkageGroup` <br> This might be a chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.</td></tr>
+<tr><td><span style="font-weight:bold;">markerCount</span></td><td>integer</td><td>The number of markers associated with a `LinkageGroup`</td></tr>
+<tr><td><span style="font-weight:bold;">maxPosition</span></td><td>integer</td><td>The maximum position of a marker within a `LinkageGroup`</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + mapDbId (Required, ) ... The internal db id of a selected map
+    + mapDbId (Required, ) ... The ID which uniquely identifies a `GenomeMap`
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -310,20 +310,20 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">linkageGroupName</span></td><td>string</td><td>The Uniquely Identifiable name of this linkage group</td></tr>
-<tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string</td><td>The unique ID of the map</td></tr>
-<tr><td><span style="font-weight:bold;">mapName</span></td><td>string</td><td>The human readable name of the map</td></tr>
-<tr><td><span style="font-weight:bold;">position</span></td><td>integer</td><td>The position of a marker within a linkage group</td></tr>
-<tr><td><span style="font-weight:bold;">variantDbId</span></td><td>string</td><td>Internal db identifier</td></tr>
-<tr><td><span style="font-weight:bold;">variantName</span></td><td>string</td><td>The human readable name for a marker</td></tr>
+<tr><td><span style="font-weight:bold;">linkageGroupName</span></td><td>string</td><td>The Uniquely Identifiable name of a `LinkageGroup` <br> This might be a chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.</td></tr>
+<tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string</td><td>The ID which uniquely identifies a `GenomeMap`</td></tr>
+<tr><td><span style="font-weight:bold;">mapName</span></td><td>string</td><td>A human readable name for a `GenomeMap`</td></tr>
+<tr><td><span style="font-weight:bold;">position</span></td><td>integer</td><td>The position of a marker or variant within a `LinkageGroup`</td></tr>
+<tr><td><span style="font-weight:bold;">variantDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Variant` within the given database server <br> A `Variant` can also represent a Marker </td></tr>
+<tr><td><span style="font-weight:bold;">variantName</span></td><td>string</td><td>The human readable name for a `Variant` <br> A `Variant` can also represent a Marker </td></tr>
 </table>
 
 
  
 
 + Parameters
-    + mapDbId (Optional, ) ... unique id of a map
-    + linkageGroupName (Optional, ) ... The chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
+    + mapDbId (Optional, ) ... The ID which uniquely identifies a `GenomeMap`
+    + linkageGroupName (Optional, ) ... The Uniquely Identifiable name of a `LinkageGroup`<br> This might be a chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
     + variantDbId (Optional, ) ... The unique id for a marker
     + minPosition (Optional, ) ... The minimum position
     + maxPosition (Optional, ) ... The maximum position
@@ -401,13 +401,13 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">linkageGroupNames</span></td><td>array[string]</td><td>The Uniquely Identifiable name of this linkage group</td></tr>
-<tr><td><span style="font-weight:bold;">mapDbIds</span></td><td>array[string]</td><td>The unique ID of the map</td></tr>
-<tr><td><span style="font-weight:bold;">maxPosition</span></td><td>integer</td><td>The maximum position</td></tr>
-<tr><td><span style="font-weight:bold;">minPosition</span></td><td>integer</td><td>The minimum position</td></tr>
+<tr><td><span style="font-weight:bold;">linkageGroupNames</span></td><td>array[string]</td><td>A list of Uniquely Identifiable linkage group names</td></tr>
+<tr><td><span style="font-weight:bold;">mapDbIds</span></td><td>array[string]</td><td>A list of IDs which uniquely identify `GenomeMaps` within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">maxPosition</span></td><td>integer</td><td>The maximum position of markers in a given map</td></tr>
+<tr><td><span style="font-weight:bold;">minPosition</span></td><td>integer</td><td>The minimum position of markers in a given map</td></tr>
 <tr><td><span style="font-weight:bold;">page</span></td><td>integer</td><td>Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.</td></tr>
 <tr><td><span style="font-weight:bold;">pageSize</span></td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
-<tr><td><span style="font-weight:bold;">variantDbIds</span></td><td>array[string]</td><td>Internal db identifier</td></tr>
+<tr><td><span style="font-weight:bold;">variantDbIds</span></td><td>array[string]</td><td>A list of IDs which uniquely identify `Variants` within the given database server</td></tr>
 </table>
 
 
@@ -416,12 +416,12 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">linkageGroupName</span></td><td>string</td><td>The Uniquely Identifiable name of this linkage group</td></tr>
-<tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string</td><td>The unique ID of the map</td></tr>
-<tr><td><span style="font-weight:bold;">mapName</span></td><td>string</td><td>The human readable name of the map</td></tr>
-<tr><td><span style="font-weight:bold;">position</span></td><td>integer</td><td>The position of a marker within a linkage group</td></tr>
-<tr><td><span style="font-weight:bold;">variantDbId</span></td><td>string</td><td>Internal db identifier</td></tr>
-<tr><td><span style="font-weight:bold;">variantName</span></td><td>string</td><td>The human readable name for a marker</td></tr>
+<tr><td><span style="font-weight:bold;">linkageGroupName</span></td><td>string</td><td>The Uniquely Identifiable name of a `LinkageGroup` <br> This might be a chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.</td></tr>
+<tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string</td><td>The ID which uniquely identifies a `GenomeMap`</td></tr>
+<tr><td><span style="font-weight:bold;">mapName</span></td><td>string</td><td>A human readable name for a `GenomeMap`</td></tr>
+<tr><td><span style="font-weight:bold;">position</span></td><td>integer</td><td>The position of a marker or variant within a `LinkageGroup`</td></tr>
+<tr><td><span style="font-weight:bold;">variantDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Variant` within the given database server <br> A `Variant` can also represent a Marker </td></tr>
+<tr><td><span style="font-weight:bold;">variantName</span></td><td>string</td><td>The human readable name for a `Variant` <br> A `Variant` can also represent a Marker </td></tr>
 </table>
 
 
@@ -554,12 +554,12 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">linkageGroupName</span></td><td>string</td><td>The Uniquely Identifiable name of this linkage group</td></tr>
-<tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string</td><td>The unique ID of the map</td></tr>
-<tr><td><span style="font-weight:bold;">mapName</span></td><td>string</td><td>The human readable name of the map</td></tr>
-<tr><td><span style="font-weight:bold;">position</span></td><td>integer</td><td>The position of a marker within a linkage group</td></tr>
-<tr><td><span style="font-weight:bold;">variantDbId</span></td><td>string</td><td>Internal db identifier</td></tr>
-<tr><td><span style="font-weight:bold;">variantName</span></td><td>string</td><td>The human readable name for a marker</td></tr>
+<tr><td><span style="font-weight:bold;">linkageGroupName</span></td><td>string</td><td>The Uniquely Identifiable name of a `LinkageGroup` <br> This might be a chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.</td></tr>
+<tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string</td><td>The ID which uniquely identifies a `GenomeMap`</td></tr>
+<tr><td><span style="font-weight:bold;">mapName</span></td><td>string</td><td>A human readable name for a `GenomeMap`</td></tr>
+<tr><td><span style="font-weight:bold;">position</span></td><td>integer</td><td>The position of a marker or variant within a `LinkageGroup`</td></tr>
+<tr><td><span style="font-weight:bold;">variantDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Variant` within the given database server <br> A `Variant` can also represent a Marker </td></tr>
+<tr><td><span style="font-weight:bold;">variantName</span></td><td>string</td><td>The human readable name for a `Variant` <br> A `Variant` can also represent a Marker </td></tr>
 </table>
 
 

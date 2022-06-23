@@ -481,7 +481,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 
 
-### Get - /variantsets [GET /brapi/v2/variantsets{?variantSetDbId}{?variantDbId}{?callSetDbId}{?studyDbId}{?studyName}{?referenceSetDbId}{?commonCropName}{?programDbId}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /variantsets [GET /brapi/v2/variantsets{?variantSetDbId}{?variantDbId}{?callSetDbId}{?referenceSetDbId}{?commonCropName}{?programDbId}{?studyDbId}{?studyName}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Will return a filtered list of `VariantSet`.
 
@@ -531,11 +531,11 @@ Will return a filtered list of `VariantSet`.
     + variantSetDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
     + variantDbId (Optional, ) ... The ID of the `Variant` to be retrieved.
     + callSetDbId (Optional, ) ... The ID of the `CallSet` to be retrieved.
-    + studyDbId (Optional, ) ... Filter by study DbId
-    + studyName (Optional, ) ... Filter by study name
     + referenceSetDbId (Optional, ) ... The ID of the reference set that describes the sequences used by the variants in this set.
     + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
-    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
+    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given `Program` unique identifier. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
+    + studyDbId (Optional, ) ... Use this parameter to only return results associated with the given `Study` unique identifier. <br/>Use `GET /studies` to find the list of available `Studies` on a server.
+    + studyName (Optional, ) ... Use this parameter to only return results associated with the given `Study` by its human readable name. <br/>Use `GET /studies` to find the list of available `Studies` on a server.
     + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
@@ -1039,8 +1039,8 @@ Gets a list of `Calls` associated with a `VariantSet`.
 <tr><td>data<br>.genotype<br><span style="font-weight:bold;margin-left:5px">.values</span></td><td>array</td><td>**Deprecated in v2.1** Please use `genotypeValue` or `genotypeMetadata`. Github issue number #491              <br>Repeated field of dynamically typed values.</td></tr>
 <tr><td>data<br><span style="font-weight:bold;margin-left:5px">.genotypeMetadata</span></td><td>array[object]</td><td>Genotype Metadata are additional layers of metadata associated with each genotype.</td></tr>
 <tr><td>data<br>.genotypeMetadata<br><span style="font-weight:bold;margin-left:5px">.dataType</span></td><td>string</td><td>The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.</td></tr>
-<tr><td>data<br>.genotypeMetadata<br><span style="font-weight:bold;margin-left:5px">.fieldAbbreviation</span></td><td>string</td><td>The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"</td></tr>
-<tr><td>data<br>.genotypeMetadata<br><span style="font-weight:bold;margin-left:5px">.fieldName</span></td><td>string</td><td>The name of the field represented in this Genotype Field. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"</td></tr>
+<tr><td>data<br>.genotypeMetadata<br><span style="font-weight:bold;margin-left:5px">.fieldAbbreviation</span></td><td>string</td><td>The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ" <br> This maps to a FORMAT field in the VCF file standard.</td></tr>
+<tr><td>data<br>.genotypeMetadata<br><span style="font-weight:bold;margin-left:5px">.fieldName</span></td><td>string</td><td>The name of the field represented in this Genotype Field. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality" <br> This maps to a FORMAT field in the VCF file standard.</td></tr>
 <tr><td>data<br>.genotypeMetadata<br><span style="font-weight:bold;margin-left:5px">.fieldValue</span></td><td>string</td><td>The additional metadata value associated with this genotype call</td></tr>
 <tr><td>data<br><span style="font-weight:bold;margin-left:5px">.genotypeValue</span></td><td>string</td><td>The value of this genotype call</td></tr>
 <tr><td>data<br><span style="font-weight:bold;margin-left:5px">.genotype_likelihood</span></td><td>array[number]</td><td>**Deprecated in v2.1** Please use `genotypeMetadata`. Github issue number #491              <br>The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.</td></tr>
@@ -1081,10 +1081,8 @@ Gets a list of `Calls` associated with a `VariantSet`.
     "metadata": {
         "datafiles": [],
         "pagination": {
-            "currentPageToken": "48bc6ac1",
-            "nextPageToken": "cb668f63",
+            "currentPage": 0,
             "pageSize": 1000,
-            "prevPageToken": "9659857e",
             "totalCount": 10,
             "totalPages": 1
         },
@@ -1162,8 +1160,8 @@ Gets a list of `CallSets` associated with a `VariantSet`.
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">callSetDbId</span></td><td>string</td><td>The call set ID.</td></tr>
-<tr><td><span style="font-weight:bold;">callSetName</span></td><td>string</td><td>The call set name.</td></tr>
+<tr><td><span style="font-weight:bold;">callSetDbId</span></td><td>string</td><td>The ID which uniquely identifies a CallSet within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">callSetName</span></td><td>string</td><td>The human readable name which identifies a germplasm within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">created</span></td><td>string<br>(date-time)</td><td>The date this call set was created</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -1172,7 +1170,7 @@ Gets a list of `CallSets` associated with a `VariantSet`.
 <tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string</td><td>The Biosample entity the call set data was generated from.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">updated</span></td><td>string<br>(date-time)</td><td>The time at which this call set was last updated</td></tr>
-<tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>The IDs of the variant sets this call set has calls in.</td></tr>
+<tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>The IDs of the variantSets this callSet has calls in.</td></tr>
 </table>
 
 
@@ -1274,7 +1272,7 @@ This call will return an array of `Variants`.
 <tr><td><span style="font-weight:bold;">ciend</span></td><td>array[integer]</td><td>Similar to "cipos", but for the variant's end position (which is derived from start + svlen).</td></tr>
 <tr><td><span style="font-weight:bold;">cipos</span></td><td>array[integer]</td><td>In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2</td></tr>
 <tr><td><span style="font-weight:bold;">created</span></td><td>string<br>(date-time)</td><td>The timestamp when this variant was created.</td></tr>
-<tr><td><span style="font-weight:bold;">end</span></td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.</td></tr>
+<tr><td><span style="font-weight:bold;">end</span></td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with. <br>The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -1287,11 +1285,11 @@ This call will return an array of `Variants`.
 <tr><td><span style="font-weight:bold;">referenceName</span></td><td>string</td><td>The reference on which this variant occurs. (e.g. `chr_20` or `X`)</td></tr>
 <tr><td><span style="font-weight:bold;">referenceSetDbId</span></td><td>string</td><td>The unique identifier for a ReferenceSet</td></tr>
 <tr><td><span style="font-weight:bold;">referenceSetName</span></td><td>string</td><td>The human readable name of the ReferenceSet</td></tr>
-<tr><td><span style="font-weight:bold;">start</span></td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The start position at which this variant occurs (0-based). This corresponds to the first base of the string  of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning  the join of circular genomes are represented as two variants one on each side of the join (position 0).</td></tr>
+<tr><td><span style="font-weight:bold;">start</span></td><td>integer</td><td>This field is optional and may be ignored if there is no relevant map or reference to be associated with. <br> The start position at which this variant occurs (0-based). This corresponds to the first base of the string  of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning  the join of circular genomes are represented as two variants one on each side of the join (position 0).</td></tr>
 <tr><td><span style="font-weight:bold;">svlen</span></td><td>integer</td><td>Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2</td></tr>
 <tr><td><span style="font-weight:bold;">updated</span></td><td>string<br>(date-time)</td><td>The time at which this variant was last updated.</td></tr>
-<tr><td><span style="font-weight:bold;">variantDbId</span></td><td>string</td><td>The variant ID.</td></tr>
-<tr><td><span style="font-weight:bold;">variantNames</span></td><td>array[string]</td><td>Names for the variant, for example a RefSNP ID.</td></tr>
+<tr><td><span style="font-weight:bold;">variantDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Variant`</td></tr>
+<tr><td><span style="font-weight:bold;">variantNames</span></td><td>array[string]</td><td>A human readable name associated with a `Variant`</td></tr>
 <tr><td><span style="font-weight:bold;">variantSetDbId</span></td><td>array[string]</td><td>An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.</td></tr>
 <tr><td><span style="font-weight:bold;">variantType</span></td><td>string</td><td>The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"   DEL  : deletion of sequence following "start"</td></tr>
 </table>
@@ -1319,10 +1317,8 @@ This call will return an array of `Variants`.
     "metadata": {
         "datafiles": [],
         "pagination": {
-            "currentPageToken": "48bc6ac1",
-            "nextPageToken": "cb668f63",
+            "currentPage": 0,
             "pageSize": 1000,
-            "prevPageToken": "9659857e",
             "totalCount": 10,
             "totalPages": 1
         },

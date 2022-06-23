@@ -1,10 +1,13 @@
 # Group Reference Sets
 
+From GA4GH Variants schema documentation
+
+A reference genome is a genome assembly that other genomes are compared to and described with respect to. For example, sequencing reads are mapped to and described with respect to a reference genome in the API, and genetic variations are described as edits to reference scaffolds/contigs. In the API a reference genome is described by a ReferenceSet. In turn a ReferenceSet is composed of a set of Reference objects, each which represents a scaffold or contig in the assembly. Reference sequences are expected to have unique names within a ReferenceSet
 
 
 
 
-### Get - /referencesets [GET /brapi/v2/referencesets{?referenceSetDbId}{?accession}{?assemblyPUI}{?md5checksum}{?trialDbId}{?studyDbId}{?commonCropName}{?programDbId}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /referencesets [GET /brapi/v2/referencesets{?referenceSetDbId}{?accession}{?assemblyPUI}{?md5checksum}{?commonCropName}{?programDbId}{?trialDbId}{?studyDbId}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Gets a filtered list of `ReferenceSets`.
 
@@ -44,10 +47,10 @@ Gets a filtered list of `ReferenceSets`.
     + accession (Optional, ) ... If set, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).
     + assemblyPUI (Optional, ) ... If set, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).
     + md5checksum (Optional, ) ... If set, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match).
-    + trialDbId (Optional, ) ... The unique identifier for a Trial
-    + studyDbId (Optional, ) ... The unique identifier for a Study
     + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
-    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
+    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given `Program` unique identifier. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
+    + trialDbId (Optional, ) ... Use this parameter to only return results associated with the given `Trial` unique identifier. <br/>Use `GET /trials` to find the list of available `Trials` on a server.
+    + studyDbId (Optional, ) ... Use this parameter to only return results associated with the given `Study` unique identifier. <br/>Use `GET /studies` to find the list of available `Studies` on a server.
     + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.

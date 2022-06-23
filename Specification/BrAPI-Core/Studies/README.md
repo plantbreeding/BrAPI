@@ -676,7 +676,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 
 
-### Get - /studies [GET /brapi/v2/studies{?studyType}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?studyName}{?studyCode}{?studyPUI}{?germplasmDbId}{?observationVariableDbId}{?active}{?sortBy}{?sortOrder}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /studies [GET /brapi/v2/studies{?studyType}{?locationDbId}{?seasonDbId}{?studyCode}{?studyPUI}{?observationVariableDbId}{?active}{?sortBy}{?sortOrder}{?commonCropName}{?programDbId}{?trialDbId}{?studyDbId}{?studyName}{?germplasmDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get list of studies
 
@@ -758,18 +758,18 @@ StartDate and endDate should be ISO-8601 format for dates
     + studyType (Optional, ) ... Filter based on study type unique identifier
     + locationDbId (Optional, ) ... Filter by location
     + seasonDbId (Optional, ) ... Filter by season or year
-    + trialDbId (Optional, ) ... Filter by trial
-    + studyDbId (Optional, ) ... Filter by study DbId
-    + studyName (Optional, ) ... Filter by study name
     + studyCode (Optional, ) ... Filter by study code
     + studyPUI (Optional, ) ... Filter by study PUI
-    + germplasmDbId (Optional, ) ... Filter by germplasm DbId
     + observationVariableDbId (Optional, ) ... Filter by observation variable DbId
     + active (Optional, ) ... Filter active status true/false.
     + sortBy (Optional, ) ... Name of the field to sort by.
     + sortOrder (Optional, ) ... Sort order direction. Ascending/Descending.
     + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
-    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
+    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given `Program` unique identifier. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
+    + trialDbId (Optional, ) ... Use this parameter to only return results associated with the given `Trial` unique identifier. <br/>Use `GET /trials` to find the list of available `Trials` on a server.
+    + studyDbId (Optional, ) ... Use this parameter to only return results associated with the given `Study` unique identifier. <br/>Use `GET /studies` to find the list of available `Studies` on a server.
+    + studyName (Optional, ) ... Use this parameter to only return results associated with the given `Study` by its human readable name. <br/>Use `GET /studies` to find the list of available `Studies` on a server.
+    + germplasmDbId (Optional, ) ... Use this parameter to only return results associated with the given `Germplasm` unique identifier. <br/>Use `GET /germplasm` to find the list of available `Germplasm` on a server.
     + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)

@@ -1,5 +1,9 @@
 # Group CallSets
 
+A `CallSet` represents a `Sample` that was used during some sequencing event. In most cases, the `CallSet` will have a 1-to-1 relationship with a given `Sample`. However, in some cases, a single `Sample` may be used in multiple different sequencing events or experiments. The `CallSet` gives an identifier to the relationship between a `Sample` and a genotype sequencing event. 
+
+In a VCF file, `CallSets` are the columns are the data matrix. 
+
 
 
 
@@ -15,8 +19,8 @@ Gets a filtered list of `CallSet` JSON objects.
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">callSetDbId</span></td><td>string</td><td>The call set ID.</td></tr>
-<tr><td><span style="font-weight:bold;">callSetName</span></td><td>string</td><td>The call set name.</td></tr>
+<tr><td><span style="font-weight:bold;">callSetDbId</span></td><td>string</td><td>The ID which uniquely identifies a CallSet within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">callSetName</span></td><td>string</td><td>The human readable name which identifies a germplasm within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">created</span></td><td>string<br>(date-time)</td><td>The date this call set was created</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -25,18 +29,18 @@ Gets a filtered list of `CallSet` JSON objects.
 <tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string</td><td>The Biosample entity the call set data was generated from.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">updated</span></td><td>string<br>(date-time)</td><td>The time at which this call set was last updated</td></tr>
-<tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>The IDs of the variant sets this call set has calls in.</td></tr>
+<tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>The IDs of the variantSets this callSet has calls in.</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + callSetDbId (Optional, ) ... The ID of the `CallSet` to be retrieved.
-    + callSetName (Optional, ) ... The human readable name of the `CallSet` to be retrieved.
-    + variantSetDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
-    + sampleDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
-    + germplasmDbId (Optional, ) ... Return only call sets generated from the Sample of this Germplasm
+    + callSetDbId (Optional, ) ... The ID which uniquely identifies a `CallSet` within the given database server
+    + callSetName (Optional, ) ... The human readable name of a `CallSet`.
+    + variantSetDbId (Optional, ) ... The ID which uniquely identifies a `VariantSet` within the given database server
+    + sampleDbId (Optional, ) ... The ID which uniquely identifies a `Sample` within the given database server<br>Filter results to only include `CallSets` generated from this `Sample`
+    + germplasmDbId (Optional, ) ... Use this parameter to only return results associated with the given `Germplasm` unique identifier. <br/>Use `GET /germplasm` to find the list of available `Germplasm` on a server.
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
@@ -126,8 +130,8 @@ Gets a `CallSet` by ID.
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">callSetDbId</span></td><td>string</td><td>The call set ID.</td></tr>
-<tr><td><span style="font-weight:bold;">callSetName</span></td><td>string</td><td>The call set name.</td></tr>
+<tr><td><span style="font-weight:bold;">callSetDbId</span></td><td>string</td><td>The ID which uniquely identifies a CallSet within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">callSetName</span></td><td>string</td><td>The human readable name which identifies a germplasm within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">created</span></td><td>string<br>(date-time)</td><td>The date this call set was created</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -136,14 +140,14 @@ Gets a `CallSet` by ID.
 <tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string</td><td>The Biosample entity the call set data was generated from.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">updated</span></td><td>string<br>(date-time)</td><td>The time at which this call set was last updated</td></tr>
-<tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>The IDs of the variant sets this call set has calls in.</td></tr>
+<tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>The IDs of the variantSets this callSet has calls in.</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + callSetDbId (Required, ) ... The ID of the `CallSet` to be retrieved.
+    + callSetDbId (Required, ) ... The ID which uniquely identifies a `CallSet` within the given database server
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
@@ -237,8 +241,8 @@ Gets a list of `Calls` associated with a `CallSet`.
 <tr><td>data<br>.genotype<br><span style="font-weight:bold;margin-left:5px">.values</span></td><td>array</td><td>**Deprecated in v2.1** Please use `genotypeValue` or `genotypeMetadata`. Github issue number #491              <br>Repeated field of dynamically typed values.</td></tr>
 <tr><td>data<br><span style="font-weight:bold;margin-left:5px">.genotypeMetadata</span></td><td>array[object]</td><td>Genotype Metadata are additional layers of metadata associated with each genotype.</td></tr>
 <tr><td>data<br>.genotypeMetadata<br><span style="font-weight:bold;margin-left:5px">.dataType</span></td><td>string</td><td>The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.</td></tr>
-<tr><td>data<br>.genotypeMetadata<br><span style="font-weight:bold;margin-left:5px">.fieldAbbreviation</span></td><td>string</td><td>The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"</td></tr>
-<tr><td>data<br>.genotypeMetadata<br><span style="font-weight:bold;margin-left:5px">.fieldName</span></td><td>string</td><td>The name of the field represented in this Genotype Field. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"</td></tr>
+<tr><td>data<br>.genotypeMetadata<br><span style="font-weight:bold;margin-left:5px">.fieldAbbreviation</span></td><td>string</td><td>The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ" <br> This maps to a FORMAT field in the VCF file standard.</td></tr>
+<tr><td>data<br>.genotypeMetadata<br><span style="font-weight:bold;margin-left:5px">.fieldName</span></td><td>string</td><td>The name of the field represented in this Genotype Field. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality" <br> This maps to a FORMAT field in the VCF file standard.</td></tr>
 <tr><td>data<br>.genotypeMetadata<br><span style="font-weight:bold;margin-left:5px">.fieldValue</span></td><td>string</td><td>The additional metadata value associated with this genotype call</td></tr>
 <tr><td>data<br><span style="font-weight:bold;margin-left:5px">.genotypeValue</span></td><td>string</td><td>The value of this genotype call</td></tr>
 <tr><td>data<br><span style="font-weight:bold;margin-left:5px">.genotype_likelihood</span></td><td>array[number]</td><td>**Deprecated in v2.1** Please use `genotypeMetadata`. Github issue number #491              <br>The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.</td></tr>
@@ -257,7 +261,7 @@ Gets a list of `Calls` associated with a `CallSet`.
  
 
 + Parameters
-    + callSetDbId (Required, ) ... The ID of the `CallSet` to be retrieved.
+    + callSetDbId (Required, ) ... The ID which uniquely identifies a `CallSet` within the given database server
     + expandHomozygotes (Optional, ) ... Should homozygotes be expanded (true) or collapsed into a single occurrence (false)
     + unknownString (Optional, ) ... The string to use as a representation for missing data
     + sepPhased (Optional, ) ... The string to use as a separator for phased allele calls
@@ -279,10 +283,8 @@ Gets a list of `Calls` associated with a `CallSet`.
     "metadata": {
         "datafiles": [],
         "pagination": {
-            "currentPageToken": "48bc6ac1",
-            "nextPageToken": "cb668f63",
+            "currentPage": 0,
             "pageSize": 1000,
-            "prevPageToken": "9659857e",
             "totalCount": 10,
             "totalPages": 1
         },
@@ -351,18 +353,18 @@ Gets a list of `Calls` associated with a `CallSet`.
 
 ### Post - /search/callsets [POST /brapi/v2/search/callsets]
 
-Submit a search request for `CallSets`<br/>
-Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+Submit a search request for `CallSets` 
+<br> Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
 If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
-Use the corresponding `GET /search/callsets/{searchResultsDbId}` to retrieve the results of the search. <br/> 
-Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
+Use the corresponding `GET /search/callsets/{searchResultsDbId}` to retrieve the results of the search. 
+<br> Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
 
 **Request Fields** 
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">callSetDbIds</span></td><td>array[string]</td><td>Only return call sets with these DbIds (case-sensitive, exact match).</td></tr>
-<tr><td><span style="font-weight:bold;">callSetNames</span></td><td>array[string]</td><td>Only return call sets with these names (case-sensitive, exact match).</td></tr>
+<tr><td><span style="font-weight:bold;">callSetDbIds</span></td><td>array[string]</td><td>A list of IDs which uniquely identify `CallSets` within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">callSetNames</span></td><td>array[string]</td><td>A list of human readable names associated with `CallSets`</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropNames</span></td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460  <br>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceIds</span></td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
@@ -373,13 +375,13 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">pageSize</span></td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
 <tr><td><span style="font-weight:bold;">programDbIds</span></td><td>array[string]</td><td>A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.</td></tr>
 <tr><td><span style="font-weight:bold;">programNames</span></td><td>array[string]</td><td>Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.</td></tr>
-<tr><td><span style="font-weight:bold;">sampleDbIds</span></td><td>array[string]</td><td>Return only call sets generated from the provided Biosample IDs.</td></tr>
-<tr><td><span style="font-weight:bold;">sampleNames</span></td><td>array[string]</td><td>Return only call sets generated from the provided Biosample human readable names.</td></tr>
+<tr><td><span style="font-weight:bold;">sampleDbIds</span></td><td>array[string]</td><td>A list of IDs which uniquely identify `Samples` within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">sampleNames</span></td><td>array[string]</td><td>A list of human readable names associated with `Samples`</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbIds</span></td><td>array[string]</td><td>List of study identifiers to search for</td></tr>
 <tr><td><span style="font-weight:bold;">studyNames</span></td><td>array[string]</td><td>List of study names to filter search results</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbIds</span></td><td>array[string]</td><td>The ID which uniquely identifies a trial to search for</td></tr>
 <tr><td><span style="font-weight:bold;">trialNames</span></td><td>array[string]</td><td>The human readable name of a trial to search for</td></tr>
-<tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>The VariantSet to search.</td></tr>
+<tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>A list of IDs which uniquely identify `VariantSets` within the given database server</td></tr>
 </table>
 
 
@@ -388,8 +390,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">callSetDbId</span></td><td>string</td><td>The call set ID.</td></tr>
-<tr><td><span style="font-weight:bold;">callSetName</span></td><td>string</td><td>The call set name.</td></tr>
+<tr><td><span style="font-weight:bold;">callSetDbId</span></td><td>string</td><td>The ID which uniquely identifies a CallSet within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">callSetName</span></td><td>string</td><td>The human readable name which identifies a germplasm within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">created</span></td><td>string<br>(date-time)</td><td>The date this call set was created</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -398,7 +400,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string</td><td>The Biosample entity the call set data was generated from.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">updated</span></td><td>string<br>(date-time)</td><td>The time at which this call set was last updated</td></tr>
-<tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>The IDs of the variant sets this call set has calls in.</td></tr>
+<tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>The IDs of the variantSets this callSet has calls in.</td></tr>
 </table>
 
 
@@ -585,12 +587,12 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 ### Get - /search/callsets/{searchResultsDbId} [GET /brapi/v2/search/callsets/{searchResultsDbId}{?page}{?pageSize}]
 
-Get the results of a `CallSets` search request <br/>
-Clients should submit a search request using the corresponding `POST /search/callsets` endpoint.
+Get the results of a `CallSets` search request 
+<br> Clients should submit a search request using the corresponding `POST /search/callsets` endpoint.
 Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
 If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
-Use this endpoint to retrieve the results of the search. <br/> 
-Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
+Use this endpoint to retrieve the results of the search. 
+<br>Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
 
 
 
@@ -599,8 +601,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">callSetDbId</span></td><td>string</td><td>The call set ID.</td></tr>
-<tr><td><span style="font-weight:bold;">callSetName</span></td><td>string</td><td>The call set name.</td></tr>
+<tr><td><span style="font-weight:bold;">callSetDbId</span></td><td>string</td><td>The ID which uniquely identifies a CallSet within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">callSetName</span></td><td>string</td><td>The human readable name which identifies a germplasm within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">created</span></td><td>string<br>(date-time)</td><td>The date this call set was created</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -609,7 +611,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string</td><td>The Biosample entity the call set data was generated from.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">updated</span></td><td>string<br>(date-time)</td><td>The time at which this call set was last updated</td></tr>
-<tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>The IDs of the variant sets this call set has calls in.</td></tr>
+<tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>The IDs of the variantSets this callSet has calls in.</td></tr>
 </table>
 
 

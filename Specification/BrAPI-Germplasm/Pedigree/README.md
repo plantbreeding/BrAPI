@@ -6,7 +6,7 @@ These end points can be used to interact with Pedigree Trees. Each response will
 
 
 
-### Get - /pedigree [GET /brapi/v2/pedigree{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?accessionNumber}{?collection}{?familyCode}{?binomialName}{?genus}{?species}{?trialDbId}{?studyDbId}{?synonym}{?includeParents}{?includeSiblings}{?includeProgeny}{?includeFullTree}{?pedigreeDepth}{?progenyDepth}{?commonCropName}{?programDbId}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /pedigree [GET /brapi/v2/pedigree{?accessionNumber}{?collection}{?familyCode}{?binomialName}{?genus}{?species}{?synonym}{?includeParents}{?includeSiblings}{?includeProgeny}{?includeFullTree}{?pedigreeDepth}{?progenyDepth}{?commonCropName}{?programDbId}{?trialDbId}{?studyDbId}{?germplasmDbId}{?germplasmName}{?germplasmPUI}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of pedigree nodes which represent a subset of a pedigree tree
 
@@ -48,17 +48,12 @@ Get a filtered list of pedigree nodes which represent a subset of a pedigree tre
  
 
 + Parameters
-    + germplasmPUI (Optional, ) ... The Permanent Unique Identifier (DOI, URI, etc.) for a germplasm
-    + germplasmDbId (Optional, ) ... The ID which uniquely identifies a germplasm
-    + germplasmName (Optional, ) ... A human readable name for a germplasm
     + accessionNumber (Optional, ) ... The unique identifier for an accession within a genebank
     + collection (Optional, ) ... A specific panel/collection/population name this germplasm belongs to.
     + familyCode (Optional, ) ... A familyCode representing the family this germplasm belongs to.
     + binomialName (Optional, ) ... The full binomial name (scientific name) of a germplasm
     + genus (Optional, ) ... The scientific genus of a germplasm
     + species (Optional, ) ... The scientific species of a germplasm
-    + trialDbId (Optional, ) ... The ID which uniquely identifies a Trial within the given database server
-    + studyDbId (Optional, ) ... The ID which uniquely identifies a Study within the given database server
     + synonym (Optional, ) ... An alternative name or ID used to reference this germplasm
     + includeParents (Optional, ) ... If this parameter is true, include the array of parents in the response
     + includeSiblings (Optional, ) ... If this parameter is true, include the array of siblings in the response
@@ -67,7 +62,12 @@ Get a filtered list of pedigree nodes which represent a subset of a pedigree tre
     + pedigreeDepth (Optional, ) ... Recursively include this number of levels up the tree in the response
     + progenyDepth (Optional, ) ... Recursively include this number of levels down the tree in the response
     + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
-    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
+    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given `Program` unique identifier. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
+    + trialDbId (Optional, ) ... Use this parameter to only return results associated with the given `Trial` unique identifier. <br/>Use `GET /trials` to find the list of available `Trials` on a server.
+    + studyDbId (Optional, ) ... Use this parameter to only return results associated with the given `Study` unique identifier. <br/>Use `GET /studies` to find the list of available `Studies` on a server.
+    + germplasmDbId (Optional, ) ... Use this parameter to only return results associated with the given `Germplasm` unique identifier. <br/>Use `GET /germplasm` to find the list of available `Germplasm` on a server.
+    + germplasmName (Optional, ) ... Use this parameter to only return results associated with the given `Germplasm` by its human readable name. <br/>Use `GET /germplasm` to find the list of available `Germplasm` on a server.
+    + germplasmPUI (Optional, ) ... Use this parameter to only return results associated with the given `Germplasm` by its global permanent unique identifier. <br/>Use `GET /germplasm` to find the list of available `Germplasm` on a server.
     + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
