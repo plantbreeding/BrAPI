@@ -26,18 +26,6 @@ paths:
           required: false
           schema:
             type: string
-        - name: studyDbId
-          description: Filter by study DbId
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: studyName
-          description: Filter by study name
-          in: query
-          required: false
-          schema:
-            type: string
         - name: referenceSetDbId
           description: The ID of the reference set that describes the sequences used by the variants in this set.
           in: query
@@ -46,6 +34,8 @@ paths:
             type: string
         - $ref: '#/components/parameters/commonCropName'
         - $ref: '#/components/parameters/programDbId'
+        - $ref: '#/components/parameters/studyDbId'
+        - $ref: '#/components/parameters/studyName'
         - $ref: '#/components/parameters/externalReferenceId'
         - $ref: '#/components/parameters/externalReferenceSource'
         - $ref: '#/components/parameters/page'

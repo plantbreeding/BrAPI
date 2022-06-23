@@ -8,24 +8,6 @@ paths:
       summary: Get a filtered list of pedigree nodes which represent a subset of a pedigree tree
       description: Get a filtered list of pedigree nodes which represent a subset of a pedigree tree
       parameters:
-      - name: germplasmPUI
-        description: The Permanent Unique Identifier (DOI, URI, etc.) for a germplasm
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: germplasmDbId
-        description: The ID which uniquely identifies a germplasm
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: germplasmName
-        description: A human readable name for a germplasm
-        in: query
-        required: false
-        schema:
-          type: string
       - name: accessionNumber
         description: The unique identifier for an accession within a genebank
         in: query
@@ -58,18 +40,6 @@ paths:
           type: string
       - name: species
         description: The scientific species of a germplasm
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: trialDbId
-        description: The ID which uniquely identifies a Trial within the given database server
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: studyDbId
-        description: The ID which uniquely identifies a Study within the given database server
         in: query
         required: false
         schema:
@@ -118,6 +88,11 @@ paths:
           type: integer
       - $ref: '#/components/parameters/commonCropName'
       - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/trialDbId'
+      - $ref: '#/components/parameters/studyDbId'
+      - $ref: '#/components/parameters/germplasmDbId'
+      - $ref: '#/components/parameters/germplasmName'
+      - $ref: '#/components/parameters/germplasmPUI'
       - $ref: '#/components/parameters/externalReferenceId'
       - $ref: '#/components/parameters/externalReferenceSource'
       - $ref: '#/components/parameters/page'

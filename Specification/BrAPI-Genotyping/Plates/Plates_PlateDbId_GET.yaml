@@ -6,9 +6,9 @@ paths:
   /plates/{plateDbId}:
     get:
       summary: Get the details of a specific Plate.
-      description: Get the details of a specific Plate. Each Plate is a collection of samples that are physically grouped together.
+      description: Get the details of a specific `Plate`. Each `Plate` is a collection of `Samples` that are physically grouped together.
       parameters:
-      - description: The ID which uniquely identifies a plate
+      - description: The ID which uniquely identifies a `Plate`
         in: path
         name: plateDbId
         required: true

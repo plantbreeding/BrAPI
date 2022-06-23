@@ -89,11 +89,13 @@ components:
               dataMatrixName:
                 description: |-
                   The name of the field represented in this data matrix. The key word "Genotype" is reserved for the allele matrix. Examples of other metadata matrices include: "Genotype Quality", "Read Depth", and "Haplotype Quality"
+                  <br> This maps to a FORMAT field in the VCF file standard.
                 type: string
                 example: Genotype
               dataMatrixAbbreviation:
                 description: |-
                   The abbreviated code of the field represented in this data matrix. These codes should match the VCF standard when possible and the key word "GT" is reserved for the allele matrix. Examples of other metadata matrices include: "GQ", "RD", and "HQ"
+                  <br> This maps to a FORMAT field in the VCF file standard.
                 type: string
                 example: GT
               dataMatrix:

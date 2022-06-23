@@ -62,24 +62,6 @@ paths:
         schema:
           type: string
           format: date
-      - name: studyDbId
-        description: Filter by connected studyDbId
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: trialDbId
-        description: Filter by trialDbId
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: trialName
-        description: Filter by trial name
-        in: query
-        required: false
-        schema:
-          type: string
       - name: trialPUI
         description: Filter by trial PUI
         in: query
@@ -111,8 +93,11 @@ paths:
           - desc
           - DESC
           type: string
-      - $ref: '#/components/parameters/programDbId'
       - $ref: '#/components/parameters/commonCropName'
+      - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/trialDbId'
+      - $ref: '#/components/parameters/trialName'
+      - $ref: '#/components/parameters/studyDbId'
       - $ref: '#/components/parameters/externalReferenceID' 
       - $ref: '#/components/parameters/externalReferenceId'
       - $ref: '#/components/parameters/externalReferenceSource'

@@ -10,19 +10,19 @@ paths:
         Gets a filtered list of `Call` JSON objects.
       parameters:
         - name: callSetDbId
-          description: The ID of the `CallSet` to be retrieved.
+          description: The ID which uniquely identifies a `CallSet` within the given database server 
           in: query
           required: false
           schema:
             type: string
         - name: variantDbId
-          description: The ID of the `Variant` to be retrieved.
+          description: The ID which uniquely identifies a `Variant` within the given database server 
           in: query
           required: false
           schema:
             type: string
         - name: variantSetDbId
-          description: The ID of the `VariantSet` to be retrieved.
+          description: The ID which uniquely identifies a `VariantSet` within the given database server 
           in: query
           required: false
           schema:

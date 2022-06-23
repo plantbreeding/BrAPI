@@ -59,8 +59,7 @@ components:
         end:
           description: |-
             This field is optional and may be ignored if there is no relevant map or reference to be associated with.
-          
-            The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated 
+            <br>The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated 
             by `start + referenceBases.length`.
           type: integer
           example: 518
@@ -81,11 +80,11 @@ components:
           type: boolean
           example: True
         variantDbId:
-          description: The variant ID.
+          description: The ID which uniquely identifies a `Variant`
           type: string
           example: 628e89c5
         variantNames:
-          description: Names for the variant, for example a RefSNP ID.
+          description: A human readable name associated with a `Variant`
           items:
             type: string
           type: array
@@ -113,8 +112,7 @@ components:
         start:
           description: |-
             This field is optional and may be ignored if there is no relevant map or reference to be associated with.
-          
-            The start position at which this variant occurs (0-based). This corresponds to the first base of the string 
+            <br> The start position at which this variant occurs (0-based). This corresponds to the first base of the string 
             of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning 
             the join of circular genomes are represented as two variants one on each side of the join (position 0).
           type: integer

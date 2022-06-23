@@ -7,7 +7,7 @@ components:
   schemas:
     LinkageGroup:
       type: object
-      description: a Linkage Group is the BrAPI generic term for a named section of a map. A Linkage Group can represent a Chromosome, Scaffold, or Linkage Group. 
+      description: a `LinkageGroup` is the generic term for a named section of a `GenomeMap`. A `LinkageGroup` can represent a Chromosome, Scaffold, or Linkage Group. 
       properties:
         additionalInfo:
           additionalProperties:
@@ -15,14 +15,16 @@ components:
           description: Additional arbitrary info
           type: object
         linkageGroupName:
-          description: The Uniquely Identifiable name of this linkage group
+          description: |-
+            The Uniquely Identifiable name of a `LinkageGroup`
+            <br> This might be a chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
           type: string
           example: Chromosome 3 
         markerCount: 
-          description: The number of markers associated with this linkage group
+          description: The number of markers associated with a `LinkageGroup`
           type: integer
           example: 150 
         maxPosition:
-          description: The maximum position of a marker within this linkage group
+          description: The maximum position of a marker within a `LinkageGroup`
           type: integer
           example: 2500

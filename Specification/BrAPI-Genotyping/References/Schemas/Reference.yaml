@@ -17,19 +17,19 @@ components:
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
         referenceDbId:
-          description: The unique identifier for a Reference
+          description: The unique identifier for a `Reference`
           type: string
           example: fc0a81d0
         referenceName:
-          description: The human readable name of a Reference within a Reference Set.
+          description: The human readable name of a `Reference` within a `ReferenceSet`.
           type: string
           example: Chromosome 2
         referenceSetDbId:
-          description: The unique identifier for a ReferenceSet
+          description: The unique identifier for a `ReferenceSet`
           type: string
           example: c1ecfef1
         referenceSetName:
-          description: The human readable name of a ReferenceSet
+          description: The human readable name of a `ReferenceSet`
           type: string
           example: The Best Assembly Ever
         isDerived:
@@ -38,7 +38,7 @@ components:
           type: boolean
           example: false
         length:
-          description: The length of this reference's sequence.
+          description: The length of this `Reference` sequence.
           type: integer
           example: 50000000
         md5checksum:
@@ -52,11 +52,11 @@ components:
             type: object
             properties:
               germplasmDbId:
-                description: The ID which uniquely identifies a germplasm within the given database server
+                description: The ID which uniquely identifies a `Germplasm` within the given database server
                 type: string
                 example: d4076594
               germplasmName:
-                description: The human readable name of a germplasm
+                description: The human readable name of a `Germplasm`
                 type: string
                 example: A0000003
         sourceAccessions:
@@ -66,7 +66,7 @@ components:
           type: array
           example: ["GCF_000001405.26"]
         sourceDivergence:
-          description: The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.
+          description: The `sourceDivergence` is the fraction of non-indel bases that do not match the `Reference` this message was derived from.
           format: float
           type: number
           example: 0.01

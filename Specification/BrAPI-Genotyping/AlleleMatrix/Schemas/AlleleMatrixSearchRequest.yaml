@@ -50,13 +50,15 @@ components:
           default: false
           example: true
         dataMatrixNames:
-          description: dataMatrixNames is a list of names (ie 'Genotype', 'Read Depth' etc). This list controls which data matrices are returned in the response.
+          description: |-
+            `dataMatrixNames` is a list of names (ie 'Genotype', 'Read Depth' etc). This list controls which data matrices are returned in the response.
           type: array
           items:
             type: string
           example: ['Genotype', 'Read Depth']
         dataMatrixAbbreviations:
-          description: dataMatrixAbbreviations is a comma seperated list of abbreviations (ie 'GT', 'RD' etc). This list controls which data matrices are returned in the response.
+          description: |-
+            `dataMatrixAbbreviations` is a comma seperated list of abbreviations (ie 'GT', 'RD' etc). This list controls which data matrices are returned in the response.
           type: array
           items:
             type: string
@@ -72,43 +74,43 @@ components:
             type: string
           example: [ '20:1000-35000', '20:87000-125000' ]
         germplasmNames:
-          description: The germplasm to search
+          description: A list of human readable `Germplasm` names
           type: array
           items:
             type: string
           example: [ 'a03202ec', '274e4f63' ]
         germplasmPUIs:
-          description: The germplasm to search
+          description: A list of premenant unique identifiers associated with `Germplasm`
           type: array
           items:
             type: string
           example: [ 'a03202ec', '274e4f63' ]
         germplasmDbIds:
-          description: The germplasm to search
+          description: A list of IDs which uniquely identify `Germplasm` within the given database server 
           type: array
           items:
             type: string
           example: [ 'a03202ec', '274e4f63' ]
         sampleDbIds:
-          description: The samples to search
+          description: A list of IDs which uniquely identify `Samples` within the given database server 
           type: array
           items:
             type: string
           example: [ 'a03202ec', '274e4f63' ]
         callSetDbIds:
-          description: The CallSet to search.
+          description: A list of IDs which uniquely identify `CallSets` within the given database server 
           type: array
           items:
             type: string
           example: [ 'a03202ec', '274e4f63' ]
         variantDbIds: 
-          description: The Variant to search.
+          description: A list of IDs which uniquely identify `Variants` within the given database server 
           type: array
           items:
             type: string
           example: [ 'bba0b258', 'ff97d4f0' ]
         variantSetDbIds: 
-          description: The VariantSet to search.
+          description: A list of IDs which uniquely identify `VariantSets` within the given database server 
           type: array
           items:
             type: string

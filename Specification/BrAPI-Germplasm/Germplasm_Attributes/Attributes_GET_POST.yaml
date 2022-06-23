@@ -32,12 +32,6 @@ paths:
         required: false
         schema:
           type: string
-      - name: germplasmDbId
-        description: Get all attributes associated with this germplasm
-        in: query
-        required: false
-        schema:
-          type: string
       - $ref: '#/components/parameters/methodDbId'
       - $ref: '#/components/parameters/methodName'
       - $ref: '#/components/parameters/methodPUI'
@@ -49,6 +43,7 @@ paths:
       - $ref: '#/components/parameters/traitPUI'
       - $ref: '#/components/parameters/commonCropName'
       - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/germplasmDbId'
       - $ref: '#/components/parameters/externalReferenceID'
       - $ref: '#/components/parameters/externalReferenceId'
       - $ref: '#/components/parameters/externalReferenceSource'

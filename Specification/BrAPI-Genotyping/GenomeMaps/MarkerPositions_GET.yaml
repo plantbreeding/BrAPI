@@ -9,13 +9,15 @@ paths:
       description: Get marker position information, based on Map, Linkage Group, and Marker ID
       parameters:
       - name: mapDbId
-        description: unique id of a map
+        description: The ID which uniquely identifies a `GenomeMap`
         in: query
         required: false
         schema:
           type: string
       - name: linkageGroupName
-        description: The chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
+        description: |-
+          The Uniquely Identifiable name of a `LinkageGroup`
+          <br> This might be a chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
         in: query
         required: false
         schema:

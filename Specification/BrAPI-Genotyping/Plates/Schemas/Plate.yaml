@@ -11,8 +11,7 @@ components:
       - type: object
         properties:
           plateDbId:
-            description: |-
-              The ID which uniquely identifies a plate
+            description: The ID which uniquely identifies a `Plate`
             type: string
             example: a106467f
 

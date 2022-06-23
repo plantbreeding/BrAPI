@@ -6,64 +6,49 @@ paths:
   /plates:
     get:
       summary: Get a filtered list of Plates.
-      description: Get a filtered list of Plates. Each Plate is a collection of samples that are physically grouped together.
+      description: Get a filtered list of `Plates`. Each `Plate` is a collection of `Samples` that are physically grouped together.
       parameters:
       - name: sampleDbId
-        description: The unique identifier for a Sample
+        description: The unique identifier for a `Sample`
         in: query
         required: false
         schema:
           type: string
       - name: sampleName
-        description: The human readable name of the sample
+        description: The human readable name of the `Sample`
         in: query
         required: false
         schema:
           type: string
       - name: sampleGroupDbId
-        description: The unique identifier for a group of related Samples
+        description: The unique identifier for a group of related `Samples`
         in: query
         required: false
         schema:
           type: string
       - name: observationUnitDbId
-        description: The ID which uniquely identifies an observation unit
+        description: The ID which uniquely identifies an `ObservationUnit`
         in: query
         required: false
         schema:
           type: string
       - name: plateDbId
-        description: The ID which uniquely identifies a plate of samples
+        description: The ID which uniquely identifies a `Plate` of `Samples`
         in: query
         required: false
         schema:
           type: string
       - name: plateName
-        description: The human readable name of a plate of samples
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: germplasmDbId
-        description: The ID which uniquely identifies a germplasm
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: studyDbId
-        description: The ID which uniquely identifies a study
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: trialDbId
-        description: The ID which uniquely identifies a trial
+        description: The human readable name of a `Plate` of `Samples`
         in: query
         required: false
         schema:
           type: string
       - $ref: '#/components/parameters/commonCropName'
       - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/trialDbId'
+      - $ref: '#/components/parameters/studyDbId'
+      - $ref: '#/components/parameters/germplasmDbId'
       - $ref: '#/components/parameters/externalReferenceID'
       - $ref: '#/components/parameters/externalReferenceId'
       - $ref: '#/components/parameters/externalReferenceSource'

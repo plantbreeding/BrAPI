@@ -25,11 +25,11 @@ components:
           type: string
           format: date-time
         callSetDbId:
-          description: The call set ID.
+          description: The ID which uniquely identifies a CallSet within the given database server 
           type: string
           example: eb2bfd3d
         callSetName:
-          description: The call set name.
+          description: The human readable name which identifies a germplasm within the given database server 
           type: string
           example: Sample_123_DNA_Run_456
         updated:
@@ -41,7 +41,7 @@ components:
           type: string
           example: 708149c1
         variantSetDbIds:
-          description: The IDs of the variant sets this call set has calls in.
+          description: The IDs of the variantSets this callSet has calls in.
           items:
             type: string
           type: array

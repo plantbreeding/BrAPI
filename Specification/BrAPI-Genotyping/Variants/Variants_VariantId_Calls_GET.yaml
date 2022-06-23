@@ -10,7 +10,7 @@ paths:
         The variant calls for this particular variant. Each one represents the determination of genotype with respect to this variant. `Calls` in this array are implicitly associated with this `Variant`.
       parameters:
         - name: variantDbId
-          description: The ID of the `Variant` to be retrieved.
+          description: The ID which uniquely identifies a `Variant`
           in: path
           required: true
           schema:

@@ -11,7 +11,14 @@ components:
       - type: object
         properties:
           pagination:
-            $ref: '#/components/schemas/indexPagination'
+            $ref: '#/components/schemas/basePagination'
+    metadataTokenPagination:
+      allOf:
+      - $ref: '#/components/schemas/metadataBase'
+      - type: object
+        properties:
+          pagination:
+            $ref: '#/components/schemas/tokenPagination'
     metadataBase:
       type: object
       properties:
@@ -31,18 +38,20 @@ components:
           items:
             $ref: '#/components/schemas/status'
           type: array
-    metadataTokenPagination:
-      allOf:
-      - $ref: '#/components/schemas/metadataBase'
-      - type: object
-        properties:
-          pagination:
-            $ref: '#/components/schemas/tokenPagination'
     basePagination:
       type: object
+      description: |-
+        The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. 
+        <br> Pages are zero indexed, so the first page will be page 0 (zero).
       required:
       - pageSize
+      - currentPage
       properties:
+        currentPage:
+          description: The index number for the returned page of data. This should always match the requested page number or the default page (0). 
+          type: integer
+          default: 0
+          example: 0
         pageSize:
           description: The number of data elements returned, aka the size of the current page. If the requested page does not have enough elements to fill a page at the requested page size, this field should indicate the actual number of elements returned.   
           type: integer
@@ -55,31 +64,13 @@ components:
         totalPages:
           description: |-
             The total number of pages of elements available on the server. This should be calculated with the following formula. 
-            
-            totalPages = CEILING( totalCount / requested_page_size)
+            <br> totalPages = CEILING( totalCount / requested_page_size)
           type: integer
           example: 1
-    indexPagination:
-      allOf:
-      - $ref: '#/components/schemas/basePagination'
-      - type: object
-        description: |-
-          The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. 
-          
-          Pages are zero indexed, so the first page will be page 0 (zero).
-        required:
-        - currentPage
-        properties:
-          currentPage:
-            description: The index number for the returned page of data. This should always match the requested page number or the default page (0). 
-            type: integer
-            default: 0
-            example: 0
     tokenPagination:
       allOf:
       - $ref: '#/components/schemas/basePagination'
       - type: object
-        deprecated: true
         description: |-
           **Deprecated in v2.1** Please use `page`. Github issue number #451 
           <br>The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. 
@@ -108,6 +99,11 @@ components:
               <br>The string token used to query the previous page of data.
             type: string
             example: 9659857e
+        example:
+          currentPage: 0
+          pageSize: 1000
+          totalCount: 10
+          totalPages: 1
     dataFile:
       type: object
       description: A dataFile contains a URL and the relevant file metadata to represent a file

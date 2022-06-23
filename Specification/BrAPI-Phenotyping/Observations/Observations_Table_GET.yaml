@@ -52,39 +52,15 @@ paths:
         required: false
         schema:
           type: string
-      - description: The unique ID of a germplasm (accession) to filter on
-        in: query
-        name: germplasmDbId
-        required: false
-        schema:
-          type: string
       - description: The unique ID of an observation variable
         in: query
         name: observationVariableDbId
         required: false
         schema:
           type: string
-      - description: The unique ID of a studies to filter on
-        in: query
-        name: studyDbId
-        required: false
-        schema:
-          type: string
       - description: The unique ID of a location where these observations were collected
         in: query
         name: locationDbId
-        required: false
-        schema:
-          type: string
-      - description: The unique ID of a trial to filter on
-        in: query
-        name: trialDbId
-        required: false
-        schema:
-          type: string
-      - description: The unique ID of a program to filter on
-        in: query
-        name: programDbId
         required: false
         schema:
           type: string
@@ -123,6 +99,10 @@ paths:
         schema:
           format: date-time
           type: string
+      - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/trialDbId'
+      - $ref: '#/components/parameters/studyDbId'
+      - $ref: '#/components/parameters/germplasmDbId'
       - $ref: '#/components/parameters/observationUnitLevelName'
       - $ref: '#/components/parameters/observationUnitLevelOrder'
       - $ref: '#/components/parameters/observationUnitLevelCode'

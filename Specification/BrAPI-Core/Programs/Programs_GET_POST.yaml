@@ -8,14 +8,6 @@ paths:
       summary: Get a filtered list of breeding Programs
       description: Get a filtered list of breeding Programs. This list can be filtered by common crop name to narrow results to a specific crop.
       parameters:
-      - $ref: '#/components/parameters/commonCropName'
-      - $ref: '#/components/parameters/programDbId'
-      - name: programName
-        description: Filter by program name. Exact match.
-        in: query
-        required: false
-        schema:
-          type: string
       - name: abbreviation
         description: Filter by program abbreviation. Exact match.
         in: query
@@ -34,6 +26,9 @@ paths:
           enum:
           - STANARD
           - PROJECT
+      - $ref: '#/components/parameters/commonCropName'
+      - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/programName'
       - $ref: '#/components/parameters/externalReferenceID' 
       - $ref: '#/components/parameters/externalReferenceId'
       - $ref: '#/components/parameters/externalReferenceSource'

@@ -9,7 +9,7 @@ paths:
       description: Gets a `CallSet` by ID.
       parameters:
         - name: callSetDbId
-          description: The ID of the `CallSet` to be retrieved.
+          description: The ID which uniquely identifies a `CallSet` within the given database server 
           in: path
           required: true
           schema:

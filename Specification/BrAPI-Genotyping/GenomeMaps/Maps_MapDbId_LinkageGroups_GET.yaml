@@ -8,7 +8,7 @@ paths:
       summary: Get the Linkage Groups of a specific Genomic Map
       description: Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI generic term for a named section of a map. A Linkage Group can represent a Chromosome, Scaffold, or Linkage Group.
       parameters:
-      - description: The internal db id of a selected map
+      - description: The ID which uniquely identifies a `GenomeMap`
         in: path
         name: mapDbId
         required: true

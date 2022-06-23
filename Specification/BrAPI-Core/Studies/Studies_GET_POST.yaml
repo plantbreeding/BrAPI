@@ -29,24 +29,6 @@ paths:
         required: false
         schema:
           type: string
-      - description: Filter by trial
-        in: query
-        name: trialDbId
-        required: false
-        schema:
-          type: string
-      - description: Filter by study DbId
-        in: query
-        name: studyDbId
-        required: false
-        schema:
-          type: string
-      - description: Filter by study name
-        in: query
-        name: studyName
-        required: false
-        schema:
-          type: string
       - description: Filter by study code
         in: query
         name: studyCode
@@ -56,12 +38,6 @@ paths:
       - description: Filter by study PUI
         in: query
         name: studyPUI
-        required: false
-        schema:
-          type: string
-      - description: Filter by germplasm DbId
-        in: query
-        name: germplasmDbId
         required: false
         schema:
           type: string
@@ -106,6 +82,10 @@ paths:
           type: string
       - $ref: '#/components/parameters/commonCropName'
       - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/trialDbId'
+      - $ref: '#/components/parameters/studyDbId'
+      - $ref: '#/components/parameters/studyName'
+      - $ref: '#/components/parameters/germplasmDbId'
       - $ref: '#/components/parameters/externalReferenceID' 
       - $ref: '#/components/parameters/externalReferenceId'
       - $ref: '#/components/parameters/externalReferenceSource'

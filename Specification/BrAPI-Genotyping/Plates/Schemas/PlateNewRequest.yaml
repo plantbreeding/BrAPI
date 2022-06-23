@@ -14,11 +14,11 @@ components:
           description: Additional arbitrary info
           type: object
         plateName:
-          description: A human readable name for a plate
+          description: A human readable name for a `Plate`
           type: string
           example: Plate_123_XYZ
         plateBarcode:
-          description: A unique identifier physically attached to the plate
+          description: A unique identifier physically attached to a `Plate`
           type: string
           example: '11223344'
         sampleType:
@@ -31,15 +31,15 @@ components:
           - MIXED
           example: TISSUE
         studyDbId:
-          description: The ID which uniquely identifies a study within the given database server
+          description: The ID which uniquely identifies a `Study` within the given database server
           type: string
           example: 64bd6bf9
         trialDbId: 
-          description: The ID which uniquely identifies a trial within the given database server
+          description: The ID which uniquely identifies a `Trial` within the given database server
           type: string
           example: d34c5349
         programDbId: 
-          description: The ID which uniquely identifies a program within the given database server
+          description: The ID which uniquely identifies a `Program` within the given database server
           type: string
           example: bd748e00
         plateFormat:

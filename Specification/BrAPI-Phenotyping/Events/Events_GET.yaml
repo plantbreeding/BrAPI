@@ -8,12 +8,6 @@ paths:
       summary: Get the Events
       description: Get list of events
       parameters:
-      - description: Filter based on study unique identifier in which the events occurred
-        in: query
-        name: studyDbId
-        required: false
-        schema:
-          type: string
       - description: Filter based on an ObservationUnit unique identifier in which the events occurred
         in: query
         name: observationUnitDbId
@@ -46,6 +40,7 @@ paths:
         schema:
           type: string
           format: date-time
+      - $ref: '#/components/parameters/studyDbId'
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'

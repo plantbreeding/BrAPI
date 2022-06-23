@@ -10,25 +10,25 @@ paths:
         Gets a filtered list of `Variants`.
       parameters:
         - name: variantDbId
-          description: The ID of the `Variant` to be retrieved.
+          description: The ID which uniquely identifies a `Variant`
           in: query
           required: false
           schema:
             type: string
         - name: variantSetDbId
-          description: The ID of the `VariantSet` to be retrieved.
+          description: The ID which uniquely identifies a `VariantSet`
           in: query
           required: false
           schema:
             type: string
         - name: referenceDbId
-          description: The ID of the `Reference` to be retrieved.
+          description: The ID which uniquely identifies a `Reference`
           in: query
           required: false
           schema:
             type: string
         - name: referenceSetDbId
-          description: The ID of the `ReferenceSet` to be retrieved.
+          description: The ID which uniquely identifies a `ReferenceSet`
           in: query
           required: false
           schema:

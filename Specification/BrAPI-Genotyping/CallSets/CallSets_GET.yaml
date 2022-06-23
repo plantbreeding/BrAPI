@@ -8,41 +8,38 @@ paths:
       summary: Gets a filtered list of `CallSet` JSON objects.
       description: Gets a filtered list of `CallSet` JSON objects.
       parameters:
-        - name: callSetDbId
-          description: The ID of the `CallSet` to be retrieved.
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: callSetName
-          description: The human readable name of the `CallSet` to be retrieved.
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: variantSetDbId
-          description: The ID of the `VariantSet` to be retrieved.
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: sampleDbId
-          description: The ID of the `VariantSet` to be retrieved.
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: germplasmDbId
-          description: Return only call sets generated from the Sample of this Germplasm
-          in: query
-          required: false
-          schema:
-            type: string
-        - $ref: '#/components/parameters/page'
-        - $ref: '#/components/parameters/pageSize'
-        - $ref: '#/components/parameters/externalReferenceId'
-        - $ref: '#/components/parameters/externalReferenceSource'
-        - $ref: '#/components/parameters/authorizationHeader'
+      - name: callSetDbId
+        description: The ID which uniquely identifies a `CallSet` within the given database server 
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: callSetName
+        description: The human readable name of a `CallSet`.
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: variantSetDbId
+        description: The ID which uniquely identifies a `VariantSet` within the given database server 
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: sampleDbId
+        description: |-
+          The ID which uniquely identifies a `Sample` within the given database server
+          <br>Filter results to only include `CallSets` generated from this `Sample`
+        in: query
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/germplasmDbId'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/externalReferenceId'
+      - $ref: '#/components/parameters/externalReferenceSource'
+      - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
           $ref: '#/components/responses/CallSetsListResponse'

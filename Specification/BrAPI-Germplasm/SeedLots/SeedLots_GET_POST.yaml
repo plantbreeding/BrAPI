@@ -14,18 +14,6 @@ paths:
         required: false
         schema:
           type: string 
-      - name: germplasmDbId
-        description: The internal id of the germplasm
-        in: query
-        required: false
-        schema:
-          type: string 
-      - name: germplasmName
-        description: Name of the germplasm
-        in: query
-        required: false
-        schema:
-          type: string
       - name: crossDbId 
         description: Search for Cross with this unique id
         in: query
@@ -40,6 +28,8 @@ paths:
           type: string
       - $ref: '#/components/parameters/commonCropName'
       - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/germplasmDbId'
+      - $ref: '#/components/parameters/germplasmName'
       - $ref: '#/components/parameters/externalReferenceID'
       - $ref: '#/components/parameters/externalReferenceId'
       - $ref: '#/components/parameters/externalReferenceSource'

@@ -15,24 +15,9 @@ paths:
               
         For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
       parameters:
-      - description: Filter by study DbId
-        in: query
-        name: studyDbId
-        required: false
-        schema:
-          type: string
-      - description: Filter by trial DbId
-        in: query
-        name: trialDbId
-        required: false
-        schema:
-          type: string
-      - description: Filter by program DbId
-        in: query
-        name: programDbId
-        required: false
-        schema:
-          type: string
+      - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/trialDbId'
+      - $ref: '#/components/parameters/studyDbId'
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
