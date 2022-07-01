@@ -153,7 +153,7 @@ def getExecList(method, path, tag, variablePostfix='0'):
 				]
 	
 	isServerInfoPath = re.fullmatch('^/serverinfo$', path)
-	isSimpleListPath = re.fullmatch('^/commoncropnames$|^/studytypes$|^/observationlevels$|^/ontologies$|^/events$|^/markerpositions$', path)
+	isSimpleListPath = re.fullmatch('^/commoncropnames$|^/studytypes$|^/observationlevels$|^/events$|^/markerpositions$|^/pedigree$|^/calls$|^/allelematrix$', path)
 	isBasePath = re.fullmatch('^/[a-z]+$', path)
 	isBaseExtraPath = re.fullmatch('^/[a-z]+/[a-z]+$', path)
 	isDbIdPath = re.fullmatch('^/[a-z]+/\{[a-zA-Z]+}$', path)
