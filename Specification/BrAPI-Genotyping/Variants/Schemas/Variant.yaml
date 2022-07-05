@@ -7,6 +7,9 @@ components:
   schemas:
     Variant:
       type: object
+      x-brapi-metadata:
+        primaryModel: true
+        module: BrAPI-Genotyping
       description: |-
         A `Variant` represents a change in DNA sequence relative to some reference.
         For example, a variant could represent a SNP or an insertion.

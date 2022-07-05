@@ -7,6 +7,9 @@ components:
   schemas:
     Event:
       type: object 
+      x-brapi-metadata:
+        primaryModel: true
+        module: BrAPI-Phenotyping
       required: 
       - eventDbId
       - eventType

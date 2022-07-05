@@ -9,6 +9,9 @@ components:
       allOf:
       - $ref: '#/components/schemas/OntologyNewRequest'
       - type: object
+        x-brapi-metadata:
+          primaryModel: true
+          module: BrAPI-Phenotyping
         properties:
           ontologyDbId:
             description: Ontology database unique identifier

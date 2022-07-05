@@ -9,6 +9,9 @@ components:
       allOf:
       - $ref: '#/components/schemas/ScaleBaseClass'
       - type: object
+        x-brapi-metadata:
+          primaryModel: true
+          module: BrAPI-Phenotyping
         description: Scale metadata
         required:
         - scaleDbId

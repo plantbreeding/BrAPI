@@ -9,3 +9,9 @@ components:
       allOf:
       - $ref: '#/components/schemas/ListSummary'
       - $ref: '#/components/schemas/ListNewRequest'
+      - type: object
+        x-brapi-metadata:
+          primaryModel: true
+          module: BrAPI-Core
+          title: List
+        properties: {}

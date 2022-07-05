@@ -9,6 +9,9 @@ components:
       allOf:
       - $ref: '#/components/schemas/StudyNewRequest'
       - type: object
+        x-brapi-metadata:
+          primaryModel: true
+          module: BrAPI-Core
         required:
         - studyDbId
         properties:

@@ -9,6 +9,9 @@ components:
       allOf:
       - $ref: '#/components/schemas/LocationNewRequest'
       - type: object
+        x-brapi-metadata:
+          primaryModel: true
+          module: BrAPI-Core
         properties:
           locationDbId:
             description: The unique identifier for a Location

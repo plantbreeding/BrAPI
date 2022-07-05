@@ -9,6 +9,9 @@ components:
       allOf:
       - $ref: '#/components/schemas/PlateNewRequest'
       - type: object
+        x-brapi-metadata:
+          primaryModel: true
+          module: BrAPI-Genotyping
         properties:
           plateDbId:
             description: The ID which uniquely identifies a `Plate`

@@ -7,6 +7,9 @@ components:
   schemas:
     AlleleMatrix:
       type: object
+      x-brapi-metadata:
+        primaryModel: true
+        module: BrAPI-Genotyping
       required:
       - data
       properties:

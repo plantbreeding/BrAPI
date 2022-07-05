@@ -7,6 +7,9 @@ components:
   schemas:
     Call:
       type: object
+      x-brapi-metadata:
+        primaryModel: true
+        module: BrAPI-Genotyping
       description: |-
         A `Call` represents the determination of genotype with respect to a particular `Variant`.
 

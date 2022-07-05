@@ -9,6 +9,9 @@ components:
       allOf:
       - $ref: '#/components/schemas/ObservationNewRequest'
       - type: object
+        x-brapi-metadata:
+          primaryModel: true
+          module: BrAPI-Phenotyping
         properties:
           observationDbId:
             description: The ID which uniquely identifies an observation

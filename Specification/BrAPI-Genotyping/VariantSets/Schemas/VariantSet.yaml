@@ -7,6 +7,9 @@ components:
   schemas:
     VariantSet:
       type: object
+      x-brapi-metadata:
+        primaryModel: true
+        module: BrAPI-Genotyping
       description: A VariantSet is a collection of variants and variant calls intended to be analyzed together.
       properties:
         additionalInfo:

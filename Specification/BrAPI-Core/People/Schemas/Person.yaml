@@ -9,6 +9,9 @@ components:
       allOf:
       - $ref: '#/components/schemas/PersonNewRequest'
       - type: object
+        x-brapi-metadata:
+          primaryModel: true
+          module: BrAPI-Core
         required:
         - personDbId
         properties:

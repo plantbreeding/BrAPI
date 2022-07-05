@@ -9,6 +9,9 @@ components:
       allOf:
       - $ref: '#/components/schemas/GermplasmNewRequest'
       - type: object
+        x-brapi-metadata:
+          primaryModel: true
+          module: BrAPI-Germplasm
         required:
         - germplasmDbId
         properties: 

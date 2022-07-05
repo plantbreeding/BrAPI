@@ -7,6 +7,9 @@ components:
   schemas:
     GenomeMap: 
       type: object
+      x-brapi-metadata:
+        primaryModel: true
+        module: BrAPI-Genotyping
       required:
       - mapDbId
       - commonCropName

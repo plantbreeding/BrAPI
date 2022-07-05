@@ -26,4 +26,7 @@ components:
       required:
       - breedingMethodDbId
       type: object
+      x-brapi-metadata:
+        primaryModel: true
+        module: BrAPI-Germplasm
 

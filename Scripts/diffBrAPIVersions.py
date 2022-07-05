@@ -43,7 +43,7 @@ def printResults(deletedDeprecatedPaths, deletedPaths, modifiedPaths, addedPaths
     
     print()
     if options['printDeleted'] :
-        print('deprecated endpoints')
+        print('Deprecated Endpoints\n')
         for path in sorted(deletedDeprecatedPaths):
             pathSplit = path.split(sep)
             print(pathSplit[1], '\t', pathSplit[0], '\tDeprecated in latest version')
@@ -53,14 +53,14 @@ def printResults(deletedDeprecatedPaths, deletedPaths, modifiedPaths, addedPaths
     
     print()
     if options['printAdded']:
-        print('Added endpoints')
+        print('Added Endpoints\n')
         for path in sorted(addedPaths):
             pathSplit = path.split(sep)
             print(pathSplit[1], '\t', pathSplit[0])
             
     print()
     if options['printModified']:
-        print('Modified endpoints')
+        print('Modified Endpoints\n')
         for path in sorted(modifiedPaths.keys()):
             pathSplit = path.split(sep)
             msg = pathSplit[1] + '\t' + pathSplit[0] + '\t%d modifications\n'

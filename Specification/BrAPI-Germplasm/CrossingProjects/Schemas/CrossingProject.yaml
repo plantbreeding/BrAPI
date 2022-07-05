@@ -9,6 +9,9 @@ components:
       allOf:
         - $ref: '#/components/schemas/CrossingProjectNewRequest'
         - type: object
+          x-brapi-metadata:
+            primaryModel: true
+            module: BrAPI-Germplasm
           properties:
             crossingProjectDbId:
               description: The unique identifier for a crossing project

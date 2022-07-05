@@ -9,6 +9,9 @@ components:
       allOf:
         - $ref: '#/components/schemas/CrossNewRequest'
         - type: object
+          x-brapi-metadata:
+            primaryModel: true
+            module: BrAPI-Germplasm
           properties:
             crossDbId:
               description: the unique identifier for a cross

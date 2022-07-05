@@ -7,6 +7,9 @@ components:
   schemas:
     MarkerPosition: 
       type: object 
+      x-brapi-metadata:
+        primaryModel: true
+        module: BrAPI-Genotyping
       properties:
         additionalInfo:
           additionalProperties:

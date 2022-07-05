@@ -27,4 +27,8 @@ components:
         - observationVariableDbId
         - observationVariableName
         type: object
+        x-brapi-metadata:
+          primaryModel: true
+          module: BrAPI-Phenotyping
+          title: Variable
 
