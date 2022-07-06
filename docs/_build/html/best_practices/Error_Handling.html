@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Error Handling &mdash; BrAPI  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Location Coordinates" href="Location_Coordinates.html" />
+    <link rel="prev" title="Object Identifiers" href="Object_Identifiers.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrAPI
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../community/BrAPI.html">What Is BrAPI?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../community/BrAPI_Community.html">The BrAPI Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="best_practices_index.html">Best Practices</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="best_practices_index.html#general-concepts">General Concepts</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="best_practices_index.html#implementation-notes">Implementation Notes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Dates_and_Times.html">Dates and Times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Object_Identifiers.html">Object Identifiers</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Error Handling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#http-error-codes">HTTP Error Codes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#metadata-status-array">Metadata Status Array</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Location_Coordinates.html">Location Coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Observation_Levels.html">Observation Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Pagination.html">Pagination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Search_Services.html">Search Services</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrAPI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="best_practices_index.html">Best Practices</a> &raquo;</li>
+      <li>Error Handling</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/best_practices/Error_Handling.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="error-handling">
+<h1>Error Handling<a class="headerlink" href="#error-handling" title="Permalink to this heading"></a></h1>
+<div class="section" id="http-error-codes">
+<h2>HTTP Error Codes<a class="headerlink" href="#http-error-codes" title="Permalink to this heading"></a></h2>
+<p>Following the RESTful architecture standard, most errors in BrAPI should
+be reported back to the client using the appropriate HTTP status code.
+The status codes that BrAPI officially supports are outlined below. Any
+response which has an error status code (4XX and 5XX) should have a
+plain text body with a reasonable error message which can be displayed
+to a user if necessary.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 17%" />
+<col style="width: 79%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Use Case</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>200</p></td>
+<td><p>OK</p></td>
+<td><p>Use code 200 for every successful JSON response. The ‘status’ array in a response
+metadata may contain addition logged errors as described below.</p></td>
+</tr>
+<tr class="row-odd"><td><p>202</p></td>
+<td><p>Accepted</p></td>
+<td><p>Use code 202 when a request has been received and “Accepted” by the server, but
+more processing time is needed before a complete response is ready. See BrAPI documentation
+on Search Services for more details on when to use this code.</p></td>
+</tr>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>Bad Request</p></td>
+<td><p>Use code 400 when there is something wrong with the request. This could be a problem with any of the query
+parameters or request body object.</p>
+<p>- Example: A malformed JSON object which does not match the expected schema.</p>
+<p>- Example: A parameter is sent as a alphanumeric string but is expected to be an integer</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>401</p></td>
+<td><p>Unauthorized</p></td>
+<td><p>Use code 401 when the request does not pass authorization checks. This
+could be caused by a missing Authorization token header, if the token is
+expired, or can not be verified. 401 can be replaced by 403 if desired.</p></td>
+</tr>
+<tr class="row-even"><td><p>403</p></td>
+<td><p>Forbidden</p></td>
+<td><p>Use code 403 when the user is not allowed to access the requested resource. This
+could be caused by a system level authorization error (as described by 401) or
+by a more granular user permission issue.</p></td>
+</tr>
+<tr class="row-odd"><td><p>404</p></td>
+<td><p>Not Found</p></td>
+<td><p>Most servers and libraries have automatic 404 errors built in for unknown paths tried against
+the server. Use 404 explicitly when there is a path parameter which can not be found. Most
+path parameters in BrAPI are DbIds of specific objects, so if a requested DbId doesn’t exist in
+the database, return a 404.</p></td>
+</tr>
+<tr class="row-even"><td><p>500</p></td>
+<td><p>Internal Server Error</p></td>
+<td><p>Status code 500 indicates that the server has malfunctioned in some way. Use 500 for
+all unexpected exceptions, code defects, or configuration issues. For security, it
+is a best practice to implement an explicit error handler which can hide the cause
+of the error from the client and return a generic error message.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="metadata-status-array">
+<h2>Metadata Status Array<a class="headerlink" href="#metadata-status-array" title="Permalink to this heading"></a></h2>
+<p><strong>When to use an ERROR in the ‘status’ array?</strong></p>
+<p>As of BrAPI v1.3, the ‘status’ array in the response metadata is
+reserved for sending additional logging messages from the server to the
+client. These status messages may contain “ERROR” logs, but they should
+not supersede HTTP status codes or be relied upon for critical error
+handling. For most errors, it is a best practice to use the appropriate
+HTTP status code. However, there are a few cases where it is acceptable
+to return an error message to a user via the “status” array in the
+return objects metadata. Generally, this is acceptable when the request
+is valid, but the server has determined the response is not what the
+user is intending. Another way to think about this is the difference
+between errors intended for a developer vs errors intended for an end
+user. HTTP status code errors should be primarily directed at developers
+building a tool, but status error log messages should be directed at the
+user of a system.</p>
+<p>For example, making the request `GET /trials?locationDbId=abc123`. If
+there are no locations with the DbId of “abc123”, then the server will
+not be able to find any trials which have that locationDbId. This is a
+valid request, and an empty “data” array is the correct response, but it
+would be nice to notify the user that they will never find any trials
+with this locationDbId.</p>
+<p>Another example, making the request `GET
+/studies?studyType=Genotyping`. If the database does not contain any
+information about study types, then it is important to notify the user
+that the study type query parameter will be ignored.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Object_Identifiers.html" class="btn btn-neutral float-left" title="Object Identifiers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Location_Coordinates.html" class="btn btn-neutral float-right" title="Location Coordinates" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, BrAPI Community.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

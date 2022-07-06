@@ -1,6 +1,3 @@
-
-.. _Authentication:
-
 Authentication
 ==============
 
@@ -191,9 +188,9 @@ Scenarios
 - **Scenario #1: Global Resource Server**
 
 |  In this scenario, there is one centralized Resource Server which
-contains all the data from several different organizations. This
-Resource Server has its own web client and several external tools which
-can access the data.
+   contains all the data from several different organizations. This
+   Resource Server has its own web client and several external tools which
+   can access the data.
 
 
 - **Scenario #2: Local Resource Server**

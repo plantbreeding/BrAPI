@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search Services &mdash; BrAPI  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Pagination" href="Pagination.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrAPI
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../community/BrAPI.html">What Is BrAPI?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../community/BrAPI_Community.html">The BrAPI Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="best_practices_index.html">Best Practices</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="best_practices_index.html#general-concepts">General Concepts</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="best_practices_index.html#implementation-notes">Implementation Notes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Dates_and_Times.html">Dates and Times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Object_Identifiers.html">Object Identifiers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Error_Handling.html">Error Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Location_Coordinates.html">Location Coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Observation_Levels.html">Observation Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Pagination.html">Pagination</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Search Services</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#get-entity">GET Entity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#post-search-entity">POST Search Entity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#v1-search-services">V1 Search Services</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrAPI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="best_practices_index.html">Best Practices</a> &raquo;</li>
+      <li>Search Services</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/best_practices/Search_Services.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="search-services">
+<h1>Search Services<a class="headerlink" href="#search-services" title="Permalink to this heading"></a></h1>
+<p><strong>NOTE</strong>: Throughout this article, the word “entity” is used as a general term to describe a number of BrAPI objects which have search
+services available.</p>
+<div class="section" id="get-entity">
+<h2>GET Entity<a class="headerlink" href="#get-entity" title="Permalink to this heading"></a></h2>
+<p>The entity filter services have the form <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/entity?param=value</span></code>. Each optional parameter these services should act as a filter on the
+data being returned. This means the filter parameters should always have an ‘AND’ type relationship with the others. If NO parameters are used in
+the request, the service should return ALL entities of the given type, since no filters are being applied (Normal pagination defaults still
+apply). If one parameter is used, the service should return the entities that match the parameter. If two parameters are used, the service should
+return the entities that match both parameters.</p>
+<p>Example: Given the entity “Names” and this data (“Names” is a fake entity for simple example purposes only)</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 38%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>first</p></th>
+<th class="head"><p>last</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>“01”</p></td>
+<td><p>“Bob”</p></td>
+<td><p>“Jones”</p></td>
+</tr>
+<tr class="row-odd"><td><p>“02”</p></td>
+<td><p>“Bob”</p></td>
+<td><p>“Smith”</p></td>
+</tr>
+<tr class="row-even"><td><p>“03”</p></td>
+<td><p>“Alice”</p></td>
+<td><p>“Jones”</p></td>
+</tr>
+<tr class="row-odd"><td><p>“04”</p></td>
+<td><p>“Cathy”</p></td>
+<td><p>“Evans”</p></td>
+</tr>
+</tbody>
+</table>
+<p>The request <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/names</span></code>, with no parameters, will return ALL of the names available in the database.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+   <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;Jones&quot;</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;Smith&quot;</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;Jones&quot;</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;Cathy&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;Evans&quot;</span>
+   <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>The request <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/names?first=Bob</span></code> will return all the records where the <code class="docutils literal notranslate"><span class="pre">first</span></code> field equals “Bob”. In this case, there are two records.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+   <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;Jones&quot;</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;Smith&quot;</span>
+   <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>The request <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/names?first=Bob&amp;last=Smith</span></code> will return all the records where the <code class="docutils literal notranslate"><span class="pre">first</span></code> field equals “Bob” AND where the <code class="docutils literal notranslate"><span class="pre">last</span></code>
+field equals “Smith”. Only one record matches those criteria.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+   <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;Smith&quot;</span>
+   <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>The request <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/names?first=Bob&amp;last=Evans</span></code> will return no records because there are no records where the <code class="docutils literal notranslate"><span class="pre">first</span></code> field equals “Bob” AND
+where the <code class="docutils literal notranslate"><span class="pre">last</span></code> field equals “Evans”.</p>
+</div>
+<div class="section" id="post-search-entity">
+<h2>POST Search Entity<a class="headerlink" href="#post-search-entity" title="Permalink to this heading"></a></h2>
+<p>V2_search_scenarios.png</p>
+<p>There are several “Search” calls specified in BrAPI. The calls all start with <code class="docutils literal notranslate"><span class="pre">/search/...</span></code>, and are used to search for entities without knowing
+the primary key (DbId). These calls can be used when presenting search options to a user, or when a system needs to access an entity using a
+candidate key, which is not the DbId. All search calls should have a set of optional parameters, which are specific to that entity and its
+fields.</p>
+<p>Every search in BrAPI is split into two endpoints. The <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/search/...</span></code> endpoint is used to send a search request object. The
+<code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/search/...</span></code> endpoint is optional, and is used to retrieve the results of a search using a previously saved <code class="docutils literal notranslate"><span class="pre">searchResultDbId</span></code>.</p>
+<p>New in BrAPI V2.0, search endpoints allow servers to implement different types of searching for different entities and use cases, while
+maintaining a consistent response procedure for client applications. There are three acceptable server implementation options: Immediate
+Response Search, Saved Search, and Asynchronous Search. A client application can quickly determine which implementation is being used by
+looking at the HTTP status codes and applying the correct procedure for retrieving data.</p>
+<div class="section" id="immediate-response-search">
+<h3>Immediate Response Search<a class="headerlink" href="#immediate-response-search" title="Permalink to this heading"></a></h3>
+<p>The Immediate Response Search implementation is similar to how searching was done in BrAPI V1.2.</p>
+<ol class="arabic simple">
+<li><p>The client makes a POST request with the search parameters</p></li>
+<li><p>The server performs the search query synchronously</p></li>
+<li><p>The server responds with a 200 HTTP status, and the search results.</p></li>
+</ol>
+<p>The <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/search/...</span></code> endpoint is not required in this case. A <code class="docutils literal notranslate"><span class="pre">searchResultsDbId</span></code> is not created and can not be used as a reference
+ID later. Every page of data requires a new POST request with the same parameters.</p>
+</div>
+<div class="section" id="saved-search">
+<h3>Saved Search<a class="headerlink" href="#saved-search" title="Permalink to this heading"></a></h3>
+<p>The Saved Search implementation is similar to how searching was done in BrAPI V1.3.</p>
+<ol class="arabic simple">
+<li><p>The client makes a POST request with the search parameters</p></li>
+<li><p>The server stores the search parameters and associates them with a <code class="docutils literal notranslate"><span class="pre">searchResultsDbId</span></code></p></li>
+<li><p>The server responds with a 202 HTTP status, and the <code class="docutils literal notranslate"><span class="pre">searchResultsDbId</span></code></p></li>
+<li><p>The client makes a GET request with the <code class="docutils literal notranslate"><span class="pre">searchResultsDbId</span></code> and pagination parameters (if needed)</p></li>
+<li><p>The server performs the search query synchronously</p></li>
+<li><p>The server responds with a 200 HTTP status, and the search results</p></li>
+<li><p>Repeat from step 4 with modified pagination parameters as needed</p></li>
+</ol>
+<p>The client application can make multiple GET requests using the same <code class="docutils literal notranslate"><span class="pre">searchResultsDbId</span></code> without making the POST request again.</p>
+</div>
+<div class="section" id="asynchronous-search">
+<h3>Asynchronous Search<a class="headerlink" href="#asynchronous-search" title="Permalink to this heading"></a></h3>
+<p>The Asynchronous Search implementation is useful when the search query has the potential to take a long time.</p>
+<ol class="arabic simple">
+<li><p>The client makes a POST request with the search parameters</p></li>
+<li><p>The server stores the search parameters and associates them with a <code class="docutils literal notranslate"><span class="pre">searchResultsDbId</span></code></p></li>
+<li><p>The server begins the search query in an asynchronous process</p></li>
+<li><p>The server responds with a 202 HTTP status, and the <code class="docutils literal notranslate"><span class="pre">searchResultsDbId</span></code></p></li>
+<li><p>The client makes a GET request with the <code class="docutils literal notranslate"><span class="pre">searchResultsDbId</span></code></p></li>
+<li><p>The server responds with a 202 HTTP status, indicating that the search query is not complete yet. <strong>NOTE</strong> If the server has any progress
+information, either an estimated time remaining or a number of records processed so far, it is recommended to report this information in a “status” message.</p></li>
+<li><p>Time passes. The client may poll the GET request regularly looking for a change in HTTP status</p></li>
+<li><p>The server completes the asynchronous process, stores the search results, and marks the query as completed</p></li>
+<li><p>The client makes a GET request with the <code class="docutils literal notranslate"><span class="pre">searchResultsDbId</span></code></p></li>
+<li><p>The server responds with a 200 HTTP status, and the search results</p></li>
+<li><p>Repeat from step 8 with modified pagination parameters as needed</p></li>
+</ol>
+</div>
+<div class="section" id="generic-client-pseudo-code">
+<h3>Generic Client Pseudo Code<a class="headerlink" href="#generic-client-pseudo-code" title="Permalink to this heading"></a></h3>
+<p>When creating a generic BrAPI client application which uses a search function, it is important to be prepared for the different types of
+responses from different servers. Search endpoints can respond with a <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> status202 Accepted`` status, or a <code class="docutils literal notranslate"><span class="pre">4XX</span> <span class="pre">Error</span></code> status.
+The pseudo-code below is an example of how a client application might handle these different possible response codes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">request</span> <span class="o">=</span> <span class="n">buildSearchRequest</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">POSTSearchRequest</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">httpStatus</span> <span class="o">==</span> <span class="s1">&#39;200&#39;</span><span class="p">):</span>
+  <span class="n">results</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">body</span>
+
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">httpStatus</span> <span class="o">==</span> <span class="s1">&#39;202&#39;</span><span class="p">):</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">GETSearchResults</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">searchResultsDbId</span><span class="p">)</span>
+
+  <span class="k">while</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">httpStatus</span> <span class="o">==</span> <span class="s1">&#39;202&#39;</span><span class="p">):</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">GETSearchResults</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">searchResultsDbId</span><span class="p">)</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">httpStatus</span> <span class="o">==</span> <span class="s1">&#39;200&#39;</span><span class="p">):</span>
+      <span class="n">results</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">body</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">error</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="n">error</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="request-and-response-rules">
+<h3>Request and Response Rules<a class="headerlink" href="#request-and-response-rules" title="Permalink to this heading"></a></h3>
+<p>Each POST call has a different request body schema with search parameters specific to the given entity. The GET call has pagination
+parameters available so the client can limit the amount of data they get back for a given search. Most parameters in the POST body object are
+arrays of strings. The array should be populated with all the search terms the client wishes to filter on. Each element in the array should
+have an “OR” relationship with the other elements in the same array. For example, using the data above, the search request object
+<code class="docutils literal notranslate"><span class="pre">{&quot;first&quot;:[&quot;Alice&quot;,</span> <span class="pre">&quot;Cathy&quot;,</span> <span class="pre">&quot;Dave&quot;]}</span></code> should return the records where <code class="docutils literal notranslate"><span class="pre">first</span></code> equals “Alice” OR “Cathy” OR “Dave”. “Dave” has no record in
+our data, but records for “Alice” and “Cathy” will be returned. In SQL, this code might look like this: <code class="docutils literal notranslate"><span class="pre">...</span> <span class="pre">WHERE</span> <span class="pre">first</span> <span class="pre">IN</span> <span class="pre">[&quot;Alice&quot;,</span> <span class="pre">&quot;Cathy&quot;,</span> <span class="pre">&quot;Dave&quot;]</span></code>.</p>
+<p>REQUEST JSON</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;first&quot;</span><span class="p">:[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Cathy&quot;</span><span class="p">,</span> <span class="s2">&quot;Dave&quot;</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p>RESPONSE JSON</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+   <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;Jones&quot;</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;Cathy&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;Evans&quot;</span>
+   <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>When multiple array parameters are used together in the same request, they have an “AND” relationship. For example, the request object
+<code class="docutils literal notranslate"><span class="pre">{&quot;first&quot;:[&quot;Bob&quot;],</span> <span class="pre">&quot;last&quot;:</span> <span class="pre">[&quot;Jones&quot;]}</span></code> will return the records where <code class="docutils literal notranslate"><span class="pre">first</span></code> equals “Bob” AND <code class="docutils literal notranslate"><span class="pre">last</span></code> equals “Jones”. There is only one
+record in our data set which matches this criteria.</p>
+<p>REQUEST JSON</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nt">&quot;first&quot;</span><span class="p">:[</span><span class="s2">&quot;Bob&quot;</span><span class="p">],</span>
+   <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Jones&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>RESPONSE JSON</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+   <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;Jones&quot;</span>
+   <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Combining these ideas, each array parameter should be resolved independently, then “ANDed” together. For example, search request object
+<code class="docutils literal notranslate"><span class="pre">{&quot;first&quot;:[&quot;Alice&quot;,</span> <span class="pre">&quot;Bob&quot;,</span> <span class="pre">&quot;Cathy&quot;],</span> <span class="pre">&quot;last&quot;:</span> <span class="pre">[&quot;Jones&quot;]}</span></code> will return the records where (<code class="docutils literal notranslate"><span class="pre">first</span></code> equals “Alice” OR “Bob” OR “Cathy”) AND
+(<code class="docutils literal notranslate"><span class="pre">last</span></code> equals “Jones”). This criteria matches “Alice Jones” and “Bob Jones” but it does not match “Cathy Evans”.</p>
+<p>REQUEST JSON</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nt">&quot;first&quot;</span><span class="p">:[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Cathy&quot;</span><span class="p">],</span>
+   <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Jones&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>RESPONSE JSON</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+   <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;Jones&quot;</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;Jones&quot;</span>
+   <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Some searchable entities have non-array parameters in their request body objects. These are generally for things like numbers and dates where a
+client might be interested in a certain range instead of an exact value. Numeric fields with the suffix “Min” or “Max” describe the minimum and
+maximum values to search for (inclusive). Date string fields with the suffix “Start” or “End” should be treated as the beginning and ending
+(respectively) of a time range (inclusive).</p>
+</div>
+<div class="section" id="how-to-save-a-search">
+<h3>How to save a Search<a class="headerlink" href="#how-to-save-a-search" title="Permalink to this heading"></a></h3>
+<div class="section" id="option-1-store-the-request">
+<h4>Option #1: Store the Request<a class="headerlink" href="#option-1-store-the-request" title="Permalink to this heading"></a></h4>
+<p>In this implementation, you will need to create a new table in your database, which can hold the search parameters submitted by the <code class="docutils literal notranslate"><span class="pre">POST</span></code>
+call. The exact structure of this table depends on your database technology and your organizations best practices for databases. In this
+table, you need to record a unique ID for each search, what type of search it is, and the parameters of the search request. Below is an
+example table that could do the job, though it is simplified for the purposes of this example. Always consider proper normalization and
+indexing techniques when building a new table.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">search_request_id</span>   <span class="o">|</span> <span class="n">search_request_type</span>    <span class="o">|</span> <span class="n">parameter_name</span>   <span class="o">|</span> <span class="n">parameter_value</span>
+<span class="o">--------------------+------------------------+------------------|------------------------</span>
+<span class="n">a1b2c3</span>              <span class="o">|</span> <span class="n">germplasm</span>              <span class="o">|</span> <span class="n">germplasmDbIds</span>   <span class="o">|</span> <span class="n">GERM01</span><span class="p">,</span> <span class="n">GERM02</span><span class="p">,</span> <span class="n">GERM03</span>
+<span class="n">a1b2c3</span>              <span class="o">|</span> <span class="n">germplasm</span>              <span class="o">|</span> <span class="n">germplasmNames</span>   <span class="o">|</span> <span class="n">Germ</span> <span class="mi">01</span><span class="p">,</span> <span class="n">Germ</span> <span class="mi">02</span>
+<span class="n">b2c3d4</span>              <span class="o">|</span> <span class="n">studies</span>                <span class="o">|</span> <span class="n">programNames</span>     <span class="o">|</span> <span class="n">Program_1</span><span class="p">,</span> <span class="n">Program_2</span>
+<span class="n">b2c3d4</span>              <span class="o">|</span> <span class="n">studies</span>                <span class="o">|</span> <span class="n">germplasmDbIds</span>   <span class="o">|</span> <span class="n">GERM01</span>
+</pre></div>
+</div>
+<p>With each new search request stored, the unique search id (<code class="docutils literal notranslate"><span class="pre">search_request_id</span></code> from above) can be returned to the client as the
+<code class="docutils literal notranslate"><span class="pre">searchResultsDbId`.</span> <span class="pre">When</span> <span class="pre">the</span> <span class="pre">client</span> <span class="pre">makes</span> <span class="pre">a</span> <span class="pre">subsequent</span> <span class="pre">``GET</span></code> request, all the information about the search parameters can be
+collected from this table and the appropriate query can be generated. This means you are running a potentially slow query during the <code class="docutils literal notranslate"><span class="pre">GET</span></code>
+request, and it will be re-run on every subsequent <code class="docutils literal notranslate"><span class="pre">GET</span></code> request to the same ID. This is the most similar to the v1.2 version of the search
+service.</p>
+<ul class="simple">
+<li><p>Pros: Easy to implement, Most similar to the previous behavior, smallest data foot print</p></li>
+<li><p>Cons: A potentially expensive search query must be run on the database for every GET request</p></li>
+<li><p>Fits best with a “Search once, retrieve once” client expectation</p></li>
+</ul>
+</div>
+<div class="section" id="option-2-store-the-results">
+<h4>Option #2: Store the Results<a class="headerlink" href="#option-2-store-the-results" title="Permalink to this heading"></a></h4>
+<p>In this implementation, you will need two new tables, one to store some request data (as in Option #1), and one to store the results of each
+search. You will be consuming the search parameters immediately during the <code class="docutils literal notranslate"><span class="pre">POST</span></code> call, so it is not necessary to store all the parameter
+data, but it might be useful for audit purposes. The second table for storing results will be a join table between the search request and the
+primary entity being searched for. For example, if you are implementing the search for Germplasm, the table might look something like the table
+below. You might decide to create one table per search type, or group all your search results records into one table for all search types.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">search_request_id</span>   <span class="o">|</span> <span class="n">germplasm_id</span>
+<span class="o">--------------------+-----------------</span>
+<span class="n">a1b2c3</span>              <span class="o">|</span> <span class="n">GERM010590</span>
+<span class="n">a1b2c3</span>              <span class="o">|</span> <span class="n">GERM010571</span>
+<span class="n">a1b2c3</span>              <span class="o">|</span> <span class="n">GERM010542</span>
+<span class="n">a1b2c3</span>              <span class="o">|</span> <span class="n">GERM010402</span>
+<span class="n">b2c3d4</span>              <span class="o">|</span> <span class="n">GERM010542</span>
+<span class="n">b2c3d4</span>              <span class="o">|</span> <span class="n">GERM010402</span>
+</pre></div>
+</div>
+<p>A word of caution in this implementation: recording the results of every search has the potential to make very large tables. The purpose of this
+design is to cache the results of a query and make subsequent search requests faster. If the search query you are using is already fast
+enough, this solution might not be right for you. Another option to think about is putting an expire time on each set of search results, and
+an automatic process for removing expired results. This can make the service a much more complicated to implement but it means you do not
+have to maintain all search results forever. Make sure your implementation is well documented so clients and other developers are
+not surprised if the search results they had cached yesterday are gone today.</p>
+<ul class="simple">
+<li><p>Pros: Provides cached result for quick retrieval, the search results will be maintained statically</p></li>
+<li><p>Cons: More complicated to implement and maintain</p></li>
+<li><p>Fits best with a “Search once, retrieve many times” client expectation</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="v1-search-services">
+<h2>V1 Search Services<a class="headerlink" href="#v1-search-services" title="Permalink to this heading"></a></h2>
+<p>The following are notes from BrAPI V1 about how to implement search services. Searching in BrAPI has changed drastically between V1 and V2.</p>
+<p>There are several “Search” calls specified in BrAPI. These calls have a post-fix of “-search” in the name, and are used to search for a set of
+entities without knowing the primary key (DbId). These calls can be used when presenting search options to a user, or when a system needs to
+access an entity using a candidate key which is not the DbId. All search calls should have a set of optional parameters, which are specific to
+that entity and its fields.</p>
+<p>Each optional parameter included in any search service call should act as a filter on the data being returned. This means the search parameters
+should always have an ‘AND’ type relationship with each other.</p>
+<p>For example: Given this data</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+   <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;Jones&quot;</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;Smith&quot;</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;Jones&quot;</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;Cathy&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;Evans&quot;</span>
+   <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>The call <code class="docutils literal notranslate"><span class="pre">/person-search?first=Bob&amp;last=Jones</span></code> will only return entity “1”. The parameter <code class="docutils literal notranslate"><span class="pre">first</span></code> filters the data to just entities where
+the first name is <code class="docutils literal notranslate"><span class="pre">&quot;Bob</span> <span class="pre">(entities</span> <span class="pre">&quot;1&quot;</span> <span class="pre">and</span> <span class="pre">&quot;2&quot;).</span> <span class="pre">The</span> <span class="pre">parameter</span> <span class="pre">``last</span></code> is an additional filter and further limits the data returned,
+resulting in just entity “1” satisfying both filters.</p>
+<p>When parameters are defined as lists, each item in the list acts as an accepted value for that parameter. This can be thought of as an ‘OR’
+relationship for items within the same list parameter, or it could be considered a ‘value IN array’ type operation by a database.</p>
+<p>For example: Given the data above, the call <code class="docutils literal notranslate"><span class="pre">/person-search?first=Alice,Bob&amp;last=Jones</span></code> will return entities
+“1” and “3”. In this case, the parameter <code class="docutils literal notranslate"><span class="pre">first</span></code> filters the data to the first 3 entities, including all entities where the first
+name is ‘Alice’ OR ‘Bob’. Again, the parameter <code class="docutils literal notranslate"><span class="pre">last</span></code> is an additional filter, further limiting the data returned, resulting in just entities
+“1” and “3” satisfying both filters.</p>
+<p>These rules for search parameters apply to both GET call query parameters and POST call body parameters.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Pagination.html" class="btn btn-neutral float-left" title="Pagination" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, BrAPI Community.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

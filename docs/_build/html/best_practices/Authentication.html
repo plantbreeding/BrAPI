@@ -1,39 +1,96 @@
-
 <!DOCTYPE html>
-
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Authentication &#8212; BrAPI  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Authentication &mdash; BrAPI  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Best Practices" href="best_practices_index.html" />
-   
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <link rel="next" title="Cross-Origin Resource Sharing" href="CORS.html" />
+    <link rel="prev" title="Alternative Standards" href="Alternative_Standards.html" /> 
+</head>
 
-  </head><body>
-  
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BrAPI
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../community/BrAPI.html">What Is BrAPI?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../community/BrAPI_Community.html">The BrAPI Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="best_practices_index.html">Best Practices</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="best_practices_index.html#general-concepts">General Concepts</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Alternative_Standards.html">Alternative Standards</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Authentication</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#oauth-2-basics">OAuth 2 Basics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#grant-types">Grant Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tokens">Tokens</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scenarios">Scenarios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#external-resources">External Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="CORS.html">Cross-Origin Resource Sharing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Required_and_Additional_Fields.html">Required and Additional Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RESTfulness.html">RESTfulness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Versioning.html">Versioning</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="best_practices_index.html#implementation-notes">Implementation Notes</a></li>
+</ul>
+</li>
+</ul>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
+        </div>
+      </div>
+    </nav>
 
-          <div class="body" role="main">
-            
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BrAPI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="best_practices_index.html">Best Practices</a> &raquo;</li>
+      <li>Authentication</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/best_practices/Authentication.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <div class="section" id="authentication">
-<span id="id1"></span><h1>Authentication<a class="headerlink" href="#authentication" title="Permalink to this heading">¶</a></h1>
+<h1>Authentication<a class="headerlink" href="#authentication" title="Permalink to this heading"></a></h1>
 <p>It is HIGHLY recommended that every implementation of BrAPI uses some
 form of authentication to protect its end points. As long as a common
 authentication scheme used for all the tools within an organization, it
@@ -52,7 +109,7 @@ enforced as a fixed standard.</p>
 <p>Do your own research and choose the authentication tools and techniques
 that work best for you, your tools, and your situation.</p>
 <div class="section" id="oauth-2-basics">
-<span id="id2"></span><h2><a class="reference external" href="https://tools.ietf.org/html/rfc6749">OAuth 2</a> Basics<a class="headerlink" href="#oauth-2-basics" title="Permalink to this heading">¶</a></h2>
+<span id="id1"></span><h2><a class="reference external" href="https://tools.ietf.org/html/rfc6749">OAuth 2</a> Basics<a class="headerlink" href="#oauth-2-basics" title="Permalink to this heading"></a></h2>
 <p>Resource Owner : An entity capable of granting access to a protected resource. This is usually a real Person, but can also refer to a service account used by an automated process.
 Client Application : An application making protected resource requests on behalf of the resource owner and with its authorization. The term “client” does not imply any particular implementation characteristics (e.g. a server, a desktop, a web browser, etc). BrAPI calls are made from here.
 Resource Server : The server hosting the protected resources, capable of handling resource requests with access tokens. <a class="reference external" href="BrAPI">BrAPI</a> server implementation lives here
@@ -96,13 +153,13 @@ and Client tools.</p></li>
 </ul>
 </div>
 <div class="section" id="grant-types">
-<span id="id3"></span><h2>Grant Types<a class="headerlink" href="#grant-types" title="Permalink to this heading">¶</a></h2>
+<span id="id2"></span><h2>Grant Types<a class="headerlink" href="#grant-types" title="Permalink to this heading"></a></h2>
 <p><strong>Grant Type</strong> refers to the type credentials and method used by the
 Resource Owner to prove themselves to the Authorization Server. OAuth2
 outlines four different Grant Types, each with different strengths and
 weaknesses.</p>
 <div class="section" id="authorization-code-grant">
-<span id="id4"></span><h3>Authorization Code Grant<a class="headerlink" href="#authorization-code-grant" title="Permalink to this heading">¶</a></h3>
+<span id="id3"></span><h3>Authorization Code Grant<a class="headerlink" href="#authorization-code-grant" title="Permalink to this heading"></a></h3>
 <div class="line-block">
 <div class="line">AuthorizationCodeGrant.png Authorization Code Grant is recommended
 when the Resource Owner is a real person and the Client Application
@@ -112,7 +169,7 @@ cases which involve a user retrieving data.</div>
 </div>
 </div>
 <div class="section" id="client-credentials-grant">
-<span id="id5"></span><h3>Client Credentials Grant<a class="headerlink" href="#client-credentials-grant" title="Permalink to this heading">¶</a></h3>
+<span id="id4"></span><h3>Client Credentials Grant<a class="headerlink" href="#client-credentials-grant" title="Permalink to this heading"></a></h3>
 <div class="line-block">
 <div class="line">ClientCredentialstGrant.png Client Credentials Grant is recommended
 when the Client Application is the Resource Owner (such as a script or
@@ -124,7 +181,7 @@ automatically.</div>
 </div>
 </div>
 <div class="section" id="implicit-grant">
-<span id="id6"></span><h3>Implicit Grant<a class="headerlink" href="#implicit-grant" title="Permalink to this heading">¶</a></h3>
+<span id="id5"></span><h3>Implicit Grant<a class="headerlink" href="#implicit-grant" title="Permalink to this heading"></a></h3>
 <div class="line-block">
 <div class="line">ImplicitGrant.png Implicit Grant is a simplified version of
 Authorization Code Grant. It is recommended to use Authorization Code
@@ -132,7 +189,7 @@ Grant hen possible, but Implicit Grant is acceptable when necessary.</div>
 </div>
 </div>
 <div class="section" id="resource-owner-password-credentials-grant">
-<span id="id7"></span><h3>Resource Owner Password Credentials Grant<a class="headerlink" href="#resource-owner-password-credentials-grant" title="Permalink to this heading">¶</a></h3>
+<span id="id6"></span><h3>Resource Owner Password Credentials Grant<a class="headerlink" href="#resource-owner-password-credentials-grant" title="Permalink to this heading"></a></h3>
 <div class="line-block">
 <div class="line">ResourceOwnerPasswordCredentialsGrant.png Resource Owner Password
 Credentials Grant involves giving the Resource Owner credentials
@@ -144,9 +201,9 @@ and the Authorization Server to handle confidential password data.</div>
 </div>
 </div>
 <div class="section" id="tokens">
-<h2>Tokens<a class="headerlink" href="#tokens" title="Permalink to this heading">¶</a></h2>
+<h2>Tokens<a class="headerlink" href="#tokens" title="Permalink to this heading"></a></h2>
 <div class="section" id="simple-tokens">
-<span id="id8"></span><h3>Simple Tokens<a class="headerlink" href="#simple-tokens" title="Permalink to this heading">¶</a></h3>
+<span id="id7"></span><h3>Simple Tokens<a class="headerlink" href="#simple-tokens" title="Permalink to this heading"></a></h3>
 <p>Simple Tokens are short, alpha-numeric strings which represent the
 Resources Owner’s authenticated status. They should be relatively short
 compared to Signed Tokens, but long enough to remain unique for the
@@ -162,7 +219,7 @@ include scope information. This scope tells the Resource Server which
 resources are allowed to be returned.</p>
 </div>
 <div class="section" id="signed-tokens">
-<span id="id9"></span><h3>Signed Tokens<a class="headerlink" href="#signed-tokens" title="Permalink to this heading">¶</a></h3>
+<span id="id8"></span><h3>Signed Tokens<a class="headerlink" href="#signed-tokens" title="Permalink to this heading"></a></h3>
 <p>Signed Tokens are variable length, alpha-numeric strings which represent
 the Resources Owner’s authenticated status. Signed Tokens are typically
 longer than Simple Tokens because they have data encoded inside them.
@@ -185,16 +242,16 @@ possible.</p>
 </div>
 </div>
 <div class="section" id="scenarios">
-<h2>Scenarios<a class="headerlink" href="#scenarios" title="Permalink to this heading">¶</a></h2>
+<h2>Scenarios<a class="headerlink" href="#scenarios" title="Permalink to this heading"></a></h2>
 <ul class="simple" id="scenario-1-global-resource-server">
 <li><p><strong>Scenario #1: Global Resource Server</strong></p></li>
 </ul>
 <div class="line-block">
-<div class="line">In this scenario, there is one centralized Resource Server which</div>
-</div>
-<p>contains all the data from several different organizations. This
+<div class="line">In this scenario, there is one centralized Resource Server which
+contains all the data from several different organizations. This
 Resource Server has its own web client and several external tools which
-can access the data.</p>
+can access the data.</div>
+</div>
 <ul class="simple">
 <li><p><strong>Scenario #2: Local Resource Server</strong></p></li>
 <li><p><strong>Scenario #3: Server to Server</strong></p></li>
@@ -205,7 +262,7 @@ can access the data.</p>
 </ul>
 </div>
 <div class="section" id="external-resources">
-<span id="auth-external-resources"></span><h2>External Resources<a class="headerlink" href="#external-resources" title="Permalink to this heading">¶</a></h2>
+<span id="auth-external-resources"></span><h2>External Resources<a class="headerlink" href="#external-resources" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>RFC 6749 (OAuth2) – <a class="reference external" href="https://tools.ietf.org/html/rfc6749">https://tools.ietf.org/html/rfc6749</a></p></li>
 <li><p>OAuth.net – <a class="reference external" href="https://oauth.net/2/">https://oauth.net/2/</a></p></li>
@@ -215,78 +272,34 @@ can access the data.</p>
 </div>
 
 
+           </div>
           </div>
-          
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Alternative_Standards.html" class="btn btn-neutral float-left" title="Alternative Standards" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="CORS.html" class="btn btn-neutral float-right" title="Cross-Origin Resource Sharing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, BrAPI Community.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">BrAPI</a></h1>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="best_practices_index.html">Best Practices</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Authentication</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="best_practices_index.html#general-concepts">General Concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="best_practices_index.html#implementation-notes">Implementation Notes</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="best_practices_index.html">Best Practices</a><ul>
-      <li>Previous: <a href="best_practices_index.html" title="previous chapter">Best Practices</a></li>
-  </ul></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2022, BrAPI Community.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="../_sources/best_practices/Authentication.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-
-    
-  </body>
+</body>
 </html>

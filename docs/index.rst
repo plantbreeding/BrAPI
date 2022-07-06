@@ -7,10 +7,13 @@ Welcome to BrAPI's documentation!
 =================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
+   :includehidden:
    
-   best_practices/best_practices_index
+   /community/BrAPI
+   /community/BrAPI_Community
+   /best_practices/best_practices_index
 
 
 Indices and tables
