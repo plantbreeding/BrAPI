@@ -35,7 +35,7 @@ standard to facilitate germplasm passport information exchange" (
 GeoJSON
 -------
 
-GeoJSON is a standard format for defining GPS coordinates and areas. Please see best practices document :doc:`"Location Coordinates" </best_practices/Location_Coordinates>` for more information. 
+GeoJSON is a standard format for defining GPS coordinates and areas. Please see best practices document :doc:`"Location Coordinates" <Location_Coordinates>` for more information. 
 
 GA4GH Variants Schema
 ---------------------

@@ -11,9 +11,10 @@ Welcome to BrAPI's documentation!
    :caption: Contents:
    :includehidden:
    
-   /community/BrAPI
-   /community/BrAPI_Community
-   /best_practices/best_practices_index
+   /docs/get_started/BrAPI
+   /docs/get_started/Get_Started
+   /docs/community/BrAPI_Community
+   /docs/best_practices/best_practices_index
 
 
 Indices and tables

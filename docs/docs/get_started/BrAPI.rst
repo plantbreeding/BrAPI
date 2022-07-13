@@ -60,22 +60,24 @@ B4R, and PhenoApps. The leaders and developers from these organizations met regu
 specification. They organized the first community hackathons which have become a staple of the BrAPI community. 
 
 Over the next year, the group continued to grow with organizations like INRA, GOBii, and The Crop Ontology joining the discussion. Eventually, 
-they had enough web service endpoints defined that they released an initial V1 of the specification document. This initial V1 document had 36
+the group had enough web service endpoints defined that they released an initial V1 of the specification document. This initial V1 document had 36
 endpoints defined focused on studies, germplasm, phenotypes, and genotype data. To this day, these categories remain as the central pilars of 
 the BrAPI spec. In September of 2015, the GitHub repository was created and the initial spec document was copied in. This made it far easier
 to work simultaniously, make changes when nessesary, and log issues which could be fixed later. 
 
 
+
+
 More BrAPI Resources
 --------------------
 
-- :doc:`Best Practices <Best_Practices>`
-- :doc:`Use Cases <Use_Cases>`
-- :doc:`Hackathons <Hackathons>`
-- :doc:`Old Documentation <Old_Documentation>`
-- :doc:`GitHub <https://github.com/plantbreeding/API>`
-- :doc:`Apiary <https://brapi.docs.apiary.io/#>`
-- :doc:`SwaggerHub <https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI/1.2>`
-- :doc:`BrAPPs <https://brapi.org/brapps.php>`
-- :doc:`BrAPI Test Server <https://test-server.brapi.org/>`
-- :doc:`BrAVA Validation Server <http://webapps.ipk-gatersleben.de/brapivalidator/>`
+- :doc:`Best Practices </docs/best_practices/best_practices_index>`
+- :doc:`Hackathons </docs/community/Hackathons>`
+- `GitHub <https://github.com/plantbreeding/API>`__
+- `Apiary <https://brapicore21.docs.apiary.io/#>`__
+- `SwaggerHub <https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Core>`__
+- `BrAPPs <https://brapi.org/brapps.php>`__
+- `BrAPI Test Server <https://test-server.brapi.org/>`__
+- `BrAVA Validation Server <http://webapps.ipk-gatersleben.de/brapivalidator/>`__
+
+
