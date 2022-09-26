@@ -12,6 +12,8 @@ components:
           x-brapi-metadata:
             primaryModel: true
             module: BrAPI-Germplasm
+            title: Cross
+            description: The identifiers and metadata represent that specific organisms have mated to produce offspring with particular traits or genes. The offspring of a Cross might be developed into a Germplasm if the desired traits are present. 
           properties:
             crossDbId:
               description: the unique identifier for a cross

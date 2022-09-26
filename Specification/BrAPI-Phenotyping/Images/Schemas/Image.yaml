@@ -12,6 +12,8 @@ components:
         x-brapi-metadata:
           primaryModel: true
           module: BrAPI-Phenotyping
+          title: Image
+          description: The metadata for an image file that is connected to some phenotypic observation data.
         properties:
           imageDbId:
             description: The unique identifier of an image

@@ -12,6 +12,7 @@ components:
         x-brapi-metadata:
           primaryModel: true
           module: BrAPI-Phenotyping
+          title: Trait
         properties:
           traitDbId:
             description: The ID which uniquely identifies a trait

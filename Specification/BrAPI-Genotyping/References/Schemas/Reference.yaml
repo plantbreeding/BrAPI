@@ -11,11 +11,13 @@ components:
       x-brapi-metadata:
         primaryModel: true
         module: BrAPI-Genotyping
+        title: Reference
+        description: A `Reference` is a canonical assembled contig, intended to act as a reference coordinate space for other genomic annotations. A single `Reference` might represent the human chromosome 1, for instance. `References` are designed to be immutable.
       properties:
         additionalInfo:
           additionalProperties:
             type: string
-          description: Additional arbitrary info
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.
           type: object
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'

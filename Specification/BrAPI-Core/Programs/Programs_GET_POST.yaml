@@ -9,7 +9,7 @@ paths:
       description: Get a filtered list of breeding Programs. This list can be filtered by common crop name to narrow results to a specific crop.
       parameters:
       - name: abbreviation
-        description: Filter by program abbreviation. Exact match.
+        description: A shortened version of the human readable name for a Program
         in: query
         required: false
         schema:
@@ -84,6 +84,7 @@ components:
               result:
                 properties:
                   data:
+                    description: The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.
                     items:
                       $ref: '#/components/schemas/Program'
                     type: array

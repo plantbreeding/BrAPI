@@ -57,6 +57,7 @@ paths:
                   result:
                     properties:
                       data:
+                        description: The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.
                         items:
                           $ref: '#/components/schemas/Event'
                         type: array

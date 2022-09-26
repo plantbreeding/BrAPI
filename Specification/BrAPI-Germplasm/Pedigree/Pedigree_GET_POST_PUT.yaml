@@ -9,7 +9,10 @@ paths:
       description: Get a filtered list of pedigree nodes which represent a subset of a pedigree tree
       parameters:
       - name: accessionNumber
-        description: The unique identifier for an accession within a genebank
+        description: |- 
+            The unique identifier for a material or germplasm within a genebank
+
+            MCPD (v2.1) (ACCENUMB) 2. This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection (e.g. "PI 113869").
         in: query
         required: false
         schema:
@@ -211,6 +214,7 @@ components:
               result:
                 properties:
                   data:
+                    description: The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.
                     items:
                       $ref: '#/components/schemas/PedigreeNode'
                     type: array

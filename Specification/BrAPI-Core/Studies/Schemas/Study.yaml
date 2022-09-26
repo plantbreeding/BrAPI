@@ -12,6 +12,8 @@ components:
         x-brapi-metadata:
           primaryModel: true
           module: BrAPI-Core
+          title: Study
+          description: A Study represents an experiment that has taken place at a single location. The Study contains metadata about the parameters and design of the experiment. It can also be used to group results and data sets generated from the experiment. A Trial can represent a collection of one or more Studies.
         required:
         - studyDbId
         properties:

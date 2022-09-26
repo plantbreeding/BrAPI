@@ -12,6 +12,8 @@ components:
         x-brapi-metadata:
           primaryModel: true
           module: BrAPI-Genotyping
+          title: Sample
+          description: The identifiers and metadata associated with a physical piece of biological material collected from the field for external analysis. A Sample can take many forms (leaf clipping, seed, DNA, etc) and might be used for a variety of analysis procedures (spectra, genotyping, etc). 
         properties:
           sampleDbId:
             description: |-

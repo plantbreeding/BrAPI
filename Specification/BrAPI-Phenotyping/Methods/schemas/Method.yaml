@@ -12,6 +12,7 @@ components:
         x-brapi-metadata:
           primaryModel: true
           module: BrAPI-Phenotyping
+          title: Method
         properties:
           methodDbId:
             description: Method unique identifier

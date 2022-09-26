@@ -10,7 +10,7 @@ paths:
         **Deprecated in v2.1** Please use `POST /lists/{listDbId}/data`. Github issue number #444 
         <br/> Add new data to a specific generic lists
       parameters:
-      - description: The unique ID of this generic list
+      - description: The unique identifier of a List
         in: path
         name: listDbId
         required: true

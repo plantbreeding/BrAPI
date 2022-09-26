@@ -6,7 +6,7 @@ paths: {}
 components:
   parameters:
     acceptHeader:
-      description: The requested content type which should be returned by the server
+      description: A standard HTTP request header that is used to request a specific content type (JSON, CSV, etc) which is "acceptable" to the client and should be returned by the server
       example: application/json
       in: header
       name: Accept

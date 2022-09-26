@@ -15,7 +15,7 @@ components:
           type: string
           example: contact@institute.org
         documentationURL:
-          description: A URL to the human readable documentation of this object
+          description: A URL to the human readable documentation of an object
           type: string
           example: institute.org/server
         organizationURL:

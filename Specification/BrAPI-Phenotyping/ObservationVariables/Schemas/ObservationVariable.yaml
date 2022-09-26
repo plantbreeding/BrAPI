@@ -30,5 +30,6 @@ components:
         x-brapi-metadata:
           primaryModel: true
           module: BrAPI-Phenotyping
-          title: Variable
+          title: ObservationVariable
+          description: A unique combination of Trait, Method, and Scale to define a clear context for an Observation. 
 

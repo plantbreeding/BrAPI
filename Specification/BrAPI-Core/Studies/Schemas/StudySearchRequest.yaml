@@ -19,7 +19,7 @@ components:
       - type: object
         properties:
           active:
-            description: Is this study currently active
+            description: A flag to indicate if a Study is currently active and ongoing
             type: boolean
             example: true
           seasonDbIds: 

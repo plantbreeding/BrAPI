@@ -11,7 +11,7 @@ components:
         additionalInfo:
           additionalProperties:
             type: string
-          description: Additional arbitrary info
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.
           type: object
         transactionDescription:
           description: A general description of this Seed Lot Transaction
@@ -30,11 +30,11 @@ components:
           type: string
           example: 11eef13b
         amount: 
-          description: The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).
+          description: The number of units being transfered between SeedLots. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).
           type: number
           example: 45
         units:
-          description: Description of the things being transfered in this transaction (seeds, bulbs, kg, etc)
+          description: A description of the things being transfered between SeedLots in a transaction (seeds, bulbs, kg, etc)
           type: string
           example: seeds
         externalReferences: 

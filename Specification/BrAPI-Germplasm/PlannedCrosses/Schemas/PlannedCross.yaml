@@ -12,6 +12,8 @@ components:
           x-brapi-metadata:
             primaryModel: true
             module: BrAPI-Germplasm
+            title: PlannedCross
+            description: Information regarding the intention to mate specific organisms together to produce offspring with desired traits. A PlannedCross becomes an actual Cross when the desired mating event actually occurs in the field. 
           properties:
             plannedCrossDbId:
               description: the unique identifier for a planned cross

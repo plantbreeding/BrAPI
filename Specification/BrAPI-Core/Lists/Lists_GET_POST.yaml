@@ -8,25 +8,25 @@ paths:
       summary: Get filtered set of generic lists
       description: Get filtered set of generic lists
       parameters:
-      - description: The type of objects contained by this generic list
+      - description: A flag to indicate the type of objects that are referneced in a List 
         in: query
         name: listType
         required: false
         schema:
           $ref: '#/components/schemas/ListTypes'
-      - description: The human readable name of this generic list
+      - description: The human readable name of a List
         in: query
         name: listName
         required: false
         schema:
           type: string
-      - description: The unique ID of this generic list
+      - description: The unique identifier of a List
         in: query
         name: listDbId
         required: false
         schema:
           type: string
-      - description: The source tag of this generic list
+      - description: A short tag to indicate the source of a list
         in: query
         name: listSource
         required: false
@@ -90,6 +90,7 @@ components:
                 type: object
                 properties:
                   data:
+                    description: The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.
                     type: array
                     items:
                       $ref: '#/components/schemas/ListSummary'

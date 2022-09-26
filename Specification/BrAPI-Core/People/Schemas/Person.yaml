@@ -12,6 +12,8 @@ components:
         x-brapi-metadata:
           primaryModel: true
           module: BrAPI-Core
+          title: Person
+          description: A generic object used to maintain the metadata needed to describe a human. The Person might be a software user, a field technician, or a primary contact for a Program.   
         required:
         - personDbId
         properties:

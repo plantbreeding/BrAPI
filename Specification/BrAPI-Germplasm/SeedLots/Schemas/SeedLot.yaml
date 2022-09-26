@@ -12,6 +12,8 @@ components:
         x-brapi-metadata:
           primaryModel: true
           module: BrAPI-Germplasm
+          title: SeedLot
+          description: A SeedLot, also known as an InventoryLot, is a collection of starting material (seeds, bulbs, root-stock, etc) for a particular Germplasm. The amount of material available for each Germplasm can be increased by seed production and decreased by planting or trading with another breeding Program.
         properties: 
           seedLotDbId:
             description: Unique DbId for the Seed Lot

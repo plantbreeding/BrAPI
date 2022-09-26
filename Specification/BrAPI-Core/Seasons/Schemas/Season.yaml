@@ -10,6 +10,8 @@ components:
       x-brapi-metadata:
         primaryModel: true
         module: BrAPI-Core
+        title: Season
+        description: A Season defines a period in time. A Season is made of two parts; (1) the primary year and (2) a term which defines a segment of the year. This term could be a traditional season, like "Spring" or "Summer", or this term could be a month, like "May" or "June", or this could be an arbitrary season name which is meaningful to the breeding Program like "PlantingTime_3" or "Season E".
       required:
       - seasonDbId
       properties:

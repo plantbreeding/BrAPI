@@ -10,6 +10,8 @@ components:
       x-brapi-metadata:
         primaryModel: true
         module: BrAPI-Genotyping
+        title: Call
+        description: A Call represents the determination of genotype with respect to a particular Variant. It may include associated information such as quality and phasing. For example, a call might assign a probability of 0.32 to the occurrence of a SNP named RS_1234 in a Call Set with the name NA_12345.
       description: |-
         A `Call` represents the determination of genotype with respect to a particular `Variant`.
 
@@ -18,7 +20,7 @@ components:
         additionalInfo:
           additionalProperties:
             type: string
-          description: Additional arbitrary info
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.
           type: object
         callSetDbId:
           description: |-

@@ -37,7 +37,7 @@ paths:
                   result:
                     properties:
                       data:
-                        description: array of crop names available on the server
+                        description: The array of crop names available on the server
                         items:
                           description: supported crop name
                           type: string

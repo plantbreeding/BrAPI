@@ -12,6 +12,8 @@ components:
         x-brapi-metadata:
           primaryModel: true
           module: BrAPI-Germplasm
+          title: SeedLotTransaction
+          description: The record of an event where material was moved in or out of a particular SeedLot
         properties: 
           transactionDbId:
             description: Unique DbId for the Seed Lot Transaction

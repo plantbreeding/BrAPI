@@ -15,7 +15,7 @@ components:
       - type: object
         properties:
           abbreviations:
-            description: An abbreviation which represents this location
+            description: A list of shortened human readable names for a set of Locations
             type: array
             items:
               type: string

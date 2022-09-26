@@ -20,6 +20,7 @@ components:
           pagination:
             $ref: '#/components/schemas/tokenPagination'
     metadataBase:
+      description: An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
       type: object
       properties:
         datafiles:

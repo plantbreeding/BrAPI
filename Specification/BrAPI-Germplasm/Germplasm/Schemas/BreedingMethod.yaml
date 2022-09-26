@@ -8,7 +8,7 @@ components:
     BreedingMethod:
       properties:
         abbreviation:
-          description: an abbreviation for the name of this breeding method
+          description: A shortened version of the human readable name for a Breeding Method
           type: string
           example: MB
         breedingMethodDbId:
@@ -29,4 +29,6 @@ components:
       x-brapi-metadata:
         primaryModel: true
         module: BrAPI-Germplasm
+        title: Breeding Method
+        description: The techniques and protocol used to produce a Cross or Germplasm 
 
