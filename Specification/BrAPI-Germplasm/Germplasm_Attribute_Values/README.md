@@ -18,7 +18,7 @@ Get the Germplasm Attribute Values
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">attributeDbId</span></td><td>string</td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">attributeName</span></td><td>string</td><td>A human readable name for this attribute</td></tr>
 <tr><td><span style="font-weight:bold;">attributeValueDbId</span></td><td>string</td><td>The ID which uniquely identifies this attribute value within the given database server</td></tr>
@@ -126,7 +126,7 @@ Create new Germplasm Attribute Values
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">attributeDbId</span></td><td>string</td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">attributeName</span></td><td>string</td><td>A human readable name for this attribute</td></tr>
 <tr><td><span style="font-weight:bold;">determinedDate</span></td><td>string<br>(date-time)</td><td>The date the value of this attribute was determined for a given germplasm</td></tr>
@@ -144,7 +144,7 @@ Create new Germplasm Attribute Values
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">attributeDbId</span></td><td>string</td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">attributeName</span></td><td>string</td><td>A human readable name for this attribute</td></tr>
 <tr><td><span style="font-weight:bold;">attributeValueDbId</span></td><td>string</td><td>The ID which uniquely identifies this attribute value within the given database server</td></tr>
@@ -269,7 +269,7 @@ Get the details for a specific Germplasm Attribute
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">attributeDbId</span></td><td>string</td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">attributeName</span></td><td>string</td><td>A human readable name for this attribute</td></tr>
 <tr><td><span style="font-weight:bold;">attributeValueDbId</span></td><td>string</td><td>The ID which uniquely identifies this attribute value within the given database server</td></tr>
@@ -363,7 +363,7 @@ Update an existing Germplasm Attribute Value
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">attributeDbId</span></td><td>string</td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">attributeName</span></td><td>string</td><td>A human readable name for this attribute</td></tr>
 <tr><td><span style="font-weight:bold;">determinedDate</span></td><td>string<br>(date-time)</td><td>The date the value of this attribute was determined for a given germplasm</td></tr>
@@ -381,7 +381,7 @@ Update an existing Germplasm Attribute Value
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">attributeDbId</span></td><td>string</td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">attributeName</span></td><td>string</td><td>A human readable name for this attribute</td></tr>
 <tr><td><span style="font-weight:bold;">attributeValueDbId</span></td><td>string</td><td>The ID which uniquely identifies this attribute value within the given database server</td></tr>
@@ -529,7 +529,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">attributeDbId</span></td><td>string</td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">attributeName</span></td><td>string</td><td>A human readable name for this attribute</td></tr>
 <tr><td><span style="font-weight:bold;">attributeValueDbId</span></td><td>string</td><td>The ID which uniquely identifies this attribute value within the given database server</td></tr>
@@ -739,7 +739,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">attributeDbId</span></td><td>string</td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">attributeName</span></td><td>string</td><td>A human readable name for this attribute</td></tr>
 <tr><td><span style="font-weight:bold;">attributeValueDbId</span></td><td>string</td><td>The ID which uniquely identifies this attribute value within the given database server</td></tr>

@@ -52,7 +52,7 @@ BAD    "call": "germplasm/<germplasmDbId>/pedigree"
 <tr><td>calls<br><span style="font-weight:bold;margin-left:5px">.service</span></td><td>string</td><td>The name of the available call as recorded in the documentation</td></tr>
 <tr><td>calls<br><span style="font-weight:bold;margin-left:5px">.versions</span></td><td>array[string]</td><td>The supported versions of a particular call</td></tr>
 <tr><td><span style="font-weight:bold;">contactEmail</span></td><td>string</td><td>A contact email address for this server management</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">location</span></td><td>string</td><td>Physical location of this server (ie. City, Country)</td></tr>
 <tr><td><span style="font-weight:bold;">organizationName</span></td><td>string</td><td>The name of the organization that manages this server and data</td></tr>
 <tr><td><span style="font-weight:bold;">organizationURL</span></td><td>string</td><td>The URL of the organization that manages this server and data</td></tr>

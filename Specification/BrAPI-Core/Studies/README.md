@@ -23,7 +23,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this study currently active</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Study is currently active and ongoing</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropNames</span></td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460  <br>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceIds</span></td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
@@ -56,8 +56,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this study currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Study is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this study</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
@@ -76,7 +76,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.scientificType</span></td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.url</span></td><td>string<br>(uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
 <tr><td><span style="font-weight:bold;">environmentParameters</span></td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
@@ -425,8 +425,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this study currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Study is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this study</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
@@ -445,7 +445,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.scientificType</span></td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.url</span></td><td>string<br>(uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
 <tr><td><span style="font-weight:bold;">environmentParameters</span></td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
@@ -688,8 +688,8 @@ StartDate and endDate should be ISO-8601 format for dates
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this study currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Study is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this study</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
@@ -708,7 +708,7 @@ StartDate and endDate should be ISO-8601 format for dates
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.scientificType</span></td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.url</span></td><td>string<br>(uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
 <tr><td><span style="font-weight:bold;">environmentParameters</span></td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
@@ -761,7 +761,7 @@ StartDate and endDate should be ISO-8601 format for dates
     + studyCode (Optional, ) ... Filter by study code
     + studyPUI (Optional, ) ... Filter by study PUI
     + observationVariableDbId (Optional, ) ... Filter by observation variable DbId
-    + active (Optional, ) ... Filter active status true/false.
+    + active (Optional, ) ... A flag to indicate if a Study is currently active and ongoing
     + sortBy (Optional, ) ... Name of the field to sort by.
     + sortOrder (Optional, ) ... Sort order direction. Ascending/Descending.
     + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
@@ -938,8 +938,8 @@ StartDate and endDate should be ISO-8601 format for dates
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this study currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Study is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this study</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
@@ -958,7 +958,7 @@ StartDate and endDate should be ISO-8601 format for dates
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.scientificType</span></td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.url</span></td><td>string<br>(uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
 <tr><td><span style="font-weight:bold;">environmentParameters</span></td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
@@ -1005,8 +1005,8 @@ StartDate and endDate should be ISO-8601 format for dates
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this study currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Study is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this study</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
@@ -1025,7 +1025,7 @@ StartDate and endDate should be ISO-8601 format for dates
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.scientificType</span></td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.url</span></td><td>string<br>(uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
 <tr><td><span style="font-weight:bold;">environmentParameters</span></td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
@@ -1337,8 +1337,8 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this study currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Study is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this study</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
@@ -1357,7 +1357,7 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.scientificType</span></td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.url</span></td><td>string<br>(uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
 <tr><td><span style="font-weight:bold;">environmentParameters</span></td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
@@ -1563,8 +1563,8 @@ Update an existing Study with new data
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this study currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Study is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this study</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
@@ -1583,7 +1583,7 @@ Update an existing Study with new data
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.scientificType</span></td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.url</span></td><td>string<br>(uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
 <tr><td><span style="font-weight:bold;">environmentParameters</span></td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
@@ -1630,8 +1630,8 @@ Update an existing Study with new data
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this study currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Study is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this study</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
@@ -1650,7 +1650,7 @@ Update an existing Study with new data
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.scientificType</span></td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.url</span></td><td>string<br>(uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
 <tr><td><span style="font-weight:bold;">environmentParameters</span></td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>

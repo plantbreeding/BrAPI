@@ -22,10 +22,10 @@ Get list of maps
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">comments</span></td><td>string</td><td>Additional comments about a `GenomeMap`</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>The common name of the `Crop`</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">linkageGroupCount</span></td><td>integer</td><td>The number of linkage groups present in a `GenomeMap`</td></tr>
 <tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string</td><td>The ID which uniquely identifies a `GenomeMap`</td></tr>
 <tr><td><span style="font-weight:bold;">mapName</span></td><td>string</td><td>A human readable name for a `GenomeMap`</td></tr>
@@ -127,10 +127,10 @@ Provides the number of markers on each linkageGroup and the max position on the 
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">comments</span></td><td>string</td><td>Additional comments about a `GenomeMap`</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>The common name of the `Crop`</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">linkageGroupCount</span></td><td>integer</td><td>The number of linkage groups present in a `GenomeMap`</td></tr>
 <tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string</td><td>The ID which uniquely identifies a `GenomeMap`</td></tr>
 <tr><td><span style="font-weight:bold;">mapName</span></td><td>string</td><td>A human readable name for a `GenomeMap`</td></tr>
@@ -224,7 +224,7 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">linkageGroupName</span></td><td>string</td><td>The Uniquely Identifiable name of a `LinkageGroup` <br> This might be a chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.</td></tr>
 <tr><td><span style="font-weight:bold;">markerCount</span></td><td>integer</td><td>The number of markers associated with a `LinkageGroup`</td></tr>
 <tr><td><span style="font-weight:bold;">maxPosition</span></td><td>integer</td><td>The maximum position of a marker within a `LinkageGroup`</td></tr>
@@ -309,7 +309,7 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">linkageGroupName</span></td><td>string</td><td>The Uniquely Identifiable name of a `LinkageGroup` <br> This might be a chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.</td></tr>
 <tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string</td><td>The ID which uniquely identifies a `GenomeMap`</td></tr>
 <tr><td><span style="font-weight:bold;">mapName</span></td><td>string</td><td>A human readable name for a `GenomeMap`</td></tr>
@@ -415,7 +415,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">linkageGroupName</span></td><td>string</td><td>The Uniquely Identifiable name of a `LinkageGroup` <br> This might be a chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.</td></tr>
 <tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string</td><td>The ID which uniquely identifies a `GenomeMap`</td></tr>
 <tr><td><span style="font-weight:bold;">mapName</span></td><td>string</td><td>A human readable name for a `GenomeMap`</td></tr>
@@ -553,7 +553,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">linkageGroupName</span></td><td>string</td><td>The Uniquely Identifiable name of a `LinkageGroup` <br> This might be a chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.</td></tr>
 <tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string</td><td>The ID which uniquely identifies a `GenomeMap`</td></tr>
 <tr><td><span style="font-weight:bold;">mapName</span></td><td>string</td><td>A human readable name for a `GenomeMap`</td></tr>

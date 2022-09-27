@@ -16,7 +16,7 @@ Get a filtered list of pedigree nodes which represent a subset of a pedigree tre
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">breedingMethodDbId</span></td><td>string</td><td>The unique identifier for the breeding method used to create this germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">breedingMethodName</span></td><td>string</td><td>The human readable name of the breeding method used to create this germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>The crossing project used to generate this germplasm</td></tr>
@@ -48,7 +48,7 @@ Get a filtered list of pedigree nodes which represent a subset of a pedigree tre
  
 
 + Parameters
-    + accessionNumber (Optional, ) ... The unique identifier for an accession within a genebank
+    + accessionNumber (Optional, ) ... The unique identifier for a material or germplasm within a genebankMCPD (v2.1) (ACCENUMB) 2. This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection (e.g. "PI 113869").
     + collection (Optional, ) ... A specific panel/collection/population name this germplasm belongs to.
     + familyCode (Optional, ) ... A familyCode representing the family this germplasm belongs to.
     + binomialName (Optional, ) ... The full binomial name (scientific name) of a germplasm
@@ -202,7 +202,7 @@ Send a list of new pedigree nodes to a server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">breedingMethodDbId</span></td><td>string</td><td>The unique identifier for the breeding method used to create this germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">breedingMethodName</span></td><td>string</td><td>The human readable name of the breeding method used to create this germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>The crossing project used to generate this germplasm</td></tr>
@@ -235,7 +235,7 @@ Send a list of new pedigree nodes to a server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">breedingMethodDbId</span></td><td>string</td><td>The unique identifier for the breeding method used to create this germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">breedingMethodName</span></td><td>string</td><td>The human readable name of the breeding method used to create this germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>The crossing project used to generate this germplasm</td></tr>
@@ -477,7 +477,7 @@ Send a list of pedigree nodes to update existing information on a server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">breedingMethodDbId</span></td><td>string</td><td>The unique identifier for the breeding method used to create this germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">breedingMethodName</span></td><td>string</td><td>The human readable name of the breeding method used to create this germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>The crossing project used to generate this germplasm</td></tr>
@@ -738,7 +738,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">accessionNumbers</span></td><td>array[string]</td><td>List unique identifiers for accessions within a genebank</td></tr>
+<tr><td><span style="font-weight:bold;">accessionNumbers</span></td><td>array[string]</td><td>A collection of unique identifiers for materials or germplasm within a genebank  MCPD (v2.1) (ACCENUMB) 2. This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection (e.g. "PI 113869").</td></tr>
 <tr><td><span style="font-weight:bold;">binomialNames</span></td><td>array[string]</td><td>List of the full binomial name (scientific name) to identify a germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">collections</span></td><td>array[string]</td><td>A specific panel/collection/population name this germplasm belongs to.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropNames</span></td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
@@ -774,7 +774,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">breedingMethodDbId</span></td><td>string</td><td>The unique identifier for the breeding method used to create this germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">breedingMethodName</span></td><td>string</td><td>The human readable name of the breeding method used to create this germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>The crossing project used to generate this germplasm</td></tr>
@@ -1064,7 +1064,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">breedingMethodDbId</span></td><td>string</td><td>The unique identifier for the breeding method used to create this germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">breedingMethodName</span></td><td>string</td><td>The human readable name of the breeding method used to create this germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>The crossing project used to generate this germplasm</td></tr>

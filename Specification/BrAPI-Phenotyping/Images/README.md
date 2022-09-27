@@ -229,7 +229,7 @@ words, or ontology references, or full ontology URI''s.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>The human readable description of an image.</td></tr>
 <tr><td><span style="font-weight:bold;">descriptiveOntologyTerms</span></td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
@@ -395,7 +395,7 @@ An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/ind
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>The human readable description of an image.</td></tr>
 <tr><td><span style="font-weight:bold;">descriptiveOntologyTerms</span></td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
@@ -423,7 +423,7 @@ An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/ind
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>The human readable description of an image.</td></tr>
 <tr><td><span style="font-weight:bold;">descriptiveOntologyTerms</span></td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
@@ -618,7 +618,7 @@ words, or ontology references, or full ontology URI''s.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>The human readable description of an image.</td></tr>
 <tr><td><span style="font-weight:bold;">descriptiveOntologyTerms</span></td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
@@ -776,7 +776,7 @@ An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/ind
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>The human readable description of an image.</td></tr>
 <tr><td><span style="font-weight:bold;">descriptiveOntologyTerms</span></td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
@@ -804,7 +804,7 @@ An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/ind
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>The human readable description of an image.</td></tr>
 <tr><td><span style="font-weight:bold;">descriptiveOntologyTerms</span></td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
@@ -1007,7 +1007,7 @@ An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/ind
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>The human readable description of an image.</td></tr>
 <tr><td><span style="font-weight:bold;">descriptiveOntologyTerms</span></td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
@@ -1184,7 +1184,7 @@ Image Implementation Notes<br/>
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>The human readable description of an image.</td></tr>
 <tr><td><span style="font-weight:bold;">descriptiveOntologyTerms</span></td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
@@ -1453,7 +1453,7 @@ Image Implementation Notes<br/>
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>The human readable description of an image.</td></tr>
 <tr><td><span style="font-weight:bold;">descriptiveOntologyTerms</span></td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>

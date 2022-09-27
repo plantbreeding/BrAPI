@@ -15,7 +15,7 @@ Get a filtered list of Cross entities.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossAttributes</span></td><td>array[object]</td><td>Set of custom attributes associated with a cross</td></tr>
 <tr><td>crossAttributes<br><span style="font-weight:bold;margin-left:5px">.crossAttributeName</span></td><td>string</td><td>the human readable name of a cross attribute</td></tr>
 <tr><td>crossAttributes<br><span style="font-weight:bold;margin-left:5px">.crossAttributeValue</span></td><td>string</td><td>the value of a cross attribute</td></tr>
@@ -170,7 +170,7 @@ Create new Cross entities on this server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossAttributes</span></td><td>array[object]</td><td>Set of custom attributes associated with a cross</td></tr>
 <tr><td>crossAttributes<br><span style="font-weight:bold;margin-left:5px">.crossAttributeName</span></td><td>string</td><td>the human readable name of a cross attribute</td></tr>
 <tr><td>crossAttributes<br><span style="font-weight:bold;margin-left:5px">.crossAttributeValue</span></td><td>string</td><td>the value of a cross attribute</td></tr>
@@ -208,7 +208,7 @@ Create new Cross entities on this server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossAttributes</span></td><td>array[object]</td><td>Set of custom attributes associated with a cross</td></tr>
 <tr><td>crossAttributes<br><span style="font-weight:bold;margin-left:5px">.crossAttributeName</span></td><td>string</td><td>the human readable name of a cross attribute</td></tr>
 <tr><td>crossAttributes<br><span style="font-weight:bold;margin-left:5px">.crossAttributeValue</span></td><td>string</td><td>the value of a cross attribute</td></tr>
@@ -412,7 +412,7 @@ Update existing Cross entities on this server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossAttributes</span></td><td>array[object]</td><td>Set of custom attributes associated with a cross</td></tr>
 <tr><td>crossAttributes<br><span style="font-weight:bold;margin-left:5px">.crossAttributeName</span></td><td>string</td><td>the human readable name of a cross attribute</td></tr>
 <tr><td>crossAttributes<br><span style="font-weight:bold;margin-left:5px">.crossAttributeValue</span></td><td>string</td><td>the value of a cross attribute</td></tr>

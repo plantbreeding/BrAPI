@@ -15,7 +15,7 @@ Get filtered set of generic lists
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">dateCreated</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was first created</td></tr>
 <tr><td><span style="font-weight:bold;">dateModified</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was last updated</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -29,17 +29,17 @@ Get filtered set of generic lists
 <tr><td><span style="font-weight:bold;">listOwnerPersonDbId</span></td><td>string</td><td>The unique identifier for a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listSize</span></td><td>integer</td><td>The number of elements in a List</td></tr>
 <tr><td><span style="font-weight:bold;">listSource</span></td><td>string</td><td>The description of where a List originated from</td></tr>
-<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + listType (Optional, ) ... The type of objects contained by this generic list
-    + listName (Optional, ) ... The human readable name of this generic list
-    + listDbId (Optional, ) ... The unique ID of this generic list
-    + listSource (Optional, ) ... The source tag of this generic list
+    + listType (Optional, ) ... A flag to indicate the type of objects that are referneced in a List
+    + listName (Optional, ) ... The human readable name of a List
+    + listDbId (Optional, ) ... The unique identifier of a List
+    + listSource (Optional, ) ... A short tag to indicate the source of a list
     + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
     + programDbId (Optional, ) ... Use this parameter to only return results associated with the given `Program` unique identifier. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
     + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
@@ -129,8 +129,8 @@ Create new list objects in the database
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">data</span></td><td>array[string]</td><td>The DbIds of other objects contained in this List</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">data</span></td><td>array[string]</td><td>The array of DbIds of the BrAPI objects contained in a List</td></tr>
 <tr><td><span style="font-weight:bold;">dateCreated</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was first created</td></tr>
 <tr><td><span style="font-weight:bold;">dateModified</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was last updated</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -143,7 +143,7 @@ Create new list objects in the database
 <tr><td><span style="font-weight:bold;">listOwnerPersonDbId</span></td><td>string</td><td>The unique identifier for a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listSize</span></td><td>integer</td><td>The number of elements in a List</td></tr>
 <tr><td><span style="font-weight:bold;">listSource</span></td><td>string</td><td>The description of where a List originated from</td></tr>
-<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 </table>
 
 
@@ -151,7 +151,7 @@ Create new list objects in the database
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">dateCreated</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was first created</td></tr>
 <tr><td><span style="font-weight:bold;">dateModified</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was last updated</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -165,7 +165,7 @@ Create new list objects in the database
 <tr><td><span style="font-weight:bold;">listOwnerPersonDbId</span></td><td>string</td><td>The unique identifier for a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listSize</span></td><td>integer</td><td>The number of elements in a List</td></tr>
 <tr><td><span style="font-weight:bold;">listSource</span></td><td>string</td><td>The description of where a List originated from</td></tr>
-<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 </table>
 
 
@@ -289,8 +289,8 @@ Get a specific generic lists
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">data</span></td><td>array[string]</td><td>The DbIds of other objects contained in this List</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">data</span></td><td>array[string]</td><td>The array of DbIds of the BrAPI objects contained in a List</td></tr>
 <tr><td><span style="font-weight:bold;">dateCreated</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was first created</td></tr>
 <tr><td><span style="font-weight:bold;">dateModified</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was last updated</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -304,14 +304,14 @@ Get a specific generic lists
 <tr><td><span style="font-weight:bold;">listOwnerPersonDbId</span></td><td>string</td><td>The unique identifier for a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listSize</span></td><td>integer</td><td>The number of elements in a List</td></tr>
 <tr><td><span style="font-weight:bold;">listSource</span></td><td>string</td><td>The description of where a List originated from</td></tr>
-<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + listDbId (Required, ) ... The unique ID of this generic list
+    + listDbId (Required, ) ... The unique identifier of a List
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
@@ -399,8 +399,8 @@ Update an existing generic list
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">data</span></td><td>array[string]</td><td>The DbIds of other objects contained in this List</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">data</span></td><td>array[string]</td><td>The array of DbIds of the BrAPI objects contained in a List</td></tr>
 <tr><td><span style="font-weight:bold;">dateCreated</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was first created</td></tr>
 <tr><td><span style="font-weight:bold;">dateModified</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was last updated</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -413,7 +413,7 @@ Update an existing generic list
 <tr><td><span style="font-weight:bold;">listOwnerPersonDbId</span></td><td>string</td><td>The unique identifier for a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listSize</span></td><td>integer</td><td>The number of elements in a List</td></tr>
 <tr><td><span style="font-weight:bold;">listSource</span></td><td>string</td><td>The description of where a List originated from</td></tr>
-<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 </table>
 
 
@@ -421,8 +421,8 @@ Update an existing generic list
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">data</span></td><td>array[string]</td><td>The DbIds of other objects contained in this List</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">data</span></td><td>array[string]</td><td>The array of DbIds of the BrAPI objects contained in a List</td></tr>
 <tr><td><span style="font-weight:bold;">dateCreated</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was first created</td></tr>
 <tr><td><span style="font-weight:bold;">dateModified</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was last updated</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -436,14 +436,14 @@ Update an existing generic list
 <tr><td><span style="font-weight:bold;">listOwnerPersonDbId</span></td><td>string</td><td>The unique identifier for a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listSize</span></td><td>integer</td><td>The number of elements in a List</td></tr>
 <tr><td><span style="font-weight:bold;">listSource</span></td><td>string</td><td>The description of where a List originated from</td></tr>
-<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + listDbId (Required, ) ... The unique ID of this generic list
+    + listDbId (Required, ) ... The unique identifier of a List
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
@@ -569,8 +569,8 @@ Add new data members to a specific List
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">data</span></td><td>array[string]</td><td>The DbIds of other objects contained in this List</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">data</span></td><td>array[string]</td><td>The array of DbIds of the BrAPI objects contained in a List</td></tr>
 <tr><td><span style="font-weight:bold;">dateCreated</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was first created</td></tr>
 <tr><td><span style="font-weight:bold;">dateModified</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was last updated</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -584,7 +584,7 @@ Add new data members to a specific List
 <tr><td><span style="font-weight:bold;">listOwnerPersonDbId</span></td><td>string</td><td>The unique identifier for a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listSize</span></td><td>integer</td><td>The number of elements in a List</td></tr>
 <tr><td><span style="font-weight:bold;">listSource</span></td><td>string</td><td>The description of where a List originated from</td></tr>
-<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 </table>
 
 
@@ -696,8 +696,8 @@ Add new data members to a specific List
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">data</span></td><td>array[string]</td><td>The DbIds of other objects contained in this List</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">data</span></td><td>array[string]</td><td>The array of DbIds of the BrAPI objects contained in a List</td></tr>
 <tr><td><span style="font-weight:bold;">dateCreated</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was first created</td></tr>
 <tr><td><span style="font-weight:bold;">dateModified</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was last updated</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -711,14 +711,14 @@ Add new data members to a specific List
 <tr><td><span style="font-weight:bold;">listOwnerPersonDbId</span></td><td>string</td><td>The unique identifier for a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listSize</span></td><td>integer</td><td>The number of elements in a List</td></tr>
 <tr><td><span style="font-weight:bold;">listSource</span></td><td>string</td><td>The description of where a List originated from</td></tr>
-<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + listDbId (Required, ) ... The unique ID of this generic list
+    + listDbId (Required, ) ... The unique identifier of a List
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
@@ -820,19 +820,19 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">commonCropNames</span></td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
-<tr><td><span style="font-weight:bold;">dateCreatedRangeEnd</span></td><td>string<br>(date-time)</td><td></td></tr>
-<tr><td><span style="font-weight:bold;">dateCreatedRangeStart</span></td><td>string<br>(date-time)</td><td></td></tr>
-<tr><td><span style="font-weight:bold;">dateModifiedRangeEnd</span></td><td>string<br>(date-time)</td><td></td></tr>
-<tr><td><span style="font-weight:bold;">dateModifiedRangeStart</span></td><td>string<br>(date-time)</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">dateCreatedRangeEnd</span></td><td>string<br>(date-time)</td><td>Define the end for an interval of time and only include Lists that are created within this interval.</td></tr>
+<tr><td><span style="font-weight:bold;">dateCreatedRangeStart</span></td><td>string<br>(date-time)</td><td>Define the begining for an interval of time and only include Lists that are created within this interval.</td></tr>
+<tr><td><span style="font-weight:bold;">dateModifiedRangeEnd</span></td><td>string<br>(date-time)</td><td>Define the end for an interval of time and only include Lists that are modified within this interval.</td></tr>
+<tr><td><span style="font-weight:bold;">dateModifiedRangeStart</span></td><td>string<br>(date-time)</td><td>Define the begining for an interval of time and only include Lists that are modified within this interval.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460  <br>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceIds</span></td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceSources</span></td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
-<tr><td><span style="font-weight:bold;">listDbIds</span></td><td>array[string]</td><td></td></tr>
-<tr><td><span style="font-weight:bold;">listNames</span></td><td>array[string]</td><td></td></tr>
-<tr><td><span style="font-weight:bold;">listOwnerNames</span></td><td>array[string]</td><td></td></tr>
-<tr><td><span style="font-weight:bold;">listOwnerPersonDbIds</span></td><td>array[string]</td><td></td></tr>
-<tr><td><span style="font-weight:bold;">listSources</span></td><td>array[string]</td><td></td></tr>
-<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">listDbIds</span></td><td>array[string]</td><td>An array of primary database identifiers to identify a set of Lists</td></tr>
+<tr><td><span style="font-weight:bold;">listNames</span></td><td>array[string]</td><td>An array of human readable names to identify a set of Lists</td></tr>
+<tr><td><span style="font-weight:bold;">listOwnerNames</span></td><td>array[string]</td><td>An array of names for the people or entities who are responsible for a set of Lists</td></tr>
+<tr><td><span style="font-weight:bold;">listOwnerPersonDbIds</span></td><td>array[string]</td><td>An array of primary database identifiers to identify people or entities who are responsible for a set of Lists</td></tr>
+<tr><td><span style="font-weight:bold;">listSources</span></td><td>array[string]</td><td>An array of terms identifying lists from different sources (ie 'USER', 'SYSTEM', etc)</td></tr>
+<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 <tr><td><span style="font-weight:bold;">page</span></td><td>integer</td><td>Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.</td></tr>
 <tr><td><span style="font-weight:bold;">pageSize</span></td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
 <tr><td><span style="font-weight:bold;">programDbIds</span></td><td>array[string]</td><td>A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.</td></tr>
@@ -844,7 +844,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">dateCreated</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was first created</td></tr>
 <tr><td><span style="font-weight:bold;">dateModified</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was last updated</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -858,7 +858,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">listOwnerPersonDbId</span></td><td>string</td><td>The unique identifier for a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listSize</span></td><td>integer</td><td>The number of elements in a List</td></tr>
 <tr><td><span style="font-weight:bold;">listSource</span></td><td>string</td><td>The description of where a List originated from</td></tr>
-<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 </table>
 
 
@@ -1040,7 +1040,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">dateCreated</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was first created</td></tr>
 <tr><td><span style="font-weight:bold;">dateModified</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was last updated</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -1054,7 +1054,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">listOwnerPersonDbId</span></td><td>string</td><td>The unique identifier for a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listSize</span></td><td>integer</td><td>The number of elements in a List</td></tr>
 <tr><td><span style="font-weight:bold;">listSource</span></td><td>string</td><td>The description of where a List originated from</td></tr>
-<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 </table>
 
 

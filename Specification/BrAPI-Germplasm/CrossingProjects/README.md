@@ -15,7 +15,7 @@ Get a filtered list of Crossing Projects.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>The unique identifier for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDescription</span></td><td>string</td><td>the description for a crossing project</td></tr>
@@ -135,7 +135,7 @@ Create new Crossing Project entities on this server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDescription</span></td><td>string</td><td>the description for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string</td><td>The human readable name for a crossing project</td></tr>
@@ -158,7 +158,7 @@ Create new Crossing Project entities on this server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>The unique identifier for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDescription</span></td><td>string</td><td>the description for a crossing project</td></tr>
@@ -304,7 +304,7 @@ Get a filtered list of Crossing Projects.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>The unique identifier for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDescription</span></td><td>string</td><td>the description for a crossing project</td></tr>
@@ -411,7 +411,7 @@ Update an existing Crossing Project entity on this server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDescription</span></td><td>string</td><td>the description for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string</td><td>The human readable name for a crossing project</td></tr>
@@ -434,7 +434,7 @@ Update an existing Crossing Project entity on this server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>The unique identifier for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDescription</span></td><td>string</td><td>the description for a crossing project</td></tr>

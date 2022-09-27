@@ -19,9 +19,9 @@ Get list of events
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">date</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `eventDateRange.discreteDates`. Github issue number #440              <br>A list of dates when the event occurred <br>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.</td></tr>
-<tr><td><span style="font-weight:bold;">eventDateRange</span></td><td>object</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">eventDateRange</span></td><td>object</td><td>An object describing when a particular Event has taken place. An Event can occur at one or more discrete time points (`discreteDates`) or an event can happen continuosly over a longer peroid of time (`startDate`, `endDate`)</td></tr>
 <tr><td>eventDateRange<br><span style="font-weight:bold;margin-left:5px">.discreteDates</span></td><td>array[string]</td><td>A list of dates when the event occurred <br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.</td></tr>
 <tr><td>eventDateRange<br><span style="font-weight:bold;margin-left:5px">.endDate</span></td><td>string<br>(date-time)</td><td>The end of a continous or regularly repetitive event <br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.</td></tr>
 <tr><td>eventDateRange<br><span style="font-weight:bold;margin-left:5px">.startDate</span></td><td>string<br>(date-time)</td><td>The begining of a continous or regularly repetitive event <br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.</td></tr>

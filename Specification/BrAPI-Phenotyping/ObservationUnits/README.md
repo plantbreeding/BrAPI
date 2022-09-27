@@ -118,7 +118,7 @@ Get a filtered set of Observation Units
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string</td><td>the unique identifier for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossName</span></td><td>string</td><td>the human readable name for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -151,7 +151,7 @@ Get a filtered set of Observation Units
 <tr><td>observationUnitPosition<br><span style="font-weight:bold;margin-left:5px">.positionCoordinateY</span></td><td>string</td><td>The Y position coordinate for an observation unit. Different systems may use different coordinate systems.</td></tr>
 <tr><td>observationUnitPosition<br><span style="font-weight:bold;margin-left:5px">.positionCoordinateYType</span></td><td>string</td><td>The type of positional coordinate used. Must be one of the following values   LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details   LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details   PLANTED_ROW - The physical planted row number    PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row   GRID_ROW - The row index number of a square grid overlay   GRID_COL - The column index number of a square grid overlay   MEASURED_ROW - The distance in meters from a defined 0-th row   MEASURED_COL - The distance in meters from a defined 0-th column </td></tr>
 <tr><td><span style="font-weight:bold;">observations</span></td><td>array[object]</td><td>All observations attached to this observation unit.   Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.</td></tr>
-<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -394,7 +394,7 @@ Add new Observation Units
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string</td><td>the unique identifier for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossName</span></td><td>string</td><td>the human readable name for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -443,7 +443,7 @@ Add new Observation Units
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string</td><td>the unique identifier for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossName</span></td><td>string</td><td>the human readable name for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -476,7 +476,7 @@ Add new Observation Units
 <tr><td>observationUnitPosition<br><span style="font-weight:bold;margin-left:5px">.positionCoordinateY</span></td><td>string</td><td>The Y position coordinate for an observation unit. Different systems may use different coordinate systems.</td></tr>
 <tr><td>observationUnitPosition<br><span style="font-weight:bold;margin-left:5px">.positionCoordinateYType</span></td><td>string</td><td>The type of positional coordinate used. Must be one of the following values   LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details   LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details   PLANTED_ROW - The physical planted row number    PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row   GRID_ROW - The row index number of a square grid overlay   GRID_COL - The column index number of a square grid overlay   MEASURED_ROW - The distance in meters from a defined 0-th row   MEASURED_COL - The distance in meters from a defined 0-th column </td></tr>
 <tr><td><span style="font-weight:bold;">observations</span></td><td>array[object]</td><td>All observations attached to this observation unit.   Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.</td></tr>
-<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -788,7 +788,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string</td><td>the unique identifier for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossName</span></td><td>string</td><td>the human readable name for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -821,7 +821,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 <tr><td>observationUnitPosition<br><span style="font-weight:bold;margin-left:5px">.positionCoordinateY</span></td><td>string</td><td>The Y position coordinate for an observation unit. Different systems may use different coordinate systems.</td></tr>
 <tr><td>observationUnitPosition<br><span style="font-weight:bold;margin-left:5px">.positionCoordinateYType</span></td><td>string</td><td>The type of positional coordinate used. Must be one of the following values   LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details   LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details   PLANTED_ROW - The physical planted row number    PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row   GRID_ROW - The row index number of a square grid overlay   GRID_COL - The column index number of a square grid overlay   MEASURED_ROW - The distance in meters from a defined 0-th row   MEASURED_COL - The distance in meters from a defined 0-th column </td></tr>
 <tr><td><span style="font-weight:bold;">observations</span></td><td>array[object]</td><td>All observations attached to this observation unit.   Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.</td></tr>
-<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -1222,7 +1222,7 @@ See the example responses below</p>
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">data</span></td><td>array[array]</td><td>Matrix of observation data recorded for different observation variables across different observation units</td></tr>
+<tr><td><span style="font-weight:bold;">data</span></td><td>array[array]</td><td>The 2D matrix of observation data. ObservationVariables and other metadata are the columns, ObservationUnits are the rows.</td></tr>
 <tr><td><span style="font-weight:bold;">headerRow</span></td><td>array[string]</td><td><p>The table is REQUIRED to have the following columns</p> <ul>   <li>observationUnitDbId - Each row is related to one Observation Unit</li>   <li>At least one column with an observationVariableDbId</li> </ul> <p>The table may have any or all of the following OPTIONAL columns. Included columns are decided by the server developer</p> <ul>   <li>observationUnitName</li>   <li>studyDbId</li>   <li>studyName</li>   <li>germplasmDbId</li>   <li>germplasmName</li>   <li>positionCoordinateX</li>   <li>positionCoordinateY</li>   <li>year</li> </ul> <p>The table also may have any number of Observation Unit Hierarchy Level columns. For example:</p> <ul>   <li>field</li>   <li>plot</li>   <li>sub-plot</li>   <li>plant</li>   <li>pot</li>   <li>block</li>   <li>entry</li>   <li>rep</li> </ul> <p>The JSON representation provides a pair of extra arrays for defining the headers of the table.  The first array "headerRow" will always contain "observationUnitDbId" and any or all of the OPTIONAL column header names.  The second array "observationVariables" contains the names and DbIds for the Observation Variables represented in the table.  By appending the two arrays, you can construct the complete header row of the table. </p></td></tr>
 <tr><td><span style="font-weight:bold;">observationVariables</span></td><td>array[object]</td><td>The list of observation variables which have values recorded for them in the data matrix. Append to the 'headerRow' for complete header row of the table.</td></tr>
 <tr><td>observationVariables<br><span style="font-weight:bold;margin-left:5px">.observationVariableDbId</span></td><td>string</td><td>Variable unique identifier</td></tr>
@@ -1249,7 +1249,7 @@ See the example responses below</p>
     + observationUnitLevelRelationshipOrder (Optional, ) ... The Observation Unit Level Order Number. <br/>Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
     + observationUnitLevelRelationshipCode (Optional, ) ... The Observation Unit Level Code. <br/>This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
     + observationUnitLevelRelationshipDbId (Optional, ) ... The observationUnitDbId associated with a particular level and code.<br/>This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->observationUnitDbId <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
-    + Accept (Required, ) ... The requested content type which should be returned by the server
+    + Accept (Required, ) ... A standard HTTP request header that is used to request a specific content type (JSON, CSV, etc) which is "acceptable" to the client and should be returned by the server
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
@@ -1446,7 +1446,7 @@ Get the details of a specific Observation Unit
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string</td><td>the unique identifier for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossName</span></td><td>string</td><td>the human readable name for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -1479,7 +1479,7 @@ Get the details of a specific Observation Unit
 <tr><td>observationUnitPosition<br><span style="font-weight:bold;margin-left:5px">.positionCoordinateY</span></td><td>string</td><td>The Y position coordinate for an observation unit. Different systems may use different coordinate systems.</td></tr>
 <tr><td>observationUnitPosition<br><span style="font-weight:bold;margin-left:5px">.positionCoordinateYType</span></td><td>string</td><td>The type of positional coordinate used. Must be one of the following values   LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details   LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details   PLANTED_ROW - The physical planted row number    PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row   GRID_ROW - The row index number of a square grid overlay   GRID_COL - The column index number of a square grid overlay   MEASURED_ROW - The distance in meters from a defined 0-th row   MEASURED_COL - The distance in meters from a defined 0-th column </td></tr>
 <tr><td><span style="font-weight:bold;">observations</span></td><td>array[object]</td><td>All observations attached to this observation unit.   Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.</td></tr>
-<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -1697,7 +1697,7 @@ Update an existing Observation Units
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string</td><td>the unique identifier for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossName</span></td><td>string</td><td>the human readable name for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -1746,7 +1746,7 @@ Update an existing Observation Units
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string</td><td>the unique identifier for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossName</span></td><td>string</td><td>the human readable name for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -1779,7 +1779,7 @@ Update an existing Observation Units
 <tr><td>observationUnitPosition<br><span style="font-weight:bold;margin-left:5px">.positionCoordinateY</span></td><td>string</td><td>The Y position coordinate for an observation unit. Different systems may use different coordinate systems.</td></tr>
 <tr><td>observationUnitPosition<br><span style="font-weight:bold;margin-left:5px">.positionCoordinateYType</span></td><td>string</td><td>The type of positional coordinate used. Must be one of the following values   LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details   LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details   PLANTED_ROW - The physical planted row number    PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row   GRID_ROW - The row index number of a square grid overlay   GRID_COL - The column index number of a square grid overlay   MEASURED_ROW - The distance in meters from a defined 0-th row   MEASURED_COL - The distance in meters from a defined 0-th column </td></tr>
 <tr><td><span style="font-weight:bold;">observations</span></td><td>array[object]</td><td>All observations attached to this observation unit.   Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.</td></tr>
-<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -2120,7 +2120,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string</td><td>the unique identifier for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossName</span></td><td>string</td><td>the human readable name for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -2153,7 +2153,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>observationUnitPosition<br><span style="font-weight:bold;margin-left:5px">.positionCoordinateY</span></td><td>string</td><td>The Y position coordinate for an observation unit. Different systems may use different coordinate systems.</td></tr>
 <tr><td>observationUnitPosition<br><span style="font-weight:bold;margin-left:5px">.positionCoordinateYType</span></td><td>string</td><td>The type of positional coordinate used. Must be one of the following values   LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details   LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details   PLANTED_ROW - The physical planted row number    PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row   GRID_ROW - The row index number of a square grid overlay   GRID_COL - The column index number of a square grid overlay   MEASURED_ROW - The distance in meters from a defined 0-th row   MEASURED_COL - The distance in meters from a defined 0-th column </td></tr>
 <tr><td><span style="font-weight:bold;">observations</span></td><td>array[object]</td><td>All observations attached to this observation unit.   Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.</td></tr>
-<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -2518,7 +2518,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string</td><td>the unique identifier for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossName</span></td><td>string</td><td>the human readable name for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -2551,7 +2551,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>observationUnitPosition<br><span style="font-weight:bold;margin-left:5px">.positionCoordinateY</span></td><td>string</td><td>The Y position coordinate for an observation unit. Different systems may use different coordinate systems.</td></tr>
 <tr><td>observationUnitPosition<br><span style="font-weight:bold;margin-left:5px">.positionCoordinateYType</span></td><td>string</td><td>The type of positional coordinate used. Must be one of the following values   LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details   LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details   PLANTED_ROW - The physical planted row number    PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row   GRID_ROW - The row index number of a square grid overlay   GRID_COL - The column index number of a square grid overlay   MEASURED_ROW - The distance in meters from a defined 0-th row   MEASURED_COL - The distance in meters from a defined 0-th column </td></tr>
 <tr><td><span style="font-weight:bold;">observations</span></td><td>array[object]</td><td>All observations attached to this observation unit.   Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.</td></tr>
-<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>

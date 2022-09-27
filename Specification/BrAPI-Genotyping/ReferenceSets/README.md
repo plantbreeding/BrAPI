@@ -17,7 +17,7 @@ Gets a filtered list of `ReferenceSets`.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">assemblyPUI</span></td><td>string</td><td>The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Optional free text description of this reference set.</td></tr>
@@ -150,7 +150,7 @@ Gets a `ReferenceSet` by ID.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">assemblyPUI</span></td><td>string</td><td>The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Optional free text description of this reference set.</td></tr>
@@ -280,7 +280,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">assemblyPUI</span></td><td>string</td><td>The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Optional free text description of this reference set.</td></tr>
@@ -505,7 +505,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">assemblyPUI</span></td><td>string</td><td>The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Optional free text description of this reference set.</td></tr>
