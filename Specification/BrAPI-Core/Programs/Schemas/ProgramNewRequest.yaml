@@ -45,13 +45,13 @@ components:
         programType:
           description: |-
             The type of program entity this object represents
-            <br/> 'STANARD' represents a standard, permenant breeding program
+            <br/> 'STANDARD' represents a standard, permenant breeding program
             <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   
           type: string
           enum:
-          - STANARD
+          - STANDARD
           - PROJECT
-          example: STANARD
+          example: STANDARD
         fundingInformation:
           description: Information describing the grant or funding source for this program
           type: string
