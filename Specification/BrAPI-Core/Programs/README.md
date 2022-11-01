@@ -30,7 +30,7 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
 <tr><td><span style="font-weight:bold;">objective</span></td><td>string</td><td>The primary objective of the program</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies the program</td></tr>
 <tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>Human readable name of the program</td></tr>
-<tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
+<tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANDARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
 </table>
 
 
@@ -96,7 +96,7 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
                 "objective": "Make a better tomatillo",
                 "programDbId": "f60f15b2",
                 "programName": "Tomatillo_Breeding_Program",
-                "programType": "STANARD"
+                "programType": "STANDARD"
             }
         ]
     }
@@ -142,7 +142,7 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
 <tr><td><span style="font-weight:bold;">leadPersonName</span></td><td>string</td><td>The name of the program leader</td></tr>
 <tr><td><span style="font-weight:bold;">objective</span></td><td>string</td><td>The primary objective of the program</td></tr>
 <tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>Human readable name of the program</td></tr>
-<tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
+<tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANDARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
 </table>
 
 
@@ -164,7 +164,7 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
 <tr><td><span style="font-weight:bold;">objective</span></td><td>string</td><td>The primary objective of the program</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies the program</td></tr>
 <tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>Human readable name of the program</td></tr>
-<tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
+<tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANDARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
 </table>
 
 
@@ -198,7 +198,7 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
         "leadPersonName": "Bob Robertson",
         "objective": "Make a better tomatillo",
         "programName": "Tomatillo_Breeding_Program",
-        "programType": "STANARD"
+        "programType": "STANDARD"
     }
 ]
 ```
@@ -249,7 +249,7 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
                 "objective": "Make a better tomatillo",
                 "programDbId": "f60f15b2",
                 "programName": "Tomatillo_Breeding_Program",
-                "programType": "STANARD"
+                "programType": "STANDARD"
             }
         ]
     }
@@ -298,7 +298,7 @@ Get a single breeding Program by Id. This can be used to quickly get the details
 <tr><td><span style="font-weight:bold;">objective</span></td><td>string</td><td>The primary objective of the program</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies the program</td></tr>
 <tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>Human readable name of the program</td></tr>
-<tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
+<tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANDARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
 </table>
 
 
@@ -353,7 +353,7 @@ Get a single breeding Program by Id. This can be used to quickly get the details
         "objective": "Make a better tomatillo",
         "programDbId": "f60f15b2",
         "programName": "Tomatillo_Breeding_Program",
-        "programType": "STANARD"
+        "programType": "STANDARD"
     }
 }
 ```
@@ -397,7 +397,7 @@ Update the details of an existing breeding Program.
 <tr><td><span style="font-weight:bold;">leadPersonName</span></td><td>string</td><td>The name of the program leader</td></tr>
 <tr><td><span style="font-weight:bold;">objective</span></td><td>string</td><td>The primary objective of the program</td></tr>
 <tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>Human readable name of the program</td></tr>
-<tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
+<tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANDARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
 </table>
 
 
@@ -419,7 +419,7 @@ Update the details of an existing breeding Program.
 <tr><td><span style="font-weight:bold;">objective</span></td><td>string</td><td>The primary objective of the program</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies the program</td></tr>
 <tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>Human readable name of the program</td></tr>
-<tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
+<tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANDARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
 </table>
 
 
@@ -453,7 +453,7 @@ Update the details of an existing breeding Program.
     "leadPersonName": "Bob Robertson",
     "objective": "Make a better tomatillo",
     "programName": "Tomatillo_Breeding_Program",
-    "programType": "STANARD"
+    "programType": "STANDARD"
 }
 ```
 
@@ -501,7 +501,7 @@ Update the details of an existing breeding Program.
         "objective": "Make a better tomatillo",
         "programDbId": "f60f15b2",
         "programName": "Tomatillo_Breeding_Program",
-        "programType": "STANARD"
+        "programType": "STANDARD"
     }
 }
 ```
@@ -570,7 +570,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">objective</span></td><td>string</td><td>The primary objective of the program</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies the program</td></tr>
 <tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>Human readable name of the program</td></tr>
-<tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
+<tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANDARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
 </table>
 
 
@@ -679,7 +679,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "objective": "Make a better tomatillo",
                 "programDbId": "f60f15b2",
                 "programName": "Tomatillo_Breeding_Program",
-                "programType": "STANARD"
+                "programType": "STANDARD"
             }
         ]
     }
@@ -760,7 +760,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">objective</span></td><td>string</td><td>The primary objective of the program</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies the program</td></tr>
 <tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>Human readable name of the program</td></tr>
-<tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
+<tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANDARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
 </table>
 
 
@@ -819,7 +819,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "objective": "Make a better tomatillo",
                 "programDbId": "f60f15b2",
                 "programName": "Tomatillo_Breeding_Program",
-                "programType": "STANARD"
+                "programType": "STANDARD"
             }
         ]
     }
