@@ -1,0 +1,26 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+
+    DeleteDroneRunResponse:
+      type: object
+      required:
+      - success
+      - error
+      properties:
+        success: 
+          type: string 
+          description: Status message indicating completion. 
+          example: 'Image deleted successfully.' 
+
+        error: 
+          type: string 
+          description: Status message indicating errors. 
+          example: 'Must be logged in.' 
+
+
+

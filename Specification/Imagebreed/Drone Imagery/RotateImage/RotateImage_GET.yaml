@@ -1,0 +1,61 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /drone_imagery/rotate_image:
+    get:
+      summary: For rotating an image clockwise or counter-clockwise.
+      description: |-
+        For rotating an image clockwise or counter-clockwise. Saves the rotated image in the database and returns it. Must be logged in to rotate an image.
+      parameters:
+      - name: image_id 
+        description: The database image identifier for the image you want to rotate. 
+        in: query 
+        required: true 
+        example: 1900 
+        schema: 
+          type: integer 
+
+      - name: drone_run_band_project_id 
+        description: The database drone run band identifier for which the rotated image belongs to. 
+        in: query 
+        required: true 
+        example: 203 
+        schema: 
+          type: integer 
+
+      - name: angle 
+        description: The angle to rotate the image in degrees. Positive values are counter-clockwise and negative values are clockwise. Can be fractions of a degree. 
+        in: query 
+        required: true 
+        example: '-0.102' 
+        schema: 
+          type: string 
+
+      - name: view_only 
+        description: If this is set to true, then the rotated image is only temporary, whereas, if set to false, then the rotated image is saved to the drone run band. 
+        in: query 
+        required: true 
+        example: false 
+        schema: 
+          type: boolean 
+
+      responses:
+        '200':
+          description: Accepted
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RotateImageResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Drone Imagery
+
+

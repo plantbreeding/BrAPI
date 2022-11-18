@@ -1,0 +1,18 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+
+    RemoveImageResponse:
+      type: object
+      required:
+      - status
+      properties:
+        status: 
+          type: string 
+          description: Status message indicating any error handling. 
+          example: 'Image deleted successfully.' 
+

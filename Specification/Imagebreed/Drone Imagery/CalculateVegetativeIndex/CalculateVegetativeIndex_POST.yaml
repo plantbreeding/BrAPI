@@ -1,0 +1,34 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /drone_imagery/calculate_vegetative_index:
+    post:
+      summary: For calculating a vegetation index for an image.
+      description: |-
+        For calculating a vegetation index for an image. The input image is a 3 channel image, such as BGR (Blue, Green, Red) or 
+        NRN (NIR, Red, NIR). The vegetation index is saved as an image in the database and returned. Must be logged in to merge drone run band images.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CalculateVegetativeIndexRequest'
+      responses:
+        '200':
+          description: Accepted
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalculateVegetativeIndexResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Drone Imagery
+
+

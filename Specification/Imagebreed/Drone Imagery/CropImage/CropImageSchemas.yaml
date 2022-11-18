@@ -1,0 +1,35 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+
+    CropImageResponse:
+      type: object
+      required:
+      - cropped_image_id
+      - cropped_image_url
+      - cropped_image_fullpath
+      properties:
+
+        cropped_image_id: 
+          type: integer 
+          description: The database identifier for the cropped image. 
+          example: 705 
+
+        cropped_image_url: 
+          type: string 
+          description: URL for downloading the cropped image. 
+          example: https://imagebreed.org/dl/image/705 
+
+        cropped_image_fullpath: 
+          type: string 
+          description: File path for cropped image on the server. 
+          example: /export/images/image705 
+
+
+
+
+

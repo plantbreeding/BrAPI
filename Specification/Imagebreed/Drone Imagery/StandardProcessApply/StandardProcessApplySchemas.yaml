@@ -1,0 +1,26 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+
+    StandardProcessApplyResponse:
+      type: object
+      required:
+      - success
+      - error
+      properties:
+        success: 
+          type: string 
+          description: A message indicating if the standard process was applied successfully. 
+          example: 'The standard process was applied successfully.' 
+
+        error: 
+          type: string 
+          description: A message indicating any errors in the standard process. 
+          example: 'Please give a drone run band project id with a standard process defined.' 
+
+
+

@@ -1,0 +1,84 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    CalculateFourierTransformRequest:
+      type: object
+      required:
+      - drone_run_field_trial_id
+      properties:
+        
+        image_id: 
+          type: integer 
+          description: The database identifier for the image to calculate Fourier transform for. 
+          example: 10 
+
+        drone_run_band_project_id: 
+          type: integer 
+          description: The database identifier for the drone run band that the transformed image belongs to. 
+          example: 1002 
+
+        drone_run_band_project_type: 
+          type: string 
+          description: The spectral category of the drone run band.
+          enum:
+          - Black and White Image
+          - RGB Color Image
+          - Blue (450-520nm) 
+          - Green (515-600nm) 
+          - Red (600-690nm)
+          - Red Edge (690-750nm) 
+          - NIR (780-3000nm)
+          - MIR (3000-50000nm) 
+          - FIR (50000-1000000nm) 
+          - Thermal IR (9000-14000nm)
+          example: NIR (780-3000nm)
+
+        image_type: 
+          type: string 
+          description: The type of image for which to calculate the Fourier transform on. 
+          example: 'denoised_stitched_drone_imagery' 
+
+        high_pass_filter: 
+          type: integer 
+          description: The high pass filter to apply.
+          enum:
+          - 20
+          - 30
+          - 40 
+          example: 20 
+
+        high_pass_filter_type: 
+          type: string 
+          description: The criteria of Fourier transform high-pass filter to perform. 
+          enum:
+          - frequency
+          - magnitude
+          example: 'frequency' 
+
+
+    CalculateFourierTransformResponse:
+      type: object
+      properties:
+
+        ft_image_id: 
+          type: integer 
+          description: The database identifier for the Fourier transformed image. 
+          example: 707 
+
+        ft_image_url: 
+          type: string 
+          description: URL for downloading the Fourier transformed image.. 
+          example: 'https://imagebreed.org/dl/image/707' 
+
+        ft_image_fullpath: 
+          type: string 
+          description: File path for Fourier transformed image on the server. 
+          example: '/export/images/image707' 
+
+
+
+

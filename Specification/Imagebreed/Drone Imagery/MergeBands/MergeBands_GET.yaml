@@ -1,0 +1,70 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /drone_imagery/merge_bands: 
+    get:
+      summary: For merging three separate drone run bands into a single image
+      description: |-
+        For merging three separate drone run bands into a single image. Useful for merging drone run bands into 3 channel BGR (Blue, Green, Red) or NRN (NIR, Red, NIR) images. Must be logged in to merge drone run band images.
+      parameters:
+
+      - name: drone_run_project_id 
+        description: The database identifier for the drone run in which the drone run bands belong. 
+        in: query 
+        required: true 
+        example: 10 
+        schema: 
+          type: integer 
+
+      - name: drone_run_project_name 
+        description: The name for the drone run in which the drone run bands belong. 
+        in: query 
+        required: true 
+        example: '07012018_NYH2' 
+        schema: 
+          type: integer 
+
+      - name: band_1_drone_run_band_project_id 
+        description: The database identifier for the drone run band to merge. This image will be the first channel. 
+        in: query 
+        required: true 
+        example: 901 
+        schema: 
+          type: integer 
+
+      - name: band_2_drone_run_band_project_id 
+        description: The database identifier for the drone run band to merge. This image will be the second channel. 
+        in: query 
+        required: true 
+        example: 902 
+        schema: 
+          type: integer 
+
+      - name: band_3_drone_run_band_project_id 
+        description: The database identifier for the drone run band to merge. This image will be the third channel. 
+        in: query 
+        required: true 
+        example: 903 
+        schema: 
+          type: integer 
+
+      responses:
+        '200':
+          description: Accepted
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MergeBandsResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Drone Imagery
+
+

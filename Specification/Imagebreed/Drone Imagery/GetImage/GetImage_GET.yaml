@@ -1,0 +1,54 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /drone_imagery/get_image:
+    get:
+      summary: For retrieving and downloading an image from the database
+      description: |-
+        For retrieving and downloading an image from the database. Must be logged in to retrieve an image.
+      parameters:
+
+      - name: image_id 
+        description: The database image identifier. 
+        in: query 
+        required: true 
+        example: 1900 
+        schema: 
+          type: integer 
+
+      - name: size 
+        description: The size of the image to return.
+        in: query 
+        required: true 
+        example: original 
+        schema: 
+          type: string
+          default: original
+          enum:
+          - original 
+          - large 
+          - small 
+          - medium
+          - thumbnail 
+          - tiny
+
+      responses:
+        '200':
+          description: Accepted
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetImageResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Drone Imagery
+
+

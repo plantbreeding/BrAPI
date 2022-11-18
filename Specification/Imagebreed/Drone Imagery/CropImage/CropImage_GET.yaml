@@ -1,0 +1,54 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /drone_imagery/crop_image:
+    get:
+      summary: For cropping an image to a four-sided polygon
+      description: |-
+        For cropping an image to a four-sided polygon. Uses OpenCV pointPolygonTest to crop and save the image. Must be logged in to crop an image.
+      parameters:
+
+      - name: image_id 
+        description: The database image identifier for the image to remove the background from. 
+        in: query 
+        required: true 
+        example: 1900 
+        schema: 
+          type: integer 
+
+      - name: drone_run_band_project_id 
+        description: The database drone run band identifier for which the background removed image belongs to. 
+        in: query 
+        required: true 
+        example: 203 
+        schema: 
+          type: integer 
+
+      - name: polygon 
+        description: An array of four objects representing the x and y coordinates of the bounding four-sided polygon. 
+        in: query 
+        required: true 
+        example: '[{"x":100, "y":2000}, {"x":1200, "y":2000}, {"x":1200, "y":80}, {"x":100, "y":80}]'
+        schema: 
+          type: string 
+
+      responses:
+        '200':
+          description: Accepted
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CropImageResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Drone Imagery
+
+

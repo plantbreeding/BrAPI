@@ -1,0 +1,62 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    CalculateVegetativeIndexRequest:
+      type: object
+      required:
+      - drone_run_field_trial_id
+      properties:
+        
+        image_id: 
+          type: integer 
+          description: The database identifier for the image to calculate a vegetation index for. 
+          example: 10 
+
+        drone_run_band_project_id: 
+          type: integer 
+          description: The database identifier for the drone run band that the vegetation index belongs to. 
+          example: 1002 
+
+        vegetative_index: 
+          type: string 
+          description: The type of vegetation index to calculate. 
+          enum:
+          - TGI
+          - VARI
+          - NDVI
+          example: NDVI 
+
+        image_type: 
+          type: string 
+          description: The type of image for which to calculate the vegetation index on. 
+          enum:
+          - BGR
+          - NRN
+          - NReN
+          example: NRN 
+
+    CalculateVegetativeIndexResponse:
+      type: object
+      properties:
+
+        index_image_id: 
+          type: integer 
+          description: The database identifier for the vegetation index image. 
+          example: 707 
+
+        index_image_url: 
+          type: string 
+          description: URL for downloading the index image. 
+          example: 'https://imagebreed.org/dl/image/707' 
+
+        index_image_fullpath: 
+          type: string 
+          description: File path for index image on the server. 
+          example: '/export/images/image707' 
+
+
+

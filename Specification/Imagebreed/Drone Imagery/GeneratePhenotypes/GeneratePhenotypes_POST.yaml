@@ -1,0 +1,43 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /drone_imagery/generate_phenotypes:
+    post:
+      summary: For generating phenotypes for all plot images created from the standard process.
+      description: |-
+        For generating phenotypes for all plot images created from the standard process. If the standard process is 
+        still executing on a drone run, then this process will be delayed until it has finished. Phenotypes extracted 
+        from plot images are annotated with the relative time point of the drone run, the type of image observed, and 
+        the processing method run on the image. Must be logged in to generate phenotypes.
+        
+        
+        Currently, zonal statistic phenotypes can be calculated; zonal statistics are: non-zero pixel count, total 
+        pixel sum, mean pixel value, harmonic mean value, median pixel value, variance pixel value, standard 
+        deviation pixel value, minimum pixel value, maximum pixel value, minority pixel value, minority pixel count, 
+        majority pixel value, majority pixel count, and pixel variety count.
+
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GeneratePhenotypesRequest'
+      responses:
+        '200':
+          description: Accepted
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneratePhenotypesResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Drone Imagery
+
+

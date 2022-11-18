@@ -1,0 +1,33 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+
+    MaskRemoveBackgroundResponse:
+      type: object
+      required:
+      - masked_image_id
+      - masked_image_url
+      - masked_image_fullpath
+      properties:
+        masked_image_id: 
+          type: integer 
+          description: The database identifier for the background removed image. 
+          example: 706 
+
+        masked_image_url: 
+          type: string 
+          description: URL for downloading the background removed image. 
+          example: https://imagebreed.org/dl/image/706 
+
+        masked_image_fullpath: 
+          type: string 
+          description: File path for background removed image on the server. 
+          example: /export/images/image706 
+
+
+
+

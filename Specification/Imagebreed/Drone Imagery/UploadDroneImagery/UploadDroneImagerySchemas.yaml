@@ -1,0 +1,157 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    UploadDroneImageryRequest:
+      type: object
+      required:
+      - drone_run_field_trial_id
+      properties:
+        drone_run_field_trial_id: 
+          type: integer 
+          description: The database identifier for the field trial. The field trial represents the experimental design layout and metadata. 
+          example: 1202 
+
+        drone_run_id: 
+          type: integer
+          description: The database identifier for the drone run. This key is used when a drone run already exists in the database and additional drone images are being added to it. In the case where the drone run is new, this key can be left undefined. 
+          example: 102 
+
+        drone_run_name: 
+          type: string
+          description: The globally unique name for the new drone run for which drone images are being uploaded. In the case where the drone run already exists in the database, this key can be left undefined. 
+          example: 07012018_NYH2
+
+        drone_run_type: 
+          type: string
+          description: The type for the new drone run. In the case where the drone run already exists in the database, this key can be left undefined.
+          enum:
+          - Aerial Medium to High Res
+          - Aerial Low Res
+          example: Aerial Medium to High Res 
+
+        drone_run_date: 
+          type: string 
+          format: date-time
+          description: The date that the new drone run was flown. In the case where the drone run already exists in the database, this key can be left undefined. 
+
+        drone_run_description: 
+          type: string 
+          description: A description for the new drone run. In the case where the drone run already exists in the database, this key can be left undefined. 
+          example: The flight captured the NYH2 field at 1:00pm at an altitude of 20m and a speed of 5km/hr
+
+        drone_image_upload_camera_info: 
+          type: string
+          description: The type of camera used in the drone run. Mainly to distinguish between the Micasense Rededge 5 band camera and color cameras. In the case where the drone run already exists in the database, this key can be left undefined. 
+          enum:
+          - micasense_5
+          - ccd_color
+          - cmos_color
+          example: micasense_5 
+
+        drone_image_upload_drone_run_band_stitching: 
+          type: string 
+          enum: 
+          - 'yes'
+          - 'no'
+          description: Whether the user intends to upload raw-image captures or previously stitched orthophotomosaic raster images. When uploading raw image captures with the intention of stitching into an orthophotomosaic, use 'yes'. In the case where the drone run already exists in the database, this key can be left undefined. 
+          example: 'no' 
+
+        drone_run_band_number: 
+          type: integer
+          description: The number of separate image bands to be uploaded e.g. 5 when using the Micasense Rededge 5 band camera. This is used when uploading previously stitched orthophotomosaic raster images e.g. drone_image_upload_drone_run_band_stitching should be 'no'. In the case where raw-image captures were uploaded to be stitched, this key can be left undefined. 
+          example: 5 
+
+        drone_run_band_name_1: 
+          type: string 
+          description: A name for the drone run band being uploaded to the drone run of the field trial. Multiple bands can be uploaded using the key index, e.g. 1 to 5. In the case where raw-image captures were uploaded to be stitched, this key can be left undefined. 
+          example: 07012018_NYH2_Red 
+
+        drone_run_band_description_1: 
+          type: string
+          description: A description for the drone run band being uploaded to the drone run of the field trial. Multiple bands can be uploaded using the key index, e.g. 1 to 5. In the case where raw-image captures were uploaded to be stitched, this key can be left undefined. 
+          example: Red band from Micasense Red Edge Camera processed in Pix4 
+
+        drone_run_band_type_1: 
+          type: string
+          description: A type for the drone run band being uploaded to the drone run of the field trial. Multiple bands can be uploaded using the key index, e.g. 1 to 5. In the case where raw-image captures were uploaded to be stitched, this key can be left undefined. 
+          enum: 
+          - Black and White Image
+          - RGB Color Image
+          - Blue (450-520nm)
+          - Green (515-600nm)
+          - Red (600-690nm)
+          - Red Edge (690-750nm)
+          - NIR (780-3000nm)
+          - MIR (3000-50000nm)
+          - FIR (50000-1000000nm)
+          - Thermal IR (9000-14000nm)
+          example: Red (600-690nm) 
+
+        drone_run_band_stitched_ortho_image_1: 
+          type: string 
+          description: Multiple bands can be uploaded using the key index, e.g. 1 to 5. In the case where raw-image captures were uploaded to be stitched, this key can be left undefined. 
+          example: Uploadfile('/upload/red_orthophotomosaic.png') 
+
+        upload_drone_images_zipfile: 
+          type: string 
+          description: In the case where raw-image captures are being uploaded into ImageBreed for stitching into an orthophotomosaic raster image e.g. drone_image_upload_drone_run_band_stitching is �yes�, this input is used to upload a compressed (.zip) file with all raw images. The maximum upload size is 3GB. 
+          example: Uploadfile('/upload/raw_micasense_5_band_captures.zip') 
+
+        upload_drone_images_panel_zipfile: 
+          type: string 
+          description: In the case where raw-image captures are being uploaded into ImageBreed for stitching into an orthophotomosaic raster image e.g. drone_image_upload_drone_run_band_stitching is �yes�, this input is used to upload the Micasense calibration panel captures in a compressed (.zip) file. ImageBreed uses the panel to calibrate the raw-image captures provided via upload_drone_images_zipfile in the case where the images were from the Micasense Rededge 5 band camera. If a Micasense camera was not used, this input can be left undefined. 
+          example: Uploadfile('/upload/raw_micasense_5_band_panel_captures.zip')
+
+
+
+    UploadDroneImageryResponse:
+      type: object
+      required:
+      - drone_run_project_id
+      properties:
+        success: 
+          type: string 
+          description: A message describing whether the drone images were uploaded into the database. 
+          example: The upload completed successfully. 
+
+        error: 
+          type: string 
+          description: A message describing any errors encountered during upload of drone images. 
+          example: Please give a new drone run band name. 
+
+        drone_run_project_id: 
+          type: integer 
+          description: The drone run project under which the new drone run band projects were created and in which the orthophotomosaic images were saved. 
+          example: 100 
+
+        drone_run_band_project_ids: 
+          type: array
+          items:
+            type: integer
+          description: Database identifiers for the new drone run band project(s) which were saved. 
+          example: [2001,2002,2003,2004,2005] 
+
+        drone_run_band_image_ids: 
+          type: array
+          items:
+            type: integer
+          description: Database identifiers for the new orthophotomosaic image(s) saved to each new drone run band project, one to one. 
+          example: [8001,8002,8003,8004,8005] 
+
+        drone_run_band_image_urls: 
+          type: array
+          items:
+            type: string
+          description: Database web URLs for the new orthophotomisaic image(s) saved to each new drone run band project, one to one. 
+          example: 
+          - https://imagebreed.org/image/blue.png 
+          - https://imagebreed.org/image/green.png 
+          - https://imagebreed.org/image/red.png 
+          - https://imagebreed.org/image/nir.png 
+          - https://imagebreed.org/image/rededge.png
+
+

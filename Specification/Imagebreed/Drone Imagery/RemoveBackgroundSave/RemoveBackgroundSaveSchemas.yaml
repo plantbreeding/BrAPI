@@ -1,0 +1,70 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    RemoveBackgroundSaveRequest:
+      type: object
+      required:
+      - drone_run_field_trial_id
+      properties:
+        
+        image_id: 
+          type: integer 
+          description: The database image identifier for the image to remove the background from. 
+          example: 1900 
+
+        drone_run_band_project_id: 
+          type: integer 
+          description: The database drone run band identifier for which the background removed image belongs to. 
+          example: 203 
+
+        image_type: 
+          type: string
+          enum:
+          - threshold_background_removed_tgi_stitched_drone_imagery 
+          - threshold_background_removed_vari_stitched_drone_imagery 
+          - threshold_background_removed_ndvi_stitched_drone_imagery 
+          - threshold_background_removed_stitched_drone_imagery
+          description: The type of the background removed image that is generated. 
+          example: threshold_background_removed_stitched_drone_imagery 
+
+        lower_threshold: 
+          type: integer 
+          description: Threshold value for which to remove pixels with a lower pixel value. Range is 0 to 255. 
+          minimum: 0
+          maximum: 255
+          example: 20 
+
+        upper_threshold: 
+          type: integer 
+          description: Threshold value for which to remove pixels with a higher pixel value. Range is 0 to 255. 
+          minimum: 0
+          maximum: 255 
+          example: 220 
+
+
+
+    RemoveBackgroundSaveResponse:
+      type: object
+      properties:
+
+        removed_background_image_id: 
+          type: integer 
+          description: The database identifier for the background removed image. 
+          example: 704 
+
+        removed_background_image_url: 
+          type: string 
+          description: URL for downloading the background removed image. 
+          example: 'https://imagebreed.org/dl/image/704' 
+
+        removed_background_image_fullpath: 
+          type: string 
+          description: File path for removed background image on the server. 
+          example: '/export/images/image704' 
+
+
+

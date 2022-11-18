@@ -1,0 +1,33 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /drone_imagery/assign_plot_polygons:
+    post:
+      summary: For assigning four-sided plot polygons onto a drone run image
+      description: |-
+        For assigning four-sided plot polygons onto a drone run image and saving the plot images to their plot in the database. Uses OpenCV pointPolygonTest to cut out and save the plot polygon images. Must be logged in the assign plot polygons.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssignPlotPolygonsRequest'
+      responses:
+        '200':
+          description: Accepted
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssignPlotPolygonsResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Drone Imagery
+
+

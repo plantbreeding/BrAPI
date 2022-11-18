@@ -1,0 +1,37 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /drone_imagery/remove_image:
+    get:
+      summary: For deleting an image from the database
+      description: |-
+        For deleting an image from the database. Deletion in this case means obsoletion. Must be logged in to delete an image.
+      parameters:
+      - name: image_id 
+        description: The database image identifier. 
+        in: query 
+        required: true 
+        example: 1900 
+        schema: 
+          type: integer 
+
+      responses:
+        '200':
+          description: Accepted
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoveImageResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Drone Imagery
+
+

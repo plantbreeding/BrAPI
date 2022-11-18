@@ -1,0 +1,38 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /drone_imagery/delete_drone_run:
+    get:
+      summary:  To permanently delete a drone run
+      description: |-
+        To permanently delete a drone run along with all related drone run bands and generated phenotypes from the database. All images related to the drone run are obsoleted in the database. Must be logged in to delete a drone run.
+      parameters:
+      - name: drone_run_project_id 
+        description: The database identifier for the drone run. 
+        in: query 
+        required: true 
+        example: 101 
+        schema: 
+          type: integer 
+
+
+      responses:
+        '200':
+          description: Accepted
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteDroneRunResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Drone Imagery
+
+

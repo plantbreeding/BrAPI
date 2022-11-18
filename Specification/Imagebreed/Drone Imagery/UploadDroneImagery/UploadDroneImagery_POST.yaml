@@ -1,0 +1,40 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /drone_imagery/upload_drone_imagery:
+    post:
+      summary: For uploading drone images into the database
+      description: |-
+        For uploading drone images into the database. Drone images are uploaded into a drone run under a field trial that exists in the database. 
+        If the drone run already exists in the database, then a new one does not need to be created; however, a new drone run can be saved in the 
+        database in this step if needed. Drone run images are uploaded as separate orthomosaic images for each captured band, e.g. if a camera 
+        captured five separate bands (Blue, Green, Red, NIR, and Red Edge), each band would be uploaded as an individual drone run band in the database. 
+        Each drone run band should cover the entire field experiment and should be aligned identically with all other drone run bands in the drone run. 
+        Raw-image captures from Micasense Rededge 5 band cameras or raw image captures from color image cameras can be uploaded into ImageBreed using a 
+        compressed (.zip) file. ImageBreed will then stitch the raw captures into an orthophotomosaic. Organizationally in ImageBreed: Field Trial -> 
+        Drone Run(s) -> Drone Run Band(s). Must be logged in to upload drone images.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UploadDroneImageryRequest'
+      responses:
+        '200':
+          description: Accepted
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadDroneImageryResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Drone Imagery
+
+

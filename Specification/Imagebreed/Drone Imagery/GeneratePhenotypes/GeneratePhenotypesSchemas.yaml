@@ -1,0 +1,48 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    GeneratePhenotypesRequest:
+      type: object
+      required:
+      - drone_run_project_id
+      properties:
+        
+        drone_run_project_id: 
+          type: integer 
+          description: The database identifier for the drone run to calculate phenotypes for. 
+          example: 101 
+
+        time_cvterm_id: 
+          type: integer 
+          description: The database identifier for the relative time point of the drone run. e.g. there is a database term for "week 10" or "month 2". This time term is used to annotate the generated phenotype values. 
+          example: 3022 
+
+        phenotype_types: 
+          type: array 
+          description: An array indicating the type of phenotypes to generate. 
+          items: 
+            type: string 
+            enum: 
+            - zonal
+          example: 
+          - zonal 
+
+    GeneratePhenotypesResponse:
+      type: object
+      properties:
+        success: 
+          type: string 
+          description: A message indicating if the phenotypes were saved successfully. 
+          example: 'The plot image phenotypes were saved successfully.' 
+
+        error: 
+          type: string 
+          description: A message indicating any errors. 
+          example: 'Must be logged in.' 
+
+
+

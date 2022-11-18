@@ -1,0 +1,32 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    MergeBandsResponse:
+      type: object
+      required:
+      - merged_image_id
+      - merged_image_url
+      - merged_image_fullpath
+      properties:
+
+        merged_image_id: 
+          type: integer 
+          description: The database identifier for the merged removed image. 
+          example: 707 
+
+        merged_image_url: 
+          type: string 
+          description: URL for downloading the merged image. 
+          example: 'https://imagebreed.org/dl/image/707' 
+
+        merged_image_fullpath: 
+          type: string 
+          description: File path for merged image on the server. 
+          example: '/export/images/image707' 
+
+
+

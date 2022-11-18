@@ -1,0 +1,33 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+
+    RotateImageResponse:
+      type: object
+      required:
+      - rotated_image_id
+      - rotated_image_url
+      - rotated_image_fullpath
+      properties:
+
+        rotated_image_id: 
+          type: integer 
+          description: The database identifier for the rotated image. 
+          example: 701 
+
+        rotated_image_url: 
+          type: string 
+          description: URL for downloading the rotated image. 
+          example: ‘https://imagebreed.org/dl/image/701’ 
+
+        rotated_image_fullpath: 
+          type: string 
+          description: File path for rotated image on the server. 
+          example: ‘/export/images/image701’ 
+
+
+

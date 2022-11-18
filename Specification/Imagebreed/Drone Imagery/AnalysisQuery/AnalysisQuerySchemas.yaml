@@ -1,0 +1,18 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+
+    AnalysisQueryResponse:
+      type: object
+      required:
+      - file
+      properties:
+        file: 
+          type: string 
+          description: A URL download for the response file. 
+          example: 'https://imagebreed.org/dl/file1' 
+

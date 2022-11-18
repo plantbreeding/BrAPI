@@ -1,0 +1,77 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /drone_imagery/standard_process_apply:
+    get:
+      summary:  For applying a standard process to all uploaded drone run bands
+      description: |-
+        For applying a standard process to all uploaded drone run bands in a drone run. This requires for the standard process of rotating, 
+        cropping, thresholding, and plot polygon templating to be done manually for one drone run band; however, once the standard process 
+        is defined for one drone run band, it can be applied to all other drone run bands in the drone run and to vegetation indices. Must 
+        be logged in the apply a standard process.
+        
+        
+        Consider a field experiment with 500 plots and uploaded drone run bands for blue, green, red, NIR, and red edge. The NIR drone run 
+        band could be rotated, cropped, denoised, and plot polygon templated manually. Afterward, the standard process could be applied to 
+        the remaining blue, green, red, and red edge drone run bands as well as to the TGI, VARI, and NDVI vegetation indices. In this case, 
+        the standard process will produce 17 different processed images for each plot, totaling 8500 plot images for the field trial. The 17 
+        different processed image types are: background removed via threshold (top and bottom 25% of pixel values removed) for blue, green, 
+        red, NIR, and red edge; merged red, blue, green image with background removed via TGI and VARI masks; merged red, blue, green image 
+        with background removed via thresholded TGI and VARI masks; merged NIR and red image with background removed via NDVI mask; merged 
+        NIR and red image with background removed via thresholded NDVI mask; the TGI, VARI, and NDVI indices; the TGI, VARI, and NDVI indices 
+        with background removed via threshold (top and bottom 25% of pixel values removed).
+
+      parameters:
+
+      - name: drone_run_band_project_id 
+        description: The database identifier for a drone run band that has already had a standard process defined. This process will be applied to the given drone run bands. 
+        in: query 
+        required: true 
+        example: 1900 
+        schema: 
+          type: integer 
+
+      - name: apply_drone_run_band_project_ids 
+        description: An array of database identifiers for the drone run bands to run the standard process on. 
+        in: query 
+        required: true 
+        example: "[1902, 1903]" 
+        schema: 
+          type: string 
+
+      - name: drone_run_project_id 
+        description: The database identifier of the drone run being processed. 
+        in: query 
+        required: true 
+        example: 203 
+        schema: 
+          type: integer 
+
+      - name: vegetative_indices 
+        description: A list of vegetation indices to apply the standard process to.  
+        in: query 
+        required: true 
+        example: '["TGI", "VARI", "NDVI"]' 
+        schema: 
+          type: string 
+
+      responses:
+        '200':
+          description: Accepted
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StandardProcessApplyResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Drone Imagery
+
+

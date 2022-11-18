@@ -1,0 +1,35 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+
+    GetContoursResponse:
+      type: object
+      required:
+      - contours_image_id
+      - contours_image_url
+      - contours_image_fullpath
+      properties:
+
+        contours_image_id: 
+          type: integer 
+          description: The database identifier for the generated contours image. 
+          example: 702 
+
+        contours_image_url: 
+          type: string 
+          description: URL for downloading the generated contours image. 
+          example: ‘https://imagebreed.org/dl/image/702’ 
+
+        contours_image_fullpath: 
+          type: string 
+          description: File path for contours image on the server. 
+          example: ‘/export/images/image702’ 
+
+
+
+
+

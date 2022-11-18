@@ -1,0 +1,46 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /drone_imagery/denoise:
+    get:
+      summary: For denoising an image.
+      description: |-
+        For denoising an image. Uses a very lenient setting of OpenCV fastNlMeansDenoising to remove background noise. Must be logged in the denoise an image.
+      parameters:
+
+      - name: image_id 
+        description: The database image identifier for the image to denoise. 
+        in: query 
+        required: true 
+        example: 1900 
+        schema: 
+          type: integer 
+
+      - name: drone_run_band_project_id 
+        description: The database drone run band identifier for which the denoised image belongs to. 
+        in: query 
+        required: true 
+        example: 203 
+        schema: 
+          type: integer 
+
+      responses:
+        '200':
+          description: Accepted
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DenoiseResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Drone Imagery
+
+

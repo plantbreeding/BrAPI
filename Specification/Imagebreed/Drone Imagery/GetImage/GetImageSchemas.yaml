@@ -1,0 +1,30 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    GetImageResponse:
+      type: object
+      required:
+      - image_url
+      - image_fullpath
+      properties:
+
+        image_url: 
+          type: string 
+          description: URL for downloading the image. 
+          example: 'https://imagebreed.org/dl/image/19' 
+
+        image_fullpath: 
+          type: string 
+          description: File path for image on the server. 
+          example: '/export/images/image704' 
+
+
+
+
+
+
+

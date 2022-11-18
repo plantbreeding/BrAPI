@@ -1,0 +1,66 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    AssignPlotPolygonsRequest:
+      type: object
+      required:
+      - drone_run_field_trial_id
+      properties:
+        
+        image_id: 
+          type: integer 
+          description: The database image identifier for the image you want to assign plot polygons to. 
+          example: 1900 
+
+        drone_run_band_project_id: 
+          type: integer 
+          description: The database drone run band identifier for which the plot polygons belongs to. 
+          example: 203 
+
+        assign_plot_polygons_type: 
+          type: string 
+          description: The type of plot polygons being created and assigned. 
+          example: ‘observation_unit_polygon_nir_imagery’ 
+
+        stock_polygons: 
+          type: object 
+          description: The keys of the object are the plot names and the values are an array of length 4 containing objects denoting the x and y coordinates of the polygon. All plots in the field trial should be included. All polygons should have 4 bounding points. 
+          additionalProperties:
+            type: array
+            items:
+              type: object
+              properties:
+                x :
+                  type: integer
+                y :
+                  type: integer
+          example: 
+           '2018_NYH2_plot_1' :
+           - {'x':100, 'y':100}
+           - {'x':120, 'y':100}
+           - {'x':120, 'y':80}
+           - {'x':100, 'y':80}
+           '2018_NYH2_plot_2' :
+           - {'x':200, 'y':100}
+           - {'x':220, 'y':100}
+           - {'x':220, 'y':80}
+           - {'x':200, 'y':80}
+
+    AssignPlotPolygonsResponse:
+      type: object
+      properties:
+        success: 
+          type: string
+          description: A message describing whether the assigned plot polygon images were saved in the database. 
+          example: All plot polygon images were saved successfully. 
+
+        error: 
+          type: string
+          description: A message describing any errors encountered. 
+          example: Error Polygon for 2018_NYH2_plot_200 should be 4 long. 
+
+

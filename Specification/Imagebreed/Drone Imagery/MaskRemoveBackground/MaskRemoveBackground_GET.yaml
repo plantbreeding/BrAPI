@@ -1,0 +1,68 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /drone_imagery/mask_remove_background:
+    get:
+      summary: For removing the background from an image using a mask.
+      description: |-
+        For removing the background from an image using a mask. Generally, the mask is of a vegetation index. Must be logged in to remove the background via a mask.
+      parameters:
+      - name: image_id 
+        description: The database image identifier for the image to remove the background from. 
+        in: query 
+        required: true 
+        example: 1900 
+        schema: 
+          type: integer 
+
+      - name: drone_run_band_project_id 
+        description: The database drone run band identifier for which the background removed image belongs to. 
+        in: query 
+        required: true 
+        example: 203 
+        schema: 
+          type: integer 
+
+      - name: mask_image_id 
+        description: The database image identifier for the mask, which will be used to remove the background. This is generally an image identifier for a vegetation index. 
+        in: query 
+        required: true 
+        example: 901 
+        schema: 
+          type: integer 
+
+      - name: mask_type 
+        description: The produced background removed image requires a type.
+        in: query 
+        required: true 
+        example: denoised_background_removed_tgi_mask_original 
+        schema: 
+          type: string
+          enum:
+          - denoised_background_removed_tgi_mask_original 
+          - denoised_background_removed_vari_mask_original 
+          - denoised_background_removed_ndvi_mask_original 
+          - denoised_background_removed_thresholded_tgi_mask_original  
+          - denoised_background_removed_thresholded_vari_mask_original 
+          - denoised_background_removed_thresholded_ndvi_mask_original 
+
+      responses:
+        '200':
+          description: Accepted
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaskRemoveBackgroundResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Drone Imagery
+
+

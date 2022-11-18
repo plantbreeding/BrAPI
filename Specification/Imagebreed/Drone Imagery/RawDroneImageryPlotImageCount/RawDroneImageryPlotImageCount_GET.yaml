@@ -1,0 +1,45 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /drone_imagery/raw_drone_imagery_plot_image_count:
+    get:
+      summary: For summarizing the number of plot images saved in the database for a drone run.
+      description: |-
+        For summarizing the number of plot images saved in the database for a drone run.
+      responses:
+        '200':
+          description: Accepted
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: 
+                    type: object 
+                    description: An object with keys that are drone run database ids and values that are objects for the number of saved images for the various types of images.
+                    additionalProperties:
+                      type: object
+                      properties:
+                        observation_unit_polygon_tgi_imagery:
+                          type: integer
+                          example: 500
+                        observation_unit_polygon_ndvi_imagery:
+                          type: integer
+                          example: 500
+                        total_plot_image_count:
+                          type: integer
+                          example: 1000
+
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Drone Imagery
+
+

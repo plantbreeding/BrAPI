@@ -1,0 +1,59 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /drone_imagery/analysis_query:
+    get:
+      summary: For retrieving all plot metadata, phenotype values, and image URLs in a tabular format.
+      description: |-
+        For retrieving all plot metadata, phenotype values, and image URLs in a tabular format. Rows in the table are for each field plot, whereas, columns contain all field trial metadata, previous phenotypic values, and all plot images from all drone runs.
+      parameters:
+
+      - name: field_trial_id_list 
+        description: An array of field trial database ids to query. 
+        in: query 
+        required: true 
+        example: '[202, 301]' 
+        schema: 
+          type: string 
+
+      - name: drone_run_project_id_list 
+        description: An array of drone run database ids to query. 
+        in: query 
+        required: true 
+        example: '[2005, 2006]' 
+        schema: 
+          type: string 
+
+      - name: format 
+        description: The format for the response.  
+        in: query 
+        required: true 
+        example: csv 
+        schema: 
+          type: string
+          default: csv
+          enum:
+          - csv
+          - xls
+          - json
+
+      responses:
+        '200':
+          description: Accepted
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisQueryResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Drone Imagery
+
+

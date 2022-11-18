@@ -1,0 +1,48 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /drone_imagery/get_contours:
+    get:
+      summary: For getting the contours of an image.
+      description: |-
+        For getting the contours of an image. Contours detected using OpenCV adaptiveThreshold and morphologyEx. Must be logged in the get contours of image.
+      parameters:
+
+      - name: image_id 
+        description: The database image identifier for the image for which to calculate contours. 
+        in: query 
+        required: true 
+        example: 1900 
+        schema: 
+          type: integer 
+
+      - name: drone_run_band_project_id 
+        description: The database drone run band identifier for which the contours image belongs to. 
+        in: query 
+        required: true 
+        example: 203 
+        schema: 
+          type: integer 
+
+
+
+      responses:
+        '200':
+          description: Accepted
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetContoursResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Drone Imagery
+
+
