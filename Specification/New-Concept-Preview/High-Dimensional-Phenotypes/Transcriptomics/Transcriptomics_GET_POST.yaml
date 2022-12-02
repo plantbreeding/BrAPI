@@ -3,12 +3,12 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /metabolomics:
+  /transcriptomics:
     get:
       summary: Get a filtered list of Transcriptomics Protocols
       description: Get a filtered list of Transcriptomics Protocols
       parameters:
-      - name: metabolomicsProtocolDbId
+      - name: transcriptomicsProtocolDbId
         description: description
         in: query
         required: false

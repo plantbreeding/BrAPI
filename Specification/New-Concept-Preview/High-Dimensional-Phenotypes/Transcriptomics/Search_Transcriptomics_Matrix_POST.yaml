@@ -2,7 +2,7 @@ info:
   title: BrAPI
   version: ''
 openapi: 3.0.0
-paths: {}
+paths:
 #  /search/metabolomics/matrix:
 #    post:
 #      summary: Submit a search request for Transcriptomics matrix rows

@@ -3,12 +3,12 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /metabolomics/{metabolomicsProtocolDbId}:
+  /transcriptomics/{transcriptomicsProtocolDbId}:
     get:
       summary: Get a Transcriptomics Protocol by Id
       description: Get a single Transcriptomics Protocol by Id. This can be used to quickly get the details of a TranscriptomicsProtocol when you have the Id from another entity. 
       parameters:
-      - name: metabolomicsProtocolDbId
+      - name: transcriptomicsProtocolDbId
         description: Filter by the common crop name. Exact match.
         in: path
         required: true
@@ -30,7 +30,7 @@ paths:
 #      summary: Update an existing Transcriptomics Protocol
 #      description: Update the details of an existing breeding Transcriptomics Protocol. 
 #      parameters:
-#      - name: metabolomicsProtocolDbId
+#      - name: transcriptomicsProtocolDbId
 #        description: Filter by the common crop name. Exact match.
 #        in: path
 #        required: true

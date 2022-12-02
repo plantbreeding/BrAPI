@@ -37,13 +37,4 @@ tags:
   externalDocs:
     description: description
     url: https://wiki.brapi.org/
-- name: Genotype-Matrix-Redesign
-  description: description
-  externalDocs:
-    description: description
-    url: https://wiki.brapi.org/
-- name: Agronomy-And-Crop-Modeling
-  description: description
-  externalDocs:
-    description: description
-    url: https://wiki.brapi.org/
+

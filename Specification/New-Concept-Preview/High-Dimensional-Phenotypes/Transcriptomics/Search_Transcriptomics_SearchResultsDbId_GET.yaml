@@ -3,12 +3,12 @@ info:
   version: ''
 openapi: 3.0.0
 paths: {}
-#  /search/metabolomics/{searchResultsDbId}:
+#  /search/transcriptomics/{searchResultsDbId}:
 #    get:
 #      summary: Get the results of a Transcriptomics Protocols search request
 #      description: |-
 #        Get the results of a Transcriptomics Protocols search request <br/>
-#        Clients should submit a search request using the corresponding `POST /search/metabolomicsProtocols` endpoint.
+#        Clients should submit a search request using the corresponding `POST /search/transcriptomicsProtocols` endpoint.
 #        Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
 #        If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
 #        Use this endpoint to retrieve the results of the search. <br/> 
