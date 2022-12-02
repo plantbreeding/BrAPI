@@ -1,0 +1,50 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ImageCollectionNewRequest:
+      type: object
+      properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.  
+          type: object
+        copyright:
+          description: The copyright information of this image collection. Example 'Copyright 2018 Bob Robertson'
+          type: string
+          example: Copyright 2018 Bob Robertson
+        description:
+          description: The human readable description of an image collection.
+          type: string
+          example: This is a picture of a tomato
+        descriptiveOntologyTerms:
+          description: A list of terms to formally describe the collection of images. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
+          items:
+            type: string
+          type: array
+          example: ['doi:10.1002/0470841559', 'Red', 'ncbi:0300294'] 
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+        imageCollectionName:
+          description: The human readable name of an image collection.
+          type: string
+          example: Drone Run 123 Red stream images
+        imagingEventDbId:
+          description: The imaging event that created this collection of images
+          type: string
+        compressedImagesFileURI:
+          description: If this collection of images exists as a compressed file (zip, tar, etc), compressedImagesFileURI should point to that file location
+          type: string
+        stichedImageURI:
+          description: If this collection of images has been combined or stiched in some way to produce a single large image, stichedImageURI should point to that large image file location
+          type: string
+        stichedImageDbId:
+          description: If this collection of images has been combined or stiched in some way to produce a single large image, and that stiched image is stored in the database, then stichedImageDbId should point to its database identifier
+          type: string
+        
+          
+

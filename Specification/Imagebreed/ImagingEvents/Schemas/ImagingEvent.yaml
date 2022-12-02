@@ -1,0 +1,16 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ImagingEvent:
+      allOf:
+      - $ref: '#/components/schemas/ImagingEventNewRequest'
+      - type: object
+        properties:
+          imagingEventDbId:
+            description: The unique identifier of an Imaging Event
+            type: string
+            example: a55efb9c

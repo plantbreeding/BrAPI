@@ -1,0 +1,112 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /imagingevents/{imagingEventDbId}:
+    get:
+      summary: Get the an imagingEvent metadata summary
+      description: |-
+        Get one imagingEvent metadata object
+
+        Implementation Notes
+
+        - ''imagingEventURL'' should be a complete URL describing the location of the imagingEvent. There is no BrAPI call for 
+        retrieving the imagingEvent content, so it could be on a different path, or a different host.
+
+        - ''descriptiveOntologyTerm'' can be thought of as Tags for the imagingEvent. These could be simple descriptive 
+        words, or ontology references, or full ontology URI''s.
+      parameters:
+      - description: The unique identifier for a imagingEvent
+        in: path
+        name: imagingEventDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/ImagingEventSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - ImagingEvents
+    put:
+      summary: Update an existing imagingEvent metadata record
+      description: |-
+        Update an existing imagingEvent metadata record
+        
+        Implementation Notes
+        
+        - This endpoint should be implemented with 'PUT /imagingEvents/{imagingEventDbId}/imagingEventcontent' for full imagingEvent update capability
+        
+        - A server may choose to modify the imagingEvent metadata object based on the actually imagingEvent which has been uploaded. 
+        
+        - ImagingEvent data may be stored in a database or file system. Servers should generate and provide the "imagingEventURL" as an 
+        absolute path for retrieving the imagingEvent, wherever it happens to live. 
+        
+        - 'descriptiveOntologyTerm' can be thought of as Tags for the imagingEvent. These could be simple descriptive words, or 
+        ontology references, or full ontology URI's. 
+        
+        - The '/imagingEvents' calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON 
+        only supports two of the possible geometries; Points and Polygons. 
+        
+        - With most imagingEvents, the Point geometry should be used, and it should indicate the longitude and latitude of the camera. 
+        
+        - For top down imagingEvents (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and 
+        latitude of the centroid of the imagingEvent content, and the Polygon geometry may be used to indicate the border of the 
+        imagingEvent content.
+
+        An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/index.php/ImagingEvent_Upload
+      parameters:
+      - description: The unique identifier for a imagingEvent
+        in: path
+        name: imagingEventDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImagingEventNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/ImagingEventSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - ImagingEvents
+components:
+  responses:
+    ImagingEventSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: ImagingEventSingleResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/ImagingEvent'
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}

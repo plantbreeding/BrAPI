@@ -1,0 +1,50 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ImagingEventNewRequest:
+      type: object
+      properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.  
+          type: object
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+        imagingEventName:
+          type: string
+        description:
+          description: The human readable description of an imagingEvent imaging event
+          type: string
+          example: Drone Flight over field A
+        studyDbId:
+          type: string
+        studyName:
+          type: string
+        imagingEventTimeStamp:
+          description: Date and time when a set of imagingEvents were taken
+          type: string
+          format: date-time
+        imageCollectionDbIds:
+          description: An array of Image Collections DbIds connected to this imaging event 
+          type: array
+          items: 
+            type: string
+        equipmentDescription:
+          description: The equipemnt being used to move the camera (drone, rover, person, etc)
+          type: string
+        cameraDescription:
+          description: Information about the camera taking the imagingEvents
+          type: string
+        
+        
+        
+
+        
+        
+          
+

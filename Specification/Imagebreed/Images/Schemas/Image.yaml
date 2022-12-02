@@ -1,0 +1,21 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    Image:
+      allOf:
+      - $ref: '#/components/schemas/ImageNewRequest'
+      - type: object
+        x-brapi-metadata:
+          primaryModel: true
+          module: BrAPI-Phenotyping
+          title: Image
+          description: The metadata for an image file that is connected to some phenotypic observation data.
+        properties:
+          imageDbId:
+            description: The unique identifier of an image
+            type: string
+            example: a55efb9c

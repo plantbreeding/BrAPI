@@ -1,0 +1,32 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ExternalReferences: 
+      title: ExternalReferences
+      type: array
+      description: |-
+        An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+      items:
+        type: object
+        properties:
+          referenceSource:
+            description: An identifier for the source system or database of this reference
+            type: string
+          referenceID:
+            deprecated: true
+            description: |-
+              **Deprecated in v2.1** Please use `referenceId`. Github issue number #460 
+              <br>The external reference ID. Could be a simple string or a URI.
+            type: string
+          referenceId:
+            description: The external reference ID. Could be a simple string or a URI.
+            type: string
+      example: 
+        - referenceSource: DOI
+          referenceId: doi:10.155454/12341234
+        - referenceSource: Remote Data Collection Upload Tool
+          referenceId: 75a50e76

@@ -1,0 +1,78 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ImageNewRequest:
+      type: object
+      properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.  
+          type: object
+        copyright:
+          description: The copyright information of this image. Example 'Copyright 2018 Bob Robertson'
+          type: string
+          example: Copyright 2018 Bob Robertson
+        description:
+          description: The human readable description of an image.
+          type: string
+          example: This is a picture of a tomato
+        descriptiveOntologyTerms:
+          description: A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
+          items:
+            type: string
+          type: array
+          example: ['doi:10.1002/0470841559', 'Red', 'ncbi:0300294'] 
+        imageFileName:
+          description: The name of the image file. Might be the same as 'imageName', but could be different.
+          type: string
+          example: image_0000231.jpg
+        imageFileSize:
+          description: The size of the image in Bytes.
+          type: integer
+          example: 50000
+        imageHeight:
+          description: The height of the image in Pixels.
+          type: integer
+          example: 550
+        imageLocation:
+          $ref: '#/components/schemas/geoJSON'
+        imageName:
+          description: The human readable name of an image. Might be the same as 'imageFileName', but could be different.
+          type: string
+          example: Tomato Image 1
+        imageTimeStamp:
+          description: The date and time the image was taken
+          format: date-time
+          type: string
+        imageURL:
+          description: The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.
+          type: string
+          example: https://wiki.brapi.org/images/tomato
+        imageWidth:
+          description: The width of the image in Pixels.
+          type: integer
+          example: 700
+        mimeType:
+          description: The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc
+          pattern: image/.*
+          type: string
+          example: image/jpeg
+        observationDbIds:
+          description: A list of observation Ids this image is associated with, if applicable.
+          items:
+            type: string
+          type: array
+          example: ['d05dd235', '8875177d', 'c08e81b6']
+        observationUnitDbId:
+          description: The related observation unit identifier, if relevant.
+          type: string
+          example: b7e690b6
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+          
+

@@ -1,0 +1,16 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ImageCollection:
+      allOf:
+      - $ref: '#/components/schemas/ImageCollectionNewRequest'
+      - type: object
+        properties:
+          imageCollectionDbId:
+            description: The unique identifier of an image collection
+            type: string
+            example: 5e9cafb5

@@ -1,0 +1,53 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /imageCollections/{imageCollectionDbId}/imagecontent:
+    put:
+      summary: Attach an imageCollection binary file to an existing imageCollection metadata record
+      description: |-
+        This endpoint is used to attach an imageCollection binary file to an existing imageCollection metadata record. All of the other ImageCollections endpoints 
+        deal with the JSON for imageCollection metadata, but 'PUT /imageCollections/{imageCollectionDbId}/imagecontent' allows you to send any binary file with a Content 
+        Type (MIME) of imageCollection/*. When the real imageCollection is uploaded, the server may choose to update some of the metadata to reflect the 
+        reality of the imageCollection that was uploaded, and should respond with the updated JSON.
+        
+        Implementation Notes
+        
+        - This endpoint should be implemented with 'POST /imageCollections' for full imageCollection upload capability
+        
+        - This endpoint should be implemented with 'PUT /imageCollections/{imageCollectionDbId}' for full imageCollection update capability
+        
+        - A server may choose to modify the imageCollection metadata object based on the actually imageCollection which has been uploaded by this endpoint. 
+        
+        - ImageCollection data may be stored in a database or file system. Servers should generate and provide the "imageCollectionURL" for retrieving the 
+          imageCollection binary file. 
+
+        An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/index.php/ImageCollection_Upload
+      parameters:
+      - description: The unique identifier for an imageCollection
+        in: path
+        name: imageCollectionDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          imageCollection/*:
+            schema:
+              format: binary
+              type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/ImageCollectionSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - ImageCollections

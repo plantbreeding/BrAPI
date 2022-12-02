@@ -1,0 +1,93 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ImageCollectionSearchRequest:
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'
+      - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'
+      - $ref: '#/components/schemas/SearchRequestParametersPrograms'
+      - type: object
+        properties:
+          descriptiveOntologyTerms:
+            description: A list of terms to formally describe the imageCollection to search for. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
+            type: array
+            items:
+              type: string
+            example: ['doi:10.1002/0470841559', 'Red', 'ncbi:0300294'] 
+          imageCollectionFileNames:
+            description: ImageCollection file names to search for.
+            items:
+              type: string
+            type: array
+            example: ['imageCollection_01032019.jpg', 'picture_field_1234.jpg'] 
+          imageCollectionFileSizeMax:
+            description: A maximum imageCollection file size to search for.
+            type: integer
+            example: 20000000
+          imageCollectionFileSizeMin:
+            description: A minimum imageCollection file size to search for.
+            type: integer
+            example: 1000
+          imageCollectionHeightMax:
+            description: A maximum imageCollection height to search for.
+            type: integer
+            example: 1080
+          imageCollectionHeightMin:
+            description: A minimum imageCollection height to search for.
+            type: integer
+            example: 720
+          imageCollectionLocation:
+            $ref: '#/components/schemas/geoJSONSearchArea'
+          imageCollectionNames:
+            description: Human readable names to search for.
+            items:
+              type: string
+            type: array
+            example: ['ImageCollection 43', 'Tractor in field']
+          imageCollectionTimeStampRangeEnd:
+            description: The latest timestamp to search for.
+            format: date-time
+            type: string
+          imageCollectionTimeStampRangeStart:
+            description: The earliest timestamp to search for.
+            format: date-time
+            type: string
+          imageCollectionWidthMax:
+            description: A maximum imageCollection width to search for.
+            type: integer
+            example: 1920
+          imageCollectionWidthMin:
+            description: A minimum imageCollection width to search for.
+            type: integer
+            example: 1280
+          mimeTypes:
+            description: A set of imageCollection file types to search for.
+            items:
+              pattern: imageCollection/.*
+              type: string
+            type: array
+            example: ['imageCollection/jpg', 'imageCollection/jpeg', 'imageCollection/gif']
+          observationDbIds:
+            description: A list of observation Ids this imageCollection is associated with to search for
+            items:
+              type: string
+            type: array
+            example: ['47326456', 'fc9823ac']
+          imageCollectionDbIds: 
+            description: A list of imageCollection Ids to search for
+            items:
+              type: string
+            type: array
+            example: ['564b64a6', '0d122d1d']
+          observationUnitDbIds:
+            description: A set of observation unit identifiers to search for.
+            items:
+              type: string
+            type: array
+            example: ['f5e4b273', '328c9424']
+

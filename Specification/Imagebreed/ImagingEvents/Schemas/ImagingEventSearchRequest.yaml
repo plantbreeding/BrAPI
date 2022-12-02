@@ -1,0 +1,93 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ImagingEventSearchRequest:
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'
+      - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'
+      - $ref: '#/components/schemas/SearchRequestParametersPrograms'
+      - type: object
+        properties:
+          descriptiveOntologyTerms:
+            description: A list of terms to formally describe the imagingEvent to search for. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
+            type: array
+            items:
+              type: string
+            example: ['doi:10.1002/0470841559', 'Red', 'ncbi:0300294'] 
+          imagingEventFileNames:
+            description: ImagingEvent file names to search for.
+            items:
+              type: string
+            type: array
+            example: ['imagingEvent_01032019.jpg', 'picture_field_1234.jpg'] 
+          imagingEventFileSizeMax:
+            description: A maximum imagingEvent file size to search for.
+            type: integer
+            example: 20000000
+          imagingEventFileSizeMin:
+            description: A minimum imagingEvent file size to search for.
+            type: integer
+            example: 1000
+          imagingEventHeightMax:
+            description: A maximum imagingEvent height to search for.
+            type: integer
+            example: 1080
+          imagingEventHeightMin:
+            description: A minimum imagingEvent height to search for.
+            type: integer
+            example: 720
+          imagingEventLocation:
+            $ref: '#/components/schemas/geoJSONSearchArea'
+          imagingEventNames:
+            description: Human readable names to search for.
+            items:
+              type: string
+            type: array
+            example: ['ImagingEvent 43', 'Tractor in field']
+          imagingEventTimeStampRangeEnd:
+            description: The latest timestamp to search for.
+            format: date-time
+            type: string
+          imagingEventTimeStampRangeStart:
+            description: The earliest timestamp to search for.
+            format: date-time
+            type: string
+          imagingEventWidthMax:
+            description: A maximum imagingEvent width to search for.
+            type: integer
+            example: 1920
+          imagingEventWidthMin:
+            description: A minimum imagingEvent width to search for.
+            type: integer
+            example: 1280
+          mimeTypes:
+            description: A set of imagingEvent file types to search for.
+            items:
+              pattern: imagingEvent/.*
+              type: string
+            type: array
+            example: ['imagingEvent/jpg', 'imagingEvent/jpeg', 'imagingEvent/gif']
+          observationDbIds:
+            description: A list of observation Ids this imagingEvent is associated with to search for
+            items:
+              type: string
+            type: array
+            example: ['47326456', 'fc9823ac']
+          imagingEventDbIds: 
+            description: A list of imagingEvent Ids to search for
+            items:
+              type: string
+            type: array
+            example: ['564b64a6', '0d122d1d']
+          observationUnitDbIds:
+            description: A set of observation unit identifiers to search for.
+            items:
+              type: string
+            type: array
+            example: ['f5e4b273', '328c9424']
+

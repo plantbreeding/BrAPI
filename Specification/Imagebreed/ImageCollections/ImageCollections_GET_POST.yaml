@@ -1,0 +1,142 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /imageCollections:
+    get:
+      summary: Get the imageCollection metadata summaries
+      description: |-
+        Get filtered set of imageCollection metadata
+
+        Implementation Notes
+
+        - ''imageCollectionURL'' should be a complete URL describing the location of the imageCollection. There is no BrAPI call for 
+        retrieving the imageCollection content, so it could be on a different path, or a different host.
+
+        - ''descriptiveOntologyTerm'' can be thought of as Tags for the imageCollection. These could be simple descriptive 
+        words, or ontology references, or full ontology URI''s.
+      parameters:
+      - description: The unique identifier for a imageCollection
+        in: query
+        name: imageCollectionDbId
+        required: false
+        schema:
+          type: string
+      - description: The human readable name of an imageCollection
+        in: query
+        name: imageCollectionName
+        required: false
+        schema:
+          type: string
+      - description: The unique identifier of the observation unit an imageCollection is portraying
+        in: query
+        name: observationUnitDbId
+        required: false
+        schema:
+          type: string
+      - description: The unique identifier of the observation an imageCollection is associated with
+        in: query
+        name: observationDbId
+        required: false
+        schema:
+          type: string
+      - description: A descriptive term associated with an imageCollection
+        in: query
+        name: descriptiveOntologyTerm
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/commonCropName'
+      - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/externalReferenceID'
+      - $ref: '#/components/parameters/externalReferenceId'
+      - $ref: '#/components/parameters/externalReferenceSource'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/ImageCollectionListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - ImageCollections
+    post:
+      summary: Create new imageCollection metadata records
+      description: |-
+        Create new imageCollection metadata records
+
+        Implementation Notes
+        
+        - This endpoint should be implemented with 'PUT /imageCollections/{imageCollectionDbId}/imagecontent' for full imageCollection upload capability
+
+        - ''imageCollectionURL'' should be a complete URL describing the location of the imageCollection. There is no BrAPI call for retrieving 
+        the imageCollection content, so it could be on a different path, or a different host.
+
+        - ''descriptiveOntologyTerm'' can be thought of as Tags for the imageCollection. These could be simple descriptive words, or 
+        ontology references, or full ontology URI's.
+
+        - The '/imageCollections' calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON 
+        only supports two of the possible geometries; Points and Polygons.
+
+        - With most imageCollections, the Point geometry should be used, and it should indicate the longitude and latitude of the camera.
+
+        - For top down imageCollections (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and 
+        latitude of the centroid of the imageCollection content, and the Polygon geometry may be used to indicate the border of the 
+        imageCollection content.
+
+        An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/index.php/ImageCollection_Upload
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ImageCollectionNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/ImageCollectionListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - ImageCollections
+components:
+  responses:
+    ImageCollectionListResponse:
+      content:
+        application/json:
+          schema:
+            title: ImageCollectionListResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    description: The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.
+                    items:
+                      $ref: '#/components/schemas/ImageCollection'
+                required:
+                - data
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}
+      
