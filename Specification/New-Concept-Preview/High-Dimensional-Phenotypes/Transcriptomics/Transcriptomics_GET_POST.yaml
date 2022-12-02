@@ -1,0 +1,88 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /metabolomics:
+    get:
+      summary: Get a filtered list of Transcriptomics Protocols
+      description: Get a filtered list of Transcriptomics Protocols
+      parameters:
+      - name: metabolomicsProtocolDbId
+        description: description
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: observationUnitDbId
+        description: description
+        in: query
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/externalReferenceID'
+      - $ref: '#/components/parameters/externalReferenceSource'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/TranscriptomicsProtocolListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - High-Dimensional-Phenotypes
+#    post:
+#      summary: Add a new Transcriptomics Protocol to the database
+#      description: Add a new Transcriptomics Protocol to the database
+#      parameters:
+#      - $ref: '#/components/parameters/authorizationHeader'
+#      requestBody:
+#        content:
+#          application/json:
+#            schema:
+#              type: array
+#              items: 
+#                $ref: '#/components/schemas/TranscriptomicsProtocolNewRequest'
+#      responses:
+#        '200':
+#          $ref: '#/components/responses/TranscriptomicsProtocolListResponse'
+#        '400':
+#          $ref: '#/components/responses/400BadRequest'
+#        '401':
+#          $ref: '#/components/responses/401Unauthorized'
+#        '403':
+#          $ref: '#/components/responses/403Forbidden'
+#      tags:
+#      - High-Dimensional-Phenotypes
+components:
+  responses:
+    TranscriptomicsProtocolListResponse:
+      content:
+        application/json:
+          schema:
+            title: TranscriptomicsProtocolListResponse
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/TranscriptomicsProtocol'
+                    type: array
+                required:
+                - data
+                type: object
+            required:
+            - metadata
+            - result
+            type: object
+      description: description
+      headers: {}

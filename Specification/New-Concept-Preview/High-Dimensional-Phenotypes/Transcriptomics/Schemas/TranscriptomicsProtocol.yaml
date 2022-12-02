@@ -1,0 +1,19 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    TranscriptomicsProtocol:
+      allOf:
+      - $ref: '#/components/schemas/TranscriptomicsProtocolNewRequest'
+      - type: object
+        required:
+        - protocolDbId
+        properties:
+          protocolDbId:
+            description: The ID which uniquely identifies the Transcriptomics Matrix
+            type: string
+            example: f60f15b2
+

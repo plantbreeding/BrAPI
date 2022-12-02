@@ -1,0 +1,122 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    TranscriptomicsProtocolNewRequest:
+      type: object
+      properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+        documentationURL:
+          description: description
+          format: uri
+          type: string
+          example: https://wiki.brapi.org
+        headerColumns:
+          description: Column definitions for any matrix with this protocol 
+          type: array
+          items:
+            $ref: '#/components/schemas/Transcriptome'
+        protocol:
+          type: object
+          properties:
+            libraryMethod:
+              description: libraryMethod
+              type: string
+              example: 3'RNA-seq
+            libraryComments:
+              description: libraryComments
+              type: string
+              example: We used the 3'RNA-seq method
+            sequencingCenter:
+              description: The organization where sequencing occured
+              type: string
+              example: Cornell University Institute of Biotechnology
+            sequencingPlatform:
+              description: The system used to perform sequencing
+              type: string
+              example: Illumina
+            instrumentModel:
+              description: The specific equipment used to perform sequencing
+              type: string
+              example: NextSeq 500
+            referenceGenome:
+              description: Reference genome used for sequencing alignment
+              type: object
+              properties: 
+                genomeAssemblyName:
+                  description: The human readable name of the reference genome
+                  type: string
+                  example: Zm-B73-REFERENCE-NAM-5.0
+                genomeVersion:
+                  description: the version number of the reference genome
+                  type: string
+                  example: '5.0'
+                genomeURL:
+                  description: A URL pointing to the location of the reference genome file. (example file types; .fasta, .fa, etc)
+                  type: string
+                  example: https://www.maizegdb.org/genome/assembly/Zm-B73-REFERENCE-NAM-5.0
+            annotationFile:
+              description: The reference annotation file used
+              type: string
+              properties: 
+                annotationFileName:
+                  description: The human readable name of the annotation file
+                  type: string
+                  example: Zm-234-Annotations-6.1
+                annotationFileVersion:
+                  description: the version of the annotation file
+                  type: string
+                  example: '6.1'
+                annotationFileURL:
+                  description: A URL pointing to the location of the annotation file. (example file types; .gff, .gff3, .gtf, etc)
+                  type: string
+                  example:
+            units:
+              description: Units describing the data in this matrix (counts, FPKM, etc)
+              type: string
+              example: counts
+            sequencingLength:
+              description: The sequence length in nucleotides
+              type: integer
+              example: 86
+            layout:
+              description: layout (single vs. paired end reads)
+              type: string
+              example: single
+            nucleicAcidExtractionMethod:
+              description: How DNA/RNA was extracted (Hot borate, Qiagen kit, etc)
+              type: string
+              example: Hot borate
+            mappingSoftware:
+              $ref: '#/components/schemas/SoftwareDescription'
+            countingSoftware:
+              $ref: '#/components/schemas/SoftwareDescription'
+
+    SoftwareDescription:
+      type: object
+      properties:
+        softwareName:
+          description: Human readable name for a piece of software
+          type: string
+          example: DNA Mappy County
+        softwareDescription:
+          description: The description of a piece of software
+          type: string
+          example: Maps and counts transcriptomics data
+        softwareVersion:
+          description: The version of a piece of software
+          type: string
+          example: '1.2'
+        softwareURL:
+          description: A URL where the software can be accessed/downloaded
+          type: string
+          example: https://example.com/downloads/DNA_Mappy_County/1.2

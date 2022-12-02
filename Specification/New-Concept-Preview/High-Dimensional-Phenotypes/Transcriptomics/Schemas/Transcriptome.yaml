@@ -1,0 +1,30 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    Transcriptome:
+      type: object
+      properties:
+        geneId:
+          description: ID of a functional gene
+          type: string
+          example: ZeamMp004
+        chromosome:
+          description: The chromosome of interest
+          type: string
+          example: B73V4_ctg150
+        positionLeft:
+          description: Position to the left
+          type: integer
+          example: 48820
+        positionRight:
+          description: Position to the right
+          type: integer
+          example: 51164
+        functionalAnnotation:
+          description: functional annotation
+          type: string
+          example: polyphenol oxidase1
