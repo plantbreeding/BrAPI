@@ -8,6 +8,8 @@ paths:
       summary: For retrieving and downloading an image from the database
       description: |-
         For retrieving and downloading an image from the database. Must be logged in to retrieve an image.
+
+        Replace `GET /drone_imagery/get_image` with `GET /images` 
       parameters:
 
       - name: image_id 

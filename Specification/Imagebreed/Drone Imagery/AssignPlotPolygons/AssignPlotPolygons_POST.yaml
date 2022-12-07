@@ -8,6 +8,31 @@ paths:
       summary: For assigning four-sided plot polygons onto a drone run image
       description: |-
         For assigning four-sided plot polygons onto a drone run image and saving the plot images to their plot in the database. Uses OpenCV pointPolygonTest to cut out and save the plot polygon images. Must be logged in the assign plot polygons.
+
+        Replace `POST /drone_imagery/assign_plot_polygons` with `POST /imagemutationruns` with the following example JSON
+
+        ```
+        {
+          "imageMutationDbId": "224ab7d3",
+          "imagingEventDbId": "32aa577d",
+          "imageMutationParameters": [
+            {
+              "parameterName": "assign_plot_polygons_type",
+              "parameterValue": "observation_unit_polygon_nir_imagery"
+            },{
+              "parameterName": "stock_polygons",
+              "parameterValue": {
+                "2018_NYH2_plot_1": [ {"x": 100, "y": 100}, {"x": 120, "y": 100}, {"x": 120, "y": 80}, {"x": 100, "y": 80} ],
+                "2018_NYH2_plot_2": [ {"x": 200, "y": 100}, {"x": 220, "y": 100}, {"x": 220, "y": 80}, {"x": 200, "y": 80} ]
+              }
+            }
+          ],
+          "inputImageCollectionDbIds": [],
+          "inputImageDbIds": [
+            "34a22db7"
+          ]
+        }
+        ``` 
       requestBody:
         content:
           application/json:

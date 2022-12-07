@@ -25,7 +25,7 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - ImagingEvents
+      - Imaging Events
 
 components:
   responses:

@@ -1,0 +1,43 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ImageMutationRunResponse:
+      type: object
+      properties:
+        mutatedImages:
+          type: array
+          items:
+            type: object
+            properties:
+              inputImageDbId:
+                description: The unique database identifier of the original image used as input
+                type: string
+                example: 34a22db7
+              outputImageDbId:
+                description: The unique database identifier of the new image produced from a mutation run
+                type: string
+                example: 2db734a2
+        imageMutationDbId:
+          description: Unique database identifier for an image mutation
+          type: string
+          example: 224ab7d3
+        imageMutationParameters:
+          description: list of parameters set for a specific image mutation run
+          type: array
+          items:
+            type: object
+            properties:
+              parameterName:
+                description: the human readable name of an image mutation parameter
+                type: string
+                example: lower_threshold
+              parameterValue:
+                description: the value of an image mutation parameter
+                type: string
+                example: 20
+
+

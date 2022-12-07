@@ -13,3 +13,29 @@ openapi: 3.0.0
 paths: {}
 security:
 - AuthorizationToken: []
+tags:
+- name: Images
+  description: Images
+  externalDocs:
+    description: Docs
+    url: https://brapi.org/
+- name: Image Collections
+  description: Images Collections
+  externalDocs:
+    description: Docs
+    url: https://brapi.org/
+- name: Imaging Events
+  description: Imaging Events
+  externalDocs:
+    description: Docs
+    url: https://brapi.org/
+- name: Image Mutations
+  description: Images Mutations
+  externalDocs:
+    description: Docs
+    url: https://brapi.org/
+- name: Drone Imagery
+  description: Original ImageBase API
+  externalDocs:
+    description: Docs
+    url: https://brapi.org/

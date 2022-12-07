@@ -8,6 +8,31 @@ paths:
       summary: For removing the background using an upper and lower threshold
       description: |-
         For removing the background using an upper and lower threshold. Uses OpenCV threshold. Must be logged in to remove the background of an image via thresholding.
+
+        Replace `GET /drone_imagery/remove_background_save` with `POST /imagemutationruns` with the following example JSON
+
+        ```
+        {
+          "imageMutationDbId": "224ab7d3",
+          "imagingEventDbId": "32aa577d",
+          "imageMutationParameters": [
+            {
+              "parameterName": "image_type",
+              "parameterValue": "threshold_background_removed_stitched_drone_imagery"
+            },{
+              "parameterName": "lower_threshold",
+              "parameterValue": "20"
+            },{
+              "parameterName": "upper_threshold",
+              "parameterValue": "220"
+            }
+          ],
+          "inputImageCollectionDbIds": [],
+          "inputImageDbIds": [
+            "34a22db7"
+          ]
+        }
+        ``` 
       requestBody:
         content:
           application/json:

@@ -65,7 +65,7 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - ImagingEvents
+      - Imaging Events
     post:
       summary: Create new imagingEvent metadata records
       description: |-
@@ -110,7 +110,7 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - ImagingEvents
+      - Imaging Events
 components:
   responses:
     ImagingEventListResponse:

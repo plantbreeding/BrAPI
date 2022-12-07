@@ -8,6 +8,18 @@ paths:
       summary: For merging three separate drone run bands into a single image
       description: |-
         For merging three separate drone run bands into a single image. Useful for merging drone run bands into 3 channel BGR (Blue, Green, Red) or NRN (NIR, Red, NIR) images. Must be logged in to merge drone run band images.
+
+        Replace `GET /drone_imagery/merge_bands` with `POST /imagemutationruns` with the following example JSON
+
+        ```
+        {
+          "imageMutationDbId": "224ab7d3",
+          "imagingEventDbId": "32aa577d",
+          "imageMutationParameters": [],
+          "inputImageCollectionDbIds": ["901", "902", "903"],
+          "inputImageDbIds": []
+        }
+        ``` 
       parameters:
 
       - name: drone_run_project_id 

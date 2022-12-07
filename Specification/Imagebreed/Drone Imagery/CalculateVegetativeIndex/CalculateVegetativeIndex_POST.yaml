@@ -9,6 +9,28 @@ paths:
       description: |-
         For calculating a vegetation index for an image. The input image is a 3 channel image, such as BGR (Blue, Green, Red) or 
         NRN (NIR, Red, NIR). The vegetation index is saved as an image in the database and returned. Must be logged in to merge drone run band images.
+
+        Replace `POST /drone_imagery/calculate_vegetative_index` with `POST /imagemutationruns` with the following example JSON
+
+        ```
+        {
+          "imageMutationDbId": "224ab7d3",
+          "imagingEventDbId": "32aa577d",
+          "imageMutationParameters": [
+            {
+              "parameterName": "vegetative_index",
+              "parameterValue": "NDVI"
+            },{
+              "parameterName": "image_type",
+              "parameterValue": "NRN"
+            }
+          ],
+          "inputImageCollectionDbIds": [],
+          "inputImageDbIds": [
+            "34a22db7"
+          ]
+        }
+        ``` 
       requestBody:
         content:
           application/json:

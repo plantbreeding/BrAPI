@@ -3,21 +3,18 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /delete/imageCollections:
-    post:
-      summary: Submit a delete request for `ImageCollections`
+  /imagemutations:
+    get:
+      summary: Get filtered set of image mutations
       description: |-
-        Submit a delete request for `ImageCollections`
+        Get filtered set of image mutations
       parameters:
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ImageCollectionSearchRequest'
       responses:
         '200':
-          $ref: '#/components/responses/ImageCollectionDeleteResponse'
+          $ref: '#/components/responses/ImageMutationListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -25,15 +22,14 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - Image Collections
-
+      - Image Mutations
 components:
   responses:
-    ImageCollectionDeleteResponse:
+    ImageMutationListResponse:
       content:
         application/json:
           schema:
-            title: ImageCollectionDeleteResponse
+            title: ImageMutationListResponse
             type: object
             properties:
               '@context':
@@ -41,18 +37,17 @@ components:
               metadata:
                 $ref: '#/components/schemas/metadata'
               result:
-                properties:
-                  imageCollectionDbIds:
-                    description: The unique ids of the ImageCollection records which have been successfully deleted
-                    items:
-                      type: string
-                    type: array
-                    example: ['6a4a59d8', '3ff067e0']
-                required:
-                - imageCollectionDbIds
                 type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ImageMutation'
+                required:
+                - data
             required:
             - metadata
             - result
       description: OK
       headers: {}
+      

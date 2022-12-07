@@ -15,6 +15,11 @@ paths:
         Raw-image captures from Micasense Rededge 5 band cameras or raw image captures from color image cameras can be uploaded into ImageBreed using a 
         compressed (.zip) file. ImageBreed will then stitch the raw captures into an orthophotomosaic. Organizationally in ImageBreed: Field Trial -> 
         Drone Run(s) -> Drone Run Band(s). Must be logged in to upload drone images.
+
+        No direct replacement, combonation of calls to acheive the same result
+        - `POST /imagingevents` Create a new "drone run" if required
+        - `POST /imagecollections` Create new image collection objects for each "drone run band" metadata
+        - `PUT /imageCollections/{imageCollectionDbId}/imagecontent` to upload a zip file for each "drone run band" with all the image files 
       requestBody:
         content:
           application/json:

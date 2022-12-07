@@ -8,6 +8,20 @@ paths:
       summary: For denoising an image.
       description: |-
         For denoising an image. Uses a very lenient setting of OpenCV fastNlMeansDenoising to remove background noise. Must be logged in the denoise an image.
+
+        Replace `GET /drone_imagery/denoise` with `POST /imagemutationruns` with the following example JSON
+
+        ```
+        {
+          "imageMutationDbId": "224ab7d3",
+          "imagingEventDbId": "32aa577d",
+          "imageMutationParameters": [],
+          "inputImageCollectionDbIds": [],
+          "inputImageDbIds": [
+            "34a22db7"
+          ]
+        }
+        ``` 
       parameters:
 
       - name: image_id 

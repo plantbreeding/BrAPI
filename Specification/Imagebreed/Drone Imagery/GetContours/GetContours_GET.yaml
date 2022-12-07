@@ -8,6 +8,21 @@ paths:
       summary: For getting the contours of an image.
       description: |-
         For getting the contours of an image. Contours detected using OpenCV adaptiveThreshold and morphologyEx. Must be logged in the get contours of image.
+
+        Replace `GET /drone_imagery/get_contours` with `POST /imagemutationruns` with the following example JSON
+
+        ```
+        {
+          "imageMutationDbId": "224ab7d3",
+          "imagingEventDbId": "32aa577d",
+          "imageMutationParameters": [],
+          "inputImageCollectionDbIds": [],
+          "inputImageDbIds": [
+            "34a22db7"
+          ]
+        }
+        ``` 
+
       parameters:
 
       - name: image_id 

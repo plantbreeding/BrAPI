@@ -8,6 +8,28 @@ paths:
       summary: For removing the background from an image using a mask.
       description: |-
         For removing the background from an image using a mask. Generally, the mask is of a vegetation index. Must be logged in to remove the background via a mask.
+
+        Replace `GET /drone_imagery/mask_remove_background` with `POST /imagemutationruns` with the following example JSON
+
+        ```
+        {
+          "imageMutationDbId": "224ab7d3",
+          "imagingEventDbId": "32aa577d",
+          "imageMutationParameters": [
+            {
+              "parameterName": "mask_image_id",
+              "parameterValue": "4d32a2b7"
+            },{
+              "parameterName": "mask_type",
+              "parameterValue": "denoised_background_removed_tgi_mask_original"
+            }
+          ],
+          "inputImageCollectionDbIds": [],
+          "inputImageDbIds": [
+            "34a22db7"
+          ]
+        }
+        ``` 
       parameters:
       - name: image_id 
         description: The database image identifier for the image to remove the background from. 

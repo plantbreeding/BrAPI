@@ -8,6 +8,26 @@ paths:
       summary: For cropping an image to a four-sided polygon
       description: |-
         For cropping an image to a four-sided polygon. Uses OpenCV pointPolygonTest to crop and save the image. Must be logged in to crop an image.
+
+
+        Replace `GET /drone_imagery/crop_image` with `POST /imagemutationruns` with the following example JSON
+
+        ```
+        {
+          "imageMutationDbId": "224ab7d3",
+          "imagingEventDbId": "32aa577d",
+          "imageMutationParameters": [
+            {
+              "parameterName": "polygon",
+              "parameterValue": '[{"x":100, "y":2000}, {"x":1200, "y":2000}, {"x":1200, "y":80}, {"x":100, "y":80}]'
+            }
+          ],
+          "inputImageCollectionDbIds": [],
+          "inputImageDbIds": [
+            "34a22db7"
+          ]
+        }
+        ``` 
       parameters:
 
       - name: image_id 

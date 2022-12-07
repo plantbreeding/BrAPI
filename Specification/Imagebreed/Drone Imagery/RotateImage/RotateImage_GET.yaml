@@ -8,6 +8,28 @@ paths:
       summary: For rotating an image clockwise or counter-clockwise.
       description: |-
         For rotating an image clockwise or counter-clockwise. Saves the rotated image in the database and returns it. Must be logged in to rotate an image.
+
+        Replace `GET /drone_imagery/rotate_image` with `POST /imagemutationruns` with the following example JSON
+
+        ```
+        {
+          "imageMutationDbId": "224ab7d3",
+          "imagingEventDbId": "32aa577d",
+          "imageMutationParameters": [
+            {
+              "parameterName": "angle",
+              "parameterValue": "-0.102"
+            },{
+              "parameterName": "view_only",
+              "parameterValue": "false"
+            }
+          ],
+          "inputImageCollectionDbIds": [],
+          "inputImageDbIds": [
+            "34a22db7"
+          ]
+        }
+        ``` 
       parameters:
       - name: image_id 
         description: The database image identifier for the image you want to rotate. 

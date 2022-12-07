@@ -8,6 +8,13 @@ paths:
       summary: For deleting an image from the database
       description: |-
         For deleting an image from the database. Deletion in this case means obsoletion. Must be logged in to delete an image.
+
+        Replace `GET /drone_imagery/remove_image` with `POST /delete/images` with the following example JSON
+        ```
+        {
+          "imageDbIds": ["101"]
+        }
+        ```
       parameters:
       - name: image_id 
         description: The database image identifier. 

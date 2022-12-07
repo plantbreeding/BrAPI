@@ -36,7 +36,7 @@ paths:
         '404':
           $ref: '#/components/responses/404NotFound'
       tags:
-      - ImageCollections
+      - Image Collections
     put:
       summary: Update an existing imageCollection metadata record
       description: |-
@@ -89,7 +89,7 @@ paths:
         '404':
           $ref: '#/components/responses/404NotFound'
       tags:
-      - ImageCollections
+      - Image Collections
 components:
   responses:
     ImageCollectionSingleResponse:

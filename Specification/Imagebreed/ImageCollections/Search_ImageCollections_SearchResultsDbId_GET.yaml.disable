@@ -37,4 +37,4 @@ paths:
         '404':
           $ref: '#/components/responses/404NotFound'
       tags:
-      - ImageCollections
+      - Image Collections

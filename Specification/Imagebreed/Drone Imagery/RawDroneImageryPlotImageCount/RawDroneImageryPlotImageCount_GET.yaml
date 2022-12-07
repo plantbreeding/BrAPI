@@ -8,6 +8,8 @@ paths:
       summary: For summarizing the number of plot images saved in the database for a drone run.
       description: |-
         For summarizing the number of plot images saved in the database for a drone run.
+
+        No direct replacement yet ... Could get all the same information with `GET /imagecollections` but not as explicit or condensed. Perhaps fitler by `?imagingEventDbId` and `?descriptiveOntologyTerms`. 
       responses:
         '200':
           description: Accepted

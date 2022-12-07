@@ -65,7 +65,7 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - ImageCollections
+      - Image Collections
     post:
       summary: Create new imageCollection metadata records
       description: |-
@@ -110,7 +110,7 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - ImageCollections
+      - Image Collections
 components:
   responses:
     ImageCollectionListResponse:

@@ -8,6 +8,13 @@ paths:
       summary:  To permanently delete a drone run
       description: |-
         To permanently delete a drone run along with all related drone run bands and generated phenotypes from the database. All images related to the drone run are obsoleted in the database. Must be logged in to delete a drone run.
+
+        Replace `GET /drone_imagery/delete_drone_run` with `POST /delete/imagingevents` with the following example JSON
+        ```
+        {
+          "imagingEventDbIds": ["101"]
+        }
+        ```
       parameters:
       - name: drone_run_project_id 
         description: The database identifier for the drone run. 
@@ -16,8 +23,6 @@ paths:
         example: 101 
         schema: 
           type: integer 
-
-
       responses:
         '200':
           description: Accepted

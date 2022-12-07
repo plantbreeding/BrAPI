@@ -5,7 +5,7 @@ openapi: 3.0.0
 paths: {}
 components:
   schemas:
-    ImageNewRequest:
+    ImageMutation:
       type: object
       properties:
         additionalInfo:
@@ -13,66 +13,54 @@ components:
             type: string
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.  
           type: object
-        copyright:
-          description: The copyright information of this image. Example 'Copyright 2018 Bob Robertson'
-          type: string
-          example: Copyright 2018 Bob Robertson
-        description:
-          description: The human readable description of an image.
-          type: string
-          example: This is a picture of a tomato
-        descriptiveOntologyTerms:
-          description: A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
-          items:
-            type: string
-          type: array
-          example: ['doi:10.1002/0470841559', 'Red', 'ncbi:0300294'] 
-        imageFileName:
-          description: The name of the image file. Might be the same as 'imageName', but could be different.
-          type: string
-          example: image_0000231.jpg
-        imageFileSize:
-          description: The size of the image in Bytes.
-          type: integer
-          example: 50000
-        imageHeight:
-          description: The height of the image in Pixels.
-          type: integer
-          example: 550
-        imageLocation:
-          $ref: '#/components/schemas/geoJSON'
-        imageName:
-          description: The human readable name of an image. Might be the same as 'imageFileName', but could be different.
-          type: string
-          example: Tomato Image 1
-        imageTimeStamp:
-          description: The date and time the image was taken
-          format: date-time
-          type: string
-        imageURL:
-          description: The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.
-          type: string
-          example: https://wiki.brapi.org/images/tomato
-        imageWidth:
-          description: The width of the image in Pixels.
-          type: integer
-          example: 700
-        mimeType:
-          description: The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc
-          pattern: image/.*
-          type: string
-          example: image/jpeg
-        observationDbIds:
-          description: A list of observation Ids this image is associated with, if applicable.
-          items:
-            type: string
-          type: array
-          example: ['d05dd235', '8875177d', 'c08e81b6']
-        observationUnitDbId:
-          description: The related observation unit identifier, if relevant.
-          type: string
-          example: b7e690b6
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          
-
+        imageMutationDbId:
+          description: Unique database identifier for an image mutation
+          type: string
+          example: 224ab7d3
+        imageMutationName:
+          description: Human readable name for an image mutation
+          type: string
+          example: Remove Background
+        imageMutationDescription:
+          description: Human readable description of an image mutation
+          type: string
+          example: For removing the background using an upper and lower threshold. Uses OpenCV threshold.
+        imageInputType:
+          description: The type of input an image mutation is expecting. A single image, a list/collection of images, or a list of image collections.
+          type: array
+          items:
+            type: string
+            enum: 
+            - IMAGE_SINGLE
+            - IMAGE_LIST
+            - IMAGE_COLLECTION_SINGLE
+            - IMAGE_COLLECTION_LIST
+          example: 
+          - IMAGE_LIST
+          - IMAGE_COLLECTION_SINGLE
+        imageMutationParameters:
+          description: list of possible parameters used by an image mutation
+          type: array
+          items:
+            type: object
+            properties:
+              parameterName: 
+                description: the human readable name of an image mutation parameter
+                type: string
+                example: image_type
+              parameterType:
+                description: the data type of an image mutation parameter (string, integer, boolean, etc)
+                type: string
+                example: string
+              required:
+                description: True if the parameter is required for the image mutation to run properly
+                type: boolean
+                example: true
+              valueOptions:
+                description: If the parameter will only accept certain values, list those values here. 
+                type: array
+                items:
+                  type: string
+                example: [threshold_background_removed_tgi_stitched_drone_imagery, threshold_background_removed_vari_stitched_drone_imagery, threshold_background_removed_ndvi_stitched_drone_imagery, threshold_background_removed_stitched_drone_imagery]
