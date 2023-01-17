@@ -91,6 +91,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>Variable unique identifier  MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>Variable name (usually a short name)  MIAPPE V1.1 (DM-84) Variable name - Name of the variable.</td></tr>
+<tr><td><span style="font-weight:bold;">observationVariablePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Observation Variable, usually in the form of a URI</td></tr>
 <tr><td><span style="font-weight:bold;">ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
 <tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
@@ -375,6 +376,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 },
                 "observationVariableDbId": "b9b7edd1",
                 "observationVariableName": "Variable Name",
+                "observationVariablePUI": "http://my-traits.com/trait/CO_123:0009012",
                 "ontologyReference": {
                     "documentationLinks": [
                         {
@@ -590,6 +592,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>Variable unique identifier  MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>Variable name (usually a short name)  MIAPPE V1.1 (DM-84) Variable name - Name of the variable.</td></tr>
+<tr><td><span style="font-weight:bold;">observationVariablePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Observation Variable, usually in the form of a URI</td></tr>
 <tr><td><span style="font-weight:bold;">ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
 <tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
@@ -746,6 +749,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 },
                 "observationVariableDbId": "b9b7edd1",
                 "observationVariableName": "Variable Name",
+                "observationVariablePUI": "http://my-traits.com/trait/CO_123:0009012",
                 "ontologyReference": {
                     "documentationLinks": [
                         {
@@ -961,6 +965,7 @@ Call to retrieve a list of observationVariables available in the system.
 <tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>Variable unique identifier  MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>Variable name (usually a short name)  MIAPPE V1.1 (DM-84) Variable name - Name of the variable.</td></tr>
+<tr><td><span style="font-weight:bold;">observationVariablePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Observation Variable, usually in the form of a URI</td></tr>
 <tr><td><span style="font-weight:bold;">ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
 <tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
@@ -1137,6 +1142,7 @@ Call to retrieve a list of observationVariables available in the system.
                 },
                 "observationVariableDbId": "b9b7edd1",
                 "observationVariableName": "Variable Name",
+                "observationVariablePUI": "http://my-traits.com/trait/CO_123:0009012",
                 "ontologyReference": {
                     "documentationLinks": [
                         {
@@ -1316,7 +1322,7 @@ Add new Observation Variables to the system.
 <tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
 <tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
 <tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>Human readable name of an Observation Variable</td></tr>
+<tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>Human readable name of an Observation Variable  MIAPPE V1.1 (DM-84) Variable name - Name of the variable.</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariablePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Observation Variable, usually in the form of a URI</td></tr>
 <tr><td><span style="font-weight:bold;">ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
@@ -1423,6 +1429,7 @@ Add new Observation Variables to the system.
 <tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>Variable unique identifier  MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>Variable name (usually a short name)  MIAPPE V1.1 (DM-84) Variable name - Name of the variable.</td></tr>
+<tr><td><span style="font-weight:bold;">observationVariablePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Observation Variable, usually in the form of a URI</td></tr>
 <tr><td><span style="font-weight:bold;">ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
 <tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
@@ -1754,6 +1761,7 @@ Add new Observation Variables to the system.
                 },
                 "observationVariableDbId": "b9b7edd1",
                 "observationVariableName": "Variable Name",
+                "observationVariablePUI": "http://my-traits.com/trait/CO_123:0009012",
                 "ontologyReference": {
                     "documentationLinks": [
                         {
@@ -1937,6 +1945,7 @@ Retrieve variable details
 <tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>Variable unique identifier  MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>Variable name (usually a short name)  MIAPPE V1.1 (DM-84) Variable name - Name of the variable.</td></tr>
+<tr><td><span style="font-weight:bold;">observationVariablePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Observation Variable, usually in the form of a URI</td></tr>
 <tr><td><span style="font-weight:bold;">ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
 <tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
@@ -2089,6 +2098,7 @@ Retrieve variable details
         },
         "observationVariableDbId": "b9b7edd1",
         "observationVariableName": "Variable Name",
+        "observationVariablePUI": "http://my-traits.com/trait/CO_123:0009012",
         "ontologyReference": {
             "documentationLinks": [
                 {
@@ -2271,7 +2281,7 @@ Update an existing Observation Variable
 <tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
 <tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
 <tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>Human readable name of an Observation Variable</td></tr>
+<tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>Human readable name of an Observation Variable  MIAPPE V1.1 (DM-84) Variable name - Name of the variable.</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariablePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Observation Variable, usually in the form of a URI</td></tr>
 <tr><td><span style="font-weight:bold;">ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
@@ -2378,6 +2388,7 @@ Update an existing Observation Variable
 <tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>Variable unique identifier  MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>Variable name (usually a short name)  MIAPPE V1.1 (DM-84) Variable name - Name of the variable.</td></tr>
+<tr><td><span style="font-weight:bold;">observationVariablePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Observation Variable, usually in the form of a URI</td></tr>
 <tr><td><span style="font-weight:bold;">ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
 <tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
@@ -2706,6 +2717,7 @@ Update an existing Observation Variable
         },
         "observationVariableDbId": "b9b7edd1",
         "observationVariableName": "Variable Name",
+        "observationVariablePUI": "http://my-traits.com/trait/CO_123:0009012",
         "ontologyReference": {
             "documentationLinks": [
                 {
