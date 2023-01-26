@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'BrAPI'
-copyright = '2022, BrAPI Community'
+copyright = '2023, BrAPI Community'
 author = 'BrAPI Community'
 
 
