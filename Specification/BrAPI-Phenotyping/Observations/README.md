@@ -56,7 +56,7 @@ Submit a delete request for `Observations`
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">observationDbIds</span></td><td>array[string]</td><td>The unique ids of the Observation records which have been successfully deleted</td></tr>
+<tr><td><span style="font-weight:bold;">observationDbIds</span></td><td>array[string]<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique ids of the Observation records which have been successfully deleted</td></tr>
 </table>
 
 
@@ -257,8 +257,8 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>A human readable name for an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">season</span></td><td>object</td><td></td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456  <br>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
@@ -412,8 +412,8 @@ Add new Observation entities
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>A human readable name for an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">season</span></td><td>object</td><td></td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456  <br>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
@@ -444,8 +444,8 @@ Add new Observation entities
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>A human readable name for an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">season</span></td><td>object</td><td></td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456  <br>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
@@ -640,8 +640,8 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>A human readable name for an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">season</span></td><td>object</td><td></td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456  <br>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
@@ -1207,8 +1207,8 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>A human readable name for an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">season</span></td><td>object</td><td></td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456  <br>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
@@ -1340,8 +1340,8 @@ Update an existing Observation
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>A human readable name for an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">season</span></td><td>object</td><td></td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456  <br>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
@@ -1372,8 +1372,8 @@ Update an existing Observation
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>A human readable name for an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">season</span></td><td>object</td><td></td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456  <br>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
@@ -1596,8 +1596,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>A human readable name for an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">season</span></td><td>object</td><td></td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456  <br>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
@@ -1873,8 +1873,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>A human readable name for an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">season</span></td><td>object</td><td></td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456  <br>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>

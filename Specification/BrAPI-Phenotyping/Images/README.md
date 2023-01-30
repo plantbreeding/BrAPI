@@ -54,7 +54,7 @@ Submit a delete request for `Images`
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">imageDbIds</span></td><td>array[string]</td><td>The unique ids of the Image records which have been successfully deleted</td></tr>
+<tr><td><span style="font-weight:bold;">imageDbIds</span></td><td>array[string]<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique ids of the Image records which have been successfully deleted</td></tr>
 </table>
 
 
