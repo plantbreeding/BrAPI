@@ -27,10 +27,12 @@ def dereferenceAll(obj, parent):
                     #refObj['title'] = refPath[-1]
                     obj = {**obj, **refObj}
                 elif(fieldStr == 'allOf'):
-                    comboObj = {'properties': {}, 'type': 'object'}
+                    comboObj = {'properties': {}, 'type': 'object', 'required': []}
                     for item in obj[fieldStr]:
                         itemObj = dereferenceAll(item, parent)
                         comboObj['properties'] = {**(comboObj['properties']), **(itemObj['properties'])}
+                        if 'required' in itemObj:
+                            comboObj['required'] = list(set(comboObj['required'] + itemObj['required']))
                         if 'title' in itemObj:
                             comboObj['title'] = itemObj['title']
                         if 'description' in itemObj:
@@ -63,10 +65,12 @@ def dereferenceAllOfClause(obj, parent):
             for fieldStr in obj:
                 #print(fieldStr)
                 if(fieldStr == 'allOf'):
-                    comboObj = {'properties': {}, 'type': 'object'}
+                    comboObj = {'properties': {}, 'type': 'object', 'required': []}
                     for item in obj[fieldStr]:
                         itemObj = dereferenceAll(item, parent)
                         comboObj['properties'] = {**(comboObj['properties']), **(itemObj['properties'])}
+                        if 'required' in itemObj:
+                            comboObj['required'] = list(set(comboObj['required'] + itemObj['required']))
                         if 'title' in itemObj:
                             comboObj['title'] = itemObj['title']
                         if 'description' in itemObj:

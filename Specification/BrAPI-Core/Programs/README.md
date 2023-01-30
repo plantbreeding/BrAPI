@@ -16,6 +16,8 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies the program</td></tr>
+<tr><td><span style="font-weight:bold;">programName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human readable name of the program</td></tr>
 <tr><td><span style="font-weight:bold;">abbreviation</span></td><td>string</td><td>A shortened version of the human readable name for a Program</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop which this program is for</td></tr>
@@ -28,8 +30,6 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
 <tr><td><span style="font-weight:bold;">leadPersonDbId</span></td><td>string</td><td>The unique identifier of the program leader</td></tr>
 <tr><td><span style="font-weight:bold;">leadPersonName</span></td><td>string</td><td>The name of the program leader</td></tr>
 <tr><td><span style="font-weight:bold;">objective</span></td><td>string</td><td>The primary objective of the program</td></tr>
-<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies the program</td></tr>
-<tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>Human readable name of the program</td></tr>
 <tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANDARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
 </table>
 
@@ -129,6 +129,7 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">programName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human readable name of the program</td></tr>
 <tr><td><span style="font-weight:bold;">abbreviation</span></td><td>string</td><td>A shortened version of the human readable name for a Program</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop which this program is for</td></tr>
@@ -141,7 +142,6 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
 <tr><td><span style="font-weight:bold;">leadPersonDbId</span></td><td>string</td><td>The unique identifier of the program leader</td></tr>
 <tr><td><span style="font-weight:bold;">leadPersonName</span></td><td>string</td><td>The name of the program leader</td></tr>
 <tr><td><span style="font-weight:bold;">objective</span></td><td>string</td><td>The primary objective of the program</td></tr>
-<tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>Human readable name of the program</td></tr>
 <tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANDARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
 </table>
 
@@ -150,6 +150,8 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies the program</td></tr>
+<tr><td><span style="font-weight:bold;">programName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human readable name of the program</td></tr>
 <tr><td><span style="font-weight:bold;">abbreviation</span></td><td>string</td><td>A shortened version of the human readable name for a Program</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop which this program is for</td></tr>
@@ -162,8 +164,6 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
 <tr><td><span style="font-weight:bold;">leadPersonDbId</span></td><td>string</td><td>The unique identifier of the program leader</td></tr>
 <tr><td><span style="font-weight:bold;">leadPersonName</span></td><td>string</td><td>The name of the program leader</td></tr>
 <tr><td><span style="font-weight:bold;">objective</span></td><td>string</td><td>The primary objective of the program</td></tr>
-<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies the program</td></tr>
-<tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>Human readable name of the program</td></tr>
 <tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANDARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
 </table>
 
@@ -284,6 +284,8 @@ Get a single breeding Program by Id. This can be used to quickly get the details
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies the program</td></tr>
+<tr><td><span style="font-weight:bold;">programName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human readable name of the program</td></tr>
 <tr><td><span style="font-weight:bold;">abbreviation</span></td><td>string</td><td>A shortened version of the human readable name for a Program</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop which this program is for</td></tr>
@@ -296,8 +298,6 @@ Get a single breeding Program by Id. This can be used to quickly get the details
 <tr><td><span style="font-weight:bold;">leadPersonDbId</span></td><td>string</td><td>The unique identifier of the program leader</td></tr>
 <tr><td><span style="font-weight:bold;">leadPersonName</span></td><td>string</td><td>The name of the program leader</td></tr>
 <tr><td><span style="font-weight:bold;">objective</span></td><td>string</td><td>The primary objective of the program</td></tr>
-<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies the program</td></tr>
-<tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>Human readable name of the program</td></tr>
 <tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANDARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
 </table>
 
@@ -384,6 +384,7 @@ Update the details of an existing breeding Program.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">programName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human readable name of the program</td></tr>
 <tr><td><span style="font-weight:bold;">abbreviation</span></td><td>string</td><td>A shortened version of the human readable name for a Program</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop which this program is for</td></tr>
@@ -396,7 +397,6 @@ Update the details of an existing breeding Program.
 <tr><td><span style="font-weight:bold;">leadPersonDbId</span></td><td>string</td><td>The unique identifier of the program leader</td></tr>
 <tr><td><span style="font-weight:bold;">leadPersonName</span></td><td>string</td><td>The name of the program leader</td></tr>
 <tr><td><span style="font-weight:bold;">objective</span></td><td>string</td><td>The primary objective of the program</td></tr>
-<tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>Human readable name of the program</td></tr>
 <tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANDARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
 </table>
 
@@ -405,6 +405,8 @@ Update the details of an existing breeding Program.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies the program</td></tr>
+<tr><td><span style="font-weight:bold;">programName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human readable name of the program</td></tr>
 <tr><td><span style="font-weight:bold;">abbreviation</span></td><td>string</td><td>A shortened version of the human readable name for a Program</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop which this program is for</td></tr>
@@ -417,8 +419,6 @@ Update the details of an existing breeding Program.
 <tr><td><span style="font-weight:bold;">leadPersonDbId</span></td><td>string</td><td>The unique identifier of the program leader</td></tr>
 <tr><td><span style="font-weight:bold;">leadPersonName</span></td><td>string</td><td>The name of the program leader</td></tr>
 <tr><td><span style="font-weight:bold;">objective</span></td><td>string</td><td>The primary objective of the program</td></tr>
-<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies the program</td></tr>
-<tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>Human readable name of the program</td></tr>
 <tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANDARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
 </table>
 
@@ -556,6 +556,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies the program</td></tr>
+<tr><td><span style="font-weight:bold;">programName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human readable name of the program</td></tr>
 <tr><td><span style="font-weight:bold;">abbreviation</span></td><td>string</td><td>A shortened version of the human readable name for a Program</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop which this program is for</td></tr>
@@ -568,8 +570,6 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">leadPersonDbId</span></td><td>string</td><td>The unique identifier of the program leader</td></tr>
 <tr><td><span style="font-weight:bold;">leadPersonName</span></td><td>string</td><td>The name of the program leader</td></tr>
 <tr><td><span style="font-weight:bold;">objective</span></td><td>string</td><td>The primary objective of the program</td></tr>
-<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies the program</td></tr>
-<tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>Human readable name of the program</td></tr>
 <tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANDARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
 </table>
 
@@ -746,6 +746,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies the program</td></tr>
+<tr><td><span style="font-weight:bold;">programName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human readable name of the program</td></tr>
 <tr><td><span style="font-weight:bold;">abbreviation</span></td><td>string</td><td>A shortened version of the human readable name for a Program</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop which this program is for</td></tr>
@@ -758,8 +760,6 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">leadPersonDbId</span></td><td>string</td><td>The unique identifier of the program leader</td></tr>
 <tr><td><span style="font-weight:bold;">leadPersonName</span></td><td>string</td><td>The name of the program leader</td></tr>
 <tr><td><span style="font-weight:bold;">objective</span></td><td>string</td><td>The primary objective of the program</td></tr>
-<tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies the program</td></tr>
-<tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>Human readable name of the program</td></tr>
 <tr><td><span style="font-weight:bold;">programType</span></td><td>string</td><td>The type of program entity this object represents <br/> 'STANDARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   </td></tr>
 </table>
 

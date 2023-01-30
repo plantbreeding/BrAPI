@@ -15,6 +15,7 @@ Get filtered list of people
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">personDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Unique ID for a person</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>description of this person</td></tr>
 <tr><td><span style="font-weight:bold;">emailAddress</span></td><td>string</td><td>email address for this person</td></tr>
@@ -26,7 +27,6 @@ Get filtered list of people
 <tr><td><span style="font-weight:bold;">lastName</span></td><td>string</td><td>Persons last name</td></tr>
 <tr><td><span style="font-weight:bold;">mailingAddress</span></td><td>string</td><td>physical address of this person</td></tr>
 <tr><td><span style="font-weight:bold;">middleName</span></td><td>string</td><td>Persons middle name</td></tr>
-<tr><td><span style="font-weight:bold;">personDbId</span></td><td>string</td><td>Unique ID for a person</td></tr>
 <tr><td><span style="font-weight:bold;">phoneNumber</span></td><td>string</td><td>phone number of this person</td></tr>
 <tr><td><span style="font-weight:bold;">userID</span></td><td>string</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
 </table>
@@ -147,6 +147,7 @@ Create new People entities. `personDbId` is generated and managed by the server.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">personDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Unique ID for a person</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>description of this person</td></tr>
 <tr><td><span style="font-weight:bold;">emailAddress</span></td><td>string</td><td>email address for this person</td></tr>
@@ -158,7 +159,6 @@ Create new People entities. `personDbId` is generated and managed by the server.
 <tr><td><span style="font-weight:bold;">lastName</span></td><td>string</td><td>Persons last name</td></tr>
 <tr><td><span style="font-weight:bold;">mailingAddress</span></td><td>string</td><td>physical address of this person</td></tr>
 <tr><td><span style="font-weight:bold;">middleName</span></td><td>string</td><td>Persons middle name</td></tr>
-<tr><td><span style="font-weight:bold;">personDbId</span></td><td>string</td><td>Unique ID for a person</td></tr>
 <tr><td><span style="font-weight:bold;">phoneNumber</span></td><td>string</td><td>phone number of this person</td></tr>
 <tr><td><span style="font-weight:bold;">userID</span></td><td>string</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
 </table>
@@ -278,6 +278,7 @@ Get the details for a specific Person
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">personDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Unique ID for a person</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>description of this person</td></tr>
 <tr><td><span style="font-weight:bold;">emailAddress</span></td><td>string</td><td>email address for this person</td></tr>
@@ -289,7 +290,6 @@ Get the details for a specific Person
 <tr><td><span style="font-weight:bold;">lastName</span></td><td>string</td><td>Persons last name</td></tr>
 <tr><td><span style="font-weight:bold;">mailingAddress</span></td><td>string</td><td>physical address of this person</td></tr>
 <tr><td><span style="font-weight:bold;">middleName</span></td><td>string</td><td>Persons middle name</td></tr>
-<tr><td><span style="font-weight:bold;">personDbId</span></td><td>string</td><td>Unique ID for a person</td></tr>
 <tr><td><span style="font-weight:bold;">phoneNumber</span></td><td>string</td><td>phone number of this person</td></tr>
 <tr><td><span style="font-weight:bold;">userID</span></td><td>string</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
 </table>
@@ -401,6 +401,7 @@ Update an existing Person
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">personDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Unique ID for a person</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>description of this person</td></tr>
 <tr><td><span style="font-weight:bold;">emailAddress</span></td><td>string</td><td>email address for this person</td></tr>
@@ -412,7 +413,6 @@ Update an existing Person
 <tr><td><span style="font-weight:bold;">lastName</span></td><td>string</td><td>Persons last name</td></tr>
 <tr><td><span style="font-weight:bold;">mailingAddress</span></td><td>string</td><td>physical address of this person</td></tr>
 <tr><td><span style="font-weight:bold;">middleName</span></td><td>string</td><td>Persons middle name</td></tr>
-<tr><td><span style="font-weight:bold;">personDbId</span></td><td>string</td><td>Unique ID for a person</td></tr>
 <tr><td><span style="font-weight:bold;">phoneNumber</span></td><td>string</td><td>phone number of this person</td></tr>
 <tr><td><span style="font-weight:bold;">userID</span></td><td>string</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
 </table>
@@ -557,6 +557,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">personDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Unique ID for a person</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>description of this person</td></tr>
 <tr><td><span style="font-weight:bold;">emailAddress</span></td><td>string</td><td>email address for this person</td></tr>
@@ -568,7 +569,6 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">lastName</span></td><td>string</td><td>Persons last name</td></tr>
 <tr><td><span style="font-weight:bold;">mailingAddress</span></td><td>string</td><td>physical address of this person</td></tr>
 <tr><td><span style="font-weight:bold;">middleName</span></td><td>string</td><td>Persons middle name</td></tr>
-<tr><td><span style="font-weight:bold;">personDbId</span></td><td>string</td><td>Unique ID for a person</td></tr>
 <tr><td><span style="font-weight:bold;">phoneNumber</span></td><td>string</td><td>phone number of this person</td></tr>
 <tr><td><span style="font-weight:bold;">userID</span></td><td>string</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
 </table>
@@ -757,6 +757,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">personDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Unique ID for a person</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>description of this person</td></tr>
 <tr><td><span style="font-weight:bold;">emailAddress</span></td><td>string</td><td>email address for this person</td></tr>
@@ -768,7 +769,6 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">lastName</span></td><td>string</td><td>Persons last name</td></tr>
 <tr><td><span style="font-weight:bold;">mailingAddress</span></td><td>string</td><td>physical address of this person</td></tr>
 <tr><td><span style="font-weight:bold;">middleName</span></td><td>string</td><td>Persons middle name</td></tr>
-<tr><td><span style="font-weight:bold;">personDbId</span></td><td>string</td><td>Unique ID for a person</td></tr>
 <tr><td><span style="font-weight:bold;">phoneNumber</span></td><td>string</td><td>phone number of this person</td></tr>
 <tr><td><span style="font-weight:bold;">userID</span></td><td>string</td><td>A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.</td></tr>
 </table>

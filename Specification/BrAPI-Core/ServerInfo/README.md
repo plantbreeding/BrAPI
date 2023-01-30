@@ -45,12 +45,12 @@ BAD    "call": "germplasm/<germplasmDbId>/pedigree"
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">calls</span></td><td>array[object]</td><td>Array of available calls on this server</td></tr>
+<tr><td><span style="font-weight:bold;">calls</span></td><td>array[object]<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Array of available calls on this server</td></tr>
+<tr><td>calls<br><span style="font-weight:bold;margin-left:5px">.methods</span></td><td>array[string]<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The possible HTTP Methods to be used with the available call</td></tr>
+<tr><td>calls<br><span style="font-weight:bold;margin-left:5px">.service</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The name of the available call as recorded in the documentation</td></tr>
+<tr><td>calls<br><span style="font-weight:bold;margin-left:5px">.versions</span></td><td>array[string]<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The supported versions of a particular call</td></tr>
 <tr><td>calls<br><span style="font-weight:bold;margin-left:5px">.contentTypes</span></td><td>array[string]</td><td>The possible content types returned by the service endpoint</td></tr>
 <tr><td>calls<br><span style="font-weight:bold;margin-left:5px">.dataTypes</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `contentTypes`. Github issue number #443  <br/>The possible data formats returned by the available call </td></tr>
-<tr><td>calls<br><span style="font-weight:bold;margin-left:5px">.methods</span></td><td>array[string]</td><td>The possible HTTP Methods to be used with the available call</td></tr>
-<tr><td>calls<br><span style="font-weight:bold;margin-left:5px">.service</span></td><td>string</td><td>The name of the available call as recorded in the documentation</td></tr>
-<tr><td>calls<br><span style="font-weight:bold;margin-left:5px">.versions</span></td><td>array[string]</td><td>The supported versions of a particular call</td></tr>
 <tr><td><span style="font-weight:bold;">contactEmail</span></td><td>string</td><td>A contact email address for this server management</td></tr>
 <tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">location</span></td><td>string</td><td>Physical location of this server (ie. City, Country)</td></tr>

@@ -22,7 +22,7 @@ program like "PlantingTime_3" or "Season E"
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td><span style="font-weight:bold;">seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td><span style="font-weight:bold;">year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 </table>
@@ -101,7 +101,7 @@ Add new season entries to the database
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td><span style="font-weight:bold;">seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td><span style="font-weight:bold;">year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 </table>
@@ -111,7 +111,7 @@ Add new season entries to the database
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td><span style="font-weight:bold;">seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td><span style="font-weight:bold;">year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 </table>
@@ -198,7 +198,7 @@ Get the a single Season
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td><span style="font-weight:bold;">seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td><span style="font-weight:bold;">year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 </table>
@@ -268,7 +268,7 @@ Update existing Seasons
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td><span style="font-weight:bold;">seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td><span style="font-weight:bold;">year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 </table>
@@ -278,7 +278,7 @@ Update existing Seasons
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td><span style="font-weight:bold;">seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td><span style="font-weight:bold;">year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 </table>

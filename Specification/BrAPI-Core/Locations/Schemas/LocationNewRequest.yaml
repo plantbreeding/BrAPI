@@ -7,6 +7,8 @@ components:
   schemas:
     LocationNewRequest: 
       type: object
+      required:
+      - locationName
       properties: 
         abbreviation:
           description: A shortened version of the human readable name for a Location

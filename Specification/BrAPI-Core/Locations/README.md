@@ -19,6 +19,8 @@ Get a list of locations.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">locationDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a Location</td></tr>
+<tr><td><span style="font-weight:bold;">locationName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for a Location <br/> MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
 <tr><td><span style="font-weight:bold;">abbreviation</span></td><td>string</td><td>A shortened version of the human readable name for a Location</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">coordinateDescription</span></td><td>string</td><td>Describes the precision and landmarks of the coordinate values used for a Location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)</td></tr>
@@ -37,8 +39,6 @@ Get a list of locations.
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">instituteAddress</span></td><td>string</td><td>The street address of the institute at a particular Location <br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.</td></tr>
 <tr><td><span style="font-weight:bold;">instituteName</span></td><td>string</td><td>The full name of the institute at a particular Location <br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.</td></tr>
-<tr><td><span style="font-weight:bold;">locationDbId</span></td><td>string</td><td>The unique identifier for a Location</td></tr>
-<tr><td><span style="font-weight:bold;">locationName</span></td><td>string</td><td>A human readable name for a Location <br/> MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
 <tr><td><span style="font-weight:bold;">locationType</span></td><td>string</td><td>A short description of a type of Location (ex. Field Station, Breeding Location, Storage Location, etc)</td></tr>
 <tr><td><span style="font-weight:bold;">parentLocationDbId</span></td><td>string</td><td>The unique identifier for a Location <br/> The Parent Location defines the encompassing Location that a smaller Location belongs to.  For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.</td></tr>
 <tr><td><span style="font-weight:bold;">parentLocationName</span></td><td>string</td><td>A human readable name for a location <br/> The Parent Location defines the encompassing Location that a smaller Location belongs to.   For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.</td></tr>
@@ -166,6 +166,7 @@ Add new locations to database
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">locationName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for a Location <br/> MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
 <tr><td><span style="font-weight:bold;">abbreviation</span></td><td>string</td><td>A shortened version of the human readable name for a Location</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">coordinateDescription</span></td><td>string</td><td>Describes the precision and landmarks of the coordinate values used for a Location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)</td></tr>
@@ -184,7 +185,6 @@ Add new locations to database
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">instituteAddress</span></td><td>string</td><td>The street address of the institute at a particular Location <br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.</td></tr>
 <tr><td><span style="font-weight:bold;">instituteName</span></td><td>string</td><td>The full name of the institute at a particular Location <br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.</td></tr>
-<tr><td><span style="font-weight:bold;">locationName</span></td><td>string</td><td>A human readable name for a Location <br/> MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
 <tr><td><span style="font-weight:bold;">locationType</span></td><td>string</td><td>A short description of a type of Location (ex. Field Station, Breeding Location, Storage Location, etc)</td></tr>
 <tr><td><span style="font-weight:bold;">parentLocationDbId</span></td><td>string</td><td>The unique identifier for a Location <br/> The Parent Location defines the encompassing Location that a smaller Location belongs to.  For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.</td></tr>
 <tr><td><span style="font-weight:bold;">parentLocationName</span></td><td>string</td><td>A human readable name for a location <br/> The Parent Location defines the encompassing Location that a smaller Location belongs to.   For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.</td></tr>
@@ -198,6 +198,8 @@ Add new locations to database
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">locationDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a Location</td></tr>
+<tr><td><span style="font-weight:bold;">locationName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for a Location <br/> MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
 <tr><td><span style="font-weight:bold;">abbreviation</span></td><td>string</td><td>A shortened version of the human readable name for a Location</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">coordinateDescription</span></td><td>string</td><td>Describes the precision and landmarks of the coordinate values used for a Location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)</td></tr>
@@ -216,8 +218,6 @@ Add new locations to database
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">instituteAddress</span></td><td>string</td><td>The street address of the institute at a particular Location <br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.</td></tr>
 <tr><td><span style="font-weight:bold;">instituteName</span></td><td>string</td><td>The full name of the institute at a particular Location <br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.</td></tr>
-<tr><td><span style="font-weight:bold;">locationDbId</span></td><td>string</td><td>The unique identifier for a Location</td></tr>
-<tr><td><span style="font-weight:bold;">locationName</span></td><td>string</td><td>A human readable name for a Location <br/> MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
 <tr><td><span style="font-weight:bold;">locationType</span></td><td>string</td><td>A short description of a type of Location (ex. Field Station, Breeding Location, Storage Location, etc)</td></tr>
 <tr><td><span style="font-weight:bold;">parentLocationDbId</span></td><td>string</td><td>The unique identifier for a Location <br/> The Parent Location defines the encompassing Location that a smaller Location belongs to.  For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.</td></tr>
 <tr><td><span style="font-weight:bold;">parentLocationName</span></td><td>string</td><td>A human readable name for a location <br/> The Parent Location defines the encompassing Location that a smaller Location belongs to.   For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.</td></tr>
@@ -383,6 +383,8 @@ Get details for a location.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">locationDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a Location</td></tr>
+<tr><td><span style="font-weight:bold;">locationName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for a Location <br/> MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
 <tr><td><span style="font-weight:bold;">abbreviation</span></td><td>string</td><td>A shortened version of the human readable name for a Location</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">coordinateDescription</span></td><td>string</td><td>Describes the precision and landmarks of the coordinate values used for a Location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)</td></tr>
@@ -401,8 +403,6 @@ Get details for a location.
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">instituteAddress</span></td><td>string</td><td>The street address of the institute at a particular Location <br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.</td></tr>
 <tr><td><span style="font-weight:bold;">instituteName</span></td><td>string</td><td>The full name of the institute at a particular Location <br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.</td></tr>
-<tr><td><span style="font-weight:bold;">locationDbId</span></td><td>string</td><td>The unique identifier for a Location</td></tr>
-<tr><td><span style="font-weight:bold;">locationName</span></td><td>string</td><td>A human readable name for a Location <br/> MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
 <tr><td><span style="font-weight:bold;">locationType</span></td><td>string</td><td>A short description of a type of Location (ex. Field Station, Breeding Location, Storage Location, etc)</td></tr>
 <tr><td><span style="font-weight:bold;">parentLocationDbId</span></td><td>string</td><td>The unique identifier for a Location <br/> The Parent Location defines the encompassing Location that a smaller Location belongs to.  For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.</td></tr>
 <tr><td><span style="font-weight:bold;">parentLocationName</span></td><td>string</td><td>A human readable name for a location <br/> The Parent Location defines the encompassing Location that a smaller Location belongs to.   For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.</td></tr>
@@ -520,6 +520,7 @@ Update the details for an existing location.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">locationName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for a Location <br/> MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
 <tr><td><span style="font-weight:bold;">abbreviation</span></td><td>string</td><td>A shortened version of the human readable name for a Location</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">coordinateDescription</span></td><td>string</td><td>Describes the precision and landmarks of the coordinate values used for a Location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)</td></tr>
@@ -538,7 +539,6 @@ Update the details for an existing location.
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">instituteAddress</span></td><td>string</td><td>The street address of the institute at a particular Location <br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.</td></tr>
 <tr><td><span style="font-weight:bold;">instituteName</span></td><td>string</td><td>The full name of the institute at a particular Location <br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.</td></tr>
-<tr><td><span style="font-weight:bold;">locationName</span></td><td>string</td><td>A human readable name for a Location <br/> MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
 <tr><td><span style="font-weight:bold;">locationType</span></td><td>string</td><td>A short description of a type of Location (ex. Field Station, Breeding Location, Storage Location, etc)</td></tr>
 <tr><td><span style="font-weight:bold;">parentLocationDbId</span></td><td>string</td><td>The unique identifier for a Location <br/> The Parent Location defines the encompassing Location that a smaller Location belongs to.  For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.</td></tr>
 <tr><td><span style="font-weight:bold;">parentLocationName</span></td><td>string</td><td>A human readable name for a location <br/> The Parent Location defines the encompassing Location that a smaller Location belongs to.   For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.</td></tr>
@@ -552,6 +552,8 @@ Update the details for an existing location.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">locationDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a Location</td></tr>
+<tr><td><span style="font-weight:bold;">locationName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for a Location <br/> MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
 <tr><td><span style="font-weight:bold;">abbreviation</span></td><td>string</td><td>A shortened version of the human readable name for a Location</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">coordinateDescription</span></td><td>string</td><td>Describes the precision and landmarks of the coordinate values used for a Location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)</td></tr>
@@ -570,8 +572,6 @@ Update the details for an existing location.
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">instituteAddress</span></td><td>string</td><td>The street address of the institute at a particular Location <br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.</td></tr>
 <tr><td><span style="font-weight:bold;">instituteName</span></td><td>string</td><td>The full name of the institute at a particular Location <br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.</td></tr>
-<tr><td><span style="font-weight:bold;">locationDbId</span></td><td>string</td><td>The unique identifier for a Location</td></tr>
-<tr><td><span style="font-weight:bold;">locationName</span></td><td>string</td><td>A human readable name for a Location <br/> MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
 <tr><td><span style="font-weight:bold;">locationType</span></td><td>string</td><td>A short description of a type of Location (ex. Field Station, Breeding Location, Storage Location, etc)</td></tr>
 <tr><td><span style="font-weight:bold;">parentLocationDbId</span></td><td>string</td><td>The unique identifier for a Location <br/> The Parent Location defines the encompassing Location that a smaller Location belongs to.  For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.</td></tr>
 <tr><td><span style="font-weight:bold;">parentLocationName</span></td><td>string</td><td>A human readable name for a location <br/> The Parent Location defines the encompassing Location that a smaller Location belongs to.   For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.</td></tr>
@@ -767,6 +767,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">locationDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a Location</td></tr>
+<tr><td><span style="font-weight:bold;">locationName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for a Location <br/> MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
 <tr><td><span style="font-weight:bold;">abbreviation</span></td><td>string</td><td>A shortened version of the human readable name for a Location</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">coordinateDescription</span></td><td>string</td><td>Describes the precision and landmarks of the coordinate values used for a Location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)</td></tr>
@@ -785,8 +787,6 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">instituteAddress</span></td><td>string</td><td>The street address of the institute at a particular Location <br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.</td></tr>
 <tr><td><span style="font-weight:bold;">instituteName</span></td><td>string</td><td>The full name of the institute at a particular Location <br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.</td></tr>
-<tr><td><span style="font-weight:bold;">locationDbId</span></td><td>string</td><td>The unique identifier for a Location</td></tr>
-<tr><td><span style="font-weight:bold;">locationName</span></td><td>string</td><td>A human readable name for a Location <br/> MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
 <tr><td><span style="font-weight:bold;">locationType</span></td><td>string</td><td>A short description of a type of Location (ex. Field Station, Breeding Location, Storage Location, etc)</td></tr>
 <tr><td><span style="font-weight:bold;">parentLocationDbId</span></td><td>string</td><td>The unique identifier for a Location <br/> The Parent Location defines the encompassing Location that a smaller Location belongs to.  For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.</td></tr>
 <tr><td><span style="font-weight:bold;">parentLocationName</span></td><td>string</td><td>A human readable name for a location <br/> The Parent Location defines the encompassing Location that a smaller Location belongs to.   For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.</td></tr>
@@ -1035,6 +1035,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">locationDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a Location</td></tr>
+<tr><td><span style="font-weight:bold;">locationName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for a Location <br/> MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
 <tr><td><span style="font-weight:bold;">abbreviation</span></td><td>string</td><td>A shortened version of the human readable name for a Location</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">coordinateDescription</span></td><td>string</td><td>Describes the precision and landmarks of the coordinate values used for a Location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)</td></tr>
@@ -1053,8 +1055,6 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">instituteAddress</span></td><td>string</td><td>The street address of the institute at a particular Location <br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.</td></tr>
 <tr><td><span style="font-weight:bold;">instituteName</span></td><td>string</td><td>The full name of the institute at a particular Location <br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.</td></tr>
-<tr><td><span style="font-weight:bold;">locationDbId</span></td><td>string</td><td>The unique identifier for a Location</td></tr>
-<tr><td><span style="font-weight:bold;">locationName</span></td><td>string</td><td>A human readable name for a Location <br/> MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.</td></tr>
 <tr><td><span style="font-weight:bold;">locationType</span></td><td>string</td><td>A short description of a type of Location (ex. Field Station, Breeding Location, Storage Location, etc)</td></tr>
 <tr><td><span style="font-weight:bold;">parentLocationDbId</span></td><td>string</td><td>The unique identifier for a Location <br/> The Parent Location defines the encompassing Location that a smaller Location belongs to.  For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.</td></tr>
 <tr><td><span style="font-weight:bold;">parentLocationName</span></td><td>string</td><td>A human readable name for a location <br/> The Parent Location defines the encompassing Location that a smaller Location belongs to.   For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.</td></tr>

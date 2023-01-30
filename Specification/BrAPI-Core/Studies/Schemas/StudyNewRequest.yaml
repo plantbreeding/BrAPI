@@ -7,6 +7,8 @@ components:
   schemas:
     StudyNewRequest:
       type: object
+      required: 
+      - studyName
       properties:
         active:
           description: A flag to indicate if a Study is currently active and ongoing

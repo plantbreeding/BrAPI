@@ -15,6 +15,9 @@ Get filtered set of generic lists
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">listDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a List</td></tr>
+<tr><td><span style="font-weight:bold;">listName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human readable name of a List</td></tr>
+<tr><td><span style="font-weight:bold;">listType</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">dateCreated</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was first created</td></tr>
 <tr><td><span style="font-weight:bold;">dateModified</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was last updated</td></tr>
@@ -22,14 +25,11 @@ Get filtered set of generic lists
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td><span style="font-weight:bold;">listDbId</span></td><td>string</td><td>The unique identifier for a List</td></tr>
 <tr><td><span style="font-weight:bold;">listDescription</span></td><td>string</td><td>Description of a List</td></tr>
-<tr><td><span style="font-weight:bold;">listName</span></td><td>string</td><td>Human readable name of a List</td></tr>
 <tr><td><span style="font-weight:bold;">listOwnerName</span></td><td>string</td><td>Human readable name of a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listOwnerPersonDbId</span></td><td>string</td><td>The unique identifier for a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listSize</span></td><td>integer</td><td>The number of elements in a List</td></tr>
 <tr><td><span style="font-weight:bold;">listSource</span></td><td>string</td><td>The description of where a List originated from</td></tr>
-<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 </table>
 
 
@@ -129,6 +129,8 @@ Create new list objects in the database
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">listName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human readable name of a List</td></tr>
+<tr><td><span style="font-weight:bold;">listType</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">data</span></td><td>array[string]</td><td>The array of DbIds of the BrAPI objects contained in a List</td></tr>
 <tr><td><span style="font-weight:bold;">dateCreated</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was first created</td></tr>
@@ -138,12 +140,10 @@ Create new list objects in the database
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">listDescription</span></td><td>string</td><td>Description of a List</td></tr>
-<tr><td><span style="font-weight:bold;">listName</span></td><td>string</td><td>Human readable name of a List</td></tr>
 <tr><td><span style="font-weight:bold;">listOwnerName</span></td><td>string</td><td>Human readable name of a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listOwnerPersonDbId</span></td><td>string</td><td>The unique identifier for a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listSize</span></td><td>integer</td><td>The number of elements in a List</td></tr>
 <tr><td><span style="font-weight:bold;">listSource</span></td><td>string</td><td>The description of where a List originated from</td></tr>
-<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 </table>
 
 
@@ -151,6 +151,9 @@ Create new list objects in the database
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">listDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a List</td></tr>
+<tr><td><span style="font-weight:bold;">listName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human readable name of a List</td></tr>
+<tr><td><span style="font-weight:bold;">listType</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">dateCreated</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was first created</td></tr>
 <tr><td><span style="font-weight:bold;">dateModified</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was last updated</td></tr>
@@ -158,14 +161,11 @@ Create new list objects in the database
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td><span style="font-weight:bold;">listDbId</span></td><td>string</td><td>The unique identifier for a List</td></tr>
 <tr><td><span style="font-weight:bold;">listDescription</span></td><td>string</td><td>Description of a List</td></tr>
-<tr><td><span style="font-weight:bold;">listName</span></td><td>string</td><td>Human readable name of a List</td></tr>
 <tr><td><span style="font-weight:bold;">listOwnerName</span></td><td>string</td><td>Human readable name of a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listOwnerPersonDbId</span></td><td>string</td><td>The unique identifier for a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listSize</span></td><td>integer</td><td>The number of elements in a List</td></tr>
 <tr><td><span style="font-weight:bold;">listSource</span></td><td>string</td><td>The description of where a List originated from</td></tr>
-<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 </table>
 
 
@@ -289,6 +289,9 @@ Get a specific generic lists
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">listDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a List</td></tr>
+<tr><td><span style="font-weight:bold;">listName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human readable name of a List</td></tr>
+<tr><td><span style="font-weight:bold;">listType</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">data</span></td><td>array[string]</td><td>The array of DbIds of the BrAPI objects contained in a List</td></tr>
 <tr><td><span style="font-weight:bold;">dateCreated</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was first created</td></tr>
@@ -297,14 +300,11 @@ Get a specific generic lists
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td><span style="font-weight:bold;">listDbId</span></td><td>string</td><td>The unique identifier for a List</td></tr>
 <tr><td><span style="font-weight:bold;">listDescription</span></td><td>string</td><td>Description of a List</td></tr>
-<tr><td><span style="font-weight:bold;">listName</span></td><td>string</td><td>Human readable name of a List</td></tr>
 <tr><td><span style="font-weight:bold;">listOwnerName</span></td><td>string</td><td>Human readable name of a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listOwnerPersonDbId</span></td><td>string</td><td>The unique identifier for a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listSize</span></td><td>integer</td><td>The number of elements in a List</td></tr>
 <tr><td><span style="font-weight:bold;">listSource</span></td><td>string</td><td>The description of where a List originated from</td></tr>
-<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 </table>
 
 
@@ -399,6 +399,8 @@ Update an existing generic list
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">listName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human readable name of a List</td></tr>
+<tr><td><span style="font-weight:bold;">listType</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">data</span></td><td>array[string]</td><td>The array of DbIds of the BrAPI objects contained in a List</td></tr>
 <tr><td><span style="font-weight:bold;">dateCreated</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was first created</td></tr>
@@ -408,12 +410,10 @@ Update an existing generic list
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">listDescription</span></td><td>string</td><td>Description of a List</td></tr>
-<tr><td><span style="font-weight:bold;">listName</span></td><td>string</td><td>Human readable name of a List</td></tr>
 <tr><td><span style="font-weight:bold;">listOwnerName</span></td><td>string</td><td>Human readable name of a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listOwnerPersonDbId</span></td><td>string</td><td>The unique identifier for a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listSize</span></td><td>integer</td><td>The number of elements in a List</td></tr>
 <tr><td><span style="font-weight:bold;">listSource</span></td><td>string</td><td>The description of where a List originated from</td></tr>
-<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 </table>
 
 
@@ -421,6 +421,9 @@ Update an existing generic list
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">listDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a List</td></tr>
+<tr><td><span style="font-weight:bold;">listName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human readable name of a List</td></tr>
+<tr><td><span style="font-weight:bold;">listType</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">data</span></td><td>array[string]</td><td>The array of DbIds of the BrAPI objects contained in a List</td></tr>
 <tr><td><span style="font-weight:bold;">dateCreated</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was first created</td></tr>
@@ -429,14 +432,11 @@ Update an existing generic list
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td><span style="font-weight:bold;">listDbId</span></td><td>string</td><td>The unique identifier for a List</td></tr>
 <tr><td><span style="font-weight:bold;">listDescription</span></td><td>string</td><td>Description of a List</td></tr>
-<tr><td><span style="font-weight:bold;">listName</span></td><td>string</td><td>Human readable name of a List</td></tr>
 <tr><td><span style="font-weight:bold;">listOwnerName</span></td><td>string</td><td>Human readable name of a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listOwnerPersonDbId</span></td><td>string</td><td>The unique identifier for a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listSize</span></td><td>integer</td><td>The number of elements in a List</td></tr>
 <tr><td><span style="font-weight:bold;">listSource</span></td><td>string</td><td>The description of where a List originated from</td></tr>
-<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 </table>
 
 
@@ -569,6 +569,9 @@ Add new data members to a specific List
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">listDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a List</td></tr>
+<tr><td><span style="font-weight:bold;">listName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human readable name of a List</td></tr>
+<tr><td><span style="font-weight:bold;">listType</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">data</span></td><td>array[string]</td><td>The array of DbIds of the BrAPI objects contained in a List</td></tr>
 <tr><td><span style="font-weight:bold;">dateCreated</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was first created</td></tr>
@@ -577,14 +580,11 @@ Add new data members to a specific List
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td><span style="font-weight:bold;">listDbId</span></td><td>string</td><td>The unique identifier for a List</td></tr>
 <tr><td><span style="font-weight:bold;">listDescription</span></td><td>string</td><td>Description of a List</td></tr>
-<tr><td><span style="font-weight:bold;">listName</span></td><td>string</td><td>Human readable name of a List</td></tr>
 <tr><td><span style="font-weight:bold;">listOwnerName</span></td><td>string</td><td>Human readable name of a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listOwnerPersonDbId</span></td><td>string</td><td>The unique identifier for a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listSize</span></td><td>integer</td><td>The number of elements in a List</td></tr>
 <tr><td><span style="font-weight:bold;">listSource</span></td><td>string</td><td>The description of where a List originated from</td></tr>
-<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 </table>
 
 
@@ -696,6 +696,9 @@ Add new data members to a specific List
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">listDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a List</td></tr>
+<tr><td><span style="font-weight:bold;">listName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human readable name of a List</td></tr>
+<tr><td><span style="font-weight:bold;">listType</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">data</span></td><td>array[string]</td><td>The array of DbIds of the BrAPI objects contained in a List</td></tr>
 <tr><td><span style="font-weight:bold;">dateCreated</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was first created</td></tr>
@@ -704,14 +707,11 @@ Add new data members to a specific List
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td><span style="font-weight:bold;">listDbId</span></td><td>string</td><td>The unique identifier for a List</td></tr>
 <tr><td><span style="font-weight:bold;">listDescription</span></td><td>string</td><td>Description of a List</td></tr>
-<tr><td><span style="font-weight:bold;">listName</span></td><td>string</td><td>Human readable name of a List</td></tr>
 <tr><td><span style="font-weight:bold;">listOwnerName</span></td><td>string</td><td>Human readable name of a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listOwnerPersonDbId</span></td><td>string</td><td>The unique identifier for a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listSize</span></td><td>integer</td><td>The number of elements in a List</td></tr>
 <tr><td><span style="font-weight:bold;">listSource</span></td><td>string</td><td>The description of where a List originated from</td></tr>
-<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 </table>
 
 
@@ -844,6 +844,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">listDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a List</td></tr>
+<tr><td><span style="font-weight:bold;">listName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human readable name of a List</td></tr>
+<tr><td><span style="font-weight:bold;">listType</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">dateCreated</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was first created</td></tr>
 <tr><td><span style="font-weight:bold;">dateModified</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was last updated</td></tr>
@@ -851,14 +854,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td><span style="font-weight:bold;">listDbId</span></td><td>string</td><td>The unique identifier for a List</td></tr>
 <tr><td><span style="font-weight:bold;">listDescription</span></td><td>string</td><td>Description of a List</td></tr>
-<tr><td><span style="font-weight:bold;">listName</span></td><td>string</td><td>Human readable name of a List</td></tr>
 <tr><td><span style="font-weight:bold;">listOwnerName</span></td><td>string</td><td>Human readable name of a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listOwnerPersonDbId</span></td><td>string</td><td>The unique identifier for a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listSize</span></td><td>integer</td><td>The number of elements in a List</td></tr>
 <tr><td><span style="font-weight:bold;">listSource</span></td><td>string</td><td>The description of where a List originated from</td></tr>
-<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 </table>
 
 
@@ -1040,6 +1040,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">listDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a List</td></tr>
+<tr><td><span style="font-weight:bold;">listName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human readable name of a List</td></tr>
+<tr><td><span style="font-weight:bold;">listType</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">dateCreated</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was first created</td></tr>
 <tr><td><span style="font-weight:bold;">dateModified</span></td><td>string<br>(date-time)</td><td>Timestamp when the entity was last updated</td></tr>
@@ -1047,14 +1050,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td><span style="font-weight:bold;">listDbId</span></td><td>string</td><td>The unique identifier for a List</td></tr>
 <tr><td><span style="font-weight:bold;">listDescription</span></td><td>string</td><td>Description of a List</td></tr>
-<tr><td><span style="font-weight:bold;">listName</span></td><td>string</td><td>Human readable name of a List</td></tr>
 <tr><td><span style="font-weight:bold;">listOwnerName</span></td><td>string</td><td>Human readable name of a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listOwnerPersonDbId</span></td><td>string</td><td>The unique identifier for a List Owner. (usually a user or person)</td></tr>
 <tr><td><span style="font-weight:bold;">listSize</span></td><td>integer</td><td>The number of elements in a List</td></tr>
 <tr><td><span style="font-weight:bold;">listSource</span></td><td>string</td><td>The description of where a List originated from</td></tr>
-<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td>A flag to indicate the type of objects that are referneced in a List</td></tr>
 </table>
 
 

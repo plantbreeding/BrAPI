@@ -7,6 +7,8 @@ components:
   schemas:
     ProgramNewRequest:
       type: object
+      required:
+      - programName
       properties:
         abbreviation:
           description: A shortened version of the human readable name for a Program

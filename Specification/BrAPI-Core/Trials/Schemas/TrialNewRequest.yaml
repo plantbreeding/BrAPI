@@ -7,6 +7,8 @@ components:
   schemas:
     TrialNewRequest:
       type: object
+      required:
+      - trialName
       properties:
         active:
           description: A flag to indicate if a Trial is currently active and ongoing

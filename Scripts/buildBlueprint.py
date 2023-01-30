@@ -47,7 +47,7 @@ def go():
 	#if os.path.exists(outREADMEFilePath):
 	#	os.remove(outREADMEFilePath)
 	
-	sources = glob.glob(sourcePath + '**/README.md', recursive=True)
+	sources = glob.glob(sourcePath + '*/README.md', recursive=True)
 	sources = sorted(sources)
 		
 	fullText = headerHTML
@@ -55,7 +55,8 @@ def go():
 		source = source.replace('\\', '/')
 		print(source)
 		with open(source, "r") as inFile:
-			fullText += inFile.read()
+			filetext = inFile.read()
+			fullText += filetext
 	
 	with open(outFilePath, "w") as outFile:
 		outFile.write(fullText)

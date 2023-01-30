@@ -19,3 +19,5 @@ components:
             description: The unique identifier for a Location
             type: string
             example: 3cfdd67d
+        required:
+        - locationDbId
