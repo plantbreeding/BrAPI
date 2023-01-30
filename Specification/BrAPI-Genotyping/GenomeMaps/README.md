@@ -22,18 +22,18 @@ Get list of maps
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The common name of the `Crop`</td></tr>
+<tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a `GenomeMap`</td></tr>
+<tr><td><span style="font-weight:bold;">type</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The type of map this represents, usually "Genetic" or "Physical"</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">comments</span></td><td>string</td><td>Additional comments about a `GenomeMap`</td></tr>
-<tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>The common name of the `Crop`</td></tr>
 <tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">linkageGroupCount</span></td><td>integer</td><td>The number of linkage groups present in a `GenomeMap`</td></tr>
-<tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string</td><td>The ID which uniquely identifies a `GenomeMap`</td></tr>
 <tr><td><span style="font-weight:bold;">mapName</span></td><td>string</td><td>A human readable name for a `GenomeMap`</td></tr>
 <tr><td><span style="font-weight:bold;">mapPUI</span></td><td>string</td><td>The DOI or other permanent identifier for a `GenomeMap`</td></tr>
 <tr><td><span style="font-weight:bold;">markerCount</span></td><td>integer</td><td>The number of markers present in a `GenomeMap`</td></tr>
 <tr><td><span style="font-weight:bold;">publishedDate</span></td><td>string<br>(date-time)</td><td>The date this `GenomeMap` was published</td></tr>
 <tr><td><span style="font-weight:bold;">scientificName</span></td><td>string</td><td>Full scientific binomial format name. This includes Genus, Species, and Sub-species</td></tr>
-<tr><td><span style="font-weight:bold;">type</span></td><td>string</td><td>The type of map this represents, usually "Genetic" or "Physical"</td></tr>
 <tr><td><span style="font-weight:bold;">unit</span></td><td>string</td><td>The units used to describe the data in a `GenomeMap`</td></tr>
 </table>
 
@@ -127,18 +127,18 @@ Provides the number of markers on each linkageGroup and the max position on the 
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The common name of the `Crop`</td></tr>
+<tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a `GenomeMap`</td></tr>
+<tr><td><span style="font-weight:bold;">type</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The type of map this represents, usually "Genetic" or "Physical"</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">comments</span></td><td>string</td><td>Additional comments about a `GenomeMap`</td></tr>
-<tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>The common name of the `Crop`</td></tr>
 <tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">linkageGroupCount</span></td><td>integer</td><td>The number of linkage groups present in a `GenomeMap`</td></tr>
-<tr><td><span style="font-weight:bold;">mapDbId</span></td><td>string</td><td>The ID which uniquely identifies a `GenomeMap`</td></tr>
 <tr><td><span style="font-weight:bold;">mapName</span></td><td>string</td><td>A human readable name for a `GenomeMap`</td></tr>
 <tr><td><span style="font-weight:bold;">mapPUI</span></td><td>string</td><td>The DOI or other permanent identifier for a `GenomeMap`</td></tr>
 <tr><td><span style="font-weight:bold;">markerCount</span></td><td>integer</td><td>The number of markers present in a `GenomeMap`</td></tr>
 <tr><td><span style="font-weight:bold;">publishedDate</span></td><td>string<br>(date-time)</td><td>The date this `GenomeMap` was published</td></tr>
 <tr><td><span style="font-weight:bold;">scientificName</span></td><td>string</td><td>Full scientific binomial format name. This includes Genus, Species, and Sub-species</td></tr>
-<tr><td><span style="font-weight:bold;">type</span></td><td>string</td><td>The type of map this represents, usually "Genetic" or "Physical"</td></tr>
 <tr><td><span style="font-weight:bold;">unit</span></td><td>string</td><td>The units used to describe the data in a `GenomeMap`</td></tr>
 </table>
 
