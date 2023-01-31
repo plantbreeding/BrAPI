@@ -13,6 +13,8 @@ components:
         module: BrAPI-Genotyping
         title: Variant
         description: A `Variant` represents a change in DNA sequence relative to some reference. For example, a variant could represent a classic marker, a SNP, or an insertion. This is equivalent to a row in VCF.
+      required:
+      - variantDbId
       properties:
         alternate_bases:
           deprecated: true

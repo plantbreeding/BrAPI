@@ -13,6 +13,8 @@ components:
         module: BrAPI-Genotyping
         title: Variant
         description: A VariantSet is a collection of variants and variant calls intended to be analyzed together.
+      required:
+      - variantSetDbId
       properties:
         additionalInfo:
           additionalProperties:

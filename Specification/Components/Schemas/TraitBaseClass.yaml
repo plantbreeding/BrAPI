@@ -10,6 +10,8 @@ components:
         A Trait describes what property is being observed. 
         <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height". 
       type: object
+      required:
+      - traitName
       properties:
         additionalInfo:
           additionalProperties:

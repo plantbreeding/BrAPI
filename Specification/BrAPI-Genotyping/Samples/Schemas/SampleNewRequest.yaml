@@ -7,6 +7,8 @@ components:
   schemas:
     SampleNewRequest:
       type: object
+      required:
+      - sampleName
       properties:
         additionalInfo:
           additionalProperties:

@@ -13,6 +13,9 @@ components:
         module: BrAPI-Genotyping
         title: Reference
         description: A `Reference` is a canonical assembled contig, intended to act as a reference coordinate space for other genomic annotations. A single `Reference` might represent the human chromosome 1, for instance. `References` are designed to be immutable.
+      required:
+      - referenceDbId
+      - referenceName
       properties:
         additionalInfo:
           additionalProperties:

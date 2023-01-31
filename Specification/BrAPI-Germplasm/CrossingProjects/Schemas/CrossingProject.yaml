@@ -14,6 +14,8 @@ components:
             module: BrAPI-Germplasm
             title: CrossingProject
             description: A project structure where a list of PlannedCrosses is generated, the crossing events occur in the field, and the resulting actual Crosses can documented. 
+          required:
+          - crossingProjectDbId
           properties:
             crossingProjectDbId:
               description: The unique identifier for a crossing project

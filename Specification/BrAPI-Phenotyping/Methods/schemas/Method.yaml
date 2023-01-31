@@ -13,6 +13,8 @@ components:
           primaryModel: true
           module: BrAPI-Phenotyping
           title: Method
+        required:
+        - methodDbId
         properties:
           methodDbId:
             description: Method unique identifier

@@ -14,6 +14,8 @@ components:
           module: BrAPI-Phenotyping
           title: Ontology
           description: The identifier and metadata needed to reference an external controlled vocabulary 
+        required:
+        - ontologyDbId
         properties:
           ontologyDbId:
             description: Ontology database unique identifier

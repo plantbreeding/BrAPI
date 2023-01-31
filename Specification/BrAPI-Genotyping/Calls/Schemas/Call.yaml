@@ -16,6 +16,10 @@ components:
         A `Call` represents the determination of genotype with respect to a particular `Variant`.
 
         It may include associated information such as quality and phasing. For example, a call might assign a probability of 0.32 to the occurrence of a SNP named RS_1234 in a call set with the name NA_12345.
+      required:
+      - callSetDbId
+      - variantDbId
+      - variantSetDbId
       properties:
         additionalInfo:
           additionalProperties:
