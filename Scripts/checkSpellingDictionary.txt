@@ -12,7 +12,7 @@ md5sum md5checksum md5checksums checksum
 url urls href html webpage www wiews prev php
 
 enum wsmime uuid deprecated endpoints
-metadata asc desc schemas
+metadata asc desc schemas schema instantiation instantiations
 wiki wikipedia
 uppercase lowercase concatenated whitespace tokenized bibliographical
 xref xrefs xmlns foaf w3c
@@ -23,16 +23,16 @@ boolean ordinal recursively
 thh hhmm yyyy o8601 timezone date-time timestamp s84 t18 easting northing
 
 
-bioinformatics plantbreeding datasets
+bioinformatics plantbreeding datasets ontology
 germplasm genebank genebanks
 multi-crop subblock
 pui peco envo puid r001 geodetic georeference georeferencing gazetteer
 
-phenotypes phenotyping genotyping agronomy agronomic phenological agronomical cytogenetic Haplotype
+phenotypes phenotyping genotyping agronomy agronomic phenological agronomical cytogenetic Haplotype biotic abiotic
 
 authorships
-centimeter centimeters unphased log10 
-summarising submitter descriptors hyphens
+centimeter centimeters unphased log10 polygon polygons
+summarising submitter descriptors hyphens granularity
 
 mcpd ncbi miappe ebi biosample biosamples inra gnpis cipos ciend svlen bioversity FAO
 
@@ -46,7 +46,7 @@ Zea mays fructus c2365e900c81a89cf74d83dab60df146
 
 tomatillo hadron coladas townsville
 
-inorg tiimp i001 tidep timix allelematrix
+inorg tiimp i001 tidep timix allelematrix a001
 
 https://www.bioversityInternational.org/fileadmin/user_upload/online_library/publications/pdfs/FAOBIOVERSITY_MULTI-CROP_PASSPORT_DESCRIPTORS_V.2.1_2015_2020.pdf
 https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3

@@ -11,12 +11,12 @@ components:
         primaryModel: true
         module: BrAPI-Genotyping
         title: MarkerPosition
-        description: A MarkerPosition describes a particular genetic marker at a specific position on a GenomeMap. A collection of MarkerPostions make up the data to represent a full GenomeMap.
+        description: A MarkerPosition describes a particular genetic marker at a specific position on a GenomeMap. A collection of MarkerPositions make up the data to represent a full GenomeMap.
       properties:
         additionalInfo:
           additionalProperties:
             type: string
-          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
           type: object
         mapDbId:
           description:  The ID which uniquely identifies a `GenomeMap`

@@ -13,7 +13,7 @@ components:
           primaryModel: true
           module: BrAPI-Core
           title: Location
-          description: A geographic Location on earth. This is ussually used to describe the general area where an experiment took place. For example, a natural site, an experimental field, a greenhouse, a phenotyping facility, etc. 
+          description: A geographic Location on earth. This is usually used to describe the general area where an experiment took place. For example, a natural site, an experimental field, a greenhouse, a phenotyping facility, etc. 
         properties:
           locationDbId:
             description: The unique identifier for a Location

@@ -17,7 +17,7 @@ components:
         additionalInfo:
           additionalProperties:
             type: string
-          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
           type: object
         commonCropName:
           description: Common name for the crop associated with this trial
@@ -33,7 +33,7 @@ components:
           items:
             properties:
               datasetPUI:
-                description: The DOI or other permanent unique idenifier for this published dataset
+                description: The DOI or other permanent unique identifier for this published dataset
                 type: string
                 example: doi:10.15454/312953986E3
               license:

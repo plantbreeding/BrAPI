@@ -68,7 +68,9 @@ def dereferenceAllOfClause(obj, parent):
                     comboObj = {'properties': {}, 'type': 'object', 'required': []}
                     for item in obj[fieldStr]:
                         itemObj = dereferenceAll(item, parent)
-                        comboObj['properties'] = {**(comboObj['properties']), **(itemObj['properties'])}
+                        
+                        if 'properties' in itemObj:
+                            comboObj['properties'] = {**(comboObj['properties']), **(itemObj['properties'])}
                         if 'required' in itemObj:
                             comboObj['required'] = list(set(comboObj['required'] + itemObj['required']))
                         if 'title' in itemObj:

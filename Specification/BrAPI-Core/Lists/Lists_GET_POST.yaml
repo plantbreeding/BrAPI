@@ -8,7 +8,7 @@ paths:
       summary: Get filtered set of generic lists
       description: Get filtered set of generic lists
       parameters:
-      - description: A flag to indicate the type of objects that are referneced in a List 
+      - description: A flag to indicate the type of objects that are referenced in a List 
         in: query
         name: listType
         required: false

@@ -80,7 +80,7 @@ components:
             type: string
           example: [ 'a03202ec', '274e4f63' ]
         germplasmPUIs:
-          description: A list of premenant unique identifiers associated with `Germplasm`
+          description: A list of permanent unique identifiers associated with `Germplasm`
           type: array
           items:
             type: string
