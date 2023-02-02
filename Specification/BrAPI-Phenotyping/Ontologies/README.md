@@ -19,14 +19,14 @@ Each Ontology record describes the metadata of an existing ontology, it does not
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology database unique identifier</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology name</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">authors</span></td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>Ontology copyright</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Human readable description of Ontology</td></tr>
 <tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">licence</span></td><td>string</td><td>Ontology licence</td></tr>
-<tr><td><span style="font-weight:bold;">ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td><span style="font-weight:bold;">ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
 <tr><td><span style="font-weight:bold;">version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 </table>
 
@@ -109,13 +109,13 @@ Each Ontology record describes the metadata of an existing ontology, it does not
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology name</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">authors</span></td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>Ontology copyright</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Human readable description of Ontology</td></tr>
 <tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">licence</span></td><td>string</td><td>Ontology licence</td></tr>
-<tr><td><span style="font-weight:bold;">ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
 <tr><td><span style="font-weight:bold;">version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 </table>
 
@@ -124,14 +124,14 @@ Each Ontology record describes the metadata of an existing ontology, it does not
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology database unique identifier</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology name</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">authors</span></td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>Ontology copyright</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Human readable description of Ontology</td></tr>
 <tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">licence</span></td><td>string</td><td>Ontology licence</td></tr>
-<tr><td><span style="font-weight:bold;">ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td><span style="font-weight:bold;">ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
 <tr><td><span style="font-weight:bold;">version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 </table>
 
@@ -229,14 +229,14 @@ Each Ontology record describes the metadata of an existing ontology, it does not
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology database unique identifier</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology name</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">authors</span></td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>Ontology copyright</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Human readable description of Ontology</td></tr>
 <tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">licence</span></td><td>string</td><td>Ontology licence</td></tr>
-<tr><td><span style="font-weight:bold;">ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td><span style="font-weight:bold;">ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
 <tr><td><span style="font-weight:bold;">version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 </table>
 
@@ -312,13 +312,13 @@ Each Ontology record describes the metadata of an existing ontology, it does not
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology name</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">authors</span></td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>Ontology copyright</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Human readable description of Ontology</td></tr>
 <tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">licence</span></td><td>string</td><td>Ontology licence</td></tr>
-<tr><td><span style="font-weight:bold;">ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
 <tr><td><span style="font-weight:bold;">version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 </table>
 
@@ -327,14 +327,14 @@ Each Ontology record describes the metadata of an existing ontology, it does not
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology database unique identifier</td></tr>
+<tr><td><span style="font-weight:bold;">ontologyName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology name</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">authors</span></td><td>string</td><td>Ontology's list of authors (no specific format)</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>Ontology copyright</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Human readable description of Ontology</td></tr>
 <tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">licence</span></td><td>string</td><td>Ontology licence</td></tr>
-<tr><td><span style="font-weight:bold;">ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td><span style="font-weight:bold;">ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
 <tr><td><span style="font-weight:bold;">version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 </table>
 

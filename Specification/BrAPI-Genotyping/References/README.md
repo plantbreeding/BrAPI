@@ -18,7 +18,9 @@ A reference genome is a genome assembly that other genomes are compared to and d
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">referenceDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a `Reference`</td></tr>
+<tr><td><span style="font-weight:bold;">referenceName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of a `Reference` within a `ReferenceSet`.</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -27,8 +29,6 @@ A reference genome is a genome assembly that other genomes are compared to and d
 <tr><td><span style="font-weight:bold;">isDerived</span></td><td>boolean<br>(boolean)</td><td>A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.</td></tr>
 <tr><td><span style="font-weight:bold;">length</span></td><td>integer</td><td>The length of this `Reference` sequence.</td></tr>
 <tr><td><span style="font-weight:bold;">md5checksum</span></td><td>string</td><td>The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).</td></tr>
-<tr><td><span style="font-weight:bold;">referenceDbId</span></td><td>string</td><td>The unique identifier for a `Reference`</td></tr>
-<tr><td><span style="font-weight:bold;">referenceName</span></td><td>string</td><td>The human readable name of a `Reference` within a `ReferenceSet`.</td></tr>
 <tr><td><span style="font-weight:bold;">referenceSetDbId</span></td><td>string</td><td>The unique identifier for a `ReferenceSet`</td></tr>
 <tr><td><span style="font-weight:bold;">referenceSetName</span></td><td>string</td><td>The human readable name of a `ReferenceSet`</td></tr>
 <tr><td><span style="font-weight:bold;">sourceAccessions</span></td><td>array[string]</td><td>All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.</td></tr>
@@ -159,7 +159,9 @@ A reference genome is a genome assembly that other genomes are compared to and d
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">referenceDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a `Reference`</td></tr>
+<tr><td><span style="font-weight:bold;">referenceName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of a `Reference` within a `ReferenceSet`.</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -168,8 +170,6 @@ A reference genome is a genome assembly that other genomes are compared to and d
 <tr><td><span style="font-weight:bold;">isDerived</span></td><td>boolean<br>(boolean)</td><td>A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.</td></tr>
 <tr><td><span style="font-weight:bold;">length</span></td><td>integer</td><td>The length of this `Reference` sequence.</td></tr>
 <tr><td><span style="font-weight:bold;">md5checksum</span></td><td>string</td><td>The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).</td></tr>
-<tr><td><span style="font-weight:bold;">referenceDbId</span></td><td>string</td><td>The unique identifier for a `Reference`</td></tr>
-<tr><td><span style="font-weight:bold;">referenceName</span></td><td>string</td><td>The human readable name of a `Reference` within a `ReferenceSet`.</td></tr>
 <tr><td><span style="font-weight:bold;">referenceSetDbId</span></td><td>string</td><td>The unique identifier for a `ReferenceSet`</td></tr>
 <tr><td><span style="font-weight:bold;">referenceSetName</span></td><td>string</td><td>The human readable name of a `ReferenceSet`</td></tr>
 <tr><td><span style="font-weight:bold;">sourceAccessions</span></td><td>array[string]</td><td>All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.</td></tr>
@@ -396,7 +396,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">referenceDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a `Reference`</td></tr>
+<tr><td><span style="font-weight:bold;">referenceName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of a `Reference` within a `ReferenceSet`.</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -405,8 +407,6 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">isDerived</span></td><td>boolean<br>(boolean)</td><td>A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.</td></tr>
 <tr><td><span style="font-weight:bold;">length</span></td><td>integer</td><td>The length of this `Reference` sequence.</td></tr>
 <tr><td><span style="font-weight:bold;">md5checksum</span></td><td>string</td><td>The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).</td></tr>
-<tr><td><span style="font-weight:bold;">referenceDbId</span></td><td>string</td><td>The unique identifier for a `Reference`</td></tr>
-<tr><td><span style="font-weight:bold;">referenceName</span></td><td>string</td><td>The human readable name of a `Reference` within a `ReferenceSet`.</td></tr>
 <tr><td><span style="font-weight:bold;">referenceSetDbId</span></td><td>string</td><td>The unique identifier for a `ReferenceSet`</td></tr>
 <tr><td><span style="font-weight:bold;">referenceSetName</span></td><td>string</td><td>The human readable name of a `ReferenceSet`</td></tr>
 <tr><td><span style="font-weight:bold;">sourceAccessions</span></td><td>array[string]</td><td>All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.</td></tr>
@@ -627,7 +627,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">referenceDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a `Reference`</td></tr>
+<tr><td><span style="font-weight:bold;">referenceName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of a `Reference` within a `ReferenceSet`.</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -636,8 +638,6 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">isDerived</span></td><td>boolean<br>(boolean)</td><td>A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.</td></tr>
 <tr><td><span style="font-weight:bold;">length</span></td><td>integer</td><td>The length of this `Reference` sequence.</td></tr>
 <tr><td><span style="font-weight:bold;">md5checksum</span></td><td>string</td><td>The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).</td></tr>
-<tr><td><span style="font-weight:bold;">referenceDbId</span></td><td>string</td><td>The unique identifier for a `Reference`</td></tr>
-<tr><td><span style="font-weight:bold;">referenceName</span></td><td>string</td><td>The human readable name of a `Reference` within a `ReferenceSet`.</td></tr>
 <tr><td><span style="font-weight:bold;">referenceSetDbId</span></td><td>string</td><td>The unique identifier for a `ReferenceSet`</td></tr>
 <tr><td><span style="font-weight:bold;">referenceSetName</span></td><td>string</td><td>The human readable name of a `ReferenceSet`</td></tr>
 <tr><td><span style="font-weight:bold;">sourceAccessions</span></td><td>array[string]</td><td>All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.</td></tr>

@@ -16,7 +16,7 @@ Get filtered list of people
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">personDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Unique ID for a person</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>description of this person</td></tr>
 <tr><td><span style="font-weight:bold;">emailAddress</span></td><td>string</td><td>email address for this person</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -127,7 +127,7 @@ Create new People entities. `personDbId` is generated and managed by the server.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>description of this person</td></tr>
 <tr><td><span style="font-weight:bold;">emailAddress</span></td><td>string</td><td>email address for this person</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -148,7 +148,7 @@ Create new People entities. `personDbId` is generated and managed by the server.
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">personDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Unique ID for a person</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>description of this person</td></tr>
 <tr><td><span style="font-weight:bold;">emailAddress</span></td><td>string</td><td>email address for this person</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -279,7 +279,7 @@ Get the details for a specific Person
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">personDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Unique ID for a person</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>description of this person</td></tr>
 <tr><td><span style="font-weight:bold;">emailAddress</span></td><td>string</td><td>email address for this person</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -381,7 +381,7 @@ Update an existing Person
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>description of this person</td></tr>
 <tr><td><span style="font-weight:bold;">emailAddress</span></td><td>string</td><td>email address for this person</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -402,7 +402,7 @@ Update an existing Person
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">personDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Unique ID for a person</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>description of this person</td></tr>
 <tr><td><span style="font-weight:bold;">emailAddress</span></td><td>string</td><td>email address for this person</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -558,7 +558,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">personDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Unique ID for a person</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>description of this person</td></tr>
 <tr><td><span style="font-weight:bold;">emailAddress</span></td><td>string</td><td>email address for this person</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
@@ -758,7 +758,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">personDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Unique ID for a person</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>description of this person</td></tr>
 <tr><td><span style="font-weight:bold;">emailAddress</span></td><td>string</td><td>email address for this person</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>

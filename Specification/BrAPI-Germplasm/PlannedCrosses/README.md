@@ -15,7 +15,8 @@ Get a filtered list of Planned Cross entities.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">plannedCrossDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>the unique identifier for a planned cross</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossType</span></td><td>string</td><td>the type of cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>the unique identifier for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string</td><td>the human readable name for a crossing project</td></tr>
@@ -35,7 +36,6 @@ Get a filtered list of Planned Cross entities.
 <tr><td>parent2<br><span style="font-weight:bold;margin-left:5px">.observationUnitDbId</span></td><td>string</td><td>the unique identifier for an observation unit</td></tr>
 <tr><td>parent2<br><span style="font-weight:bold;margin-left:5px">.observationUnitName</span></td><td>string</td><td>the human readable name for an observation unit</td></tr>
 <tr><td>parent2<br><span style="font-weight:bold;margin-left:5px">.parentType</span></td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
-<tr><td><span style="font-weight:bold;">plannedCrossDbId</span></td><td>string</td><td>the unique identifier for a planned cross</td></tr>
 <tr><td><span style="font-weight:bold;">plannedCrossName</span></td><td>string</td><td>the human readable name for a planned cross</td></tr>
 <tr><td><span style="font-weight:bold;">status</span></td><td>string</td><td>The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').</td></tr>
 </table>
@@ -148,7 +148,7 @@ Create new Planned Cross entities on this server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossType</span></td><td>string</td><td>the type of cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>the unique identifier for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string</td><td>the human readable name for a crossing project</td></tr>
@@ -177,7 +177,8 @@ Create new Planned Cross entities on this server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">plannedCrossDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>the unique identifier for a planned cross</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossType</span></td><td>string</td><td>the type of cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>the unique identifier for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string</td><td>the human readable name for a crossing project</td></tr>
@@ -197,7 +198,6 @@ Create new Planned Cross entities on this server
 <tr><td>parent2<br><span style="font-weight:bold;margin-left:5px">.observationUnitDbId</span></td><td>string</td><td>the unique identifier for an observation unit</td></tr>
 <tr><td>parent2<br><span style="font-weight:bold;margin-left:5px">.observationUnitName</span></td><td>string</td><td>the human readable name for an observation unit</td></tr>
 <tr><td>parent2<br><span style="font-weight:bold;margin-left:5px">.parentType</span></td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
-<tr><td><span style="font-weight:bold;">plannedCrossDbId</span></td><td>string</td><td>the unique identifier for a planned cross</td></tr>
 <tr><td><span style="font-weight:bold;">plannedCrossName</span></td><td>string</td><td>the human readable name for a planned cross</td></tr>
 <tr><td><span style="font-weight:bold;">status</span></td><td>string</td><td>The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').</td></tr>
 </table>
@@ -344,7 +344,8 @@ Update existing Planned Cross entities on this server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">plannedCrossDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>the unique identifier for a planned cross</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossType</span></td><td>string</td><td>the type of cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>the unique identifier for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string</td><td>the human readable name for a crossing project</td></tr>
@@ -364,7 +365,6 @@ Update existing Planned Cross entities on this server
 <tr><td>parent2<br><span style="font-weight:bold;margin-left:5px">.observationUnitDbId</span></td><td>string</td><td>the unique identifier for an observation unit</td></tr>
 <tr><td>parent2<br><span style="font-weight:bold;margin-left:5px">.observationUnitName</span></td><td>string</td><td>the human readable name for an observation unit</td></tr>
 <tr><td>parent2<br><span style="font-weight:bold;margin-left:5px">.parentType</span></td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
-<tr><td><span style="font-weight:bold;">plannedCrossDbId</span></td><td>string</td><td>the unique identifier for a planned cross</td></tr>
 <tr><td><span style="font-weight:bold;">plannedCrossName</span></td><td>string</td><td>the human readable name for a planned cross</td></tr>
 <tr><td><span style="font-weight:bold;">status</span></td><td>string</td><td>The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').</td></tr>
 </table>

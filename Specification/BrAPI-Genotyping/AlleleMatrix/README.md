@@ -207,7 +207,7 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
 <tr><td><span style="font-weight:bold;">expandHomozygotes</span></td><td>boolean</td><td>Should homozygotes be expanded (true) or collapsed into a single occurrence (false)</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmDbIds</span></td><td>array[string]</td><td>A list of IDs which uniquely identify `Germplasm` within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmNames</span></td><td>array[string]</td><td>A list of human readable `Germplasm` names</td></tr>
-<tr><td><span style="font-weight:bold;">germplasmPUIs</span></td><td>array[string]</td><td>A list of premenant unique identifiers associated with `Germplasm`</td></tr>
+<tr><td><span style="font-weight:bold;">germplasmPUIs</span></td><td>array[string]</td><td>A list of permanent unique identifiers associated with `Germplasm`</td></tr>
 <tr><td><span style="font-weight:bold;">pagination</span></td><td>array[object]</td><td>Pagination for the matrix</td></tr>
 <tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.dimension</span></td><td>string</td><td>the dimension of the matrix being paginated</td></tr>
 <tr><td>pagination<br><span style="font-weight:bold;margin-left:5px">.page</span></td><td>integer</td><td>the requested page number (zero indexed)</td></tr>

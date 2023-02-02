@@ -17,15 +17,14 @@ Get a filtered list of `Plates`. Each `Plate` is a collection of `Samples` that 
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">plateName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for a `Plate`</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">plateBarcode</span></td><td>string</td><td>A unique identifier physically attached to a `Plate`</td></tr>
-<tr><td><span style="font-weight:bold;">plateDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">plateFormat</span></td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
-<tr><td><span style="font-weight:bold;">plateName</span></td><td>string</td><td>A human readable name for a `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Program` within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Study` within the given database server</td></tr>
@@ -93,7 +92,6 @@ Get a filtered list of `Plates`. Each `Plate` is a collection of `Samples` that 
                     }
                 ],
                 "plateBarcode": "11223344",
-                "plateDbId": "a106467f",
                 "plateFormat": "PLATE_96",
                 "plateName": "Plate_123_XYZ",
                 "programDbId": "bd748e00",
@@ -132,14 +130,14 @@ Submit new Plate entities to the server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">plateName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for a `Plate`</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">plateBarcode</span></td><td>string</td><td>A unique identifier physically attached to a `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">plateFormat</span></td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
-<tr><td><span style="font-weight:bold;">plateName</span></td><td>string</td><td>A human readable name for a `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Program` within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Study` within the given database server</td></tr>
@@ -151,15 +149,14 @@ Submit new Plate entities to the server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">plateName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for a `Plate`</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">plateBarcode</span></td><td>string</td><td>A unique identifier physically attached to a `Plate`</td></tr>
-<tr><td><span style="font-weight:bold;">plateDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">plateFormat</span></td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
-<tr><td><span style="font-weight:bold;">plateName</span></td><td>string</td><td>A human readable name for a `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Program` within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Study` within the given database server</td></tr>
@@ -238,7 +235,6 @@ Submit new Plate entities to the server
                     }
                 ],
                 "plateBarcode": "11223344",
-                "plateDbId": "a106467f",
                 "plateFormat": "PLATE_96",
                 "plateName": "Plate_123_XYZ",
                 "programDbId": "bd748e00",
@@ -284,15 +280,14 @@ Update the details of existing Plates
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">plateName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for a `Plate`</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">plateBarcode</span></td><td>string</td><td>A unique identifier physically attached to a `Plate`</td></tr>
-<tr><td><span style="font-weight:bold;">plateDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">plateFormat</span></td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
-<tr><td><span style="font-weight:bold;">plateName</span></td><td>string</td><td>A human readable name for a `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Program` within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Study` within the given database server</td></tr>
@@ -373,7 +368,6 @@ Update the details of existing Plates
                     }
                 ],
                 "plateBarcode": "11223344",
-                "plateDbId": "a106467f",
                 "plateFormat": "PLATE_96",
                 "plateName": "Plate_123_XYZ",
                 "programDbId": "bd748e00",
@@ -419,15 +413,14 @@ Get the details of a specific `Plate`. Each `Plate` is a collection of `Samples`
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">plateName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for a `Plate`</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">plateBarcode</span></td><td>string</td><td>A unique identifier physically attached to a `Plate`</td></tr>
-<tr><td><span style="font-weight:bold;">plateDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">plateFormat</span></td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
-<tr><td><span style="font-weight:bold;">plateName</span></td><td>string</td><td>A human readable name for a `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Program` within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Study` within the given database server</td></tr>
@@ -478,7 +471,6 @@ Get the details of a specific `Plate`. Each `Plate` is a collection of `Samples`
             }
         ],
         "plateBarcode": "11223344",
-        "plateDbId": "a106467f",
         "plateFormat": "PLATE_96",
         "plateName": "Plate_123_XYZ",
         "programDbId": "bd748e00",
@@ -552,15 +544,14 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">plateName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for a `Plate`</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">plateBarcode</span></td><td>string</td><td>A unique identifier physically attached to a `Plate`</td></tr>
-<tr><td><span style="font-weight:bold;">plateDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">plateFormat</span></td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
-<tr><td><span style="font-weight:bold;">plateName</span></td><td>string</td><td>A human readable name for a `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Program` within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Study` within the given database server</td></tr>
@@ -697,7 +688,6 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                     }
                 ],
                 "plateBarcode": "11223344",
-                "plateDbId": "a106467f",
                 "plateFormat": "PLATE_96",
                 "plateName": "Plate_123_XYZ",
                 "programDbId": "bd748e00",
@@ -770,15 +760,14 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">plateName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for a `Plate`</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">plateBarcode</span></td><td>string</td><td>A unique identifier physically attached to a `Plate`</td></tr>
-<tr><td><span style="font-weight:bold;">plateDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">plateFormat</span></td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
-<tr><td><span style="font-weight:bold;">plateName</span></td><td>string</td><td>A human readable name for a `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Program` within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Study` within the given database server</td></tr>
@@ -833,7 +822,6 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                     }
                 ],
                 "plateBarcode": "11223344",
-                "plateDbId": "a106467f",
                 "plateFormat": "PLATE_96",
                 "plateName": "Plate_123_XYZ",
                 "programDbId": "bd748e00",

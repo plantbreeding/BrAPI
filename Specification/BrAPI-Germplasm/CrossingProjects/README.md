@@ -15,11 +15,11 @@ Get a filtered list of Crossing Projects.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
-<tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>The unique identifier for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDescription</span></td><td>string</td><td>the description for a crossing project</td></tr>
-<tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string</td><td>The human readable name for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -135,10 +135,10 @@ Create new Crossing Project entities on this server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDescription</span></td><td>string</td><td>the description for a crossing project</td></tr>
-<tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string</td><td>The human readable name for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -158,11 +158,11 @@ Create new Crossing Project entities on this server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
-<tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>The unique identifier for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDescription</span></td><td>string</td><td>the description for a crossing project</td></tr>
-<tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string</td><td>The human readable name for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -304,11 +304,11 @@ Get a filtered list of Crossing Projects.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
-<tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>The unique identifier for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDescription</span></td><td>string</td><td>the description for a crossing project</td></tr>
-<tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string</td><td>The human readable name for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -411,10 +411,10 @@ Update an existing Crossing Project entity on this server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDescription</span></td><td>string</td><td>the description for a crossing project</td></tr>
-<tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string</td><td>The human readable name for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -434,11 +434,11 @@ Update an existing Crossing Project entity on this server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name for a crossing project</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>the common name of a crop (for multi-crop systems)</td></tr>
-<tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>The unique identifier for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDescription</span></td><td>string</td><td>the description for a crossing project</td></tr>
-<tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string</td><td>The human readable name for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>

@@ -17,7 +17,9 @@ Gets a filtered list of `ReferenceSets`.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">referenceSetDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a ReferenceSet</td></tr>
+<tr><td><span style="font-weight:bold;">referenceSetName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of a ReferenceSet</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">assemblyPUI</span></td><td>string</td><td>The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Optional free text description of this reference set.</td></tr>
@@ -27,8 +29,6 @@ Gets a filtered list of `ReferenceSets`.
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">isDerived</span></td><td>boolean<br>(boolean)</td><td>A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).</td></tr>
 <tr><td><span style="font-weight:bold;">md5checksum</span></td><td>string</td><td>Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.</td></tr>
-<tr><td><span style="font-weight:bold;">referenceSetDbId</span></td><td>string</td><td>The unique identifier for a ReferenceSet</td></tr>
-<tr><td><span style="font-weight:bold;">referenceSetName</span></td><td>string</td><td>The human readable name of a ReferenceSet</td></tr>
 <tr><td><span style="font-weight:bold;">sourceAccessions</span></td><td>array[string]</td><td>All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.</td></tr>
 <tr><td><span style="font-weight:bold;">sourceGermplasm</span></td><td>array[object]</td><td>All known corresponding Germplasm</td></tr>
 <tr><td>sourceGermplasm<br><span style="font-weight:bold;margin-left:5px">.germplasmDbId</span></td><td>string</td><td>The ID which uniquely identifies a germplasm within the given database server</td></tr>
@@ -150,7 +150,9 @@ Gets a `ReferenceSet` by ID.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">referenceSetDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a ReferenceSet</td></tr>
+<tr><td><span style="font-weight:bold;">referenceSetName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of a ReferenceSet</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">assemblyPUI</span></td><td>string</td><td>The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Optional free text description of this reference set.</td></tr>
@@ -160,8 +162,6 @@ Gets a `ReferenceSet` by ID.
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">isDerived</span></td><td>boolean<br>(boolean)</td><td>A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).</td></tr>
 <tr><td><span style="font-weight:bold;">md5checksum</span></td><td>string</td><td>Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.</td></tr>
-<tr><td><span style="font-weight:bold;">referenceSetDbId</span></td><td>string</td><td>The unique identifier for a ReferenceSet</td></tr>
-<tr><td><span style="font-weight:bold;">referenceSetName</span></td><td>string</td><td>The human readable name of a ReferenceSet</td></tr>
 <tr><td><span style="font-weight:bold;">sourceAccessions</span></td><td>array[string]</td><td>All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.</td></tr>
 <tr><td><span style="font-weight:bold;">sourceGermplasm</span></td><td>array[object]</td><td>All known corresponding Germplasm</td></tr>
 <tr><td>sourceGermplasm<br><span style="font-weight:bold;margin-left:5px">.germplasmDbId</span></td><td>string</td><td>The ID which uniquely identifies a germplasm within the given database server</td></tr>
@@ -280,7 +280,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">referenceSetDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a ReferenceSet</td></tr>
+<tr><td><span style="font-weight:bold;">referenceSetName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of a ReferenceSet</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">assemblyPUI</span></td><td>string</td><td>The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Optional free text description of this reference set.</td></tr>
@@ -290,8 +292,6 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">isDerived</span></td><td>boolean<br>(boolean)</td><td>A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).</td></tr>
 <tr><td><span style="font-weight:bold;">md5checksum</span></td><td>string</td><td>Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.</td></tr>
-<tr><td><span style="font-weight:bold;">referenceSetDbId</span></td><td>string</td><td>The unique identifier for a ReferenceSet</td></tr>
-<tr><td><span style="font-weight:bold;">referenceSetName</span></td><td>string</td><td>The human readable name of a ReferenceSet</td></tr>
 <tr><td><span style="font-weight:bold;">sourceAccessions</span></td><td>array[string]</td><td>All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.</td></tr>
 <tr><td><span style="font-weight:bold;">sourceGermplasm</span></td><td>array[object]</td><td>All known corresponding Germplasm</td></tr>
 <tr><td>sourceGermplasm<br><span style="font-weight:bold;margin-left:5px">.germplasmDbId</span></td><td>string</td><td>The ID which uniquely identifies a germplasm within the given database server</td></tr>
@@ -505,7 +505,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">referenceSetDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier for a ReferenceSet</td></tr>
+<tr><td><span style="font-weight:bold;">referenceSetName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of a ReferenceSet</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">assemblyPUI</span></td><td>string</td><td>The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>Optional free text description of this reference set.</td></tr>
@@ -515,8 +517,6 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">isDerived</span></td><td>boolean<br>(boolean)</td><td>A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).</td></tr>
 <tr><td><span style="font-weight:bold;">md5checksum</span></td><td>string</td><td>Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.</td></tr>
-<tr><td><span style="font-weight:bold;">referenceSetDbId</span></td><td>string</td><td>The unique identifier for a ReferenceSet</td></tr>
-<tr><td><span style="font-weight:bold;">referenceSetName</span></td><td>string</td><td>The human readable name of a ReferenceSet</td></tr>
 <tr><td><span style="font-weight:bold;">sourceAccessions</span></td><td>array[string]</td><td>All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.</td></tr>
 <tr><td><span style="font-weight:bold;">sourceGermplasm</span></td><td>array[object]</td><td>All known corresponding Germplasm</td></tr>
 <tr><td>sourceGermplasm<br><span style="font-weight:bold;margin-left:5px">.germplasmDbId</span></td><td>string</td><td>The ID which uniquely identifies a germplasm within the given database server</td></tr>

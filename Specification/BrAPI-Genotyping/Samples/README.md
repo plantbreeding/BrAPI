@@ -17,7 +17,8 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">sampleName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of the `Sample`</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">column</span></td><td>integer</td><td>The Column identifier for this `Sample` location in the `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -30,10 +31,8 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Program` within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">row</span></td><td>string</td><td>The Row identifier for this `Sample` location in the `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">sampleBarcode</span></td><td>string</td><td>A unique identifier physically attached to the `Sample`</td></tr>
-<tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Sample` <br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleDescription</span></td><td>string</td><td>Description of a `Sample` <br>MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleGroupDbId</span></td><td>string</td><td>The ID which uniquely identifies a group of `Samples`</td></tr>
-<tr><td><span style="font-weight:bold;">sampleName</span></td><td>string</td><td>The human readable name of the `Sample`</td></tr>
 <tr><td><span style="font-weight:bold;">samplePUI</span></td><td>string</td><td>A permanent unique identifier for the `Sample` (DOI, URL, UUID, etc) <br> MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. </td></tr>
 <tr><td><span style="font-weight:bold;">sampleTimestamp</span></td><td>string<br>(date-time)</td><td>The date and time a `Sample` was collected from the field <br> MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested</td></tr>
 <tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of `Sample` taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
@@ -112,7 +111,6 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
                 "programDbId": "bd748e00",
                 "row": "B",
                 "sampleBarcode": "3a027b59",
-                "sampleDbId": "cd06a61d",
                 "sampleDescription": "This sample was taken from the root of a tree",
                 "sampleGroupDbId": "8524b436",
                 "sampleName": "Sample_alpha_20191022",
@@ -156,7 +154,8 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">sampleName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of the `Sample`</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">column</span></td><td>integer</td><td>The Column identifier for this `Sample` location in the `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -171,7 +170,6 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 <tr><td><span style="font-weight:bold;">sampleBarcode</span></td><td>string</td><td>A unique identifier physically attached to the `Sample`</td></tr>
 <tr><td><span style="font-weight:bold;">sampleDescription</span></td><td>string</td><td>Description of a `Sample` <br>MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleGroupDbId</span></td><td>string</td><td>The ID which uniquely identifies a group of `Samples`</td></tr>
-<tr><td><span style="font-weight:bold;">sampleName</span></td><td>string</td><td>The human readable name of the `Sample`</td></tr>
 <tr><td><span style="font-weight:bold;">samplePUI</span></td><td>string</td><td>A permanent unique identifier for the `Sample` (DOI, URL, UUID, etc) <br> MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. </td></tr>
 <tr><td><span style="font-weight:bold;">sampleTimestamp</span></td><td>string<br>(date-time)</td><td>The date and time a `Sample` was collected from the field <br> MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested</td></tr>
 <tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of `Sample` taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
@@ -187,7 +185,8 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">sampleName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of the `Sample`</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">column</span></td><td>integer</td><td>The Column identifier for this `Sample` location in the `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -200,10 +199,8 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Program` within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">row</span></td><td>string</td><td>The Row identifier for this `Sample` location in the `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">sampleBarcode</span></td><td>string</td><td>A unique identifier physically attached to the `Sample`</td></tr>
-<tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Sample` <br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleDescription</span></td><td>string</td><td>Description of a `Sample` <br>MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleGroupDbId</span></td><td>string</td><td>The ID which uniquely identifies a group of `Samples`</td></tr>
-<tr><td><span style="font-weight:bold;">sampleName</span></td><td>string</td><td>The human readable name of the `Sample`</td></tr>
 <tr><td><span style="font-weight:bold;">samplePUI</span></td><td>string</td><td>A permanent unique identifier for the `Sample` (DOI, URL, UUID, etc) <br> MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. </td></tr>
 <tr><td><span style="font-weight:bold;">sampleTimestamp</span></td><td>string<br>(date-time)</td><td>The date and time a `Sample` was collected from the field <br> MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested</td></tr>
 <tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of `Sample` taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
@@ -305,7 +302,6 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
                 "programDbId": "bd748e00",
                 "row": "B",
                 "sampleBarcode": "3a027b59",
-                "sampleDbId": "cd06a61d",
                 "sampleDescription": "This sample was taken from the root of a tree",
                 "sampleGroupDbId": "8524b436",
                 "sampleName": "Sample_alpha_20191022",
@@ -356,7 +352,8 @@ Update the details of existing Samples
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">sampleName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of the `Sample`</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">column</span></td><td>integer</td><td>The Column identifier for this `Sample` location in the `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -369,10 +366,8 @@ Update the details of existing Samples
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Program` within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">row</span></td><td>string</td><td>The Row identifier for this `Sample` location in the `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">sampleBarcode</span></td><td>string</td><td>A unique identifier physically attached to the `Sample`</td></tr>
-<tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Sample` <br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleDescription</span></td><td>string</td><td>Description of a `Sample` <br>MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleGroupDbId</span></td><td>string</td><td>The ID which uniquely identifies a group of `Samples`</td></tr>
-<tr><td><span style="font-weight:bold;">sampleName</span></td><td>string</td><td>The human readable name of the `Sample`</td></tr>
 <tr><td><span style="font-weight:bold;">samplePUI</span></td><td>string</td><td>A permanent unique identifier for the `Sample` (DOI, URL, UUID, etc) <br> MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. </td></tr>
 <tr><td><span style="font-weight:bold;">sampleTimestamp</span></td><td>string<br>(date-time)</td><td>The date and time a `Sample` was collected from the field <br> MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested</td></tr>
 <tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of `Sample` taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
@@ -488,7 +483,6 @@ Update the details of existing Samples
                 "programDbId": "bd748e00",
                 "row": "B",
                 "sampleBarcode": "3a027b59",
-                "sampleDbId": "cd06a61d",
                 "sampleDescription": "This sample was taken from the root of a tree",
                 "sampleGroupDbId": "8524b436",
                 "sampleName": "Sample_alpha_20191022",
@@ -539,7 +533,8 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">sampleName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of the `Sample`</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">column</span></td><td>integer</td><td>The Column identifier for this `Sample` location in the `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -552,10 +547,8 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Program` within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">row</span></td><td>string</td><td>The Row identifier for this `Sample` location in the `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">sampleBarcode</span></td><td>string</td><td>A unique identifier physically attached to the `Sample`</td></tr>
-<tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Sample` <br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleDescription</span></td><td>string</td><td>Description of a `Sample` <br>MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleGroupDbId</span></td><td>string</td><td>The ID which uniquely identifies a group of `Samples`</td></tr>
-<tr><td><span style="font-weight:bold;">sampleName</span></td><td>string</td><td>The human readable name of the `Sample`</td></tr>
 <tr><td><span style="font-weight:bold;">samplePUI</span></td><td>string</td><td>A permanent unique identifier for the `Sample` (DOI, URL, UUID, etc) <br> MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. </td></tr>
 <tr><td><span style="font-weight:bold;">sampleTimestamp</span></td><td>string<br>(date-time)</td><td>The date and time a `Sample` was collected from the field <br> MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested</td></tr>
 <tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of `Sample` taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
@@ -617,7 +610,6 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
         "programDbId": "bd748e00",
         "row": "B",
         "sampleBarcode": "3a027b59",
-        "sampleDbId": "cd06a61d",
         "sampleDescription": "This sample was taken from the root of a tree",
         "sampleGroupDbId": "8524b436",
         "sampleName": "Sample_alpha_20191022",
@@ -665,7 +657,8 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">sampleName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of the `Sample`</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">column</span></td><td>integer</td><td>The Column identifier for this `Sample` location in the `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -680,7 +673,6 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 <tr><td><span style="font-weight:bold;">sampleBarcode</span></td><td>string</td><td>A unique identifier physically attached to the `Sample`</td></tr>
 <tr><td><span style="font-weight:bold;">sampleDescription</span></td><td>string</td><td>Description of a `Sample` <br>MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleGroupDbId</span></td><td>string</td><td>The ID which uniquely identifies a group of `Samples`</td></tr>
-<tr><td><span style="font-weight:bold;">sampleName</span></td><td>string</td><td>The human readable name of the `Sample`</td></tr>
 <tr><td><span style="font-weight:bold;">samplePUI</span></td><td>string</td><td>A permanent unique identifier for the `Sample` (DOI, URL, UUID, etc) <br> MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. </td></tr>
 <tr><td><span style="font-weight:bold;">sampleTimestamp</span></td><td>string<br>(date-time)</td><td>The date and time a `Sample` was collected from the field <br> MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested</td></tr>
 <tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of `Sample` taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
@@ -696,7 +688,8 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">sampleName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of the `Sample`</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">column</span></td><td>integer</td><td>The Column identifier for this `Sample` location in the `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -709,10 +702,8 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Program` within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">row</span></td><td>string</td><td>The Row identifier for this `Sample` location in the `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">sampleBarcode</span></td><td>string</td><td>A unique identifier physically attached to the `Sample`</td></tr>
-<tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Sample` <br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleDescription</span></td><td>string</td><td>Description of a `Sample` <br>MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleGroupDbId</span></td><td>string</td><td>The ID which uniquely identifies a group of `Samples`</td></tr>
-<tr><td><span style="font-weight:bold;">sampleName</span></td><td>string</td><td>The human readable name of the `Sample`</td></tr>
 <tr><td><span style="font-weight:bold;">samplePUI</span></td><td>string</td><td>A permanent unique identifier for the `Sample` (DOI, URL, UUID, etc) <br> MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. </td></tr>
 <tr><td><span style="font-weight:bold;">sampleTimestamp</span></td><td>string<br>(date-time)</td><td>The date and time a `Sample` was collected from the field <br> MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested</td></tr>
 <tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of `Sample` taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
@@ -811,7 +802,6 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
         "programDbId": "bd748e00",
         "row": "B",
         "sampleBarcode": "3a027b59",
-        "sampleDbId": "cd06a61d",
         "sampleDescription": "This sample was taken from the root of a tree",
         "sampleGroupDbId": "8524b436",
         "sampleName": "Sample_alpha_20191022",
@@ -889,7 +879,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">sampleName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of the `Sample`</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">column</span></td><td>integer</td><td>The Column identifier for this `Sample` location in the `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -902,10 +893,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Program` within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">row</span></td><td>string</td><td>The Row identifier for this `Sample` location in the `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">sampleBarcode</span></td><td>string</td><td>A unique identifier physically attached to the `Sample`</td></tr>
-<tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Sample` <br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleDescription</span></td><td>string</td><td>Description of a `Sample` <br>MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleGroupDbId</span></td><td>string</td><td>The ID which uniquely identifies a group of `Samples`</td></tr>
-<tr><td><span style="font-weight:bold;">sampleName</span></td><td>string</td><td>The human readable name of the `Sample`</td></tr>
 <tr><td><span style="font-weight:bold;">samplePUI</span></td><td>string</td><td>A permanent unique identifier for the `Sample` (DOI, URL, UUID, etc) <br> MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. </td></tr>
 <tr><td><span style="font-weight:bold;">sampleTimestamp</span></td><td>string<br>(date-time)</td><td>The date and time a `Sample` was collected from the field <br> MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested</td></tr>
 <tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of `Sample` taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
@@ -1049,7 +1038,6 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "programDbId": "bd748e00",
                 "row": "B",
                 "sampleBarcode": "3a027b59",
-                "sampleDbId": "cd06a61d",
                 "sampleDescription": "This sample was taken from the root of a tree",
                 "sampleGroupDbId": "8524b436",
                 "sampleName": "Sample_alpha_20191022",
@@ -1127,7 +1115,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">sampleName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of the `Sample`</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">column</span></td><td>integer</td><td>The Column identifier for this `Sample` location in the `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
@@ -1140,10 +1129,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Program` within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">row</span></td><td>string</td><td>The Row identifier for this `Sample` location in the `Plate`</td></tr>
 <tr><td><span style="font-weight:bold;">sampleBarcode</span></td><td>string</td><td>A unique identifier physically attached to the `Sample`</td></tr>
-<tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string</td><td>The ID which uniquely identifies a `Sample` <br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleDescription</span></td><td>string</td><td>Description of a `Sample` <br>MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleGroupDbId</span></td><td>string</td><td>The ID which uniquely identifies a group of `Samples`</td></tr>
-<tr><td><span style="font-weight:bold;">sampleName</span></td><td>string</td><td>The human readable name of the `Sample`</td></tr>
 <tr><td><span style="font-weight:bold;">samplePUI</span></td><td>string</td><td>A permanent unique identifier for the `Sample` (DOI, URL, UUID, etc) <br> MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. </td></tr>
 <tr><td><span style="font-weight:bold;">sampleTimestamp</span></td><td>string<br>(date-time)</td><td>The date and time a `Sample` was collected from the field <br> MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested</td></tr>
 <tr><td><span style="font-weight:bold;">sampleType</span></td><td>string</td><td>The type of `Sample` taken. ex. 'DNA', 'RNA', 'Tissue', etc</td></tr>
@@ -1209,7 +1196,6 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "programDbId": "bd748e00",
                 "row": "B",
                 "sampleBarcode": "3a027b59",
-                "sampleDbId": "cd06a61d",
                 "sampleDescription": "This sample was taken from the root of a tree",
                 "sampleGroupDbId": "8524b436",
                 "sampleName": "Sample_alpha_20191022",

@@ -20,7 +20,9 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">traitDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a trait</td></tr>
+<tr><td><span style="font-weight:bold;">traitName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">alternativeAbbreviations</span></td><td>array[string]</td><td>A list of shortened, human readable, names for a Trait. These abbreviations are acceptable alternatives to the mainAbbreviation and do not need to follow any formatting convention.</td></tr>
 <tr><td><span style="font-weight:bold;">attribute</span></td><td>string</td><td>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
 <tr><td><span style="font-weight:bold;">attributePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
@@ -41,9 +43,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 <tr><td><span style="font-weight:bold;">status</span></td><td>string</td><td>Trait status (examples: "recommended", "obsolete", "legacy", etc.)</td></tr>
 <tr><td><span style="font-weight:bold;">synonyms</span></td><td>array[string]</td><td>Other trait names</td></tr>
 <tr><td><span style="font-weight:bold;">traitClass</span></td><td>string</td><td>A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.</td></tr>
-<tr><td><span style="font-weight:bold;">traitDbId</span></td><td>string</td><td>The ID which uniquely identifies a trait</td></tr>
 <tr><td><span style="font-weight:bold;">traitDescription</span></td><td>string</td><td>The description of a trait</td></tr>
-<tr><td><span style="font-weight:bold;">traitName</span></td><td>string</td><td>The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation</td></tr>
 <tr><td><span style="font-weight:bold;">traitPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait, usually in the form of a URI</td></tr>
 </table>
 
@@ -166,7 +166,8 @@ Create new trait objects in the database
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">traitName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">alternativeAbbreviations</span></td><td>array[string]</td><td>A list of shortened, human readable, names for a Trait. These abbreviations are acceptable alternatives to the mainAbbreviation and do not need to follow any formatting convention.</td></tr>
 <tr><td><span style="font-weight:bold;">attribute</span></td><td>string</td><td>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
 <tr><td><span style="font-weight:bold;">attributePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
@@ -188,7 +189,6 @@ Create new trait objects in the database
 <tr><td><span style="font-weight:bold;">synonyms</span></td><td>array[string]</td><td>Other trait names</td></tr>
 <tr><td><span style="font-weight:bold;">traitClass</span></td><td>string</td><td>A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.</td></tr>
 <tr><td><span style="font-weight:bold;">traitDescription</span></td><td>string</td><td>The description of a trait</td></tr>
-<tr><td><span style="font-weight:bold;">traitName</span></td><td>string</td><td>The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation</td></tr>
 <tr><td><span style="font-weight:bold;">traitPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait, usually in the form of a URI</td></tr>
 </table>
 
@@ -197,7 +197,9 @@ Create new trait objects in the database
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">traitDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a trait</td></tr>
+<tr><td><span style="font-weight:bold;">traitName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">alternativeAbbreviations</span></td><td>array[string]</td><td>A list of shortened, human readable, names for a Trait. These abbreviations are acceptable alternatives to the mainAbbreviation and do not need to follow any formatting convention.</td></tr>
 <tr><td><span style="font-weight:bold;">attribute</span></td><td>string</td><td>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
 <tr><td><span style="font-weight:bold;">attributePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
@@ -218,9 +220,7 @@ Create new trait objects in the database
 <tr><td><span style="font-weight:bold;">status</span></td><td>string</td><td>Trait status (examples: "recommended", "obsolete", "legacy", etc.)</td></tr>
 <tr><td><span style="font-weight:bold;">synonyms</span></td><td>array[string]</td><td>Other trait names</td></tr>
 <tr><td><span style="font-weight:bold;">traitClass</span></td><td>string</td><td>A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.</td></tr>
-<tr><td><span style="font-weight:bold;">traitDbId</span></td><td>string</td><td>The ID which uniquely identifies a trait</td></tr>
 <tr><td><span style="font-weight:bold;">traitDescription</span></td><td>string</td><td>The description of a trait</td></tr>
-<tr><td><span style="font-weight:bold;">traitName</span></td><td>string</td><td>The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation</td></tr>
 <tr><td><span style="font-weight:bold;">traitPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait, usually in the form of a URI</td></tr>
 </table>
 
@@ -389,7 +389,9 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">traitDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a trait</td></tr>
+<tr><td><span style="font-weight:bold;">traitName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">alternativeAbbreviations</span></td><td>array[string]</td><td>A list of shortened, human readable, names for a Trait. These abbreviations are acceptable alternatives to the mainAbbreviation and do not need to follow any formatting convention.</td></tr>
 <tr><td><span style="font-weight:bold;">attribute</span></td><td>string</td><td>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
 <tr><td><span style="font-weight:bold;">attributePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
@@ -410,9 +412,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 <tr><td><span style="font-weight:bold;">status</span></td><td>string</td><td>Trait status (examples: "recommended", "obsolete", "legacy", etc.)</td></tr>
 <tr><td><span style="font-weight:bold;">synonyms</span></td><td>array[string]</td><td>Other trait names</td></tr>
 <tr><td><span style="font-weight:bold;">traitClass</span></td><td>string</td><td>A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.</td></tr>
-<tr><td><span style="font-weight:bold;">traitDbId</span></td><td>string</td><td>The ID which uniquely identifies a trait</td></tr>
 <tr><td><span style="font-weight:bold;">traitDescription</span></td><td>string</td><td>The description of a trait</td></tr>
-<tr><td><span style="font-weight:bold;">traitName</span></td><td>string</td><td>The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation</td></tr>
 <tr><td><span style="font-weight:bold;">traitPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait, usually in the form of a URI</td></tr>
 </table>
 
@@ -527,7 +527,8 @@ Update an existing trait
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">traitName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">alternativeAbbreviations</span></td><td>array[string]</td><td>A list of shortened, human readable, names for a Trait. These abbreviations are acceptable alternatives to the mainAbbreviation and do not need to follow any formatting convention.</td></tr>
 <tr><td><span style="font-weight:bold;">attribute</span></td><td>string</td><td>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
 <tr><td><span style="font-weight:bold;">attributePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
@@ -549,7 +550,6 @@ Update an existing trait
 <tr><td><span style="font-weight:bold;">synonyms</span></td><td>array[string]</td><td>Other trait names</td></tr>
 <tr><td><span style="font-weight:bold;">traitClass</span></td><td>string</td><td>A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.</td></tr>
 <tr><td><span style="font-weight:bold;">traitDescription</span></td><td>string</td><td>The description of a trait</td></tr>
-<tr><td><span style="font-weight:bold;">traitName</span></td><td>string</td><td>The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation</td></tr>
 <tr><td><span style="font-weight:bold;">traitPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait, usually in the form of a URI</td></tr>
 </table>
 
@@ -558,7 +558,9 @@ Update an existing trait
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestriced by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">traitDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a trait</td></tr>
+<tr><td><span style="font-weight:bold;">traitName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">alternativeAbbreviations</span></td><td>array[string]</td><td>A list of shortened, human readable, names for a Trait. These abbreviations are acceptable alternatives to the mainAbbreviation and do not need to follow any formatting convention.</td></tr>
 <tr><td><span style="font-weight:bold;">attribute</span></td><td>string</td><td>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
 <tr><td><span style="font-weight:bold;">attributePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
@@ -579,9 +581,7 @@ Update an existing trait
 <tr><td><span style="font-weight:bold;">status</span></td><td>string</td><td>Trait status (examples: "recommended", "obsolete", "legacy", etc.)</td></tr>
 <tr><td><span style="font-weight:bold;">synonyms</span></td><td>array[string]</td><td>Other trait names</td></tr>
 <tr><td><span style="font-weight:bold;">traitClass</span></td><td>string</td><td>A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.</td></tr>
-<tr><td><span style="font-weight:bold;">traitDbId</span></td><td>string</td><td>The ID which uniquely identifies a trait</td></tr>
 <tr><td><span style="font-weight:bold;">traitDescription</span></td><td>string</td><td>The description of a trait</td></tr>
-<tr><td><span style="font-weight:bold;">traitName</span></td><td>string</td><td>The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation</td></tr>
 <tr><td><span style="font-weight:bold;">traitPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait, usually in the form of a URI</td></tr>
 </table>
 
