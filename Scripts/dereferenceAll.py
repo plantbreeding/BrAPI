@@ -79,7 +79,10 @@ def dereferenceAllOfClause(obj, parent):
                             comboObj['example'] = itemObj['example']
                         if 'x-brapi-metadata' in itemObj:
                             comboObj['x-brapi-metadata'] = itemObj['x-brapi-metadata']
-                        
+                    
+                    if len(comboObj['required']) == 0:
+                        comboObj.pop('required')
+                    
                     obj = comboObj
                 else:
                     obj[fieldStr] = dereferenceAllOfClause(obj[fieldStr], parent)
