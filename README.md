@@ -17,7 +17,7 @@ BrAPI V2 is divided into four modules:
 
 | Version | Status | Release Date | SwaggerHub | Apiary | Notes |
 |---------|--------|--------------|------------|--------|-------|
-|[V2.1](https://github.com/plantbreeding/API/tree/V2.0) |Released |Mar 11, 2020 | | | [Release Notes](https://github.com/plantbreeding/API/releases/tag/V2.1) / [Change File](https://github.com/plantbreeding/API/releases/download/V2.1/BrAPI_V2-1_Release_Notes.xlsx)|
+|[V2.1](https://github.com/plantbreeding/API/tree/V2.0) |Released |July 1, 2022 | | | [Release Notes](https://github.com/plantbreeding/API/releases/tag/V2.1) / [Change File](https://github.com/plantbreeding/API/releases/download/V2.1/BrAPI_V2-1_Release_Notes.xlsx)|
 | | | |[BrAPI Core](https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Core/2.1)               |[BrAPI Core](https://brapicore21.docs.apiary.io) | |
 | | | |[BrAPI Phenotyping](https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Phenotyping/2.1) |[BrAPI Phenotyping](https://brapiphenotyping21.docs.apiary.io) | |
 | | | |[BrAPI Genotyping](https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Genotyping/2.1)   |[BrAPI Genotyping](https://brapigenotyping21.docs.apiary.io) | |
