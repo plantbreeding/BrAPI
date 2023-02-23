@@ -1,0 +1,110 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "properties": {
+            "additionalInfo": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                "type": [
+                    "null",
+                    "object"
+                ]
+            },
+            "callSet": {
+                "$ref": "callSet.json#/definitions/callSet",
+                "description": "The ID of the call set this variant call belongs to.\n\nIf this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same."
+            },
+            "genotypeMetadata": {
+                "description": "Genotype Metadata are additional layers of metadata associated with each genotype.",
+                "items": {
+                    "properties": {
+                        "dataType": {
+                            "description": "The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.",
+                            "enum": [
+                                "string",
+                                "integer",
+                                "float",
+                                "boolean",
+                                null
+                            ],
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "fieldAbbreviation": {
+                            "description": "The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: \"GQ\", \"RD\", and \"HQ\"\n<br> This maps to a FORMAT field in the VCF file standard.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "fieldName": {
+                            "description": "The name of the field represented in this Genotype Field. Examples include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype Quality\"\n<br> This maps to a FORMAT field in the VCF file standard.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "fieldValue": {
+                            "description": "The additional metadata value associated with this genotype call",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "dataType",
+                        "fieldAbbreviation",
+                        "fieldName",
+                        "fieldValue"
+                    ],
+                    "type": "object"
+                },
+                "type": [
+                    "null",
+                    "array"
+                ]
+            },
+            "genotypeValue": {
+                "description": "The value of this genotype call",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "phaseSet": {
+                "description": "If this field is populated, this variant call's genotype ordering implies the phase of the bases and \nis consistent with any other variant calls on the same contig which have the same phase set string.",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "variant": {
+                "$ref": "variant.json#/definitions/variant",
+                "description": "The ID of the variant this call belongs to."
+            },
+            "variantSet": {
+                "$ref": "variantSet.json#/definitions/variantSet",
+                "description": "The unique identifier for a VariantSet"
+            }
+        },
+        "title": "Call",
+        "type": "object"
+    },
+    "required": [
+        "additionalInfo",
+        "callSetDbId",
+        "callSetName",
+        "genotypeMetadata",
+        "genotypeValue",
+        "phaseSet",
+        "variantDbId",
+        "variantName",
+        "variantSetDbId",
+        "variantSetName"
+    ]
+}

@@ -1,0 +1,680 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "properties": {
+            "additionalInfo": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                "type": [
+                    "null",
+                    "object"
+                ]
+            },
+            "cross": {
+                "$ref": "cross.json#/definitions/cross",
+                "description": "the unique identifier for a cross"
+            },
+            "externalReferences": {
+                "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                "items": {
+                    "properties": {
+                        "referenceId": {
+                            "description": "The external reference ID. Could be a simple string or a URI.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "referenceSource": {
+                            "description": "An identifier for the source system or database of this reference",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "referenceId",
+                        "referenceSource"
+                    ],
+                    "type": "object"
+                },
+                "title": "ExternalReferences",
+                "type": [
+                    "null",
+                    "array"
+                ]
+            },
+            "germplasm": {
+                "$ref": "germplasm.json#/definitions/germplasm",
+                "description": "The ID which uniquely identifies a germplasm"
+            },
+            "location": {
+                "$ref": "location.json#/definitions/location",
+                "description": "The ID which uniquely identifies a location, associated with this study"
+            },
+            "observationUnitDbId": {
+                "description": "The ID which uniquely identifies an observation unit\n\nMIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. ",
+                "type": "string"
+            },
+            "observationUnitName": {
+                "description": "A human readable name for an observation unit",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "observationUnitPUI": {
+                "description": "A Permanent Unique Identifier for an observation unit\n\nMIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "observationUnitPosition": {
+                "description": "All positional and layout information related to this Observation Unit \n\nMIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) \nor level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. \nLevels of observation must be consistent with those listed in the Study section.",
+                "properties": {
+                    "entryType": {
+                        "description": "The type of entry for this observation unit. ex. \"CHECK\", \"TEST\", \"FILLER\"",
+                        "enum": [
+                            "CHECK",
+                            "TEST",
+                            "FILLER",
+                            null
+                        ],
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "geoCoordinates": {
+                        "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
+                        "properties": {
+                            "geometry": {
+                                "description": "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.",
+                                "oneOf": [
+                                    {
+                                        "description": "Copied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
+                                        "properties": {
+                                            "coordinates": {
+                                                "description": "A single position",
+                                                "items": {
+                                                    "type": "number"
+                                                },
+                                                "minItems": 2,
+                                                "type": "array"
+                                            },
+                                            "type": {
+                                                "default": "Point",
+                                                "description": "The literal string \"Point\"",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "type",
+                                            "coordinates"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    {
+                                        "description": "An array of Linear Rings. Each Linear Ring is an array of Points. \n\nA Point is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
+                                        "properties": {
+                                            "coordinates": {
+                                                "description": "An array of linear rings",
+                                                "items": {
+                                                    "description": "An array of at least four positions where the first equals the last",
+                                                    "items": {
+                                                        "description": "A single position",
+                                                        "items": {
+                                                            "type": "number"
+                                                        },
+                                                        "minItems": 2,
+                                                        "type": "array"
+                                                    },
+                                                    "minItems": 4,
+                                                    "type": "array"
+                                                },
+                                                "type": "array"
+                                            },
+                                            "type": {
+                                                "default": "Polygon",
+                                                "description": "The literal string \"Polygon\"",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "type",
+                                            "coordinates"
+                                        ],
+                                        "type": "object"
+                                    }
+                                ],
+                                "title": "GeoJSON Geometry",
+                                "type": [
+                                    "null",
+                                    "object"
+                                ]
+                            },
+                            "type": {
+                                "default": "Feature",
+                                "description": "The literal string \"Feature\"",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "geometry",
+                            "type"
+                        ],
+                        "title": "GeoJSON",
+                        "type": [
+                            "null",
+                            "object"
+                        ]
+                    },
+                    "observationLevel": {
+                        "description": "The exact level and level code of an observation unit. \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. \n\nMIAPPE V1.1 DM-71 Observation unit type \"Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended. \nThe observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). \nAlternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead.\" ",
+                        "properties": {
+                            "levelCode": {
+                                "description": "An ID code or number to represent a real thing that may or may not be an an observation unit.\n<br/>For example, if the 'levelName' is 'plot', then the 'levelCode' would be the plot number or plot barcode. If this plot is also considered an ObservationUnit, then the appropriate observationUnitDbId should also be recorded.\n<br/>If the 'levelName' is 'field', then the 'levelCode' might be something like '3' or 'F3' to indicate the third field at a research station. ",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "levelName": {
+                                "description": "A name for this level \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "levelOrder": {
+                                "description": "`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers \nare at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9). \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
+                                "type": [
+                                    "null",
+                                    "integer"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "levelCode",
+                            "levelName",
+                            "levelOrder"
+                        ],
+                        "title": "ObservationUnitLevel",
+                        "type": [
+                            "null",
+                            "object"
+                        ]
+                    },
+                    "observationLevelRelationships": {
+                        "description": "Observation levels indicate the granularity level at which the measurements are taken. `levelName` \ndefines the level, `levelOrder` defines where that level exists in the hierarchy of levels. \n`levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are \nat the bottom of the hierarchy (ie plant > 6). `levelCode` is an ID code for this level tag. Identify \nthis observation unit by each level of the hierarchy where it exists. \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** ",
+                        "items": {
+                            "description": "Observation levels indicate the granularity level at which the measurements are taken. `levelName` \ndefines the level, `levelOrder` defines where that level exists in the hierarchy of levels. \n`levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are \nat the bottom of the hierarchy (ie plant > 6). `levelCode` is an ID code for this level tag. Identify \nthis observation unit by each level of the hierarchy where it exists. \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** ",
+                            "properties": {
+                                "levelCode": {
+                                    "description": "An ID code or number to represent a real thing that may or may not be an an observation unit.\n<br/>For example, if the 'levelName' is 'plot', then the 'levelCode' would be the plot number or plot barcode. If this plot is also considered an ObservationUnit, then the appropriate observationUnitDbId should also be recorded.\n<br/>If the 'levelName' is 'field', then the 'levelCode' might be something like '3' or 'F3' to indicate the third field at a research station. ",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                    ]
+                                },
+                                "levelName": {
+                                    "description": "A name for this level \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                    ]
+                                },
+                                "levelOrder": {
+                                    "description": "`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers \nare at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9). \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
+                                    "type": [
+                                        "null",
+                                        "integer"
+                                    ]
+                                },
+                                "observationUnitDbId": {
+                                    "description": "The ID which uniquely identifies an observation unit\n<br/>If this level has on ObservationUnit associated with it, record the observationUnitDbId here. This is intended to construct a strict hierarchy of observationUnits. \n<br/>If there is no ObservationUnit associated with this level, this field can set to NULL or omitted from the response.",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "levelCode",
+                                "levelName",
+                                "levelOrder",
+                                "observationUnitDbId"
+                            ],
+                            "title": "ObservationUnitLevelRelationship",
+                            "type": "object"
+                        },
+                        "type": [
+                            "null",
+                            "array"
+                        ]
+                    },
+                    "positionCoordinateX": {
+                        "description": "The X position coordinate for an observation unit. Different systems may use different coordinate systems.",
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "positionCoordinateXType": {
+                        "description": "The type of positional coordinate used. Must be one of the following values \n\nLONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nLATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nPLANTED_ROW - The physical planted row number \n\nPLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row \n\nGRID_ROW - The row index number of a square grid overlay \n\nGRID_COL - The column index number of a square grid overlay \n\nMEASURED_ROW - The distance in meters from a defined 0-th row \n\nMEASURED_COL - The distance in meters from a defined 0-th column ",
+                        "enum": [
+                            "LONGITUDE",
+                            "LATITUDE",
+                            "PLANTED_ROW",
+                            "PLANTED_INDIVIDUAL",
+                            "GRID_ROW",
+                            "GRID_COL",
+                            "MEASURED_ROW",
+                            "MEASURED_COL",
+                            null
+                        ],
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "positionCoordinateY": {
+                        "description": "The Y position coordinate for an observation unit. Different systems may use different coordinate systems.",
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "positionCoordinateYType": {
+                        "description": "The type of positional coordinate used. Must be one of the following values \n\nLONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nLATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nPLANTED_ROW - The physical planted row number  \n\nPLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row \n\nGRID_ROW - The row index number of a square grid overlay \n\nGRID_COL - The column index number of a square grid overlay \n\nMEASURED_ROW - The distance in meters from a defined 0-th row \n\nMEASURED_COL - The distance in meters from a defined 0-th column ",
+                        "enum": [
+                            "LONGITUDE",
+                            "LATITUDE",
+                            "PLANTED_ROW",
+                            "PLANTED_INDIVIDUAL",
+                            "GRID_ROW",
+                            "GRID_COL",
+                            "MEASURED_ROW",
+                            "MEASURED_COL",
+                            null
+                        ],
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    }
+                },
+                "required": [
+                    "entryType",
+                    "geoCoordinates",
+                    "observationLevel",
+                    "observationLevelRelationships",
+                    "positionCoordinateX",
+                    "positionCoordinateXType",
+                    "positionCoordinateY",
+                    "positionCoordinateYType"
+                ],
+                "type": [
+                    "null",
+                    "object"
+                ]
+            },
+            "observations": {
+                "description": "All observations attached to this observation unit. \n\nDefault for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.",
+                "items": {
+                    "properties": {
+                        "additionalInfo": {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                            "type": [
+                                "null",
+                                "object"
+                            ]
+                        },
+                        "collector": {
+                            "description": "The name or identifier of the entity which collected the observation",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "externalReferences": {
+                            "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                            "items": {
+                                "properties": {
+                                    "referenceId": {
+                                        "description": "The external reference ID. Could be a simple string or a URI.",
+                                        "type": [
+                                            "null",
+                                            "string"
+                                        ]
+                                    },
+                                    "referenceSource": {
+                                        "description": "An identifier for the source system or database of this reference",
+                                        "type": [
+                                            "null",
+                                            "string"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "referenceId",
+                                    "referenceSource"
+                                ],
+                                "type": "object"
+                            },
+                            "title": "ExternalReferences",
+                            "type": [
+                                "null",
+                                "array"
+                            ]
+                        },
+                        "geoCoordinates": {
+                            "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
+                            "properties": {
+                                "geometry": {
+                                    "description": "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.",
+                                    "oneOf": [
+                                        {
+                                            "description": "Copied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
+                                            "properties": {
+                                                "coordinates": {
+                                                    "description": "A single position",
+                                                    "items": {
+                                                        "type": "number"
+                                                    },
+                                                    "minItems": 2,
+                                                    "type": "array"
+                                                },
+                                                "type": {
+                                                    "default": "Point",
+                                                    "description": "The literal string \"Point\"",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "type",
+                                                "coordinates"
+                                            ],
+                                            "type": "object"
+                                        },
+                                        {
+                                            "description": "An array of Linear Rings. Each Linear Ring is an array of Points. \n\nA Point is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
+                                            "properties": {
+                                                "coordinates": {
+                                                    "description": "An array of linear rings",
+                                                    "items": {
+                                                        "description": "An array of at least four positions where the first equals the last",
+                                                        "items": {
+                                                            "description": "A single position",
+                                                            "items": {
+                                                                "type": "number"
+                                                            },
+                                                            "minItems": 2,
+                                                            "type": "array"
+                                                        },
+                                                        "minItems": 4,
+                                                        "type": "array"
+                                                    },
+                                                    "type": "array"
+                                                },
+                                                "type": {
+                                                    "default": "Polygon",
+                                                    "description": "The literal string \"Polygon\"",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "type",
+                                                "coordinates"
+                                            ],
+                                            "type": "object"
+                                        }
+                                    ],
+                                    "title": "GeoJSON Geometry",
+                                    "type": [
+                                        "null",
+                                        "object"
+                                    ]
+                                },
+                                "type": {
+                                    "default": "Feature",
+                                    "description": "The literal string \"Feature\"",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "geometry",
+                                "type"
+                            ],
+                            "title": "GeoJSON",
+                            "type": [
+                                "null",
+                                "object"
+                            ]
+                        },
+                        "germplasmDbId": {
+                            "description": "The ID which uniquely identifies a germplasm",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "germplasmName": {
+                            "description": "Name of the germplasm. It can be the preferred name and does not have to be unique.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "observationDbId": {
+                            "description": "The ID which uniquely identifies an observation",
+                            "type": "string"
+                        },
+                        "observationTimeStamp": {
+                            "description": "The date and time when this observation was made",
+                            "format": "date-time",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "observationUnitDbId": {
+                            "description": "The ID which uniquely identifies an observation unit",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "observationUnitName": {
+                            "description": "A human readable name for an observation unit",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "observationVariableDbId": {
+                            "description": "The ID which uniquely identifies an observation variable",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "observationVariableName": {
+                            "description": "A human readable name for an observation variable",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "season": {
+                            "properties": {
+                                "seasonDbId": {
+                                    "description": "The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'",
+                                    "type": "string"
+                                },
+                                "seasonName": {
+                                    "description": "Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                    ]
+                                },
+                                "year": {
+                                    "description": "The 4 digit year of the season.",
+                                    "type": [
+                                        "null",
+                                        "integer"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "seasonDbId",
+                                "seasonName",
+                                "year"
+                            ],
+                            "type": [
+                                "null",
+                                "object"
+                            ]
+                        },
+                        "studyDbId": {
+                            "description": "The ID which uniquely identifies a study within the given database server",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "uploadedBy": {
+                            "description": "The name or id of the user who uploaded the observation to the database system",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "value": {
+                            "description": "The value of the data collected as an observation",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "additionalInfo",
+                        "collector",
+                        "externalReferences",
+                        "geoCoordinates",
+                        "germplasmDbId",
+                        "germplasmName",
+                        "observationDbId",
+                        "observationTimeStamp",
+                        "observationUnitDbId",
+                        "observationUnitName",
+                        "observationVariableDbId",
+                        "observationVariableName",
+                        "season",
+                        "studyDbId",
+                        "uploadedBy",
+                        "value"
+                    ],
+                    "type": "object",
+                    "x-brapi-metadata": {
+                        "description": "A value assigned for a specific ObservationVariable when observing a specific ObservationUnit.",
+                        "module": "BrAPI-Phenotyping",
+                        "primaryModel": true,
+                        "title": "Observation"
+                    }
+                },
+                "type": [
+                    "null",
+                    "array"
+                ]
+            },
+            "program": {
+                "$ref": "program.json#/definitions/program",
+                "description": "The ID which uniquely identifies a program"
+            },
+            "seedLot": {
+                "$ref": "seedLot.json#/definitions/seedLot",
+                "description": "The unique identifier for the originating Seed Lot"
+            },
+            "study": {
+                "$ref": "study.json#/definitions/study",
+                "description": "The ID which uniquely identifies a study within the given database server"
+            },
+            "treatments": {
+                "description": "List of treatments applied to an observation unit.\n\nMIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.",
+                "items": {
+                    "properties": {
+                        "factor": {
+                            "description": "The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc\n\nMIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "modality": {
+                            "description": "The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc\n\nMIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. ",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "factor",
+                        "modality"
+                    ],
+                    "type": "object"
+                },
+                "type": [
+                    "null",
+                    "array"
+                ]
+            },
+            "trial": {
+                "$ref": "trial.json#/definitions/trial",
+                "description": "The ID which uniquely identifies a trial"
+            }
+        },
+        "title": "ObservationUnit",
+        "type": "object"
+    },
+    "required": [
+        "additionalInfo",
+        "crossDbId",
+        "crossName",
+        "externalReferences",
+        "germplasmDbId",
+        "germplasmName",
+        "locationDbId",
+        "locationName",
+        "observationUnitDbId",
+        "observationUnitName",
+        "observationUnitPUI",
+        "observationUnitPosition",
+        "observations",
+        "programDbId",
+        "programName",
+        "seedLotDbId",
+        "seedLotName",
+        "studyDbId",
+        "studyName",
+        "treatments",
+        "trialDbId",
+        "trialName"
+    ]
+}

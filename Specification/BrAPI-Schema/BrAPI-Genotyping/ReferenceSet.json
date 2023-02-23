@@ -1,0 +1,182 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "properties": {
+            "additionalInfo": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                "type": [
+                    "null",
+                    "object"
+                ]
+            },
+            "assemblyPUI": {
+                "description": "The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "commonCropName": {
+                "description": "Common name for the crop",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "description": {
+                "description": "Optional free text description of this reference set.",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "externalReferences": {
+                "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                "items": {
+                    "properties": {
+                        "referenceId": {
+                            "description": "The external reference ID. Could be a simple string or a URI.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "referenceSource": {
+                            "description": "An identifier for the source system or database of this reference",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "referenceId",
+                        "referenceSource"
+                    ],
+                    "type": "object"
+                },
+                "title": "ExternalReferences",
+                "type": [
+                    "null",
+                    "array"
+                ]
+            },
+            "isDerived": {
+                "description": "A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).",
+                "type": [
+                    "null",
+                    "boolean"
+                ]
+            },
+            "md5checksum": {
+                "description": "Order-independent MD5 checksum which identifies this `ReferenceSet`.\n\nTo compute this checksum, make a list of `Reference.md5checksum` for all\n`Reference` s in this set. Then sort that list, and take the MD5 hash of\nall the strings concatenated together. Express the hash as a lower-case\nhexadecimal string.",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "referenceSetDbId": {
+                "description": "The unique identifier for a ReferenceSet",
+                "type": "string"
+            },
+            "referenceSetName": {
+                "description": "The human readable name of a ReferenceSet",
+                "type": "string"
+            },
+            "sourceAccessions": {
+                "description": "All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.",
+                "items": {
+                    "type": "string"
+                },
+                "type": [
+                    "null",
+                    "array"
+                ]
+            },
+            "sourceGermplasm": {
+                "description": "All known corresponding Germplasm",
+                "items": {
+                    "properties": {
+                        "germplasmDbId": {
+                            "description": "The ID which uniquely identifies a germplasm within the given database server",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "germplasmName": {
+                            "description": "The human readable name of a germplasm",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "germplasmDbId",
+                        "germplasmName"
+                    ],
+                    "type": "object"
+                },
+                "type": [
+                    "null",
+                    "array"
+                ]
+            },
+            "sourceURI": {
+                "description": "Specifies a FASTA format file/string.",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "species": {
+                "description": "An ontology term describing an attribute.",
+                "properties": {
+                    "term": {
+                        "description": "Ontology term - the label of the ontology term the termId is pointing to.",
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "termURI": {
+                        "description": "Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.",
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    }
+                },
+                "required": [
+                    "term",
+                    "termURI"
+                ],
+                "type": [
+                    "null",
+                    "object"
+                ]
+            }
+        },
+        "title": "ReferenceSet",
+        "type": "object"
+    },
+    "required": [
+        "additionalInfo",
+        "assemblyPUI",
+        "commonCropName",
+        "description",
+        "externalReferences",
+        "isDerived",
+        "md5checksum",
+        "referenceSetDbId",
+        "referenceSetName",
+        "sourceAccessions",
+        "sourceGermplasm",
+        "sourceURI",
+        "species"
+    ]
+}

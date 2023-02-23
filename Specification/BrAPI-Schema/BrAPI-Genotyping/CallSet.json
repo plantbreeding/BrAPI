@@ -1,0 +1,103 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "properties": {
+            "additionalInfo": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                "type": [
+                    "null",
+                    "object"
+                ]
+            },
+            "callSetDbId": {
+                "description": "The ID which uniquely identifies a CallSet within the given database server",
+                "type": "string"
+            },
+            "callSetName": {
+                "description": "The human readable name which identifies a germplasm within the given database server",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "created": {
+                "description": "The date this call set was created",
+                "format": "date-time",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "externalReferences": {
+                "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                "items": {
+                    "properties": {
+                        "referenceId": {
+                            "description": "The external reference ID. Could be a simple string or a URI.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "referenceSource": {
+                            "description": "An identifier for the source system or database of this reference",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "referenceId",
+                        "referenceSource"
+                    ],
+                    "type": "object"
+                },
+                "title": "ExternalReferences",
+                "type": [
+                    "null",
+                    "array"
+                ]
+            },
+            "sample": {
+                "$ref": "sample.json#/definitions/sample",
+                "description": "The Biosample entity the call set data was generated from."
+            },
+            "study": {
+                "$ref": "study.json#/definitions/study",
+                "description": "The ID which uniquely identifies a study within the given database server"
+            },
+            "updated": {
+                "description": "The time at which this call set was last updated",
+                "format": "date-time",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "variantSets": {
+                "description": "The IDs of the variantSets this callSet has calls in.",
+                "items": {
+                    "$ref": "variantSet.json#/definitions/variantSet"
+                },
+                "type": "array"
+            }
+        },
+        "title": "CallSet",
+        "type": "object"
+    },
+    "required": [
+        "additionalInfo",
+        "callSetDbId",
+        "callSetName",
+        "created",
+        "externalReferences",
+        "sampleDbId",
+        "studyDbId",
+        "updated",
+        "variantSetDbIds"
+    ]
+}

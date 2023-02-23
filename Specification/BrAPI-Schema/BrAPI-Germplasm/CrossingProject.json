@@ -1,0 +1,148 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "properties": {
+            "additionalInfo": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                "type": [
+                    "null",
+                    "object"
+                ]
+            },
+            "commonCropName": {
+                "description": "the common name of a crop (for multi-crop systems)",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "crossingProjectDbId": {
+                "description": "The unique identifier for a crossing project",
+                "type": "string"
+            },
+            "crossingProjectDescription": {
+                "description": "the description for a crossing project",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "crossingProjectName": {
+                "description": "The human readable name for a crossing project",
+                "type": "string"
+            },
+            "externalReferences": {
+                "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                "items": {
+                    "properties": {
+                        "referenceId": {
+                            "description": "The external reference ID. Could be a simple string or a URI.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "referenceSource": {
+                            "description": "An identifier for the source system or database of this reference",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "referenceId",
+                        "referenceSource"
+                    ],
+                    "type": "object"
+                },
+                "title": "ExternalReferences",
+                "type": [
+                    "null",
+                    "array"
+                ]
+            },
+            "potentialParents": {
+                "description": "A list of all the potential parents in the crossing block, available in the crossing project\n<br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.",
+                "items": {
+                    "properties": {
+                        "germplasmDbId": {
+                            "description": "the unique identifier for a germplasm",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "germplasmName": {
+                            "description": "the human readable name for a germplasm",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "observationUnitDbId": {
+                            "description": "the unique identifier for an observation unit",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "observationUnitName": {
+                            "description": "the human readable name for an observation unit",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "parentType": {
+                            "description": "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
+                            "enum": [
+                                "MALE",
+                                "FEMALE",
+                                "SELF",
+                                "POPULATION",
+                                null
+                            ],
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "germplasmDbId",
+                        "germplasmName",
+                        "observationUnitDbId",
+                        "observationUnitName",
+                        "parentType"
+                    ],
+                    "type": "object"
+                },
+                "type": [
+                    "null",
+                    "array"
+                ]
+            },
+            "program": {
+                "$ref": "program.json#/definitions/program",
+                "description": "the unique identifier for a program"
+            }
+        },
+        "title": "CrossingProject",
+        "type": "object"
+    },
+    "required": [
+        "additionalInfo",
+        "commonCropName",
+        "crossingProjectDbId",
+        "crossingProjectDescription",
+        "crossingProjectName",
+        "externalReferences",
+        "potentialParents",
+        "programDbId",
+        "programName"
+    ]
+}

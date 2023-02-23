@@ -1,0 +1,285 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "properties": {
+            "additionalInfo": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                "type": [
+                    "null",
+                    "object"
+                ]
+            },
+            "crossAttributes": {
+                "description": "Set of custom attributes associated with a cross",
+                "items": {
+                    "description": "a custom attributes associated with a cross",
+                    "properties": {
+                        "crossAttributeName": {
+                            "description": "the human readable name of a cross attribute",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "crossAttributeValue": {
+                            "description": "the value of a cross attribute",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "crossAttributeName",
+                        "crossAttributeValue"
+                    ],
+                    "type": "object"
+                },
+                "type": [
+                    "null",
+                    "array"
+                ]
+            },
+            "crossDbId": {
+                "description": "the unique identifier for a cross",
+                "type": "string"
+            },
+            "crossName": {
+                "description": "the human readable name for a cross",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "crossType": {
+                "description": "the type of cross",
+                "enum": [
+                    "BIPARENTAL",
+                    "SELF",
+                    "OPEN_POLLINATED",
+                    "BULK",
+                    "BULK_SELFED",
+                    "BULK_OPEN_POLLINATED",
+                    "DOUBLE_HAPLOID",
+                    null
+                ],
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "crossingProject": {
+                "$ref": "crossingProject.json#/definitions/crossingProject",
+                "description": "the unique identifier for a crossing project"
+            },
+            "externalReferences": {
+                "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                "items": {
+                    "properties": {
+                        "referenceId": {
+                            "description": "The external reference ID. Could be a simple string or a URI.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "referenceSource": {
+                            "description": "An identifier for the source system or database of this reference",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "referenceId",
+                        "referenceSource"
+                    ],
+                    "type": "object"
+                },
+                "title": "ExternalReferences",
+                "type": [
+                    "null",
+                    "array"
+                ]
+            },
+            "parent1": {
+                "properties": {
+                    "germplasmDbId": {
+                        "description": "the unique identifier for a germplasm",
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "germplasmName": {
+                        "description": "the human readable name for a germplasm",
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "observationUnitDbId": {
+                        "description": "the unique identifier for an observation unit",
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "observationUnitName": {
+                        "description": "the human readable name for an observation unit",
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "parentType": {
+                        "description": "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
+                        "enum": [
+                            "MALE",
+                            "FEMALE",
+                            "SELF",
+                            "POPULATION",
+                            null
+                        ],
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    }
+                },
+                "required": [
+                    "germplasmDbId",
+                    "germplasmName",
+                    "observationUnitDbId",
+                    "observationUnitName",
+                    "parentType"
+                ],
+                "type": [
+                    "null",
+                    "object"
+                ]
+            },
+            "parent2": {
+                "properties": {
+                    "germplasmDbId": {
+                        "description": "the unique identifier for a germplasm",
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "germplasmName": {
+                        "description": "the human readable name for a germplasm",
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "observationUnitDbId": {
+                        "description": "the unique identifier for an observation unit",
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "observationUnitName": {
+                        "description": "the human readable name for an observation unit",
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "parentType": {
+                        "description": "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
+                        "enum": [
+                            "MALE",
+                            "FEMALE",
+                            "SELF",
+                            "POPULATION",
+                            null
+                        ],
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    }
+                },
+                "required": [
+                    "germplasmDbId",
+                    "germplasmName",
+                    "observationUnitDbId",
+                    "observationUnitName",
+                    "parentType"
+                ],
+                "type": [
+                    "null",
+                    "object"
+                ]
+            },
+            "plannedCross": {
+                "$ref": "plannedCross.json#/definitions/plannedCross",
+                "description": "the unique identifier for a planned cross"
+            },
+            "pollinationEvents": {
+                "description": "The list of pollination events that occurred for this cross",
+                "items": {
+                    "properties": {
+                        "pollinationNumber": {
+                            "description": "The unique identifier for this pollination event",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "pollinationSuccessful": {
+                            "description": "True if the pollination was successful",
+                            "type": [
+                                "null",
+                                "boolean"
+                            ]
+                        },
+                        "pollinationTimeStamp": {
+                            "description": "The timestamp when the pollination took place",
+                            "format": "date-time",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "pollinationNumber",
+                        "pollinationSuccessful",
+                        "pollinationTimeStamp"
+                    ],
+                    "type": "object"
+                },
+                "type": [
+                    "null",
+                    "array"
+                ]
+            }
+        },
+        "title": "Cross",
+        "type": "object"
+    },
+    "required": [
+        "additionalInfo",
+        "crossAttributes",
+        "crossDbId",
+        "crossName",
+        "crossType",
+        "crossingProjectDbId",
+        "crossingProjectName",
+        "externalReferences",
+        "parent1",
+        "parent2",
+        "plannedCrossDbId",
+        "plannedCrossName",
+        "pollinationEvents"
+    ]
+}

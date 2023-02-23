@@ -1,0 +1,515 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "properties": {
+            "active": {
+                "description": "A flag to indicate if a Study is currently active and ongoing",
+                "type": [
+                    "null",
+                    "boolean"
+                ]
+            },
+            "additionalInfo": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                "type": [
+                    "null",
+                    "object"
+                ]
+            },
+            "commonCropName": {
+                "description": "Common name for the crop associated with this study",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "contacts": {
+                "description": "List of contact entities associated with this study",
+                "items": {
+                    "properties": {
+                        "contactDbId": {
+                            "description": "The ID which uniquely identifies this contact\n\nMIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.",
+                            "type": "string"
+                        },
+                        "email": {
+                            "description": "The contacts email address\n\nMIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "instituteName": {
+                            "description": "The name of the institution which this contact is part of\n\nMIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "name": {
+                            "description": "The full name of this contact person\n\nMIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "orcid": {
+                            "description": "The Open Researcher and Contributor ID for this contact person (orcid.org)\n\nMIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "type": {
+                            "description": "The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)\n\nMIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "contactDbId",
+                        "email",
+                        "instituteName",
+                        "name",
+                        "orcid",
+                        "type"
+                    ],
+                    "type": "object"
+                },
+                "type": [
+                    "null",
+                    "array"
+                ]
+            },
+            "culturalPractices": {
+                "description": "MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "dataLinks": {
+                "description": "List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.",
+                "items": {
+                    "properties": {
+                        "dataFormat": {
+                            "description": "The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)\n\nMIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "description": {
+                            "description": "The general description of this data link\n\nMIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "fileFormat": {
+                            "description": "The MIME type of the file (ie text/csv, application/excel, application/zip).\n\nMIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "name": {
+                            "description": "The name of the external data link\n\nMIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "provenance": {
+                            "description": "The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "scientificType": {
+                            "description": "The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "url": {
+                            "description": "URL describing the location of this data file to view or download\n\nMIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.",
+                            "format": "uri",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "version": {
+                            "description": "The version number for this data \n\nMIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "dataFormat",
+                        "description",
+                        "fileFormat",
+                        "name",
+                        "provenance",
+                        "scientificType",
+                        "url",
+                        "version"
+                    ],
+                    "type": "object"
+                },
+                "type": [
+                    "null",
+                    "array"
+                ]
+            },
+            "documentationURL": {
+                "description": "A URL to the human readable documentation of an object",
+                "format": "uri",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "endDate": {
+                "description": "The date the study ends\n\nMIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended",
+                "format": "date-time",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "environmentParameters": {
+                "description": "Environmental parameters that were kept constant throughout the study and did not change between observation units.\n\nMIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).",
+                "items": {
+                    "properties": {
+                        "description": {
+                            "description": "Human-readable value of the environment parameter (defined above) constant within the experiment",
+                            "type": "string"
+                        },
+                        "parameterName": {
+                            "description": "Name of the environment parameter constant within the experiment\n\nMIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. ",
+                            "type": "string"
+                        },
+                        "parameterPUI": {
+                            "description": "URI pointing to an ontology class for the parameter",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "unit": {
+                            "description": "Unit of the value for this parameter",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "unitPUI": {
+                            "description": "URI pointing to an ontology class for the unit",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "value": {
+                            "description": "Numerical or categorical value\n\nMIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "valuePUI": {
+                            "description": "URI pointing to an ontology class for the parameter value",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "description",
+                        "parameterName",
+                        "parameterPUI",
+                        "unit",
+                        "unitPUI",
+                        "value",
+                        "valuePUI"
+                    ],
+                    "type": "object"
+                },
+                "type": [
+                    "null",
+                    "array"
+                ]
+            },
+            "experimentalDesign": {
+                "description": "The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology",
+                "properties": {
+                    "PUI": {
+                        "description": "MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.",
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "description": {
+                        "description": "MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be \"unknown\"/\"NA\", \"aggregated/reduced data\", or simply 'none'.",
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    }
+                },
+                "required": [
+                    "PUI",
+                    "description"
+                ],
+                "type": [
+                    "null",
+                    "object"
+                ]
+            },
+            "externalReferences": {
+                "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                "items": {
+                    "properties": {
+                        "referenceId": {
+                            "description": "The external reference ID. Could be a simple string or a URI.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "referenceSource": {
+                            "description": "An identifier for the source system or database of this reference",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "referenceId",
+                        "referenceSource"
+                    ],
+                    "type": "object"
+                },
+                "title": "ExternalReferences",
+                "type": [
+                    "null",
+                    "array"
+                ]
+            },
+            "growthFacility": {
+                "description": "Short description of the facility in which the study was carried out.",
+                "properties": {
+                    "PUI": {
+                        "description": "MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.",
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "description": {
+                        "description": "MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.",
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    }
+                },
+                "required": [
+                    "PUI",
+                    "description"
+                ],
+                "type": [
+                    "null",
+                    "object"
+                ]
+            },
+            "lastUpdate": {
+                "description": "The date and time when this study was last modified",
+                "properties": {
+                    "timestamp": {
+                        "format": "date-time",
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "version": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    }
+                },
+                "required": [
+                    "timestamp",
+                    "version"
+                ],
+                "type": [
+                    "null",
+                    "object"
+                ]
+            },
+            "license": {
+                "description": "The usage license associated with the study data",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "location": {
+                "$ref": "location.json#/definitions/location",
+                "description": "The unique identifier for a Location"
+            },
+            "observationLevels": {
+                "description": "Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). ",
+                "items": {
+                    "description": "Observation levels indicate the granularity level at which the measurements are taken. `levelName` \ndefines the level, `levelOrder` defines where that level exists in the hierarchy of levels. \n`levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are \nat the bottom of the hierarchy (ie plant > 6). \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
+                    "properties": {
+                        "levelName": {
+                            "description": "A name for this level \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "levelOrder": {
+                            "description": "`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers \nare at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9). \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
+                            "type": [
+                                "null",
+                                "integer"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "levelName",
+                        "levelOrder"
+                    ],
+                    "title": "ObservationUnitHierarchyLevel",
+                    "type": "object"
+                },
+                "type": [
+                    "null",
+                    "array"
+                ]
+            },
+            "observationUnitsDescription": {
+                "description": "MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "observationVariables": {
+                "description": "The list of Observation Variables being used in this study. \n\nThis list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. ",
+                "items": {
+                    "$ref": "observationVariable.json#/definitions/observationVariable"
+                },
+                "type": "array"
+            },
+            "seasons": {
+                "description": "List of seasons over which this study was performed.",
+                "items": {
+                    "type": "string"
+                },
+                "type": [
+                    "null",
+                    "array"
+                ]
+            },
+            "startDate": {
+                "description": "The date this study started\n\nMIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started",
+                "format": "date-time",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "studyCode": {
+                "description": "A short human readable code for a study",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "studyDbId": {
+                "description": "The ID which uniquely identifies a study within the given database server\n\nMIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.",
+                "type": "string"
+            },
+            "studyDescription": {
+                "description": "The description of this study\n\nMIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "studyName": {
+                "description": "The human readable name for a study\n\nMIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study",
+                "type": "string"
+            },
+            "studyPUI": {
+                "description": "A permanent unique identifier associated with this study data. For example, a URI or DOI",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "studyType": {
+                "description": "The type of study being performed. ex. \"Yield Trial\", etc",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "trial": {
+                "$ref": "trial.json#/definitions/trial",
+                "description": "The ID which uniquely identifies a trial"
+            }
+        },
+        "title": "Study",
+        "type": "object"
+    },
+    "required": [
+        "active",
+        "additionalInfo",
+        "commonCropName",
+        "contacts",
+        "culturalPractices",
+        "dataLinks",
+        "documentationURL",
+        "endDate",
+        "environmentParameters",
+        "experimentalDesign",
+        "externalReferences",
+        "growthFacility",
+        "lastUpdate",
+        "license",
+        "locationDbId",
+        "locationName",
+        "observationLevels",
+        "observationUnitsDescription",
+        "observationVariableDbIds",
+        "seasons",
+        "startDate",
+        "studyCode",
+        "studyDbId",
+        "studyDescription",
+        "studyName",
+        "studyPUI",
+        "studyType",
+        "trialDbId",
+        "trialName"
+    ]
+}

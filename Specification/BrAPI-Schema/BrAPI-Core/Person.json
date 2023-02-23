@@ -1,0 +1,123 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "properties": {
+            "additionalInfo": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                "type": [
+                    "null",
+                    "object"
+                ]
+            },
+            "description": {
+                "description": "description of this person",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "emailAddress": {
+                "description": "email address for this person",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "externalReferences": {
+                "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                "items": {
+                    "properties": {
+                        "referenceId": {
+                            "description": "The external reference ID. Could be a simple string or a URI.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "referenceSource": {
+                            "description": "An identifier for the source system or database of this reference",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "referenceId",
+                        "referenceSource"
+                    ],
+                    "type": "object"
+                },
+                "title": "ExternalReferences",
+                "type": [
+                    "null",
+                    "array"
+                ]
+            },
+            "firstName": {
+                "description": "Persons first name",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "lastName": {
+                "description": "Persons last name",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "mailingAddress": {
+                "description": "physical address of this person",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "middleName": {
+                "description": "Persons middle name",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "personDbId": {
+                "description": "Unique ID for a person",
+                "type": "string"
+            },
+            "phoneNumber": {
+                "description": "phone number of this person",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "userID": {
+                "description": "A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            }
+        },
+        "title": "Person",
+        "type": "object"
+    },
+    "required": [
+        "additionalInfo",
+        "description",
+        "emailAddress",
+        "externalReferences",
+        "firstName",
+        "lastName",
+        "mailingAddress",
+        "middleName",
+        "personDbId",
+        "phoneNumber",
+        "userID"
+    ]
+}

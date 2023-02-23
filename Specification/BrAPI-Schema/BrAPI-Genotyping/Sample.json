@@ -1,0 +1,178 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "properties": {
+            "additionalInfo": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                "type": [
+                    "null",
+                    "object"
+                ]
+            },
+            "column": {
+                "description": "The Column identifier for this `Sample` location in the `Plate`",
+                "maximum": 12,
+                "minimum": 1,
+                "type": [
+                    "null",
+                    "integer"
+                ]
+            },
+            "externalReferences": {
+                "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                "items": {
+                    "properties": {
+                        "referenceId": {
+                            "description": "The external reference ID. Could be a simple string or a URI.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "referenceSource": {
+                            "description": "An identifier for the source system or database of this reference",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "referenceId",
+                        "referenceSource"
+                    ],
+                    "type": "object"
+                },
+                "title": "ExternalReferences",
+                "type": [
+                    "null",
+                    "array"
+                ]
+            },
+            "germplasm": {
+                "$ref": "germplasm.json#/definitions/germplasm",
+                "description": "The ID which uniquely identifies a `Germplasm`"
+            },
+            "observationUnit": {
+                "$ref": "observationUnit.json#/definitions/observationUnit",
+                "description": "The ID which uniquely identifies an `ObservationUnit`"
+            },
+            "plate": {
+                "$ref": "plate.json#/definitions/plate",
+                "description": "The ID which uniquely identifies a `Plate` of `Sample`"
+            },
+            "program": {
+                "$ref": "program.json#/definitions/program",
+                "description": "The ID which uniquely identifies a `Program` within the given database server"
+            },
+            "row": {
+                "description": "The Row identifier for this `Sample` location in the `Plate`",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "sampleBarcode": {
+                "description": "A unique identifier physically attached to the `Sample`",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "sampleDescription": {
+                "description": "Description of a `Sample`\n<br>MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "sampleGroup": {
+                "$ref": "sampleGroup.json#/definitions/sampleGroup",
+                "description": "The ID which uniquely identifies a group of `Samples`"
+            },
+            "sampleName": {
+                "description": "The human readable name of the `Sample`",
+                "type": "string"
+            },
+            "samplePUI": {
+                "description": "A permanent unique identifier for the `Sample` (DOI, URL, UUID, etc)\n<br> MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. ",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "sampleTimestamp": {
+                "description": "The date and time a `Sample` was collected from the field\n<br> MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested",
+                "format": "date-time",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "sampleType": {
+                "description": "The type of `Sample` taken. ex. 'DNA', 'RNA', 'Tissue', etc",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "study": {
+                "$ref": "study.json#/definitions/study",
+                "description": "The ID which uniquely identifies a `Study` within the given database server"
+            },
+            "takenBy": {
+                "description": "The name or identifier of the entity which took the `Sample` from the field",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "tissueType": {
+                "description": "The type of tissue sampled. ex. 'Leaf', 'Root', etc.\n<br> MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "trial": {
+                "$ref": "trial.json#/definitions/trial",
+                "description": "The ID which uniquely identifies a `Trial` within the given database server"
+            },
+            "well": {
+                "description": "The Well identifier for this `Sample` location in the `Plate`. Usually a concatenation of Row and Column, or just a number if the `Samples` are not part of an ordered `Plate`.",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            }
+        },
+        "title": "Sample",
+        "type": "object"
+    },
+    "required": [
+        "additionalInfo",
+        "column",
+        "externalReferences",
+        "germplasmDbId",
+        "observationUnitDbId",
+        "plateDbId",
+        "plateName",
+        "programDbId",
+        "row",
+        "sampleBarcode",
+        "sampleDescription",
+        "sampleGroupDbId",
+        "sampleName",
+        "samplePUI",
+        "sampleTimestamp",
+        "sampleType",
+        "studyDbId",
+        "takenBy",
+        "tissueType",
+        "trialDbId",
+        "well"
+    ]
+}

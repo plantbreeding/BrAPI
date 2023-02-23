@@ -1,0 +1,88 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "properties": {
+            "additionalInfo": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                "type": [
+                    "null",
+                    "object"
+                ]
+            },
+            "attribute": {
+                "$ref": "attribute.json#/definitions/attribute",
+                "description": "The ID which uniquely identifies this attribute within the given database server"
+            },
+            "attributeValue": {
+                "$ref": "attributeValue.json#/definitions/attributeValue",
+                "description": "The ID which uniquely identifies this attribute value within the given database server"
+            },
+            "determinedDate": {
+                "description": "The date the value of this attribute was determined for a given germplasm",
+                "format": "date-time",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
+            "externalReferences": {
+                "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                "items": {
+                    "properties": {
+                        "referenceId": {
+                            "description": "The external reference ID. Could be a simple string or a URI.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "referenceSource": {
+                            "description": "An identifier for the source system or database of this reference",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "referenceId",
+                        "referenceSource"
+                    ],
+                    "type": "object"
+                },
+                "title": "ExternalReferences",
+                "type": [
+                    "null",
+                    "array"
+                ]
+            },
+            "germplasm": {
+                "$ref": "germplasm.json#/definitions/germplasm",
+                "description": "The ID which uniquely identifies a germplasm within the given database server"
+            },
+            "value": {
+                "description": "The value of this attribute for a given germplasm",
+                "type": [
+                    "null",
+                    "string"
+                ]
+            }
+        },
+        "title": "GermplasmAttributeValue",
+        "type": "object"
+    },
+    "required": [
+        "additionalInfo",
+        "attributeDbId",
+        "attributeName",
+        "attributeValueDbId",
+        "determinedDate",
+        "externalReferences",
+        "germplasmDbId",
+        "germplasmName",
+        "value"
+    ]
+}
