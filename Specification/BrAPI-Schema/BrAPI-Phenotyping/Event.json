@@ -1,171 +1,173 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "properties": {
-            "additionalInfo": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                "type": [
-                    "null",
-                    "object"
-                ]
-            },
-            "eventDateRange": {
-                "description": "An object describing when a particular Event has taken place. An Event can occur at one or more discrete time points (`discreteDates`) or an event can happen continuously over a longer period of time (`startDate`, `endDate`)",
-                "properties": {
-                    "discreteDates": {
-                        "description": "A list of dates when the event occurred\n<br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
-                        "items": {
-                            "format": "date-time",
-                            "type": "string"
-                        },
-                        "type": [
-                            "null",
-                            "array"
-                        ]
+        "Event": {
+            "properties": {
+                "additionalInfo": {
+                    "additionalProperties": {
+                        "type": "string"
                     },
-                    "endDate": {
-                        "description": "The end of a continous or regularly repetitive event\n<br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
-                        "format": "date-time",
-                        "type": [
-                            "null",
-                            "string"
-                        ]
-                    },
-                    "startDate": {
-                        "description": "The begining of a continous or regularly repetitive event\n<br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
-                        "format": "date-time",
-                        "type": [
-                            "null",
-                            "string"
-                        ]
-                    }
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "type": [
+                        "null",
+                        "object"
+                    ]
                 },
-                "required": [
-                    "discreteDates",
-                    "endDate",
-                    "startDate"
-                ],
-                "type": [
-                    "null",
-                    "object"
-                ]
-            },
-            "eventDbId": {
-                "description": "Internal database identifier",
-                "type": "string"
-            },
-            "eventDescription": {
-                "description": "A detailed, human-readable description of this event\n<br/>MIAPPE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. ",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "eventParameters": {
-                "description": "A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI",
-                "items": {
+                "eventDateRange": {
+                    "description": "An object describing when a particular Event has taken place. An Event can occur at one or more discrete time points (`discreteDates`) or an event can happen continuously over a longer period of time (`startDate`, `endDate`)",
                     "properties": {
-                        "code": {
-                            "description": "The shortened code name of an event parameter\n<br>ICASA \"Code_Display\"",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "description": {
-                            "description": "A human readable description of this event parameter. This description is usually associated with the 'name' and 'code' of an event parameter.",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "name": {
-                            "description": "The full name of an event parameter\n<br>ICASA \"Variable_Name\"",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "units": {
-                            "description": "The units or data type of the 'value'. \n<br>If the 'value' comes from a standardized vocabulary or an encoded list of values, then 'unit' should be 'code'. \n<br>If the 'value' IS NOT a number, then 'unit' should specify a data type eg. 'text', 'boolean', 'date', etc. \n<br>If the value IS a number, then 'unit' should specify the units used eg. 'ml', 'cm', etc\n<br>ICASA \"Unit_or_type\"",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "value": {
-                            "description": "The single value of this event parameter. This single value is accurate for all the dates in the date range. If 'value' is populated then 'valuesByDate' should NOT be populated.",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "valueDescription": {
-                            "description": "If the event parameter 'unit' field is 'code', then use 'valueDescription' to add a human readable description to the value.",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "valuesByDate": {
-                            "description": "An array of values corresponding to each timestamp in the 'discreteDates' array of this event. The 'valuesByDate' array should exactly match the size of the 'discreteDates' array. If 'valuesByDate' is populated then 'value' should NOT be populated.",
+                        "discreteDates": {
+                            "description": "A list of dates when the event occurred\n<br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
                             "items": {
+                                "format": "date-time",
                                 "type": "string"
                             },
                             "type": [
                                 "null",
                                 "array"
                             ]
+                        },
+                        "endDate": {
+                            "description": "The end of a continous or regularly repetitive event\n<br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
+                            "format": "date-time",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "startDate": {
+                            "description": "The begining of a continous or regularly repetitive event\n<br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
+                            "format": "date-time",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
                         }
                     },
                     "required": [
-                        "code",
-                        "description",
-                        "name",
-                        "units",
-                        "value",
-                        "valueDescription",
-                        "valuesByDate"
+                        "discreteDates",
+                        "endDate",
+                        "startDate"
                     ],
-                    "type": "object"
+                    "type": [
+                        "null",
+                        "object"
+                    ]
                 },
-                "type": [
-                    "null",
-                    "array"
-                ]
-            },
-            "eventType": {
-                "$ref": "eventType.json#/definitions/eventType",
-                "description": "An identifier for this event type, in the form of an ontology class reference\n<br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other\n<br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology)."
-            },
-            "observationUnits": {
-                "description": "A list of the affected observation units. If this parameter is not given, it is understood that the event affected all units in the study",
-                "items": {
-                    "$ref": "observationUnit.json#/definitions/observationUnit"
+                "eventDbId": {
+                    "description": "Internal database identifier",
+                    "type": "string"
                 },
-                "type": "array"
+                "eventDescription": {
+                    "description": "A detailed, human-readable description of this event\n<br/>MIAPPE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. ",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "eventParameters": {
+                    "description": "A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI",
+                    "items": {
+                        "properties": {
+                            "code": {
+                                "description": "The shortened code name of an event parameter\n<br>ICASA \"Code_Display\"",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "description": {
+                                "description": "A human readable description of this event parameter. This description is usually associated with the 'name' and 'code' of an event parameter.",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "name": {
+                                "description": "The full name of an event parameter\n<br>ICASA \"Variable_Name\"",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "units": {
+                                "description": "The units or data type of the 'value'. \n<br>If the 'value' comes from a standardized vocabulary or an encoded list of values, then 'unit' should be 'code'. \n<br>If the 'value' IS NOT a number, then 'unit' should specify a data type eg. 'text', 'boolean', 'date', etc. \n<br>If the value IS a number, then 'unit' should specify the units used eg. 'ml', 'cm', etc\n<br>ICASA \"Unit_or_type\"",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "value": {
+                                "description": "The single value of this event parameter. This single value is accurate for all the dates in the date range. If 'value' is populated then 'valuesByDate' should NOT be populated.",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "valueDescription": {
+                                "description": "If the event parameter 'unit' field is 'code', then use 'valueDescription' to add a human readable description to the value.",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "valuesByDate": {
+                                "description": "An array of values corresponding to each timestamp in the 'discreteDates' array of this event. The 'valuesByDate' array should exactly match the size of the 'discreteDates' array. If 'valuesByDate' is populated then 'value' should NOT be populated.",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": [
+                                    "null",
+                                    "array"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "code",
+                            "description",
+                            "name",
+                            "units",
+                            "value",
+                            "valueDescription",
+                            "valuesByDate"
+                        ],
+                        "type": "object"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "eventType": {
+                    "$ref": "eventType.json#/definitions/eventType",
+                    "description": "An identifier for this event type, in the form of an ontology class reference\n<br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other\n<br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology)."
+                },
+                "observationUnits": {
+                    "description": "A list of the affected observation units. If this parameter is not given, it is understood that the event affected all units in the study",
+                    "items": {
+                        "$ref": "observationUnit.json#/definitions/observationUnit"
+                    },
+                    "type": "array"
+                },
+                "study": {
+                    "$ref": "study.json#/definitions/study",
+                    "description": "The study in which the event occurred"
+                }
             },
-            "study": {
-                "$ref": "study.json#/definitions/study",
-                "description": "The study in which the event occurred"
-            }
-        },
-        "title": "Event",
-        "type": "object"
-    },
-    "required": [
-        "additionalInfo",
-        "eventDateRange",
-        "eventDbId",
-        "eventDescription",
-        "eventParameters",
-        "eventType",
-        "eventTypeDbId",
-        "observationUnitDbIds",
-        "studyDbId",
-        "studyName"
-    ]
+            "required": [
+                "additionalInfo",
+                "eventDateRange",
+                "eventDbId",
+                "eventDescription",
+                "eventParameters",
+                "eventType",
+                "eventTypeDbId",
+                "observationUnitDbIds",
+                "studyDbId",
+                "studyName"
+            ],
+            "title": "Event",
+            "type": "object"
+        }
+    }
 }

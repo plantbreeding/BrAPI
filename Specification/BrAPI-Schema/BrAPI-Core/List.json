@@ -1,148 +1,150 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "properties": {
-            "additionalInfo": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                "type": [
-                    "null",
-                    "object"
-                ]
-            },
-            "data": {
-                "description": "The array of DbIds of the BrAPI objects contained in a List",
-                "items": {
-                    "type": "string"
-                },
-                "minItems": 1,
-                "type": [
-                    "null",
-                    "array"
-                ]
-            },
-            "dateCreated": {
-                "description": "Timestamp when the entity was first created",
-                "format": "date-time",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "dateModified": {
-                "description": "Timestamp when the entity was last updated",
-                "format": "date-time",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "externalReferences": {
-                "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-                "items": {
-                    "properties": {
-                        "referenceId": {
-                            "description": "The external reference ID. Could be a simple string or a URI.",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "referenceSource": {
-                            "description": "An identifier for the source system or database of this reference",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        }
+        "List": {
+            "properties": {
+                "additionalInfo": {
+                    "additionalProperties": {
+                        "type": "string"
                     },
-                    "required": [
-                        "referenceId",
-                        "referenceSource"
-                    ],
-                    "type": "object"
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "type": [
+                        "null",
+                        "object"
+                    ]
                 },
-                "title": "ExternalReferences",
-                "type": [
-                    "null",
-                    "array"
-                ]
+                "data": {
+                    "description": "The array of DbIds of the BrAPI objects contained in a List",
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "dateCreated": {
+                    "description": "Timestamp when the entity was first created",
+                    "format": "date-time",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "dateModified": {
+                    "description": "Timestamp when the entity was last updated",
+                    "format": "date-time",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "externalReferences": {
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "items": {
+                        "properties": {
+                            "referenceId": {
+                                "description": "The external reference ID. Could be a simple string or a URI.",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "referenceSource": {
+                                "description": "An identifier for the source system or database of this reference",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "referenceId",
+                            "referenceSource"
+                        ],
+                        "type": "object"
+                    },
+                    "title": "ExternalReferences",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "listDbId": {
+                    "description": "The unique identifier for a List",
+                    "type": "string"
+                },
+                "listDescription": {
+                    "description": "Description of a List",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "listName": {
+                    "description": "Human readable name of a List",
+                    "type": "string"
+                },
+                "listOwnerName": {
+                    "description": "Human readable name of a List Owner. (usually a user or person)",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "listOwnerPerson": {
+                    "$ref": "listOwnerPerson.json#/definitions/listOwnerPerson",
+                    "description": "The unique identifier for a List Owner. (usually a user or person)"
+                },
+                "listSize": {
+                    "description": "The number of elements in a List",
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "listSource": {
+                    "description": "The description of where a List originated from",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "listType": {
+                    "description": "A flag to indicate the type of objects that are referenced in a List",
+                    "enum": [
+                        "germplasm",
+                        "markers",
+                        "variants",
+                        "programs",
+                        "trials",
+                        "studies",
+                        "observationUnits",
+                        "observations",
+                        "observationVariables",
+                        "samples"
+                    ],
+                    "type": "string"
+                }
             },
-            "listDbId": {
-                "description": "The unique identifier for a List",
-                "type": "string"
-            },
-            "listDescription": {
-                "description": "Description of a List",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "listName": {
-                "description": "Human readable name of a List",
-                "type": "string"
-            },
-            "listOwnerName": {
-                "description": "Human readable name of a List Owner. (usually a user or person)",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "listOwnerPerson": {
-                "$ref": "listOwnerPerson.json#/definitions/listOwnerPerson",
-                "description": "The unique identifier for a List Owner. (usually a user or person)"
-            },
-            "listSize": {
-                "description": "The number of elements in a List",
-                "type": [
-                    "null",
-                    "integer"
-                ]
-            },
-            "listSource": {
-                "description": "The description of where a List originated from",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "listType": {
-                "description": "A flag to indicate the type of objects that are referenced in a List",
-                "enum": [
-                    "germplasm",
-                    "markers",
-                    "variants",
-                    "programs",
-                    "trials",
-                    "studies",
-                    "observationUnits",
-                    "observations",
-                    "observationVariables",
-                    "samples"
-                ],
-                "type": "string"
-            }
-        },
-        "title": "List",
-        "type": "object"
-    },
-    "required": [
-        "additionalInfo",
-        "data",
-        "dateCreated",
-        "dateModified",
-        "externalReferences",
-        "listDbId",
-        "listDescription",
-        "listName",
-        "listOwnerName",
-        "listOwnerPersonDbId",
-        "listSize",
-        "listSource",
-        "listType"
-    ]
+            "required": [
+                "additionalInfo",
+                "data",
+                "dateCreated",
+                "dateModified",
+                "externalReferences",
+                "listDbId",
+                "listDescription",
+                "listName",
+                "listOwnerName",
+                "listOwnerPersonDbId",
+                "listSize",
+                "listSource",
+                "listType"
+            ],
+            "title": "List",
+            "type": "object"
+        }
+    }
 }

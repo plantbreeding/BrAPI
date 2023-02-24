@@ -1,32 +1,34 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "properties": {
-            "seasonDbId": {
-                "description": "The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'",
-                "type": "string"
+        "Season": {
+            "properties": {
+                "seasonDbId": {
+                    "description": "The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'",
+                    "type": "string"
+                },
+                "seasonName": {
+                    "description": "Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "year": {
+                    "description": "The 4 digit year of the season.",
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                }
             },
-            "seasonName": {
-                "description": "Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "year": {
-                "description": "The 4 digit year of the season.",
-                "type": [
-                    "null",
-                    "integer"
-                ]
-            }
-        },
-        "title": "Season",
-        "type": "object"
-    },
-    "required": [
-        "seasonDbId",
-        "seasonName",
-        "year"
-    ]
+            "required": [
+                "seasonDbId",
+                "seasonName",
+                "year"
+            ],
+            "title": "Season",
+            "type": "object"
+        }
+    }
 }

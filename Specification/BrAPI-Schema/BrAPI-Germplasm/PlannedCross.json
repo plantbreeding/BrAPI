@@ -1,51 +1,109 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "properties": {
-            "additionalInfo": {
-                "additionalProperties": {
-                    "type": "string"
+        "PlannedCross": {
+            "properties": {
+                "additionalInfo": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "type": [
+                        "null",
+                        "object"
+                    ]
                 },
-                "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                "type": [
-                    "null",
-                    "object"
-                ]
-            },
-            "crossType": {
-                "description": "the type of cross",
-                "enum": [
-                    "BIPARENTAL",
-                    "SELF",
-                    "OPEN_POLLINATED",
-                    "BULK",
-                    "BULK_SELFED",
-                    "BULK_OPEN_POLLINATED",
-                    "DOUBLE_HAPLOID",
-                    null
-                ],
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "crossingProject": {
-                "$ref": "crossingProject.json#/definitions/crossingProject",
-                "description": "the unique identifier for a crossing project"
-            },
-            "externalReferences": {
-                "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-                "items": {
+                "crossType": {
+                    "description": "the type of cross",
+                    "enum": [
+                        "BIPARENTAL",
+                        "SELF",
+                        "OPEN_POLLINATED",
+                        "BULK",
+                        "BULK_SELFED",
+                        "BULK_OPEN_POLLINATED",
+                        "DOUBLE_HAPLOID",
+                        null
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "crossingProject": {
+                    "$ref": "crossingProject.json#/definitions/crossingProject",
+                    "description": "the unique identifier for a crossing project"
+                },
+                "externalReferences": {
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "items": {
+                        "properties": {
+                            "referenceId": {
+                                "description": "The external reference ID. Could be a simple string or a URI.",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "referenceSource": {
+                                "description": "An identifier for the source system or database of this reference",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "referenceId",
+                            "referenceSource"
+                        ],
+                        "type": "object"
+                    },
+                    "title": "ExternalReferences",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "parent1": {
                     "properties": {
-                        "referenceId": {
-                            "description": "The external reference ID. Could be a simple string or a URI.",
+                        "germplasmDbId": {
+                            "description": "the unique identifier for a germplasm",
                             "type": [
                                 "null",
                                 "string"
                             ]
                         },
-                        "referenceSource": {
-                            "description": "An identifier for the source system or database of this reference",
+                        "germplasmName": {
+                            "description": "the human readable name for a germplasm",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "observationUnitDbId": {
+                            "description": "the unique identifier for an observation unit",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "observationUnitName": {
+                            "description": "the human readable name for an observation unit",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "parentType": {
+                            "description": "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
+                            "enum": [
+                                "MALE",
+                                "FEMALE",
+                                "SELF",
+                                "POPULATION",
+                                null
+                            ],
                             "type": [
                                 "null",
                                 "string"
@@ -53,169 +111,113 @@
                         }
                     },
                     "required": [
-                        "referenceId",
-                        "referenceSource"
+                        "germplasmDbId",
+                        "germplasmName",
+                        "observationUnitDbId",
+                        "observationUnitName",
+                        "parentType"
                     ],
-                    "type": "object"
+                    "type": [
+                        "null",
+                        "object"
+                    ]
                 },
-                "title": "ExternalReferences",
-                "type": [
-                    "null",
-                    "array"
-                ]
-            },
-            "parent1": {
-                "properties": {
-                    "germplasmDbId": {
-                        "description": "the unique identifier for a germplasm",
-                        "type": [
-                            "null",
-                            "string"
-                        ]
+                "parent2": {
+                    "properties": {
+                        "germplasmDbId": {
+                            "description": "the unique identifier for a germplasm",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "germplasmName": {
+                            "description": "the human readable name for a germplasm",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "observationUnitDbId": {
+                            "description": "the unique identifier for an observation unit",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "observationUnitName": {
+                            "description": "the human readable name for an observation unit",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "parentType": {
+                            "description": "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
+                            "enum": [
+                                "MALE",
+                                "FEMALE",
+                                "SELF",
+                                "POPULATION",
+                                null
+                            ],
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
                     },
-                    "germplasmName": {
-                        "description": "the human readable name for a germplasm",
-                        "type": [
-                            "null",
-                            "string"
-                        ]
-                    },
-                    "observationUnitDbId": {
-                        "description": "the unique identifier for an observation unit",
-                        "type": [
-                            "null",
-                            "string"
-                        ]
-                    },
-                    "observationUnitName": {
-                        "description": "the human readable name for an observation unit",
-                        "type": [
-                            "null",
-                            "string"
-                        ]
-                    },
-                    "parentType": {
-                        "description": "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
-                        "enum": [
-                            "MALE",
-                            "FEMALE",
-                            "SELF",
-                            "POPULATION",
-                            null
-                        ],
-                        "type": [
-                            "null",
-                            "string"
-                        ]
-                    }
+                    "required": [
+                        "germplasmDbId",
+                        "germplasmName",
+                        "observationUnitDbId",
+                        "observationUnitName",
+                        "parentType"
+                    ],
+                    "type": [
+                        "null",
+                        "object"
+                    ]
                 },
-                "required": [
-                    "germplasmDbId",
-                    "germplasmName",
-                    "observationUnitDbId",
-                    "observationUnitName",
-                    "parentType"
-                ],
-                "type": [
-                    "null",
-                    "object"
-                ]
-            },
-            "parent2": {
-                "properties": {
-                    "germplasmDbId": {
-                        "description": "the unique identifier for a germplasm",
-                        "type": [
-                            "null",
-                            "string"
-                        ]
-                    },
-                    "germplasmName": {
-                        "description": "the human readable name for a germplasm",
-                        "type": [
-                            "null",
-                            "string"
-                        ]
-                    },
-                    "observationUnitDbId": {
-                        "description": "the unique identifier for an observation unit",
-                        "type": [
-                            "null",
-                            "string"
-                        ]
-                    },
-                    "observationUnitName": {
-                        "description": "the human readable name for an observation unit",
-                        "type": [
-                            "null",
-                            "string"
-                        ]
-                    },
-                    "parentType": {
-                        "description": "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
-                        "enum": [
-                            "MALE",
-                            "FEMALE",
-                            "SELF",
-                            "POPULATION",
-                            null
-                        ],
-                        "type": [
-                            "null",
-                            "string"
-                        ]
-                    }
+                "plannedCrossDbId": {
+                    "description": "the unique identifier for a planned cross",
+                    "type": "string"
                 },
-                "required": [
-                    "germplasmDbId",
-                    "germplasmName",
-                    "observationUnitDbId",
-                    "observationUnitName",
-                    "parentType"
-                ],
-                "type": [
-                    "null",
-                    "object"
-                ]
+                "plannedCrossName": {
+                    "description": "the human readable name for a planned cross",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "status": {
+                    "description": "The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').",
+                    "enum": [
+                        "TODO",
+                        "DONE",
+                        "SKIPPED",
+                        null
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
             },
-            "plannedCrossDbId": {
-                "description": "the unique identifier for a planned cross",
-                "type": "string"
-            },
-            "plannedCrossName": {
-                "description": "the human readable name for a planned cross",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "status": {
-                "description": "The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').",
-                "enum": [
-                    "TODO",
-                    "DONE",
-                    "SKIPPED",
-                    null
-                ],
-                "type": [
-                    "null",
-                    "string"
-                ]
-            }
-        },
-        "title": "PlannedCross",
-        "type": "object"
-    },
-    "required": [
-        "additionalInfo",
-        "crossType",
-        "crossingProjectDbId",
-        "crossingProjectName",
-        "externalReferences",
-        "parent1",
-        "parent2",
-        "plannedCrossDbId",
-        "plannedCrossName",
-        "status"
-    ]
+            "required": [
+                "additionalInfo",
+                "crossType",
+                "crossingProjectDbId",
+                "crossingProjectName",
+                "externalReferences",
+                "parent1",
+                "parent2",
+                "plannedCrossDbId",
+                "plannedCrossName",
+                "status"
+            ],
+            "title": "PlannedCross",
+            "type": "object"
+        }
+    }
 }

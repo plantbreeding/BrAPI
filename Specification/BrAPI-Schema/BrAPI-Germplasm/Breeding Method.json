@@ -1,33 +1,35 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "properties": {
-            "abbreviation": {
-                "description": "A shortened version of the human readable name for a Breeding Method",
-                "type": [
-                    "null",
-                    "string"
-                ]
+        "Breeding Method": {
+            "properties": {
+                "abbreviation": {
+                    "description": "A shortened version of the human readable name for a Breeding Method",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "breedingMethod": {
+                    "$ref": "breedingMethod.json#/definitions/breedingMethod",
+                    "description": "the unique identifier for this breeding method"
+                },
+                "description": {
+                    "description": "human readable description of the breeding method",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
             },
-            "breedingMethod": {
-                "$ref": "breedingMethod.json#/definitions/breedingMethod",
-                "description": "the unique identifier for this breeding method"
-            },
-            "description": {
-                "description": "human readable description of the breeding method",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            }
-        },
-        "title": "Breeding Method",
-        "type": "object"
-    },
-    "required": [
-        "abbreviation",
-        "breedingMethodDbId",
-        "breedingMethodName",
-        "description"
-    ]
+            "required": [
+                "abbreviation",
+                "breedingMethodDbId",
+                "breedingMethodName",
+                "description"
+            ],
+            "title": "Breeding Method",
+            "type": "object"
+        }
+    }
 }

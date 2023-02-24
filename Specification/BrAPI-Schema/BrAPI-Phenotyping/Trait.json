@@ -1,68 +1,142 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "properties": {
-            "additionalInfo": {
-                "additionalProperties": {
-                    "type": "string"
+        "Trait": {
+            "properties": {
+                "additionalInfo": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "type": [
+                        "null",
+                        "object"
+                    ]
                 },
-                "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                "type": [
-                    "null",
-                    "object"
-                ]
-            },
-            "alternativeAbbreviations": {
-                "description": "A list of shortened, human readable, names for a Trait. These abbreviations are acceptable alternatives to the mainAbbreviation and do not need to follow any formatting convention.",
-                "items": {
-                    "type": "string"
+                "alternativeAbbreviations": {
+                    "description": "A list of shortened, human readable, names for a Trait. These abbreviations are acceptable alternatives to the mainAbbreviation and do not need to follow any formatting convention.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
-                "type": [
-                    "null",
-                    "array"
-                ]
-            },
-            "attribute": {
-                "description": "A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the attribute is the observed feature (or characteristic) of the entity e.g., for \"grain colour\", attribute = \"colour\"",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "attributePUI": {
-                "description": "The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI\n<br/>A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the attribute is the observed feature (or characteristic) of the entity e.g., for \"grain colour\", attribute = \"colour\"",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "entity": {
-                "description": "A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the entity is the part of the plant that the trait refers to e.g., for \"grain colour\", entity = \"grain\"",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "entityPUI": {
-                "description": "The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI\n<br/>A Trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the Entity is the part of the plant that the trait refers to e.g., for \"grain colour\", entity = \"grain\" ",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "externalReferences": {
-                "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-                "items": {
+                "attribute": {
+                    "description": "A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the attribute is the observed feature (or characteristic) of the entity e.g., for \"grain colour\", attribute = \"colour\"",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "attributePUI": {
+                    "description": "The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI\n<br/>A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the attribute is the observed feature (or characteristic) of the entity e.g., for \"grain colour\", attribute = \"colour\"",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "entity": {
+                    "description": "A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the entity is the part of the plant that the trait refers to e.g., for \"grain colour\", entity = \"grain\"",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "entityPUI": {
+                    "description": "The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI\n<br/>A Trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the Entity is the part of the plant that the trait refers to e.g., for \"grain colour\", entity = \"grain\" ",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "externalReferences": {
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "items": {
+                        "properties": {
+                            "referenceId": {
+                                "description": "The external reference ID. Could be a simple string or a URI.",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "referenceSource": {
+                                "description": "An identifier for the source system or database of this reference",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "referenceId",
+                            "referenceSource"
+                        ],
+                        "type": "object"
+                    },
+                    "title": "ExternalReferences",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "mainAbbreviation": {
+                    "description": "A shortened version of the human readable name for a Trait",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "ontologyReference": {
+                    "description": "MIAPPE V1.1\n\n(DM-85) Variable accession number - Accession number of the variable in the Crop Ontology\n\n(DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).",
                     "properties": {
-                        "referenceId": {
-                            "description": "The external reference ID. Could be a simple string or a URI.",
+                        "documentationLinks": {
+                            "description": "links to various ontology documentation",
+                            "items": {
+                                "properties": {
+                                    "URL": {
+                                        "format": "uri",
+                                        "type": [
+                                            "null",
+                                            "string"
+                                        ]
+                                    },
+                                    "type": {
+                                        "enum": [
+                                            "OBO",
+                                            "RDF",
+                                            "WEBPAGE",
+                                            null
+                                        ],
+                                        "type": [
+                                            "null",
+                                            "string"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "URL",
+                                    "type"
+                                ],
+                                "type": "object"
+                            },
                             "type": [
                                 "null",
-                                "string"
+                                "array"
                             ]
                         },
-                        "referenceSource": {
-                            "description": "An identifier for the source system or database of this reference",
+                        "ontologyDbId": {
+                            "description": "Ontology database unique identifier",
+                            "type": "string"
+                        },
+                        "ontologyName": {
+                            "description": "Ontology name",
+                            "type": "string"
+                        },
+                        "version": {
+                            "description": "Ontology version (no specific format)",
                             "type": [
                                 "null",
                                 "string"
@@ -70,158 +144,86 @@
                         }
                     },
                     "required": [
-                        "referenceId",
-                        "referenceSource"
+                        "documentationLinks",
+                        "ontologyDbId",
+                        "ontologyName",
+                        "version"
                     ],
-                    "type": "object"
+                    "type": [
+                        "null",
+                        "object"
+                    ]
                 },
-                "title": "ExternalReferences",
-                "type": [
-                    "null",
-                    "array"
-                ]
-            },
-            "mainAbbreviation": {
-                "description": "A shortened version of the human readable name for a Trait",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "ontologyReference": {
-                "description": "MIAPPE V1.1\n\n(DM-85) Variable accession number - Accession number of the variable in the Crop Ontology\n\n(DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).",
-                "properties": {
-                    "documentationLinks": {
-                        "description": "links to various ontology documentation",
-                        "items": {
-                            "properties": {
-                                "URL": {
-                                    "format": "uri",
-                                    "type": [
-                                        "null",
-                                        "string"
-                                    ]
-                                },
-                                "type": {
-                                    "enum": [
-                                        "OBO",
-                                        "RDF",
-                                        "WEBPAGE",
-                                        null
-                                    ],
-                                    "type": [
-                                        "null",
-                                        "string"
-                                    ]
-                                }
-                            },
-                            "required": [
-                                "URL",
-                                "type"
-                            ],
-                            "type": "object"
-                        },
-                        "type": [
-                            "null",
-                            "array"
-                        ]
-                    },
-                    "ontologyDbId": {
-                        "description": "Ontology database unique identifier",
+                "status": {
+                    "description": "Trait status (examples: \"recommended\", \"obsolete\", \"legacy\", etc.)",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "synonyms": {
+                    "description": "Other trait names",
+                    "items": {
                         "type": "string"
                     },
-                    "ontologyName": {
-                        "description": "Ontology name",
-                        "type": "string"
-                    },
-                    "version": {
-                        "description": "Ontology version (no specific format)",
-                        "type": [
-                            "null",
-                            "string"
-                        ]
-                    }
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
-                "required": [
-                    "documentationLinks",
-                    "ontologyDbId",
-                    "ontologyName",
-                    "version"
-                ],
-                "type": [
-                    "null",
-                    "object"
-                ]
-            },
-            "status": {
-                "description": "Trait status (examples: \"recommended\", \"obsolete\", \"legacy\", etc.)",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "synonyms": {
-                "description": "Other trait names",
-                "items": {
+                "traitClass": {
+                    "description": "A classification to describe the type of trait and the context it should be considered in.\n<br/> examples- \"morphological\", \"phenological\", \"agronomical\", \"physiological\", \"abiotic stress\", \"biotic stress\", \"biochemical\", \"quality traits\", \"fertility\", etc.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "traitDbId": {
+                    "description": "The ID which uniquely identifies a trait",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "traitDescription": {
+                    "description": "The description of a trait",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "traitName": {
+                    "description": "The human readable name of a trait\n<br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation",
                     "type": "string"
                 },
-                "type": [
-                    "null",
-                    "array"
-                ]
+                "traitPUI": {
+                    "description": "The Permanent Unique Identifier of a Trait, usually in the form of a URI",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
             },
-            "traitClass": {
-                "description": "A classification to describe the type of trait and the context it should be considered in.\n<br/> examples- \"morphological\", \"phenological\", \"agronomical\", \"physiological\", \"abiotic stress\", \"biotic stress\", \"biochemical\", \"quality traits\", \"fertility\", etc.",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "traitDbId": {
-                "description": "The ID which uniquely identifies a trait",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "traitDescription": {
-                "description": "The description of a trait",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "traitName": {
-                "description": "The human readable name of a trait\n<br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation",
-                "type": "string"
-            },
-            "traitPUI": {
-                "description": "The Permanent Unique Identifier of a Trait, usually in the form of a URI",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            }
-        },
-        "title": "Trait",
-        "type": "object"
-    },
-    "required": [
-        "additionalInfo",
-        "alternativeAbbreviations",
-        "attribute",
-        "attributePUI",
-        "entity",
-        "entityPUI",
-        "externalReferences",
-        "mainAbbreviation",
-        "ontologyReference",
-        "status",
-        "synonyms",
-        "traitClass",
-        "traitDbId",
-        "traitDescription",
-        "traitName",
-        "traitPUI"
-    ]
+            "required": [
+                "additionalInfo",
+                "alternativeAbbreviations",
+                "attribute",
+                "attributePUI",
+                "entity",
+                "entityPUI",
+                "externalReferences",
+                "mainAbbreviation",
+                "ontologyReference",
+                "status",
+                "synonyms",
+                "traitClass",
+                "traitDbId",
+                "traitDescription",
+                "traitName",
+                "traitPUI"
+            ],
+            "title": "Trait",
+            "type": "object"
+        }
+    }
 }

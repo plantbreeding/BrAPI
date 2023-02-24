@@ -1,37 +1,127 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "properties": {
-            "additionalInfo": {
-                "additionalProperties": {
-                    "type": "string"
+        "Observation": {
+            "properties": {
+                "additionalInfo": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "type": [
+                        "null",
+                        "object"
+                    ]
                 },
-                "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                "type": [
-                    "null",
-                    "object"
-                ]
-            },
-            "collector": {
-                "description": "The name or identifier of the entity which collected the observation",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "externalReferences": {
-                "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-                "items": {
+                "collector": {
+                    "description": "The name or identifier of the entity which collected the observation",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "externalReferences": {
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "items": {
+                        "properties": {
+                            "referenceId": {
+                                "description": "The external reference ID. Could be a simple string or a URI.",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "referenceSource": {
+                                "description": "An identifier for the source system or database of this reference",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "referenceId",
+                            "referenceSource"
+                        ],
+                        "type": "object"
+                    },
+                    "title": "ExternalReferences",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "geoCoordinates": {
+                    "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
                     "properties": {
-                        "referenceId": {
-                            "description": "The external reference ID. Could be a simple string or a URI.",
+                        "geometry": {
+                            "description": "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.",
+                            "oneOf": [
+                                {
+                                    "description": "Copied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
+                                    "properties": {
+                                        "coordinates": {
+                                            "description": "A single position",
+                                            "items": {
+                                                "type": "number"
+                                            },
+                                            "minItems": 2,
+                                            "type": "array"
+                                        },
+                                        "type": {
+                                            "default": "Point",
+                                            "description": "The literal string \"Point\"",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "type",
+                                        "coordinates"
+                                    ],
+                                    "type": "object"
+                                },
+                                {
+                                    "description": "An array of Linear Rings. Each Linear Ring is an array of Points. \n\nA Point is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
+                                    "properties": {
+                                        "coordinates": {
+                                            "description": "An array of linear rings",
+                                            "items": {
+                                                "description": "An array of at least four positions where the first equals the last",
+                                                "items": {
+                                                    "description": "A single position",
+                                                    "items": {
+                                                        "type": "number"
+                                                    },
+                                                    "minItems": 2,
+                                                    "type": "array"
+                                                },
+                                                "minItems": 4,
+                                                "type": "array"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "type": {
+                                            "default": "Polygon",
+                                            "description": "The literal string \"Polygon\"",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "type",
+                                        "coordinates"
+                                    ],
+                                    "type": "object"
+                                }
+                            ],
+                            "title": "GeoJSON Geometry",
                             "type": [
                                 "null",
-                                "string"
+                                "object"
                             ]
                         },
-                        "referenceSource": {
-                            "description": "An identifier for the source system or database of this reference",
+                        "type": {
+                            "default": "Feature",
+                            "description": "The literal string \"Feature\"",
                             "type": [
                                 "null",
                                 "string"
@@ -39,197 +129,109 @@
                         }
                     },
                     "required": [
-                        "referenceId",
-                        "referenceSource"
+                        "geometry",
+                        "type"
                     ],
-                    "type": "object"
+                    "title": "GeoJSON",
+                    "type": [
+                        "null",
+                        "object"
+                    ]
                 },
-                "title": "ExternalReferences",
-                "type": [
-                    "null",
-                    "array"
-                ]
-            },
-            "geoCoordinates": {
-                "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                "properties": {
-                    "geometry": {
-                        "description": "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.",
-                        "oneOf": [
-                            {
-                                "description": "Copied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                                "properties": {
-                                    "coordinates": {
-                                        "description": "A single position",
-                                        "items": {
-                                            "type": "number"
-                                        },
-                                        "minItems": 2,
-                                        "type": "array"
-                                    },
-                                    "type": {
-                                        "default": "Point",
-                                        "description": "The literal string \"Point\"",
-                                        "type": "string"
-                                    }
-                                },
-                                "required": [
-                                    "type",
-                                    "coordinates"
-                                ],
-                                "type": "object"
-                            },
-                            {
-                                "description": "An array of Linear Rings. Each Linear Ring is an array of Points. \n\nA Point is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                                "properties": {
-                                    "coordinates": {
-                                        "description": "An array of linear rings",
-                                        "items": {
-                                            "description": "An array of at least four positions where the first equals the last",
-                                            "items": {
-                                                "description": "A single position",
-                                                "items": {
-                                                    "type": "number"
-                                                },
-                                                "minItems": 2,
-                                                "type": "array"
-                                            },
-                                            "minItems": 4,
-                                            "type": "array"
-                                        },
-                                        "type": "array"
-                                    },
-                                    "type": {
-                                        "default": "Polygon",
-                                        "description": "The literal string \"Polygon\"",
-                                        "type": "string"
-                                    }
-                                },
-                                "required": [
-                                    "type",
-                                    "coordinates"
-                                ],
-                                "type": "object"
-                            }
-                        ],
-                        "title": "GeoJSON Geometry",
-                        "type": [
-                            "null",
-                            "object"
-                        ]
-                    },
-                    "type": {
-                        "default": "Feature",
-                        "description": "The literal string \"Feature\"",
-                        "type": [
-                            "null",
-                            "string"
-                        ]
-                    }
+                "germplasm": {
+                    "$ref": "germplasm.json#/definitions/germplasm",
+                    "description": "The ID which uniquely identifies a germplasm"
                 },
-                "required": [
-                    "geometry",
-                    "type"
-                ],
-                "title": "GeoJSON",
-                "type": [
-                    "null",
-                    "object"
-                ]
-            },
-            "germplasm": {
-                "$ref": "germplasm.json#/definitions/germplasm",
-                "description": "The ID which uniquely identifies a germplasm"
-            },
-            "observationDbId": {
-                "description": "The ID which uniquely identifies an observation",
-                "type": "string"
-            },
-            "observationTimeStamp": {
-                "description": "The date and time when this observation was made",
-                "format": "date-time",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "observationUnit": {
-                "$ref": "observationUnit.json#/definitions/observationUnit",
-                "description": "The ID which uniquely identifies an observation unit"
-            },
-            "observationVariable": {
-                "$ref": "observationVariable.json#/definitions/observationVariable",
-                "description": "The ID which uniquely identifies an observation variable"
-            },
-            "season": {
-                "properties": {
-                    "seasonDbId": {
-                        "description": "The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'",
-                        "type": "string"
-                    },
-                    "seasonName": {
-                        "description": "Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.",
-                        "type": [
-                            "null",
-                            "string"
-                        ]
-                    },
-                    "year": {
-                        "description": "The 4 digit year of the season.",
-                        "type": [
-                            "null",
-                            "integer"
-                        ]
-                    }
+                "observationDbId": {
+                    "description": "The ID which uniquely identifies an observation",
+                    "type": "string"
                 },
-                "required": [
-                    "seasonDbId",
-                    "seasonName",
-                    "year"
-                ],
-                "type": [
-                    "null",
-                    "object"
-                ]
+                "observationTimeStamp": {
+                    "description": "The date and time when this observation was made",
+                    "format": "date-time",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "observationUnit": {
+                    "$ref": "observationUnit.json#/definitions/observationUnit",
+                    "description": "The ID which uniquely identifies an observation unit"
+                },
+                "observationVariable": {
+                    "$ref": "observationVariable.json#/definitions/observationVariable",
+                    "description": "The ID which uniquely identifies an observation variable"
+                },
+                "season": {
+                    "properties": {
+                        "seasonDbId": {
+                            "description": "The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'",
+                            "type": "string"
+                        },
+                        "seasonName": {
+                            "description": "Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "year": {
+                            "description": "The 4 digit year of the season.",
+                            "type": [
+                                "null",
+                                "integer"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "seasonDbId",
+                        "seasonName",
+                        "year"
+                    ],
+                    "type": [
+                        "null",
+                        "object"
+                    ]
+                },
+                "study": {
+                    "$ref": "study.json#/definitions/study",
+                    "description": "The ID which uniquely identifies a study within the given database server"
+                },
+                "uploadedBy": {
+                    "description": "The name or id of the user who uploaded the observation to the database system",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "value": {
+                    "description": "The value of the data collected as an observation",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
             },
-            "study": {
-                "$ref": "study.json#/definitions/study",
-                "description": "The ID which uniquely identifies a study within the given database server"
-            },
-            "uploadedBy": {
-                "description": "The name or id of the user who uploaded the observation to the database system",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "value": {
-                "description": "The value of the data collected as an observation",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            }
-        },
-        "title": "Observation",
-        "type": "object"
-    },
-    "required": [
-        "additionalInfo",
-        "collector",
-        "externalReferences",
-        "geoCoordinates",
-        "germplasmDbId",
-        "germplasmName",
-        "observationDbId",
-        "observationTimeStamp",
-        "observationUnitDbId",
-        "observationUnitName",
-        "observationVariableDbId",
-        "observationVariableName",
-        "season",
-        "studyDbId",
-        "uploadedBy",
-        "value"
-    ]
+            "required": [
+                "additionalInfo",
+                "collector",
+                "externalReferences",
+                "geoCoordinates",
+                "germplasmDbId",
+                "germplasmName",
+                "observationDbId",
+                "observationTimeStamp",
+                "observationUnitDbId",
+                "observationUnitName",
+                "observationVariableDbId",
+                "observationVariableName",
+                "season",
+                "studyDbId",
+                "uploadedBy",
+                "value"
+            ],
+            "title": "Observation",
+            "type": "object"
+        }
+    }
 }

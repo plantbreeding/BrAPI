@@ -1,81 +1,83 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "properties": {
-            "additionalInfo": {
-                "additionalProperties": {
+        "Ontology": {
+            "properties": {
+                "additionalInfo": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "type": [
+                        "null",
+                        "object"
+                    ]
+                },
+                "authors": {
+                    "description": "Ontology's list of authors (no specific format)",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "copyright": {
+                    "description": "Ontology copyright",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "description": {
+                    "description": "Human readable description of Ontology",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "documentationURL": {
+                    "description": "A URL to the human readable documentation of an object",
+                    "format": "uri",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "licence": {
+                    "description": "Ontology licence",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "ontologyDbId": {
+                    "description": "Ontology database unique identifier",
                     "type": "string"
                 },
-                "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                "type": [
-                    "null",
-                    "object"
-                ]
+                "ontologyName": {
+                    "description": "Ontology name",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "Ontology version (no specific format)",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
             },
-            "authors": {
-                "description": "Ontology's list of authors (no specific format)",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "copyright": {
-                "description": "Ontology copyright",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "description": {
-                "description": "Human readable description of Ontology",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "documentationURL": {
-                "description": "A URL to the human readable documentation of an object",
-                "format": "uri",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "licence": {
-                "description": "Ontology licence",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "ontologyDbId": {
-                "description": "Ontology database unique identifier",
-                "type": "string"
-            },
-            "ontologyName": {
-                "description": "Ontology name",
-                "type": "string"
-            },
-            "version": {
-                "description": "Ontology version (no specific format)",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            }
-        },
-        "title": "Ontology",
-        "type": "object"
-    },
-    "required": [
-        "additionalInfo",
-        "authors",
-        "copyright",
-        "description",
-        "documentationURL",
-        "licence",
-        "ontologyDbId",
-        "ontologyName",
-        "version"
-    ]
+            "required": [
+                "additionalInfo",
+                "authors",
+                "copyright",
+                "description",
+                "documentationURL",
+                "licence",
+                "ontologyDbId",
+                "ontologyName",
+                "version"
+            ],
+            "title": "Ontology",
+            "type": "object"
+        }
+    }
 }

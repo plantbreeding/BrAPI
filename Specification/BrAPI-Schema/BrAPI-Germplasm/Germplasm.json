@@ -1,499 +1,501 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "properties": {
-            "accessionNumber": {
-                "description": "The unique identifier for a material or germplasm within a genebank\n\nMCPD (v2.1) (ACCENUMB) 2. This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection (e.g. \"PI 113869\").",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "acquisitionDate": {
-                "description": "The date a material or germplasm was acquired by the genebank \n\nMCPD (v2.1) (ACQDATE) 12. Date on which the accession entered the collection [YYYYMMDD] where YYYY is the year, MM is the month and DD is the day. Missing data (MM or DD) should be indicated with hyphens or \"00\" [double zero].",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "additionalInfo": {
-                "additionalProperties": {
+        "Germplasm": {
+            "properties": {
+                "accessionNumber": {
+                    "description": "The unique identifier for a material or germplasm within a genebank\n\nMCPD (v2.1) (ACCENUMB) 2. This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection (e.g. \"PI 113869\").",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "acquisitionDate": {
+                    "description": "The date a material or germplasm was acquired by the genebank \n\nMCPD (v2.1) (ACQDATE) 12. Date on which the accession entered the collection [YYYYMMDD] where YYYY is the year, MM is the month and DD is the day. Missing data (MM or DD) should be indicated with hyphens or \"00\" [double zero].",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "additionalInfo": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "type": [
+                        "null",
+                        "object"
+                    ]
+                },
+                "biologicalStatusOfAccessionCode": {
+                    "description": "MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. \n\n100) Wild \n110) Natural \n120) Semi-natural/wild \n130) Semi-natural/sown \n200) Weedy \n300) Traditional cultivar/landrace \n400) Breeding/research material \n410) Breeders line \n411) Synthetic population \n412) Hybrid \n413) Founder stock/base population \n414) Inbred line (parent of hybrid cultivar) \n415) Segregating population \n416) Clonal selection \n420) Genetic stock \n421) Mutant (e.g. induced/insertion mutants, tilling populations) \n422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) \n423) Other genetic stocks (e.g. mapping populations) \n500) Advanced or improved cultivar (conventional breeding methods) \n600) GMO (by genetic engineering) \n999) Other (Elaborate in REMARKS field)",
+                    "enum": [
+                        "100",
+                        "110",
+                        "120",
+                        "130",
+                        "200",
+                        "300",
+                        "400",
+                        "410",
+                        "411",
+                        "412",
+                        "413",
+                        "414",
+                        "415",
+                        "416",
+                        "420",
+                        "421",
+                        "422",
+                        "423",
+                        "500",
+                        "600",
+                        "999",
+                        null
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "biologicalStatusOfAccessionDescription": {
+                    "description": "Supplemental text description for 'biologicalStatusOfAccessionCode'",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "breedingMethod": {
+                    "$ref": "breedingMethod.json#/definitions/breedingMethod",
+                    "description": "The unique identifier for the breeding method used to create this germplasm"
+                },
+                "collection": {
+                    "description": "A specific panel/collection/population name this germplasm belongs to.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "commonCropName": {
+                    "description": "Common name for the crop \n\nMCPD (v2.1) (CROPNAME) 10. Common name of the crop. Example: \"malting barley\", \"mas\".",
                     "type": "string"
                 },
-                "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                "type": [
-                    "null",
-                    "object"
-                ]
-            },
-            "biologicalStatusOfAccessionCode": {
-                "description": "MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. \n\n100) Wild \n110) Natural \n120) Semi-natural/wild \n130) Semi-natural/sown \n200) Weedy \n300) Traditional cultivar/landrace \n400) Breeding/research material \n410) Breeders line \n411) Synthetic population \n412) Hybrid \n413) Founder stock/base population \n414) Inbred line (parent of hybrid cultivar) \n415) Segregating population \n416) Clonal selection \n420) Genetic stock \n421) Mutant (e.g. induced/insertion mutants, tilling populations) \n422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) \n423) Other genetic stocks (e.g. mapping populations) \n500) Advanced or improved cultivar (conventional breeding methods) \n600) GMO (by genetic engineering) \n999) Other (Elaborate in REMARKS field)",
-                "enum": [
-                    "100",
-                    "110",
-                    "120",
-                    "130",
-                    "200",
-                    "300",
-                    "400",
-                    "410",
-                    "411",
-                    "412",
-                    "413",
-                    "414",
-                    "415",
-                    "416",
-                    "420",
-                    "421",
-                    "422",
-                    "423",
-                    "500",
-                    "600",
-                    "999",
-                    null
-                ],
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "biologicalStatusOfAccessionDescription": {
-                "description": "Supplemental text description for 'biologicalStatusOfAccessionCode'",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "breedingMethod": {
-                "$ref": "breedingMethod.json#/definitions/breedingMethod",
-                "description": "The unique identifier for the breeding method used to create this germplasm"
-            },
-            "collection": {
-                "description": "A specific panel/collection/population name this germplasm belongs to.",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "commonCropName": {
-                "description": "Common name for the crop \n\nMCPD (v2.1) (CROPNAME) 10. Common name of the crop. Example: \"malting barley\", \"mas\".",
-                "type": "string"
-            },
-            "countryOfOriginCode": {
-                "description": "3-letter ISO 3166-1 code of the country in which the sample was originally collected \n\nMCPD (v2.1) (ORIGCTY) 13. 3-letter ISO 3166-1 code of the country in which the sample was originally collected (e.g. landrace, crop wild relative, farmers variety), bred or selected (breeding lines, GMOs, segregating populations, hybrids, modern cultivars, etc.). Note- Descriptors 14 to 16 below should be completed accordingly only if it was \"collected\".",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "defaultDisplayName": {
-                "description": "Human readable name used for display purposes",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "documentationURL": {
-                "description": "A URL to the human readable documentation of an object",
-                "format": "uri",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "donors": {
-                "description": "List of donor institutes",
-                "items": {
-                    "properties": {
-                        "donorAccessionNumber": {
-                            "description": "The accession number assigned by the donor\n                              \nMCPD (v2.1) (DONORNUMB) 23. Identifier assigned to an accession by the donor. Follows ACCENUMB standard.",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "donorInstituteCode": {
-                            "description": "The institute code for the donor institute\n<br/>MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        }
-                    },
-                    "required": [
-                        "donorAccessionNumber",
-                        "donorInstituteCode"
-                    ],
-                    "type": "object"
+                "countryOfOriginCode": {
+                    "description": "3-letter ISO 3166-1 code of the country in which the sample was originally collected \n\nMCPD (v2.1) (ORIGCTY) 13. 3-letter ISO 3166-1 code of the country in which the sample was originally collected (e.g. landrace, crop wild relative, farmers variety), bred or selected (breeding lines, GMOs, segregating populations, hybrids, modern cultivars, etc.). Note- Descriptors 14 to 16 below should be completed accordingly only if it was \"collected\".",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
                 },
-                "type": [
-                    "null",
-                    "array"
-                ]
-            },
-            "externalReferences": {
-                "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-                "items": {
-                    "properties": {
-                        "referenceId": {
-                            "description": "The external reference ID. Could be a simple string or a URI.",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "referenceSource": {
-                            "description": "An identifier for the source system or database of this reference",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        }
-                    },
-                    "required": [
-                        "referenceId",
-                        "referenceSource"
-                    ],
-                    "type": "object"
+                "defaultDisplayName": {
+                    "description": "Human readable name used for display purposes",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
                 },
-                "title": "ExternalReferences",
-                "type": [
-                    "null",
-                    "array"
-                ]
-            },
-            "genus": {
-                "description": "Genus name for taxon. Initial uppercase letter required.\n\nMCPD (v2.1) (GENUS) 5. Genus name for taxon. Initial uppercase letter required.\n\nMIAPPE V1.1 (DM-43) Genus - Genus name for the organism under study, according to standard scientific nomenclature.",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "germplasmDbId": {
-                "description": "The ID which uniquely identifies a germplasm within the given database server \n<br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.",
-                "type": "string"
-            },
-            "germplasmName": {
-                "description": "Name of the germplasm. It can be the preferred name and does not have to be unique.\n\nMCPD (v2.1) (ACCENAME) 11. Either a registered or other designation given to the material received, other than the donors accession number (23) or collecting number (3). First letter uppercase. Multiple names are separated by a semicolon without space.",
-                "type": "string"
-            },
-            "germplasmOrigin": {
-                "description": "Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.",
-                "items": {
-                    "description": "MIAPPE V1.1 (DM-52) \n\nMIAPPE V1.1 (DM-53) \n\nMIAPPE V1.1 (DM-54) \n\nMIAPPE V1.1 (DM-55)\n\nMCPD (v2.1) (COORDUNCERT) 15.5 \n\nMCPD (v2.1) (ELEVATION) 16. \n\nMCPD (v2.1) (GEOREFMETH) 15.7 \n\nMCPD (v2.1) (DECLATITUDE) 15.1 \n\nMCPD (v2.1) (DECLONGITUDE) 15.3 ",
-                    "properties": {
-                        "coordinateUncertainty": {
-                            "description": "Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
+                "documentationURL": {
+                    "description": "A URL to the human readable documentation of an object",
+                    "format": "uri",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "donors": {
+                    "description": "List of donor institutes",
+                    "items": {
+                        "properties": {
+                            "donorAccessionNumber": {
+                                "description": "The accession number assigned by the donor\n                              \nMCPD (v2.1) (DONORNUMB) 23. Identifier assigned to an accession by the donor. Follows ACCENUMB standard.",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "donorInstituteCode": {
+                                "description": "The institute code for the donor institute\n<br/>MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
                         },
-                        "coordinates": {
-                            "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                            "properties": {
-                                "geometry": {
-                                    "description": "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.",
-                                    "oneOf": [
-                                        {
-                                            "description": "Copied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                                            "properties": {
-                                                "coordinates": {
-                                                    "description": "A single position",
-                                                    "items": {
-                                                        "type": "number"
-                                                    },
-                                                    "minItems": 2,
-                                                    "type": "array"
-                                                },
-                                                "type": {
-                                                    "default": "Point",
-                                                    "description": "The literal string \"Point\"",
-                                                    "type": "string"
-                                                }
-                                            },
-                                            "required": [
-                                                "type",
-                                                "coordinates"
-                                            ],
-                                            "type": "object"
-                                        },
-                                        {
-                                            "description": "An array of Linear Rings. Each Linear Ring is an array of Points. \n\nA Point is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                                            "properties": {
-                                                "coordinates": {
-                                                    "description": "An array of linear rings",
-                                                    "items": {
-                                                        "description": "An array of at least four positions where the first equals the last",
+                        "required": [
+                            "donorAccessionNumber",
+                            "donorInstituteCode"
+                        ],
+                        "type": "object"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "externalReferences": {
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "items": {
+                        "properties": {
+                            "referenceId": {
+                                "description": "The external reference ID. Could be a simple string or a URI.",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "referenceSource": {
+                                "description": "An identifier for the source system or database of this reference",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "referenceId",
+                            "referenceSource"
+                        ],
+                        "type": "object"
+                    },
+                    "title": "ExternalReferences",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "genus": {
+                    "description": "Genus name for taxon. Initial uppercase letter required.\n\nMCPD (v2.1) (GENUS) 5. Genus name for taxon. Initial uppercase letter required.\n\nMIAPPE V1.1 (DM-43) Genus - Genus name for the organism under study, according to standard scientific nomenclature.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "germplasmDbId": {
+                    "description": "The ID which uniquely identifies a germplasm within the given database server \n<br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.",
+                    "type": "string"
+                },
+                "germplasmName": {
+                    "description": "Name of the germplasm. It can be the preferred name and does not have to be unique.\n\nMCPD (v2.1) (ACCENAME) 11. Either a registered or other designation given to the material received, other than the donors accession number (23) or collecting number (3). First letter uppercase. Multiple names are separated by a semicolon without space.",
+                    "type": "string"
+                },
+                "germplasmOrigin": {
+                    "description": "Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.",
+                    "items": {
+                        "description": "MIAPPE V1.1 (DM-52) \n\nMIAPPE V1.1 (DM-53) \n\nMIAPPE V1.1 (DM-54) \n\nMIAPPE V1.1 (DM-55)\n\nMCPD (v2.1) (COORDUNCERT) 15.5 \n\nMCPD (v2.1) (ELEVATION) 16. \n\nMCPD (v2.1) (GEOREFMETH) 15.7 \n\nMCPD (v2.1) (DECLATITUDE) 15.1 \n\nMCPD (v2.1) (DECLONGITUDE) 15.3 ",
+                        "properties": {
+                            "coordinateUncertainty": {
+                                "description": "Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "coordinates": {
+                                "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
+                                "properties": {
+                                    "geometry": {
+                                        "description": "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.",
+                                        "oneOf": [
+                                            {
+                                                "description": "Copied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
+                                                "properties": {
+                                                    "coordinates": {
+                                                        "description": "A single position",
                                                         "items": {
-                                                            "description": "A single position",
-                                                            "items": {
-                                                                "type": "number"
-                                                            },
-                                                            "minItems": 2,
-                                                            "type": "array"
+                                                            "type": "number"
                                                         },
-                                                        "minItems": 4,
+                                                        "minItems": 2,
                                                         "type": "array"
                                                     },
-                                                    "type": "array"
+                                                    "type": {
+                                                        "default": "Point",
+                                                        "description": "The literal string \"Point\"",
+                                                        "type": "string"
+                                                    }
                                                 },
-                                                "type": {
-                                                    "default": "Polygon",
-                                                    "description": "The literal string \"Polygon\"",
-                                                    "type": "string"
-                                                }
+                                                "required": [
+                                                    "type",
+                                                    "coordinates"
+                                                ],
+                                                "type": "object"
                                             },
-                                            "required": [
-                                                "type",
-                                                "coordinates"
-                                            ],
-                                            "type": "object"
-                                        }
-                                    ],
-                                    "title": "GeoJSON Geometry",
-                                    "type": [
-                                        "null",
-                                        "object"
-                                    ]
+                                            {
+                                                "description": "An array of Linear Rings. Each Linear Ring is an array of Points. \n\nA Point is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
+                                                "properties": {
+                                                    "coordinates": {
+                                                        "description": "An array of linear rings",
+                                                        "items": {
+                                                            "description": "An array of at least four positions where the first equals the last",
+                                                            "items": {
+                                                                "description": "A single position",
+                                                                "items": {
+                                                                    "type": "number"
+                                                                },
+                                                                "minItems": 2,
+                                                                "type": "array"
+                                                            },
+                                                            "minItems": 4,
+                                                            "type": "array"
+                                                        },
+                                                        "type": "array"
+                                                    },
+                                                    "type": {
+                                                        "default": "Polygon",
+                                                        "description": "The literal string \"Polygon\"",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "type",
+                                                    "coordinates"
+                                                ],
+                                                "type": "object"
+                                            }
+                                        ],
+                                        "title": "GeoJSON Geometry",
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ]
+                                    },
+                                    "type": {
+                                        "default": "Feature",
+                                        "description": "The literal string \"Feature\"",
+                                        "type": [
+                                            "null",
+                                            "string"
+                                        ]
+                                    }
                                 },
-                                "type": {
-                                    "default": "Feature",
-                                    "description": "The literal string \"Feature\"",
-                                    "type": [
-                                        "null",
-                                        "string"
-                                    ]
-                                }
+                                "required": [
+                                    "geometry",
+                                    "type"
+                                ],
+                                "title": "GeoJSON",
+                                "type": [
+                                    "null",
+                                    "object"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "coordinateUncertainty",
+                            "coordinates"
+                        ],
+                        "type": "object"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "germplasmPUI": {
+                    "description": "The Permanent Unique Identifier which represents a germplasm\n\nMIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.\n\nMIAPPE V1.1 (DM-51) Material source DOI - Digital Object Identifier (DOI) of the material source\n\nMCPD (v2.1) (PUID) 0. Any persistent, unique identifier assigned to the accession so it can be unambiguously referenced at the global level and the information associated with it harvested through automated means. Report one PUID for each accession. The Secretariat of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) is facilitating the assignment of a persistent unique identifier (PUID), in the form of a DOI, to PGRFA at the accession level. Genebanks not applying a true PUID to their accessions should use, and request recipients to use, the concatenation of INSTCODE, ACCENUMB, and GENUS as a globally unique identifier similar in most respects to the PUID whenever they exchange information on accessions with third parties.",
+                    "type": "string"
+                },
+                "germplasmPreprocessing": {
+                    "description": "Description of any process or treatment applied uniformly to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "instituteCode": {
+                    "description": "The code for the institute that maintains the material. \n\nMCPD (v2.1) (INSTCODE) 1. FAO WIEWS code of the institute where the accession is maintained. The codes consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. PER001). The current set of institute codes is available from http://www.fao.org/wiews. For those institutes not yet having an FAO Code, or for those with \"obsolete\" codes, see \"Common formatting rules (v)\".",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "instituteName": {
+                    "description": "The name of the institute that maintains the material",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "pedigree": {
+                    "description": "The cross name and optional selection history.\n\nMCPD (v2.1) (ANCEST) 20. Information about either pedigree or other description of ancestral information (e.g. parent variety in case of mutant or selection). For example a pedigree 'Hanna/7*Atlas//Turk/8*Atlas' or a description 'mutation found in Hanna', 'selection from Irene' or 'cross involving amongst others Hanna and Irene'.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "seedSource": {
+                    "description": "An identifier for the source of the biological material\n<br/>MIAPPE V1.1 (DM-50) Material source ID (Holding institute/stock centre, accession) - An identifier for the source of the biological material, in the form of a key-value pair comprising the name/identifier of the repository from which the material was sourced plus the accession number of the repository for that material. Where an accession number has not been assigned, but the material has been derived from the crossing of known accessions, the material can be defined as follows: \"mother_accession X father_accession\", or, if father is unknown, as \"mother_accession X UNKNOWN\". For in situ material, the region of provenance may be used when an accession is not available.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "seedSourceDescription": {
+                    "description": "Description of the material source\n\nMIAPPE V1.1 (DM-56) Material source description - Description of the material source",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "species": {
+                    "description": "Specific epithet portion of the scientific name in lowercase letters.\n\nMCPD (v2.1) (SPECIES) 6. Specific epithet portion of the scientific name in lowercase letters. Only the following abbreviation is allowed: \"sp.\" \n\nMIAPPE V1.1 (DM-44) Species - Species name (formally: specific epithet) for the organism under study, according to standard scientific nomenclature.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "speciesAuthority": {
+                    "description": "The authority organization responsible for tracking and maintaining the species name \n\nMCPD (v2.1) (SPAUTHOR) 7. Provide the authority for the species name.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "storageTypes": {
+                    "description": "The type of storage this germplasm is kept in at a genebank.",
+                    "items": {
+                        "properties": {
+                            "code": {
+                                "description": "The 2 digit code representing the type of storage this germplasm is kept in at a genebank. \n\nMCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) \n\n10) Seed collection \n11) Short term \n12) Medium term \n13) Long term \n20) Field collection \n30) In vitro collection \n40) Cryo-preserved collection \n50) DNA collection \n99) Other (elaborate in REMARKS field)",
+                                "enum": [
+                                    "10",
+                                    "11",
+                                    "12",
+                                    "13",
+                                    "20",
+                                    "30",
+                                    "40",
+                                    "50",
+                                    "99",
+                                    null
+                                ],
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
                             },
-                            "required": [
-                                "geometry",
-                                "type"
-                            ],
-                            "title": "GeoJSON",
-                            "type": [
-                                "null",
-                                "object"
-                            ]
-                        }
-                    },
-                    "required": [
-                        "coordinateUncertainty",
-                        "coordinates"
-                    ],
-                    "type": "object"
-                },
-                "type": [
-                    "null",
-                    "array"
-                ]
-            },
-            "germplasmPUI": {
-                "description": "The Permanent Unique Identifier which represents a germplasm\n\nMIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.\n\nMIAPPE V1.1 (DM-51) Material source DOI - Digital Object Identifier (DOI) of the material source\n\nMCPD (v2.1) (PUID) 0. Any persistent, unique identifier assigned to the accession so it can be unambiguously referenced at the global level and the information associated with it harvested through automated means. Report one PUID for each accession. The Secretariat of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) is facilitating the assignment of a persistent unique identifier (PUID), in the form of a DOI, to PGRFA at the accession level. Genebanks not applying a true PUID to their accessions should use, and request recipients to use, the concatenation of INSTCODE, ACCENUMB, and GENUS as a globally unique identifier similar in most respects to the PUID whenever they exchange information on accessions with third parties.",
-                "type": "string"
-            },
-            "germplasmPreprocessing": {
-                "description": "Description of any process or treatment applied uniformly to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "instituteCode": {
-                "description": "The code for the institute that maintains the material. \n\nMCPD (v2.1) (INSTCODE) 1. FAO WIEWS code of the institute where the accession is maintained. The codes consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. PER001). The current set of institute codes is available from http://www.fao.org/wiews. For those institutes not yet having an FAO Code, or for those with \"obsolete\" codes, see \"Common formatting rules (v)\".",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "instituteName": {
-                "description": "The name of the institute that maintains the material",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "pedigree": {
-                "description": "The cross name and optional selection history.\n\nMCPD (v2.1) (ANCEST) 20. Information about either pedigree or other description of ancestral information (e.g. parent variety in case of mutant or selection). For example a pedigree 'Hanna/7*Atlas//Turk/8*Atlas' or a description 'mutation found in Hanna', 'selection from Irene' or 'cross involving amongst others Hanna and Irene'.",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "seedSource": {
-                "description": "An identifier for the source of the biological material\n<br/>MIAPPE V1.1 (DM-50) Material source ID (Holding institute/stock centre, accession) - An identifier for the source of the biological material, in the form of a key-value pair comprising the name/identifier of the repository from which the material was sourced plus the accession number of the repository for that material. Where an accession number has not been assigned, but the material has been derived from the crossing of known accessions, the material can be defined as follows: \"mother_accession X father_accession\", or, if father is unknown, as \"mother_accession X UNKNOWN\". For in situ material, the region of provenance may be used when an accession is not available.",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "seedSourceDescription": {
-                "description": "Description of the material source\n\nMIAPPE V1.1 (DM-56) Material source description - Description of the material source",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "species": {
-                "description": "Specific epithet portion of the scientific name in lowercase letters.\n\nMCPD (v2.1) (SPECIES) 6. Specific epithet portion of the scientific name in lowercase letters. Only the following abbreviation is allowed: \"sp.\" \n\nMIAPPE V1.1 (DM-44) Species - Species name (formally: specific epithet) for the organism under study, according to standard scientific nomenclature.",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "speciesAuthority": {
-                "description": "The authority organization responsible for tracking and maintaining the species name \n\nMCPD (v2.1) (SPAUTHOR) 7. Provide the authority for the species name.",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "storageTypes": {
-                "description": "The type of storage this germplasm is kept in at a genebank.",
-                "items": {
-                    "properties": {
-                        "code": {
-                            "description": "The 2 digit code representing the type of storage this germplasm is kept in at a genebank. \n\nMCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) \n\n10) Seed collection \n11) Short term \n12) Medium term \n13) Long term \n20) Field collection \n30) In vitro collection \n40) Cryo-preserved collection \n50) DNA collection \n99) Other (elaborate in REMARKS field)",
-                            "enum": [
-                                "10",
-                                "11",
-                                "12",
-                                "13",
-                                "20",
-                                "30",
-                                "40",
-                                "50",
-                                "99",
-                                null
-                            ],
-                            "type": [
-                                "null",
-                                "string"
-                            ]
+                            "description": {
+                                "description": "A supplemental text description of the storage type",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
                         },
-                        "description": {
-                            "description": "A supplemental text description of the storage type",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        }
+                        "required": [
+                            "code",
+                            "description"
+                        ],
+                        "type": "object"
                     },
-                    "required": [
-                        "code",
-                        "description"
-                    ],
-                    "type": "object"
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
-                "type": [
-                    "null",
-                    "array"
-                ]
-            },
-            "subtaxa": {
-                "description": "Subtaxon can be used to store any additional taxonomic identifier.\n\nMCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: \"subsp.\" (for subspecies); \"convar.\" (for convariety); \"var.\" (for variety); \"f.\" (for form); \"Group\" (for \"cultivar group\").\n\nMIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "subtaxaAuthority": {
-                "description": "The authority organization responsible for tracking and maintaining the subtaxon information\n\nMCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level.",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "synonyms": {
-                "description": "List of alternative names or IDs used to reference this germplasm\n\nMCPD (v2.1) (OTHERNUMB) 24. Any other identifiers known to exist in other collections for this accession. Use the following format: INSTCODE:ACCENUMB;INSTCODE:identifier;INSTCODE and identifier are separated by a colon without space. Pairs of INSTCODE and identifier are separated by a semicolon without space. When the institute is not known, the identifier should be preceded by a colon.",
-                "items": {
-                    "properties": {
-                        "synonym": {
-                            "description": "Alternative name or ID used to reference this germplasm",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
+                "subtaxa": {
+                    "description": "Subtaxon can be used to store any additional taxonomic identifier.\n\nMCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: \"subsp.\" (for subspecies); \"convar.\" (for convariety); \"var.\" (for variety); \"f.\" (for form); \"Group\" (for \"cultivar group\").\n\nMIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "subtaxaAuthority": {
+                    "description": "The authority organization responsible for tracking and maintaining the subtaxon information\n\nMCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "synonyms": {
+                    "description": "List of alternative names or IDs used to reference this germplasm\n\nMCPD (v2.1) (OTHERNUMB) 24. Any other identifiers known to exist in other collections for this accession. Use the following format: INSTCODE:ACCENUMB;INSTCODE:identifier;INSTCODE and identifier are separated by a colon without space. Pairs of INSTCODE and identifier are separated by a semicolon without space. When the institute is not known, the identifier should be preceded by a colon.",
+                    "items": {
+                        "properties": {
+                            "synonym": {
+                                "description": "Alternative name or ID used to reference this germplasm",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "type": {
+                                "description": "A descriptive classification for this synonym",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
                         },
-                        "type": {
-                            "description": "A descriptive classification for this synonym",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        }
+                        "required": [
+                            "synonym",
+                            "type"
+                        ],
+                        "type": "object"
                     },
-                    "required": [
-                        "synonym",
-                        "type"
-                    ],
-                    "type": "object"
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
-                "type": [
-                    "null",
-                    "array"
-                ]
-            },
-            "taxonIds": {
-                "description": "The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as \"ncbiTaxon\" preferably with a purl. The rank of this ID should be species.\n\nMIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.",
-                "items": {
-                    "properties": {
-                        "sourceName": {
-                            "description": "The human readable name of the taxonomy provider",
-                            "type": "string"
+                "taxonIds": {
+                    "description": "The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as \"ncbiTaxon\" preferably with a purl. The rank of this ID should be species.\n\nMIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.",
+                    "items": {
+                        "properties": {
+                            "sourceName": {
+                                "description": "The human readable name of the taxonomy provider",
+                                "type": "string"
+                            },
+                            "taxonId": {
+                                "description": "The identifier (name, ID, URI) of a particular taxonomy within the source provider",
+                                "type": "string"
+                            }
                         },
-                        "taxonId": {
-                            "description": "The identifier (name, ID, URI) of a particular taxonomy within the source provider",
-                            "type": "string"
-                        }
+                        "required": [
+                            "sourceName",
+                            "taxonId"
+                        ],
+                        "type": "object"
                     },
-                    "required": [
-                        "sourceName",
-                        "taxonId"
-                    ],
-                    "type": "object"
-                },
-                "type": [
-                    "null",
-                    "array"
-                ]
-            }
-        },
-        "title": "Germplasm",
-        "type": "object"
-    },
-    "required": [
-        "accessionNumber",
-        "acquisitionDate",
-        "additionalInfo",
-        "biologicalStatusOfAccessionCode",
-        "biologicalStatusOfAccessionDescription",
-        "breedingMethodDbId",
-        "breedingMethodName",
-        "collection",
-        "commonCropName",
-        "countryOfOriginCode",
-        "defaultDisplayName",
-        "documentationURL",
-        "donors",
-        "externalReferences",
-        "genus",
-        "germplasmDbId",
-        "germplasmName",
-        "germplasmOrigin",
-        "germplasmPUI",
-        "germplasmPreprocessing",
-        "instituteCode",
-        "instituteName",
-        "pedigree",
-        "seedSource",
-        "seedSourceDescription",
-        "species",
-        "speciesAuthority",
-        "storageTypes",
-        "subtaxa",
-        "subtaxaAuthority",
-        "synonyms",
-        "taxonIds"
-    ]
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "accessionNumber",
+                "acquisitionDate",
+                "additionalInfo",
+                "biologicalStatusOfAccessionCode",
+                "biologicalStatusOfAccessionDescription",
+                "breedingMethodDbId",
+                "breedingMethodName",
+                "collection",
+                "commonCropName",
+                "countryOfOriginCode",
+                "defaultDisplayName",
+                "documentationURL",
+                "donors",
+                "externalReferences",
+                "genus",
+                "germplasmDbId",
+                "germplasmName",
+                "germplasmOrigin",
+                "germplasmPUI",
+                "germplasmPreprocessing",
+                "instituteCode",
+                "instituteName",
+                "pedigree",
+                "seedSource",
+                "seedSourceDescription",
+                "species",
+                "speciesAuthority",
+                "storageTypes",
+                "subtaxa",
+                "subtaxaAuthority",
+                "synonyms",
+                "taxonIds"
+            ],
+            "title": "Germplasm",
+            "type": "object"
+        }
+    }
 }

@@ -41,14 +41,16 @@ def buildJSONSchema(schema, title, module, verbose):
 	schemaObj = {
 				"$schema": "http://json-schema.org/draft-04/schema#",
 				"definitions": {
-					"title": title,
-					"type": "object",
-					"properties": schema["properties"]
+					title : {
+						"title": title,
+						"type": "object",
+					    "properties": schema["properties"]
+					}
 				}
 			}
 	
 	if 'required' in schema:
-		schemaObj['required'] = schema['required']
+		schemaObj['definitions'][title]['required'] = schema['required']
 			
 	filename = outPath + module + '/' + title + '.json'
 	os.makedirs(os.path.dirname(filename), exist_ok=True)

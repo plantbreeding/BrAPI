@@ -1,124 +1,126 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "properties": {
-            "abbreviation": {
-                "description": "A shortened version of the human readable name for a Program",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "additionalInfo": {
-                "additionalProperties": {
+        "Program": {
+            "properties": {
+                "abbreviation": {
+                    "description": "A shortened version of the human readable name for a Program",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "additionalInfo": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "type": [
+                        "null",
+                        "object"
+                    ]
+                },
+                "commonCropName": {
+                    "description": "Common name for the crop which this program is for",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "documentationURL": {
+                    "description": "A URL to the human readable documentation of an object",
+                    "format": "uri",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "externalReferences": {
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "items": {
+                        "properties": {
+                            "referenceId": {
+                                "description": "The external reference ID. Could be a simple string or a URI.",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "referenceSource": {
+                                "description": "An identifier for the source system or database of this reference",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "referenceId",
+                            "referenceSource"
+                        ],
+                        "type": "object"
+                    },
+                    "title": "ExternalReferences",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "fundingInformation": {
+                    "description": "Information describing the grant or funding source for this program",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "leadPerson": {
+                    "$ref": "leadPerson.json#/definitions/leadPerson",
+                    "description": "The unique identifier of the program leader"
+                },
+                "objective": {
+                    "description": "The primary objective of the program",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "programDbId": {
+                    "description": "The ID which uniquely identifies the program",
                     "type": "string"
                 },
-                "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                "type": [
-                    "null",
-                    "object"
-                ]
-            },
-            "commonCropName": {
-                "description": "Common name for the crop which this program is for",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "documentationURL": {
-                "description": "A URL to the human readable documentation of an object",
-                "format": "uri",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "externalReferences": {
-                "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-                "items": {
-                    "properties": {
-                        "referenceId": {
-                            "description": "The external reference ID. Could be a simple string or a URI.",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "referenceSource": {
-                            "description": "An identifier for the source system or database of this reference",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        }
-                    },
-                    "required": [
-                        "referenceId",
-                        "referenceSource"
-                    ],
-                    "type": "object"
+                "programName": {
+                    "description": "Human readable name of the program",
+                    "type": "string"
                 },
-                "title": "ExternalReferences",
-                "type": [
-                    "null",
-                    "array"
-                ]
+                "programType": {
+                    "description": "The type of program entity this object represents\n<br/> 'STANDARD' represents a standard, permenant breeding program\n<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   ",
+                    "enum": [
+                        "STANDARD",
+                        "PROJECT",
+                        null
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
             },
-            "fundingInformation": {
-                "description": "Information describing the grant or funding source for this program",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "leadPerson": {
-                "$ref": "leadPerson.json#/definitions/leadPerson",
-                "description": "The unique identifier of the program leader"
-            },
-            "objective": {
-                "description": "The primary objective of the program",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "programDbId": {
-                "description": "The ID which uniquely identifies the program",
-                "type": "string"
-            },
-            "programName": {
-                "description": "Human readable name of the program",
-                "type": "string"
-            },
-            "programType": {
-                "description": "The type of program entity this object represents\n<br/> 'STANDARD' represents a standard, permenant breeding program\n<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   ",
-                "enum": [
-                    "STANDARD",
-                    "PROJECT",
-                    null
-                ],
-                "type": [
-                    "null",
-                    "string"
-                ]
-            }
-        },
-        "title": "Program",
-        "type": "object"
-    },
-    "required": [
-        "abbreviation",
-        "additionalInfo",
-        "commonCropName",
-        "documentationURL",
-        "externalReferences",
-        "fundingInformation",
-        "leadPersonDbId",
-        "leadPersonName",
-        "objective",
-        "programDbId",
-        "programName",
-        "programType"
-    ]
+            "required": [
+                "abbreviation",
+                "additionalInfo",
+                "commonCropName",
+                "documentationURL",
+                "externalReferences",
+                "fundingInformation",
+                "leadPersonDbId",
+                "leadPersonName",
+                "objective",
+                "programDbId",
+                "programName",
+                "programType"
+            ],
+            "title": "Program",
+            "type": "object"
+        }
+    }
 }

@@ -1,50 +1,52 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "properties": {
-            "additionalInfo": {
-                "additionalProperties": {
-                    "type": "string"
+        "MarkerPosition": {
+            "properties": {
+                "additionalInfo": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "type": [
+                        "null",
+                        "object"
+                    ]
                 },
-                "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                "type": [
-                    "null",
-                    "object"
-                ]
+                "linkageGroupName": {
+                    "description": "The Uniquely Identifiable name of a `LinkageGroup`\n<br> This might be a chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "map": {
+                    "$ref": "map.json#/definitions/map",
+                    "description": "The ID which uniquely identifies a `GenomeMap`"
+                },
+                "position": {
+                    "description": "The position of a marker or variant within a `LinkageGroup`",
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "variant": {
+                    "$ref": "variant.json#/definitions/variant",
+                    "description": "The ID which uniquely identifies a `Variant` within the given database server\n<br> A `Variant` can also represent a Marker "
+                }
             },
-            "linkageGroupName": {
-                "description": "The Uniquely Identifiable name of a `LinkageGroup`\n<br> This might be a chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.",
-                "type": [
-                    "null",
-                    "string"
-                ]
-            },
-            "map": {
-                "$ref": "map.json#/definitions/map",
-                "description": "The ID which uniquely identifies a `GenomeMap`"
-            },
-            "position": {
-                "description": "The position of a marker or variant within a `LinkageGroup`",
-                "type": [
-                    "null",
-                    "integer"
-                ]
-            },
-            "variant": {
-                "$ref": "variant.json#/definitions/variant",
-                "description": "The ID which uniquely identifies a `Variant` within the given database server\n<br> A `Variant` can also represent a Marker "
-            }
-        },
-        "title": "MarkerPosition",
-        "type": "object"
-    },
-    "required": [
-        "additionalInfo",
-        "linkageGroupName",
-        "mapDbId",
-        "mapName",
-        "position",
-        "variantDbId",
-        "variantName"
-    ]
+            "required": [
+                "additionalInfo",
+                "linkageGroupName",
+                "mapDbId",
+                "mapName",
+                "position",
+                "variantDbId",
+                "variantName"
+            ],
+            "title": "MarkerPosition",
+            "type": "object"
+        }
+    }
 }
