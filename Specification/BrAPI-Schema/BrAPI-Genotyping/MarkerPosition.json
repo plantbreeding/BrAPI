@@ -49,5 +49,5 @@
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/MarkerPosition.json",
-    "$schema": "http://json-schema.org/draft-04/schema#"
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
 }

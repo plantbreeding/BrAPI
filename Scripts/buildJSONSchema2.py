@@ -39,7 +39,7 @@ def buildJSONSchemas(parent, verbose):
 def buildJSONSchema(schema, title, module, verbose):		
 	schema = fixSchema(schema)
 	schemaObj = {
-				"$schema": "http://json-schema.org/draft-04/schema#",
+				"$schema": "http://json-schema.org/draft/2020-12/schema",
 				"$id": "https://brapi.org/Specification/BrAPI-Schema/" + module + "/" + title +".json",
 				"$defs": {
 					title : {
