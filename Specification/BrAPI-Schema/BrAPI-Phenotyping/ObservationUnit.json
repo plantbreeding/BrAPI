@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "ObservationUnit": {
             "properties": {
                 "additionalInfo": {
@@ -14,7 +13,7 @@
                     ]
                 },
                 "cross": {
-                    "$ref": "cross.json#/definitions/cross",
+                    "$ref": "cross.json#/$defs/cross",
                     "description": "the unique identifier for a cross"
                 },
                 "externalReferences": {
@@ -49,11 +48,11 @@
                     ]
                 },
                 "germplasm": {
-                    "$ref": "germplasm.json#/definitions/germplasm",
+                    "$ref": "germplasm.json#/$defs/germplasm",
                     "description": "The ID which uniquely identifies a germplasm"
                 },
                 "location": {
-                    "$ref": "location.json#/definitions/location",
+                    "$ref": "location.json#/$defs/location",
                     "description": "The ID which uniquely identifies a location, associated with this study"
                 },
                 "observationUnitDbId": {
@@ -605,15 +604,15 @@
                     ]
                 },
                 "program": {
-                    "$ref": "program.json#/definitions/program",
+                    "$ref": "program.json#/$defs/program",
                     "description": "The ID which uniquely identifies a program"
                 },
                 "seedLot": {
-                    "$ref": "seedLot.json#/definitions/seedLot",
+                    "$ref": "seedLot.json#/$defs/seedLot",
                     "description": "The unique identifier for the originating Seed Lot"
                 },
                 "study": {
-                    "$ref": "study.json#/definitions/study",
+                    "$ref": "study.json#/$defs/study",
                     "description": "The ID which uniquely identifies a study within the given database server"
                 },
                 "treatments": {
@@ -647,7 +646,7 @@
                     ]
                 },
                 "trial": {
-                    "$ref": "trial.json#/definitions/trial",
+                    "$ref": "trial.json#/$defs/trial",
                     "description": "The ID which uniquely identifies a trial"
                 }
             },
@@ -678,5 +677,7 @@
             "title": "ObservationUnit",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/ObservationUnit.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

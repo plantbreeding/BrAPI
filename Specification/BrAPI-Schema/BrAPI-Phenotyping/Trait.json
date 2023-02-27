@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "Trait": {
             "properties": {
                 "additionalInfo": {
@@ -225,5 +224,7 @@
             "title": "Trait",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/Trait.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

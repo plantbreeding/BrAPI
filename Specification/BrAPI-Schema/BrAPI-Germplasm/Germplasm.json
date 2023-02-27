@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "Germplasm": {
             "properties": {
                 "accessionNumber": {
@@ -66,7 +65,7 @@
                     ]
                 },
                 "breedingMethod": {
-                    "$ref": "breedingMethod.json#/definitions/breedingMethod",
+                    "$ref": "breedingMethod.json#/$defs/breedingMethod",
                     "description": "The unique identifier for the breeding method used to create this germplasm"
                 },
                 "collection": {
@@ -497,5 +496,7 @@
             "title": "Germplasm",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/Germplasm.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

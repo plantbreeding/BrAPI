@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "Program": {
             "properties": {
                 "abbreviation": {
@@ -74,7 +73,7 @@
                     ]
                 },
                 "leadPerson": {
-                    "$ref": "leadPerson.json#/definitions/leadPerson",
+                    "$ref": "leadPerson.json#/$defs/leadPerson",
                     "description": "The unique identifier of the program leader"
                 },
                 "objective": {
@@ -122,5 +121,7 @@
             "title": "Program",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/Program.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

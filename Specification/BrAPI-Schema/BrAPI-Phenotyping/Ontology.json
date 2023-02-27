@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "Ontology": {
             "properties": {
                 "additionalInfo": {
@@ -79,5 +78,7 @@
             "title": "Ontology",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/Ontology.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

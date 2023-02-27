@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "Variant": {
             "properties": {
                 "additionalInfo": {
@@ -262,11 +261,11 @@
                     ]
                 },
                 "referenceSet": {
-                    "$ref": "referenceSet.json#/definitions/referenceSet",
+                    "$ref": "referenceSet.json#/$defs/referenceSet",
                     "description": "The ID of the reference set that describes the sequences used by the variants in this set."
                 },
                 "study": {
-                    "$ref": "study.json#/definitions/study",
+                    "$ref": "study.json#/$defs/study",
                     "description": "The ID of the dataset this variant set belongs to."
                 },
                 "variantCount": {
@@ -277,7 +276,7 @@
                     ]
                 },
                 "variantSet": {
-                    "$ref": "variantSet.json#/definitions/variantSet",
+                    "$ref": "variantSet.json#/$defs/variantSet",
                     "description": "The unique identifier for a VariantSet"
                 }
             },
@@ -297,5 +296,7 @@
             "title": "Variant",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/Variant.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

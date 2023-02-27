@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "Sample": {
             "properties": {
                 "additionalInfo": {
@@ -54,19 +53,19 @@
                     ]
                 },
                 "germplasm": {
-                    "$ref": "germplasm.json#/definitions/germplasm",
+                    "$ref": "germplasm.json#/$defs/germplasm",
                     "description": "The ID which uniquely identifies a `Germplasm`"
                 },
                 "observationUnit": {
-                    "$ref": "observationUnit.json#/definitions/observationUnit",
+                    "$ref": "observationUnit.json#/$defs/observationUnit",
                     "description": "The ID which uniquely identifies an `ObservationUnit`"
                 },
                 "plate": {
-                    "$ref": "plate.json#/definitions/plate",
+                    "$ref": "plate.json#/$defs/plate",
                     "description": "The ID which uniquely identifies a `Plate` of `Sample`"
                 },
                 "program": {
-                    "$ref": "program.json#/definitions/program",
+                    "$ref": "program.json#/$defs/program",
                     "description": "The ID which uniquely identifies a `Program` within the given database server"
                 },
                 "row": {
@@ -91,7 +90,7 @@
                     ]
                 },
                 "sampleGroup": {
-                    "$ref": "sampleGroup.json#/definitions/sampleGroup",
+                    "$ref": "sampleGroup.json#/$defs/sampleGroup",
                     "description": "The ID which uniquely identifies a group of `Samples`"
                 },
                 "sampleName": {
@@ -121,7 +120,7 @@
                     ]
                 },
                 "study": {
-                    "$ref": "study.json#/definitions/study",
+                    "$ref": "study.json#/$defs/study",
                     "description": "The ID which uniquely identifies a `Study` within the given database server"
                 },
                 "takenBy": {
@@ -139,7 +138,7 @@
                     ]
                 },
                 "trial": {
-                    "$ref": "trial.json#/definitions/trial",
+                    "$ref": "trial.json#/$defs/trial",
                     "description": "The ID which uniquely identifies a `Trial` within the given database server"
                 },
                 "well": {
@@ -176,5 +175,7 @@
             "title": "Sample",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/Sample.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

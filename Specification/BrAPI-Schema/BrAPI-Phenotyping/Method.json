@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "Method": {
             "properties": {
                 "additionalInfo": {
@@ -171,5 +170,7 @@
             "title": "Method",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/Method.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

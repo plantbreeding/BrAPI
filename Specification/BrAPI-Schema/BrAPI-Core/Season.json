@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "Season": {
             "properties": {
                 "seasonDbId": {
@@ -30,5 +29,7 @@
             "title": "Season",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/Season.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

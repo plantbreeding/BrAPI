@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "SeedLot": {
             "properties": {
                 "additionalInfo": {
@@ -122,11 +121,11 @@
                     ]
                 },
                 "location": {
-                    "$ref": "location.json#/definitions/location",
+                    "$ref": "location.json#/$defs/location",
                     "description": "The unique identifier for a Location"
                 },
                 "program": {
-                    "$ref": "program.json#/definitions/program",
+                    "$ref": "program.json#/$defs/program",
                     "description": "The unique DbId of the breeding program this Seed Lot belongs to"
                 },
                 "seedLotDbId": {
@@ -187,5 +186,7 @@
             "title": "SeedLot",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/SeedLot.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

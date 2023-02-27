@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "Person": {
             "properties": {
                 "additionalInfo": {
@@ -121,5 +120,7 @@
             "title": "Person",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/Person.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

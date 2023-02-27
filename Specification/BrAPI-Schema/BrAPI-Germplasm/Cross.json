@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "Cross": {
             "properties": {
                 "additionalInfo": {
@@ -73,7 +72,7 @@
                     ]
                 },
                 "crossingProject": {
-                    "$ref": "crossingProject.json#/definitions/crossingProject",
+                    "$ref": "crossingProject.json#/$defs/crossingProject",
                     "description": "the unique identifier for a crossing project"
                 },
                 "externalReferences": {
@@ -222,7 +221,7 @@
                     ]
                 },
                 "plannedCross": {
-                    "$ref": "plannedCross.json#/definitions/plannedCross",
+                    "$ref": "plannedCross.json#/$defs/plannedCross",
                     "description": "the unique identifier for a planned cross"
                 },
                 "pollinationEvents": {
@@ -283,5 +282,7 @@
             "title": "Cross",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/Cross.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

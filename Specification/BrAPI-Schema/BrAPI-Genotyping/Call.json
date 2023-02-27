@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "Call": {
             "properties": {
                 "additionalInfo": {
@@ -14,7 +13,7 @@
                     ]
                 },
                 "callSet": {
-                    "$ref": "callSet.json#/definitions/callSet",
+                    "$ref": "callSet.json#/$defs/callSet",
                     "description": "The ID of the call set this variant call belongs to.\n\nIf this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same."
                 },
                 "genotypeMetadata": {
@@ -85,11 +84,11 @@
                     ]
                 },
                 "variant": {
-                    "$ref": "variant.json#/definitions/variant",
+                    "$ref": "variant.json#/$defs/variant",
                     "description": "The ID of the variant this call belongs to."
                 },
                 "variantSet": {
-                    "$ref": "variantSet.json#/definitions/variantSet",
+                    "$ref": "variantSet.json#/$defs/variantSet",
                     "description": "The unique identifier for a VariantSet"
                 }
             },
@@ -108,5 +107,7 @@
             "title": "Call",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/Call.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

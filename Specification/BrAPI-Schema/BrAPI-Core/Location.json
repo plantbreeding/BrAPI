@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "Location": {
             "properties": {
                 "abbreviation": {
@@ -218,7 +217,7 @@
                     ]
                 },
                 "parentLocation": {
-                    "$ref": "parentLocation.json#/definitions/parentLocation",
+                    "$ref": "parentLocation.json#/$defs/parentLocation",
                     "description": "The unique identifier for a Location\n<br/> The Parent Location defines the encompassing Location that a smaller Location belongs to. \nFor example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields."
                 },
                 "siteStatus": {
@@ -269,5 +268,7 @@
             "title": "Location",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/Location.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

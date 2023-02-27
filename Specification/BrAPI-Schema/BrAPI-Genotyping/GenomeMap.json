@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "GenomeMap": {
             "properties": {
                 "additionalInfo": {
@@ -40,7 +39,7 @@
                     ]
                 },
                 "map": {
-                    "$ref": "map.json#/definitions/map",
+                    "$ref": "map.json#/$defs/map",
                     "description": "The ID which uniquely identifies a `GenomeMap`"
                 },
                 "mapPUI": {
@@ -102,5 +101,7 @@
             "title": "GenomeMap",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/GenomeMap.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

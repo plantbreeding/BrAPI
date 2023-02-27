@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "ObservationVariable": {
             "properties": {
                 "additionalInfo": {
@@ -856,5 +855,7 @@
             "title": "ObservationVariable",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/ObservationVariable.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

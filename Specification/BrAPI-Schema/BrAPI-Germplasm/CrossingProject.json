@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "CrossingProject": {
             "properties": {
                 "additionalInfo": {
@@ -128,7 +127,7 @@
                     ]
                 },
                 "program": {
-                    "$ref": "program.json#/definitions/program",
+                    "$ref": "program.json#/$defs/program",
                     "description": "the unique identifier for a program"
                 }
             },
@@ -146,5 +145,7 @@
             "title": "CrossingProject",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/CrossingProject.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

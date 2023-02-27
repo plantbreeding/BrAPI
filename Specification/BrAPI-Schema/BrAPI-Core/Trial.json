@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "Trial": {
             "properties": {
                 "active": {
@@ -179,7 +178,7 @@
                     ]
                 },
                 "program": {
-                    "$ref": "program.json#/definitions/program",
+                    "$ref": "program.json#/$defs/program",
                     "description": "A program identifier to search for"
                 },
                 "publications": {
@@ -261,5 +260,7 @@
             "title": "Trial",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/Trial.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

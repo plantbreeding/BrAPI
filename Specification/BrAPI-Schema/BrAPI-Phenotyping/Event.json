@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "Event": {
             "properties": {
                 "additionalInfo": {
@@ -139,18 +138,18 @@
                     ]
                 },
                 "eventType": {
-                    "$ref": "eventType.json#/definitions/eventType",
+                    "$ref": "eventType.json#/$defs/eventType",
                     "description": "An identifier for this event type, in the form of an ontology class reference\n<br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other\n<br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology)."
                 },
                 "observationUnits": {
                     "description": "A list of the affected observation units. If this parameter is not given, it is understood that the event affected all units in the study",
                     "items": {
-                        "$ref": "observationUnit.json#/definitions/observationUnit"
+                        "$ref": "observationUnit.json#/$defs/observationUnit"
                     },
                     "type": "array"
                 },
                 "study": {
-                    "$ref": "study.json#/definitions/study",
+                    "$ref": "study.json#/$defs/study",
                     "description": "The study in which the event occurred"
                 }
             },
@@ -169,5 +168,7 @@
             "title": "Event",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/Event.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

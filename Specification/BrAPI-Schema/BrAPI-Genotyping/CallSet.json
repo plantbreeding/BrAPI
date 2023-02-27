@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "CallSet": {
             "properties": {
                 "additionalInfo": {
@@ -64,11 +63,11 @@
                     ]
                 },
                 "sample": {
-                    "$ref": "sample.json#/definitions/sample",
+                    "$ref": "sample.json#/$defs/sample",
                     "description": "The Biosample entity the call set data was generated from."
                 },
                 "study": {
-                    "$ref": "study.json#/definitions/study",
+                    "$ref": "study.json#/$defs/study",
                     "description": "The ID which uniquely identifies a study within the given database server"
                 },
                 "updated": {
@@ -82,7 +81,7 @@
                 "variantSets": {
                     "description": "The IDs of the variantSets this callSet has calls in.",
                     "items": {
-                        "$ref": "variantSet.json#/definitions/variantSet"
+                        "$ref": "variantSet.json#/$defs/variantSet"
                     },
                     "type": "array"
                 }
@@ -101,5 +100,7 @@
             "title": "CallSet",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/CallSet.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

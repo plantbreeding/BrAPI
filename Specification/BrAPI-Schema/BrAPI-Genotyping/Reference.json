@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "Reference": {
             "properties": {
                 "additionalInfo": {
@@ -81,7 +80,7 @@
                     "type": "string"
                 },
                 "referenceSet": {
-                    "$ref": "referenceSet.json#/definitions/referenceSet",
+                    "$ref": "referenceSet.json#/$defs/referenceSet",
                     "description": "The unique identifier for a `ReferenceSet`"
                 },
                 "sourceAccessions": {
@@ -186,5 +185,7 @@
             "title": "Reference",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/Reference.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

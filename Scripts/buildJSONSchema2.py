@@ -40,7 +40,8 @@ def buildJSONSchema(schema, title, module, verbose):
 	schema = fixSchema(schema)
 	schemaObj = {
 				"$schema": "http://json-schema.org/draft-04/schema#",
-				"definitions": {
+				"$id": "https://brapi.org/Specification/BrAPI-Schema/" + module + "/" + title +".json",
+				"$defs": {
 					title : {
 						"title": title,
 						"type": "object",
@@ -50,7 +51,7 @@ def buildJSONSchema(schema, title, module, verbose):
 			}
 	
 	if 'required' in schema:
-		schemaObj['definitions'][title]['required'] = schema['required']
+		schemaObj['$defs'][title]['required'] = schema['required']
 			
 	filename = outPath + module + '/' + title + '.json'
 	os.makedirs(os.path.dirname(filename), exist_ok=True)
@@ -82,11 +83,11 @@ def addRefs(parent):
 					oldTermDetails = newParent['properties'].pop(term)
 					if newTerm + 'Name' in newParent['properties']:
 						newParent['properties'].pop(newTerm + 'Name')
-					newParent['properties'][newTerm] = { '$ref': newTerm + '.json#/definitions/' + newTerm, 'description': oldTermDetails['description'] }
+					newParent['properties'][newTerm] = { '$ref': newTerm + '.json#/$defs/' + newTerm, 'description': oldTermDetails['description'] }
 				elif term.endswith('DbIds') and (term.casefold() != (className + 'DbIds').casefold()):
 					newTerm = term[:-5]
 					oldTermDetails = newParent['properties'].pop(term)
-					newParent['properties'][newTerm + 's'] = { 'items':{ '$ref': newTerm + '.json#/definitions/' + newTerm }, 'type': 'array', 'description': oldTermDetails['description']}
+					newParent['properties'][newTerm + 's'] = { 'items':{ '$ref': newTerm + '.json#/$defs/' + newTerm }, 'type': 'array', 'description': oldTermDetails['description']}
 	
 	return newParent
 

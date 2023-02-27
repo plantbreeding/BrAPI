@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "Image": {
             "properties": {
                 "additionalInfo": {
@@ -218,13 +217,13 @@
                     ]
                 },
                 "observationUnit": {
-                    "$ref": "observationUnit.json#/definitions/observationUnit",
+                    "$ref": "observationUnit.json#/$defs/observationUnit",
                     "description": "The related observation unit identifier, if relevant."
                 },
                 "observations": {
                     "description": "A list of observation Ids this image is associated with, if applicable.",
                     "items": {
-                        "$ref": "observation.json#/definitions/observation"
+                        "$ref": "observation.json#/$defs/observation"
                     },
                     "type": "array"
                 }
@@ -251,5 +250,7 @@
             "title": "Image",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/Image.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

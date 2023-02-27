@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "Plate": {
             "properties": {
                 "additionalInfo": {
@@ -68,7 +67,7 @@
                     "type": "string"
                 },
                 "program": {
-                    "$ref": "program.json#/definitions/program",
+                    "$ref": "program.json#/$defs/program",
                     "description": "The ID which uniquely identifies a `Program` within the given database server"
                 },
                 "sampleType": {
@@ -86,11 +85,11 @@
                     ]
                 },
                 "study": {
-                    "$ref": "study.json#/definitions/study",
+                    "$ref": "study.json#/$defs/study",
                     "description": "The ID which uniquely identifies a `Study` within the given database server"
                 },
                 "trial": {
-                    "$ref": "trial.json#/definitions/trial",
+                    "$ref": "trial.json#/$defs/trial",
                     "description": "The ID which uniquely identifies a `Trial` within the given database server"
                 }
             },
@@ -108,5 +107,7 @@
             "title": "Plate",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/Plate.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

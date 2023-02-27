@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "PlannedCross": {
             "properties": {
                 "additionalInfo": {
@@ -31,7 +30,7 @@
                     ]
                 },
                 "crossingProject": {
-                    "$ref": "crossingProject.json#/definitions/crossingProject",
+                    "$ref": "crossingProject.json#/$defs/crossingProject",
                     "description": "the unique identifier for a crossing project"
                 },
                 "externalReferences": {
@@ -219,5 +218,7 @@
             "title": "PlannedCross",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/PlannedCross.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

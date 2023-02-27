@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "GermplasmAttribute": {
             "properties": {
                 "additionalInfo": {
@@ -14,7 +13,7 @@
                     ]
                 },
                 "attribute": {
-                    "$ref": "attribute.json#/definitions/attribute",
+                    "$ref": "attribute.json#/$defs/attribute",
                     "description": "The ID which uniquely identifies this attribute within the given database server"
                 },
                 "attributeCategory": {
@@ -868,5 +867,7 @@
             "title": "GermplasmAttribute",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/GermplasmAttribute.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

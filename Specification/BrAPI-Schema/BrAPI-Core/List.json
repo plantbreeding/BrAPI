@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "List": {
             "properties": {
                 "additionalInfo": {
@@ -94,7 +93,7 @@
                     ]
                 },
                 "listOwnerPerson": {
-                    "$ref": "listOwnerPerson.json#/definitions/listOwnerPerson",
+                    "$ref": "listOwnerPerson.json#/$defs/listOwnerPerson",
                     "description": "The unique identifier for a List Owner. (usually a user or person)"
                 },
                 "listSize": {
@@ -146,5 +145,7 @@
             "title": "List",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/List.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

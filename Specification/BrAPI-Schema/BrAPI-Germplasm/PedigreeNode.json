@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "PedigreeNode": {
             "properties": {
                 "additionalInfo": {
@@ -14,11 +13,11 @@
                     ]
                 },
                 "breedingMethod": {
-                    "$ref": "breedingMethod.json#/definitions/breedingMethod",
+                    "$ref": "breedingMethod.json#/$defs/breedingMethod",
                     "description": "The unique identifier for the breeding method used to create this germplasm"
                 },
                 "crossingProject": {
-                    "$ref": "crossingProject.json#/definitions/crossingProject",
+                    "$ref": "crossingProject.json#/$defs/crossingProject",
                     "description": "The crossing project used to generate this germplasm"
                 },
                 "crossingYear": {
@@ -74,7 +73,7 @@
                     ]
                 },
                 "germplasm": {
-                    "$ref": "germplasm.json#/definitions/germplasm",
+                    "$ref": "germplasm.json#/$defs/germplasm",
                     "description": "The ID which uniquely identifies a germplasm"
                 },
                 "germplasmPUI": {
@@ -217,5 +216,7 @@
             "title": "PedigreeNode",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/PedigreeNode.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

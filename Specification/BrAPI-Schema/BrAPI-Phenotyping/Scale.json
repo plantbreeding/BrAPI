@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "Scale": {
             "properties": {
                 "additionalInfo": {
@@ -228,5 +227,7 @@
             "title": "Scale",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/Scale.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "Breeding Method": {
             "properties": {
                 "abbreviation": {
@@ -11,7 +10,7 @@
                     ]
                 },
                 "breedingMethod": {
-                    "$ref": "breedingMethod.json#/definitions/breedingMethod",
+                    "$ref": "breedingMethod.json#/$defs/breedingMethod",
                     "description": "the unique identifier for this breeding method"
                 },
                 "description": {
@@ -31,5 +30,7 @@
             "title": "Breeding Method",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/Breeding Method.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

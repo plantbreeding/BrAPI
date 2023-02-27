@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "Observation": {
             "properties": {
                 "additionalInfo": {
@@ -139,7 +138,7 @@
                     ]
                 },
                 "germplasm": {
-                    "$ref": "germplasm.json#/definitions/germplasm",
+                    "$ref": "germplasm.json#/$defs/germplasm",
                     "description": "The ID which uniquely identifies a germplasm"
                 },
                 "observationDbId": {
@@ -155,11 +154,11 @@
                     ]
                 },
                 "observationUnit": {
-                    "$ref": "observationUnit.json#/definitions/observationUnit",
+                    "$ref": "observationUnit.json#/$defs/observationUnit",
                     "description": "The ID which uniquely identifies an observation unit"
                 },
                 "observationVariable": {
-                    "$ref": "observationVariable.json#/definitions/observationVariable",
+                    "$ref": "observationVariable.json#/$defs/observationVariable",
                     "description": "The ID which uniquely identifies an observation variable"
                 },
                 "season": {
@@ -194,7 +193,7 @@
                     ]
                 },
                 "study": {
-                    "$ref": "study.json#/definitions/study",
+                    "$ref": "study.json#/$defs/study",
                     "description": "The ID which uniquely identifies a study within the given database server"
                 },
                 "uploadedBy": {
@@ -233,5 +232,7 @@
             "title": "Observation",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/Observation.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

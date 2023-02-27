@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "Study": {
             "properties": {
                 "active": {
@@ -371,7 +370,7 @@
                     ]
                 },
                 "location": {
-                    "$ref": "location.json#/definitions/location",
+                    "$ref": "location.json#/$defs/location",
                     "description": "The unique identifier for a Location"
                 },
                 "observationLevels": {
@@ -416,7 +415,7 @@
                 "observationVariables": {
                     "description": "The list of Observation Variables being used in this study. \n\nThis list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. ",
                     "items": {
-                        "$ref": "observationVariable.json#/definitions/observationVariable"
+                        "$ref": "observationVariable.json#/$defs/observationVariable"
                     },
                     "type": "array"
                 },
@@ -475,7 +474,7 @@
                     ]
                 },
                 "trial": {
-                    "$ref": "trial.json#/definitions/trial",
+                    "$ref": "trial.json#/$defs/trial",
                     "description": "The ID which uniquely identifies a trial"
                 }
             },
@@ -513,5 +512,7 @@
             "title": "Study",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/Study.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

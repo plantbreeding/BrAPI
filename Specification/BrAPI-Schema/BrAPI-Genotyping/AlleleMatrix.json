@@ -1,12 +1,11 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "AlleleMatrix": {
             "properties": {
                 "callSets": {
                     "description": "A list of unique identifiers for the CallSets contained in the matrix response. This array should match the ordering for columns in the matrix. A CallSet is a unique combination of a Sample and a sequencing event. CallSets often have a 1-to-1 relationship with Samples, but this is not always the case.",
                     "items": {
-                        "$ref": "callSet.json#/definitions/callSet"
+                        "$ref": "callSet.json#/$defs/callSet"
                     },
                     "type": "array"
                 },
@@ -162,14 +161,14 @@
                 "variantSets": {
                     "description": "A list of unique identifiers for the VariantSets contained in the matrix response. A VariantSet is a data set originating from a sequencing event. Often, users will only be interested in data from a single VariantSet, but in some cases a user might be interested in a matrix with data from multiple VariantSets.",
                     "items": {
-                        "$ref": "variantSet.json#/definitions/variantSet"
+                        "$ref": "variantSet.json#/$defs/variantSet"
                     },
                     "type": "array"
                 },
                 "variants": {
                     "description": "A list of unique identifiers for the Variants contained in the matrix response. This array should match the ordering for rows in the matrix.",
                     "items": {
-                        "$ref": "variant.json#/definitions/variant"
+                        "$ref": "variant.json#/$defs/variant"
                     },
                     "type": "array"
                 }
@@ -188,5 +187,7 @@
             "title": "AlleleMatrix",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/AlleleMatrix.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }

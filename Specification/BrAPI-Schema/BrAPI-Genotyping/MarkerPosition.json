@@ -1,6 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
+    "$defs": {
         "MarkerPosition": {
             "properties": {
                 "additionalInfo": {
@@ -21,7 +20,7 @@
                     ]
                 },
                 "map": {
-                    "$ref": "map.json#/definitions/map",
+                    "$ref": "map.json#/$defs/map",
                     "description": "The ID which uniquely identifies a `GenomeMap`"
                 },
                 "position": {
@@ -32,7 +31,7 @@
                     ]
                 },
                 "variant": {
-                    "$ref": "variant.json#/definitions/variant",
+                    "$ref": "variant.json#/$defs/variant",
                     "description": "The ID which uniquely identifies a `Variant` within the given database server\n<br> A `Variant` can also represent a Marker "
                 }
             },
@@ -48,5 +47,7 @@
             "title": "MarkerPosition",
             "type": "object"
         }
-    }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/MarkerPosition.json",
+    "$schema": "http://json-schema.org/draft-04/schema#"
 }
