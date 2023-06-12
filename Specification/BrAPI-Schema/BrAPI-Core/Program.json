@@ -115,7 +115,7 @@
                         "null",
                         "array"
                     ],
-                    "parameter-value":"SearchTrials"
+                    "x-parameter-value":"SearchTrials"
                 }
             },
             "required": [
