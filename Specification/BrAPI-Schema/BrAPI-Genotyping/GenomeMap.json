@@ -39,8 +39,10 @@
                     ]
                 },
                 "map": {
-                    "$ref": "map.json#/$defs/map",
-                    "description": "The ID which uniquely identifies a `GenomeMap`"
+                    "$ref": "Map.json#/$defs/Map",
+                    "description": "The ID which uniquely identifies a `GenomeMap`",
+                    "referencedAttribute": "genomeMap",
+                    "relationshipType": "FILLIN-to-one"
                 },
                 "mapPUI": {
                     "description": "The DOI or other permanent identifier for a `GenomeMap`",

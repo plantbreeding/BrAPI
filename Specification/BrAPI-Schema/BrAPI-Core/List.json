@@ -93,8 +93,10 @@
                     ]
                 },
                 "listOwnerPerson": {
-                    "$ref": "listOwnerPerson.json#/$defs/listOwnerPerson",
-                    "description": "The unique identifier for a List Owner. (usually a user or person)"
+                    "$ref": "ListOwnerPerson.json#/$defs/ListOwnerPerson",
+                    "description": "The unique identifier for a List Owner. (usually a user or person)",
+                    "referencedAttribute": "list",
+                    "relationshipType": "FILLIN-to-one"
                 },
                 "listSize": {
                     "description": "The number of elements in a List",

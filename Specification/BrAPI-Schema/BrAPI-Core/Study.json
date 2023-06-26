@@ -370,8 +370,10 @@
                     ]
                 },
                 "location": {
-                    "$ref": "location.json#/$defs/location",
-                    "description": "The unique identifier for a Location"
+                    "$ref": "Location.json#/$defs/Location",
+                    "description": "The unique identifier for a Location",
+                    "referencedAttribute": "study",
+                    "relationshipType": "FILLIN-to-one"
                 },
                 "observationLevels": {
                     "description": "Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). ",
@@ -417,6 +419,8 @@
                     "items": {
                         "$ref": "observationVariable.json#/$defs/observationVariable"
                     },
+                    "referencedAttribute": "study",
+                    "relationshipType": "FILLIN-to-many",
                     "type": "array"
                 },
                 "seasons": {
@@ -474,8 +478,10 @@
                     ]
                 },
                 "trial": {
-                    "$ref": "trial.json#/$defs/trial",
-                    "description": "The ID which uniquely identifies a trial"
+                    "$ref": "Trial.json#/$defs/Trial",
+                    "description": "The ID which uniquely identifies a trial",
+                    "referencedAttribute": "study",
+                    "relationshipType": "FILLIN-to-one"
                 }
             },
             "required": [

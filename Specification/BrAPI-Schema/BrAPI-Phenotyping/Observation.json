@@ -138,8 +138,10 @@
                     ]
                 },
                 "germplasm": {
-                    "$ref": "germplasm.json#/$defs/germplasm",
-                    "description": "The ID which uniquely identifies a germplasm"
+                    "$ref": "Germplasm.json#/$defs/Germplasm",
+                    "description": "The ID which uniquely identifies a germplasm",
+                    "referencedAttribute": "observation",
+                    "relationshipType": "FILLIN-to-one"
                 },
                 "observationDbId": {
                     "description": "The ID which uniquely identifies an observation",
@@ -154,12 +156,16 @@
                     ]
                 },
                 "observationUnit": {
-                    "$ref": "observationUnit.json#/$defs/observationUnit",
-                    "description": "The ID which uniquely identifies an observation unit"
+                    "$ref": "ObservationUnit.json#/$defs/ObservationUnit",
+                    "description": "The ID which uniquely identifies an observation unit",
+                    "referencedAttribute": "observation",
+                    "relationshipType": "FILLIN-to-one"
                 },
                 "observationVariable": {
-                    "$ref": "observationVariable.json#/$defs/observationVariable",
-                    "description": "The ID which uniquely identifies an observation variable"
+                    "$ref": "ObservationVariable.json#/$defs/ObservationVariable",
+                    "description": "The ID which uniquely identifies an observation variable",
+                    "referencedAttribute": "observation",
+                    "relationshipType": "FILLIN-to-one"
                 },
                 "season": {
                     "properties": {
@@ -193,8 +199,10 @@
                     ]
                 },
                 "study": {
-                    "$ref": "study.json#/$defs/study",
-                    "description": "The ID which uniquely identifies a study within the given database server"
+                    "$ref": "Study.json#/$defs/Study",
+                    "description": "The ID which uniquely identifies a study within the given database server",
+                    "referencedAttribute": "observation",
+                    "relationshipType": "FILLIN-to-one"
                 },
                 "uploadedBy": {
                     "description": "The name or id of the user who uploaded the observation to the database system",

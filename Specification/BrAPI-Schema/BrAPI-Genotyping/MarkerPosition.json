@@ -20,8 +20,10 @@
                     ]
                 },
                 "map": {
-                    "$ref": "map.json#/$defs/map",
-                    "description": "The ID which uniquely identifies a `GenomeMap`"
+                    "$ref": "Map.json#/$defs/Map",
+                    "description": "The ID which uniquely identifies a `GenomeMap`",
+                    "referencedAttribute": "markerPosition",
+                    "relationshipType": "FILLIN-to-one"
                 },
                 "position": {
                     "description": "The position of a marker or variant within a `LinkageGroup`",
@@ -31,8 +33,10 @@
                     ]
                 },
                 "variant": {
-                    "$ref": "variant.json#/$defs/variant",
-                    "description": "The ID which uniquely identifies a `Variant` within the given database server\n<br> A `Variant` can also represent a Marker "
+                    "$ref": "Variant.json#/$defs/Variant",
+                    "description": "The ID which uniquely identifies a `Variant` within the given database server\n<br> A `Variant` can also represent a Marker ",
+                    "referencedAttribute": "markerPosition",
+                    "relationshipType": "FILLIN-to-one"
                 }
             },
             "required": [

@@ -13,8 +13,10 @@
                     ]
                 },
                 "cross": {
-                    "$ref": "cross.json#/$defs/cross",
-                    "description": "the unique identifier for a cross"
+                    "$ref": "Cross.json#/$defs/Cross",
+                    "description": "the unique identifier for a cross",
+                    "referencedAttribute": "observationUnit",
+                    "relationshipType": "FILLIN-to-one"
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
@@ -48,12 +50,16 @@
                     ]
                 },
                 "germplasm": {
-                    "$ref": "germplasm.json#/$defs/germplasm",
-                    "description": "The ID which uniquely identifies a germplasm"
+                    "$ref": "Germplasm.json#/$defs/Germplasm",
+                    "description": "The ID which uniquely identifies a germplasm",
+                    "referencedAttribute": "observationUnit",
+                    "relationshipType": "FILLIN-to-one"
                 },
                 "location": {
-                    "$ref": "location.json#/$defs/location",
-                    "description": "The ID which uniquely identifies a location, associated with this study"
+                    "$ref": "Location.json#/$defs/Location",
+                    "description": "The ID which uniquely identifies a location, associated with this study",
+                    "referencedAttribute": "observationUnit",
+                    "relationshipType": "FILLIN-to-one"
                 },
                 "observationUnitDbId": {
                     "description": "The ID which uniquely identifies an observation unit\n\nMIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. ",
@@ -604,16 +610,22 @@
                     ]
                 },
                 "program": {
-                    "$ref": "program.json#/$defs/program",
-                    "description": "The ID which uniquely identifies a program"
+                    "$ref": "Program.json#/$defs/Program",
+                    "description": "The ID which uniquely identifies a program",
+                    "referencedAttribute": "observationUnit",
+                    "relationshipType": "FILLIN-to-one"
                 },
                 "seedLot": {
-                    "$ref": "seedLot.json#/$defs/seedLot",
-                    "description": "The unique identifier for the originating Seed Lot"
+                    "$ref": "SeedLot.json#/$defs/SeedLot",
+                    "description": "The unique identifier for the originating Seed Lot",
+                    "referencedAttribute": "observationUnit",
+                    "relationshipType": "FILLIN-to-one"
                 },
                 "study": {
-                    "$ref": "study.json#/$defs/study",
-                    "description": "The ID which uniquely identifies a study within the given database server"
+                    "$ref": "Study.json#/$defs/Study",
+                    "description": "The ID which uniquely identifies a study within the given database server",
+                    "referencedAttribute": "observationUnit",
+                    "relationshipType": "FILLIN-to-one"
                 },
                 "treatments": {
                     "description": "List of treatments applied to an observation unit.\n\nMIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.",
@@ -646,8 +658,10 @@
                     ]
                 },
                 "trial": {
-                    "$ref": "trial.json#/$defs/trial",
-                    "description": "The ID which uniquely identifies a trial"
+                    "$ref": "Trial.json#/$defs/Trial",
+                    "description": "The ID which uniquely identifies a trial",
+                    "referencedAttribute": "observationUnit",
+                    "relationshipType": "FILLIN-to-one"
                 }
             },
             "required": [

@@ -261,12 +261,16 @@
                     ]
                 },
                 "referenceSet": {
-                    "$ref": "referenceSet.json#/$defs/referenceSet",
-                    "description": "The ID of the reference set that describes the sequences used by the variants in this set."
+                    "$ref": "ReferenceSet.json#/$defs/ReferenceSet",
+                    "description": "The ID of the reference set that describes the sequences used by the variants in this set.",
+                    "referencedAttribute": "variant",
+                    "relationshipType": "FILLIN-to-one"
                 },
                 "study": {
-                    "$ref": "study.json#/$defs/study",
-                    "description": "The ID of the dataset this variant set belongs to."
+                    "$ref": "Study.json#/$defs/Study",
+                    "description": "The ID of the dataset this variant set belongs to.",
+                    "referencedAttribute": "variant",
+                    "relationshipType": "FILLIN-to-one"
                 },
                 "variantCount": {
                     "description": "The number of Variants included in this VariantSet",
@@ -276,8 +280,10 @@
                     ]
                 },
                 "variantSet": {
-                    "$ref": "variantSet.json#/$defs/variantSet",
-                    "description": "The unique identifier for a VariantSet"
+                    "$ref": "VariantSet.json#/$defs/VariantSet",
+                    "description": "The unique identifier for a VariantSet",
+                    "referencedAttribute": "variant",
+                    "relationshipType": "FILLIN-to-one"
                 }
             },
             "required": [

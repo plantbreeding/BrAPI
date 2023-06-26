@@ -178,11 +178,10 @@
                     ]
                 },
                 "program": {
-                    "$ref": "program.json#/$defs/program",
+                    "$ref": "Program.json#/$defs/Program",
                     "description": "A program identifier to search for",
-                    "type":"object",
-                    "arity":"many-to-one",
-                    "foriegnKey":"trials"
+                    "referencedAttribute": "trial",
+                    "relationshipType": "FILLIN-to-one"
                 },
                 "publications": {
                     "description": "MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.",
