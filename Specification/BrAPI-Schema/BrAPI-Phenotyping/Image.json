@@ -217,18 +217,14 @@
                     ]
                 },
                 "observationUnit": {
-                    "$ref": "ObservationUnit.json#/$defs/ObservationUnit",
-                    "description": "The related observation unit identifier, if relevant.",
-                    "referencedAttribute": "image",
-                    "relationshipType": "FILLIN-to-one"
+                    "$ref": "observationUnit.json#/$defs/observationUnit",
+                    "description": "The related observation unit identifier, if relevant."
                 },
                 "observations": {
                     "description": "A list of observation Ids this image is associated with, if applicable.",
                     "items": {
                         "$ref": "observation.json#/$defs/observation"
                     },
-                    "referencedAttribute": "image",
-                    "relationshipType": "FILLIN-to-many",
                     "type": "array"
                 }
             },

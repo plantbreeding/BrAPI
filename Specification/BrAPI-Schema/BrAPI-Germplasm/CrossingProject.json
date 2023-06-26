@@ -127,10 +127,8 @@
                     ]
                 },
                 "program": {
-                    "$ref": "Program.json#/$defs/Program",
-                    "description": "the unique identifier for a program",
-                    "referencedAttribute": "crossingProject",
-                    "relationshipType": "FILLIN-to-one"
+                    "$ref": "program.json#/$defs/program",
+                    "description": "the unique identifier for a program"
                 }
             },
             "required": [

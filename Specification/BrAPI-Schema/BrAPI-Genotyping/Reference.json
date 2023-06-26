@@ -80,10 +80,8 @@
                     "type": "string"
                 },
                 "referenceSet": {
-                    "$ref": "ReferenceSet.json#/$defs/ReferenceSet",
-                    "description": "The unique identifier for a `ReferenceSet`",
-                    "referencedAttribute": "reference",
-                    "relationshipType": "FILLIN-to-one"
+                    "$ref": "referenceSet.json#/$defs/referenceSet",
+                    "description": "The unique identifier for a `ReferenceSet`"
                 },
                 "sourceAccessions": {
                     "description": "All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.",

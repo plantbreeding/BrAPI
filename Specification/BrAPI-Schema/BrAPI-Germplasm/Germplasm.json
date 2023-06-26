@@ -65,10 +65,8 @@
                     ]
                 },
                 "breedingMethod": {
-                    "$ref": "BreedingMethod.json#/$defs/BreedingMethod",
-                    "description": "The unique identifier for the breeding method used to create this germplasm",
-                    "referencedAttribute": "germplasm",
-                    "relationshipType": "FILLIN-to-one"
+                    "$ref": "breedingMethod.json#/$defs/breedingMethod",
+                    "description": "The unique identifier for the breeding method used to create this germplasm"
                 },
                 "collection": {
                     "description": "A specific panel/collection/population name this germplasm belongs to.",

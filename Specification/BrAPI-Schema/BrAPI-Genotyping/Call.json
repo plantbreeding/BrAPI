@@ -13,10 +13,8 @@
                     ]
                 },
                 "callSet": {
-                    "$ref": "CallSet.json#/$defs/CallSet",
-                    "description": "The ID of the call set this variant call belongs to.\n\nIf this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.",
-                    "referencedAttribute": "call",
-                    "relationshipType": "FILLIN-to-one"
+                    "$ref": "callSet.json#/$defs/callSet",
+                    "description": "The ID of the call set this variant call belongs to.\n\nIf this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same."
                 },
                 "genotypeMetadata": {
                     "description": "Genotype Metadata are additional layers of metadata associated with each genotype.",
@@ -86,16 +84,12 @@
                     ]
                 },
                 "variant": {
-                    "$ref": "Variant.json#/$defs/Variant",
-                    "description": "The ID of the variant this call belongs to.",
-                    "referencedAttribute": "call",
-                    "relationshipType": "FILLIN-to-one"
+                    "$ref": "variant.json#/$defs/variant",
+                    "description": "The ID of the variant this call belongs to."
                 },
                 "variantSet": {
-                    "$ref": "VariantSet.json#/$defs/VariantSet",
-                    "description": "The unique identifier for a VariantSet",
-                    "referencedAttribute": "call",
-                    "relationshipType": "FILLIN-to-one"
+                    "$ref": "variantSet.json#/$defs/variantSet",
+                    "description": "The unique identifier for a VariantSet"
                 }
             },
             "required": [

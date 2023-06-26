@@ -67,10 +67,8 @@
                     "type": "string"
                 },
                 "program": {
-                    "$ref": "Program.json#/$defs/Program",
-                    "description": "The ID which uniquely identifies a `Program` within the given database server",
-                    "referencedAttribute": "plate",
-                    "relationshipType": "FILLIN-to-one"
+                    "$ref": "program.json#/$defs/program",
+                    "description": "The ID which uniquely identifies a `Program` within the given database server"
                 },
                 "sampleType": {
                     "description": "The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc",
@@ -87,16 +85,12 @@
                     ]
                 },
                 "study": {
-                    "$ref": "Study.json#/$defs/Study",
-                    "description": "The ID which uniquely identifies a `Study` within the given database server",
-                    "referencedAttribute": "plate",
-                    "relationshipType": "FILLIN-to-one"
+                    "$ref": "study.json#/$defs/study",
+                    "description": "The ID which uniquely identifies a `Study` within the given database server"
                 },
                 "trial": {
-                    "$ref": "Trial.json#/$defs/Trial",
-                    "description": "The ID which uniquely identifies a `Trial` within the given database server",
-                    "referencedAttribute": "plate",
-                    "relationshipType": "FILLIN-to-one"
+                    "$ref": "trial.json#/$defs/trial",
+                    "description": "The ID which uniquely identifies a `Trial` within the given database server"
                 }
             },
             "required": [

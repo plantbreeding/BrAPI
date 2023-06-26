@@ -7,8 +7,6 @@
                     "items": {
                         "$ref": "callSet.json#/$defs/callSet"
                     },
-                    "referencedAttribute": "alleleMatrix",
-                    "relationshipType": "FILLIN-to-many",
                     "type": "array"
                 },
                 "dataMatrices": {
@@ -165,8 +163,6 @@
                     "items": {
                         "$ref": "variantSet.json#/$defs/variantSet"
                     },
-                    "referencedAttribute": "alleleMatrix",
-                    "relationshipType": "FILLIN-to-many",
                     "type": "array"
                 },
                 "variants": {
@@ -174,8 +170,6 @@
                     "items": {
                         "$ref": "variant.json#/$defs/variant"
                     },
-                    "referencedAttribute": "alleleMatrix",
-                    "relationshipType": "FILLIN-to-many",
                     "type": "array"
                 }
             },

@@ -63,16 +63,12 @@
                     ]
                 },
                 "sample": {
-                    "$ref": "Sample.json#/$defs/Sample",
-                    "description": "The Biosample entity the call set data was generated from.",
-                    "referencedAttribute": "callSet",
-                    "relationshipType": "FILLIN-to-one"
+                    "$ref": "sample.json#/$defs/sample",
+                    "description": "The Biosample entity the call set data was generated from."
                 },
                 "study": {
-                    "$ref": "Study.json#/$defs/Study",
-                    "description": "The ID which uniquely identifies a study within the given database server",
-                    "referencedAttribute": "callSet",
-                    "relationshipType": "FILLIN-to-one"
+                    "$ref": "study.json#/$defs/study",
+                    "description": "The ID which uniquely identifies a study within the given database server"
                 },
                 "updated": {
                     "description": "The time at which this call set was last updated",
@@ -87,8 +83,6 @@
                     "items": {
                         "$ref": "variantSet.json#/$defs/variantSet"
                     },
-                    "referencedAttribute": "callSet",
-                    "relationshipType": "FILLIN-to-many",
                     "type": "array"
                 }
             },

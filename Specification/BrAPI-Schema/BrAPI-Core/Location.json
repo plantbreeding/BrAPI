@@ -217,10 +217,8 @@
                     ]
                 },
                 "parentLocation": {
-                    "$ref": "ParentLocation.json#/$defs/ParentLocation",
-                    "description": "The unique identifier for a Location\n<br/> The Parent Location defines the encompassing Location that a smaller Location belongs to. \nFor example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.",
-                    "referencedAttribute": "location",
-                    "relationshipType": "FILLIN-to-one"
+                    "$ref": "parentLocation.json#/$defs/parentLocation",
+                    "description": "The unique identifier for a Location\n<br/> The Parent Location defines the encompassing Location that a smaller Location belongs to. \nFor example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields."
                 },
                 "siteStatus": {
                     "description": "Description of the accessibility of the location (ex. Public, Private)",

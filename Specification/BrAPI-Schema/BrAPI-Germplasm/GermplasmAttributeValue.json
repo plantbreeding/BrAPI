@@ -13,16 +13,12 @@
                     ]
                 },
                 "attribute": {
-                    "$ref": "Attribute.json#/$defs/Attribute",
-                    "description": "The ID which uniquely identifies this attribute within the given database server",
-                    "referencedAttribute": "germplasmAttributeValue",
-                    "relationshipType": "FILLIN-to-one"
+                    "$ref": "attribute.json#/$defs/attribute",
+                    "description": "The ID which uniquely identifies this attribute within the given database server"
                 },
                 "attributeValue": {
-                    "$ref": "AttributeValue.json#/$defs/AttributeValue",
-                    "description": "The ID which uniquely identifies this attribute value within the given database server",
-                    "referencedAttribute": "germplasmAttributeValue",
-                    "relationshipType": "FILLIN-to-one"
+                    "$ref": "attributeValue.json#/$defs/attributeValue",
+                    "description": "The ID which uniquely identifies this attribute value within the given database server"
                 },
                 "determinedDate": {
                     "description": "The date the value of this attribute was determined for a given germplasm",
@@ -64,10 +60,8 @@
                     ]
                 },
                 "germplasm": {
-                    "$ref": "Germplasm.json#/$defs/Germplasm",
-                    "description": "The ID which uniquely identifies a germplasm within the given database server",
-                    "referencedAttribute": "germplasmAttributeValue",
-                    "relationshipType": "FILLIN-to-one"
+                    "$ref": "germplasm.json#/$defs/germplasm",
+                    "description": "The ID which uniquely identifies a germplasm within the given database server"
                 },
                 "value": {
                     "description": "The value of this attribute for a given germplasm",

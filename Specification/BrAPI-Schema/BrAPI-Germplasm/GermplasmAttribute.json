@@ -13,10 +13,8 @@
                     ]
                 },
                 "attribute": {
-                    "$ref": "Attribute.json#/$defs/Attribute",
-                    "description": "The ID which uniquely identifies this attribute within the given database server",
-                    "referencedAttribute": "germplasmAttribute",
-                    "relationshipType": "FILLIN-to-one"
+                    "$ref": "attribute.json#/$defs/attribute",
+                    "description": "The ID which uniquely identifies this attribute within the given database server"
                 },
                 "attributeCategory": {
                     "description": "General category for the attribute. very similar to Trait class.",
