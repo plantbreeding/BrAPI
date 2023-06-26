@@ -106,6 +106,7 @@
                 },
                 "trials": {
                     "description": "",
+                    "arity": "one-to-many",
                     "items": {
                    		"$ref": "Trial.json#/$defs/Trial",
                     	"description": "The unique identifier of the program leader"
