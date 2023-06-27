@@ -747,6 +747,20 @@
                         "traitName"
                     ],
                     "type": "object"
+                },
+                "studies": {
+                    "title": "Studies",
+                    "description": "",
+                    "referencedAttribute": "observationVariables",
+                    "relationshipType": "many-to-many",
+                    "items": {
+                        "$ref": "Study.json#/$defs/Study",
+                        "description": "Study"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 }
             },
             "required": [

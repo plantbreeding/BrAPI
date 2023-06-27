@@ -98,6 +98,34 @@
                         "null",
                         "string"
                     ]
+                },
+                "lists": {
+                    "title": "Lists",
+                    "description": "",
+                    "referencedAttribute": "listOwnerPerson",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "List.json#/$defs/List",
+                        "description": "List"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "programs": {
+                    "title": "Programs",
+                    "description": "",
+                    "referencedAttribute": "leadPerson",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Program.json#/$defs/Program",
+                        "description": "Program"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 }
             },
             "required": [

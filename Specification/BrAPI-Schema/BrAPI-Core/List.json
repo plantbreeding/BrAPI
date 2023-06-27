@@ -89,10 +89,10 @@
                     ]
                 },
                 "listOwnerPerson": {
-                    "$ref": "ListOwnerPerson.json#/$defs/ListOwnerPerson",
+                    "$ref": "Person.json#/$defs/Person",
                     "description": "The unique identifier for a List Owner. (usually a user or person)",
                     "referencedAttribute": "lists",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "listSize": {
                     "description": "The number of elements in a List",

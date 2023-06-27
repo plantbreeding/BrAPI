@@ -69,10 +69,10 @@
                     ]
                 },
                 "leadPerson": {
-                    "$ref": "LeadPerson.json#/$defs/LeadPerson",
+                    "$ref": "Person.json#/$defs/Person",
                     "description": "The unique identifier of the program leader",
                     "referencedAttribute": "programs",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "objective": {
                     "description": "The primary objective of the program",
@@ -102,13 +102,14 @@
                     ]
                 },
                 "trials": {
-                    "description": "",
-                    "arity": "one-to-many",
-                    "items": {
-                        "$ref": "Trial.json#/$defs/Trial",
-                        "description": "The unique identifier of the program leader"
-                    },
                     "title": "Trials",
+                    "description": "",
+                    "referencedAttribute": "program",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Trials.json#/$defs/Trials",
+                        "description": "Trials"
+                    },
                     "type": [
                         "null",
                         "array"
