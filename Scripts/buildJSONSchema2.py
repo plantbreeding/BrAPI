@@ -80,14 +80,15 @@ def addRefs(parent):
 			for term in parent['properties']:
 				if term.endswith('DbId') and (term.casefold() != (className + 'DbId').casefold()):
 					newTerm = term[:-4]
+					newTermTitle = newTerm[0].upper() + newTerm[1:]
 					oldTermDetails = newParent['properties'].pop(term)
 					if newTerm + 'Name' in newParent['properties']:
 						newParent['properties'].pop(newTerm + 'Name')
-					newParent['properties'][newTerm] = { '$ref': newTerm + '.json#/$defs/' + newTerm, 'description': oldTermDetails['description'] }
+					newParent['properties'][newTerm] = { '$ref': newTermTitle + '.json#/$defs/' + newTermTitle, 'description': oldTermDetails['description'], 'relationshipType': 'TODO-to-one', 'referencedAttribute': className[0].lower() + className[1:] + 's' }
 				elif term.endswith('DbIds') and (term.casefold() != (className + 'DbIds').casefold()):
 					newTerm = term[:-5]
 					oldTermDetails = newParent['properties'].pop(term)
-					newParent['properties'][newTerm + 's'] = { 'items':{ '$ref': newTerm + '.json#/$defs/' + newTerm }, 'type': 'array', 'description': oldTermDetails['description']}
+					newParent['properties'][newTerm + 's'] = { 'items':{ '$ref': newTerm + '.json#/$defs/' + newTerm }, 'type': 'array', 'description': oldTermDetails['description'], 'relationshipType': 'TODO-to-many', 'referencedAttribute': className[0].lower() + className[1:] + 's' }
 	
 	return newParent
 

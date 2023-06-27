@@ -67,8 +67,10 @@
                     "type": "string"
                 },
                 "program": {
-                    "$ref": "program.json#/$defs/program",
-                    "description": "The ID which uniquely identifies a `Program` within the given database server"
+                    "$ref": "Program.json#/$defs/Program",
+                    "description": "The ID which uniquely identifies a `Program` within the given database server",
+                    "referencedAttribute": "plates",
+                    "relationshipType": "TODO-to-one"
                 },
                 "sampleType": {
                     "description": "The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc",
@@ -85,12 +87,16 @@
                     ]
                 },
                 "study": {
-                    "$ref": "study.json#/$defs/study",
-                    "description": "The ID which uniquely identifies a `Study` within the given database server"
+                    "$ref": "Study.json#/$defs/Study",
+                    "description": "The ID which uniquely identifies a `Study` within the given database server",
+                    "referencedAttribute": "plates",
+                    "relationshipType": "TODO-to-one"
                 },
                 "trial": {
-                    "$ref": "trial.json#/$defs/trial",
-                    "description": "The ID which uniquely identifies a `Trial` within the given database server"
+                    "$ref": "Trial.json#/$defs/Trial",
+                    "description": "The ID which uniquely identifies a `Trial` within the given database server",
+                    "referencedAttribute": "plates",
+                    "relationshipType": "TODO-to-one"
                 }
             },
             "required": [

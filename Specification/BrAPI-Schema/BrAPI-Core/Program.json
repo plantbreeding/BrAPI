@@ -73,8 +73,10 @@
                     ]
                 },
                 "leadPerson": {
-                    "$ref": "Person.json#/$defs/Person",
-                    "description": "The unique identifier of the program leader"
+                    "$ref": "LeadPerson.json#/$defs/LeadPerson",
+                    "description": "The unique identifier of the program leader",
+                    "referencedAttribute": "programs",
+                    "relationshipType": "TODO-to-one"
                 },
                 "objective": {
                     "description": "The primary objective of the program",
@@ -85,8 +87,7 @@
                 },
                 "programDbId": {
                     "description": "The ID which uniquely identifies the program",
-                    "type": "string",
-                    "x-self-ref-path": "/brapi/v2/program/{programDbId}"
+                    "type": "string"
                 },
                 "programName": {
                     "description": "Human readable name of the program",
@@ -103,21 +104,7 @@
                         "null",
                         "string"
                     ]
-                },
-                 "trials": {
-                     "description": "",
-                     "arity": "one-to-many",
-                     "items": {
-                    		"$ref": "Trial.json#/$defs/Trial",
-                            "description": "The unique identifier of the program leader"
-                     },
-                     "title": "Trials",
-                     "type": [
-                         "null",
-                         "array"
-                     ],
-                     "x-parameter-value":"SearchTrials"
-                 }
+                }
             },
             "required": [
                 "abbreviation",

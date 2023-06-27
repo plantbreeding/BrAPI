@@ -72,8 +72,10 @@
                     ]
                 },
                 "crossingProject": {
-                    "$ref": "crossingProject.json#/$defs/crossingProject",
-                    "description": "the unique identifier for a crossing project"
+                    "$ref": "CrossingProject.json#/$defs/CrossingProject",
+                    "description": "the unique identifier for a crossing project",
+                    "referencedAttribute": "crosss",
+                    "relationshipType": "TODO-to-one"
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
@@ -221,8 +223,10 @@
                     ]
                 },
                 "plannedCross": {
-                    "$ref": "plannedCross.json#/$defs/plannedCross",
-                    "description": "the unique identifier for a planned cross"
+                    "$ref": "PlannedCross.json#/$defs/PlannedCross",
+                    "description": "the unique identifier for a planned cross",
+                    "referencedAttribute": "crosss",
+                    "relationshipType": "TODO-to-one"
                 },
                 "pollinationEvents": {
                     "description": "The list of pollination events that occurred for this cross",
