@@ -101,19 +101,19 @@
                         "string"
                     ]
                 },
-                  "trials": {
-                      "description": "",
-                      "arity": "one-to-many",
-                      "items": {
-                     		"$ref": "Trial.json#/$defs/Trial",
-                             "description": "The unique identifier of the program leader"
-                      },
-                      "title": "Trials",
-                      "type": [
-                          "null",
-                          "array"
-                      ]
-                  }
+                "trials": {
+                    "description": "",
+                    "arity": "one-to-many",
+                    "items": {
+                        "$ref": "Trial.json#/$defs/Trial",
+                        "description": "The unique identifier of the program leader"
+                    },
+                    "title": "Trials",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
             },
             "required": [
                 "programDbId",
