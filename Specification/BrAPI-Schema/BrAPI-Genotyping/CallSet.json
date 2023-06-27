@@ -12,6 +12,20 @@
                         "object"
                     ]
                 },
+                "alleleMatrices": {
+                    "title": "AlleleMatrices",
+                    "description": "",
+                    "referencedAttribute": "callSets",
+                    "relationshipType": "many-to-many",
+                    "items": {
+                        "$ref": "AlleleMatrix.json#/$defs/AlleleMatrix",
+                        "description": "AlleleMatrix"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
                 "callSetDbId": {
                     "description": "The ID which uniquely identifies a CallSet within the given database server",
                     "type": "string"

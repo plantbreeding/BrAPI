@@ -12,8 +12,22 @@
                         "object"
                     ]
                 },
-                "alternateBases": {
-                    "description": "The bases that appear instead of the reference bases. Multiple alternate alleles are possible.",
+                "alleleMatrices": {
+                    "title": "AlleleMatrices",
+                    "description": "",
+                    "referencedAttribute": "variants",
+                    "relationshipType": "many-to-many",
+                    "items": {
+                        "$ref": "AlleleMatrix.json#/$defs/AlleleMatrix",
+                        "description": "AlleleMatrix"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "analysis": {
+                    "description": "Set of Analysis descriptors for this VariantSet",
                     "items": {
                         "type": "string"
                     },
