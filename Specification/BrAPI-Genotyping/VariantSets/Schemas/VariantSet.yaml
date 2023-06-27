@@ -11,7 +11,7 @@ components:
       x-brapi-metadata:
         primaryModel: true
         module: BrAPI-Genotyping
-        title: Variant
+        title: VariantSet
         description: A VariantSet is a collection of variants and variant calls intended to be analyzed together.
       required:
       - variantSetDbId

@@ -12,172 +12,46 @@
                         "object"
                     ]
                 },
-                "analysis": {
-                    "description": "Set of Analysis descriptors for this VariantSet",
+                "alternateBases": {
+                    "description": "The bases that appear instead of the reference bases. Multiple alternate alleles are possible.",
                     "items": {
-                        "description": "An analysis contains an interpretation of one or several experiments. (e.g. SNVs, copy number variations, methylation status) together with information about the methodology used.",
-                        "properties": {
-                            "analysisDbId": {
-                                "description": "Unique identifier for this analysis description",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "analysisName": {
-                                "description": "A human readable name for this analysis",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "created": {
-                                "description": "The time at which this record was created, in ISO 8601 format.",
-                                "format": "date-time",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "description": {
-                                "description": "A human readable description of the analysis",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "software": {
-                                "description": "The software run to generate this analysis.",
-                                "items": {
-                                    "type": "string"
-                                },
-                                "type": [
-                                    "null",
-                                    "array"
-                                ]
-                            },
-                            "type": {
-                                "description": "The type of analysis.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "updated": {
-                                "description": "The time at which this record was last updated, in ISO 8601 format.",
-                                "format": "date-time",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "required": [
-                            "analysisDbId",
-                            "analysisName",
-                            "created",
-                            "description",
-                            "software",
-                            "type",
-                            "updated"
-                        ],
-                        "type": "object"
+                        "type": "string"
                     },
                     "type": [
                         "null",
                         "array"
                     ]
                 },
-                "availableFormats": {
-                    "description": "When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats. \n<br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)\n<br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.",
+                "ciend": {
+                    "description": "Similar to \"cipos\", but for the variant's end position (which is derived from start + svlen).",
                     "items": {
-                        "description": "Each 'availableFormat' object is a pairing of dataFormat and fileFormat. These must be communicated in pairs because they are not independant parameters and sometimes one influences the other.",
-                        "properties": {
-                            "dataFormat": {
-                                "description": "dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)",
-                                "enum": [
-                                    "DartSeq",
-                                    "VCF",
-                                    "Hapmap",
-                                    "tabular",
-                                    "JSON",
-                                    null
-                                ],
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "expandHomozygotes": {
-                                "description": "Should homozygotes be expanded (true) or collapsed into a single occurrence (false)",
-                                "type": [
-                                    "null",
-                                    "boolean"
-                                ]
-                            },
-                            "fileFormat": {
-                                "description": "fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.",
-                                "enum": [
-                                    "text/csv",
-                                    "text/tsv",
-                                    "application/excel",
-                                    "application/zip",
-                                    "application/json",
-                                    null
-                                ],
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "fileURL": {
-                                "description": "A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.",
-                                "format": "uri",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "sepPhased": {
-                                "description": "The string used as a separator for phased allele calls.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "sepUnphased": {
-                                "description": "The string used as a separator for unphased allele calls.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "unknownString": {
-                                "description": "The string used as a representation for missing data.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "required": [
-                            "dataFormat",
-                            "expandHomozygotes",
-                            "fileFormat",
-                            "fileURL",
-                            "sepPhased",
-                            "sepUnphased",
-                            "unknownString"
-                        ],
-                        "type": "object"
+                        "type": "integer"
                     },
                     "type": [
                         "null",
                         "array"
                     ]
                 },
-                "callSetCount": {
-                    "description": "The number of CallSets included in this VariantSet",
+                "cipos": {
+                    "description": "In the case of structural variants, start and end of the variant may not\nbe known with an exact base position. \"cipos\" provides an interval with\nhigh confidence for the start position. The interval is provided by 0 or\n2 signed integers which are added to the start position.\nBased on the use in VCF v4.2",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "created": {
+                    "description": "The timestamp when this variant was created.",
+                    "format": "date-time",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "end": {
+                    "description": "This field is optional and may be ignored if there is no relevant map or reference to be associated with.\n<br>The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated \nby `start + referenceBases.length`.",
                     "type": [
                         "null",
                         "integer"
@@ -214,90 +88,122 @@
                         "array"
                     ]
                 },
-                "metadataFields": {
-                    "description": "The 'metadataFields' array indicates which types of genotyping data and metadata are available in the VariantSet. \n<br> When possible, these field names and abbreviations should follow the VCF standard ",
+                "filtersApplied": {
+                    "description": "True if filters were applied for this variant. VCF column 7 \"FILTER\" any value other than the missing value.",
+                    "type": [
+                        "null",
+                        "boolean"
+                    ]
+                },
+                "filtersFailed": {
+                    "description": "Zero or more filters that failed for this variant. VCF column 7 \"FILTER\" shared across all alleles in the same VCF record.",
                     "items": {
-                        "description": "This represents a type of genotyping data or metadata available in this VariantSet",
-                        "properties": {
-                            "dataType": {
-                                "description": "The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.",
-                                "enum": [
-                                    "string",
-                                    "integer",
-                                    "float",
-                                    "boolean",
-                                    null
-                                ],
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "fieldAbbreviation": {
-                                "description": "The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: \"GQ\", \"RD\", and \"HQ\"",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "fieldName": {
-                                "description": "The name of the field represented in this Genotype Field. Examples include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype Quality\"",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "required": [
-                            "dataType",
-                            "fieldAbbreviation",
-                            "fieldName"
-                        ],
-                        "type": "object"
+                        "type": "string"
                     },
                     "type": [
                         "null",
                         "array"
                     ]
                 },
+                "filtersPassed": {
+                    "description": "True if all filters for this variant passed. VCF column 7 \"FILTER\" value PASS.",
+                    "type": [
+                        "null",
+                        "boolean"
+                    ]
+                },
+                "reference": {
+                    "$ref": "Reference.json#/$defs/Reference",
+                    "description": "The unique identifier for a Reference",
+                    "referencedAttribute": "variants",
+                    "relationshipType": "EDITME-to-one"
+                },
+                "referenceBases": {
+                    "description": "The reference bases for this variant. They start at the given start position.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
                 "referenceSet": {
                     "$ref": "ReferenceSet.json#/$defs/ReferenceSet",
-                    "description": "The ID of the reference set that describes the sequences used by the variants in this set.",
+                    "description": "The unique identifier for a ReferenceSet",
                     "referencedAttribute": "variants",
                     "relationshipType": "EDITME-to-one"
                 },
-                "study": {
-                    "$ref": "Study.json#/$defs/Study",
-                    "description": "The ID of the dataset this variant set belongs to.",
-                    "referencedAttribute": "variants",
-                    "relationshipType": "EDITME-to-one"
-                },
-                "variantCount": {
-                    "description": "The number of Variants included in this VariantSet",
+                "start": {
+                    "description": "This field is optional and may be ignored if there is no relevant map or reference to be associated with.\n<br> The start position at which this variant occurs (0-based). This corresponds to the first base of the string \nof reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning \nthe join of circular genomes are represented as two variants one on each side of the join (position 0).",
                     "type": [
                         "null",
                         "integer"
                     ]
                 },
+                "svlen": {
+                    "description": "Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2",
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "updated": {
+                    "description": "The time at which this variant was last updated.",
+                    "format": "date-time",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "variantDbId": {
+                    "description": "The ID which uniquely identifies a `Variant`",
+                    "type": "string"
+                },
+                "variantNames": {
+                    "description": "A human readable name associated with a `Variant`",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
                 "variantSet": {
                     "$ref": "VariantSet.json#/$defs/VariantSet",
-                    "description": "The unique identifier for a VariantSet",
+                    "description": "An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.",
                     "referencedAttribute": "variants",
                     "relationshipType": "EDITME-to-one"
+                },
+                "variantType": {
+                    "description": "The \"variant_type\" is used to denote e.g. structural variants.\nExamples:\n  DUP  : duplication of sequence following \"start\"\n  DEL  : deletion of sequence following \"start\"",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
                 }
             },
             "required": [
                 "additionalInfo",
-                "analysis",
-                "availableFormats",
-                "callSetCount",
+                "alternateBases",
+                "ciend",
+                "cipos",
+                "created",
+                "end",
                 "externalReferences",
-                "metadataFields",
+                "filtersApplied",
+                "filtersFailed",
+                "filtersPassed",
+                "referenceBases",
+                "referenceDbId",
+                "referenceName",
                 "referenceSetDbId",
-                "studyDbId",
-                "variantCount",
+                "referenceSetName",
+                "start",
+                "svlen",
+                "updated",
+                "variantDbId",
+                "variantNames",
                 "variantSetDbId",
-                "variantSetName"
+                "variantType"
             ],
             "title": "Variant",
             "type": "object"
