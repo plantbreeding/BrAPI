@@ -42,7 +42,7 @@
                     "$ref": "Map.json#/$defs/Map",
                     "description": "The ID which uniquely identifies a `GenomeMap`",
                     "referencedAttribute": "genomeMaps",
-                    "relationshipType": "EDIT-to-one"
+                    "relationshipType": "EDITME-to-one"
                 },
                 "mapPUI": {
                     "description": "The DOI or other permanent identifier for a `GenomeMap`",

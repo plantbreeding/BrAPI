@@ -84,11 +84,11 @@ def addRefs(parent):
 					oldTermDetails = newParent['properties'].pop(term)
 					if newTerm + 'Name' in newParent['properties']:
 						newParent['properties'].pop(newTerm + 'Name')
-					newParent['properties'][newTerm] = { '$ref': newTermTitle + '.json#/$defs/' + newTermTitle, 'description': oldTermDetails['description'], 'relationshipType': 'EDIT-to-one', 'referencedAttribute': className[0].lower() + className[1:] + 's' }
+					newParent['properties'][newTerm] = { '$ref': newTermTitle + '.json#/$defs/' + newTermTitle, 'description': oldTermDetails['description'], 'relationshipType': 'EDITME-to-one', 'referencedAttribute': className[0].lower() + className[1:] + 's' }
 				elif term.endswith('DbIds') and (term.casefold() != (className + 'DbIds').casefold()):
 					newTerm = term[:-5]
 					oldTermDetails = newParent['properties'].pop(term)
-					newParent['properties'][newTerm + 's'] = { 'items':{ '$ref': newTerm + '.json#/$defs/' + newTerm }, 'type': 'array', 'description': oldTermDetails['description'], 'relationshipType': 'EDIT-to-many', 'referencedAttribute': className[0].lower() + className[1:] + 's' }
+					newParent['properties'][newTerm + 's'] = { 'items':{ '$ref': newTerm + '.json#/$defs/' + newTerm }, 'type': 'array', 'description': oldTermDetails['description'], 'relationshipType': 'EDITME-to-many', 'referencedAttribute': className[0].lower() + className[1:] + 's' }
 	
 	return newParent
 

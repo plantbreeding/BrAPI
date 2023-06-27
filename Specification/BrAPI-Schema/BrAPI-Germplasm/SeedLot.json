@@ -124,13 +124,13 @@
                     "$ref": "Location.json#/$defs/Location",
                     "description": "The unique identifier for a Location",
                     "referencedAttribute": "seedLots",
-                    "relationshipType": "EDIT-to-one"
+                    "relationshipType": "EDITME-to-one"
                 },
                 "program": {
                     "$ref": "Program.json#/$defs/Program",
                     "description": "The unique DbId of the breeding program this Seed Lot belongs to",
                     "referencedAttribute": "seedLots",
-                    "relationshipType": "EDIT-to-one"
+                    "relationshipType": "EDITME-to-one"
                 },
                 "seedLotDbId": {
                     "description": "Unique DbId for the Seed Lot",

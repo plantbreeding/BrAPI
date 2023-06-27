@@ -130,7 +130,7 @@
                     "$ref": "Program.json#/$defs/Program",
                     "description": "the unique identifier for a program",
                     "referencedAttribute": "crossingProjects",
-                    "relationshipType": "EDIT-to-one"
+                    "relationshipType": "EDITME-to-one"
                 }
             },
             "required": [

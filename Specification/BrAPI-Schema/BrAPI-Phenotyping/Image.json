@@ -220,7 +220,7 @@
                     "$ref": "ObservationUnit.json#/$defs/ObservationUnit",
                     "description": "The related observation unit identifier, if relevant.",
                     "referencedAttribute": "images",
-                    "relationshipType": "EDIT-to-one"
+                    "relationshipType": "EDITME-to-one"
                 },
                 "observations": {
                     "description": "A list of observation Ids this image is associated with, if applicable.",
@@ -228,7 +228,7 @@
                         "$ref": "observation.json#/$defs/observation"
                     },
                     "referencedAttribute": "images",
-                    "relationshipType": "EDIT-to-many",
+                    "relationshipType": "EDITME-to-many",
                     "type": "array"
                 }
             },

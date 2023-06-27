@@ -16,13 +16,13 @@
                     "$ref": "Attribute.json#/$defs/Attribute",
                     "description": "The ID which uniquely identifies this attribute within the given database server",
                     "referencedAttribute": "germplasmAttributeValues",
-                    "relationshipType": "EDIT-to-one"
+                    "relationshipType": "EDITME-to-one"
                 },
                 "attributeValue": {
                     "$ref": "AttributeValue.json#/$defs/AttributeValue",
                     "description": "The ID which uniquely identifies this attribute value within the given database server",
                     "referencedAttribute": "germplasmAttributeValues",
-                    "relationshipType": "EDIT-to-one"
+                    "relationshipType": "EDITME-to-one"
                 },
                 "determinedDate": {
                     "description": "The date the value of this attribute was determined for a given germplasm",
@@ -67,7 +67,7 @@
                     "$ref": "Germplasm.json#/$defs/Germplasm",
                     "description": "The ID which uniquely identifies a germplasm within the given database server",
                     "referencedAttribute": "germplasmAttributeValues",
-                    "relationshipType": "EDIT-to-one"
+                    "relationshipType": "EDITME-to-one"
                 },
                 "value": {
                     "description": "The value of this attribute for a given germplasm",

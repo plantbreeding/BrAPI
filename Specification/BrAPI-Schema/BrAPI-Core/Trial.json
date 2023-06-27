@@ -181,7 +181,7 @@
                     "$ref": "Program.json#/$defs/Program",
                     "description": "A program identifier to search for",
                     "referencedAttribute": "trials",
-                    "relationshipType": "EDIT-to-one"
+                    "relationshipType": "EDITME-to-one"
                 },
                 "publications": {
                     "description": "MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.",
