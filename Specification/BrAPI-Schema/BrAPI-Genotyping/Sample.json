@@ -56,25 +56,25 @@
                     "$ref": "Germplasm.json#/$defs/Germplasm",
                     "description": "The ID which uniquely identifies a `Germplasm`",
                     "referencedAttribute": "samples",
-                    "relationshipType": "TODO-to-one"
+                    "relationshipType": "EDIT-to-one"
                 },
                 "observationUnit": {
                     "$ref": "ObservationUnit.json#/$defs/ObservationUnit",
                     "description": "The ID which uniquely identifies an `ObservationUnit`",
                     "referencedAttribute": "samples",
-                    "relationshipType": "TODO-to-one"
+                    "relationshipType": "EDIT-to-one"
                 },
                 "plate": {
                     "$ref": "Plate.json#/$defs/Plate",
                     "description": "The ID which uniquely identifies a `Plate` of `Sample`",
                     "referencedAttribute": "samples",
-                    "relationshipType": "TODO-to-one"
+                    "relationshipType": "EDIT-to-one"
                 },
                 "program": {
                     "$ref": "Program.json#/$defs/Program",
                     "description": "The ID which uniquely identifies a `Program` within the given database server",
                     "referencedAttribute": "samples",
-                    "relationshipType": "TODO-to-one"
+                    "relationshipType": "EDIT-to-one"
                 },
                 "row": {
                     "description": "The Row identifier for this `Sample` location in the `Plate`",
@@ -101,7 +101,7 @@
                     "$ref": "SampleGroup.json#/$defs/SampleGroup",
                     "description": "The ID which uniquely identifies a group of `Samples`",
                     "referencedAttribute": "samples",
-                    "relationshipType": "TODO-to-one"
+                    "relationshipType": "EDIT-to-one"
                 },
                 "sampleName": {
                     "description": "The human readable name of the `Sample`",
@@ -133,7 +133,7 @@
                     "$ref": "Study.json#/$defs/Study",
                     "description": "The ID which uniquely identifies a `Study` within the given database server",
                     "referencedAttribute": "samples",
-                    "relationshipType": "TODO-to-one"
+                    "relationshipType": "EDIT-to-one"
                 },
                 "takenBy": {
                     "description": "The name or identifier of the entity which took the `Sample` from the field",
@@ -153,7 +153,7 @@
                     "$ref": "Trial.json#/$defs/Trial",
                     "description": "The ID which uniquely identifies a `Trial` within the given database server",
                     "referencedAttribute": "samples",
-                    "relationshipType": "TODO-to-one"
+                    "relationshipType": "EDIT-to-one"
                 },
                 "well": {
                     "description": "The Well identifier for this `Sample` location in the `Plate`. Usually a concatenation of Row and Column, or just a number if the `Samples` are not part of an ordered `Plate`.",

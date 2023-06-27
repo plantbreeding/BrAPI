@@ -16,7 +16,7 @@
                     "$ref": "CallSet.json#/$defs/CallSet",
                     "description": "The ID of the call set this variant call belongs to.\n\nIf this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.",
                     "referencedAttribute": "calls",
-                    "relationshipType": "TODO-to-one"
+                    "relationshipType": "EDIT-to-one"
                 },
                 "genotypeMetadata": {
                     "description": "Genotype Metadata are additional layers of metadata associated with each genotype.",
@@ -89,13 +89,13 @@
                     "$ref": "Variant.json#/$defs/Variant",
                     "description": "The ID of the variant this call belongs to.",
                     "referencedAttribute": "calls",
-                    "relationshipType": "TODO-to-one"
+                    "relationshipType": "EDIT-to-one"
                 },
                 "variantSet": {
                     "$ref": "VariantSet.json#/$defs/VariantSet",
                     "description": "The unique identifier for a VariantSet",
                     "referencedAttribute": "calls",
-                    "relationshipType": "TODO-to-one"
+                    "relationshipType": "EDIT-to-one"
                 }
             },
             "required": [

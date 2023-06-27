@@ -68,7 +68,7 @@
                     "$ref": "BreedingMethod.json#/$defs/BreedingMethod",
                     "description": "The unique identifier for the breeding method used to create this germplasm",
                     "referencedAttribute": "germplasms",
-                    "relationshipType": "TODO-to-one"
+                    "relationshipType": "EDIT-to-one"
                 },
                 "collection": {
                     "description": "A specific panel/collection/population name this germplasm belongs to.",

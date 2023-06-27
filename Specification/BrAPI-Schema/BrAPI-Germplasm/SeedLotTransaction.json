@@ -54,19 +54,19 @@
                     "$ref": "FromSeedLot.json#/$defs/FromSeedLot",
                     "description": "The identifier for the Seed Lot being transfered out of",
                     "referencedAttribute": "seedLotTransactions",
-                    "relationshipType": "TODO-to-one"
+                    "relationshipType": "EDIT-to-one"
                 },
                 "toSeedLot": {
                     "$ref": "ToSeedLot.json#/$defs/ToSeedLot",
                     "description": "The identifier for the Seed Lot being transfered into",
                     "referencedAttribute": "seedLotTransactions",
-                    "relationshipType": "TODO-to-one"
+                    "relationshipType": "EDIT-to-one"
                 },
                 "transaction": {
                     "$ref": "Transaction.json#/$defs/Transaction",
                     "description": "Unique DbId for the Seed Lot Transaction",
                     "referencedAttribute": "seedLotTransactions",
-                    "relationshipType": "TODO-to-one"
+                    "relationshipType": "EDIT-to-one"
                 },
                 "transactionDescription": {
                     "description": "A general description of this Seed Lot Transaction",

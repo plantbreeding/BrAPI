@@ -16,7 +16,7 @@
                     "$ref": "Attribute.json#/$defs/Attribute",
                     "description": "The ID which uniquely identifies this attribute within the given database server",
                     "referencedAttribute": "germplasmAttributes",
-                    "relationshipType": "TODO-to-one"
+                    "relationshipType": "EDIT-to-one"
                 },
                 "attributeCategory": {
                     "description": "General category for the attribute. very similar to Trait class.",

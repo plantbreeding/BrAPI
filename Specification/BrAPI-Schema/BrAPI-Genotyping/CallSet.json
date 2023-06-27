@@ -66,13 +66,13 @@
                     "$ref": "Sample.json#/$defs/Sample",
                     "description": "The Biosample entity the call set data was generated from.",
                     "referencedAttribute": "callSets",
-                    "relationshipType": "TODO-to-one"
+                    "relationshipType": "EDIT-to-one"
                 },
                 "study": {
                     "$ref": "Study.json#/$defs/Study",
                     "description": "The ID which uniquely identifies a study within the given database server",
                     "referencedAttribute": "callSets",
-                    "relationshipType": "TODO-to-one"
+                    "relationshipType": "EDIT-to-one"
                 },
                 "updated": {
                     "description": "The time at which this call set was last updated",
@@ -88,7 +88,7 @@
                         "$ref": "variantSet.json#/$defs/variantSet"
                     },
                     "referencedAttribute": "callSets",
-                    "relationshipType": "TODO-to-many",
+                    "relationshipType": "EDIT-to-many",
                     "type": "array"
                 }
             },

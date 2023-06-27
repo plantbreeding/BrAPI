@@ -8,7 +8,7 @@
                         "$ref": "callSet.json#/$defs/callSet"
                     },
                     "referencedAttribute": "alleleMatrixs",
-                    "relationshipType": "TODO-to-many",
+                    "relationshipType": "EDIT-to-many",
                     "type": "array"
                 },
                 "dataMatrices": {
@@ -166,7 +166,7 @@
                         "$ref": "variantSet.json#/$defs/variantSet"
                     },
                     "referencedAttribute": "alleleMatrixs",
-                    "relationshipType": "TODO-to-many",
+                    "relationshipType": "EDIT-to-many",
                     "type": "array"
                 },
                 "variants": {
@@ -175,7 +175,7 @@
                         "$ref": "variant.json#/$defs/variant"
                     },
                     "referencedAttribute": "alleleMatrixs",
-                    "relationshipType": "TODO-to-many",
+                    "relationshipType": "EDIT-to-many",
                     "type": "array"
                 }
             },

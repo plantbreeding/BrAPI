@@ -83,7 +83,7 @@
                     "$ref": "ReferenceSet.json#/$defs/ReferenceSet",
                     "description": "The unique identifier for a `ReferenceSet`",
                     "referencedAttribute": "references",
-                    "relationshipType": "TODO-to-one"
+                    "relationshipType": "EDIT-to-one"
                 },
                 "sourceAccessions": {
                     "description": "All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.",

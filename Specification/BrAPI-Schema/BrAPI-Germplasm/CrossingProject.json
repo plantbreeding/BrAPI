@@ -130,7 +130,7 @@
                     "$ref": "Program.json#/$defs/Program",
                     "description": "the unique identifier for a program",
                     "referencedAttribute": "crossingProjects",
-                    "relationshipType": "TODO-to-one"
+                    "relationshipType": "EDIT-to-one"
                 }
             },
             "required": [

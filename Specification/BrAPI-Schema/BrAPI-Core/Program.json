@@ -76,7 +76,7 @@
                     "$ref": "LeadPerson.json#/$defs/LeadPerson",
                     "description": "The unique identifier of the program leader",
                     "referencedAttribute": "programs",
-                    "relationshipType": "TODO-to-one"
+                    "relationshipType": "EDIT-to-one"
                 },
                 "objective": {
                     "description": "The primary objective of the program",

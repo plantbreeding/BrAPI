@@ -33,7 +33,7 @@
                     "$ref": "CrossingProject.json#/$defs/CrossingProject",
                     "description": "the unique identifier for a crossing project",
                     "referencedAttribute": "plannedCrosss",
-                    "relationshipType": "TODO-to-one"
+                    "relationshipType": "EDIT-to-one"
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
