@@ -146,7 +146,7 @@
                 "observationUnits": {
                     "description": "A list of the affected observation units. If this parameter is not given, it is understood that the event affected all units in the study",
                     "items": {
-                        "$ref": "observationUnit.json#/$defs/observationUnit"
+                        "$ref": "ObservationUnit.json#/$defs/ObservationUnit"
                     },
                     "referencedAttribute": "events",
                     "relationshipType": "EDITME-to-many",

@@ -417,7 +417,7 @@
                 "observationVariables": {
                     "description": "The list of Observation Variables being used in this study. \n\nThis list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. ",
                     "items": {
-                        "$ref": "observationVariable.json#/$defs/observationVariable"
+                        "$ref": "ObservationVariable.json#/$defs/ObservationVariable"
                     },
                     "referencedAttribute": "studys",
                     "relationshipType": "EDITME-to-many",

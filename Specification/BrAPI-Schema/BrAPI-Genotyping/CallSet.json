@@ -85,7 +85,7 @@
                 "variantSets": {
                     "description": "The IDs of the variantSets this callSet has calls in.",
                     "items": {
-                        "$ref": "variantSet.json#/$defs/variantSet"
+                        "$ref": "VariantSet.json#/$defs/VariantSet"
                     },
                     "referencedAttribute": "callSets",
                     "relationshipType": "EDITME-to-many",

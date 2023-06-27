@@ -225,7 +225,7 @@
                 "observations": {
                     "description": "A list of observation Ids this image is associated with, if applicable.",
                     "items": {
-                        "$ref": "observation.json#/$defs/observation"
+                        "$ref": "Observation.json#/$defs/Observation"
                     },
                     "referencedAttribute": "images",
                     "relationshipType": "EDITME-to-many",
