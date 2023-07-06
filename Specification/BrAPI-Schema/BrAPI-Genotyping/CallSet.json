@@ -50,10 +50,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -93,15 +89,7 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "callSetDbId",
-                "callSetName",
-                "created",
-                "externalReferences",
-                "sampleDbId",
-                "studyDbId",
-                "updated",
-                "variantSetDbIds"
+                "callSetDbId"
             ],
             "title": "CallSet",
             "type": "object"

@@ -22,9 +22,7 @@
                 }
             },
             "required": [
-                "seasonDbId",
-                "seasonName",
-                "year"
+                "seasonDbId"
             ],
             "title": "Season",
             "type": "object"

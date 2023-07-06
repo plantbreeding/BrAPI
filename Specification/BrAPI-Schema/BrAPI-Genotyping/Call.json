@@ -58,12 +58,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "dataType",
-                            "fieldAbbreviation",
-                            "fieldName",
-                            "fieldValue"
-                        ],
                         "type": "object"
                     },
                     "type": [
@@ -99,16 +93,9 @@
                 }
             },
             "required": [
-                "additionalInfo",
                 "callSetDbId",
-                "callSetName",
-                "genotypeMetadata",
-                "genotypeValue",
-                "phaseSet",
                 "variantDbId",
-                "variantName",
-                "variantSetDbId",
-                "variantSetName"
+                "variantSetDbId"
             ],
             "title": "Call",
             "type": "object"

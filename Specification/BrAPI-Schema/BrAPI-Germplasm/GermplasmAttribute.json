@@ -90,10 +90,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -169,10 +165,6 @@
                                         ]
                                     }
                                 },
-                                "required": [
-                                    "referenceId",
-                                    "referenceSource"
-                                ],
                                 "type": "object"
                             },
                             "title": "ExternalReferences",
@@ -240,10 +232,6 @@
                                                 ]
                                             }
                                         },
-                                        "required": [
-                                            "URL",
-                                            "type"
-                                        ],
                                         "type": "object"
                                     },
                                     "type": [
@@ -268,10 +256,8 @@
                                 }
                             },
                             "required": [
-                                "documentationLinks",
-                                "ontologyDbId",
                                 "ontologyName",
-                                "version"
+                                "ontologyDbId"
                             ],
                             "type": [
                                 "null",
@@ -280,16 +266,7 @@
                         }
                     },
                     "required": [
-                        "additionalInfo",
-                        "bibliographicalReference",
-                        "description",
-                        "externalReferences",
-                        "formula",
-                        "methodClass",
-                        "methodDbId",
-                        "methodName",
-                        "methodPUI",
-                        "ontologyReference"
+                        "methodName"
                     ],
                     "type": "object"
                 },
@@ -320,10 +297,6 @@
                                         ]
                                     }
                                 },
-                                "required": [
-                                    "URL",
-                                    "type"
-                                ],
                                 "type": "object"
                             },
                             "type": [
@@ -348,10 +321,8 @@
                         }
                     },
                     "required": [
-                        "documentationLinks",
-                        "ontologyDbId",
                         "ontologyName",
-                        "version"
+                        "ontologyDbId"
                     ],
                     "type": [
                         "null",
@@ -414,10 +385,6 @@
                                         ]
                                     }
                                 },
-                                "required": [
-                                    "referenceId",
-                                    "referenceSource"
-                                ],
                                 "type": "object"
                             },
                             "title": "ExternalReferences",
@@ -453,10 +420,6 @@
                                                 ]
                                             }
                                         },
-                                        "required": [
-                                            "URL",
-                                            "type"
-                                        ],
                                         "type": "object"
                                     },
                                     "type": [
@@ -481,10 +444,8 @@
                                 }
                             },
                             "required": [
-                                "documentationLinks",
-                                "ontologyDbId",
                                 "ontologyName",
-                                "version"
+                                "ontologyDbId"
                             ],
                             "type": [
                                 "null",
@@ -534,10 +495,6 @@
                                                 ]
                                             }
                                         },
-                                        "required": [
-                                            "label",
-                                            "value"
-                                        ],
                                         "type": "object"
                                     },
                                     "type": [
@@ -560,11 +517,6 @@
                                     ]
                                 }
                             },
-                            "required": [
-                                "categories",
-                                "maximumValue",
-                                "minimumValue"
-                            ],
                             "type": [
                                 "null",
                                 "object"
@@ -572,16 +524,8 @@
                         }
                     },
                     "required": [
-                        "additionalInfo",
-                        "dataType",
-                        "decimalPlaces",
-                        "externalReferences",
-                        "ontologyReference",
-                        "scaleDbId",
                         "scaleName",
-                        "scalePUI",
-                        "units",
-                        "validValues"
+                        "scaleDbId"
                     ],
                     "type": "object"
                 },
@@ -687,10 +631,6 @@
                                         ]
                                     }
                                 },
-                                "required": [
-                                    "referenceId",
-                                    "referenceSource"
-                                ],
                                 "type": "object"
                             },
                             "title": "ExternalReferences",
@@ -733,10 +673,6 @@
                                                 ]
                                             }
                                         },
-                                        "required": [
-                                            "URL",
-                                            "type"
-                                        ],
                                         "type": "object"
                                     },
                                     "type": [
@@ -761,10 +697,8 @@
                                 }
                             },
                             "required": [
-                                "documentationLinks",
-                                "ontologyDbId",
                                 "ontologyName",
-                                "version"
+                                "ontologyDbId"
                             ],
                             "type": [
                                 "null",
@@ -822,48 +756,16 @@
                         }
                     },
                     "required": [
-                        "additionalInfo",
-                        "alternativeAbbreviations",
-                        "attribute",
-                        "attributePUI",
-                        "entity",
-                        "entityPUI",
-                        "externalReferences",
-                        "mainAbbreviation",
-                        "ontologyReference",
-                        "status",
-                        "synonyms",
-                        "traitClass",
-                        "traitDbId",
-                        "traitDescription",
-                        "traitName",
-                        "traitPUI"
+                        "traitName"
                     ],
                     "type": "object"
                 }
             },
             "required": [
-                "additionalInfo",
-                "attributeCategory",
-                "attributeDbId",
-                "attributeDescription",
-                "attributeName",
-                "attributePUI",
-                "commonCropName",
-                "contextOfUse",
-                "defaultValue",
-                "documentationURL",
-                "externalReferences",
-                "growthStage",
-                "institution",
-                "language",
-                "method",
-                "ontologyReference",
                 "scale",
-                "scientist",
-                "status",
-                "submissionTimestamp",
-                "synonyms",
+                "attributeName",
+                "attributeDbId",
+                "method",
                 "trait"
             ],
             "title": "GermplasmAttribute",

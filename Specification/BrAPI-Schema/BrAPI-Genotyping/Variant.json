@@ -76,10 +76,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -182,28 +178,7 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "alternateBases",
-                "ciend",
-                "cipos",
-                "created",
-                "end",
-                "externalReferences",
-                "filtersApplied",
-                "filtersFailed",
-                "filtersPassed",
-                "referenceBases",
-                "referenceDbId",
-                "referenceName",
-                "referenceSetDbId",
-                "referenceSetName",
-                "start",
-                "svlen",
-                "updated",
-                "variantDbId",
-                "variantNames",
-                "variantSetDbId",
-                "variantType"
+                "variantDbId"
             ],
             "title": "Variant",
             "type": "object"

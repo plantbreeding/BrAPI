@@ -71,12 +71,7 @@
                             }
                         },
                         "required": [
-                            "contactDbId",
-                            "email",
-                            "instituteName",
-                            "name",
-                            "orcid",
-                            "type"
+                            "contactDbId"
                         ],
                         "type": "object"
                     },
@@ -118,12 +113,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "datasetPUI",
-                            "license",
-                            "publicReleaseDate",
-                            "submissionDate"
-                        ],
                         "type": "object"
                     },
                     "type": [
@@ -165,10 +154,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -200,10 +185,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "publicationPUI",
-                            "publicationReference"
-                        ],
                         "type": "object"
                     },
                     "type": [
@@ -242,22 +223,8 @@
                 }
             },
             "required": [
-                "active",
-                "additionalInfo",
-                "commonCropName",
-                "contacts",
-                "datasetAuthorships",
-                "documentationURL",
-                "endDate",
-                "externalReferences",
-                "programDbId",
-                "programName",
-                "publications",
-                "startDate",
                 "trialDbId",
-                "trialDescription",
-                "trialName",
-                "trialPUI"
+                "trialName"
             ],
             "title": "Trial",
             "type": "object"

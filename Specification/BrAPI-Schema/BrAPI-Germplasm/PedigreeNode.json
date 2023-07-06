@@ -57,10 +57,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -118,7 +114,6 @@
                         },
                         "required": [
                             "germplasmDbId",
-                            "germplasmName",
                             "parentType"
                         ],
                         "type": "object"
@@ -164,7 +159,6 @@
                         },
                         "required": [
                             "germplasmDbId",
-                            "germplasmName",
                             "parentType"
                         ],
                         "type": "object"
@@ -191,8 +185,7 @@
                             }
                         },
                         "required": [
-                            "germplasmDbId",
-                            "germplasmName"
+                            "germplasmDbId"
                         ],
                         "type": "object"
                     },
@@ -203,21 +196,8 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "breedingMethodDbId",
-                "breedingMethodName",
-                "crossingProjectDbId",
-                "crossingYear",
-                "defaultDisplayName",
-                "externalReferences",
-                "familyCode",
                 "germplasmDbId",
-                "germplasmName",
-                "germplasmPUI",
-                "parents",
-                "pedigreeString",
-                "progeny",
-                "siblings"
+                "germplasmName"
             ],
             "title": "PedigreeNode",
             "type": "object"

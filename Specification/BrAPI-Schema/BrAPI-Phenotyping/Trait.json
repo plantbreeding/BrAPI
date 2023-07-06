@@ -69,10 +69,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -115,10 +111,6 @@
                                         ]
                                     }
                                 },
-                                "required": [
-                                    "URL",
-                                    "type"
-                                ],
                                 "type": "object"
                             },
                             "type": [
@@ -143,10 +135,8 @@
                         }
                     },
                     "required": [
-                        "documentationLinks",
-                        "ontologyDbId",
                         "ontologyName",
-                        "version"
+                        "ontologyDbId"
                     ],
                     "type": [
                         "null",
@@ -204,22 +194,7 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "alternativeAbbreviations",
-                "attribute",
-                "attributePUI",
-                "entity",
-                "entityPUI",
-                "externalReferences",
-                "mainAbbreviation",
-                "ontologyReference",
-                "status",
-                "synonyms",
-                "traitClass",
-                "traitDbId",
-                "traitDescription",
-                "traitName",
-                "traitPUI"
+                "traitName"
             ],
             "title": "Trait",
             "type": "object"

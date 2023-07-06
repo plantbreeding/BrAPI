@@ -86,19 +86,9 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "comments",
-                "commonCropName",
-                "documentationURL",
-                "linkageGroupCount",
                 "mapDbId",
-                "mapName",
-                "mapPUI",
-                "markerCount",
-                "publishedDate",
-                "scientificName",
-                "type",
-                "unit"
+                "commonCropName",
+                "type"
             ],
             "title": "GenomeMap",
             "type": "object"

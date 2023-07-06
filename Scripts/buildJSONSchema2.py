@@ -66,7 +66,7 @@ def fixSchema(schema):
 	schema = removeSwaggerTerms(schema)
 	schema = fixStringFormats(schema)
 	schema = allowNullFields(schema)
-	schema = addRequired(schema)
+ # schema = addRequired(schema)
 	schema = addRefs(schema)
 	return schema
 
@@ -115,7 +115,8 @@ def addRequired(parent):
 	newParent = deepcopy(parent)
 	if type(newParent) is dict:
 		if 'properties' in newParent:
-			newParent['required'] = list(newParent['properties'].keys());
+			if 'required' in parent:
+				newParent['required'] = list(newParent['properties'].keys());
 		for childKey in newParent:
 			newParent[childKey] = addRequired(newParent[childKey])
 

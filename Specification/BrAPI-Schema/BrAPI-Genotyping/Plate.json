@@ -31,10 +31,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -100,15 +96,7 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "externalReferences",
-                "plateBarcode",
-                "plateFormat",
-                "plateName",
-                "programDbId",
-                "sampleType",
-                "studyDbId",
-                "trialDbId"
+                "plateName"
             ],
             "title": "Plate",
             "type": "object"

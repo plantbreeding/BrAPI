@@ -110,10 +110,6 @@
                             ]
                         }
                     },
-                    "required": [
-                        "geometry",
-                        "type"
-                    ],
                     "title": "GeoJSON",
                     "type": [
                         "null",
@@ -175,10 +171,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -245,27 +237,8 @@
                 }
             },
             "required": [
-                "abbreviation",
-                "additionalInfo",
-                "coordinateDescription",
-                "coordinateUncertainty",
-                "coordinates",
-                "countryCode",
-                "countryName",
-                "documentationURL",
-                "environmentType",
-                "exposure",
-                "externalReferences",
-                "instituteAddress",
-                "instituteName",
-                "locationDbId",
                 "locationName",
-                "locationType",
-                "parentLocationDbId",
-                "parentLocationName",
-                "siteStatus",
-                "slope",
-                "topography"
+                "locationDbId"
             ],
             "title": "Location",
             "type": "object"

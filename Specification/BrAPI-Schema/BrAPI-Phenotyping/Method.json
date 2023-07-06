@@ -45,10 +45,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -116,10 +112,6 @@
                                         ]
                                     }
                                 },
-                                "required": [
-                                    "URL",
-                                    "type"
-                                ],
                                 "type": "object"
                             },
                             "type": [
@@ -144,10 +136,8 @@
                         }
                     },
                     "required": [
-                        "documentationLinks",
-                        "ontologyDbId",
                         "ontologyName",
-                        "version"
+                        "ontologyDbId"
                     ],
                     "type": [
                         "null",
@@ -156,16 +146,7 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "bibliographicalReference",
-                "description",
-                "externalReferences",
-                "formula",
-                "methodClass",
-                "methodDbId",
-                "methodName",
-                "methodPUI",
-                "ontologyReference"
+                "methodName"
             ],
             "title": "Method",
             "type": "object"

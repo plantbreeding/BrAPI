@@ -58,10 +58,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -130,18 +126,8 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "data",
-                "dateCreated",
-                "dateModified",
-                "externalReferences",
-                "listDbId",
-                "listDescription",
                 "listName",
-                "listOwnerName",
-                "listOwnerPersonDbId",
-                "listSize",
-                "listSource",
+                "listDbId",
                 "listType"
             ],
             "title": "List",

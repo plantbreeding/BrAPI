@@ -122,10 +122,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "donorAccessionNumber",
-                            "donorInstituteCode"
-                        ],
                         "type": "object"
                     },
                     "type": [
@@ -152,10 +148,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -268,10 +260,6 @@
                                         ]
                                     }
                                 },
-                                "required": [
-                                    "geometry",
-                                    "type"
-                                ],
                                 "title": "GeoJSON",
                                 "type": [
                                     "null",
@@ -279,10 +267,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "coordinateUncertainty",
-                            "coordinates"
-                        ],
                         "type": "object"
                     },
                     "type": [
@@ -381,10 +365,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "code",
-                            "description"
-                        ],
                         "type": "object"
                     },
                     "type": [
@@ -425,10 +405,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "synonym",
-                            "type"
-                        ],
                         "type": "object"
                     },
                     "type": [
@@ -462,38 +438,10 @@
                 }
             },
             "required": [
-                "accessionNumber",
-                "acquisitionDate",
-                "additionalInfo",
-                "biologicalStatusOfAccessionCode",
-                "biologicalStatusOfAccessionDescription",
-                "breedingMethodDbId",
-                "breedingMethodName",
-                "collection",
-                "commonCropName",
-                "countryOfOriginCode",
-                "defaultDisplayName",
-                "documentationURL",
-                "donors",
-                "externalReferences",
-                "genus",
                 "germplasmDbId",
+                "commonCropName",
                 "germplasmName",
-                "germplasmOrigin",
-                "germplasmPUI",
-                "germplasmPreprocessing",
-                "instituteCode",
-                "instituteName",
-                "pedigree",
-                "seedSource",
-                "seedSourceDescription",
-                "species",
-                "speciesAuthority",
-                "storageTypes",
-                "subtaxa",
-                "subtaxaAuthority",
-                "synonyms",
-                "taxonIds"
+                "germplasmPUI"
             ],
             "title": "Germplasm",
             "type": "object"

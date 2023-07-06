@@ -45,10 +45,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -105,17 +101,7 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "description",
-                "emailAddress",
-                "externalReferences",
-                "firstName",
-                "lastName",
-                "mailingAddress",
-                "middleName",
-                "personDbId",
-                "phoneNumber",
-                "userID"
+                "personDbId"
             ],
             "title": "Person",
             "type": "object"

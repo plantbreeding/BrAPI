@@ -65,15 +65,8 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "authors",
-                "copyright",
-                "description",
-                "documentationURL",
-                "licence",
                 "ontologyDbId",
-                "ontologyName",
-                "version"
+                "ontologyName"
             ],
             "title": "Ontology",
             "type": "object"

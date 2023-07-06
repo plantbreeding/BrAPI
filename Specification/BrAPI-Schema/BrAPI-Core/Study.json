@@ -71,12 +71,7 @@
                             }
                         },
                         "required": [
-                            "contactDbId",
-                            "email",
-                            "instituteName",
-                            "name",
-                            "orcid",
-                            "type"
+                            "contactDbId"
                         ],
                         "type": "object"
                     },
@@ -154,16 +149,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "dataFormat",
-                            "description",
-                            "fileFormat",
-                            "name",
-                            "provenance",
-                            "scientificType",
-                            "url",
-                            "version"
-                        ],
                         "type": "object"
                     },
                     "type": [
@@ -236,13 +221,8 @@
                             }
                         },
                         "required": [
-                            "description",
                             "parameterName",
-                            "parameterPUI",
-                            "unit",
-                            "unitPUI",
-                            "value",
-                            "valuePUI"
+                            "description"
                         ],
                         "type": "object"
                     },
@@ -269,10 +249,6 @@
                             ]
                         }
                     },
-                    "required": [
-                        "PUI",
-                        "description"
-                    ],
                     "type": [
                         "null",
                         "object"
@@ -297,10 +273,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -327,10 +299,6 @@
                             ]
                         }
                     },
-                    "required": [
-                        "PUI",
-                        "description"
-                    ],
                     "type": [
                         "null",
                         "object"
@@ -353,10 +321,6 @@
                             ]
                         }
                     },
-                    "required": [
-                        "timestamp",
-                        "version"
-                    ],
                     "type": [
                         "null",
                         "object"
@@ -395,10 +359,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "levelName",
-                            "levelOrder"
-                        ],
                         "title": "ObservationUnitHierarchyLevel",
                         "type": "object"
                     },
@@ -485,35 +445,8 @@
                 }
             },
             "required": [
-                "active",
-                "additionalInfo",
-                "commonCropName",
-                "contacts",
-                "culturalPractices",
-                "dataLinks",
-                "documentationURL",
-                "endDate",
-                "environmentParameters",
-                "experimentalDesign",
-                "externalReferences",
-                "growthFacility",
-                "lastUpdate",
-                "license",
-                "locationDbId",
-                "locationName",
-                "observationLevels",
-                "observationUnitsDescription",
-                "observationVariableDbIds",
-                "seasons",
-                "startDate",
-                "studyCode",
-                "studyDbId",
-                "studyDescription",
                 "studyName",
-                "studyPUI",
-                "studyType",
-                "trialDbId",
-                "trialName"
+                "studyDbId"
             ],
             "title": "Study",
             "type": "object"

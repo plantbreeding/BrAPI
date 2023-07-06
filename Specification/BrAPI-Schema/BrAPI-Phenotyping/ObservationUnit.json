@@ -37,10 +37,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -172,10 +168,6 @@
                                     ]
                                 }
                             },
-                            "required": [
-                                "geometry",
-                                "type"
-                            ],
                             "title": "GeoJSON",
                             "type": [
                                 "null",
@@ -207,11 +199,7 @@
                                     ]
                                 }
                             },
-                            "required": [
-                                "levelCode",
-                                "levelName",
-                                "levelOrder"
-                            ],
+                            "required": [],
                             "title": "ObservationUnitLevel",
                             "type": [
                                 "null",
@@ -252,12 +240,7 @@
                                         ]
                                     }
                                 },
-                                "required": [
-                                    "levelCode",
-                                    "levelName",
-                                    "levelOrder",
-                                    "observationUnitDbId"
-                                ],
+                                "required": [],
                                 "title": "ObservationUnitLevelRelationship",
                                 "type": "object"
                             },
@@ -317,16 +300,6 @@
                             ]
                         }
                     },
-                    "required": [
-                        "entryType",
-                        "geoCoordinates",
-                        "observationLevel",
-                        "observationLevelRelationships",
-                        "positionCoordinateX",
-                        "positionCoordinateXType",
-                        "positionCoordinateY",
-                        "positionCoordinateYType"
-                    ],
                     "type": [
                         "null",
                         "object"
@@ -372,10 +345,6 @@
                                             ]
                                         }
                                     },
-                                    "required": [
-                                        "referenceId",
-                                        "referenceSource"
-                                    ],
                                     "type": "object"
                                 },
                                 "title": "ExternalReferences",
@@ -461,10 +430,6 @@
                                         ]
                                     }
                                 },
-                                "required": [
-                                    "geometry",
-                                    "type"
-                                ],
                                 "title": "GeoJSON",
                                 "type": [
                                     "null",
@@ -547,9 +512,7 @@
                                     }
                                 },
                                 "required": [
-                                    "seasonDbId",
-                                    "seasonName",
-                                    "year"
+                                    "seasonDbId"
                                 ],
                                 "type": [
                                     "null",
@@ -579,22 +542,7 @@
                             }
                         },
                         "required": [
-                            "additionalInfo",
-                            "collector",
-                            "externalReferences",
-                            "geoCoordinates",
-                            "germplasmDbId",
-                            "germplasmName",
-                            "observationDbId",
-                            "observationTimeStamp",
-                            "observationUnitDbId",
-                            "observationUnitName",
-                            "observationVariableDbId",
-                            "observationVariableName",
-                            "season",
-                            "studyDbId",
-                            "uploadedBy",
-                            "value"
+                            "observationDbId"
                         ],
                         "type": "object",
                         "x-brapi-metadata": {
@@ -646,10 +594,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "factor",
-                            "modality"
-                        ],
                         "type": "object"
                     },
                     "type": [
@@ -665,28 +609,7 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "crossDbId",
-                "crossName",
-                "externalReferences",
-                "germplasmDbId",
-                "germplasmName",
-                "locationDbId",
-                "locationName",
-                "observationUnitDbId",
-                "observationUnitName",
-                "observationUnitPUI",
-                "observationUnitPosition",
-                "observations",
-                "programDbId",
-                "programName",
-                "seedLotDbId",
-                "seedLotName",
-                "studyDbId",
-                "studyName",
-                "treatments",
-                "trialDbId",
-                "trialName"
+                "observationUnitDbId"
             ],
             "title": "ObservationUnit",
             "type": "object"

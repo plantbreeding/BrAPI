@@ -53,10 +53,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -112,13 +108,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "germplasmDbId",
-                            "germplasmName",
-                            "observationUnitDbId",
-                            "observationUnitName",
-                            "parentType"
-                        ],
                         "type": "object"
                     },
                     "type": [
@@ -134,15 +123,8 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "commonCropName",
-                "crossingProjectDbId",
-                "crossingProjectDescription",
                 "crossingProjectName",
-                "externalReferences",
-                "potentialParents",
-                "programDbId",
-                "programName"
+                "crossingProjectDbId"
             ],
             "title": "CrossingProject",
             "type": "object"

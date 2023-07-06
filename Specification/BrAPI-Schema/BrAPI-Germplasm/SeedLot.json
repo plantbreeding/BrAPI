@@ -59,13 +59,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "crossDbId",
-                            "crossName",
-                            "germplasmDbId",
-                            "germplasmName",
-                            "mixturePercentage"
-                        ],
                         "type": "object"
                     },
                     "type": [
@@ -100,10 +93,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -170,22 +159,8 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "amount",
-                "contentMixture",
-                "createdDate",
-                "externalReferences",
-                "lastUpdated",
-                "locationDbId",
-                "locationName",
-                "programDbId",
-                "programName",
                 "seedLotDbId",
-                "seedLotDescription",
-                "seedLotName",
-                "sourceCollection",
-                "storageLocation",
-                "units"
+                "seedLotName"
             ],
             "title": "SeedLot",
             "type": "object"

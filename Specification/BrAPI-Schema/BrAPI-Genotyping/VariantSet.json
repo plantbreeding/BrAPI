@@ -72,15 +72,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "analysisDbId",
-                            "analysisName",
-                            "created",
-                            "description",
-                            "software",
-                            "type",
-                            "updated"
-                        ],
                         "type": "object"
                     },
                     "type": [
@@ -160,15 +151,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "dataFormat",
-                            "expandHomozygotes",
-                            "fileFormat",
-                            "fileURL",
-                            "sepPhased",
-                            "sepUnphased",
-                            "unknownString"
-                        ],
                         "type": "object"
                     },
                     "type": [
@@ -202,10 +184,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -248,11 +226,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "dataType",
-                            "fieldAbbreviation",
-                            "fieldName"
-                        ],
                         "type": "object"
                     },
                     "type": [
@@ -292,17 +265,7 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "analysis",
-                "availableFormats",
-                "callSetCount",
-                "externalReferences",
-                "metadataFields",
-                "referenceSetDbId",
-                "studyDbId",
-                "variantCount",
-                "variantSetDbId",
-                "variantSetName"
+                "variantSetDbId"
             ],
             "title": "VariantSet",
             "type": "object"

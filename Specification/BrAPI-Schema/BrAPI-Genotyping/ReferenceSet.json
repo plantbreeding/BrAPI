@@ -52,10 +52,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -115,10 +111,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "germplasmDbId",
-                            "germplasmName"
-                        ],
                         "type": "object"
                     },
                     "type": [
@@ -151,10 +143,6 @@
                             ]
                         }
                     },
-                    "required": [
-                        "term",
-                        "termURI"
-                    ],
                     "type": [
                         "null",
                         "object"
@@ -162,19 +150,8 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "assemblyPUI",
-                "commonCropName",
-                "description",
-                "externalReferences",
-                "isDerived",
-                "md5checksum",
                 "referenceSetDbId",
-                "referenceSetName",
-                "sourceAccessions",
-                "sourceGermplasm",
-                "sourceURI",
-                "species"
+                "referenceSetName"
             ],
             "title": "ReferenceSet",
             "type": "object"

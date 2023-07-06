@@ -51,10 +51,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -78,15 +74,8 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "attributeDbId",
-                "attributeName",
                 "attributeValueDbId",
-                "determinedDate",
-                "externalReferences",
-                "germplasmDbId",
-                "germplasmName",
-                "value"
+                "attributeName"
             ],
             "title": "GermplasmAttributeValue",
             "type": "object"

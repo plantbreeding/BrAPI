@@ -55,10 +55,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -169,10 +165,6 @@
                             ]
                         }
                     },
-                    "required": [
-                        "geometry",
-                        "type"
-                    ],
                     "title": "GeoJSON",
                     "type": [
                         "null",
@@ -233,23 +225,7 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "copyright",
-                "description",
-                "descriptiveOntologyTerms",
-                "externalReferences",
-                "imageDbId",
-                "imageFileName",
-                "imageFileSize",
-                "imageHeight",
-                "imageLocation",
-                "imageName",
-                "imageTimeStamp",
-                "imageURL",
-                "imageWidth",
-                "mimeType",
-                "observationDbIds",
-                "observationUnitDbId"
+                "imageDbId"
             ],
             "title": "Image",
             "type": "object"

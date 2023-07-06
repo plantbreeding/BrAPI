@@ -60,12 +60,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "dataMatrix",
-                            "dataMatrixAbbreviation",
-                            "dataMatrixName",
-                            "dataType"
-                        ],
                         "type": "object"
                     },
                     "type": [
@@ -125,13 +119,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "dimension",
-                            "page",
-                            "pageSize",
-                            "totalCount",
-                            "totalPages"
-                        ],
                         "type": "object"
                     },
                     "type": [
@@ -181,13 +168,6 @@
             },
             "required": [
                 "callSetDbIds",
-                "dataMatrices",
-                "expandHomozygotes",
-                "pagination",
-                "sepPhased",
-                "sepUnphased",
-                "unknownString",
-                "variantDbIds",
                 "variantSetDbIds"
             ],
             "title": "AlleleMatrix",

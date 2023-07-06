@@ -38,10 +38,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -127,10 +123,6 @@
                             ]
                         }
                     },
-                    "required": [
-                        "geometry",
-                        "type"
-                    ],
                     "title": "GeoJSON",
                     "type": [
                         "null",
@@ -189,9 +181,7 @@
                         }
                     },
                     "required": [
-                        "seasonDbId",
-                        "seasonName",
-                        "year"
+                        "seasonDbId"
                     ],
                     "type": [
                         "null",
@@ -220,22 +210,7 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "collector",
-                "externalReferences",
-                "geoCoordinates",
-                "germplasmDbId",
-                "germplasmName",
-                "observationDbId",
-                "observationTimeStamp",
-                "observationUnitDbId",
-                "observationUnitName",
-                "observationVariableDbId",
-                "observationVariableName",
-                "season",
-                "studyDbId",
-                "uploadedBy",
-                "value"
+                "observationDbId"
             ],
             "title": "Observation",
             "type": "object"

@@ -39,15 +39,6 @@
                     "relationshipType": "EDITME-to-one"
                 }
             },
-            "required": [
-                "additionalInfo",
-                "linkageGroupName",
-                "mapDbId",
-                "mapName",
-                "position",
-                "variantDbId",
-                "variantName"
-            ],
             "title": "MarkerPosition",
             "type": "object"
         }

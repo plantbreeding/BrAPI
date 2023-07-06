@@ -55,10 +55,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -94,10 +90,6 @@
                                         ]
                                     }
                                 },
-                                "required": [
-                                    "URL",
-                                    "type"
-                                ],
                                 "type": "object"
                             },
                             "type": [
@@ -122,10 +114,8 @@
                         }
                     },
                     "required": [
-                        "documentationLinks",
-                        "ontologyDbId",
                         "ontologyName",
-                        "version"
+                        "ontologyDbId"
                     ],
                     "type": [
                         "null",
@@ -175,10 +165,6 @@
                                         ]
                                     }
                                 },
-                                "required": [
-                                    "label",
-                                    "value"
-                                ],
                                 "type": "object"
                             },
                             "type": [
@@ -201,11 +187,6 @@
                             ]
                         }
                     },
-                    "required": [
-                        "categories",
-                        "maximumValue",
-                        "minimumValue"
-                    ],
                     "type": [
                         "null",
                         "object"
@@ -213,16 +194,8 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "dataType",
-                "decimalPlaces",
-                "externalReferences",
-                "ontologyReference",
-                "scaleDbId",
                 "scaleName",
-                "scalePUI",
-                "units",
-                "validValues"
+                "scaleDbId"
             ],
             "title": "Scale",
             "type": "object"

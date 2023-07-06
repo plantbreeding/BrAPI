@@ -53,10 +53,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -107,18 +103,8 @@
                 }
             },
             "required": [
-                "abbreviation",
-                "additionalInfo",
-                "commonCropName",
-                "documentationURL",
-                "externalReferences",
-                "fundingInformation",
-                "leadPersonDbId",
-                "leadPersonName",
-                "objective",
-                "programDbId",
                 "programName",
-                "programType"
+                "programDbId"
             ],
             "title": "Program",
             "type": "object"

@@ -40,10 +40,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -164,27 +160,7 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "column",
-                "externalReferences",
-                "germplasmDbId",
-                "observationUnitDbId",
-                "plateDbId",
-                "plateName",
-                "programDbId",
-                "row",
-                "sampleBarcode",
-                "sampleDescription",
-                "sampleGroupDbId",
-                "sampleName",
-                "samplePUI",
-                "sampleTimestamp",
-                "sampleType",
-                "studyDbId",
-                "takenBy",
-                "tissueType",
-                "trialDbId",
-                "well"
+                "sampleName"
             ],
             "title": "Sample",
             "type": "object"

@@ -24,10 +24,7 @@
                 }
             },
             "required": [
-                "abbreviation",
-                "breedingMethodDbId",
-                "breedingMethodName",
-                "description"
+                "breedingMethodDbId"
             ],
             "title": "Breeding Method",
             "type": "object"

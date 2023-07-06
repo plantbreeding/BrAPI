@@ -38,10 +38,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -92,15 +88,7 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "amount",
-                "externalReferences",
-                "fromSeedLotDbId",
-                "toSeedLotDbId",
-                "transactionDbId",
-                "transactionDescription",
-                "transactionTimestamp",
-                "units"
+                "transactionDbId"
             ],
             "title": "SeedLotTransaction",
             "type": "object"

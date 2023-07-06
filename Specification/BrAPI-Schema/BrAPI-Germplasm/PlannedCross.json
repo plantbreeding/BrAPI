@@ -54,10 +54,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -111,13 +107,6 @@
                             ]
                         }
                     },
-                    "required": [
-                        "germplasmDbId",
-                        "germplasmName",
-                        "observationUnitDbId",
-                        "observationUnitName",
-                        "parentType"
-                    ],
                     "type": [
                         "null",
                         "object"
@@ -168,13 +157,6 @@
                             ]
                         }
                     },
-                    "required": [
-                        "germplasmDbId",
-                        "germplasmName",
-                        "observationUnitDbId",
-                        "observationUnitName",
-                        "parentType"
-                    ],
                     "type": [
                         "null",
                         "object"
@@ -206,16 +188,7 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "crossType",
-                "crossingProjectDbId",
-                "crossingProjectName",
-                "externalReferences",
-                "parent1",
-                "parent2",
-                "plannedCrossDbId",
-                "plannedCrossName",
-                "status"
+                "plannedCrossDbId"
             ],
             "title": "PlannedCross",
             "type": "object"

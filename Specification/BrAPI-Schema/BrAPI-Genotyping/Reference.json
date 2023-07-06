@@ -38,10 +38,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -121,10 +117,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "germplasmDbId",
-                            "germplasmName"
-                        ],
                         "type": "object"
                     },
                     "type": [
@@ -157,10 +149,6 @@
                             ]
                         }
                     },
-                    "required": [
-                        "term",
-                        "termURI"
-                    ],
                     "type": [
                         "null",
                         "object"
@@ -168,21 +156,8 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "commonCropName",
-                "externalReferences",
-                "isDerived",
-                "length",
-                "md5checksum",
                 "referenceDbId",
-                "referenceName",
-                "referenceSetDbId",
-                "referenceSetName",
-                "sourceAccessions",
-                "sourceDivergence",
-                "sourceGermplasm",
-                "sourceURI",
-                "species"
+                "referenceName"
             ],
             "title": "Reference",
             "type": "object"

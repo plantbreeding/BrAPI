@@ -43,11 +43,6 @@
                             ]
                         }
                     },
-                    "required": [
-                        "discreteDates",
-                        "endDate",
-                        "startDate"
-                    ],
                     "type": [
                         "null",
                         "object"
@@ -121,15 +116,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "code",
-                            "description",
-                            "name",
-                            "units",
-                            "value",
-                            "valueDescription",
-                            "valuesByDate"
-                        ],
                         "type": "object"
                     },
                     "type": [
@@ -160,16 +146,8 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "eventDateRange",
                 "eventDbId",
-                "eventDescription",
-                "eventParameters",
-                "eventType",
-                "eventTypeDbId",
-                "observationUnitDbIds",
-                "studyDbId",
-                "studyName"
+                "eventType"
             ],
             "title": "Event",
             "type": "object"

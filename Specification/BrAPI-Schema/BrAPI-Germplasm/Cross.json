@@ -32,10 +32,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "crossAttributeName",
-                            "crossAttributeValue"
-                        ],
                         "type": "object"
                     },
                     "type": [
@@ -96,10 +92,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "referenceId",
-                            "referenceSource"
-                        ],
                         "type": "object"
                     },
                     "title": "ExternalReferences",
@@ -153,13 +145,6 @@
                             ]
                         }
                     },
-                    "required": [
-                        "germplasmDbId",
-                        "germplasmName",
-                        "observationUnitDbId",
-                        "observationUnitName",
-                        "parentType"
-                    ],
                     "type": [
                         "null",
                         "object"
@@ -210,13 +195,6 @@
                             ]
                         }
                     },
-                    "required": [
-                        "germplasmDbId",
-                        "germplasmName",
-                        "observationUnitDbId",
-                        "observationUnitName",
-                        "parentType"
-                    ],
                     "type": [
                         "null",
                         "object"
@@ -255,11 +233,6 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "pollinationNumber",
-                            "pollinationSuccessful",
-                            "pollinationTimeStamp"
-                        ],
                         "type": "object"
                     },
                     "type": [
@@ -269,19 +242,7 @@
                 }
             },
             "required": [
-                "additionalInfo",
-                "crossAttributes",
-                "crossDbId",
-                "crossName",
-                "crossType",
-                "crossingProjectDbId",
-                "crossingProjectName",
-                "externalReferences",
-                "parent1",
-                "parent2",
-                "plannedCrossDbId",
-                "plannedCrossName",
-                "pollinationEvents"
+                "crossDbId"
             ],
             "title": "Cross",
             "type": "object"
