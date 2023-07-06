@@ -524,8 +524,8 @@
                         }
                     },
                     "required": [
-                        "scaleName",
-                        "scaleDbId"
+                        "scaleDbId",
+                        "scaleName"
                     ],
                     "type": "object"
                 },
@@ -762,11 +762,11 @@
                 }
             },
             "required": [
-                "scale",
-                "attributeName",
-                "attributeDbId",
                 "method",
-                "trait"
+                "trait",
+                "attributeName",
+                "scale",
+                "attributeDbId"
             ],
             "title": "GermplasmAttribute",
             "type": "object"

@@ -65,8 +65,8 @@
                 }
             },
             "required": [
-                "ontologyDbId",
-                "ontologyName"
+                "ontologyName",
+                "ontologyDbId"
             ],
             "title": "Ontology",
             "type": "object"

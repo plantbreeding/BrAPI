@@ -123,8 +123,8 @@
                 }
             },
             "required": [
-                "crossingProjectName",
-                "crossingProjectDbId"
+                "crossingProjectDbId",
+                "crossingProjectName"
             ],
             "title": "CrossingProject",
             "type": "object"

@@ -103,8 +103,8 @@
                 }
             },
             "required": [
-                "programName",
-                "programDbId"
+                "programDbId",
+                "programName"
             ],
             "title": "Program",
             "type": "object"

@@ -194,8 +194,8 @@
                 }
             },
             "required": [
-                "scaleName",
-                "scaleDbId"
+                "scaleDbId",
+                "scaleName"
             ],
             "title": "Scale",
             "type": "object"

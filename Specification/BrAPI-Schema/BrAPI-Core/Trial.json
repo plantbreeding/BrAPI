@@ -223,8 +223,8 @@
                 }
             },
             "required": [
-                "trialDbId",
-                "trialName"
+                "trialName",
+                "trialDbId"
             ],
             "title": "Trial",
             "type": "object"

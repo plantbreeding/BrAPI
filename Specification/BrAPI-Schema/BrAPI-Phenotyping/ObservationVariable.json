@@ -512,8 +512,8 @@
                         }
                     },
                     "required": [
-                        "scaleName",
-                        "scaleDbId"
+                        "scaleDbId",
+                        "scaleName"
                     ],
                     "type": "object"
                 },
@@ -750,11 +750,11 @@
                 }
             },
             "required": [
-                "scale",
                 "observationVariableName",
                 "method",
+                "trait",
                 "observationVariableDbId",
-                "trait"
+                "scale"
             ],
             "title": "ObservationVariable",
             "type": "object"

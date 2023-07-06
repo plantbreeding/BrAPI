@@ -127,8 +127,8 @@
             },
             "required": [
                 "listName",
-                "listDbId",
-                "listType"
+                "listType",
+                "listDbId"
             ],
             "title": "List",
             "type": "object"
