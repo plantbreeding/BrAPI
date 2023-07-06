@@ -78,11 +78,21 @@
 			{
 				"name": "MGIS",
 				"description": "Musa Germplasm Information System",
-				"logo": "http://www.crop-diversity.org/mgis/sites/crop-diversity.org.mgis/themes/mgis_theme/logo.png",
-				"resource": {
-					"name": "Musa Germplasm Information System",
-					"base-url": "https://www.crop-diversity.org/mgis/brapi/v1/"
-				}
+				"logo": "https://www.crop-diversity.org/mgis5/themes/custom/mgis_theme/logo.svg",
+				"resource": [
+					{
+						"name": "Musa Germplasm Information System v4.5",
+						"base-url": "https://www.crop-diversity.org/mgis/brapi/v1/",
+						"logo": "http://www.crop-diversity.org/mgis/sites/crop-diversity.org.mgis/themes/mgis_theme/logo.png",
+						"description": "Supports BrAPI v1.3."
+					},
+					{
+						"name": "Musa Germplasm Information System v5",
+						"base-url": "https://www.crop-diversity.org/mgis5/brapi/v2/",
+						"logo": "https://www.crop-diversity.org/mgis5/themes/custom/mgis_theme/logo.svg",
+						"description": "Provides support for both BrAPI v1 and v2. Please repport errors to v.guignon@cgiar.org."
+					}
+				]
 			},
 			{
 				"name": "Wageningen Plant Sciences, Plant Breeding BrAPI resources",
