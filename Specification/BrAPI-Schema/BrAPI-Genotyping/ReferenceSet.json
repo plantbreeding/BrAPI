@@ -147,6 +147,48 @@
                         "null",
                         "object"
                     ]
+                },
+                "references": {
+                    "title": "references",
+                    "description": "references",
+                    "referencedAttribute": "referenceSet",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Reference.json#/$defs/Reference",
+                        "description": "Reference"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "variants": {
+                    "title": "variants",
+                    "description": "variants",
+                    "referencedAttribute": "referenceSet",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Variant.json#/$defs/Variant",
+                        "description": "Variant"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "variantSets": {
+                    "title": "variantSets",
+                    "description": "variantSets",
+                    "referencedAttribute": "referenceSet",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "VariantSet.json#/$defs/VariantSet",
+                        "description": "VariantSet"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 }
             },
             "required": [

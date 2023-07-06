@@ -234,6 +234,48 @@
                         "null",
                         "string"
                     ]
+                },
+                "plates": {
+                    "title": "plates",
+                    "description": "plates",
+                    "referencedAttribute": "trial",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Plate.json#/$defs/Plate",
+                        "description": "Plate"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "samples": {
+                    "title": "samples",
+                    "description": "samples",
+                    "referencedAttribute": "trial",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Sample.json#/$defs/Sample",
+                        "description": "Sample"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "observationUnits": {
+                    "title": "observationUnits",
+                    "description": "observationUnits",
+                    "referencedAttribute": "trial",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "ObservationUnit.json#/$defs/ObservationUnit",
+                        "description": "ObservationUnit"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 }
             },
             "required": [

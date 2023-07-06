@@ -133,7 +133,7 @@
                     "$ref": "Germplasm.json#/$defs/Germplasm",
                     "description": "The ID which uniquely identifies a germplasm",
                     "referencedAttribute": "observations",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "observationDbId": {
                     "description": "The ID which uniquely identifies an observation",
@@ -151,13 +151,13 @@
                     "$ref": "ObservationUnit.json#/$defs/ObservationUnit",
                     "description": "The ID which uniquely identifies an observation unit",
                     "referencedAttribute": "observations",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "observationVariable": {
                     "$ref": "ObservationVariable.json#/$defs/ObservationVariable",
                     "description": "The ID which uniquely identifies an observation variable",
                     "referencedAttribute": "observations",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "season": {
                     "properties": {
@@ -192,7 +192,7 @@
                     "$ref": "Study.json#/$defs/Study",
                     "description": "The ID which uniquely identifies a study within the given database server",
                     "referencedAttribute": "observations",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "uploadedBy": {
                     "description": "The name or id of the user who uploaded the observation to the database system",
@@ -206,6 +206,20 @@
                     "type": [
                         "null",
                         "string"
+                    ]
+                },
+                "images": {
+                    "title": "images",
+                    "description": "images",
+                    "referencedAttribute": "observations",
+                    "relationshipType": "many-to-many",
+                    "items": {
+                        "$ref": "Image.json#/$defs/Image",
+                        "description": "Image"
+                    },
+                    "type": [
+                        "null",
+                        "array"
                     ]
                 }
             },

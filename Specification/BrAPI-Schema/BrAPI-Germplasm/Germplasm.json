@@ -67,8 +67,14 @@
                 "breedingMethod": {
                     "$ref": "BreedingMethod.json#/$defs/BreedingMethod",
                     "description": "The unique identifier for the breeding method used to create this germplasm",
-                    "referencedAttribute": "germplasms",
-                    "relationshipType": "EDITME-to-one"
+                    "referencedAttribute": "germplasm",
+                    "relationshipType": "many-to-one"
+                },
+                "pedigreeNode": {
+                    "$ref": "PedigreeNode.json#/$defs/PedigreeNode",
+                    "description": "The unique identifier for the node in the pedigree tree associated with a germplasm",
+                    "referencedAttribute": "germplasm",
+                    "relationshipType": "one-to-one"
                 },
                 "collection": {
                     "description": "A specific panel/collection/population name this germplasm belongs to.",
@@ -430,6 +436,104 @@
                             "taxonId"
                         ],
                         "type": "object"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "samples": {
+                    "title": "samples",
+                    "description": "samples",
+                    "referencedAttribute": "germplasm",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Sample.json#/$defs/Sample",
+                        "description": "Sample"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "attributeValues": {
+                    "title": "attributeValues",
+                    "description": "attributeValues",
+                    "referencedAttribute": "germplasm",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "GermplasmAttributeValue.json#/$defs/GermplasmAttributeValue",
+                        "description": "GermplasmAttributeValue"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "progenyPedigreeNodes": {
+                    "title": "progenyPedigreeNodes",
+                    "description": "progenyPedigreeNodes",
+                    "referencedAttribute": "parentGermplasm",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "PedigreeNode.json#/$defs/PedigreeNode",
+                        "description": "PedigreeNode"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "parentPedigreeNodes": {
+                    "title": "parentPedigreeNodes",
+                    "description": "parentPedigreeNodes",
+                    "referencedAttribute": "progenyGermplasm",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "PedigreeNode.json#/$defs/PedigreeNode",
+                        "description": "PedigreeNode"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "siblingPedigreeNodes": {
+                    "title": "siblingPedigreeNodes",
+                    "description": "siblingPedigreeNodes",
+                    "referencedAttribute": "siblingGermplasm",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "PedigreeNode.json#/$defs/PedigreeNode",
+                        "description": "PedigreeNode"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "observations": {
+                    "title": "observations",
+                    "description": "observations",
+                    "referencedAttribute": "germplasm",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Observation.json#/$defs/Observation",
+                        "description": "Observation"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "observationUnits": {
+                    "title": "observationUnits",
+                    "description": "observationUnits",
+                    "referencedAttribute": "germplasm",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "ObservationUnit.json#/$defs/ObservationUnit",
+                        "description": "ObservationUnit"
                     },
                     "type": [
                         "null",

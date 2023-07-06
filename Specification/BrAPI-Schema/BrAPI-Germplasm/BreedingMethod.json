@@ -14,7 +14,7 @@
                     "type": "string"
                 },
                 "breedingMethodName": {
-                    "description": "human readable name of the breeding method",
+                    "description": "the human readable identifier for this breeding method",
                     "type": [
                         "null",
                         "string"
@@ -26,15 +26,46 @@
                         "null",
                         "string"
                     ]
+                },
+                "germplasm": {
+                    "title": "germplasm",
+                    "description": "germplasm",
+                    "referencedAttribute": "breedingMethod",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Germplasm.json#/$defs/Germplasm",
+                        "description": "Germplasm"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "pedigreeNodes": {
+                    "title": "pedigreeNodes",
+                    "description": "pedigreeNodes",
+                    "referencedAttribute": "germplasm",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "PedigreeNode.json#/$defs/PedigreeNode",
+                        "description": "PedigreeNode"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 }
             },
             "required": [
-                "breedingMethodDbId"
+                "abbreviation",
+                "breedingMethodDbId",
+                "breedingMethodName",
+                "description"
             ],
-            "title": "BreedingMethod",
+            "title": "Breeding Method",
             "type": "object"
         }
     },
-    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/BreedingMethod.json",
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/Breeding Method.json",
     "$schema": "http://json-schema.org/draft/2020-12/schema"
 }

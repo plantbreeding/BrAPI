@@ -442,6 +442,104 @@
                     "description": "The ID which uniquely identifies a trial",
                     "referencedAttribute": "studies",
                     "relationshipType": "many-to-one"
+                },
+                "callSets": {
+                    "title": "CallSets",
+                    "description": "",
+                    "referencedAttribute": "study",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "CallSet.json#/$defs/CallSet",
+                        "description": "CallSet"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "plates": {
+                    "title": "plates",
+                    "description": "plates",
+                    "referencedAttribute": "study",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Plate.json#/$defs/Plate",
+                        "description": "Plate"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "samples": {
+                    "title": "samples",
+                    "description": "samples",
+                    "referencedAttribute": "study",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Sample.json#/$defs/Sample",
+                        "description": "Sample"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "variantSets": {
+                    "title": "variantSets",
+                    "description": "variantSets",
+                    "referencedAttribute": "study",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "VariantSet.json#/$defs/VariantSet",
+                        "description": "VariantSet"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "events": {
+                    "title": "events",
+                    "description": "events",
+                    "referencedAttribute": "study",
+                    "relationshipType": "many-to-many",
+                    "items": {
+                        "$ref": "Event.json#/$defs/Event",
+                        "description": "Event"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "observations": {
+                    "title": "observations",
+                    "description": "observations",
+                    "referencedAttribute": "study",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Observation.json#/$defs/Observation",
+                        "description": "Observation"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "observationUnits": {
+                    "title": "observationUnits",
+                    "description": "observationUnits",
+                    "referencedAttribute": "study",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "ObservationUnit.json#/$defs/ObservationUnit",
+                        "description": "ObservationUnit"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 }
             },
             "required": [

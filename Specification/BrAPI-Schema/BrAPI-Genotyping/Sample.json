@@ -12,6 +12,20 @@
                         "object"
                     ]
                 },
+                "callSets": {
+                    "title": "CallSets",
+                    "description": "",
+                    "referencedAttribute": "sample",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "CallSet.json#/$defs/CallSet",
+                        "description": "CallSet"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
                 "column": {
                     "description": "The Column identifier for this `Sample` location in the `Plate`",
                     "maximum": 12,
@@ -52,25 +66,25 @@
                     "$ref": "Germplasm.json#/$defs/Germplasm",
                     "description": "The ID which uniquely identifies a `Germplasm`",
                     "referencedAttribute": "samples",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "observationUnit": {
                     "$ref": "ObservationUnit.json#/$defs/ObservationUnit",
                     "description": "The ID which uniquely identifies an `ObservationUnit`",
                     "referencedAttribute": "samples",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "plate": {
                     "$ref": "Plate.json#/$defs/Plate",
                     "description": "The ID which uniquely identifies a `Plate` of `Sample`",
                     "referencedAttribute": "samples",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "program": {
                     "$ref": "Program.json#/$defs/Program",
                     "description": "The ID which uniquely identifies a `Program` within the given database server",
                     "referencedAttribute": "samples",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "row": {
                     "description": "The Row identifier for this `Sample` location in the `Plate`",
@@ -93,11 +107,12 @@
                         "string"
                     ]
                 },
-                "sampleGroup": {
-                    "$ref": "SampleGroup.json#/$defs/SampleGroup",
+                "sampleGroupId": {
                     "description": "The ID which uniquely identifies a group of `Samples`",
-                    "referencedAttribute": "samples",
-                    "relationshipType": "EDITME-to-one"
+                    "type": [
+                        "null",
+                        "string"
+                    ]
                 },
                 "sampleName": {
                     "description": "The human readable name of the `Sample`",
@@ -129,7 +144,7 @@
                     "$ref": "Study.json#/$defs/Study",
                     "description": "The ID which uniquely identifies a `Study` within the given database server",
                     "referencedAttribute": "samples",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "takenBy": {
                     "description": "The name or identifier of the entity which took the `Sample` from the field",
@@ -149,7 +164,7 @@
                     "$ref": "Trial.json#/$defs/Trial",
                     "description": "The ID which uniquely identifies a `Trial` within the given database server",
                     "referencedAttribute": "samples",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "well": {
                     "description": "The Well identifier for this `Sample` location in the `Plate`. Usually a concatenation of Row and Column, or just a number if the `Samples` are not part of an ordered `Plate`.",

@@ -262,6 +262,34 @@
                         "null",
                         "string"
                     ]
+                },
+                "seedLots": {
+                    "title": "seedLots",
+                    "description": "seedLots",
+                    "referencedAttribute": "location",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "SeedLot.json#/$defs/SeedLot",
+                        "description": "SeedLot"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "observationUnits": {
+                    "title": "observationUnits",
+                    "description": "observationUnits",
+                    "referencedAttribute": "location",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "ObservationUnit.json#/$defs/ObservationUnit",
+                        "description": "ObservationUnit"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 }
             },
             "required": [

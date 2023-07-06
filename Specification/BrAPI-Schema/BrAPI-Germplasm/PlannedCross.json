@@ -32,8 +32,8 @@
                 "crossingProject": {
                     "$ref": "CrossingProject.json#/$defs/CrossingProject",
                     "description": "the unique identifier for a crossing project",
-                    "referencedAttribute": "plannedCrosss",
-                    "relationshipType": "EDITME-to-one"
+                    "referencedAttribute": "plannedCrosses",
+                    "relationshipType": "many-to-one"
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
@@ -184,6 +184,20 @@
                     "type": [
                         "null",
                         "string"
+                    ]
+                },
+                "crosses": {
+                    "title": "crosses",
+                    "description": "crosses",
+                    "referencedAttribute": "plannedCross",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Cross.json#/$defs/Cross",
+                        "description": "Cross"
+                    },
+                    "type": [
+                        "null",
+                        "array"
                     ]
                 }
             },

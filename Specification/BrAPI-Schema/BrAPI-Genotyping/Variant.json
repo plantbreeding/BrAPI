@@ -12,6 +12,20 @@
                         "object"
                     ]
                 },
+                "markerPositions": {
+                    "title": "markerPositions",
+                    "description": "markerPositions",
+                    "referencedAttribute": "variant",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "MarkerPosition.json#/$defs/MarkerPosition",
+                        "description": "MarkerPosition"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
                 "alleleMatrices": {
                     "title": "AlleleMatrices",
                     "description": "",
@@ -20,6 +34,20 @@
                     "items": {
                         "$ref": "AlleleMatrix.json#/$defs/AlleleMatrix",
                         "description": "AlleleMatrix"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "calls": {
+                    "title": "Calls",
+                    "description": "",
+                    "referencedAttribute": "variant",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Call.json#/$defs/Call",
+                        "description": "Call"
                     },
                     "type": [
                         "null",
@@ -126,7 +154,7 @@
                     "$ref": "Reference.json#/$defs/Reference",
                     "description": "The unique identifier for a Reference",
                     "referencedAttribute": "variants",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "referenceBases": {
                     "description": "The reference bases for this variant. They start at the given start position.",
@@ -139,7 +167,7 @@
                     "$ref": "ReferenceSet.json#/$defs/ReferenceSet",
                     "description": "The unique identifier for a ReferenceSet",
                     "referencedAttribute": "variants",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "start": {
                     "description": "This field is optional and may be ignored if there is no relevant map or reference to be associated with.\n<br> The start position at which this variant occurs (0-based). This corresponds to the first base of the string \nof reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning \nthe join of circular genomes are represented as two variants one on each side of the join (position 0).",
@@ -181,7 +209,7 @@
                     "$ref": "VariantSet.json#/$defs/VariantSet",
                     "description": "An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.",
                     "referencedAttribute": "variants",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "variantType": {
                     "description": "The \"variant_type\" is used to denote e.g. structural variants.\nExamples:\n  DUP  : duplication of sequence following \"start\"\n  DEL  : deletion of sequence following \"start\"",

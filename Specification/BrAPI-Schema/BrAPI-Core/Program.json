@@ -114,6 +114,76 @@
                         "null",
                         "array"
                     ]
+                },
+                "plates": {
+                    "title": "plates",
+                    "description": "plates",
+                    "referencedAttribute": "program",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Plate.json#/$defs/Plate",
+                        "description": "Plate"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "samples": {
+                    "title": "samples",
+                    "description": "samples",
+                    "referencedAttribute": "program",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Sample.json#/$defs/Sample",
+                        "description": "Sample"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "crossingProjects": {
+                    "title": "crossingProjects",
+                    "description": "crossingProjects",
+                    "referencedAttribute": "program",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "CrossingProject.json#/$defs/CrossingProject",
+                        "description": "CrossingProject"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "seedLots": {
+                    "title": "seedLots",
+                    "description": "seedLots",
+                    "referencedAttribute": "program",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "SeedLot.json#/$defs/SeedLot",
+                        "description": "SeedLot"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "observationUnits": {
+                    "title": "observationUnits",
+                    "description": "observationUnits",
+                    "referencedAttribute": "program",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "ObservationUnit.json#/$defs/ObservationUnit",
+                        "description": "ObservationUnit"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 }
             },
             "required": [

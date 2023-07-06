@@ -113,13 +113,13 @@
                     "$ref": "Location.json#/$defs/Location",
                     "description": "The unique identifier for a Location",
                     "referencedAttribute": "seedLots",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "program": {
                     "$ref": "Program.json#/$defs/Program",
                     "description": "The unique DbId of the breeding program this Seed Lot belongs to",
                     "referencedAttribute": "seedLots",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "seedLotDbId": {
                     "description": "Unique DbId for the Seed Lot",
@@ -155,6 +155,48 @@
                     "type": [
                         "null",
                         "string"
+                    ]
+                },
+                "fromSeedLotTransactions": {
+                    "title": "fromSeedLotTransactions",
+                    "description": "fromSeedLotTransactions",
+                    "referencedAttribute": "fromSeedLot",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "SeedLotTransaction.json#/$defs/SeedLotTransaction",
+                        "description": "SeedLotTransaction"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "toSeedLotTransactions": {
+                    "title": "toSeedLotTransactions",
+                    "description": "toSeedLotTransactions",
+                    "referencedAttribute": "toSeedLot",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "SeedLotTransaction.json#/$defs/SeedLotTransaction",
+                        "description": "SeedLotTransaction"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "observationUnits": {
+                    "title": "observationUnits",
+                    "description": "observationUnits",
+                    "referencedAttribute": "seedLot",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "ObservationUnit.json#/$defs/ObservationUnit",
+                        "description": "ObservationUnit"
+                    },
+                    "type": [
+                        "null",
+                        "array"
                     ]
                 }
             },

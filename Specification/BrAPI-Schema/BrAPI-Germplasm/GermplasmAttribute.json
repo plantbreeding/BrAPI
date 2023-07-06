@@ -12,11 +12,16 @@
                         "object"
                     ]
                 },
-                "attribute": {
-                    "$ref": "Attribute.json#/$defs/Attribute",
+                "attributeDbId": {
                     "description": "The ID which uniquely identifies this attribute within the given database server",
-                    "referencedAttribute": "germplasmAttributes",
-                    "relationshipType": "EDITME-to-one"
+                    "type": "string"
+                },
+                "attributeName": {
+                    "description": "The human readable identifier of a germplasm attribute",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
                 },
                 "attributeCategory": {
                     "description": "General category for the attribute. very similar to Trait class.",
@@ -759,6 +764,20 @@
                         "traitName"
                     ],
                     "type": "object"
+                },
+                "attributeValues": {
+                    "title": "attributeValues",
+                    "description": "attributeValues",
+                    "referencedAttribute": "attribute",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "GermplasmAttributeValue.json#/$defs/GermplasmAttributeValue",
+                        "description": "GermplasmAttributeValue"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 }
             },
             "required": [

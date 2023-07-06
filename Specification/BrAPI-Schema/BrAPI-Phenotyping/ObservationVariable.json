@@ -761,6 +761,20 @@
                         "null",
                         "array"
                     ]
+                },
+                "observations": {
+                    "title": "observations",
+                    "description": "observations",
+                    "referencedAttribute": "observationVariable",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Observation.json#/$defs/Observation",
+                        "description": "Observation"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 }
             },
             "required": [

@@ -119,7 +119,49 @@
                     "$ref": "Program.json#/$defs/Program",
                     "description": "the unique identifier for a program",
                     "referencedAttribute": "crossingProjects",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
+                },
+                "crosses": {
+                    "title": "crosses",
+                    "description": "crosses",
+                    "referencedAttribute": "crossingProject",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Cross.json#/$defs/Cross",
+                        "description": "Cross"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "plannedCrosses": {
+                    "title": "plannedCrosses",
+                    "description": "plannedCrosses",
+                    "referencedAttribute": "crossingProject",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "PlannedCross.json#/$defs/PlannedCross",
+                        "description": "PlannedCross"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "pedigreeNodes": {
+                    "title": "pedigreeNodes",
+                    "description": "pedigreeNodes",
+                    "referencedAttribute": "crossingProject",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "PedigreeNode.json#/$defs/PedigreeNode",
+                        "description": "PedigreeNode"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 }
             },
             "required": [

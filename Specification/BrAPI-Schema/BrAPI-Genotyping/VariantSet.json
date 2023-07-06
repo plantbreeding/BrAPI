@@ -12,6 +12,48 @@
                         "object"
                     ]
                 },
+                "alleleMatrices": {
+                    "title": "AlleleMatrices",
+                    "description": "",
+                    "referencedAttribute": "variantSets",
+                    "relationshipType": "many-to-many",
+                    "items": {
+                        "$ref": "AlleleMatrix.json#/$defs/AlleleMatrix",
+                        "description": "AlleleMatrix"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "calls": {
+                    "title": "Calls",
+                    "description": "",
+                    "referencedAttribute": "variantSet",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Call.json#/$defs/Call",
+                        "description": "Call"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "callSets": {
+                    "title": "CallSets",
+                    "description": "",
+                    "referencedAttribute": "variantSets",
+                    "relationshipType": "many-to-many",
+                    "items": {
+                        "$ref": "CallSet.json#/$defs/CallSet",
+                        "description": "CallSet"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
                 "analysis": {
                     "description": "Set of Analysis descriptors for this VariantSet",
                     "items": {
@@ -237,13 +279,13 @@
                     "$ref": "ReferenceSet.json#/$defs/ReferenceSet",
                     "description": "The ID of the reference set that describes the sequences used by the variants in this set.",
                     "referencedAttribute": "variantSets",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "study": {
                     "$ref": "Study.json#/$defs/Study",
                     "description": "The ID of the dataset this variant set belongs to.",
                     "referencedAttribute": "variantSets",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "variantCount": {
                     "description": "The number of Variants included in this VariantSet",
@@ -261,6 +303,20 @@
                     "type": [
                         "null",
                         "string"
+                    ]
+                },
+                "variants": {
+                    "title": "variants",
+                    "description": "variants",
+                    "referencedAttribute": "variantSet",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Variant.json#/$defs/Variant",
+                        "description": "Variant"
+                    },
+                    "type": [
+                        "null",
+                        "array"
                     ]
                 }
             },

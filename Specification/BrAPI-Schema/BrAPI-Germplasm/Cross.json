@@ -70,8 +70,8 @@
                 "crossingProject": {
                     "$ref": "CrossingProject.json#/$defs/CrossingProject",
                     "description": "the unique identifier for a crossing project",
-                    "referencedAttribute": "crosss",
-                    "relationshipType": "EDITME-to-one"
+                    "referencedAttribute": "crosses",
+                    "relationshipType": "many-to-one"
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
@@ -204,7 +204,7 @@
                     "$ref": "PlannedCross.json#/$defs/PlannedCross",
                     "description": "the unique identifier for a planned cross",
                     "referencedAttribute": "crosss",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "pollinationEvents": {
                     "description": "The list of pollination events that occurred for this cross",
@@ -234,6 +234,20 @@
                             }
                         },
                         "type": "object"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "observationUnits": {
+                    "title": "observationUnits",
+                    "description": "observationUnits",
+                    "referencedAttribute": "cross",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "ObservationUnit.json#/$defs/ObservationUnit",
+                        "description": "ObservationUnit"
                     },
                     "type": [
                         "null",

@@ -26,6 +26,20 @@
                         "array"
                     ]
                 },
+                "calls": {
+                    "title": "Calls",
+                    "description": "",
+                    "referencedAttribute": "callSet",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Call.json#/$defs/Call",
+                        "description": "Call"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
                 "callSetDbId": {
                     "description": "The ID which uniquely identifies a CallSet within the given database server",
                     "type": "string"
@@ -76,13 +90,13 @@
                     "$ref": "Sample.json#/$defs/Sample",
                     "description": "The Biosample entity the call set data was generated from.",
                     "referencedAttribute": "callSets",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "study": {
                     "$ref": "Study.json#/$defs/Study",
                     "description": "The ID which uniquely identifies a study within the given database server",
                     "referencedAttribute": "callSets",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "updated": {
                     "description": "The time at which this call set was last updated",
@@ -98,7 +112,7 @@
                         "$ref": "VariantSet.json#/$defs/VariantSet"
                     },
                     "referencedAttribute": "callSets",
-                    "relationshipType": "EDITME-to-many",
+                    "relationshipType": "many-to-many",
                     "type": "array"
                 }
             },

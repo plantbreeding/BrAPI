@@ -66,7 +66,7 @@
                     "$ref": "Program.json#/$defs/Program",
                     "description": "The ID which uniquely identifies a `Program` within the given database server",
                     "referencedAttribute": "plates",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "sampleType": {
                     "description": "The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc",
@@ -86,13 +86,27 @@
                     "$ref": "Study.json#/$defs/Study",
                     "description": "The ID which uniquely identifies a `Study` within the given database server",
                     "referencedAttribute": "plates",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "trial": {
                     "$ref": "Trial.json#/$defs/Trial",
                     "description": "The ID which uniquely identifies a `Trial` within the given database server",
                     "referencedAttribute": "plates",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
+                },
+                "samples": {
+                    "title": "samples",
+                    "description": "samples",
+                    "referencedAttribute": "plate",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Sample.json#/$defs/Sample",
+                        "description": "Sample"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 }
             },
             "required": [

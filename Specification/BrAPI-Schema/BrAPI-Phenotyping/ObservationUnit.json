@@ -16,7 +16,7 @@
                     "$ref": "Cross.json#/$defs/Cross",
                     "description": "the unique identifier for a cross",
                     "referencedAttribute": "observationUnits",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
@@ -49,13 +49,13 @@
                     "$ref": "Germplasm.json#/$defs/Germplasm",
                     "description": "The ID which uniquely identifies a germplasm",
                     "referencedAttribute": "observationUnits",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "location": {
                     "$ref": "Location.json#/$defs/Location",
                     "description": "The ID which uniquely identifies a location, associated with this study",
                     "referencedAttribute": "observationUnits",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "observationUnitDbId": {
                     "description": "The ID which uniquely identifies an observation unit\n\nMIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. ",
@@ -305,275 +305,23 @@
                         "object"
                     ]
                 },
-                "observations": {
-                    "description": "All observations attached to this observation unit. \n\nDefault for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.",
-                    "items": {
-                        "properties": {
-                            "additionalInfo": {
-                                "additionalProperties": {
-                                    "type": "string"
-                                },
-                                "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                                "type": [
-                                    "null",
-                                    "object"
-                                ]
-                            },
-                            "collector": {
-                                "description": "The name or identifier of the entity which collected the observation",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "externalReferences": {
-                                "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-                                "items": {
-                                    "properties": {
-                                        "referenceId": {
-                                            "description": "The external reference ID. Could be a simple string or a URI.",
-                                            "type": [
-                                                "null",
-                                                "string"
-                                            ]
-                                        },
-                                        "referenceSource": {
-                                            "description": "An identifier for the source system or database of this reference",
-                                            "type": [
-                                                "null",
-                                                "string"
-                                            ]
-                                        }
-                                    },
-                                    "type": "object"
-                                },
-                                "title": "ExternalReferences",
-                                "type": [
-                                    "null",
-                                    "array"
-                                ]
-                            },
-                            "geoCoordinates": {
-                                "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                                "properties": {
-                                    "geometry": {
-                                        "description": "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.",
-                                        "oneOf": [
-                                            {
-                                                "description": "Copied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                                                "properties": {
-                                                    "coordinates": {
-                                                        "description": "A single position",
-                                                        "items": {
-                                                            "type": "number"
-                                                        },
-                                                        "minItems": 2,
-                                                        "type": "array"
-                                                    },
-                                                    "type": {
-                                                        "default": "Point",
-                                                        "description": "The literal string \"Point\"",
-                                                        "type": "string"
-                                                    }
-                                                },
-                                                "required": [
-                                                    "type",
-                                                    "coordinates"
-                                                ],
-                                                "type": "object"
-                                            },
-                                            {
-                                                "description": "An array of Linear Rings. Each Linear Ring is an array of Points. \n\nA Point is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                                                "properties": {
-                                                    "coordinates": {
-                                                        "description": "An array of linear rings",
-                                                        "items": {
-                                                            "description": "An array of at least four positions where the first equals the last",
-                                                            "items": {
-                                                                "description": "A single position",
-                                                                "items": {
-                                                                    "type": "number"
-                                                                },
-                                                                "minItems": 2,
-                                                                "type": "array"
-                                                            },
-                                                            "minItems": 4,
-                                                            "type": "array"
-                                                        },
-                                                        "type": "array"
-                                                    },
-                                                    "type": {
-                                                        "default": "Polygon",
-                                                        "description": "The literal string \"Polygon\"",
-                                                        "type": "string"
-                                                    }
-                                                },
-                                                "required": [
-                                                    "type",
-                                                    "coordinates"
-                                                ],
-                                                "type": "object"
-                                            }
-                                        ],
-                                        "title": "GeoJSON Geometry",
-                                        "type": [
-                                            "null",
-                                            "object"
-                                        ]
-                                    },
-                                    "type": {
-                                        "default": "Feature",
-                                        "description": "The literal string \"Feature\"",
-                                        "type": [
-                                            "null",
-                                            "string"
-                                        ]
-                                    }
-                                },
-                                "title": "GeoJSON",
-                                "type": [
-                                    "null",
-                                    "object"
-                                ]
-                            },
-                            "germplasmDbId": {
-                                "description": "The ID which uniquely identifies a germplasm",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "germplasmName": {
-                                "description": "Name of the germplasm. It can be the preferred name and does not have to be unique.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "observationDbId": {
-                                "description": "The ID which uniquely identifies an observation",
-                                "type": "string"
-                            },
-                            "observationTimeStamp": {
-                                "description": "The date and time when this observation was made",
-                                "format": "date-time",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "observationUnitDbId": {
-                                "description": "The ID which uniquely identifies an observation unit",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "observationUnitName": {
-                                "description": "A human readable name for an observation unit",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "observationVariableDbId": {
-                                "description": "The ID which uniquely identifies an observation variable",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "observationVariableName": {
-                                "description": "A human readable name for an observation variable",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "season": {
-                                "properties": {
-                                    "seasonDbId": {
-                                        "description": "The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'",
-                                        "type": "string"
-                                    },
-                                    "seasonName": {
-                                        "description": "Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.",
-                                        "type": [
-                                            "null",
-                                            "string"
-                                        ]
-                                    },
-                                    "year": {
-                                        "description": "The 4 digit year of the season.",
-                                        "type": [
-                                            "null",
-                                            "integer"
-                                        ]
-                                    }
-                                },
-                                "required": [
-                                    "seasonDbId"
-                                ],
-                                "type": [
-                                    "null",
-                                    "object"
-                                ]
-                            },
-                            "studyDbId": {
-                                "description": "The ID which uniquely identifies a study within the given database server",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "uploadedBy": {
-                                "description": "The name or id of the user who uploaded the observation to the database system",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "value": {
-                                "description": "The value of the data collected as an observation",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "required": [
-                            "observationDbId"
-                        ],
-                        "type": "object",
-                        "x-brapi-metadata": {
-                            "description": "A value assigned for a specific ObservationVariable when observing a specific ObservationUnit.",
-                            "module": "BrAPI-Phenotyping",
-                            "primaryModel": true,
-                            "title": "Observation"
-                        }
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
-                },
                 "program": {
                     "$ref": "Program.json#/$defs/Program",
                     "description": "The ID which uniquely identifies a program",
                     "referencedAttribute": "observationUnits",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "seedLot": {
                     "$ref": "SeedLot.json#/$defs/SeedLot",
                     "description": "The unique identifier for the originating Seed Lot",
                     "referencedAttribute": "observationUnits",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "study": {
                     "$ref": "Study.json#/$defs/Study",
                     "description": "The ID which uniquely identifies a study within the given database server",
                     "referencedAttribute": "observationUnits",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "treatments": {
                     "description": "List of treatments applied to an observation unit.\n\nMIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.",
@@ -605,7 +353,63 @@
                     "$ref": "Trial.json#/$defs/Trial",
                     "description": "The ID which uniquely identifies a trial",
                     "referencedAttribute": "observationUnits",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
+                },
+                "samples": {
+                    "title": "samples",
+                    "description": "samples",
+                    "referencedAttribute": "observationUnit",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Sample.json#/$defs/Sample",
+                        "description": "Sample"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "events": {
+                    "title": "events",
+                    "description": "events",
+                    "referencedAttribute": "observationUnits",
+                    "relationshipType": "many-to-many",
+                    "items": {
+                        "$ref": "Event.json#/$defs/Event",
+                        "description": "Event"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "images": {
+                    "title": "images",
+                    "description": "images",
+                    "referencedAttribute": "observationUnit",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Image.json#/$defs/Image",
+                        "description": "Image"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "observations": {
+                    "title": "observations",
+                    "description": "observations",
+                    "referencedAttribute": "observationUnit",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Observation.json#/$defs/Observation",
+                        "description": "Observation"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 }
             },
             "required": [

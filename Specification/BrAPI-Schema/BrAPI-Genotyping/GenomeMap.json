@@ -12,6 +12,20 @@
                         "object"
                     ]
                 },
+                "markerPositions": {
+                    "title": "markerPositions",
+                    "description": "markerPositions",
+                    "referencedAttribute": "map",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "MarkerPosition.json#/$defs/MarkerPosition",
+                        "description": "MarkerPosition"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
                 "comments": {
                     "description": "Additional comments about a `GenomeMap`",
                     "type": [
@@ -38,11 +52,19 @@
                         "integer"
                     ]
                 },
-                "map": {
-                    "$ref": "Map.json#/$defs/Map",
-                    "description": "The ID which uniquely identifies a `GenomeMap`",
-                    "referencedAttribute": "genomeMaps",
-                    "relationshipType": "EDITME-to-one"
+                "mapDbId": {
+                    "description": "The unique identifier for a `GenomeMap`",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "mapName": {
+                    "description": "The human readable identifier for a `GenomeMap`",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
                 },
                 "mapPUI": {
                     "description": "The DOI or other permanent identifier for a `GenomeMap`",

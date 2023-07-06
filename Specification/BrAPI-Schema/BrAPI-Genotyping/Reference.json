@@ -79,7 +79,7 @@
                     "$ref": "ReferenceSet.json#/$defs/ReferenceSet",
                     "description": "The unique identifier for a `ReferenceSet`",
                     "referencedAttribute": "references",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "sourceAccessions": {
                     "description": "All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.",
@@ -152,6 +152,20 @@
                     "type": [
                         "null",
                         "object"
+                    ]
+                },
+                "variants": {
+                    "title": "variants",
+                    "description": "variants",
+                    "referencedAttribute": "reference",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Variant.json#/$defs/Variant",
+                        "description": "Variant"
+                    },
+                    "type": [
+                        "null",
+                        "array"
                     ]
                 }
             },

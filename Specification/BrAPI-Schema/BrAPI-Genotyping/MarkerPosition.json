@@ -20,10 +20,10 @@
                     ]
                 },
                 "map": {
-                    "$ref": "Map.json#/$defs/Map",
+                    "$ref": "GenomeMap.json#/$defs/GenomeMap",
                     "description": "The ID which uniquely identifies a `GenomeMap`",
                     "referencedAttribute": "markerPositions",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 },
                 "position": {
                     "description": "The position of a marker or variant within a `LinkageGroup`",
@@ -36,7 +36,7 @@
                     "$ref": "Variant.json#/$defs/Variant",
                     "description": "The ID which uniquely identifies a `Variant` within the given database server\n<br> A `Variant` can also represent a Marker ",
                     "referencedAttribute": "markerPositions",
-                    "relationshipType": "EDITME-to-one"
+                    "relationshipType": "many-to-one"
                 }
             },
             "title": "MarkerPosition",
