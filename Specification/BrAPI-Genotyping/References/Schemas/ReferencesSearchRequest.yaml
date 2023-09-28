@@ -30,13 +30,13 @@ components:
             example: ['c2365e900c81a89cf74d83dab60df146']
           referenceDbIds:
             type: array
-            description: The `References` to search.
+            description: A list of IDs which uniquely identify `References` within the given database server 
             items: 
               type: string
             example: ['04c83ea7', 'd0998a34']
           referenceSetDbIds:
             type: array
-            description: The `ReferenceSets` to search.
+            description: A list of IDs which uniquely identify `ReferenceSets` within the given database server 
             items: 
               type: string
             example: ['32a19dd7', '2c182c18']
@@ -45,11 +45,11 @@ components:
             format: boolean
             type: boolean
           minLength:
-            description: The minimum length of this reference's sequence.
+            description: The minimum length of this `References` sequence.
             type: integer
             example: 4000
           maxLength:
-            description: The minimum length of this reference's sequence.
+            description: The minimum length of this `References` sequence.
             type: integer
             example: 90000
             

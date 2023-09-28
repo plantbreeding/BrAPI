@@ -8,7 +8,7 @@ paths:
       summary: Get the details of a specific Sample
       description: Used to retrieve the details of a single Sample from a Sample Tracking system.
       parameters:
-      - description: the internal DB id for a sample
+      - description: The unique identifier for a `Sample`
         in: path
         name: sampleDbId
         required: true
@@ -35,7 +35,7 @@ paths:
         **Deprecated in v2.1** Please use `PUT /samples`. Github issue number #462 
         <br/>Update the details of an existing Sample
       parameters:
-      - description: the internal DB id for a sample
+      - description: The unique identifier for a `Sample`
         in: path
         name: sampleDbId
         required: true

@@ -8,7 +8,7 @@ paths:
       summary: Get the details of a specific List
       description: Get a specific generic lists
       parameters:
-      - description: The unique ID of this generic list
+      - description: The unique identifier of a List
         in: path
         name: listDbId
         required: true
@@ -32,7 +32,7 @@ paths:
       summary: Update an existing generic list
       description: Update an existing generic list
       parameters:
-      - description: The unique ID of this generic list
+      - description: The unique identifier of a List
         in: path
         name: listDbId
         required: true

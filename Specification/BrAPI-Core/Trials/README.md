@@ -21,10 +21,10 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this trail currently active</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Trial is currently active and ongoing</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropNames</span></td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
 <tr><td><span style="font-weight:bold;">contactDbIds</span></td><td>array[string]</td><td>List of contact entities associated with this trial</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460  <br>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceIds</span></td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceSources</span></td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">locationDbIds</span></td><td>array[string]</td><td>The location ids to search for</td></tr>
@@ -47,25 +47,27 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this trial currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a trial  MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.</td></tr>
+<tr><td><span style="font-weight:bold;">trialName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Trial is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this trial</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this trial</td></tr>
-<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.email</span></td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.instituteName</span></td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.name</span></td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.orcid</span></td><td>string</td><td>The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td>The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation</td></tr>
 <tr><td><span style="font-weight:bold;">datasetAuthorships</span></td><td>array[object]</td><td>License and citation information for the data in this trial</td></tr>
-<tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.datasetPUI</span></td><td>string</td><td></td></tr>
+<tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.datasetPUI</span></td><td>string</td><td>The DOI or other permanent unique identifier for this published dataset</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.license</span></td><td>string</td><td>MIAPPE V1.1 (DM-7) License - License for the reuse of the data associated with this investigation. The Creative Commons licenses cover most use cases and are recommended.</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.publicReleaseDate</span></td><td>string<br>(date)</td><td>MIAPPE V1.1 (DM-6) Public release date - Date of first public release of the dataset presently being described.</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.submissionDate</span></td><td>string<br>(date)</td><td>MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date)</td><td>The date this trial ends</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>A program identifier to search for</td></tr>
@@ -74,9 +76,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>publications<br><span style="font-weight:bold;margin-left:5px">.publicationPUI</span></td><td>string</td><td></td></tr>
 <tr><td>publications<br><span style="font-weight:bold;margin-left:5px">.publicationReference</span></td><td>string</td><td></td></tr>
 <tr><td><span style="font-weight:bold;">startDate</span></td><td>string<br>(date)</td><td>The date this trial started</td></tr>
-<tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial  MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.</td></tr>
 <tr><td><span style="font-weight:bold;">trialDescription</span></td><td>string</td><td>The human readable description of a trial  MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.</td></tr>
-<tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.</td></tr>
 <tr><td><span style="font-weight:bold;">trialPUI</span></td><td>string</td><td>A permanent identifier for a trial. Could be DOI or other URI formatted identifier.</td></tr>
 </table>
 
@@ -84,7 +84,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -293,25 +293,27 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this trial currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a trial  MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.</td></tr>
+<tr><td><span style="font-weight:bold;">trialName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Trial is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this trial</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this trial</td></tr>
-<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.email</span></td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.instituteName</span></td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.name</span></td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.orcid</span></td><td>string</td><td>The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td>The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation</td></tr>
 <tr><td><span style="font-weight:bold;">datasetAuthorships</span></td><td>array[object]</td><td>License and citation information for the data in this trial</td></tr>
-<tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.datasetPUI</span></td><td>string</td><td></td></tr>
+<tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.datasetPUI</span></td><td>string</td><td>The DOI or other permanent unique identifier for this published dataset</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.license</span></td><td>string</td><td>MIAPPE V1.1 (DM-7) License - License for the reuse of the data associated with this investigation. The Creative Commons licenses cover most use cases and are recommended.</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.publicReleaseDate</span></td><td>string<br>(date)</td><td>MIAPPE V1.1 (DM-6) Public release date - Date of first public release of the dataset presently being described.</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.submissionDate</span></td><td>string<br>(date)</td><td>MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date)</td><td>The date this trial ends</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>A program identifier to search for</td></tr>
@@ -320,9 +322,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>publications<br><span style="font-weight:bold;margin-left:5px">.publicationPUI</span></td><td>string</td><td></td></tr>
 <tr><td>publications<br><span style="font-weight:bold;margin-left:5px">.publicationReference</span></td><td>string</td><td></td></tr>
 <tr><td><span style="font-weight:bold;">startDate</span></td><td>string<br>(date)</td><td>The date this trial started</td></tr>
-<tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial  MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.</td></tr>
 <tr><td><span style="font-weight:bold;">trialDescription</span></td><td>string</td><td>The human readable description of a trial  MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.</td></tr>
-<tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.</td></tr>
 <tr><td><span style="font-weight:bold;">trialPUI</span></td><td>string</td><td>A permanent identifier for a trial. Could be DOI or other URI formatted identifier.</td></tr>
 </table>
 
@@ -330,10 +330,10 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
  
 
 + Parameters
-    + searchResultsDbId (Required, ) ... Unique identifier which references the search results
-    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + searchResultsDbId (Required, string) ... Unique identifier which references the search results
+    + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -464,7 +464,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 
 
-### Get - /trials [GET /brapi/v2/trials{?active}{?contactDbId}{?locationDbId}{?searchDateRangeStart}{?searchDateRangeEnd}{?studyDbId}{?trialDbId}{?trialName}{?trialPUI}{?sortBy}{?sortOrder}{?programDbId}{?commonCropName}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /trials [GET /brapi/v2/trials{?active}{?contactDbId}{?locationDbId}{?searchDateRangeStart}{?searchDateRangeEnd}{?trialPUI}{?sortBy}{?sortOrder}{?commonCropName}{?programDbId}{?trialDbId}{?trialName}{?studyDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
 
@@ -474,25 +474,27 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this trial currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a trial  MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.</td></tr>
+<tr><td><span style="font-weight:bold;">trialName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Trial is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this trial</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this trial</td></tr>
-<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.email</span></td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.instituteName</span></td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.name</span></td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.orcid</span></td><td>string</td><td>The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td>The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation</td></tr>
 <tr><td><span style="font-weight:bold;">datasetAuthorships</span></td><td>array[object]</td><td>License and citation information for the data in this trial</td></tr>
-<tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.datasetPUI</span></td><td>string</td><td></td></tr>
+<tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.datasetPUI</span></td><td>string</td><td>The DOI or other permanent unique identifier for this published dataset</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.license</span></td><td>string</td><td>MIAPPE V1.1 (DM-7) License - License for the reuse of the data associated with this investigation. The Creative Commons licenses cover most use cases and are recommended.</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.publicReleaseDate</span></td><td>string<br>(date)</td><td>MIAPPE V1.1 (DM-6) Public release date - Date of first public release of the dataset presently being described.</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.submissionDate</span></td><td>string<br>(date)</td><td>MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date)</td><td>The date this trial ends</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>A program identifier to search for</td></tr>
@@ -501,9 +503,7 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
 <tr><td>publications<br><span style="font-weight:bold;margin-left:5px">.publicationPUI</span></td><td>string</td><td></td></tr>
 <tr><td>publications<br><span style="font-weight:bold;margin-left:5px">.publicationReference</span></td><td>string</td><td></td></tr>
 <tr><td><span style="font-weight:bold;">startDate</span></td><td>string<br>(date)</td><td>The date this trial started</td></tr>
-<tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial  MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.</td></tr>
 <tr><td><span style="font-weight:bold;">trialDescription</span></td><td>string</td><td>The human readable description of a trial  MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.</td></tr>
-<tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.</td></tr>
 <tr><td><span style="font-weight:bold;">trialPUI</span></td><td>string</td><td>A permanent identifier for a trial. Could be DOI or other URI formatted identifier.</td></tr>
 </table>
 
@@ -511,25 +511,25 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
  
 
 + Parameters
-    + active (Optional, ) ... Filter active status true/false.
-    + contactDbId (Optional, ) ... Contact entities associated with this trial
-    + locationDbId (Optional, ) ... Filter by location
-    + searchDateRangeStart (Optional, ) ... The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.Return a Trial entity if any of the following cases are true- `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
-    + searchDateRangeEnd (Optional, ) ... The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.Return a Trial entity if any of the following cases are true- `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
-    + studyDbId (Optional, ) ... Filter by connected studyDbId
-    + trialDbId (Optional, ) ... Filter by trialDbId
-    + trialName (Optional, ) ... Filter by trial name
-    + trialPUI (Optional, ) ... Filter by trial PUI
-    + sortBy (Optional, ) ... Sort order. Name of the field to sort by.
-    + sortOrder (Optional, ) ... Sort order direction: asc/desc
-    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
-    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
-    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
-    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + active (Optional, boolean) ... A flag to indicate if a Trial is currently active and ongoing
+    + contactDbId (Optional, string) ... Contact entities associated with this trial
+    + locationDbId (Optional, string) ... Filter by location
+    + searchDateRangeStart (Optional, string) ... The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.Return a Trial entity if any of the following cases are true- `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
+    + searchDateRangeEnd (Optional, string) ... The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.Return a Trial entity if any of the following cases are true- `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
+    + trialPUI (Optional, string) ... Filter by trial PUI
+    + sortBy (Optional, string) ... Sort order. Name of the field to sort by.
+    + sortOrder (Optional, string) ... Sort order direction: asc/desc
+    + commonCropName (Optional, string) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + programDbId (Optional, string) ... Use this parameter to only return results associated with the given `Program` unique identifier. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
+    + trialDbId (Optional, string) ... Use this parameter to only return results associated with the given `Trial` unique identifier. <br/>Use `GET /trials` to find the list of available `Trials` on a server.
+    + trialName (Optional, string) ... Use this parameter to only return results associated with the given `Trial` by its human readable name. <br/>Use `GET /trials` to find the list of available `Trials` on a server.
+    + studyDbId (Optional, string) ... Use this parameter to only return results associated with the given `Study` unique identifier. <br/>Use `GET /studies` to find the list of available `Studies` on a server.
+    + externalReferenceID (Optional, string) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceId (Optional, string) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, string) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
+    + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -636,25 +636,26 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this trial currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">trialName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Trial is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this trial</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this trial</td></tr>
-<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.email</span></td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.instituteName</span></td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.name</span></td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.orcid</span></td><td>string</td><td>The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td>The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation</td></tr>
 <tr><td><span style="font-weight:bold;">datasetAuthorships</span></td><td>array[object]</td><td>License and citation information for the data in this trial</td></tr>
-<tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.datasetPUI</span></td><td>string</td><td></td></tr>
+<tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.datasetPUI</span></td><td>string</td><td>The DOI or other permanent unique identifier for this published dataset</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.license</span></td><td>string</td><td>MIAPPE V1.1 (DM-7) License - License for the reuse of the data associated with this investigation. The Creative Commons licenses cover most use cases and are recommended.</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.publicReleaseDate</span></td><td>string<br>(date)</td><td>MIAPPE V1.1 (DM-6) Public release date - Date of first public release of the dataset presently being described.</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.submissionDate</span></td><td>string<br>(date)</td><td>MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date)</td><td>The date this trial ends</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>A program identifier to search for</td></tr>
@@ -664,7 +665,6 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 <tr><td>publications<br><span style="font-weight:bold;margin-left:5px">.publicationReference</span></td><td>string</td><td></td></tr>
 <tr><td><span style="font-weight:bold;">startDate</span></td><td>string<br>(date)</td><td>The date this trial started</td></tr>
 <tr><td><span style="font-weight:bold;">trialDescription</span></td><td>string</td><td>The human readable description of a trial  MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.</td></tr>
-<tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.</td></tr>
 <tr><td><span style="font-weight:bold;">trialPUI</span></td><td>string</td><td>A permanent identifier for a trial. Could be DOI or other URI formatted identifier.</td></tr>
 </table>
 
@@ -673,25 +673,27 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this trial currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a trial  MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.</td></tr>
+<tr><td><span style="font-weight:bold;">trialName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Trial is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this trial</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this trial</td></tr>
-<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.email</span></td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.instituteName</span></td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.name</span></td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.orcid</span></td><td>string</td><td>The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td>The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation</td></tr>
 <tr><td><span style="font-weight:bold;">datasetAuthorships</span></td><td>array[object]</td><td>License and citation information for the data in this trial</td></tr>
-<tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.datasetPUI</span></td><td>string</td><td></td></tr>
+<tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.datasetPUI</span></td><td>string</td><td>The DOI or other permanent unique identifier for this published dataset</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.license</span></td><td>string</td><td>MIAPPE V1.1 (DM-7) License - License for the reuse of the data associated with this investigation. The Creative Commons licenses cover most use cases and are recommended.</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.publicReleaseDate</span></td><td>string<br>(date)</td><td>MIAPPE V1.1 (DM-6) Public release date - Date of first public release of the dataset presently being described.</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.submissionDate</span></td><td>string<br>(date)</td><td>MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date)</td><td>The date this trial ends</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>A program identifier to search for</td></tr>
@@ -700,9 +702,7 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 <tr><td>publications<br><span style="font-weight:bold;margin-left:5px">.publicationPUI</span></td><td>string</td><td></td></tr>
 <tr><td>publications<br><span style="font-weight:bold;margin-left:5px">.publicationReference</span></td><td>string</td><td></td></tr>
 <tr><td><span style="font-weight:bold;">startDate</span></td><td>string<br>(date)</td><td>The date this trial started</td></tr>
-<tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial  MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.</td></tr>
 <tr><td><span style="font-weight:bold;">trialDescription</span></td><td>string</td><td>The human readable description of a trial  MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.</td></tr>
-<tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.</td></tr>
 <tr><td><span style="font-weight:bold;">trialPUI</span></td><td>string</td><td>A permanent identifier for a trial. Could be DOI or other URI formatted identifier.</td></tr>
 </table>
 
@@ -710,7 +710,7 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -873,25 +873,27 @@ Get the details of a specific Trial
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this trial currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a trial  MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.</td></tr>
+<tr><td><span style="font-weight:bold;">trialName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Trial is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this trial</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this trial</td></tr>
-<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.email</span></td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.instituteName</span></td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.name</span></td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.orcid</span></td><td>string</td><td>The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td>The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation</td></tr>
 <tr><td><span style="font-weight:bold;">datasetAuthorships</span></td><td>array[object]</td><td>License and citation information for the data in this trial</td></tr>
-<tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.datasetPUI</span></td><td>string</td><td></td></tr>
+<tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.datasetPUI</span></td><td>string</td><td>The DOI or other permanent unique identifier for this published dataset</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.license</span></td><td>string</td><td>MIAPPE V1.1 (DM-7) License - License for the reuse of the data associated with this investigation. The Creative Commons licenses cover most use cases and are recommended.</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.publicReleaseDate</span></td><td>string<br>(date)</td><td>MIAPPE V1.1 (DM-6) Public release date - Date of first public release of the dataset presently being described.</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.submissionDate</span></td><td>string<br>(date)</td><td>MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date)</td><td>The date this trial ends</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>A program identifier to search for</td></tr>
@@ -900,9 +902,7 @@ Get the details of a specific Trial
 <tr><td>publications<br><span style="font-weight:bold;margin-left:5px">.publicationPUI</span></td><td>string</td><td></td></tr>
 <tr><td>publications<br><span style="font-weight:bold;margin-left:5px">.publicationReference</span></td><td>string</td><td></td></tr>
 <tr><td><span style="font-weight:bold;">startDate</span></td><td>string<br>(date)</td><td>The date this trial started</td></tr>
-<tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial  MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.</td></tr>
 <tr><td><span style="font-weight:bold;">trialDescription</span></td><td>string</td><td>The human readable description of a trial  MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.</td></tr>
-<tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.</td></tr>
 <tr><td><span style="font-weight:bold;">trialPUI</span></td><td>string</td><td>A permanent identifier for a trial. Could be DOI or other URI formatted identifier.</td></tr>
 </table>
 
@@ -910,8 +910,8 @@ Get the details of a specific Trial
  
 
 + Parameters
-    + trialDbId (Required, ) ... The internal trialDbId
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + trialDbId (Required, string) ... The internal trialDbId
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -1019,25 +1019,26 @@ Update the details of an existing Trial
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this trial currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">trialName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Trial is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this trial</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this trial</td></tr>
-<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.email</span></td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.instituteName</span></td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.name</span></td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.orcid</span></td><td>string</td><td>The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td>The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation</td></tr>
 <tr><td><span style="font-weight:bold;">datasetAuthorships</span></td><td>array[object]</td><td>License and citation information for the data in this trial</td></tr>
-<tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.datasetPUI</span></td><td>string</td><td></td></tr>
+<tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.datasetPUI</span></td><td>string</td><td>The DOI or other permanent unique identifier for this published dataset</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.license</span></td><td>string</td><td>MIAPPE V1.1 (DM-7) License - License for the reuse of the data associated with this investigation. The Creative Commons licenses cover most use cases and are recommended.</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.publicReleaseDate</span></td><td>string<br>(date)</td><td>MIAPPE V1.1 (DM-6) Public release date - Date of first public release of the dataset presently being described.</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.submissionDate</span></td><td>string<br>(date)</td><td>MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date)</td><td>The date this trial ends</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>A program identifier to search for</td></tr>
@@ -1047,7 +1048,6 @@ Update the details of an existing Trial
 <tr><td>publications<br><span style="font-weight:bold;margin-left:5px">.publicationReference</span></td><td>string</td><td></td></tr>
 <tr><td><span style="font-weight:bold;">startDate</span></td><td>string<br>(date)</td><td>The date this trial started</td></tr>
 <tr><td><span style="font-weight:bold;">trialDescription</span></td><td>string</td><td>The human readable description of a trial  MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.</td></tr>
-<tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.</td></tr>
 <tr><td><span style="font-weight:bold;">trialPUI</span></td><td>string</td><td>A permanent identifier for a trial. Could be DOI or other URI formatted identifier.</td></tr>
 </table>
 
@@ -1056,25 +1056,27 @@ Update the details of an existing Trial
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this trial currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a trial  MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.</td></tr>
+<tr><td><span style="font-weight:bold;">trialName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Trial is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this trial</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this trial</td></tr>
-<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.email</span></td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.instituteName</span></td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.name</span></td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.orcid</span></td><td>string</td><td>The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td>The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation</td></tr>
 <tr><td><span style="font-weight:bold;">datasetAuthorships</span></td><td>array[object]</td><td>License and citation information for the data in this trial</td></tr>
-<tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.datasetPUI</span></td><td>string</td><td></td></tr>
+<tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.datasetPUI</span></td><td>string</td><td>The DOI or other permanent unique identifier for this published dataset</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.license</span></td><td>string</td><td>MIAPPE V1.1 (DM-7) License - License for the reuse of the data associated with this investigation. The Creative Commons licenses cover most use cases and are recommended.</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.publicReleaseDate</span></td><td>string<br>(date)</td><td>MIAPPE V1.1 (DM-6) Public release date - Date of first public release of the dataset presently being described.</td></tr>
 <tr><td>datasetAuthorships<br><span style="font-weight:bold;margin-left:5px">.submissionDate</span></td><td>string<br>(date)</td><td>MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date)</td><td>The date this trial ends</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>A program identifier to search for</td></tr>
@@ -1083,9 +1085,7 @@ Update the details of an existing Trial
 <tr><td>publications<br><span style="font-weight:bold;margin-left:5px">.publicationPUI</span></td><td>string</td><td></td></tr>
 <tr><td>publications<br><span style="font-weight:bold;margin-left:5px">.publicationReference</span></td><td>string</td><td></td></tr>
 <tr><td><span style="font-weight:bold;">startDate</span></td><td>string<br>(date)</td><td>The date this trial started</td></tr>
-<tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial  MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.</td></tr>
 <tr><td><span style="font-weight:bold;">trialDescription</span></td><td>string</td><td>The human readable description of a trial  MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.</td></tr>
-<tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.</td></tr>
 <tr><td><span style="font-weight:bold;">trialPUI</span></td><td>string</td><td>A permanent identifier for a trial. Could be DOI or other URI formatted identifier.</td></tr>
 </table>
 
@@ -1093,8 +1093,8 @@ Update the details of an existing Trial
  
 
 + Parameters
-    + trialDbId (Required, ) ... The internal trialDbId
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + trialDbId (Required, string) ... The internal trialDbId
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  

@@ -17,7 +17,7 @@ components:
       - type: object
         properties:
           active:
-            description: Is this trail currently active
+            description: A flag to indicate if a Trial is currently active and ongoing
             type: boolean
             example: true
           contactDbIds:

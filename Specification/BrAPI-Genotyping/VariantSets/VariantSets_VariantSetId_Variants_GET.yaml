@@ -8,8 +8,6 @@ paths:
       summary: Gets a `Variants` for a given `VariantSet`.
       description: |-
         This call will return an array of `Variants`.
-        
-        ** THIS ENDPOINT USES TOKEN BASED PAGING **
       parameters:
         - name: variantDbId
           description: The ID of the `Variant` to be retrieved.
@@ -24,6 +22,7 @@ paths:
           schema:
             type: string
         - $ref: '#/components/parameters/pageToken'
+        - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/authorizationHeader'
       responses:

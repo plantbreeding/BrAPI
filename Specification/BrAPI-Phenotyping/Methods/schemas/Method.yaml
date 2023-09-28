@@ -9,6 +9,12 @@ components:
       allOf:
       - $ref: '#/components/schemas/MethodBaseClass'
       - type: object
+        x-brapi-metadata:
+          primaryModel: true
+          module: BrAPI-Phenotyping
+          title: Method
+        required:
+        - methodDbId
         properties:
           methodDbId:
             description: Method unique identifier

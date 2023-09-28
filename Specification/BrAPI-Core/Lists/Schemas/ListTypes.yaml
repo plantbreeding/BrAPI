@@ -6,6 +6,7 @@ paths: {}
 components:
   schemas:
     ListTypes:
+      description: A flag to indicate the type of objects that are referenced in a List 
       type: string
       example: germplasm
       enum:

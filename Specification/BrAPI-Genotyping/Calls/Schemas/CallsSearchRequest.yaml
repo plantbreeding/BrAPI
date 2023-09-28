@@ -11,19 +11,19 @@ components:
       - type: object
         properties:
           callSetDbIds:
-            description: The CallSet to search.
+            description: A list of IDs which uniquely identify `CallSets` within the given database server 
             type: array
             items:
               type: string
             example: [ 'a03202ec', '274e4f63' ]
           variantDbIds: 
-            description: The Variant to search.
+            description: A list of IDs which uniquely identify `Variant` within the given database server 
             type: array
             items:
               type: string
             example: [ 'bba0b258', 'ff97d4f0' ]
           variantSetDbIds: 
-            description: The VariantSet to search.
+            description: A list of IDs which uniquely identify `VariantSets` within the given database server 
             type: array
             items:
               type: string

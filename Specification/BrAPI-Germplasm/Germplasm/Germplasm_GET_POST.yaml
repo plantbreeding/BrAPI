@@ -15,26 +15,11 @@ paths:
         
         - Possibility to get MCPD details by PUID rather than dbId
       parameters:
-      - name: germplasmPUI
-        description: Permanent unique identifier (DOI, URI, etc.)
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: germplasmDbId
-        description: Internal database identifier
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: germplasmName
-        description: Name of the germplasm
-        in: query
-        required: false
-        schema:
-          type: string
       - name: accessionNumber
-        description: Unique identifiers for accessions within a genebank
+        description: |- 
+            The unique identifier for a material or germplasm within a genebank
+
+            MCPD (v2.1) (ACCENUMB) 2. This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection (e.g. "PI 113869").
         in: query
         required: false
         schema:
@@ -63,18 +48,6 @@ paths:
         required: false
         schema:
           type: string
-      - name: trialDbId
-        description: Search for Germplasm that are associated with a particular Study
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: studyDbId
-        description: Search for Germplasm that are associated with a particular Study
-        in: query
-        required: false
-        schema:
-          type: string
       - name: synonym 
         description: Alternative name or ID used to reference this germplasm
         in: query
@@ -95,6 +68,11 @@ paths:
           type: string
       - $ref: '#/components/parameters/commonCropName'
       - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/trialDbId'
+      - $ref: '#/components/parameters/studyDbId'
+      - $ref: '#/components/parameters/germplasmDbId'
+      - $ref: '#/components/parameters/germplasmName'
+      - $ref: '#/components/parameters/germplasmPUI'
       - $ref: '#/components/parameters/externalReferenceID'
       - $ref: '#/components/parameters/externalReferenceId'
       - $ref: '#/components/parameters/externalReferenceSource'
@@ -151,6 +129,7 @@ components:
               result:
                 properties:
                   data:
+                    description: The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.
                     items:
                       $ref: '#/components/schemas/Germplasm'
                     type: array

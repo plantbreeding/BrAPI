@@ -46,8 +46,7 @@ paths:
           $ref: '#/components/schemas/ContentTypes'
       - description: |-
           **Deprecated in v2.1** Please use `contentType`. Github issue number #443
-
-          The data format supported by the call.
+          <br>The data format supported by the call.
         deprecated: true
         in: query
         name: dataType

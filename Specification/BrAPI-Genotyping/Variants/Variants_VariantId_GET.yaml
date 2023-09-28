@@ -6,10 +6,10 @@ paths:
   /variants/{variantDbId}:
     get:
       summary: Gets a `Variant` by ID.
-      description: '`GET /variants/{id}` will return a JSON version of `Variant`.'
+      description: The endpoint `GET /variants/{id}` will return a JSON version of `Variant`.
       parameters:
         - name: variantDbId
-          description: The ID of the `Variant` to be retrieved.
+          description: The ID which uniquely identifies a `Variant`
           in: path
           required: true
           schema:

@@ -12,8 +12,7 @@ components:
           deprecated: true
           description:  |-
             **Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460 
-
-            List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)
+            <br>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)
           items:
             type: string
           type: array

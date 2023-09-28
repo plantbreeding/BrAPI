@@ -1,0 +1,150 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    AlleleMatrix:
+      type: object
+      x-brapi-metadata:
+        primaryModel: true
+        module: BrAPI-Genotyping
+        title: AlleleMatrix
+        description: The AlleleMatrix object is used to describe a matrix of genotyping results. This 2d array of data reduces the overall size of the response for larger datasets, when compared to the Calls endpoints. This makes genotype data retrieval faster and easier. 
+      required:
+      - callSetDbIds
+      - variantSetDbIds
+      properties:
+        pagination:
+          description: Pagination for the matrix
+          type: array
+          items:
+            type: object
+            properties:
+              dimension:
+                description: The dimension of the matrix being paginated
+                type: string
+                enum:
+                - CALLSETS
+                - VARIANTS
+                example: VARIANTS
+              pageSize: 
+                description: the maximum number of elements per page in this dimension of the matrix
+                type: integer
+                example: 500
+              page: 
+                description: the requested page number (zero indexed) 
+                type: integer
+                example: 0
+              totalCount:
+                description: The total number of elements that are available on the server and match the requested query parameters. 
+                type: integer
+                example: 10000
+              totalPages:
+                description: |-
+                  The total number of pages of elements available on the server. This should be calculated with the following formula. 
+                  <br/>totalPages = CEILING( totalCount / requested_page_size)
+                type: integer
+                example: 20
+          example:
+            -  dimension: VARIANTS
+               pageSize: 500
+               page: 0
+               totalCount: 10000
+               totalPages: 20
+            -  dimension: CALLSETS
+               pageSize: 1000
+               page: 4
+               totalCount: 10000
+               totalPages: 10
+        callSetDbIds: 
+          description: A list of unique identifiers for the CallSets contained in the matrix response. This array should match the ordering for columns in the matrix. A CallSet is a unique combination of a Sample and a sequencing event. CallSets often have a 1-to-1 relationship with Samples, but this is not always the case.
+          type: array
+          items:
+            type: string
+          example: ['aca00001', 'aca00002', 'aca00003']
+        variantSetDbIds:
+          description: A list of unique identifiers for the VariantSets contained in the matrix response. A VariantSet is a data set originating from a sequencing event. Often, users will only be interested in data from a single VariantSet, but in some cases a user might be interested in a matrix with data from multiple VariantSets.
+          type: array
+          items:
+            type: string
+          example: ['cfde3944', 'cfde2077', 'cfde4424']
+        variantDbIds: 
+          description: A list of unique identifiers for the Variants contained in the matrix response. This array should match the ordering for rows in the matrix.
+          type: array
+          items:
+            type: string
+          example: ['feb54257', 'feb40355', 'feb40323']
+        dataMatrices:
+          description: The 'dataMatrices' are an array of matrix objects that hold the allele data and associated metadata. Each matrix should be the same size and orientation, aligned with the "callSetDbIds" as columns and the "variantDbIds" as rows.
+          type: array
+          items:
+            description: This is a single data matrix. It could be the allele matrix or an additional layer of metadata associated with each genotype value.
+            type: object
+            properties:
+              dataType:
+                description: The type of field represented in this data matrix. This is intended to help parse the data out of JSON.
+                type: string
+                enum:
+                - string
+                - integer
+                - float
+                - boolean
+                example: string
+              dataMatrixName:
+                description: |-
+                  The name of the field represented in this data matrix. The key word "Genotype" is reserved for the allele matrix. Examples of other metadata matrices include: "Genotype Quality", "Read Depth", and "Haplotype Quality"
+                  <br> This maps to a FORMAT field in the VCF file standard.
+                type: string
+                example: Genotype
+              dataMatrixAbbreviation:
+                description: |-
+                  The abbreviated code of the field represented in this data matrix. These codes should match the VCF standard when possible and the key word "GT" is reserved for the allele matrix. Examples of other metadata matrices include: "GQ", "RD", and "HQ"
+                  <br> This maps to a FORMAT field in the VCF file standard.
+                type: string
+                example: GT
+              dataMatrix:
+                description: The two dimensional array of data, providing the allele matrix or an additional layer of metadata associated with each genotype value. Each matrix should be the same size and orientation, aligned with the "callSetDbIds" as columns and the "variantDbIds" as rows.
+                type: array
+                items:
+                  description: An array of rows in the data matrix
+                  type: array
+                  items:
+                    description: All the values per row (columns) in the data matrix
+                    type: string
+                example:
+                - ['0|0', '1|0', '1/1']
+                - ['0|0', '1|0', '1/1']
+                - ['0|0', '1|0', '1/1']
+          example:
+          - dataType: string
+            dataMatrixName: Genotype
+            dataMatrixAbbreviation: GT
+            dataMatrix:
+            - ['0|0', '1|0', '1/1']
+            - ['0|0', '1|0', '1/1']
+            - ['0|0', '1|0', '1/1']
+          - dataType: integer
+            dataMatrixName: Genotype Quality
+            dataMatrixAbbreviation: GQ
+            dataMatrix:
+            - ['48', '48', '43']
+            - ['49',  '3', '41']
+            - ['21',  '2', '35']
+        expandHomozygotes: 
+          description: Should homozygotes be expanded (true) or collapsed into a single occurrence (false)
+          type: boolean
+          example: true
+        sepPhased:
+          description: The string used as a separator for phased allele calls.
+          type: string
+          example: '|'
+        sepUnphased:
+          description: The string used as a separator for unphased allele calls.
+          type: string
+          example: '/'
+        unknownString:
+          description: The string used as a representation for missing data.
+          type: string
+          example: '.'

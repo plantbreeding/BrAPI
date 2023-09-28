@@ -23,7 +23,10 @@ components:
             type: array
             example: ['http://pui.per/accession/A0000003', 'http://pui.per/accession/A0000477']
           accessionNumbers:
-            description: List unique identifiers for accessions within a genebank
+            description: |- 
+              A collection of unique identifiers for materials or germplasm within a genebank
+
+              MCPD (v2.1) (ACCENUMB) 2. This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection (e.g. "PI 113869").
             items:
               type: string
             type: array

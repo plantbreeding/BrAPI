@@ -7,6 +7,13 @@ components:
   schemas:
     Event:
       type: object 
+      x-brapi-metadata:
+        primaryModel: true
+        module: BrAPI-Phenotyping
+        title: Event
+        description: |-
+          An event is discrete occurrence at a particular time in the experiment. Events may be the realization of Treatments or parts of Treatments, or may be confounding to Treatments.
+          <br> ICASA Management Events allow for the following types -> planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other
       required: 
       - eventDbId
       - eventType
@@ -14,7 +21,7 @@ components:
         additionalInfo:
           additionalProperties:
             type: string
-          description: Additional arbitrary info
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
           type: object
         eventDbId:
           description: Internal database identifier
@@ -22,27 +29,30 @@ components:
           example: 8566d4cb
         eventType:
           description: |-
-            General category for this event (e.g. Sowing, Watering, Rain). Each eventType should correspond to exactly one eventTypeDbId, if provided.
-            
-            MIAPPE V1.1 (DM-65) Event type - Short name of the event.
+            General category for this event (e.g. fertilizer, irrigation, tillage). Each eventType should correspond to exactly one eventTypeDbId, if provided.
+            <br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other
+            <br/>MIAPPE V1.1 (DM-65) Event type - Short name of the event.
           type: string
-          example: Watering
+          example: tillage
         eventTypeDbId:
           description: |-
             An identifier for this event type, in the form of an ontology class reference
-            
-            MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).
+            <br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other
+            <br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).
           type: string
           example: 4e7d691e
         eventDescription: 
           description: |-
             A detailed, human-readable description of this event
-            
-            MIAPPE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. 
+            <br/>MIAPPE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. 
           type: string
           example: A set of plots was watered
         studyDbId: 
           description: The study in which the event occurred
+          type: string
+          example: 2cc2001f
+        studyName: 
+          description: The human readable name of a study
           type: string
           example: 2cc2001f
         observationUnitDbIds: 
@@ -51,11 +61,39 @@ components:
             type: string
           type: array
           example: ['8439eaff', 'd7682e7a', '305ae51c']
+        eventDateRange:
+          description: An object describing when a particular Event has taken place. An Event can occur at one or more discrete time points (`discreteDates`) or an event can happen continuously over a longer period of time (`startDate`, `endDate`)
+          type: object
+          properties:
+            discreteDates:
+              description: |-
+                A list of dates when the event occurred
+                <br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.
+              items:
+                format: date-time
+                type: string
+              type: array
+              example: ['2018-10-08T18:15:11Z', '2018-11-09T18:16:12Z', '2018-11-19T18:16:12Z']
+            startDate:
+              description: |-
+                The begining of a continous or regularly repetitive event
+                <br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.
+              format: date-time
+              type: string
+              example: '2018-10-08T18:15:11Z'
+            endDate:
+              description: |-
+                The end of a continous or regularly repetitive event
+                <br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.
+              format: date-time
+              type: string
+              example: '2018-10-08T18:15:11Z'
         date:
+          deprecated: true
           description: |-
-            A list of dates when the event occurred
-            
-            MIAPPE V1.1 (DM-68) Event date - Date and time of the event.
+            **Deprecated in v2.1** Please use `eventDateRange.discreteDates`. Github issue number #440             
+            <br>A list of dates when the event occurred
+            <br>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.
           items:
             format: date-time
             type: string
@@ -67,22 +105,73 @@ components:
           items: 
             type: object
             properties:
+              name:
+                description: |-
+                  The full name of an event parameter
+                  <br>ICASA "Variable_Name"
+                type: string
+                example: tillage_implement
+              code:
+                description: |-
+                  The shortened code name of an event parameter
+                  <br>ICASA "Code_Display"
+                type: string
+                example: tiimp
+              units:
+                description: |-
+                  The units or data type of the 'value'. 
+                  <br>If the 'value' comes from a standardized vocabulary or an encoded list of values, then 'unit' should be 'code'. 
+                  <br>If the 'value' IS NOT a number, then 'unit' should specify a data type eg. 'text', 'boolean', 'date', etc. 
+                  <br>If the value IS a number, then 'unit' should specify the units used eg. 'ml', 'cm', etc
+                  <br>ICASA "Unit_or_type"
+                type: string
+                example: code
+              value:
+                description: The single value of this event parameter. This single value is accurate for all the dates in the date range. If 'value' is populated then 'valuesByDate' should NOT be populated.
+                type: string
+                example: TI001
+              valuesByDate:
+                description: An array of values corresponding to each timestamp in the 'discreteDates' array of this event. The 'valuesByDate' array should exactly match the size of the 'discreteDates' array. If 'valuesByDate' is populated then 'value' should NOT be populated.
+                type: array
+                items:
+                  type: string
+                example: ['20', '50', '40']
+              description:
+                description: A human readable description of this event parameter. This description is usually associated with the 'name' and 'code' of an event parameter.
+                type: string
+                example: Implement or tool used for tillage
+              valueDescription:
+                description: If the event parameter 'unit' field is 'code', then use 'valueDescription' to add a human readable description to the value.
+                type: string
+                example: Standard V-Ripper (TI001)
               key:
-                description: Specifies the relationship between the event and the given property. E.g. fertilizer, operator
+                deprecated: true
+                description: |-
+                  **Deprecated in v2.1** Please use `name`. Github issue number #440             
+                  <br>Specifies the relationship between the event and the given property. E.g. fertilizer, operator
                 type: string
                 example: operator
-              value:
-                description: The value of the property for this event. E.g. nitrogen, John Doe
-                type: string
-                example: Bob Robertson
               rdfValue:
-                description: The type of the value given above, e.g. http://xmlns.com/foaf/0.1/Agent
+                deprecated: true
+                description: |-
+                  **Deprecated in v2.1** Please use `code`. Github issue number #440             
+                  <brThe type of the value given above, e.g. http://xmlns.com/foaf/0.1/Agent
                 type: string
                 example: http://xmlns.com/foaf/0.1/Agent
           example:
-          - key: http://www.example.fr/vocabulary/2018#hasContact,
-            value: http://www.example.fr/id/agent/marie,
-            valueRdfType: http://xmlns.com/foaf/0.1/Agent,
-          - key: fertilizer
-            value: nitrogen
-            valueRdfType: null
+          - name: "tillage_implement"
+            code: "tiimp"
+            description: Implement or tool used for tillage
+            unit: "code"
+            value: "TI001"
+            valueDescription: Standard V-Ripper (TI001)
+          - name: "tillage_operations_depth"
+            code: "tidep"
+            description: Tillage operations depth in centimeters
+            unit: "cm"
+            valuesByDate: ['20', '50', '40']
+          - name: "till_mix_effectiveness"
+            code: "timix"
+            description: Tillage operations mixing effectiveness
+            unit: "percent"
+            value: "50"

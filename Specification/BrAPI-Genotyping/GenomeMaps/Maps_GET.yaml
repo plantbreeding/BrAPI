@@ -9,13 +9,13 @@ paths:
       description: Get list of maps
       parameters:
       - name: mapDbId
-        description: The primary DbId for this genomic map
+        description: The ID which uniquely identifies a `GenomeMap`
         in: query
         required: false
         schema:
           type: string
       - name: mapPUI
-        description: The DOI or other permanent identifier for this genomic map
+        description: The DOI or other permanent identifier for a `GenomeMap`
         in: query
         required: false
         schema:
@@ -27,25 +27,15 @@ paths:
         schema:
           type: string
       - name: type
-        description: Type of map
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: trialDbId
-        description: Unique Id to filter by Trial
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: studyDbId
-        description: Unique Id to filter by Study
+        description: The type of map, usually "Genetic" or "Physical"
         in: query
         required: false
         schema:
           type: string
       - $ref: '#/components/parameters/commonCropName'
       - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/trialDbId'
+      - $ref: '#/components/parameters/studyDbId'
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
@@ -67,6 +57,7 @@ paths:
                   result:
                     properties:
                       data:
+                        description: The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.
                         items:
                           $ref: '#/components/schemas/GenomeMap'
                         type: array

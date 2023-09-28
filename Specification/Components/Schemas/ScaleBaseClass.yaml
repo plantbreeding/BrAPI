@@ -7,14 +7,16 @@ components:
   schemas:
     ScaleBaseClass:
       type: object
-      description: Scale metadata
+      description: |-
+        A Scale describes the units and acceptable values for an ObservationVariable. 
+        <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".
       required:
       - scaleName
       properties:
         additionalInfo:
           additionalProperties:
             type: string
-          description: Additional arbitrary info
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
           type: object
         dataType:
           $ref: '#/components/schemas/TraitDataType'
@@ -66,15 +68,14 @@ components:
             max:
               description: |-
                 **Deprecated in v2.1** Please use `maximumValue`. Github issue number #450 
-
-                Maximum value for numerical scales. Typically used for data capture control and QC.
+                <br>Maximum value for numerical scales. Typically used for data capture control and QC.
               type: integer
               example: 9999
               deprecated: true
             min:
               description: |-
                 **Deprecated in v2.1** Please use `minimumValue`. Github issue number #450 
-                <br/>Minimum value for numerical scales. Typically used for data capture control and QC.
+                <br>Minimum value for numerical scales. Typically used for data capture control and QC.
               type: integer
               example: 2
               deprecated: true

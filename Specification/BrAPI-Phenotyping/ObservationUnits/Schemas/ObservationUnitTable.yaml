@@ -9,8 +9,7 @@ components:
       type: object
       properties:
         data:
-          description: |-
-            Matrix of observation data recorded for different observation variables across different observation units
+          description: The 2D matrix of observation data. ObservationVariables and other metadata are the columns, ObservationUnits are the rows.
           type: array
           items:
             type: array

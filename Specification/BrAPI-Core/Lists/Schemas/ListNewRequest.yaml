@@ -11,7 +11,7 @@ components:
       - type: object
         properties: 
           data:
-            description: The DbIds of other objects contained in this List
+            description: The array of DbIds of the BrAPI objects contained in a List
             type: array
             items:
               type: string

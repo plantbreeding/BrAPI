@@ -7,7 +7,7 @@ components:
   schemas:
     ObservationVariable:
       allOf:
-      - $ref: '#/components/schemas/VariableBaseClass'
+      - $ref: '#/components/schemas/ObservationVariableNewRequest'
       - properties:
           observationVariableDbId:
             description: |-
@@ -27,4 +27,9 @@ components:
         - observationVariableDbId
         - observationVariableName
         type: object
+        x-brapi-metadata:
+          primaryModel: true
+          module: BrAPI-Phenotyping
+          title: ObservationVariable
+          description: A unique combination of Trait, Method, and Scale to define a clear context for an Observation. 
 

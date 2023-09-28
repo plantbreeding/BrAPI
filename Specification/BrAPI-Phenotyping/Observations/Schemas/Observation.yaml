@@ -9,6 +9,13 @@ components:
       allOf:
       - $ref: '#/components/schemas/ObservationNewRequest'
       - type: object
+        x-brapi-metadata:
+          primaryModel: true
+          module: BrAPI-Phenotyping
+          title: Observation
+          description: A value assigned for a specific ObservationVariable when observing a specific ObservationUnit. 
+        required:
+        - observationDbId
         properties:
           observationDbId:
             description: The ID which uniquely identifies an observation

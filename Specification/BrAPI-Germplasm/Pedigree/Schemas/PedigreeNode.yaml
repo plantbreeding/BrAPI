@@ -7,11 +7,19 @@ components:
   schemas:
     PedigreeNode:
       type: object
+      x-brapi-metadata:
+        primaryModel: true
+        module: BrAPI-Germplasm
+        title: PedigreeNode
+        description: A representation of a particular Germplasm within a pedigree tree, and all the links to its parents, siblings, and children. From a list of PedigreeNode objects, a client application should have all the information it needs to draw a pedigree tree visualization, or calculate genetic distances. 
+      required:
+      - germplasmDbId
+      - germplasmName
       properties:
         additionalInfo:
           additionalProperties:
             type: string
-          description: Additional arbitrary info
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
           type: object
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'

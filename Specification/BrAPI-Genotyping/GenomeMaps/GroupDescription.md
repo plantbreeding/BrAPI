@@ -1,7 +1,7 @@
 
 # Group Genome Maps
 
-Retrieving genetic or physical maps
+Notes on the `GenomeMaps` objects:
 - type: [Genetic | Physical]
 - unit: [cM | Mb]
 - linkageGroup: may be scaffold (i.e. linkageGroupCount may consist of chromosomes or scaffolds or a combination of the two)

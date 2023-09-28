@@ -7,34 +7,45 @@ components:
   schemas:
     MarkerPosition: 
       type: object 
+      x-brapi-metadata:
+        primaryModel: true
+        module: BrAPI-Genotyping
+        title: MarkerPosition
+        description: A MarkerPosition describes a particular genetic marker at a specific position on a GenomeMap. A collection of MarkerPositions make up the data to represent a full GenomeMap.
       properties:
         additionalInfo:
           additionalProperties:
             type: string
-          description: Additional arbitrary info
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
           type: object
         mapDbId:
-          description: The unique ID of the map 
+          description:  The ID which uniquely identifies a `GenomeMap`
           type: string
           example: 3d52bdf3
         mapName: 
-          description: The human readable name of the map
+          description: A human readable name for a `GenomeMap`
           type: string
           example: Genome Map 1
         linkageGroupName: 
-          description: The Uniquely Identifiable name of this linkage group
+          description: |-
+            The Uniquely Identifiable name of a `LinkageGroup`
+            <br> This might be a chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
           type: string
           example: Chromosome 3 
         position: 
-          description: The position of a marker within a linkage group
+          description: The position of a marker or variant within a `LinkageGroup`
           type: integer
           example: 2390
         variantDbId: 
-          description: Internal db identifier
+          description: |-
+            The ID which uniquely identifies a `Variant` within the given database server
+            <br> A `Variant` can also represent a Marker 
           type: string
           example: a1eb250a
         variantName: 
-          description: The human readable name for a marker
+          description: |-
+            The human readable name for a `Variant`
+            <br> A `Variant` can also represent a Marker 
           type: string
           example: Marker_2390
 

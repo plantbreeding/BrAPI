@@ -6,7 +6,7 @@ paths: {}
 components:
   schemas:
     ReferenceBases: 
-      description: A string representation of the reference base alleles.
+      description: A string representation of the `Reference` base alleles.
       type: object
       properties:
         nextPageToken:

@@ -26,18 +26,6 @@ paths:
           required: false
           schema:
             type: string
-        - name: studyDbId
-          description: Filter by study DbId
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: studyName
-          description: Filter by study name
-          in: query
-          required: false
-          schema:
-            type: string
         - name: referenceSetDbId
           description: The ID of the reference set that describes the sequences used by the variants in this set.
           in: query
@@ -46,6 +34,8 @@ paths:
             type: string
         - $ref: '#/components/parameters/commonCropName'
         - $ref: '#/components/parameters/programDbId'
+        - $ref: '#/components/parameters/studyDbId'
+        - $ref: '#/components/parameters/studyName'
         - $ref: '#/components/parameters/externalReferenceId'
         - $ref: '#/components/parameters/externalReferenceSource'
         - $ref: '#/components/parameters/page'
@@ -87,6 +77,7 @@ components:
                 - data
                 properties:
                   data:
+                    description: The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.
                     items:
                       $ref: '#/components/schemas/VariantSet'
                     type: array

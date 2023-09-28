@@ -23,9 +23,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this study currently active</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Study is currently active and ongoing</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropNames</span></td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460  <br>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceIds</span></td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceSources</span></td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmDbIds</span></td><td>array[string]</td><td>List of IDs which uniquely identify germplasm to search for</td></tr>
@@ -56,11 +56,13 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this study currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.</td></tr>
+<tr><td><span style="font-weight:bold;">studyName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Study is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this study</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
-<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.email</span></td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.instituteName</span></td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.name</span></td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
@@ -76,11 +78,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.scientificType</span></td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.url</span></td><td>string<br>(uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
 <tr><td><span style="font-weight:bold;">environmentParameters</span></td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
-<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
-<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterName</span></td><td>string</td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
+<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
+<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterPUI</span></td><td>string</td><td>URI pointing to an ontology class for the parameter</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.unit</span></td><td>string</td><td>Unit of the value for this parameter</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.unitPUI</span></td><td>string</td><td>URI pointing to an ontology class for the unit</td></tr>
@@ -90,7 +92,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">growthFacility</span></td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
@@ -110,9 +112,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">seasons</span></td><td>array[string]</td><td>List of seasons over which this study was performed.</td></tr>
 <tr><td><span style="font-weight:bold;">startDate</span></td><td>string<br>(date-time)</td><td>The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started</td></tr>
 <tr><td><span style="font-weight:bold;">studyCode</span></td><td>string</td><td>A short human readable code for a study</td></tr>
-<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDescription</span></td><td>string</td><td>The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study</td></tr>
-<tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
 <tr><td><span style="font-weight:bold;">studyPUI</span></td><td>string</td><td>A permanent unique identifier associated with this study data. For example, a URI or DOI</td></tr>
 <tr><td><span style="font-weight:bold;">studyType</span></td><td>string</td><td>The type of study being performed. ex. "Yield Trial", etc</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
@@ -123,7 +123,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -425,11 +425,13 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this study currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.</td></tr>
+<tr><td><span style="font-weight:bold;">studyName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Study is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this study</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
-<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.email</span></td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.instituteName</span></td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.name</span></td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
@@ -445,11 +447,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.scientificType</span></td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.url</span></td><td>string<br>(uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
 <tr><td><span style="font-weight:bold;">environmentParameters</span></td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
-<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
-<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterName</span></td><td>string</td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
+<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
+<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterPUI</span></td><td>string</td><td>URI pointing to an ontology class for the parameter</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.unit</span></td><td>string</td><td>Unit of the value for this parameter</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.unitPUI</span></td><td>string</td><td>URI pointing to an ontology class for the unit</td></tr>
@@ -459,7 +461,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">growthFacility</span></td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
@@ -479,9 +481,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">seasons</span></td><td>array[string]</td><td>List of seasons over which this study was performed.</td></tr>
 <tr><td><span style="font-weight:bold;">startDate</span></td><td>string<br>(date-time)</td><td>The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started</td></tr>
 <tr><td><span style="font-weight:bold;">studyCode</span></td><td>string</td><td>A short human readable code for a study</td></tr>
-<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDescription</span></td><td>string</td><td>The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study</td></tr>
-<tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
 <tr><td><span style="font-weight:bold;">studyPUI</span></td><td>string</td><td>A permanent unique identifier associated with this study data. For example, a URI or DOI</td></tr>
 <tr><td><span style="font-weight:bold;">studyType</span></td><td>string</td><td>The type of study being performed. ex. "Yield Trial", etc</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
@@ -492,10 +492,10 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
  
 
 + Parameters
-    + searchResultsDbId (Required, ) ... Unique identifier which references the search results
-    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + searchResultsDbId (Required, string) ... Unique identifier which references the search results
+    + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -676,7 +676,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 
 
-### Get - /studies [GET /brapi/v2/studies{?studyType}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?studyName}{?studyCode}{?studyPUI}{?germplasmDbId}{?observationVariableDbId}{?active}{?sortBy}{?sortOrder}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /studies [GET /brapi/v2/studies{?studyType}{?locationDbId}{?seasonDbId}{?studyCode}{?studyPUI}{?observationVariableDbId}{?active}{?sortBy}{?sortOrder}{?commonCropName}{?programDbId}{?trialDbId}{?studyDbId}{?studyName}{?germplasmDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get list of studies
 
@@ -688,11 +688,13 @@ StartDate and endDate should be ISO-8601 format for dates
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this study currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.</td></tr>
+<tr><td><span style="font-weight:bold;">studyName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Study is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this study</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
-<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.email</span></td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.instituteName</span></td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.name</span></td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
@@ -708,11 +710,11 @@ StartDate and endDate should be ISO-8601 format for dates
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.scientificType</span></td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.url</span></td><td>string<br>(uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
 <tr><td><span style="font-weight:bold;">environmentParameters</span></td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
-<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
-<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterName</span></td><td>string</td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
+<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
+<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterPUI</span></td><td>string</td><td>URI pointing to an ontology class for the parameter</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.unit</span></td><td>string</td><td>Unit of the value for this parameter</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.unitPUI</span></td><td>string</td><td>URI pointing to an ontology class for the unit</td></tr>
@@ -722,7 +724,7 @@ StartDate and endDate should be ISO-8601 format for dates
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">growthFacility</span></td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
@@ -742,9 +744,7 @@ StartDate and endDate should be ISO-8601 format for dates
 <tr><td><span style="font-weight:bold;">seasons</span></td><td>array[string]</td><td>List of seasons over which this study was performed.</td></tr>
 <tr><td><span style="font-weight:bold;">startDate</span></td><td>string<br>(date-time)</td><td>The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started</td></tr>
 <tr><td><span style="font-weight:bold;">studyCode</span></td><td>string</td><td>A short human readable code for a study</td></tr>
-<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDescription</span></td><td>string</td><td>The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study</td></tr>
-<tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
 <tr><td><span style="font-weight:bold;">studyPUI</span></td><td>string</td><td>A permanent unique identifier associated with this study data. For example, a URI or DOI</td></tr>
 <tr><td><span style="font-weight:bold;">studyType</span></td><td>string</td><td>The type of study being performed. ex. "Yield Trial", etc</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
@@ -755,27 +755,27 @@ StartDate and endDate should be ISO-8601 format for dates
  
 
 + Parameters
-    + studyType (Optional, ) ... Filter based on study type unique identifier
-    + locationDbId (Optional, ) ... Filter by location
-    + seasonDbId (Optional, ) ... Filter by season or year
-    + trialDbId (Optional, ) ... Filter by trial
-    + studyDbId (Optional, ) ... Filter by study DbId
-    + studyName (Optional, ) ... Filter by study name
-    + studyCode (Optional, ) ... Filter by study code
-    + studyPUI (Optional, ) ... Filter by study PUI
-    + germplasmDbId (Optional, ) ... Filter by germplasm DbId
-    + observationVariableDbId (Optional, ) ... Filter by observation variable DbId
-    + active (Optional, ) ... Filter active status true/false.
-    + sortBy (Optional, ) ... Name of the field to sort by.
-    + sortOrder (Optional, ) ... Sort order direction. Ascending/Descending.
-    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
-    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
-    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
-    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + studyType (Optional, string) ... Filter based on study type unique identifier
+    + locationDbId (Optional, string) ... Filter by location
+    + seasonDbId (Optional, string) ... Filter by season or year
+    + studyCode (Optional, string) ... Filter by study code
+    + studyPUI (Optional, string) ... Filter by study PUI
+    + observationVariableDbId (Optional, string) ... Filter by observation variable DbId
+    + active (Optional, boolean) ... A flag to indicate if a Study is currently active and ongoing
+    + sortBy (Optional, string) ... Name of the field to sort by.
+    + sortOrder (Optional, string) ... Sort order direction. Ascending/Descending.
+    + commonCropName (Optional, string) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + programDbId (Optional, string) ... Use this parameter to only return results associated with the given `Program` unique identifier. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
+    + trialDbId (Optional, string) ... Use this parameter to only return results associated with the given `Trial` unique identifier. <br/>Use `GET /trials` to find the list of available `Trials` on a server.
+    + studyDbId (Optional, string) ... Use this parameter to only return results associated with the given `Study` unique identifier. <br/>Use `GET /studies` to find the list of available `Studies` on a server.
+    + studyName (Optional, string) ... Use this parameter to only return results associated with the given `Study` by its human readable name. <br/>Use `GET /studies` to find the list of available `Studies` on a server.
+    + germplasmDbId (Optional, string) ... Use this parameter to only return results associated with the given `Germplasm` unique identifier. <br/>Use `GET /germplasm` to find the list of available `Germplasm` on a server.
+    + externalReferenceID (Optional, string) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceId (Optional, string) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, string) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
+    + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -932,17 +932,18 @@ Implementation Notes
 
 StartDate and endDate should be ISO-8601 format for dates
 
-`studDbId` is generated by the server.
+`studyDbId` is generated by the server.
 
 **Request Fields** 
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this study currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">studyName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Study is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this study</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
-<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.email</span></td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.instituteName</span></td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.name</span></td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
@@ -958,11 +959,11 @@ StartDate and endDate should be ISO-8601 format for dates
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.scientificType</span></td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.url</span></td><td>string<br>(uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
 <tr><td><span style="font-weight:bold;">environmentParameters</span></td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
-<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
-<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterName</span></td><td>string</td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
+<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
+<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterPUI</span></td><td>string</td><td>URI pointing to an ontology class for the parameter</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.unit</span></td><td>string</td><td>Unit of the value for this parameter</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.unitPUI</span></td><td>string</td><td>URI pointing to an ontology class for the unit</td></tr>
@@ -972,7 +973,7 @@ StartDate and endDate should be ISO-8601 format for dates
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">growthFacility</span></td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
@@ -993,7 +994,6 @@ StartDate and endDate should be ISO-8601 format for dates
 <tr><td><span style="font-weight:bold;">startDate</span></td><td>string<br>(date-time)</td><td>The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started</td></tr>
 <tr><td><span style="font-weight:bold;">studyCode</span></td><td>string</td><td>A short human readable code for a study</td></tr>
 <tr><td><span style="font-weight:bold;">studyDescription</span></td><td>string</td><td>The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study</td></tr>
-<tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
 <tr><td><span style="font-weight:bold;">studyPUI</span></td><td>string</td><td>A permanent unique identifier associated with this study data. For example, a URI or DOI</td></tr>
 <tr><td><span style="font-weight:bold;">studyType</span></td><td>string</td><td>The type of study being performed. ex. "Yield Trial", etc</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
@@ -1005,11 +1005,13 @@ StartDate and endDate should be ISO-8601 format for dates
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this study currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.</td></tr>
+<tr><td><span style="font-weight:bold;">studyName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Study is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this study</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
-<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.email</span></td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.instituteName</span></td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.name</span></td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
@@ -1025,11 +1027,11 @@ StartDate and endDate should be ISO-8601 format for dates
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.scientificType</span></td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.url</span></td><td>string<br>(uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
 <tr><td><span style="font-weight:bold;">environmentParameters</span></td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
-<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
-<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterName</span></td><td>string</td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
+<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
+<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterPUI</span></td><td>string</td><td>URI pointing to an ontology class for the parameter</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.unit</span></td><td>string</td><td>Unit of the value for this parameter</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.unitPUI</span></td><td>string</td><td>URI pointing to an ontology class for the unit</td></tr>
@@ -1039,7 +1041,7 @@ StartDate and endDate should be ISO-8601 format for dates
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">growthFacility</span></td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
@@ -1059,9 +1061,7 @@ StartDate and endDate should be ISO-8601 format for dates
 <tr><td><span style="font-weight:bold;">seasons</span></td><td>array[string]</td><td>List of seasons over which this study was performed.</td></tr>
 <tr><td><span style="font-weight:bold;">startDate</span></td><td>string<br>(date-time)</td><td>The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started</td></tr>
 <tr><td><span style="font-weight:bold;">studyCode</span></td><td>string</td><td>A short human readable code for a study</td></tr>
-<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDescription</span></td><td>string</td><td>The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study</td></tr>
-<tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
 <tr><td><span style="font-weight:bold;">studyPUI</span></td><td>string</td><td>A permanent unique identifier associated with this study data. For example, a URI or DOI</td></tr>
 <tr><td><span style="font-weight:bold;">studyType</span></td><td>string</td><td>The type of study being performed. ex. "Yield Trial", etc</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
@@ -1072,7 +1072,7 @@ StartDate and endDate should be ISO-8601 format for dates
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -1337,11 +1337,13 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this study currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.</td></tr>
+<tr><td><span style="font-weight:bold;">studyName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Study is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this study</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
-<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.email</span></td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.instituteName</span></td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.name</span></td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
@@ -1357,11 +1359,11 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.scientificType</span></td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.url</span></td><td>string<br>(uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
 <tr><td><span style="font-weight:bold;">environmentParameters</span></td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
-<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
-<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterName</span></td><td>string</td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
+<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
+<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterPUI</span></td><td>string</td><td>URI pointing to an ontology class for the parameter</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.unit</span></td><td>string</td><td>Unit of the value for this parameter</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.unitPUI</span></td><td>string</td><td>URI pointing to an ontology class for the unit</td></tr>
@@ -1371,7 +1373,7 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">growthFacility</span></td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
@@ -1391,9 +1393,7 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 <tr><td><span style="font-weight:bold;">seasons</span></td><td>array[string]</td><td>List of seasons over which this study was performed.</td></tr>
 <tr><td><span style="font-weight:bold;">startDate</span></td><td>string<br>(date-time)</td><td>The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started</td></tr>
 <tr><td><span style="font-weight:bold;">studyCode</span></td><td>string</td><td>A short human readable code for a study</td></tr>
-<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDescription</span></td><td>string</td><td>The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study</td></tr>
-<tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
 <tr><td><span style="font-weight:bold;">studyPUI</span></td><td>string</td><td>A permanent unique identifier associated with this study data. For example, a URI or DOI</td></tr>
 <tr><td><span style="font-weight:bold;">studyType</span></td><td>string</td><td>The type of study being performed. ex. "Yield Trial", etc</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
@@ -1404,8 +1404,8 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
  
 
 + Parameters
-    + studyDbId (Required, ) ... Identifier of the study. Usually a number, could be alphanumeric.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + studyDbId (Required, string) ... Identifier of the study. Usually a number, could be alphanumeric.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -1563,11 +1563,12 @@ Update an existing Study with new data
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this study currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">studyName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Study is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this study</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
-<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.email</span></td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.instituteName</span></td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.name</span></td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
@@ -1583,11 +1584,11 @@ Update an existing Study with new data
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.scientificType</span></td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.url</span></td><td>string<br>(uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
 <tr><td><span style="font-weight:bold;">environmentParameters</span></td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
-<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
-<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterName</span></td><td>string</td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
+<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
+<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterPUI</span></td><td>string</td><td>URI pointing to an ontology class for the parameter</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.unit</span></td><td>string</td><td>Unit of the value for this parameter</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.unitPUI</span></td><td>string</td><td>URI pointing to an ontology class for the unit</td></tr>
@@ -1597,7 +1598,7 @@ Update an existing Study with new data
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">growthFacility</span></td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
@@ -1618,7 +1619,6 @@ Update an existing Study with new data
 <tr><td><span style="font-weight:bold;">startDate</span></td><td>string<br>(date-time)</td><td>The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started</td></tr>
 <tr><td><span style="font-weight:bold;">studyCode</span></td><td>string</td><td>A short human readable code for a study</td></tr>
 <tr><td><span style="font-weight:bold;">studyDescription</span></td><td>string</td><td>The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study</td></tr>
-<tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
 <tr><td><span style="font-weight:bold;">studyPUI</span></td><td>string</td><td>A permanent unique identifier associated with this study data. For example, a URI or DOI</td></tr>
 <tr><td><span style="font-weight:bold;">studyType</span></td><td>string</td><td>The type of study being performed. ex. "Yield Trial", etc</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
@@ -1630,11 +1630,13 @@ Update an existing Study with new data
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>Is this study currently active</td></tr>
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.</td></tr>
+<tr><td><span style="font-weight:bold;">studyName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
+<tr><td><span style="font-weight:bold;">active</span></td><td>boolean</td><td>A flag to indicate if a Study is currently active and ongoing</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Common name for the crop associated with this study</td></tr>
 <tr><td><span style="font-weight:bold;">contacts</span></td><td>array[object]</td><td>List of contact entities associated with this study</td></tr>
-<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string</td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
+<tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.contactDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.email</span></td><td>string</td><td>The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.instituteName</span></td><td>string</td><td>The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to</td></tr>
 <tr><td>contacts<br><span style="font-weight:bold;margin-left:5px">.name</span></td><td>string</td><td>The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)</td></tr>
@@ -1650,11 +1652,11 @@ Update an existing Study with new data
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.scientificType</span></td><td>string</td><td>The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.url</span></td><td>string<br>(uri)</td><td>URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.</td></tr>
 <tr><td>dataLinks<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">endDate</span></td><td>string<br>(date-time)</td><td>The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended</td></tr>
 <tr><td><span style="font-weight:bold;">environmentParameters</span></td><td>array[object]</td><td>Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).</td></tr>
-<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
-<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterName</span></td><td>string</td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
+<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Human-readable value of the environment parameter (defined above) constant within the experiment</td></tr>
+<tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. </td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.parameterPUI</span></td><td>string</td><td>URI pointing to an ontology class for the parameter</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.unit</span></td><td>string</td><td>Unit of the value for this parameter</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.unitPUI</span></td><td>string</td><td>URI pointing to an ontology class for the unit</td></tr>
@@ -1664,7 +1666,7 @@ Update an existing Study with new data
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">growthFacility</span></td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
@@ -1684,9 +1686,7 @@ Update an existing Study with new data
 <tr><td><span style="font-weight:bold;">seasons</span></td><td>array[string]</td><td>List of seasons over which this study was performed.</td></tr>
 <tr><td><span style="font-weight:bold;">startDate</span></td><td>string<br>(date-time)</td><td>The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started</td></tr>
 <tr><td><span style="font-weight:bold;">studyCode</span></td><td>string</td><td>A short human readable code for a study</td></tr>
-<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDescription</span></td><td>string</td><td>The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study</td></tr>
-<tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study</td></tr>
 <tr><td><span style="font-weight:bold;">studyPUI</span></td><td>string</td><td>A permanent unique identifier associated with this study data. For example, a URI or DOI</td></tr>
 <tr><td><span style="font-weight:bold;">studyType</span></td><td>string</td><td>The type of study being performed. ex. "Yield Trial", etc</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
@@ -1697,8 +1697,8 @@ Update an existing Study with new data
  
 
 + Parameters
-    + studyDbId (Required, ) ... Identifier of the study. Usually a number, could be alphanumeric.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + studyDbId (Required, string) ... Identifier of the study. Usually a number, could be alphanumeric.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -1966,9 +1966,9 @@ Call to retrieve the list of study types.
  
 
 + Parameters
-    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 

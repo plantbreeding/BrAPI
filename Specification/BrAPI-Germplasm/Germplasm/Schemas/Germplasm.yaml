@@ -9,13 +9,17 @@ components:
       allOf:
       - $ref: '#/components/schemas/GermplasmNewRequest'
       - type: object
+        x-brapi-metadata:
+          primaryModel: true
+          module: BrAPI-Germplasm
+          title: Germplasm
+          description: The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
         required:
         - germplasmDbId
         properties: 
           germplasmDbId:
             description: |-
-              The ID which uniquely identifies a germplasm within the given database server
-              
-              MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
+              The ID which uniquely identifies a germplasm within the given database server 
+              <br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
             type: string
             example: d4076594

@@ -30,7 +30,6 @@ def go(rootPaths, metaFilePath = './swaggerMetaData.yaml'):
         filenames.extend(glob.glob(rootPath + '/**/*.yaml', recursive=True))
     
     for filename in filenames:
-        #print(filename)
         with open(filename, "r") as stream:
             try:
                 fileObj = yaml.load(stream)

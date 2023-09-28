@@ -4,7 +4,7 @@ brapicore20 brapiphenotyping20 brapigenotyping20 brapigermplasm20
 brapicore21 brapiphenotyping21 brapigenotyping21 brapigermplasm21
 
 observationunits attributevalues callsets markerpositions referencesets variantsets commoncropnames
-openapi apiary github swaggerhub ga4gh apis auth restfulness RESTfulness tfulness
+openapi apiary github swaggerhub ga4gh apis auth restfulness RESTfulness tfulness paginated
 
 json jsonld csv tsv flapjack jpg svg png postgres xlsx vnd tabular datafiles datafile
 md5sum md5checksum md5checksums checksum
@@ -12,7 +12,7 @@ md5sum md5checksum md5checksums checksum
 url urls href html webpage www wiews prev php
 
 enum wsmime uuid deprecated endpoints
-metadata asc desc schemas
+metadata asc desc schemas schema instantiation instantiations
 wiki wikipedia
 uppercase lowercase concatenated whitespace tokenized bibliographical
 xref xrefs xmlns foaf w3c
@@ -24,16 +24,17 @@ boolean ordinal recursively
 thh hhmm yyyy o8601 timezone date-time timestamp s84 t18 easting northing
 separators
 
-bioinformatics plantbreeding datasets
 germplasm genebank genebanks metabolomics
+bioinformatics plantbreeding datasets ontology
+
 multi-crop subblock
 pui peco envo puid r001 geodetic georeference georeferencing gazetteer
 
-phenotypes phenotyping genotyping agronomy agronomic phenological agronomical cytogenetic
+phenotypes phenotyping genotyping agronomy agronomic phenological agronomical cytogenetic Haplotype biotic abiotic
 
 authorships
-centimeter centimeters unphased log10 
-summarising submitter descriptors hyphens
+centimeter centimeters unphased log10 polygon polygons
+summarising submitter descriptors hyphens granularity
 
 mcpd ncbi miappe ebi biosample biosamples inra gnpis cipos ciend svlen bioversity FAO nirs
 
@@ -51,6 +52,8 @@ Electron Ionization (EI), Electrospray Ionization (ESI), Atmospheric Pressure Ch
 gradient of solvent A (2mM ammonium hydroxide and 0.1% formic acid) to solvent B (Acetonitrile, 0.1% formic acid)
 
 tomatillo hadron coladas townsville
+
+inorg tiimp i001 tidep timix allelematrix a001
 
 https://www.bioversityInternational.org/fileadmin/user_upload/online_library/publications/pdfs/FAOBIOVERSITY_MULTI-CROP_PASSPORT_DESCRIPTORS_V.2.1_2015_2020.pdf
 https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3

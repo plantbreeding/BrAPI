@@ -9,6 +9,12 @@ components:
       allOf:
       - $ref: '#/components/schemas/TraitBaseClass'
       - type: object
+        x-brapi-metadata:
+          primaryModel: true
+          module: BrAPI-Phenotyping
+          title: Trait
+        required:
+        - traitDbId
         properties:
           traitDbId:
             description: The ID which uniquely identifies a trait

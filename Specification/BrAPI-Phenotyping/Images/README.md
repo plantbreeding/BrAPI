@@ -23,7 +23,7 @@ Submit a delete request for `Images`
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">commonCropNames</span></td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
 <tr><td><span style="font-weight:bold;">descriptiveOntologyTerms</span></td><td>array[string]</td><td>A list of terms to formally describe the image to search for. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460  <br>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceIds</span></td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceSources</span></td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">imageDbIds</span></td><td>array[string]</td><td>A list of image Ids to search for</td></tr>
@@ -43,6 +43,8 @@ Submit a delete request for `Images`
 <tr><td><span style="font-weight:bold;">mimeTypes</span></td><td>array[string]</td><td>A set of image file types to search for.</td></tr>
 <tr><td><span style="font-weight:bold;">observationDbIds</span></td><td>array[string]</td><td>A list of observation Ids this image is associated with to search for</td></tr>
 <tr><td><span style="font-weight:bold;">observationUnitDbIds</span></td><td>array[string]</td><td>A set of observation unit identifiers to search for.</td></tr>
+<tr><td><span style="font-weight:bold;">page</span></td><td>integer</td><td>Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.</td></tr>
+<tr><td><span style="font-weight:bold;">pageSize</span></td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
 <tr><td><span style="font-weight:bold;">programDbIds</span></td><td>array[string]</td><td>A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.</td></tr>
 <tr><td><span style="font-weight:bold;">programNames</span></td><td>array[string]</td><td>Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.</td></tr>
 </table>
@@ -52,14 +54,14 @@ Submit a delete request for `Images`
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">imageDbIds</span></td><td>array[string]</td><td>The unique ids of the Image records which have been successfully deleted</td></tr>
+<tr><td><span style="font-weight:bold;">imageDbIds</span></td><td>array[string]<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique ids of the Image records which have been successfully deleted</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -146,6 +148,8 @@ Submit a delete request for `Images`
         "f5e4b273",
         "328c9424"
     ],
+    "page": 0,
+    "pageSize": 1000,
     "programDbIds": [
         "8f5de35b",
         "0e2d4a13"
@@ -225,15 +229,15 @@ words, or ontology references, or full ontology URI''s.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">imageDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier of an image</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>The human readable description of an image.</td></tr>
 <tr><td><span style="font-weight:bold;">descriptiveOntologyTerms</span></td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td><span style="font-weight:bold;">imageDbId</span></td><td>string</td><td>The unique identifier of an image</td></tr>
 <tr><td><span style="font-weight:bold;">imageFileName</span></td><td>string</td><td>The name of the image file. Might be the same as 'imageName', but could be different.</td></tr>
 <tr><td><span style="font-weight:bold;">imageFileSize</span></td><td>integer</td><td>The size of the image in Bytes.</td></tr>
 <tr><td><span style="font-weight:bold;">imageHeight</span></td><td>integer</td><td>The height of the image in Pixels.</td></tr>
@@ -253,19 +257,19 @@ words, or ontology references, or full ontology URI''s.
  
 
 + Parameters
-    + imageDbId (Optional, ) ... The unique identifier for a image
-    + imageName (Optional, ) ... The human readable name of an image
-    + observationUnitDbId (Optional, ) ... The unique identifier of the observation unit an image is portraying
-    + observationDbId (Optional, ) ... The unique identifier of the observation an image is associated with
-    + descriptiveOntologyTerm (Optional, ) ... A descriptive term associated with an image
-    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
-    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
-    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
-    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + imageDbId (Optional, string) ... The unique identifier for a image
+    + imageName (Optional, string) ... The human readable name of an image
+    + observationUnitDbId (Optional, string) ... The unique identifier of the observation unit an image is portraying
+    + observationDbId (Optional, string) ... The unique identifier of the observation an image is associated with
+    + descriptiveOntologyTerm (Optional, string) ... A descriptive term associated with an image
+    + commonCropName (Optional, string) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + programDbId (Optional, string) ... Use this parameter to only return results associated with the given `Program` unique identifier. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
+    + externalReferenceID (Optional, string) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceId (Optional, string) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, string) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
+    + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -391,12 +395,12 @@ An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/ind
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>The human readable description of an image.</td></tr>
 <tr><td><span style="font-weight:bold;">descriptiveOntologyTerms</span></td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">imageFileName</span></td><td>string</td><td>The name of the image file. Might be the same as 'imageName', but could be different.</td></tr>
@@ -419,15 +423,15 @@ An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/ind
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">imageDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier of an image</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>The human readable description of an image.</td></tr>
 <tr><td><span style="font-weight:bold;">descriptiveOntologyTerms</span></td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td><span style="font-weight:bold;">imageDbId</span></td><td>string</td><td>The unique identifier of an image</td></tr>
 <tr><td><span style="font-weight:bold;">imageFileName</span></td><td>string</td><td>The name of the image file. Might be the same as 'imageName', but could be different.</td></tr>
 <tr><td><span style="font-weight:bold;">imageFileSize</span></td><td>integer</td><td>The size of the image in Bytes.</td></tr>
 <tr><td><span style="font-weight:bold;">imageHeight</span></td><td>integer</td><td>The height of the image in Pixels.</td></tr>
@@ -447,7 +451,7 @@ An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/ind
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -614,15 +618,15 @@ words, or ontology references, or full ontology URI''s.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">imageDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier of an image</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>The human readable description of an image.</td></tr>
 <tr><td><span style="font-weight:bold;">descriptiveOntologyTerms</span></td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td><span style="font-weight:bold;">imageDbId</span></td><td>string</td><td>The unique identifier of an image</td></tr>
 <tr><td><span style="font-weight:bold;">imageFileName</span></td><td>string</td><td>The name of the image file. Might be the same as 'imageName', but could be different.</td></tr>
 <tr><td><span style="font-weight:bold;">imageFileSize</span></td><td>integer</td><td>The size of the image in Bytes.</td></tr>
 <tr><td><span style="font-weight:bold;">imageHeight</span></td><td>integer</td><td>The height of the image in Pixels.</td></tr>
@@ -642,8 +646,8 @@ words, or ontology references, or full ontology URI''s.
  
 
 + Parameters
-    + imageDbId (Required, ) ... The unique identifier for a image
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + imageDbId (Required, string) ... The unique identifier for a image
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -772,12 +776,12 @@ An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/ind
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>The human readable description of an image.</td></tr>
 <tr><td><span style="font-weight:bold;">descriptiveOntologyTerms</span></td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">imageFileName</span></td><td>string</td><td>The name of the image file. Might be the same as 'imageName', but could be different.</td></tr>
@@ -800,15 +804,15 @@ An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/ind
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">imageDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier of an image</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>The human readable description of an image.</td></tr>
 <tr><td><span style="font-weight:bold;">descriptiveOntologyTerms</span></td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td><span style="font-weight:bold;">imageDbId</span></td><td>string</td><td>The unique identifier of an image</td></tr>
 <tr><td><span style="font-weight:bold;">imageFileName</span></td><td>string</td><td>The name of the image file. Might be the same as 'imageName', but could be different.</td></tr>
 <tr><td><span style="font-weight:bold;">imageFileSize</span></td><td>integer</td><td>The size of the image in Bytes.</td></tr>
 <tr><td><span style="font-weight:bold;">imageHeight</span></td><td>integer</td><td>The height of the image in Pixels.</td></tr>
@@ -828,8 +832,8 @@ An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/ind
  
 
 + Parameters
-    + imageDbId (Required, ) ... The unique identifier for a image
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + imageDbId (Required, string) ... The unique identifier for a image
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -1003,15 +1007,15 @@ An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/ind
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">imageDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier of an image</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>The human readable description of an image.</td></tr>
 <tr><td><span style="font-weight:bold;">descriptiveOntologyTerms</span></td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td><span style="font-weight:bold;">imageDbId</span></td><td>string</td><td>The unique identifier of an image</td></tr>
 <tr><td><span style="font-weight:bold;">imageFileName</span></td><td>string</td><td>The name of the image file. Might be the same as 'imageName', but could be different.</td></tr>
 <tr><td><span style="font-weight:bold;">imageFileSize</span></td><td>integer</td><td>The size of the image in Bytes.</td></tr>
 <tr><td><span style="font-weight:bold;">imageHeight</span></td><td>integer</td><td>The height of the image in Pixels.</td></tr>
@@ -1031,8 +1035,8 @@ An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/ind
  
 
 + Parameters
-    + imageDbId (Required, ) ... The unique identifier for an image
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + imageDbId (Required, string) ... The unique identifier for an image
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -1149,7 +1153,7 @@ Image Implementation Notes<br/>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">commonCropNames</span></td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
 <tr><td><span style="font-weight:bold;">descriptiveOntologyTerms</span></td><td>array[string]</td><td>A list of terms to formally describe the image to search for. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460  <br>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceIds</span></td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceSources</span></td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">imageDbIds</span></td><td>array[string]</td><td>A list of image Ids to search for</td></tr>
@@ -1180,15 +1184,15 @@ Image Implementation Notes<br/>
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">imageDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier of an image</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>The human readable description of an image.</td></tr>
 <tr><td><span style="font-weight:bold;">descriptiveOntologyTerms</span></td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td><span style="font-weight:bold;">imageDbId</span></td><td>string</td><td>The unique identifier of an image</td></tr>
 <tr><td><span style="font-weight:bold;">imageFileName</span></td><td>string</td><td>The name of the image file. Might be the same as 'imageName', but could be different.</td></tr>
 <tr><td><span style="font-weight:bold;">imageFileSize</span></td><td>integer</td><td>The size of the image in Bytes.</td></tr>
 <tr><td><span style="font-weight:bold;">imageHeight</span></td><td>integer</td><td>The height of the image in Pixels.</td></tr>
@@ -1208,7 +1212,7 @@ Image Implementation Notes<br/>
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -1449,15 +1453,15 @@ Image Implementation Notes<br/>
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">imageDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique identifier of an image</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">copyright</span></td><td>string</td><td>The copyright information of this image. Example 'Copyright 2018 Bob Robertson'</td></tr>
 <tr><td><span style="font-weight:bold;">description</span></td><td>string</td><td>The human readable description of an image.</td></tr>
 <tr><td><span style="font-weight:bold;">descriptiveOntologyTerms</span></td><td>array[string]</td><td>A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td><span style="font-weight:bold;">imageDbId</span></td><td>string</td><td>The unique identifier of an image</td></tr>
 <tr><td><span style="font-weight:bold;">imageFileName</span></td><td>string</td><td>The name of the image file. Might be the same as 'imageName', but could be different.</td></tr>
 <tr><td><span style="font-weight:bold;">imageFileSize</span></td><td>integer</td><td>The size of the image in Bytes.</td></tr>
 <tr><td><span style="font-weight:bold;">imageHeight</span></td><td>integer</td><td>The height of the image in Pixels.</td></tr>
@@ -1477,10 +1481,10 @@ Image Implementation Notes<br/>
  
 
 + Parameters
-    + searchResultsDbId (Required, ) ... Unique identifier which references the search results
-    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + searchResultsDbId (Required, string) ... Unique identifier which references the search results
+    + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 

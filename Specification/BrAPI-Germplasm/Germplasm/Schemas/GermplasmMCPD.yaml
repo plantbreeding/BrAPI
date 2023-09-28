@@ -8,17 +8,23 @@ components:
     GermplasmMCPD:
       properties:
         accessionNames:
-          description: MCPD (v2.1) (ACCENAME) 11. Either a registered or other designation given to the material received, other than the donors accession number (23) or collecting number (3). First letter uppercase. Multiple names are separated by a semicolon without space.
+          description: MCPD (v2.1) (ACCENAME) 11. A collection of either a registered names or other designations given to the material received, other than the donors accession number (23) or collecting number (3). First letter uppercase.
           items:
             type: string
           type: array
           example: ['Symphony', 'Emma']
         accessionNumber:
-          description: MCPD (v2.1) (ACCENUMB) 2. This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection (e.g. "PI 113869").
+          description: |- 
+            The unique identifier for a material or germplasm within a genebank
+
+            MCPD (v2.1) (ACCENUMB) 2. This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection (e.g. "PI 113869").
           type: string
           example: A0000003
         acquisitionDate:
-          description: MCPD (v2.1) (ACQDATE) 12. Date on which the accession entered the collection [YYYYMMDD] where YYYY is the year, MM is the month and DD is the day. Missing data (MM or DD) should be indicated with hyphens or "00" [double zero].
+          description: |-
+            The date a material or germplasm was acquired by the genebank 
+            
+            MCPD (v2.1) (ACQDATE) 12. Date on which the accession entered the collection [YYYYMMDD] where YYYY is the year, MM is the month and DD is the day. Missing data (MM or DD) should be indicated with hyphens or "00" [double zero].
           type: string
           format: date
         acquisitionSourceCode:
@@ -55,7 +61,7 @@ components:
           items:
             type: string
           type: array
-          example: ['3', 'http://pui.per/accession/A0000003', 'A0000003']
+          example: ['PER001:3', 'PER001:http://pui.per/accession/A0000003', 'USA001:A0000003']
         ancestralData:
           description: MCPD (v2.1) (ANCEST) 20. Information about either pedigree or other description of ancestral information (e.g. parent variety in case of mutant or selection). For example a pedigree 'Hanna/7*Atlas//Turk/8*Atlas' or a description 'mutation found in Hanna', 'selection from Irene' or 'cross involving amongst others Hanna and Irene'.
           type: string
@@ -89,20 +95,24 @@ components:
           type: string
           example: '421'
         breedingInstitutes:
+          description: |-
+            A list of institutes that were involved with breeding a material/germplasm
+            <br> MCPD (v2.1) (BREDCODE) 18. FAO WIEWS code of the institute that has bred the material. If the holding institute has bred the material, the breeding institute code (BREDCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard.
+            <br> MCPD (v2.1) (BREDNAME) 18.1  Name of the institute (or person) that bred the material. This descriptor should be used only if BREDCODE can not be filled because the FAO WIEWS code for this institute is not available.
+          type: array
           items:
+            type: object
             properties:
               instituteCode:
-                description: MCPD (v2.1) (BREDCODE) 18. FAO WIEWS code of the institute that has bred the material. If the holding institute has bred the material, the breeding institute code (BREDCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard. Multiple values are separated by a semicolon without space.
+                description: MCPD (v2.1) (BREDCODE) 18. FAO WIEWS code of the institute that has bred the material. If the holding institute has bred the material, the breeding institute code (BREDCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard.
                 type: string
                 example: PER001
               instituteName:
-                description: MCPD (v2.1) (BREDNAME) 18.1  Name of the institute (or person) that bred the material. This descriptor should be used only if BREDCODE can not be filled because the FAO WIEWS code for this institute is not available. Multiple names are separated by a semicolon without space.
+                description: MCPD (v2.1) (BREDNAME) 18.1  Name of the institute (or person) that bred the material. This descriptor should be used only if BREDCODE can not be filled because the FAO WIEWS code for this institute is not available.
                 type: string
                 example: The BrAPI Institute
-            type: object
-          type: array
         collectingInfo:
-          description: Information about the collection of this germplasm
+          description: Information about the collection of a germplasm
           properties:
             collectingDate:
               description: MCPD (v2.1) (COLLDATE) 17. Collecting date of the sample [YYYYMMDD] where YYYY is the year, MM is the month and DD is the day. Missing data (MM or DD) should be indicated with hyphens or "00" [double zero].
@@ -110,7 +120,9 @@ components:
               format: date
             collectingInstitutes:
               description: Institutes which collected the sample
+              type: array
               items:
+                type: object
                 properties:
                   instituteAddress:
                     description: MCPD (v2.1) (COLLINSTADDRESS) 4.1.1  Address of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled since the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.
@@ -124,8 +136,6 @@ components:
                     description: MCPD (v2.1) (COLLNAME) 4.1  Name of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled because the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.
                     type: string
                     example: The BrAPI Institute
-                type: object
-              type: array
             collectingMissionIdentifier:
               description: MCPD (v2.1) (COLLMISSID) 4.2 Identifier of the collecting mission used by the Collecting Institute (4 or 4.1) (e.g. "CIATFOR_052", "CN_426").
               type: string
@@ -184,7 +194,8 @@ components:
           type: string
           example: Peru
         donorInfo:
-          description: Information about the donor
+          type: object
+          description: Information about an accession donor
           properties:
             donorAccessionPui:
               description: PUI (DOI mostly) of the accession in the donor system.
@@ -195,6 +206,11 @@ components:
               type: string
               example: A0090204
             donorInstitute:
+              description: |-
+                The identifying information for the entity acting as an accession donor
+                <br> MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.
+                <br> MCPD (v2.1) (DONORNAME) 22.1  Name of the donor institute (or person). This descriptor should be used only if DONORCODE can not be filled because the FAO WIEWS code for this institute is not available.
+              type: object
               properties:
                 instituteCode:
                   description: MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.
@@ -204,8 +220,6 @@ components:
                   description: MCPD (v2.1) (DONORNAME) 22.1  Name of the donor institute (or person). This descriptor should be used only if DONORCODE can not be filled because the FAO WIEWS code for this institute is not available.
                   type: string
                   example: The BrAPI Institute
-              type: object
-          type: object
         genus:
           description: MCPD (v2.1) (GENUS) 5. Genus name for taxon. Initial uppercase letter required.
           type: string

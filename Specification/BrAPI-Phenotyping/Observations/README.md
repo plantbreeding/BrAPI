@@ -1,7 +1,7 @@
 
 # Group Observations
 
-API to manage the details of observation variable Traits. An observation variable is composed by the unique combination of one Trait, one Method and one Scale. A Trait describes what property is being observed. For example, an Observation Variable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This Variable would be distinct from a Variable with the Trait "Leaf length" or "Flower height". 
+API to manage the details of basic phenotypic Observations. An Observation is a value assigned for a specific ObservationVariable when observing a specific ObservationUnit. 
 
 
 
@@ -17,7 +17,7 @@ Submit a delete request for `Observations`
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">commonCropNames</span></td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460  <br>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceIds</span></td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceSources</span></td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmDbIds</span></td><td>array[string]</td><td>List of IDs which uniquely identify germplasm to search for</td></tr>
@@ -40,6 +40,8 @@ Submit a delete request for `Observations`
 <tr><td><span style="font-weight:bold;">observationVariableDbIds</span></td><td>array[string]</td><td>The DbIds of Variables to search for</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableNames</span></td><td>array[string]</td><td>The names of Variables to search for</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariablePUIs</span></td><td>array[string]</td><td>The Permanent Unique Identifier of an Observation Variable, usually in the form of a URI</td></tr>
+<tr><td><span style="font-weight:bold;">page</span></td><td>integer</td><td>Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.</td></tr>
+<tr><td><span style="font-weight:bold;">pageSize</span></td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
 <tr><td><span style="font-weight:bold;">programDbIds</span></td><td>array[string]</td><td>A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.</td></tr>
 <tr><td><span style="font-weight:bold;">programNames</span></td><td>array[string]</td><td>Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.</td></tr>
 <tr><td><span style="font-weight:bold;">seasonDbIds</span></td><td>array[string]</td><td>The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)</td></tr>
@@ -54,14 +56,14 @@ Submit a delete request for `Observations`
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">observationDbIds</span></td><td>array[string]</td><td>The unique ids of the Observation records which have been successfully deleted</td></tr>
+<tr><td><span style="font-weight:bold;">observationDbIds</span></td><td>array[string]<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The unique ids of the Observation records which have been successfully deleted</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -142,6 +144,8 @@ Submit a delete request for `Observations`
         "http://my-traits.com/trait/CO_123:0008012",
         "http://my-traits.com/trait/CO_123:0007261"
     ],
+    "page": 0,
+    "pageSize": 1000,
     "programDbIds": [
         "8f5de35b",
         "0e2d4a13"
@@ -223,7 +227,7 @@ Submit a delete request for `Observations`
 
 
 
-### Get - /observations [GET /brapi/v2/observations{?observationDbId}{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?seasonDbId}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?observationUnitLevelName}{?observationUnitLevelOrder}{?observationUnitLevelCode}{?observationUnitLevelRelationshipName}{?observationUnitLevelRelationshipOrder}{?observationUnitLevelRelationshipCode}{?observationUnitLevelRelationshipDbId}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /observations [GET /brapi/v2/observations{?observationDbId}{?observationUnitDbId}{?observationVariableDbId}{?locationDbId}{?seasonDbId}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?observationUnitLevelName}{?observationUnitLevelOrder}{?observationUnitLevelCode}{?observationUnitLevelRelationshipName}{?observationUnitLevelRelationshipOrder}{?observationUnitLevelRelationshipCode}{?observationUnitLevelRelationshipDbId}{?commonCropName}{?programDbId}{?trialDbId}{?studyDbId}{?germplasmDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Retrieve all observations where there are measurements for the given observation variables. 
 
@@ -235,10 +239,11 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">observationDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies an observation</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">geoCoordinates</span></td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
@@ -246,15 +251,14 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 <tr><td>geoCoordinates<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td>The literal string "Feature"</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmDbId</span></td><td>string</td><td>The ID which uniquely identifies a germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmName</span></td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
-<tr><td><span style="font-weight:bold;">observationDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation</td></tr>
 <tr><td><span style="font-weight:bold;">observationTimeStamp</span></td><td>string<br>(date-time)</td><td>The date and time when this observation was made</td></tr>
 <tr><td><span style="font-weight:bold;">observationUnitDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation unit</td></tr>
 <tr><td><span style="font-weight:bold;">observationUnitName</span></td><td>string</td><td>A human readable name for an observation unit</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>A human readable name for an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">season</span></td><td>object</td><td></td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456  <br>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
@@ -266,31 +270,31 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
  
 
 + Parameters
-    + observationDbId (Optional, ) ... The unique ID of an Observation
-    + observationUnitDbId (Optional, ) ... The unique ID of an Observation Unit
-    + germplasmDbId (Optional, ) ... The unique ID of a germplasm (accession) to filter on
-    + observationVariableDbId (Optional, ) ... The unique ID of an observation variable
-    + studyDbId (Optional, ) ... The unique ID of a studies to filter on
-    + locationDbId (Optional, ) ... The unique ID of a location where these observations were collected
-    + trialDbId (Optional, ) ... The unique ID of a trial to filter on
-    + seasonDbId (Optional, ) ... The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
-    + observationTimeStampRangeStart (Optional, ) ... Timestamp range start
-    + observationTimeStampRangeEnd (Optional, ) ... Timestamp range end
-    + observationUnitLevelName (Optional, ) ... The Observation Unit Level. Returns only the observation unit of the specified Level. <br/>References ObservationUnit->observationUnitPosition->observationLevel->levelName <br/>**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
-    + observationUnitLevelOrder (Optional, ) ... The Observation Unit Level Order Number. Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
-    + observationUnitLevelCode (Optional, ) ... The Observation Unit Level Code. This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
-    + observationUnitLevelRelationshipName (Optional, ) ... The Observation Unit Level Relationship is a connection that this observation unit has to another level of the hierarchy. <br/>For example, if you have several observation units at a 'plot' level, they might all share a relationship to the same 'field' level.  <br/>Use this parameter to identify groups of observation units that share a relationship level. <br/>**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
-    + observationUnitLevelRelationshipOrder (Optional, ) ... The Observation Unit Level Order Number. <br/>Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
-    + observationUnitLevelRelationshipCode (Optional, ) ... The Observation Unit Level Code. <br/>This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
-    + observationUnitLevelRelationshipDbId (Optional, ) ... The observationUnitDbId associated with a particular level and code.<br/>This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->observationUnitDbId <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
-    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
-    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
-    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
-    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + observationDbId (Optional, string) ... The unique ID of an Observation
+    + observationUnitDbId (Optional, string) ... The unique ID of an Observation Unit
+    + observationVariableDbId (Optional, string) ... The unique ID of an observation variable
+    + locationDbId (Optional, string) ... The unique ID of a location where these observations were collected
+    + seasonDbId (Optional, string) ... The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
+    + observationTimeStampRangeStart (Optional, string) ... Timestamp range start
+    + observationTimeStampRangeEnd (Optional, string) ... Timestamp range end
+    + observationUnitLevelName (Optional, string) ... The Observation Unit Level. Returns only the observation unit of the specified Level. <br/>References ObservationUnit->observationUnitPosition->observationLevel->levelName <br/>**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelOrder (Optional, string) ... The Observation Unit Level Order Number. Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelCode (Optional, string) ... The Observation Unit Level Code. This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelRelationshipName (Optional, string) ... The Observation Unit Level Relationship is a connection that this observation unit has to another level of the hierarchy. <br/>For example, if you have several observation units at a 'plot' level, they might all share a relationship to the same 'field' level.  <br/>Use this parameter to identify groups of observation units that share a relationship level. <br/>**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelRelationshipOrder (Optional, string) ... The Observation Unit Level Order Number. <br/>Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelRelationshipCode (Optional, string) ... The Observation Unit Level Code. <br/>This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelRelationshipDbId (Optional, string) ... The observationUnitDbId associated with a particular level and code.<br/>This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->observationUnitDbId <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + commonCropName (Optional, string) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + programDbId (Optional, string) ... Use this parameter to only return results associated with the given `Program` unique identifier. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
+    + trialDbId (Optional, string) ... Use this parameter to only return results associated with the given `Trial` unique identifier. <br/>Use `GET /trials` to find the list of available `Trials` on a server.
+    + studyDbId (Optional, string) ... Use this parameter to only return results associated with the given `Study` unique identifier. <br/>Use `GET /studies` to find the list of available `Studies` on a server.
+    + germplasmDbId (Optional, string) ... Use this parameter to only return results associated with the given `Germplasm` unique identifier. <br/>Use `GET /germplasm` to find the list of available `Germplasm` on a server.
+    + externalReferenceID (Optional, string) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceId (Optional, string) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, string) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
+    + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -391,10 +395,10 @@ Add new Observation entities
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">geoCoordinates</span></td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
@@ -408,8 +412,8 @@ Add new Observation entities
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>A human readable name for an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">season</span></td><td>object</td><td></td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456  <br>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
@@ -422,10 +426,11 @@ Add new Observation entities
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">observationDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies an observation</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">geoCoordinates</span></td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
@@ -433,15 +438,14 @@ Add new Observation entities
 <tr><td>geoCoordinates<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td>The literal string "Feature"</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmDbId</span></td><td>string</td><td>The ID which uniquely identifies a germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmName</span></td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
-<tr><td><span style="font-weight:bold;">observationDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation</td></tr>
 <tr><td><span style="font-weight:bold;">observationTimeStamp</span></td><td>string<br>(date-time)</td><td>The date and time when this observation was made</td></tr>
 <tr><td><span style="font-weight:bold;">observationUnitDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation unit</td></tr>
 <tr><td><span style="font-weight:bold;">observationUnitName</span></td><td>string</td><td>A human readable name for an observation unit</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>A human readable name for an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">season</span></td><td>object</td><td></td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456  <br>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
@@ -453,7 +457,7 @@ Add new Observation entities
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -618,10 +622,11 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">observationDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies an observation</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">geoCoordinates</span></td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
@@ -629,15 +634,14 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 <tr><td>geoCoordinates<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td>The literal string "Feature"</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmDbId</span></td><td>string</td><td>The ID which uniquely identifies a germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmName</span></td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
-<tr><td><span style="font-weight:bold;">observationDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation</td></tr>
 <tr><td><span style="font-weight:bold;">observationTimeStamp</span></td><td>string<br>(date-time)</td><td>The date and time when this observation was made</td></tr>
 <tr><td><span style="font-weight:bold;">observationUnitDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation unit</td></tr>
 <tr><td><span style="font-weight:bold;">observationUnitName</span></td><td>string</td><td>A human readable name for an observation unit</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>A human readable name for an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">season</span></td><td>object</td><td></td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456  <br>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
@@ -649,7 +653,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -804,7 +808,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 
 
 
-### Get - /observations/table [GET /brapi/v2/observations/table{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?searchResultsDbId}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?observationUnitLevelName}{?observationUnitLevelOrder}{?observationUnitLevelCode}{?observationUnitLevelRelationshipName}{?observationUnitLevelRelationshipOrder}{?observationUnitLevelRelationshipCode}{?observationUnitLevelRelationshipDbId}]
+### Get - /observations/table [GET /brapi/v2/observations/table{?observationUnitDbId}{?observationVariableDbId}{?locationDbId}{?seasonDbId}{?observationLevel}{?searchResultsDbId}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?programDbId}{?trialDbId}{?studyDbId}{?germplasmDbId}{?observationUnitLevelName}{?observationUnitLevelOrder}{?observationUnitLevelCode}{?observationUnitLevelRelationshipName}{?observationUnitLevelRelationshipOrder}{?observationUnitLevelRelationshipCode}{?observationUnitLevelRelationshipDbId}]
 
 <p>This service is designed to retrieve a table of time dependant observation values as a matrix of Observation Units and Observation Variables.
 This is also sometimes called a Time Series. This service takes the "Sparse Table" approach for representing this time dependant data.</p>
@@ -851,7 +855,7 @@ See the example responses below</p>
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">data</span></td><td>array[array]</td><td>Matrix of observation data recorded for different observation variables across different observation units</td></tr>
+<tr><td><span style="font-weight:bold;">data</span></td><td>array[array]</td><td>The 2D matrix of observation data. ObservationVariables and other metadata are the columns, ObservationUnits are the rows.</td></tr>
 <tr><td><span style="font-weight:bold;">headerRow</span></td><td>array[string]</td><td><p>The table is REQUIRED to have the following columns</p> <ul>   <li>observationUnitDbId - Each row is related to one Observation Unit</li>   <li>observationTimeStamp - Each row is has a time stamp for when the observation was taken</li>   <li>At least one column with an observationVariableDbId</li> </ul> <p>The table may have any or all of the following OPTIONAL columns. Included columns are decided by the server developer</p> <ul>   <li>observationUnitName</li>   <li>studyDbId</li>   <li>studyName</li>   <li>germplasmDbId</li>   <li>germplasmName</li>   <li>positionCoordinateX</li>   <li>positionCoordinateY</li>   <li>year</li> </ul> <p>The table also may have any number of Observation Unit Hierarchy Level columns. For example:</p> <ul>   <li>field</li>   <li>plot</li>   <li>sub-plot</li>   <li>plant</li>   <li>pot</li>   <li>block</li>   <li>entry</li>   <li>rep</li> </ul> <p>The JSON representation provides a pair of extra arrays for defining the headers of the table.  The first array "headerRow" will always contain "observationUnitDbId" and any or all of the OPTIONAL column header names.  The second array "observationVariables" contains the names and DbIds for the Observation Variables represented in the table.  By appending the two arrays, you can construct the complete header row of the table. </p></td></tr>
 <tr><td><span style="font-weight:bold;">observationVariables</span></td><td>array[object]</td><td>The list of observation variables which have values recorded for them in the data matrix. Append to the 'headerRow' for complete header row of the table.</td></tr>
 <tr><td>observationVariables<br><span style="font-weight:bold;margin-left:5px">.observationVariableDbId</span></td><td>string</td><td>Variable unique identifier</td></tr>
@@ -862,27 +866,27 @@ See the example responses below</p>
  
 
 + Parameters
-    + observationUnitDbId (Optional, ) ... The unique ID of an Observation Unit
-    + germplasmDbId (Optional, ) ... The unique ID of a germplasm (accession) to filter on
-    + observationVariableDbId (Optional, ) ... The unique ID of an observation variable
-    + studyDbId (Optional, ) ... The unique ID of a studies to filter on
-    + locationDbId (Optional, ) ... The unique ID of a location where these observations were collected
-    + trialDbId (Optional, ) ... The unique ID of a trial to filter on
-    + programDbId (Optional, ) ... The unique ID of a program to filter on
-    + seasonDbId (Optional, ) ... The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
-    + observationLevel (Optional, ) ... **Deprecated in v2.1** Please use `observationUnitLevelName`. Github issue number #464 The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnitStructure. 
-    + searchResultsDbId (Optional, ) ... Permanent unique identifier which references the search results
-    + observationTimeStampRangeStart (Optional, ) ... Timestamp range start
-    + observationTimeStampRangeEnd (Optional, ) ... Timestamp range end
-    + observationUnitLevelName (Optional, ) ... The Observation Unit Level. Returns only the observation unit of the specified Level. <br/>References ObservationUnit->observationUnitPosition->observationLevel->levelName <br/>**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
-    + observationUnitLevelOrder (Optional, ) ... The Observation Unit Level Order Number. Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
-    + observationUnitLevelCode (Optional, ) ... The Observation Unit Level Code. This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
-    + observationUnitLevelRelationshipName (Optional, ) ... The Observation Unit Level Relationship is a connection that this observation unit has to another level of the hierarchy. <br/>For example, if you have several observation units at a 'plot' level, they might all share a relationship to the same 'field' level.  <br/>Use this parameter to identify groups of observation units that share a relationship level. <br/>**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
-    + observationUnitLevelRelationshipOrder (Optional, ) ... The Observation Unit Level Order Number. <br/>Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
-    + observationUnitLevelRelationshipCode (Optional, ) ... The Observation Unit Level Code. <br/>This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
-    + observationUnitLevelRelationshipDbId (Optional, ) ... The observationUnitDbId associated with a particular level and code.<br/>This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->observationUnitDbId <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
-    + Accept (Required, ) ... The requested content type which should be returned by the server
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + observationUnitDbId (Optional, string) ... The unique ID of an Observation Unit
+    + observationVariableDbId (Optional, string) ... The unique ID of an observation variable
+    + locationDbId (Optional, string) ... The unique ID of a location where these observations were collected
+    + seasonDbId (Optional, string) ... The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
+    + observationLevel (Optional, string) ... **Deprecated in v2.1** Please use `observationUnitLevelName`. Github issue number #464 <br>The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnitStructure. 
+    + searchResultsDbId (Optional, string) ... Permanent unique identifier which references the search results
+    + observationTimeStampRangeStart (Optional, string) ... Timestamp range start
+    + observationTimeStampRangeEnd (Optional, string) ... Timestamp range end
+    + programDbId (Optional, string) ... Use this parameter to only return results associated with the given `Program` unique identifier. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
+    + trialDbId (Optional, string) ... Use this parameter to only return results associated with the given `Trial` unique identifier. <br/>Use `GET /trials` to find the list of available `Trials` on a server.
+    + studyDbId (Optional, string) ... Use this parameter to only return results associated with the given `Study` unique identifier. <br/>Use `GET /studies` to find the list of available `Studies` on a server.
+    + germplasmDbId (Optional, string) ... Use this parameter to only return results associated with the given `Germplasm` unique identifier. <br/>Use `GET /germplasm` to find the list of available `Germplasm` on a server.
+    + observationUnitLevelName (Optional, string) ... The Observation Unit Level. Returns only the observation unit of the specified Level. <br/>References ObservationUnit->observationUnitPosition->observationLevel->levelName <br/>**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelOrder (Optional, string) ... The Observation Unit Level Order Number. Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelCode (Optional, string) ... The Observation Unit Level Code. This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelRelationshipName (Optional, string) ... The Observation Unit Level Relationship is a connection that this observation unit has to another level of the hierarchy. <br/>For example, if you have several observation units at a 'plot' level, they might all share a relationship to the same 'field' level.  <br/>Use this parameter to identify groups of observation units that share a relationship level. <br/>**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelRelationshipOrder (Optional, string) ... The Observation Unit Level Order Number. <br/>Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelRelationshipCode (Optional, string) ... The Observation Unit Level Code. <br/>This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + observationUnitLevelRelationshipDbId (Optional, string) ... The observationUnitDbId associated with a particular level and code.<br/>This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->observationUnitDbId <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+    + Accept (Required, string) ... A standard HTTP request header that is used to request a specific content type (JSON, CSV, etc) which is "acceptable" to the client and should be returned by the server
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -1185,10 +1189,11 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">observationDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies an observation</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">geoCoordinates</span></td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
@@ -1196,15 +1201,14 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 <tr><td>geoCoordinates<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td>The literal string "Feature"</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmDbId</span></td><td>string</td><td>The ID which uniquely identifies a germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmName</span></td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
-<tr><td><span style="font-weight:bold;">observationDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation</td></tr>
 <tr><td><span style="font-weight:bold;">observationTimeStamp</span></td><td>string<br>(date-time)</td><td>The date and time when this observation was made</td></tr>
 <tr><td><span style="font-weight:bold;">observationUnitDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation unit</td></tr>
 <tr><td><span style="font-weight:bold;">observationUnitName</span></td><td>string</td><td>A human readable name for an observation unit</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>A human readable name for an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">season</span></td><td>object</td><td></td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456  <br>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
@@ -1216,8 +1220,8 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
  
 
 + Parameters
-    + observationDbId (Required, ) ... The unique ID of an observation
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + observationDbId (Required, string) ... The unique ID of an observation
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -1319,10 +1323,10 @@ Update an existing Observation
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">geoCoordinates</span></td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
@@ -1336,8 +1340,8 @@ Update an existing Observation
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>A human readable name for an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">season</span></td><td>object</td><td></td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456  <br>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
@@ -1350,10 +1354,11 @@ Update an existing Observation
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">observationDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies an observation</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">geoCoordinates</span></td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
@@ -1361,15 +1366,14 @@ Update an existing Observation
 <tr><td>geoCoordinates<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td>The literal string "Feature"</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmDbId</span></td><td>string</td><td>The ID which uniquely identifies a germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmName</span></td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
-<tr><td><span style="font-weight:bold;">observationDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation</td></tr>
 <tr><td><span style="font-weight:bold;">observationTimeStamp</span></td><td>string<br>(date-time)</td><td>The date and time when this observation was made</td></tr>
 <tr><td><span style="font-weight:bold;">observationUnitDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation unit</td></tr>
 <tr><td><span style="font-weight:bold;">observationUnitName</span></td><td>string</td><td>A human readable name for an observation unit</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>A human readable name for an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">season</span></td><td>object</td><td></td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456  <br>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
@@ -1381,8 +1385,8 @@ Update an existing Observation
  
 
 + Parameters
-    + observationDbId (Required, ) ... The unique ID of an observation
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + observationDbId (Required, string) ... The unique ID of an observation
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -1535,7 +1539,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">commonCropNames</span></td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460  <br>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceIds</span></td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceSources</span></td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmDbIds</span></td><td>array[string]</td><td>List of IDs which uniquely identify germplasm to search for</td></tr>
@@ -1574,10 +1578,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">observationDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies an observation</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">geoCoordinates</span></td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
@@ -1585,15 +1590,14 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>geoCoordinates<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td>The literal string "Feature"</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmDbId</span></td><td>string</td><td>The ID which uniquely identifies a germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmName</span></td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
-<tr><td><span style="font-weight:bold;">observationDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation</td></tr>
 <tr><td><span style="font-weight:bold;">observationTimeStamp</span></td><td>string<br>(date-time)</td><td>The date and time when this observation was made</td></tr>
 <tr><td><span style="font-weight:bold;">observationUnitDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation unit</td></tr>
 <tr><td><span style="font-weight:bold;">observationUnitName</span></td><td>string</td><td>A human readable name for an observation unit</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>A human readable name for an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">season</span></td><td>object</td><td></td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456  <br>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
@@ -1605,7 +1609,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -1851,10 +1855,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">observationDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies an observation</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">geoCoordinates</span></td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
@@ -1862,15 +1867,14 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>geoCoordinates<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td>The literal string "Feature"</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmDbId</span></td><td>string</td><td>The ID which uniquely identifies a germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmName</span></td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
-<tr><td><span style="font-weight:bold;">observationDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation</td></tr>
 <tr><td><span style="font-weight:bold;">observationTimeStamp</span></td><td>string<br>(date-time)</td><td>The date and time when this observation was made</td></tr>
 <tr><td><span style="font-weight:bold;">observationUnitDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation unit</td></tr>
 <tr><td><span style="font-weight:bold;">observationUnitName</span></td><td>string</td><td>A human readable name for an observation unit</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableDbId</span></td><td>string</td><td>The ID which uniquely identifies an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">observationVariableName</span></td><td>string</td><td>A human readable name for an observation variable</td></tr>
 <tr><td><span style="font-weight:bold;">season</span></td><td>object</td><td></td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456   Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
-<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td>season<br><span style="font-weight:bold;margin-left:5px">.season</span></td><td>string</td><td>**Deprecated in v2.1** Please use `seasonName`. Github issue number #456  <br>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td>season<br><span style="font-weight:bold;margin-left:5px">.year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbId</span></td><td>string</td><td>The ID which uniquely identifies a study within the given database server</td></tr>
@@ -1882,11 +1886,11 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
  
 
 + Parameters
-    + Accept (Required, ) ... The requested content type which should be returned by the server
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-    + searchResultsDbId (Required, ) ... Unique identifier which references the search results
-    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Accept (Required, string) ... A standard HTTP request header that is used to request a specific content type (JSON, CSV, etc) which is "acceptable" to the client and should be returned by the server
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + searchResultsDbId (Required, string) ... Unique identifier which references the search results
+    + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
 
 
 

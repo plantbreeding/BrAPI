@@ -40,9 +40,11 @@ components:
           items:
             type: object
             properties:
-              key: 
+              key:
+                description: The key of a key-value entry in a map of Vendor specific requirements 
                 type: string
               description:
+                description: The value of a key-value entry in a map of Vendor specific requirements 
                 type: string
           example:
           - key: genus

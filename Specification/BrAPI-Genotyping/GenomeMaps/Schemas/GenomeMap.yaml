@@ -7,6 +7,11 @@ components:
   schemas:
     GenomeMap: 
       type: object
+      x-brapi-metadata:
+        primaryModel: true
+        module: BrAPI-Genotyping
+        title: GenomeMap
+        description: The GenomeMap represents the metadata associated with a reference map of a particular species genome. A GenomeMap can either represent a physical map or genetic map.     
       required:
       - mapDbId
       - commonCropName
@@ -15,43 +20,43 @@ components:
         additionalInfo:
           additionalProperties:
             type: string
-          description: Additional arbitrary info
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
           type: object
         comments:
-          description: Additional comments
+          description: Additional comments about a `GenomeMap`
           type: string
           example: Comments about this map
         commonCropName:
-          description: The common name of the crop
+          description: The common name of the `Crop`
           type: string
           example: Paw Paw
         documentationURL:
-          description: A URL to the human readable documentation of this object
+          description: A URL to the human readable documentation of an object
           format: uri
           type: string
           example: https://brapi.org
         linkageGroupCount:
-          description: The number of linkage groups present in this genomic map
+          description: The number of linkage groups present in a `GenomeMap`
           type: integer
           example: 5
         mapDbId:
-          description: The ID which uniquely identifies this genomic map
+          description: The ID which uniquely identifies a `GenomeMap`
           type: string
           example: 142cffd5
         mapPUI:
-          description: The DOI or other permanent identifier for this genomic map
+          description: The DOI or other permanent identifier for a `GenomeMap`
           type: string
           example: doi:10.3207/2959859860
         mapName:
-          description: A human readable name for this genomic map
+          description: A human readable name for a `GenomeMap`
           type: string
           example: Genome Map 1
         markerCount:
-          description: The number of markers present in this genomic map
+          description: The number of markers present in a `GenomeMap`
           type: integer
           example: 1100
         publishedDate:
-          description: The date this genome was published
+          description: The date this `GenomeMap` was published
           format: date-time
           type: string
         scientificName:
@@ -59,11 +64,11 @@ components:
           type: string
           example: Zea mays
         type:
-          description: The type of map this represents, usually "Genetic"
+          description: The type of map this represents, usually "Genetic" or "Physical"
           type: string
           example: Genetic
         unit:
-          description: The units used to describe the data in this map
+          description: The units used to describe the data in a `GenomeMap`
           type: string
           example: cM
 

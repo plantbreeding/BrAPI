@@ -16,4 +16,9 @@ components:
         required: 
         - attributeDbId
         type: object
+        x-brapi-metadata:
+          primaryModel: true
+          module: BrAPI-Germplasm
+          title: GermplasmAttribute
+          description: The Trait-Method-Scale definition for a variable, specifically variables related to Germplasm. Similar to an ObservationVariable, but related to a Germplasm instead of an ObservationUnit
 

@@ -7,11 +7,13 @@ components:
   schemas:
     SeedLotNewRequest:
       type: object
+      required:
+      - seedLotName
       properties:
         additionalInfo:
           additionalProperties:
             type: string
-          description: Additional arbitrary info
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
           type: object
         seedLotName:
           description: A human readable name for this Seed Lot 
@@ -89,11 +91,11 @@ components:
                 type: integer
                 example: 100
         amount:
-          description: Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).
+          description: The current balance of the amount of material in a SeedLot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).
           type: number
           example: 561
         units:
-          description: Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)
+          description: A description of the things being counted in a SeedLot (seeds, bulbs, kg, tree, etc)
           type: string
           example: seeds
         externalReferences: 

@@ -7,11 +7,13 @@ components:
   schemas:
     OntologyNewRequest:
       type: object
+      required:
+      - ontologyName
       properties:
         additionalInfo:
           additionalProperties:
             type: string
-          description: Additional arbitrary info
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
           type: object
         authors:
           description: Ontology's list of authors (no specific format)
@@ -26,7 +28,7 @@ components:
           type: string
           example: This is an example ontology that does not exist 
         documentationURL:
-          description: A URL to the human readable documentation of this object
+          description: A URL to the human readable documentation of an object
           format: uri
           type: string
           example: https://wiki.brapi.org/ontology

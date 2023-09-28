@@ -15,17 +15,17 @@ Get a filtered list of Cross entities.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>the unique identifier for a cross</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossAttributes</span></td><td>array[object]</td><td>Set of custom attributes associated with a cross</td></tr>
 <tr><td>crossAttributes<br><span style="font-weight:bold;margin-left:5px">.crossAttributeName</span></td><td>string</td><td>the human readable name of a cross attribute</td></tr>
 <tr><td>crossAttributes<br><span style="font-weight:bold;margin-left:5px">.crossAttributeValue</span></td><td>string</td><td>the value of a cross attribute</td></tr>
-<tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string</td><td>the unique identifier for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossName</span></td><td>string</td><td>the human readable name for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossType</span></td><td>string</td><td>the type of cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>the unique identifier for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string</td><td>the human readable name for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">parent1</span></td><td>object</td><td></td></tr>
@@ -42,29 +42,29 @@ Get a filtered list of Cross entities.
 <tr><td>parent2<br><span style="font-weight:bold;margin-left:5px">.parentType</span></td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
 <tr><td><span style="font-weight:bold;">plannedCrossDbId</span></td><td>string</td><td>the unique identifier for a planned cross</td></tr>
 <tr><td><span style="font-weight:bold;">plannedCrossName</span></td><td>string</td><td>the human readable name for a planned cross</td></tr>
-<tr><td><span style="font-weight:bold;">pollinationEvents</span></td><td>array[object]</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">pollinationEvents</span></td><td>array[object]</td><td>The list of pollination events that occurred for this cross</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationNumber</span></td><td>string</td><td>The unique identifier for this pollination event</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationSuccessful</span></td><td>boolean</td><td>True if the pollination was successful</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationTimeStamp</span></td><td>string<br>(date-time)</td><td>The timestamp when the pollination took place</td></tr>
-<tr><td><span style="font-weight:bold;">pollinationTimeStamp</span></td><td>string<br>(date-time)</td><td>**Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265   the timestamp when the pollination took place</td></tr>
+<tr><td><span style="font-weight:bold;">pollinationTimeStamp</span></td><td>string<br>(date-time)</td><td>**Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265  <br>The timestamp when the pollination took place</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + crossingProjectDbId (Optional, ) ... Search for Crossing Projects with this unique id
-    + crossingProjectName (Optional, ) ... The human readable name for a crossing project
-    + crossDbId (Optional, ) ... Search for Cross with this unique id
-    + crossName (Optional, ) ... Search for Cross with this human readable name
-    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
-    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
-    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
-    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + crossingProjectDbId (Optional, string) ... Search for Crossing Projects with this unique id
+    + crossingProjectName (Optional, string) ... The human readable name for a crossing project
+    + crossDbId (Optional, string) ... Search for Cross with this unique id
+    + crossName (Optional, string) ... Search for Cross with this human readable name
+    + commonCropName (Optional, string) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + programDbId (Optional, string) ... Use this parameter to only return results associated with the given `Program` unique identifier. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
+    + externalReferenceID (Optional, string) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceId (Optional, string) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, string) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
+    + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -170,7 +170,7 @@ Create new Cross entities on this server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossAttributes</span></td><td>array[object]</td><td>Set of custom attributes associated with a cross</td></tr>
 <tr><td>crossAttributes<br><span style="font-weight:bold;margin-left:5px">.crossAttributeName</span></td><td>string</td><td>the human readable name of a cross attribute</td></tr>
 <tr><td>crossAttributes<br><span style="font-weight:bold;margin-left:5px">.crossAttributeValue</span></td><td>string</td><td>the value of a cross attribute</td></tr>
@@ -179,7 +179,7 @@ Create new Cross entities on this server
 <tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>the unique identifier for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string</td><td>the human readable name for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">parent1</span></td><td>object</td><td></td></tr>
@@ -196,11 +196,11 @@ Create new Cross entities on this server
 <tr><td>parent2<br><span style="font-weight:bold;margin-left:5px">.parentType</span></td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
 <tr><td><span style="font-weight:bold;">plannedCrossDbId</span></td><td>string</td><td>the unique identifier for a planned cross</td></tr>
 <tr><td><span style="font-weight:bold;">plannedCrossName</span></td><td>string</td><td>the human readable name for a planned cross</td></tr>
-<tr><td><span style="font-weight:bold;">pollinationEvents</span></td><td>array[object]</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">pollinationEvents</span></td><td>array[object]</td><td>The list of pollination events that occurred for this cross</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationNumber</span></td><td>string</td><td>The unique identifier for this pollination event</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationSuccessful</span></td><td>boolean</td><td>True if the pollination was successful</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationTimeStamp</span></td><td>string<br>(date-time)</td><td>The timestamp when the pollination took place</td></tr>
-<tr><td><span style="font-weight:bold;">pollinationTimeStamp</span></td><td>string<br>(date-time)</td><td>**Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265   the timestamp when the pollination took place</td></tr>
+<tr><td><span style="font-weight:bold;">pollinationTimeStamp</span></td><td>string<br>(date-time)</td><td>**Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265  <br>The timestamp when the pollination took place</td></tr>
 </table>
 
 
@@ -208,17 +208,17 @@ Create new Cross entities on this server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>the unique identifier for a cross</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossAttributes</span></td><td>array[object]</td><td>Set of custom attributes associated with a cross</td></tr>
 <tr><td>crossAttributes<br><span style="font-weight:bold;margin-left:5px">.crossAttributeName</span></td><td>string</td><td>the human readable name of a cross attribute</td></tr>
 <tr><td>crossAttributes<br><span style="font-weight:bold;margin-left:5px">.crossAttributeValue</span></td><td>string</td><td>the value of a cross attribute</td></tr>
-<tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string</td><td>the unique identifier for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossName</span></td><td>string</td><td>the human readable name for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossType</span></td><td>string</td><td>the type of cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>the unique identifier for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string</td><td>the human readable name for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">parent1</span></td><td>object</td><td></td></tr>
@@ -235,18 +235,18 @@ Create new Cross entities on this server
 <tr><td>parent2<br><span style="font-weight:bold;margin-left:5px">.parentType</span></td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
 <tr><td><span style="font-weight:bold;">plannedCrossDbId</span></td><td>string</td><td>the unique identifier for a planned cross</td></tr>
 <tr><td><span style="font-weight:bold;">plannedCrossName</span></td><td>string</td><td>the human readable name for a planned cross</td></tr>
-<tr><td><span style="font-weight:bold;">pollinationEvents</span></td><td>array[object]</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">pollinationEvents</span></td><td>array[object]</td><td>The list of pollination events that occurred for this cross</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationNumber</span></td><td>string</td><td>The unique identifier for this pollination event</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationSuccessful</span></td><td>boolean</td><td>True if the pollination was successful</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationTimeStamp</span></td><td>string<br>(date-time)</td><td>The timestamp when the pollination took place</td></tr>
-<tr><td><span style="font-weight:bold;">pollinationTimeStamp</span></td><td>string<br>(date-time)</td><td>**Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265   the timestamp when the pollination took place</td></tr>
+<tr><td><span style="font-weight:bold;">pollinationTimeStamp</span></td><td>string<br>(date-time)</td><td>**Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265  <br>The timestamp when the pollination took place</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -412,17 +412,17 @@ Update existing Cross entities on this server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>the unique identifier for a cross</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossAttributes</span></td><td>array[object]</td><td>Set of custom attributes associated with a cross</td></tr>
 <tr><td>crossAttributes<br><span style="font-weight:bold;margin-left:5px">.crossAttributeName</span></td><td>string</td><td>the human readable name of a cross attribute</td></tr>
 <tr><td>crossAttributes<br><span style="font-weight:bold;margin-left:5px">.crossAttributeValue</span></td><td>string</td><td>the value of a cross attribute</td></tr>
-<tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string</td><td>the unique identifier for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossName</span></td><td>string</td><td>the human readable name for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossType</span></td><td>string</td><td>the type of cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectDbId</span></td><td>string</td><td>the unique identifier for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">crossingProjectName</span></td><td>string</td><td>the human readable name for a crossing project</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">parent1</span></td><td>object</td><td></td></tr>
@@ -439,18 +439,18 @@ Update existing Cross entities on this server
 <tr><td>parent2<br><span style="font-weight:bold;margin-left:5px">.parentType</span></td><td>string</td><td>The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.</td></tr>
 <tr><td><span style="font-weight:bold;">plannedCrossDbId</span></td><td>string</td><td>the unique identifier for a planned cross</td></tr>
 <tr><td><span style="font-weight:bold;">plannedCrossName</span></td><td>string</td><td>the human readable name for a planned cross</td></tr>
-<tr><td><span style="font-weight:bold;">pollinationEvents</span></td><td>array[object]</td><td></td></tr>
+<tr><td><span style="font-weight:bold;">pollinationEvents</span></td><td>array[object]</td><td>The list of pollination events that occurred for this cross</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationNumber</span></td><td>string</td><td>The unique identifier for this pollination event</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationSuccessful</span></td><td>boolean</td><td>True if the pollination was successful</td></tr>
 <tr><td>pollinationEvents<br><span style="font-weight:bold;margin-left:5px">.pollinationTimeStamp</span></td><td>string<br>(date-time)</td><td>The timestamp when the pollination took place</td></tr>
-<tr><td><span style="font-weight:bold;">pollinationTimeStamp</span></td><td>string<br>(date-time)</td><td>**Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265   the timestamp when the pollination took place</td></tr>
+<tr><td><span style="font-weight:bold;">pollinationTimeStamp</span></td><td>string<br>(date-time)</td><td>**Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265  <br>The timestamp when the pollination took place</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  

@@ -17,43 +17,43 @@ components:
       - type: object
         properties: 
           observationUnitDbIds: 
-            description: The ID which uniquely identifies an observation unit
+            description: The ID which uniquely identifies an `ObservationUnit`
             items:
               type: string
             type: array
             example: [ '3cd0ca36', '983f3b14']
           plateDbIds:
-            description: The ID which uniquely identifies a plate of samples
+            description: The ID which uniquely identifies a `Plate` of `Samples`
             items:
               type: string
             type: array
             example: [ '0cac98b8', 'b96125fb']
           plateNames:
-            description: The human readable name of a plate of samples
+            description: The human readable name of a `Plate` of `Samples`
             items:
               type: string
             type: array
             example: [ '0cac98b8', 'b96125fb']
           sampleDbIds:
-            description: The ID which uniquely identifies a sample
+            description: The ID which uniquely identifies a `Sample`
             items:
               type: string
             type: array
             example: [ '3bece2ca', 'dd286cc6']
           sampleNames:
-            description: The human readable name of the sample
+            description: The human readable name of the `Sample`
             items:
               type: string
             type: array
             example: [ 'SA_111', 'SA_222']
           sampleGroupDbIds:
-            description: The unique identifier for a group of related Samples
+            description: The unique identifier for a group of related `Samples`
             items:
               type: string
             type: array
             example: [ '45e1e2d7', '6cc6dd28']
           germplasmDbIds:
-            description: The ID which uniquely identifies a germplasm
+            description: The ID which uniquely identifies a `Germplasm`
             items:
               type: string
             type: array

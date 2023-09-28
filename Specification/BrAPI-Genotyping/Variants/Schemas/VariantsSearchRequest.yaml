@@ -29,19 +29,20 @@ components:
             type: integer
             example: 1500
           referenceDbId:
+            deprecated: true
             description: |-
               **Deprecated in v2.1** Please use `referenceDbIds`. Github issue number #472
               <br/>Only return variants on this reference.
             type: string
             example: 120a2d5c
           referenceDbIds:
-            description: The unique identifier representing a genotype Reference 
+            description: The unique identifier representing a genotype `Reference`
             items:
               type: string
             type: array
             example: ['89ab4d17', '74d3b63d']
           referenceSetDbIds:
-            description: The unique identifier representing a genotype ReferenceSet 
+            description: The unique identifier representing a genotype `ReferenceSet` 
             items:
               type: string
             type: array
@@ -51,13 +52,13 @@ components:
             type: integer
             example: 100
           variantDbIds: 
-            description: The `Variant`s to search.
+            description: A list of IDs which uniquely identify `Variants`
             items:
               type: string
             type: array
             example: ['3b63d889', 'ab4d174d']
           variantSetDbIds: 
-            description: The `VariantSet` to search.
+            description: A list of IDs which uniquely identify `VariantSets`
             items:
               type: string
             type: array

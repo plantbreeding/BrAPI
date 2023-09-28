@@ -15,24 +15,9 @@ paths:
               
         For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
       parameters:
-      - description: Filter by study DbId
-        in: query
-        name: studyDbId
-        required: false
-        schema:
-          type: string
-      - description: Filter by trial DbId
-        in: query
-        name: trialDbId
-        required: false
-        schema:
-          type: string
-      - description: Filter by program DbId
-        in: query
-        name: programDbId
-        required: false
-        schema:
-          type: string
+      - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/trialDbId'
+      - $ref: '#/components/parameters/studyDbId'
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
@@ -54,6 +39,7 @@ paths:
                     type: object
                     properties:
                       data:
+                        description: The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.
                         type: array
                         items:
                           $ref: '#/components/schemas/ObservationUnitHierarchyLevel'

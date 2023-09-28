@@ -9,6 +9,11 @@ components:
       allOf:
       - $ref: '#/components/schemas/TrialNewRequest'
       - type: object
+        x-brapi-metadata:
+          primaryModel: true
+          module: BrAPI-Core
+          title: Trial
+          description: A Trial represents a collection of Study objects, and the metadata associated with that collection. A Trial could represent a multi-location experiment, and could contain information related to publications and data licensing.
         required:
         - trialDbId
         properties:

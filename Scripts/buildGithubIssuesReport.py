@@ -3,6 +3,9 @@
 ## Usage
 ## py buildGithubIssuesReport.py project_query_string [open_query_string]
 
+## Example
+## py buildGithubIssuesReport.py plantbreeding/BrAPI/6 closed
+
 import requests
 import sys
 from jsonschema._utils import indent
@@ -29,6 +32,8 @@ def getIssues(project, isOpen):
     testURL = "https://api.github.com/search/issues?per_page=100&q=is:issue%20is:" + isOpen + "%20project:" + project
     response = requests.get(testURL)
     rawIssues = response.json()
+    print(len(rawIssues["items"]))
+    print(rawIssues["total_count"])
     for rawIssue in rawIssues["items"]:
         newIssue = {
             "url": rawIssue["html_url"],

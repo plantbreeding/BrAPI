@@ -32,12 +32,6 @@ paths:
         required: false
         schema:
           type: string
-      - name: germplasmDbId
-        description: Get all attributes associated with this germplasm
-        in: query
-        required: false
-        schema:
-          type: string
       - $ref: '#/components/parameters/methodDbId'
       - $ref: '#/components/parameters/methodName'
       - $ref: '#/components/parameters/methodPUI'
@@ -49,6 +43,7 @@ paths:
       - $ref: '#/components/parameters/traitPUI'
       - $ref: '#/components/parameters/commonCropName'
       - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/germplasmDbId'
       - $ref: '#/components/parameters/externalReferenceID'
       - $ref: '#/components/parameters/externalReferenceId'
       - $ref: '#/components/parameters/externalReferenceSource'
@@ -105,6 +100,7 @@ components:
               result:
                 properties:
                   data:
+                    description: The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.
                     items:
                       $ref: '#/components/schemas/GermplasmAttribute'
                     type: array

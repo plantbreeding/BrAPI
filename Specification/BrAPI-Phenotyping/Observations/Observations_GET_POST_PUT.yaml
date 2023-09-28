@@ -23,33 +23,15 @@ paths:
         required: false
         schema:
           type: string 
-      - description: The unique ID of a germplasm (accession) to filter on
-        in: query
-        name: germplasmDbId
-        required: false
-        schema:
-          type: string
       - description: The unique ID of an observation variable
         in: query
         name: observationVariableDbId
         required: false
         schema:
           type: string 
-      - description: The unique ID of a studies to filter on
-        in: query
-        name: studyDbId 
-        required: false
-        schema:
-          type: string
       - description: The unique ID of a location where these observations were collected
         in: query
         name: locationDbId
-        required: false
-        schema:
-          type: string
-      - description: The unique ID of a trial to filter on
-        in: query
-        name: trialDbId
         required: false
         schema:
           type: string
@@ -82,6 +64,9 @@ paths:
       - $ref: '#/components/parameters/observationUnitLevelRelationshipDbId'
       - $ref: '#/components/parameters/commonCropName'
       - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/trialDbId'
+      - $ref: '#/components/parameters/studyDbId'
+      - $ref: '#/components/parameters/germplasmDbId'
       - $ref: '#/components/parameters/externalReferenceID'
       - $ref: '#/components/parameters/externalReferenceId'
       - $ref: '#/components/parameters/externalReferenceSource'
@@ -212,6 +197,7 @@ components:
               result:
                 properties:
                   data:
+                    description: The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.
                     items:
                       $ref: '#/components/schemas/Observation'
                     type: array

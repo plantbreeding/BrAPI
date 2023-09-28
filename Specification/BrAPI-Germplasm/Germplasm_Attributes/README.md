@@ -8,7 +8,7 @@ hardness.  They are often evaluated by genotyping for diagnostic markers.
 
 
 
-### Get - /attributes [GET /brapi/v2/attributes{?attributeCategory}{?attributeDbId}{?attributeName}{?attributePUI}{?germplasmDbId}{?methodDbId}{?methodName}{?methodPUI}{?scaleDbId}{?scaleName}{?scalePUI}{?traitDbId}{?traitName}{?traitPUI}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /attributes [GET /brapi/v2/attributes{?attributeCategory}{?attributeDbId}{?attributeName}{?attributePUI}{?methodDbId}{?methodName}{?methodPUI}{?scaleDbId}{?scaleName}{?scalePUI}{?traitDbId}{?traitName}{?traitPUI}{?commonCropName}{?programDbId}{?germplasmDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 List available attributes.
 
@@ -18,135 +18,65 @@ List available attributes.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">attributeDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">attributeName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for this attribute</td></tr>
+<tr><td><span style="font-weight:bold;">method</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A description of the way an Observation should be collected.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Method "estimation" or "drone image processing". </td></tr>
+<tr><td><span style="font-weight:bold;">scale</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A Scale describes the units and acceptable values for an ObservationVariable.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".</td></tr>
+<tr><td><span style="font-weight:bold;">trait</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A Trait describes what property is being observed.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height". </td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">attributeCategory</span></td><td>string</td><td>General category for the attribute. very similar to Trait class.</td></tr>
-<tr><td><span style="font-weight:bold;">attributeDbId</span></td><td>string</td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">attributeDescription</span></td><td>string</td><td>A human readable description of this attribute</td></tr>
-<tr><td><span style="font-weight:bold;">attributeName</span></td><td>string</td><td>A human readable name for this attribute</td></tr>
 <tr><td><span style="font-weight:bold;">attributePUI</span></td><td>string</td><td>The Permanent Unique Identifier of an Attribute, usually in the form of a URI</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Crop name (examples: "Maize", "Wheat")</td></tr>
 <tr><td><span style="font-weight:bold;">contextOfUse</span></td><td>array[string]</td><td>Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])</td></tr>
 <tr><td><span style="font-weight:bold;">defaultValue</span></td><td>string</td><td>Variable default value. (examples: "red", "2.3", etc.)</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">growthStage</span></td><td>string</td><td>Growth stage at which measurement is made (examples: "flowering")</td></tr>
 <tr><td><span style="font-weight:bold;">institution</span></td><td>string</td><td>Name of institution submitting the variable</td></tr>
 <tr><td><span style="font-weight:bold;">language</span></td><td>string</td><td>2 letter ISO 639-1 code for the language of submission of the variable.</td></tr>
-<tr><td><span style="font-weight:bold;">method</span></td><td>object</td><td></td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.bibliographicalReference</span></td><td>string</td><td>Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.formula</span></td><td>string</td><td>For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodClass</span></td><td>string</td><td>Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodDbId</span></td><td>string</td><td>Method unique identifier</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodName</span></td><td>string</td><td>Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Method, usually in the form of a URI</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>method<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>method<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 <tr><td><span style="font-weight:bold;">ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology name</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
 <tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
 <tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td><span style="font-weight:bold;">scale</span></td><td>object</td><td>Scale metadata</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.dataType</span></td><td>string</td><td><p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p></td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.decimalPlaces</span></td><td>integer</td><td>For numerical, number of decimal places to be reported</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>scale<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>scale<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scaleDbId</span></td><td>string</td><td>Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scaleName</span></td><td>string</td><td>Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scalePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Scale, usually in the form of a URI</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.units</span></td><td>string</td><td>This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.validValues</span></td><td>object</td><td></td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.categories</span></td><td>array[object]</td><td>List of possible values with optional labels</td></tr>
-<tr><td>scale<br>.validValues<br>.categories<br><span style="font-weight:bold;margin-left:5px">.label</span></td><td>string</td><td>A text label for a category</td></tr>
-<tr><td>scale<br>.validValues<br>.categories<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>string</td><td>The actual value for a category</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.max</span></td><td>integer</td><td>**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.maximumValue</span></td><td>string</td><td>Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.min</span></td><td>integer</td><td>**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.minimumValue</span></td><td>string</td><td>Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
 <tr><td><span style="font-weight:bold;">scientist</span></td><td>string</td><td>Name of scientist submitting the variable.</td></tr>
 <tr><td><span style="font-weight:bold;">status</span></td><td>string</td><td>Variable status. (examples: "recommended", "obsolete", "legacy", etc.)</td></tr>
 <tr><td><span style="font-weight:bold;">submissionTimestamp</span></td><td>string<br>(date-time)</td><td>Timestamp when the Variable was added (ISO 8601)</td></tr>
 <tr><td><span style="font-weight:bold;">synonyms</span></td><td>array[string]</td><td>Other variable names</td></tr>
-<tr><td><span style="font-weight:bold;">trait</span></td><td>object</td><td></td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.alternativeAbbreviations</span></td><td>array[string]</td><td>Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.attribute</span></td><td>string</td><td>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.attributePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.entity</span></td><td>string</td><td>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.entityPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" </td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.mainAbbreviation</span></td><td>string</td><td>Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>trait<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>trait<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.status</span></td><td>string</td><td>Trait status (examples: "recommended", "obsolete", "legacy", etc.)</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.synonyms</span></td><td>array[string]</td><td>Other trait names</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitClass</span></td><td>string</td><td>A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitDbId</span></td><td>string</td><td>The ID which uniquely identifies a trait</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitDescription</span></td><td>string</td><td>The description of a trait</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitName</span></td><td>string</td><td>The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait, usually in the form of a URI</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + attributeCategory (Optional, ) ... The general category for the attribute. very similar to Trait class.
-    + attributeDbId (Optional, ) ... The unique id for an attribute
-    + attributeName (Optional, ) ... The human readable name for an attribute
-    + attributePUI (Optional, ) ... The Permanent Unique Identifier of an Attribute, usually in the form of a URI
-    + germplasmDbId (Optional, ) ... Get all attributes associated with this germplasm
-    + methodDbId (Optional, ) ... Method unique identifier
-    + methodName (Optional, ) ... Human readable name for the method<br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation
-    + methodPUI (Optional, ) ... The Permanent Unique Identifier of a Method, usually in the form of a URI
-    + scaleDbId (Optional, ) ... Scale unique identifier
-    + scaleName (Optional, ) ... Human readable name for the scale<br/>MIAPPE V1.1 (DM-88) Scale  Name of the scale of observation
-    + scalePUI (Optional, ) ... The Permanent Unique Identifier of a Scale, usually in the form of a URI
-    + traitDbId (Optional, ) ... Trait unique identifier
-    + traitName (Optional, ) ... Human readable name for the trait<br/>MIAPPE V1.1 (DM-88) Trait  Name of the trait of observation
-    + traitPUI (Optional, ) ... The Permanent Unique Identifier of a Trait, usually in the form of a URI
-    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
-    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
-    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
-    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + attributeCategory (Optional, string) ... The general category for the attribute. very similar to Trait class.
+    + attributeDbId (Optional, string) ... The unique id for an attribute
+    + attributeName (Optional, string) ... The human readable name for an attribute
+    + attributePUI (Optional, string) ... The Permanent Unique Identifier of an Attribute, usually in the form of a URI
+    + methodDbId (Optional, string) ... Method unique identifier
+    + methodName (Optional, string) ... Human readable name for the method<br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation
+    + methodPUI (Optional, string) ... The Permanent Unique Identifier of a Method, usually in the form of a URI
+    + scaleDbId (Optional, string) ... Scale unique identifier
+    + scaleName (Optional, string) ... Human readable name for the scale<br/>MIAPPE V1.1 (DM-88) Scale  Name of the scale of observation
+    + scalePUI (Optional, string) ... The Permanent Unique Identifier of a Scale, usually in the form of a URI
+    + traitDbId (Optional, string) ... Trait unique identifier
+    + traitName (Optional, string) ... Human readable name for the trait<br/>MIAPPE V1.1 (DM-88) Trait  Name of the trait of observation
+    + traitPUI (Optional, string) ... The Permanent Unique Identifier of a Trait, usually in the form of a URI
+    + commonCropName (Optional, string) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + programDbId (Optional, string) ... Use this parameter to only return results associated with the given `Program` unique identifier. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
+    + germplasmDbId (Optional, string) ... Use this parameter to only return results associated with the given `Germplasm` unique identifier. <br/>Use `GET /germplasm` to find the list of available `Germplasm` on a server.
+    + externalReferenceID (Optional, string) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceId (Optional, string) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, string) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
+    + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -379,106 +309,36 @@ Create new Germplasm Attributes
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">attributeName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for this attribute</td></tr>
+<tr><td><span style="font-weight:bold;">method</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A description of the way an Observation should be collected.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Method "estimation" or "drone image processing". </td></tr>
+<tr><td><span style="font-weight:bold;">scale</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A Scale describes the units and acceptable values for an ObservationVariable.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".</td></tr>
+<tr><td><span style="font-weight:bold;">trait</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A Trait describes what property is being observed.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height". </td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">attributeCategory</span></td><td>string</td><td>General category for the attribute. very similar to Trait class.</td></tr>
 <tr><td><span style="font-weight:bold;">attributeDescription</span></td><td>string</td><td>A human readable description of this attribute</td></tr>
-<tr><td><span style="font-weight:bold;">attributeName</span></td><td>string</td><td>A human readable name for this attribute</td></tr>
 <tr><td><span style="font-weight:bold;">attributePUI</span></td><td>string</td><td>The Permanent Unique Identifier of an Attribute, usually in the form of a URI</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Crop name (examples: "Maize", "Wheat")</td></tr>
 <tr><td><span style="font-weight:bold;">contextOfUse</span></td><td>array[string]</td><td>Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])</td></tr>
 <tr><td><span style="font-weight:bold;">defaultValue</span></td><td>string</td><td>Variable default value. (examples: "red", "2.3", etc.)</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">growthStage</span></td><td>string</td><td>Growth stage at which measurement is made (examples: "flowering")</td></tr>
 <tr><td><span style="font-weight:bold;">institution</span></td><td>string</td><td>Name of institution submitting the variable</td></tr>
 <tr><td><span style="font-weight:bold;">language</span></td><td>string</td><td>2 letter ISO 639-1 code for the language of submission of the variable.</td></tr>
-<tr><td><span style="font-weight:bold;">method</span></td><td>object</td><td></td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.bibliographicalReference</span></td><td>string</td><td>Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.formula</span></td><td>string</td><td>For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodClass</span></td><td>string</td><td>Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodDbId</span></td><td>string</td><td>Method unique identifier</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodName</span></td><td>string</td><td>Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Method, usually in the form of a URI</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>method<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>method<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 <tr><td><span style="font-weight:bold;">ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology name</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
 <tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
 <tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td><span style="font-weight:bold;">scale</span></td><td>object</td><td>Scale metadata</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.dataType</span></td><td>string</td><td><p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p></td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.decimalPlaces</span></td><td>integer</td><td>For numerical, number of decimal places to be reported</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>scale<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>scale<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scaleDbId</span></td><td>string</td><td>Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scaleName</span></td><td>string</td><td>Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scalePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Scale, usually in the form of a URI</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.units</span></td><td>string</td><td>This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.validValues</span></td><td>object</td><td></td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.categories</span></td><td>array[object]</td><td>List of possible values with optional labels</td></tr>
-<tr><td>scale<br>.validValues<br>.categories<br><span style="font-weight:bold;margin-left:5px">.label</span></td><td>string</td><td>A text label for a category</td></tr>
-<tr><td>scale<br>.validValues<br>.categories<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>string</td><td>The actual value for a category</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.max</span></td><td>integer</td><td>**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.maximumValue</span></td><td>string</td><td>Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.min</span></td><td>integer</td><td>**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.minimumValue</span></td><td>string</td><td>Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
 <tr><td><span style="font-weight:bold;">scientist</span></td><td>string</td><td>Name of scientist submitting the variable.</td></tr>
 <tr><td><span style="font-weight:bold;">status</span></td><td>string</td><td>Variable status. (examples: "recommended", "obsolete", "legacy", etc.)</td></tr>
 <tr><td><span style="font-weight:bold;">submissionTimestamp</span></td><td>string<br>(date-time)</td><td>Timestamp when the Variable was added (ISO 8601)</td></tr>
 <tr><td><span style="font-weight:bold;">synonyms</span></td><td>array[string]</td><td>Other variable names</td></tr>
-<tr><td><span style="font-weight:bold;">trait</span></td><td>object</td><td></td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.alternativeAbbreviations</span></td><td>array[string]</td><td>Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.attribute</span></td><td>string</td><td>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.attributePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.entity</span></td><td>string</td><td>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.entityPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" </td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.mainAbbreviation</span></td><td>string</td><td>Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>trait<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>trait<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.status</span></td><td>string</td><td>Trait status (examples: "recommended", "obsolete", "legacy", etc.)</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.synonyms</span></td><td>array[string]</td><td>Other trait names</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitClass</span></td><td>string</td><td>A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitDbId</span></td><td>string</td><td>The ID which uniquely identifies a trait</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitDescription</span></td><td>string</td><td>The description of a trait</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitName</span></td><td>string</td><td>The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait, usually in the form of a URI</td></tr>
 </table>
 
 
@@ -486,114 +346,44 @@ Create new Germplasm Attributes
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">attributeDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">attributeName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for this attribute</td></tr>
+<tr><td><span style="font-weight:bold;">method</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A description of the way an Observation should be collected.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Method "estimation" or "drone image processing". </td></tr>
+<tr><td><span style="font-weight:bold;">scale</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A Scale describes the units and acceptable values for an ObservationVariable.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".</td></tr>
+<tr><td><span style="font-weight:bold;">trait</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A Trait describes what property is being observed.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height". </td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">attributeCategory</span></td><td>string</td><td>General category for the attribute. very similar to Trait class.</td></tr>
-<tr><td><span style="font-weight:bold;">attributeDbId</span></td><td>string</td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">attributeDescription</span></td><td>string</td><td>A human readable description of this attribute</td></tr>
-<tr><td><span style="font-weight:bold;">attributeName</span></td><td>string</td><td>A human readable name for this attribute</td></tr>
 <tr><td><span style="font-weight:bold;">attributePUI</span></td><td>string</td><td>The Permanent Unique Identifier of an Attribute, usually in the form of a URI</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Crop name (examples: "Maize", "Wheat")</td></tr>
 <tr><td><span style="font-weight:bold;">contextOfUse</span></td><td>array[string]</td><td>Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])</td></tr>
 <tr><td><span style="font-weight:bold;">defaultValue</span></td><td>string</td><td>Variable default value. (examples: "red", "2.3", etc.)</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">growthStage</span></td><td>string</td><td>Growth stage at which measurement is made (examples: "flowering")</td></tr>
 <tr><td><span style="font-weight:bold;">institution</span></td><td>string</td><td>Name of institution submitting the variable</td></tr>
 <tr><td><span style="font-weight:bold;">language</span></td><td>string</td><td>2 letter ISO 639-1 code for the language of submission of the variable.</td></tr>
-<tr><td><span style="font-weight:bold;">method</span></td><td>object</td><td></td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.bibliographicalReference</span></td><td>string</td><td>Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.formula</span></td><td>string</td><td>For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodClass</span></td><td>string</td><td>Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodDbId</span></td><td>string</td><td>Method unique identifier</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodName</span></td><td>string</td><td>Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Method, usually in the form of a URI</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>method<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>method<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 <tr><td><span style="font-weight:bold;">ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology name</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
 <tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
 <tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td><span style="font-weight:bold;">scale</span></td><td>object</td><td>Scale metadata</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.dataType</span></td><td>string</td><td><p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p></td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.decimalPlaces</span></td><td>integer</td><td>For numerical, number of decimal places to be reported</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>scale<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>scale<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scaleDbId</span></td><td>string</td><td>Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scaleName</span></td><td>string</td><td>Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scalePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Scale, usually in the form of a URI</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.units</span></td><td>string</td><td>This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.validValues</span></td><td>object</td><td></td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.categories</span></td><td>array[object]</td><td>List of possible values with optional labels</td></tr>
-<tr><td>scale<br>.validValues<br>.categories<br><span style="font-weight:bold;margin-left:5px">.label</span></td><td>string</td><td>A text label for a category</td></tr>
-<tr><td>scale<br>.validValues<br>.categories<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>string</td><td>The actual value for a category</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.max</span></td><td>integer</td><td>**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.maximumValue</span></td><td>string</td><td>Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.min</span></td><td>integer</td><td>**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.minimumValue</span></td><td>string</td><td>Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
 <tr><td><span style="font-weight:bold;">scientist</span></td><td>string</td><td>Name of scientist submitting the variable.</td></tr>
 <tr><td><span style="font-weight:bold;">status</span></td><td>string</td><td>Variable status. (examples: "recommended", "obsolete", "legacy", etc.)</td></tr>
 <tr><td><span style="font-weight:bold;">submissionTimestamp</span></td><td>string<br>(date-time)</td><td>Timestamp when the Variable was added (ISO 8601)</td></tr>
 <tr><td><span style="font-weight:bold;">synonyms</span></td><td>array[string]</td><td>Other variable names</td></tr>
-<tr><td><span style="font-weight:bold;">trait</span></td><td>object</td><td></td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.alternativeAbbreviations</span></td><td>array[string]</td><td>Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.attribute</span></td><td>string</td><td>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.attributePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.entity</span></td><td>string</td><td>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.entityPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" </td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.mainAbbreviation</span></td><td>string</td><td>Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>trait<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>trait<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.status</span></td><td>string</td><td>Trait status (examples: "recommended", "obsolete", "legacy", etc.)</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.synonyms</span></td><td>array[string]</td><td>Other trait names</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitClass</span></td><td>string</td><td>A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitDbId</span></td><td>string</td><td>The ID which uniquely identifies a trait</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitDescription</span></td><td>string</td><td>The description of a trait</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitName</span></td><td>string</td><td>The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait, usually in the form of a URI</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -1014,9 +804,9 @@ List all available attribute categories.
  
 
 + Parameters
-    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -1079,115 +869,45 @@ Get the details for a specific Germplasm Attribute
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">attributeDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">attributeName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for this attribute</td></tr>
+<tr><td><span style="font-weight:bold;">method</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A description of the way an Observation should be collected.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Method "estimation" or "drone image processing". </td></tr>
+<tr><td><span style="font-weight:bold;">scale</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A Scale describes the units and acceptable values for an ObservationVariable.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".</td></tr>
+<tr><td><span style="font-weight:bold;">trait</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A Trait describes what property is being observed.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height". </td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">attributeCategory</span></td><td>string</td><td>General category for the attribute. very similar to Trait class.</td></tr>
-<tr><td><span style="font-weight:bold;">attributeDbId</span></td><td>string</td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">attributeDescription</span></td><td>string</td><td>A human readable description of this attribute</td></tr>
-<tr><td><span style="font-weight:bold;">attributeName</span></td><td>string</td><td>A human readable name for this attribute</td></tr>
 <tr><td><span style="font-weight:bold;">attributePUI</span></td><td>string</td><td>The Permanent Unique Identifier of an Attribute, usually in the form of a URI</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Crop name (examples: "Maize", "Wheat")</td></tr>
 <tr><td><span style="font-weight:bold;">contextOfUse</span></td><td>array[string]</td><td>Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])</td></tr>
 <tr><td><span style="font-weight:bold;">defaultValue</span></td><td>string</td><td>Variable default value. (examples: "red", "2.3", etc.)</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">growthStage</span></td><td>string</td><td>Growth stage at which measurement is made (examples: "flowering")</td></tr>
 <tr><td><span style="font-weight:bold;">institution</span></td><td>string</td><td>Name of institution submitting the variable</td></tr>
 <tr><td><span style="font-weight:bold;">language</span></td><td>string</td><td>2 letter ISO 639-1 code for the language of submission of the variable.</td></tr>
-<tr><td><span style="font-weight:bold;">method</span></td><td>object</td><td></td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.bibliographicalReference</span></td><td>string</td><td>Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.formula</span></td><td>string</td><td>For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodClass</span></td><td>string</td><td>Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodDbId</span></td><td>string</td><td>Method unique identifier</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodName</span></td><td>string</td><td>Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Method, usually in the form of a URI</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>method<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>method<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 <tr><td><span style="font-weight:bold;">ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology name</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
 <tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
 <tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td><span style="font-weight:bold;">scale</span></td><td>object</td><td>Scale metadata</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.dataType</span></td><td>string</td><td><p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p></td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.decimalPlaces</span></td><td>integer</td><td>For numerical, number of decimal places to be reported</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>scale<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>scale<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scaleDbId</span></td><td>string</td><td>Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scaleName</span></td><td>string</td><td>Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scalePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Scale, usually in the form of a URI</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.units</span></td><td>string</td><td>This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.validValues</span></td><td>object</td><td></td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.categories</span></td><td>array[object]</td><td>List of possible values with optional labels</td></tr>
-<tr><td>scale<br>.validValues<br>.categories<br><span style="font-weight:bold;margin-left:5px">.label</span></td><td>string</td><td>A text label for a category</td></tr>
-<tr><td>scale<br>.validValues<br>.categories<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>string</td><td>The actual value for a category</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.max</span></td><td>integer</td><td>**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.maximumValue</span></td><td>string</td><td>Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.min</span></td><td>integer</td><td>**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.minimumValue</span></td><td>string</td><td>Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
 <tr><td><span style="font-weight:bold;">scientist</span></td><td>string</td><td>Name of scientist submitting the variable.</td></tr>
 <tr><td><span style="font-weight:bold;">status</span></td><td>string</td><td>Variable status. (examples: "recommended", "obsolete", "legacy", etc.)</td></tr>
 <tr><td><span style="font-weight:bold;">submissionTimestamp</span></td><td>string<br>(date-time)</td><td>Timestamp when the Variable was added (ISO 8601)</td></tr>
 <tr><td><span style="font-weight:bold;">synonyms</span></td><td>array[string]</td><td>Other variable names</td></tr>
-<tr><td><span style="font-weight:bold;">trait</span></td><td>object</td><td></td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.alternativeAbbreviations</span></td><td>array[string]</td><td>Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.attribute</span></td><td>string</td><td>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.attributePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.entity</span></td><td>string</td><td>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.entityPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" </td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.mainAbbreviation</span></td><td>string</td><td>Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>trait<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>trait<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.status</span></td><td>string</td><td>Trait status (examples: "recommended", "obsolete", "legacy", etc.)</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.synonyms</span></td><td>array[string]</td><td>Other trait names</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitClass</span></td><td>string</td><td>A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitDbId</span></td><td>string</td><td>The ID which uniquely identifies a trait</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitDescription</span></td><td>string</td><td>The description of a trait</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitName</span></td><td>string</td><td>The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait, usually in the form of a URI</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + attributeDbId (Required, ) ... The unique id for an attribute
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + attributeDbId (Required, string) ... The unique id for an attribute
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -1416,106 +1136,36 @@ Update an existing Germplasm Attribute
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">attributeName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for this attribute</td></tr>
+<tr><td><span style="font-weight:bold;">method</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A description of the way an Observation should be collected.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Method "estimation" or "drone image processing". </td></tr>
+<tr><td><span style="font-weight:bold;">scale</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A Scale describes the units and acceptable values for an ObservationVariable.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".</td></tr>
+<tr><td><span style="font-weight:bold;">trait</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A Trait describes what property is being observed.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height". </td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">attributeCategory</span></td><td>string</td><td>General category for the attribute. very similar to Trait class.</td></tr>
 <tr><td><span style="font-weight:bold;">attributeDescription</span></td><td>string</td><td>A human readable description of this attribute</td></tr>
-<tr><td><span style="font-weight:bold;">attributeName</span></td><td>string</td><td>A human readable name for this attribute</td></tr>
 <tr><td><span style="font-weight:bold;">attributePUI</span></td><td>string</td><td>The Permanent Unique Identifier of an Attribute, usually in the form of a URI</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Crop name (examples: "Maize", "Wheat")</td></tr>
 <tr><td><span style="font-weight:bold;">contextOfUse</span></td><td>array[string]</td><td>Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])</td></tr>
 <tr><td><span style="font-weight:bold;">defaultValue</span></td><td>string</td><td>Variable default value. (examples: "red", "2.3", etc.)</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">growthStage</span></td><td>string</td><td>Growth stage at which measurement is made (examples: "flowering")</td></tr>
 <tr><td><span style="font-weight:bold;">institution</span></td><td>string</td><td>Name of institution submitting the variable</td></tr>
 <tr><td><span style="font-weight:bold;">language</span></td><td>string</td><td>2 letter ISO 639-1 code for the language of submission of the variable.</td></tr>
-<tr><td><span style="font-weight:bold;">method</span></td><td>object</td><td></td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.bibliographicalReference</span></td><td>string</td><td>Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.formula</span></td><td>string</td><td>For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodClass</span></td><td>string</td><td>Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodDbId</span></td><td>string</td><td>Method unique identifier</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodName</span></td><td>string</td><td>Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Method, usually in the form of a URI</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>method<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>method<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 <tr><td><span style="font-weight:bold;">ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology name</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
 <tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
 <tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td><span style="font-weight:bold;">scale</span></td><td>object</td><td>Scale metadata</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.dataType</span></td><td>string</td><td><p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p></td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.decimalPlaces</span></td><td>integer</td><td>For numerical, number of decimal places to be reported</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>scale<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>scale<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scaleDbId</span></td><td>string</td><td>Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scaleName</span></td><td>string</td><td>Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scalePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Scale, usually in the form of a URI</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.units</span></td><td>string</td><td>This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.validValues</span></td><td>object</td><td></td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.categories</span></td><td>array[object]</td><td>List of possible values with optional labels</td></tr>
-<tr><td>scale<br>.validValues<br>.categories<br><span style="font-weight:bold;margin-left:5px">.label</span></td><td>string</td><td>A text label for a category</td></tr>
-<tr><td>scale<br>.validValues<br>.categories<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>string</td><td>The actual value for a category</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.max</span></td><td>integer</td><td>**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.maximumValue</span></td><td>string</td><td>Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.min</span></td><td>integer</td><td>**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.minimumValue</span></td><td>string</td><td>Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
 <tr><td><span style="font-weight:bold;">scientist</span></td><td>string</td><td>Name of scientist submitting the variable.</td></tr>
 <tr><td><span style="font-weight:bold;">status</span></td><td>string</td><td>Variable status. (examples: "recommended", "obsolete", "legacy", etc.)</td></tr>
 <tr><td><span style="font-weight:bold;">submissionTimestamp</span></td><td>string<br>(date-time)</td><td>Timestamp when the Variable was added (ISO 8601)</td></tr>
 <tr><td><span style="font-weight:bold;">synonyms</span></td><td>array[string]</td><td>Other variable names</td></tr>
-<tr><td><span style="font-weight:bold;">trait</span></td><td>object</td><td></td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.alternativeAbbreviations</span></td><td>array[string]</td><td>Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.attribute</span></td><td>string</td><td>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.attributePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.entity</span></td><td>string</td><td>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.entityPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" </td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.mainAbbreviation</span></td><td>string</td><td>Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>trait<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>trait<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.status</span></td><td>string</td><td>Trait status (examples: "recommended", "obsolete", "legacy", etc.)</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.synonyms</span></td><td>array[string]</td><td>Other trait names</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitClass</span></td><td>string</td><td>A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitDbId</span></td><td>string</td><td>The ID which uniquely identifies a trait</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitDescription</span></td><td>string</td><td>The description of a trait</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitName</span></td><td>string</td><td>The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait, usually in the form of a URI</td></tr>
 </table>
 
 
@@ -1523,115 +1173,45 @@ Update an existing Germplasm Attribute
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">attributeDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">attributeName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for this attribute</td></tr>
+<tr><td><span style="font-weight:bold;">method</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A description of the way an Observation should be collected.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Method "estimation" or "drone image processing". </td></tr>
+<tr><td><span style="font-weight:bold;">scale</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A Scale describes the units and acceptable values for an ObservationVariable.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".</td></tr>
+<tr><td><span style="font-weight:bold;">trait</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A Trait describes what property is being observed.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height". </td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">attributeCategory</span></td><td>string</td><td>General category for the attribute. very similar to Trait class.</td></tr>
-<tr><td><span style="font-weight:bold;">attributeDbId</span></td><td>string</td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">attributeDescription</span></td><td>string</td><td>A human readable description of this attribute</td></tr>
-<tr><td><span style="font-weight:bold;">attributeName</span></td><td>string</td><td>A human readable name for this attribute</td></tr>
 <tr><td><span style="font-weight:bold;">attributePUI</span></td><td>string</td><td>The Permanent Unique Identifier of an Attribute, usually in the form of a URI</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Crop name (examples: "Maize", "Wheat")</td></tr>
 <tr><td><span style="font-weight:bold;">contextOfUse</span></td><td>array[string]</td><td>Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])</td></tr>
 <tr><td><span style="font-weight:bold;">defaultValue</span></td><td>string</td><td>Variable default value. (examples: "red", "2.3", etc.)</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">growthStage</span></td><td>string</td><td>Growth stage at which measurement is made (examples: "flowering")</td></tr>
 <tr><td><span style="font-weight:bold;">institution</span></td><td>string</td><td>Name of institution submitting the variable</td></tr>
 <tr><td><span style="font-weight:bold;">language</span></td><td>string</td><td>2 letter ISO 639-1 code for the language of submission of the variable.</td></tr>
-<tr><td><span style="font-weight:bold;">method</span></td><td>object</td><td></td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.bibliographicalReference</span></td><td>string</td><td>Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.formula</span></td><td>string</td><td>For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodClass</span></td><td>string</td><td>Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodDbId</span></td><td>string</td><td>Method unique identifier</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodName</span></td><td>string</td><td>Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Method, usually in the form of a URI</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>method<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>method<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 <tr><td><span style="font-weight:bold;">ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology name</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
 <tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
 <tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td><span style="font-weight:bold;">scale</span></td><td>object</td><td>Scale metadata</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.dataType</span></td><td>string</td><td><p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p></td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.decimalPlaces</span></td><td>integer</td><td>For numerical, number of decimal places to be reported</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>scale<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>scale<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scaleDbId</span></td><td>string</td><td>Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scaleName</span></td><td>string</td><td>Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scalePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Scale, usually in the form of a URI</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.units</span></td><td>string</td><td>This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.validValues</span></td><td>object</td><td></td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.categories</span></td><td>array[object]</td><td>List of possible values with optional labels</td></tr>
-<tr><td>scale<br>.validValues<br>.categories<br><span style="font-weight:bold;margin-left:5px">.label</span></td><td>string</td><td>A text label for a category</td></tr>
-<tr><td>scale<br>.validValues<br>.categories<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>string</td><td>The actual value for a category</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.max</span></td><td>integer</td><td>**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.maximumValue</span></td><td>string</td><td>Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.min</span></td><td>integer</td><td>**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.minimumValue</span></td><td>string</td><td>Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
 <tr><td><span style="font-weight:bold;">scientist</span></td><td>string</td><td>Name of scientist submitting the variable.</td></tr>
 <tr><td><span style="font-weight:bold;">status</span></td><td>string</td><td>Variable status. (examples: "recommended", "obsolete", "legacy", etc.)</td></tr>
 <tr><td><span style="font-weight:bold;">submissionTimestamp</span></td><td>string<br>(date-time)</td><td>Timestamp when the Variable was added (ISO 8601)</td></tr>
 <tr><td><span style="font-weight:bold;">synonyms</span></td><td>array[string]</td><td>Other variable names</td></tr>
-<tr><td><span style="font-weight:bold;">trait</span></td><td>object</td><td></td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.alternativeAbbreviations</span></td><td>array[string]</td><td>Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.attribute</span></td><td>string</td><td>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.attributePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.entity</span></td><td>string</td><td>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.entityPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" </td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.mainAbbreviation</span></td><td>string</td><td>Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>trait<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>trait<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.status</span></td><td>string</td><td>Trait status (examples: "recommended", "obsolete", "legacy", etc.)</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.synonyms</span></td><td>array[string]</td><td>Other trait names</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitClass</span></td><td>string</td><td>A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitDbId</span></td><td>string</td><td>The ID which uniquely identifies a trait</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitDescription</span></td><td>string</td><td>The description of a trait</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitName</span></td><td>string</td><td>The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait, usually in the form of a URI</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + attributeDbId (Required, ) ... The unique id for an attribute
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + attributeDbId (Required, string) ... The unique id for an attribute
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -2042,14 +1622,17 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">attributeCategories</span></td><td>array[string]</td><td>General category for the attribute. very similar to Trait class.</td></tr>
 <tr><td><span style="font-weight:bold;">attributeDbIds</span></td><td>array[string]</td><td>List of Germplasm Attribute IDs to search for</td></tr>
 <tr><td><span style="font-weight:bold;">attributeNames</span></td><td>array[string]</td><td>List of human readable Germplasm Attribute names to search for</td></tr>
 <tr><td><span style="font-weight:bold;">attributePUIs</span></td><td>array[string]</td><td>The Permanent Unique Identifier of an Attribute, usually in the form of a URI</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropNames</span></td><td>array[string]</td><td>The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.  Use this parameter to only return results associated with the given crops.   Use `GET /commoncropnames` to find the list of available crops on a server.</td></tr>
 <tr><td><span style="font-weight:bold;">dataTypes</span></td><td>array[string]</td><td>List of scale data types to filter search results</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460   List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferenceIDs</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460  <br>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceIds</span></td><td>array[string]</td><td>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferenceSources</span></td><td>array[string]</td><td>List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)</td></tr>
+<tr><td><span style="font-weight:bold;">germplasmDbIds</span></td><td>array[string]</td><td>List of IDs which uniquely identify germplasm to search for</td></tr>
+<tr><td><span style="font-weight:bold;">germplasmNames</span></td><td>array[string]</td><td>List of human readable names to identify germplasm to search for</td></tr>
 <tr><td><span style="font-weight:bold;">methodDbIds</span></td><td>array[string]</td><td>List of methods to filter search results</td></tr>
 <tr><td><span style="font-weight:bold;">methodNames</span></td><td>array[string]</td><td>Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation</td></tr>
 <tr><td><span style="font-weight:bold;">methodPUIs</span></td><td>array[string]</td><td>The Permanent Unique Identifier of a Method, usually in the form of a URI</td></tr>
@@ -2061,7 +1644,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">scaleDbIds</span></td><td>array[string]</td><td>The unique identifier for a Scale</td></tr>
 <tr><td><span style="font-weight:bold;">scaleNames</span></td><td>array[string]</td><td>Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable</td></tr>
 <tr><td><span style="font-weight:bold;">scalePUIs</span></td><td>array[string]</td><td>The Permanent Unique Identifier of a Scale, usually in the form of a URI</td></tr>
-<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `studyDbIds`. Github issue number #483  The unique ID of a studies to filter on</td></tr>
+<tr><td><span style="font-weight:bold;">studyDbId</span></td><td>array[string]</td><td>**Deprecated in v2.1** Please use `studyDbIds`. Github issue number #483  <br>The unique ID of a studies to filter on</td></tr>
 <tr><td><span style="font-weight:bold;">studyDbIds</span></td><td>array[string]</td><td>List of study identifiers to search for</td></tr>
 <tr><td><span style="font-weight:bold;">studyNames</span></td><td>array[string]</td><td>List of study names to filter search results</td></tr>
 <tr><td><span style="font-weight:bold;">traitAttributePUIs</span></td><td>array[string]</td><td>The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
@@ -2081,120 +1664,54 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">attributeDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">attributeName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for this attribute</td></tr>
+<tr><td><span style="font-weight:bold;">method</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A description of the way an Observation should be collected.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Method "estimation" or "drone image processing". </td></tr>
+<tr><td><span style="font-weight:bold;">scale</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A Scale describes the units and acceptable values for an ObservationVariable.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".</td></tr>
+<tr><td><span style="font-weight:bold;">trait</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A Trait describes what property is being observed.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height". </td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">attributeCategory</span></td><td>string</td><td>General category for the attribute. very similar to Trait class.</td></tr>
-<tr><td><span style="font-weight:bold;">attributeDbId</span></td><td>string</td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">attributeDescription</span></td><td>string</td><td>A human readable description of this attribute</td></tr>
-<tr><td><span style="font-weight:bold;">attributeName</span></td><td>string</td><td>A human readable name for this attribute</td></tr>
 <tr><td><span style="font-weight:bold;">attributePUI</span></td><td>string</td><td>The Permanent Unique Identifier of an Attribute, usually in the form of a URI</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Crop name (examples: "Maize", "Wheat")</td></tr>
 <tr><td><span style="font-weight:bold;">contextOfUse</span></td><td>array[string]</td><td>Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])</td></tr>
 <tr><td><span style="font-weight:bold;">defaultValue</span></td><td>string</td><td>Variable default value. (examples: "red", "2.3", etc.)</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">growthStage</span></td><td>string</td><td>Growth stage at which measurement is made (examples: "flowering")</td></tr>
 <tr><td><span style="font-weight:bold;">institution</span></td><td>string</td><td>Name of institution submitting the variable</td></tr>
 <tr><td><span style="font-weight:bold;">language</span></td><td>string</td><td>2 letter ISO 639-1 code for the language of submission of the variable.</td></tr>
-<tr><td><span style="font-weight:bold;">method</span></td><td>object</td><td></td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.bibliographicalReference</span></td><td>string</td><td>Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.formula</span></td><td>string</td><td>For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodClass</span></td><td>string</td><td>Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodDbId</span></td><td>string</td><td>Method unique identifier</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodName</span></td><td>string</td><td>Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Method, usually in the form of a URI</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>method<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>method<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 <tr><td><span style="font-weight:bold;">ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology name</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
 <tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
 <tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td><span style="font-weight:bold;">scale</span></td><td>object</td><td>Scale metadata</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.dataType</span></td><td>string</td><td><p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p></td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.decimalPlaces</span></td><td>integer</td><td>For numerical, number of decimal places to be reported</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>scale<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>scale<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scaleDbId</span></td><td>string</td><td>Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scaleName</span></td><td>string</td><td>Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scalePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Scale, usually in the form of a URI</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.units</span></td><td>string</td><td>This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.validValues</span></td><td>object</td><td></td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.categories</span></td><td>array[object]</td><td>List of possible values with optional labels</td></tr>
-<tr><td>scale<br>.validValues<br>.categories<br><span style="font-weight:bold;margin-left:5px">.label</span></td><td>string</td><td>A text label for a category</td></tr>
-<tr><td>scale<br>.validValues<br>.categories<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>string</td><td>The actual value for a category</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.max</span></td><td>integer</td><td>**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.maximumValue</span></td><td>string</td><td>Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.min</span></td><td>integer</td><td>**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.minimumValue</span></td><td>string</td><td>Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
 <tr><td><span style="font-weight:bold;">scientist</span></td><td>string</td><td>Name of scientist submitting the variable.</td></tr>
 <tr><td><span style="font-weight:bold;">status</span></td><td>string</td><td>Variable status. (examples: "recommended", "obsolete", "legacy", etc.)</td></tr>
 <tr><td><span style="font-weight:bold;">submissionTimestamp</span></td><td>string<br>(date-time)</td><td>Timestamp when the Variable was added (ISO 8601)</td></tr>
 <tr><td><span style="font-weight:bold;">synonyms</span></td><td>array[string]</td><td>Other variable names</td></tr>
-<tr><td><span style="font-weight:bold;">trait</span></td><td>object</td><td></td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.alternativeAbbreviations</span></td><td>array[string]</td><td>Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.attribute</span></td><td>string</td><td>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.attributePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.entity</span></td><td>string</td><td>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.entityPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" </td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.mainAbbreviation</span></td><td>string</td><td>Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>trait<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>trait<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.status</span></td><td>string</td><td>Trait status (examples: "recommended", "obsolete", "legacy", etc.)</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.synonyms</span></td><td>array[string]</td><td>Other trait names</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitClass</span></td><td>string</td><td>A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitDbId</span></td><td>string</td><td>The ID which uniquely identifies a trait</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitDescription</span></td><td>string</td><td>The description of a trait</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitName</span></td><td>string</td><td>The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait, usually in the form of a URI</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
 + Request (application/json)
 ```
 {
+    "attributeCategories": [
+        "Morphological",
+        "Physical"
+    ],
     "attributeDbIds": [
         "2ef15c9f",
         "318e7f7d"
@@ -2227,6 +1744,14 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
     "externalReferenceSources": [
         "DOI",
         "Field App Name"
+    ],
+    "germplasmDbIds": [
+        "e9c6edd7",
+        "1b1df4a6"
+    ],
+    "germplasmNames": [
+        "A0000003",
+        "A0000477"
     ],
     "methodDbIds": [
         "07e34f83",
@@ -2586,117 +2111,47 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td><span style="font-weight:bold;">attributeDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
+<tr><td><span style="font-weight:bold;">attributeName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for this attribute</td></tr>
+<tr><td><span style="font-weight:bold;">method</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A description of the way an Observation should be collected.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Method "estimation" or "drone image processing". </td></tr>
+<tr><td><span style="font-weight:bold;">scale</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A Scale describes the units and acceptable values for an ObservationVariable.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".</td></tr>
+<tr><td><span style="font-weight:bold;">trait</span></td><td>object<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A Trait describes what property is being observed.  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height". </td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">attributeCategory</span></td><td>string</td><td>General category for the attribute. very similar to Trait class.</td></tr>
-<tr><td><span style="font-weight:bold;">attributeDbId</span></td><td>string</td><td>The ID which uniquely identifies this attribute within the given database server</td></tr>
 <tr><td><span style="font-weight:bold;">attributeDescription</span></td><td>string</td><td>A human readable description of this attribute</td></tr>
-<tr><td><span style="font-weight:bold;">attributeName</span></td><td>string</td><td>A human readable name for this attribute</td></tr>
 <tr><td><span style="font-weight:bold;">attributePUI</span></td><td>string</td><td>The Permanent Unique Identifier of an Attribute, usually in the form of a URI</td></tr>
 <tr><td><span style="font-weight:bold;">commonCropName</span></td><td>string</td><td>Crop name (examples: "Maize", "Wheat")</td></tr>
 <tr><td><span style="font-weight:bold;">contextOfUse</span></td><td>array[string]</td><td>Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])</td></tr>
 <tr><td><span style="font-weight:bold;">defaultValue</span></td><td>string</td><td>Variable default value. (examples: "red", "2.3", etc.)</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of this object</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>A URL to the human readable documentation of an object</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">growthStage</span></td><td>string</td><td>Growth stage at which measurement is made (examples: "flowering")</td></tr>
 <tr><td><span style="font-weight:bold;">institution</span></td><td>string</td><td>Name of institution submitting the variable</td></tr>
 <tr><td><span style="font-weight:bold;">language</span></td><td>string</td><td>2 letter ISO 639-1 code for the language of submission of the variable.</td></tr>
-<tr><td><span style="font-weight:bold;">method</span></td><td>object</td><td></td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.bibliographicalReference</span></td><td>string</td><td>Bibliographical reference describing the method. <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>Method description <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>method<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.formula</span></td><td>string</td><td>For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodClass</span></td><td>string</td><td>Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodDbId</span></td><td>string</td><td>Method unique identifier</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodName</span></td><td>string</td><td>Human readable name for the method <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.methodPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Method, usually in the form of a URI</td></tr>
-<tr><td>method<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>method<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>method<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>method<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
 <tr><td><span style="font-weight:bold;">ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology database unique identifier</td></tr>
+<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Ontology name</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
 <tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
 <tr><td>ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
 <tr><td>ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td><span style="font-weight:bold;">scale</span></td><td>object</td><td>Scale metadata</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.dataType</span></td><td>string</td><td><p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p></td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.decimalPlaces</span></td><td>integer</td><td>For numerical, number of decimal places to be reported</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>scale<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>scale<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>scale<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>scale<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scaleDbId</span></td><td>string</td><td>Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scaleName</span></td><td>string</td><td>Name of the scale <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.scalePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Scale, usually in the form of a URI</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.units</span></td><td>string</td><td>This field can be used to describe the units used for this scale. This should be the abbreviated  form of the units, intended to be displayed with every value using this scale. Usually this only  applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.</td></tr>
-<tr><td>scale<br><span style="font-weight:bold;margin-left:5px">.validValues</span></td><td>object</td><td></td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.categories</span></td><td>array[object]</td><td>List of possible values with optional labels</td></tr>
-<tr><td>scale<br>.validValues<br>.categories<br><span style="font-weight:bold;margin-left:5px">.label</span></td><td>string</td><td>A text label for a category</td></tr>
-<tr><td>scale<br>.validValues<br>.categories<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>string</td><td>The actual value for a category</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.max</span></td><td>integer</td><td>**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450   Maximum value for numerical scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.maximumValue</span></td><td>string</td><td>Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.min</span></td><td>integer</td><td>**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450  <br/>Minimum value for numerical scales. Typically used for data capture control and QC.</td></tr>
-<tr><td>scale<br>.validValues<br><span style="font-weight:bold;margin-left:5px">.minimumValue</span></td><td>string</td><td>Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.</td></tr>
 <tr><td><span style="font-weight:bold;">scientist</span></td><td>string</td><td>Name of scientist submitting the variable.</td></tr>
 <tr><td><span style="font-weight:bold;">status</span></td><td>string</td><td>Variable status. (examples: "recommended", "obsolete", "legacy", etc.)</td></tr>
 <tr><td><span style="font-weight:bold;">submissionTimestamp</span></td><td>string<br>(date-time)</td><td>Timestamp when the Variable was added (ISO 8601)</td></tr>
 <tr><td><span style="font-weight:bold;">synonyms</span></td><td>array[string]</td><td>Other variable names</td></tr>
-<tr><td><span style="font-weight:bold;">trait</span></td><td>object</td><td></td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.alternativeAbbreviations</span></td><td>array[string]</td><td>Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.attribute</span></td><td>string</td><td>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.attributePUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.entity</span></td><td>string</td><td>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.entityPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI <br/>A Trait can be decomposed as "Trait" = "Entity" + "Attribute", the Entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" </td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>trait<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.mainAbbreviation</span></td><td>string</td><td>Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.ontologyReference</span></td><td>object</td><td>MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.documentationLinks</span></td><td>array[object]</td><td>links to various ontology documentation</td></tr>
-<tr><td>trait<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.URL</span></td><td>string<br>(uri)</td><td></td></tr>
-<tr><td>trait<br>.ontologyReference<br>.documentationLinks<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td></td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyDbId</span></td><td>string</td><td>Ontology database unique identifier</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.ontologyName</span></td><td>string</td><td>Ontology name</td></tr>
-<tr><td>trait<br>.ontologyReference<br><span style="font-weight:bold;margin-left:5px">.version</span></td><td>string</td><td>Ontology version (no specific format)</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.status</span></td><td>string</td><td>Trait status (examples: "recommended", "obsolete", "legacy", etc.)</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.synonyms</span></td><td>array[string]</td><td>Other trait names</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitClass</span></td><td>string</td><td>A classification to describe the type of trait and the context it should be considered in. <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitDbId</span></td><td>string</td><td>The ID which uniquely identifies a trait</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitDescription</span></td><td>string</td><td>The description of a trait</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitName</span></td><td>string</td><td>The human readable name of a trait <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation</td></tr>
-<tr><td>trait<br><span style="font-weight:bold;margin-left:5px">.traitPUI</span></td><td>string</td><td>The Permanent Unique Identifier of a Trait, usually in the form of a URI</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + searchResultsDbId (Required, ) ... Unique identifier which references the search results
-    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + searchResultsDbId (Required, string) ... Unique identifier which references the search results
+    + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 

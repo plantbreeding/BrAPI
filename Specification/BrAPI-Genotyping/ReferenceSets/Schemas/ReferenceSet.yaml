@@ -8,6 +8,14 @@ components:
     ReferenceSet:
       description: A `ReferenceSet` is a set of `Reference` s which typically comprise a reference assembly, such as `GRCH_38`. A `ReferenceSet` defines a common coordinate space for comparing reference-aligned experimental data.
       type: object
+      x-brapi-metadata:
+        primaryModel: true
+        module: BrAPI-Genotyping
+        title: ReferenceSet
+        description: A `ReferenceSet` is a set of `Reference` s which typically comprise a reference assembly, such as `GRCH_38`. A `ReferenceSet` defines a common coordinate space for comparing reference-aligned experimental data.
+      required:
+      - referenceSetDbId
+      - referenceSetName
       properties:
         assemblyPUI:
           description: The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.
@@ -16,7 +24,7 @@ components:
         additionalInfo:
           additionalProperties:
             type: string
-          description: Additional arbitrary info
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
           type: object
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'

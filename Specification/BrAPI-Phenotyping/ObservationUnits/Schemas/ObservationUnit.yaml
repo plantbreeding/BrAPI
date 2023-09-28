@@ -9,6 +9,13 @@ components:
       allOf:
       - $ref: '#/components/schemas/ObservationUnitNewRequest'
       - type: object
+        x-brapi-metadata:
+          primaryModel: true
+          module: BrAPI-Phenotyping
+          title: ObservationUnit
+          description: A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples.
+        required:
+        - observationUnitDbId
         properties:
           observationUnitDbId:
             description: |-

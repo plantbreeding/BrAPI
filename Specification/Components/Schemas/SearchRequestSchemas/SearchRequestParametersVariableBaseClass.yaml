@@ -18,7 +18,7 @@ components:
           studyDbId:  
             description: |-
               **Deprecated in v2.1** Please use `studyDbIds`. Github issue number #483 
-              The unique ID of a studies to filter on
+              <br>The unique ID of a studies to filter on
             deprecated: true
             type: array
             items:

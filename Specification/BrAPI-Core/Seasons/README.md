@@ -7,7 +7,7 @@ A season is made of 2 parts; the primary year and a term which defines a segment
 
 
 
-### Get - /seasons [GET /brapi/v2/seasons{?seasonDbId}{?season}{?year}{?page}{?pageSize}]
+### Get - /seasons [GET /brapi/v2/seasons{?seasonDbId}{?season}{?seasonName}{?year}{?page}{?pageSize}]
 
 Call to retrieve all seasons in the database.
 
@@ -22,7 +22,7 @@ program like "PlantingTime_3" or "Season E"
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td><span style="font-weight:bold;">seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td><span style="font-weight:bold;">year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 </table>
@@ -31,12 +31,13 @@ program like "PlantingTime_3" or "Season E"
  
 
 + Parameters
-    + seasonDbId (Optional, ) ... The unique identifier for a season. For backward compatibility it can be a string like '2012', '1957-2004'
-    + season (Optional, ) ... The term to describe a given season. Example "Spring" OR "May" OR "Planting_Time_7".
-    + year (Optional, ) ... The 4 digit year of a season. Example "2017"
-    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + seasonDbId (Optional, string) ... The unique identifier for a season. For backward compatibility it can be a string like '2012', '1957-2004'
+    + season (Optional, string) ... The term to describe a given season. Example "Spring" OR "May" OR "Planting_Time_7".
+    + seasonName (Optional, string) ... The term to describe a given season. Example "Spring" OR "May" OR "Planting_Time_7".
+    + year (Optional, integer) ... The 4 digit year of a season. Example "2017"
+    + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -100,7 +101,7 @@ Add new season entries to the database
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td><span style="font-weight:bold;">seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td><span style="font-weight:bold;">year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 </table>
@@ -110,7 +111,7 @@ Add new season entries to the database
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td><span style="font-weight:bold;">seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td><span style="font-weight:bold;">year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 </table>
@@ -119,7 +120,7 @@ Add new season entries to the database
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -197,7 +198,7 @@ Get the a single Season
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td><span style="font-weight:bold;">seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td><span style="font-weight:bold;">year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 </table>
@@ -206,8 +207,8 @@ Get the a single Season
  
 
 + Parameters
-    + seasonDbId (Required, ) ... The unique identifier for a season. For backward compatibility it can be a string like '2012', '1957-2004'
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + seasonDbId (Required, string) ... The unique identifier for a season. For backward compatibility it can be a string like '2012', '1957-2004'
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -267,7 +268,7 @@ Update existing Seasons
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td><span style="font-weight:bold;">seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td><span style="font-weight:bold;">year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 </table>
@@ -277,7 +278,7 @@ Update existing Seasons
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string</td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
+<tr><td><span style="font-weight:bold;">seasonDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'</td></tr>
 <tr><td><span style="font-weight:bold;">seasonName</span></td><td>string</td><td>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.</td></tr>
 <tr><td><span style="font-weight:bold;">year</span></td><td>integer</td><td>The 4 digit year of the season.</td></tr>
 </table>
@@ -286,8 +287,8 @@ Update existing Seasons
  
 
 + Parameters
-    + seasonDbId (Required, ) ... The unique identifier for a season. For backward compatibility it can be a string like '2012', '1957-2004'
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + seasonDbId (Required, string) ... The unique identifier for a season. For backward compatibility it can be a string like '2012', '1957-2004'
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  

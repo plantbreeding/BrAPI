@@ -15,7 +15,7 @@ components:
         additionalInfo:
           additionalProperties:
             type: string
-          description: Additional arbitrary info
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
           type: object
         contextOfUse:
           description: 'Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])'
@@ -32,7 +32,7 @@ components:
           type: string
           example: '2.0'
         documentationURL:
-          description: A URL to the human readable documentation of this object
+          description: A URL to the human readable documentation of an object
           format: uri
           type: string
           example: https://wiki.brapi.org/documentation.html
@@ -63,7 +63,6 @@ components:
           allOf:
           - $ref: '#/components/schemas/ScaleBaseClass'
           - type: object
-            description: Scale metadata
             required:
             - scaleDbId
             properties:

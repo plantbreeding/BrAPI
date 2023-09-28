@@ -11,7 +11,10 @@ components:
       - type: object
         properties:
           observationVariableName:
-            description: Human readable name of an Observation Variable
+            description: |-
+              Human readable name of an Observation Variable
+              
+              MIAPPE V1.1 (DM-84) Variable name - Name of the variable.
             type: string
             example: Variable Name
           observationVariablePUI:

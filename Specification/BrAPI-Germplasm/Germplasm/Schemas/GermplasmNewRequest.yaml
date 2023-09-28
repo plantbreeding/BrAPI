@@ -15,18 +15,18 @@ components:
         additionalInfo:
           additionalProperties:
             type: string
-          description: Additional arbitrary info
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
           type: object
         accessionNumber:
-          description: |-
-            This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection
-            
+          description: |- 
+            The unique identifier for a material or germplasm within a genebank
+
             MCPD (v2.1) (ACCENUMB) 2. This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection (e.g. "PI 113869").
           type: string
           example: A0000003
         acquisitionDate:
           description: |-
-            The date this germplasm was acquired by the genebank 
+            The date a material or germplasm was acquired by the genebank 
             
             MCPD (v2.1) (ACQDATE) 12. Date on which the accession entered the collection [YYYYMMDD] where YYYY is the year, MM is the month and DD is the day. Missing data (MM or DD) should be indicated with hyphens or "00" [double zero].
           format: date
@@ -94,7 +94,7 @@ components:
           type: string
           example: A0000003
         documentationURL:
-          description: A URL to the human readable documentation of this object
+          description: A URL to the human readable documentation of an object
           format: uri
           type: string
           example: https://wiki.brapi.org

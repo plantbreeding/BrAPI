@@ -198,7 +198,13 @@ def buildResponseDefTable(responses):
 def buildObjectTableRow(schema, parentPrefix = ''):
 	row = ''
 	if 'properties' in schema:
-		properties = sorted(schema['properties'].keys())
+		requiredProps = []
+		if 'required' in schema:
+			requiredProps = schema['required']
+			
+		properties = list(set(schema['properties'].keys()) - set(requiredProps))
+		properties = sorted(requiredProps) + sorted(properties)
+		
 		if len(properties) == 1 and 'data' in properties:
 			row += buildObjectTableRow(schema['properties']['data'], parentPrefix)
 		else:
@@ -215,6 +221,10 @@ def buildObjectTableRow(schema, parentPrefix = ''):
 						type += '<br>(' + schema['properties'][prop]['format'] + ')'
 				if type == 'array' and 'type' in schema['properties'][prop]['items']:
 					type += '[' +  schema['properties'][prop]['items']['type'] + ']'
+
+				if prop in requiredProps:
+					type += '<br><span style="font-size: smaller; color: red;">(Required)</span>'
+				
 				if 'description' in schema['properties'][prop]:
 					desc = schema['properties'][prop]['description'].replace('\n', ' ').replace('|', '')
 				

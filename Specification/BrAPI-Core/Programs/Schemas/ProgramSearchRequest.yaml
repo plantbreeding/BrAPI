@@ -14,7 +14,7 @@ components:
       - type: object
         properties:
           abbreviations:
-            description: An abbreviation of a program to search for
+            description: A list of shortened human readable names for a set of Programs
             items:
               type: string
             type: array

@@ -5,7 +5,7 @@
 
 
 
-### Get - /seedlots [GET /brapi/v2/seedlots{?seedLotDbId}{?germplasmDbId}{?germplasmName}{?crossDbId}{?crossName}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /seedlots [GET /brapi/v2/seedlots{?seedLotDbId}{?crossDbId}{?crossName}{?commonCropName}{?programDbId}{?germplasmDbId}{?germplasmName}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Seed Lot descriptions available in a system.
 
@@ -15,8 +15,10 @@ Get a filtered list of Seed Lot descriptions available in a system.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">amount</span></td><td>number</td><td>Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
+<tr><td><span style="font-weight:bold;">seedLotDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Unique DbId for the Seed Lot</td></tr>
+<tr><td><span style="font-weight:bold;">seedLotName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for this Seed Lot</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">amount</span></td><td>number</td><td>The current balance of the amount of material in a SeedLot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
 <tr><td><span style="font-weight:bold;">contentMixture</span></td><td>array[object]</td><td>The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.</td></tr>
 <tr><td>contentMixture<br><span style="font-weight:bold;margin-left:5px">.crossDbId</span></td><td>string</td><td>The unique DbId for a cross contained in this seed lot</td></tr>
 <tr><td>contentMixture<br><span style="font-weight:bold;margin-left:5px">.crossName</span></td><td>string</td><td>The human readable name for a cross contained in this seed lot</td></tr>
@@ -25,7 +27,7 @@ Get a filtered list of Seed Lot descriptions available in a system.
 <tr><td>contentMixture<br><span style="font-weight:bold;margin-left:5px">.mixturePercentage</span></td><td>integer</td><td>The percentage of the given germplasm in the seed lot mixture.</td></tr>
 <tr><td><span style="font-weight:bold;">createdDate</span></td><td>string<br>(date-time)</td><td>The time stamp for when this seed lot was created</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">lastUpdated</span></td><td>string<br>(date-time)</td><td>The timestamp for the last update to this Seed Lot (including transactions)</td></tr>
@@ -33,31 +35,29 @@ Get a filtered list of Seed Lot descriptions available in a system.
 <tr><td><span style="font-weight:bold;">locationName</span></td><td>string</td><td>A human readable name for a location</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The unique DbId of the breeding program this Seed Lot belongs to</td></tr>
 <tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>The human readable name of the breeding program this Seed Lot belongs to</td></tr>
-<tr><td><span style="font-weight:bold;">seedLotDbId</span></td><td>string</td><td>Unique DbId for the Seed Lot</td></tr>
 <tr><td><span style="font-weight:bold;">seedLotDescription</span></td><td>string</td><td>A general description of this Seed Lot</td></tr>
-<tr><td><span style="font-weight:bold;">seedLotName</span></td><td>string</td><td>A human readable name for this Seed Lot</td></tr>
 <tr><td><span style="font-weight:bold;">sourceCollection</span></td><td>string</td><td>The description of the source where this material was originally collected (wild, nursery, etc)</td></tr>
 <tr><td><span style="font-weight:bold;">storageLocation</span></td><td>string</td><td>Description the storage location</td></tr>
-<tr><td><span style="font-weight:bold;">units</span></td><td>string</td><td>Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)</td></tr>
+<tr><td><span style="font-weight:bold;">units</span></td><td>string</td><td>A description of the things being counted in a SeedLot (seeds, bulbs, kg, tree, etc)</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + seedLotDbId (Optional, ) ... Unique id for a seed lot on this server
-    + germplasmDbId (Optional, ) ... The internal id of the germplasm
-    + germplasmName (Optional, ) ... Name of the germplasm
-    + crossDbId (Optional, ) ... Search for Cross with this unique id
-    + crossName (Optional, ) ... Search for Cross with this human readable name
-    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
-    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
-    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
-    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + seedLotDbId (Optional, string) ... Unique id for a seed lot on this server
+    + crossDbId (Optional, string) ... Search for Cross with this unique id
+    + crossName (Optional, string) ... Search for Cross with this human readable name
+    + commonCropName (Optional, string) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + programDbId (Optional, string) ... Use this parameter to only return results associated with the given `Program` unique identifier. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
+    + germplasmDbId (Optional, string) ... Use this parameter to only return results associated with the given `Germplasm` unique identifier. <br/>Use `GET /germplasm` to find the list of available `Germplasm` on a server.
+    + germplasmName (Optional, string) ... Use this parameter to only return results associated with the given `Germplasm` by its human readable name. <br/>Use `GET /germplasm` to find the list of available `Germplasm` on a server.
+    + externalReferenceID (Optional, string) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceId (Optional, string) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, string) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
+    + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -151,8 +151,9 @@ Add new Seed Lot descriptions to a server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">amount</span></td><td>number</td><td>Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
+<tr><td><span style="font-weight:bold;">seedLotName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for this Seed Lot</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">amount</span></td><td>number</td><td>The current balance of the amount of material in a SeedLot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
 <tr><td><span style="font-weight:bold;">contentMixture</span></td><td>array[object]</td><td>The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.</td></tr>
 <tr><td>contentMixture<br><span style="font-weight:bold;margin-left:5px">.crossDbId</span></td><td>string</td><td>The unique DbId for a cross contained in this seed lot</td></tr>
 <tr><td>contentMixture<br><span style="font-weight:bold;margin-left:5px">.crossName</span></td><td>string</td><td>The human readable name for a cross contained in this seed lot</td></tr>
@@ -161,7 +162,7 @@ Add new Seed Lot descriptions to a server
 <tr><td>contentMixture<br><span style="font-weight:bold;margin-left:5px">.mixturePercentage</span></td><td>integer</td><td>The percentage of the given germplasm in the seed lot mixture.</td></tr>
 <tr><td><span style="font-weight:bold;">createdDate</span></td><td>string<br>(date-time)</td><td>The time stamp for when this seed lot was created</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">lastUpdated</span></td><td>string<br>(date-time)</td><td>The timestamp for the last update to this Seed Lot (including transactions)</td></tr>
@@ -170,10 +171,9 @@ Add new Seed Lot descriptions to a server
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The unique DbId of the breeding program this Seed Lot belongs to</td></tr>
 <tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>The human readable name of the breeding program this Seed Lot belongs to</td></tr>
 <tr><td><span style="font-weight:bold;">seedLotDescription</span></td><td>string</td><td>A general description of this Seed Lot</td></tr>
-<tr><td><span style="font-weight:bold;">seedLotName</span></td><td>string</td><td>A human readable name for this Seed Lot</td></tr>
 <tr><td><span style="font-weight:bold;">sourceCollection</span></td><td>string</td><td>The description of the source where this material was originally collected (wild, nursery, etc)</td></tr>
 <tr><td><span style="font-weight:bold;">storageLocation</span></td><td>string</td><td>Description the storage location</td></tr>
-<tr><td><span style="font-weight:bold;">units</span></td><td>string</td><td>Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)</td></tr>
+<tr><td><span style="font-weight:bold;">units</span></td><td>string</td><td>A description of the things being counted in a SeedLot (seeds, bulbs, kg, tree, etc)</td></tr>
 </table>
 
 
@@ -181,8 +181,10 @@ Add new Seed Lot descriptions to a server
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">amount</span></td><td>number</td><td>Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
+<tr><td><span style="font-weight:bold;">seedLotDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Unique DbId for the Seed Lot</td></tr>
+<tr><td><span style="font-weight:bold;">seedLotName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for this Seed Lot</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">amount</span></td><td>number</td><td>The current balance of the amount of material in a SeedLot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
 <tr><td><span style="font-weight:bold;">contentMixture</span></td><td>array[object]</td><td>The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.</td></tr>
 <tr><td>contentMixture<br><span style="font-weight:bold;margin-left:5px">.crossDbId</span></td><td>string</td><td>The unique DbId for a cross contained in this seed lot</td></tr>
 <tr><td>contentMixture<br><span style="font-weight:bold;margin-left:5px">.crossName</span></td><td>string</td><td>The human readable name for a cross contained in this seed lot</td></tr>
@@ -191,7 +193,7 @@ Add new Seed Lot descriptions to a server
 <tr><td>contentMixture<br><span style="font-weight:bold;margin-left:5px">.mixturePercentage</span></td><td>integer</td><td>The percentage of the given germplasm in the seed lot mixture.</td></tr>
 <tr><td><span style="font-weight:bold;">createdDate</span></td><td>string<br>(date-time)</td><td>The time stamp for when this seed lot was created</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">lastUpdated</span></td><td>string<br>(date-time)</td><td>The timestamp for the last update to this Seed Lot (including transactions)</td></tr>
@@ -199,19 +201,17 @@ Add new Seed Lot descriptions to a server
 <tr><td><span style="font-weight:bold;">locationName</span></td><td>string</td><td>A human readable name for a location</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The unique DbId of the breeding program this Seed Lot belongs to</td></tr>
 <tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>The human readable name of the breeding program this Seed Lot belongs to</td></tr>
-<tr><td><span style="font-weight:bold;">seedLotDbId</span></td><td>string</td><td>Unique DbId for the Seed Lot</td></tr>
 <tr><td><span style="font-weight:bold;">seedLotDescription</span></td><td>string</td><td>A general description of this Seed Lot</td></tr>
-<tr><td><span style="font-weight:bold;">seedLotName</span></td><td>string</td><td>A human readable name for this Seed Lot</td></tr>
 <tr><td><span style="font-weight:bold;">sourceCollection</span></td><td>string</td><td>The description of the source where this material was originally collected (wild, nursery, etc)</td></tr>
 <tr><td><span style="font-weight:bold;">storageLocation</span></td><td>string</td><td>Description the storage location</td></tr>
-<tr><td><span style="font-weight:bold;">units</span></td><td>string</td><td>Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)</td></tr>
+<tr><td><span style="font-weight:bold;">units</span></td><td>string</td><td>A description of the things being counted in a SeedLot (seeds, bulbs, kg, tree, etc)</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -338,7 +338,7 @@ Add new Seed Lot descriptions to a server
 
 
 
-### Get - /seedlots/transactions [GET /brapi/v2/seedlots/transactions{?transactionDbId}{?seedLotDbId}{?germplasmDbId}{?germplasmName}{?crossDbId}{?crossName}{?commonCropName}{?programDbId}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /seedlots/transactions [GET /brapi/v2/seedlots/transactions{?transactionDbId}{?seedLotDbId}{?crossDbId}{?crossName}{?commonCropName}{?programDbId}{?germplasmDbId}{?germplasmName}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Seed Lot Transactions
 
@@ -348,38 +348,38 @@ Get a filtered list of Seed Lot Transactions
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">amount</span></td><td>number</td><td>The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
+<tr><td><span style="font-weight:bold;">transactionDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Unique DbId for the Seed Lot Transaction</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">amount</span></td><td>number</td><td>The number of units being transfered between SeedLots. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">fromSeedLotDbId</span></td><td>string</td><td>The identifier for the Seed Lot being transfered out of</td></tr>
 <tr><td><span style="font-weight:bold;">toSeedLotDbId</span></td><td>string</td><td>The identifier for the Seed Lot being transfered into</td></tr>
-<tr><td><span style="font-weight:bold;">transactionDbId</span></td><td>string</td><td>Unique DbId for the Seed Lot Transaction</td></tr>
 <tr><td><span style="font-weight:bold;">transactionDescription</span></td><td>string</td><td>A general description of this Seed Lot Transaction</td></tr>
 <tr><td><span style="font-weight:bold;">transactionTimestamp</span></td><td>string<br>(date-time)</td><td>The time stamp for when the transaction occurred</td></tr>
-<tr><td><span style="font-weight:bold;">units</span></td><td>string</td><td>Description of the things being transfered in this transaction (seeds, bulbs, kg, etc)</td></tr>
+<tr><td><span style="font-weight:bold;">units</span></td><td>string</td><td>A description of the things being transfered between SeedLots in a transaction (seeds, bulbs, kg, etc)</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + transactionDbId (Optional, ) ... Unique id for a transaction on this server
-    + seedLotDbId (Optional, ) ... Unique id for a seed lot on this server
-    + germplasmDbId (Optional, ) ... The internal id of the germplasm
-    + germplasmName (Optional, ) ... Name of the germplasm
-    + crossDbId (Optional, ) ... Search for Cross with this unique id
-    + crossName (Optional, ) ... Search for Cross with this human readable name
-    + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
-    + programDbId (Optional, ) ... Use this parameter to only return results associated with the given Program unique identifier. <br/>Use `GET /programs` to find the list of available Programs on a server.
-    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
-    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + transactionDbId (Optional, string) ... Unique id for a transaction on this server
+    + seedLotDbId (Optional, string) ... Unique id for a seed lot on this server
+    + crossDbId (Optional, string) ... Search for Cross with this unique id
+    + crossName (Optional, string) ... Search for Cross with this human readable name
+    + commonCropName (Optional, string) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
+    + programDbId (Optional, string) ... Use this parameter to only return results associated with the given `Program` unique identifier. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
+    + germplasmDbId (Optional, string) ... Use this parameter to only return results associated with the given `Germplasm` unique identifier. <br/>Use `GET /germplasm` to find the list of available `Germplasm` on a server.
+    + germplasmName (Optional, string) ... Use this parameter to only return results associated with the given `Germplasm` by its human readable name. <br/>Use `GET /germplasm` to find the list of available `Germplasm` on a server.
+    + externalReferenceID (Optional, string) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceId (Optional, string) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, string) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
+    + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -458,17 +458,17 @@ Add new Seed Lot Transaction to be recorded
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">amount</span></td><td>number</td><td>The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">amount</span></td><td>number</td><td>The number of units being transfered between SeedLots. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">fromSeedLotDbId</span></td><td>string</td><td>The identifier for the Seed Lot being transfered out of</td></tr>
 <tr><td><span style="font-weight:bold;">toSeedLotDbId</span></td><td>string</td><td>The identifier for the Seed Lot being transfered into</td></tr>
 <tr><td><span style="font-weight:bold;">transactionDescription</span></td><td>string</td><td>A general description of this Seed Lot Transaction</td></tr>
 <tr><td><span style="font-weight:bold;">transactionTimestamp</span></td><td>string<br>(date-time)</td><td>The time stamp for when the transaction occurred</td></tr>
-<tr><td><span style="font-weight:bold;">units</span></td><td>string</td><td>Description of the things being transfered in this transaction (seeds, bulbs, kg, etc)</td></tr>
+<tr><td><span style="font-weight:bold;">units</span></td><td>string</td><td>A description of the things being transfered between SeedLots in a transaction (seeds, bulbs, kg, etc)</td></tr>
 </table>
 
 
@@ -476,25 +476,25 @@ Add new Seed Lot Transaction to be recorded
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">amount</span></td><td>number</td><td>The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
+<tr><td><span style="font-weight:bold;">transactionDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Unique DbId for the Seed Lot Transaction</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">amount</span></td><td>number</td><td>The number of units being transfered between SeedLots. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">fromSeedLotDbId</span></td><td>string</td><td>The identifier for the Seed Lot being transfered out of</td></tr>
 <tr><td><span style="font-weight:bold;">toSeedLotDbId</span></td><td>string</td><td>The identifier for the Seed Lot being transfered into</td></tr>
-<tr><td><span style="font-weight:bold;">transactionDbId</span></td><td>string</td><td>Unique DbId for the Seed Lot Transaction</td></tr>
 <tr><td><span style="font-weight:bold;">transactionDescription</span></td><td>string</td><td>A general description of this Seed Lot Transaction</td></tr>
 <tr><td><span style="font-weight:bold;">transactionTimestamp</span></td><td>string<br>(date-time)</td><td>The time stamp for when the transaction occurred</td></tr>
-<tr><td><span style="font-weight:bold;">units</span></td><td>string</td><td>Description of the things being transfered in this transaction (seeds, bulbs, kg, etc)</td></tr>
+<tr><td><span style="font-weight:bold;">units</span></td><td>string</td><td>A description of the things being transfered between SeedLots in a transaction (seeds, bulbs, kg, etc)</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -601,8 +601,10 @@ Get a specific Seed Lot by seedLotDbId
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">amount</span></td><td>number</td><td>Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
+<tr><td><span style="font-weight:bold;">seedLotDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Unique DbId for the Seed Lot</td></tr>
+<tr><td><span style="font-weight:bold;">seedLotName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for this Seed Lot</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">amount</span></td><td>number</td><td>The current balance of the amount of material in a SeedLot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
 <tr><td><span style="font-weight:bold;">contentMixture</span></td><td>array[object]</td><td>The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.</td></tr>
 <tr><td>contentMixture<br><span style="font-weight:bold;margin-left:5px">.crossDbId</span></td><td>string</td><td>The unique DbId for a cross contained in this seed lot</td></tr>
 <tr><td>contentMixture<br><span style="font-weight:bold;margin-left:5px">.crossName</span></td><td>string</td><td>The human readable name for a cross contained in this seed lot</td></tr>
@@ -611,7 +613,7 @@ Get a specific Seed Lot by seedLotDbId
 <tr><td>contentMixture<br><span style="font-weight:bold;margin-left:5px">.mixturePercentage</span></td><td>integer</td><td>The percentage of the given germplasm in the seed lot mixture.</td></tr>
 <tr><td><span style="font-weight:bold;">createdDate</span></td><td>string<br>(date-time)</td><td>The time stamp for when this seed lot was created</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">lastUpdated</span></td><td>string<br>(date-time)</td><td>The timestamp for the last update to this Seed Lot (including transactions)</td></tr>
@@ -619,20 +621,18 @@ Get a specific Seed Lot by seedLotDbId
 <tr><td><span style="font-weight:bold;">locationName</span></td><td>string</td><td>A human readable name for a location</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The unique DbId of the breeding program this Seed Lot belongs to</td></tr>
 <tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>The human readable name of the breeding program this Seed Lot belongs to</td></tr>
-<tr><td><span style="font-weight:bold;">seedLotDbId</span></td><td>string</td><td>Unique DbId for the Seed Lot</td></tr>
 <tr><td><span style="font-weight:bold;">seedLotDescription</span></td><td>string</td><td>A general description of this Seed Lot</td></tr>
-<tr><td><span style="font-weight:bold;">seedLotName</span></td><td>string</td><td>A human readable name for this Seed Lot</td></tr>
 <tr><td><span style="font-weight:bold;">sourceCollection</span></td><td>string</td><td>The description of the source where this material was originally collected (wild, nursery, etc)</td></tr>
 <tr><td><span style="font-weight:bold;">storageLocation</span></td><td>string</td><td>Description the storage location</td></tr>
-<tr><td><span style="font-weight:bold;">units</span></td><td>string</td><td>Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)</td></tr>
+<tr><td><span style="font-weight:bold;">units</span></td><td>string</td><td>A description of the things being counted in a SeedLot (seeds, bulbs, kg, tree, etc)</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + seedLotDbId (Required, ) ... Unique id for a seed lot on this server
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + seedLotDbId (Required, string) ... Unique id for a seed lot on this server
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -727,8 +727,9 @@ Update an existing Seed Lot
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">amount</span></td><td>number</td><td>Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
+<tr><td><span style="font-weight:bold;">seedLotName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for this Seed Lot</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">amount</span></td><td>number</td><td>The current balance of the amount of material in a SeedLot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
 <tr><td><span style="font-weight:bold;">contentMixture</span></td><td>array[object]</td><td>The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.</td></tr>
 <tr><td>contentMixture<br><span style="font-weight:bold;margin-left:5px">.crossDbId</span></td><td>string</td><td>The unique DbId for a cross contained in this seed lot</td></tr>
 <tr><td>contentMixture<br><span style="font-weight:bold;margin-left:5px">.crossName</span></td><td>string</td><td>The human readable name for a cross contained in this seed lot</td></tr>
@@ -737,7 +738,7 @@ Update an existing Seed Lot
 <tr><td>contentMixture<br><span style="font-weight:bold;margin-left:5px">.mixturePercentage</span></td><td>integer</td><td>The percentage of the given germplasm in the seed lot mixture.</td></tr>
 <tr><td><span style="font-weight:bold;">createdDate</span></td><td>string<br>(date-time)</td><td>The time stamp for when this seed lot was created</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">lastUpdated</span></td><td>string<br>(date-time)</td><td>The timestamp for the last update to this Seed Lot (including transactions)</td></tr>
@@ -746,10 +747,9 @@ Update an existing Seed Lot
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The unique DbId of the breeding program this Seed Lot belongs to</td></tr>
 <tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>The human readable name of the breeding program this Seed Lot belongs to</td></tr>
 <tr><td><span style="font-weight:bold;">seedLotDescription</span></td><td>string</td><td>A general description of this Seed Lot</td></tr>
-<tr><td><span style="font-weight:bold;">seedLotName</span></td><td>string</td><td>A human readable name for this Seed Lot</td></tr>
 <tr><td><span style="font-weight:bold;">sourceCollection</span></td><td>string</td><td>The description of the source where this material was originally collected (wild, nursery, etc)</td></tr>
 <tr><td><span style="font-weight:bold;">storageLocation</span></td><td>string</td><td>Description the storage location</td></tr>
-<tr><td><span style="font-weight:bold;">units</span></td><td>string</td><td>Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)</td></tr>
+<tr><td><span style="font-weight:bold;">units</span></td><td>string</td><td>A description of the things being counted in a SeedLot (seeds, bulbs, kg, tree, etc)</td></tr>
 </table>
 
 
@@ -757,8 +757,10 @@ Update an existing Seed Lot
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">amount</span></td><td>number</td><td>Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
+<tr><td><span style="font-weight:bold;">seedLotDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Unique DbId for the Seed Lot</td></tr>
+<tr><td><span style="font-weight:bold;">seedLotName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>A human readable name for this Seed Lot</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">amount</span></td><td>number</td><td>The current balance of the amount of material in a SeedLot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
 <tr><td><span style="font-weight:bold;">contentMixture</span></td><td>array[object]</td><td>The mixture of germplasm present in the seed lot. <br/> If this seed lot only contains a single germplasm, the response should contain the name  and DbId of that germplasm with a mixturePercentage value of 100 <br/> If the seed lot contains a mixture of different germplasm, the response should contain  the name and DbId every germplasm present. The mixturePercentage field should contain  the ratio of each germplasm in the total mixture. All of the mixturePercentage values  in this array should sum to equal 100.</td></tr>
 <tr><td>contentMixture<br><span style="font-weight:bold;margin-left:5px">.crossDbId</span></td><td>string</td><td>The unique DbId for a cross contained in this seed lot</td></tr>
 <tr><td>contentMixture<br><span style="font-weight:bold;margin-left:5px">.crossName</span></td><td>string</td><td>The human readable name for a cross contained in this seed lot</td></tr>
@@ -767,7 +769,7 @@ Update an existing Seed Lot
 <tr><td>contentMixture<br><span style="font-weight:bold;margin-left:5px">.mixturePercentage</span></td><td>integer</td><td>The percentage of the given germplasm in the seed lot mixture.</td></tr>
 <tr><td><span style="font-weight:bold;">createdDate</span></td><td>string<br>(date-time)</td><td>The time stamp for when this seed lot was created</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">lastUpdated</span></td><td>string<br>(date-time)</td><td>The timestamp for the last update to this Seed Lot (including transactions)</td></tr>
@@ -775,20 +777,18 @@ Update an existing Seed Lot
 <tr><td><span style="font-weight:bold;">locationName</span></td><td>string</td><td>A human readable name for a location</td></tr>
 <tr><td><span style="font-weight:bold;">programDbId</span></td><td>string</td><td>The unique DbId of the breeding program this Seed Lot belongs to</td></tr>
 <tr><td><span style="font-weight:bold;">programName</span></td><td>string</td><td>The human readable name of the breeding program this Seed Lot belongs to</td></tr>
-<tr><td><span style="font-weight:bold;">seedLotDbId</span></td><td>string</td><td>Unique DbId for the Seed Lot</td></tr>
 <tr><td><span style="font-weight:bold;">seedLotDescription</span></td><td>string</td><td>A general description of this Seed Lot</td></tr>
-<tr><td><span style="font-weight:bold;">seedLotName</span></td><td>string</td><td>A human readable name for this Seed Lot</td></tr>
 <tr><td><span style="font-weight:bold;">sourceCollection</span></td><td>string</td><td>The description of the source where this material was originally collected (wild, nursery, etc)</td></tr>
 <tr><td><span style="font-weight:bold;">storageLocation</span></td><td>string</td><td>Description the storage location</td></tr>
-<tr><td><span style="font-weight:bold;">units</span></td><td>string</td><td>Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)</td></tr>
+<tr><td><span style="font-weight:bold;">units</span></td><td>string</td><td>A description of the things being counted in a SeedLot (seeds, bulbs, kg, tree, etc)</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + seedLotDbId (Required, ) ... Unique id for a seed lot on this server
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + seedLotDbId (Required, string) ... Unique id for a seed lot on this server
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -924,30 +924,30 @@ Get all Transactions related to a specific Seed Lot
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">amount</span></td><td>number</td><td>The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
+<tr><td><span style="font-weight:bold;">transactionDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>Unique DbId for the Seed Lot Transaction</td></tr>
+<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
+<tr><td><span style="font-weight:bold;">amount</span></td><td>number</td><td>The number of units being transfered between SeedLots. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">fromSeedLotDbId</span></td><td>string</td><td>The identifier for the Seed Lot being transfered out of</td></tr>
 <tr><td><span style="font-weight:bold;">toSeedLotDbId</span></td><td>string</td><td>The identifier for the Seed Lot being transfered into</td></tr>
-<tr><td><span style="font-weight:bold;">transactionDbId</span></td><td>string</td><td>Unique DbId for the Seed Lot Transaction</td></tr>
 <tr><td><span style="font-weight:bold;">transactionDescription</span></td><td>string</td><td>A general description of this Seed Lot Transaction</td></tr>
 <tr><td><span style="font-weight:bold;">transactionTimestamp</span></td><td>string<br>(date-time)</td><td>The time stamp for when the transaction occurred</td></tr>
-<tr><td><span style="font-weight:bold;">units</span></td><td>string</td><td>Description of the things being transfered in this transaction (seeds, bulbs, kg, etc)</td></tr>
+<tr><td><span style="font-weight:bold;">units</span></td><td>string</td><td>A description of the things being transfered between SeedLots in a transaction (seeds, bulbs, kg, etc)</td></tr>
 </table>
 
 
  
 
 + Parameters
-    + seedLotDbId (Required, ) ... Unique id for a seed lot on this server
-    + transactionDbId (Optional, ) ... Unique id for a Transaction that has occurred
-    + transactionDirection (Optional, ) ... Filter results to only include transactions directed to the specific Seed Lot (TO), away from the specific Seed Lot (FROM), or both (BOTH). The default value for this parameter is BOTH
-    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + seedLotDbId (Required, string) ... Unique id for a seed lot on this server
+    + transactionDbId (Optional, string) ... Unique id for a Transaction that has occurred
+    + transactionDirection (Optional, string) ... Filter results to only include transactions directed to the specific Seed Lot (TO), away from the specific Seed Lot (FROM), or both (BOTH). The default value for this parameter is BOTH
+    + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, string) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 

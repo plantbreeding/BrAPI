@@ -7,15 +7,24 @@ components:
   schemas:
     Call:
       type: object
+      x-brapi-metadata:
+        primaryModel: true
+        module: BrAPI-Genotyping
+        title: Call
+        description: A Call represents the determination of genotype with respect to a particular Variant. It may include associated information such as quality and phasing. For example, a call might assign a probability of 0.32 to the occurrence of a SNP named RS_1234 in a Call Set with the name NA_12345.
       description: |-
         A `Call` represents the determination of genotype with respect to a particular `Variant`.
 
         It may include associated information such as quality and phasing. For example, a call might assign a probability of 0.32 to the occurrence of a SNP named RS_1234 in a call set with the name NA_12345.
+      required:
+      - callSetDbId
+      - variantDbId
+      - variantSetDbId
       properties:
         additionalInfo:
           additionalProperties:
             type: string
-          description: Additional arbitrary info
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
           type: object
         callSetDbId:
           description: |-
@@ -44,17 +53,57 @@ components:
           description: The human readable name for a VariantSet
           type: string
           example: Maize QC DataSet 002334 
+        genotypeValue:
+          description: The value of this genotype call
+          type: string
+          example: '1/1'
+        genotypeMetadata:
+          description: Genotype Metadata are additional layers of metadata associated with each genotype.
+          type: array
+          items:
+            type: object
+            properties:
+              dataType:
+                description: The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.
+                type: string
+                enum:
+                - string
+                - integer
+                - float
+                - boolean
+                example: integer
+              fieldName:
+                description: |-
+                  The name of the field represented in this Genotype Field. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"
+                  <br> This maps to a FORMAT field in the VCF file standard.
+                type: string
+                example: Genotype Quality
+              fieldAbbreviation:
+                description: |-
+                  The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"
+                  <br> This maps to a FORMAT field in the VCF file standard.
+                type: string
+                example: GQ
+              fieldValue:
+                description: The additional metadata value associated with this genotype call
+                type: string
+                example: '45.2'
+        phaseSet:
+          description: |-
+            If this field is populated, this variant call's genotype ordering implies the phase of the bases and 
+            is consistent with any other variant calls on the same contig which have the same phase set string.
+          type: string
+          example: 6410afc5
         genotype:
           $ref: '#/components/schemas/ListValue'
         genotype_likelihood:
-          description: The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data | genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.
+          deprecated: true
+          description: |-
+            **Deprecated in v2.1** Please use `genotypeMetadata`. Github issue number #491             
+            <br>The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data | genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.
           items:
             format: double
             type: number
           type: array
           example: [ 1.0 ]
-        phaseSet:
-          description: If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.
-          type: string
-          example: 6410afc5
 

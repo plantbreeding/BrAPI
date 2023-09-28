@@ -7,15 +7,17 @@ components:
   schemas:
     StudyNewRequest:
       type: object
+      required: 
+      - studyName
       properties:
         active:
-          description: Is this study currently active
+          description: A flag to indicate if a Study is currently active and ongoing
           type: boolean
           example: true
         additionalInfo:
           additionalProperties:
             type: string
-          description: Additional arbitrary info
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.  
           type: object
         commonCropName:
           description: Common name for the crop associated with this study
@@ -32,7 +34,7 @@ components:
             $ref: '#/components/schemas/DataLink'
           type: array
         documentationURL:
-          description: A URL to the human readable documentation of this object
+          description: A URL to the human readable documentation of an object
           format: uri
           type: string
           example: https://wiki.brapi.org

@@ -16,4 +16,9 @@ components:
         required: 
         - attributeValueDbId
         type: object
+        x-brapi-metadata:
+          primaryModel: true
+          module: BrAPI-Germplasm
+          title: GermplasmAttributeValue
+          description: The value recorded for a particular Trait/Attribute and a particular Germplasm. Similar to an Observation value, but more concrete, applying to the whole Germplasm instead of a single ObservationUnit.  
 
