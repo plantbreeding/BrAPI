@@ -32,9 +32,19 @@ paths: {}
 servers:
 - url: https://test-server.brapi.org/brapi/v2
 tags:
+- name: Analysis
+  description: description
+  externalDocs:
+    description: description
+    url: https://brapi.org/
+- name: Files
+  description: description
+  externalDocs:
+    description: description
+    url: https://brapi.org/
 - name: High-Dimensional-Phenotypes
   description: description
   externalDocs:
     description: description
-    url: https://wiki.brapi.org/
+    url: https://brapi.org/
 

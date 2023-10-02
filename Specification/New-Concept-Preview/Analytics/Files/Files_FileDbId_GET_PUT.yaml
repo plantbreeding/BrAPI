@@ -35,7 +35,6 @@ paths:
           $ref: '#/components/responses/404NotFound'
       tags:
       - Files
-      - Analysis
     put:
       summary: Update an existing file metadata record
       description: |-
@@ -75,7 +74,6 @@ paths:
           $ref: '#/components/responses/404NotFound'
       tags:
       - Files
-      - Analysis
 components:
   responses:
     FileSingleResponse:

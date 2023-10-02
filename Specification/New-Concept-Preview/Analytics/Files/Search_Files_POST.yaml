@@ -39,4 +39,3 @@ paths:
           $ref: '#/components/responses/403Forbidden'
       tags:
       - Files
-      - Analysis
