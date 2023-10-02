@@ -42,7 +42,7 @@ components:
           type: string
           example: https://wiki.brapi.org/files/tomato
         dataType:
-          type: array
+          type: string
           description: The accepted list of data types
           example: VCFW
         mimeType:

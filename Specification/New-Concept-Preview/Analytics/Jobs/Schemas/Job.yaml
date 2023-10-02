@@ -50,11 +50,11 @@ components:
                   type: string
                   example: https://test-server.brapi.org/brapi/v2/observations?studyDbId=results123
                 dataType:
-                  type: array
+                  type: string
                   description: The accepted list of data types
                   example: Observations
                 mimeType:
                   description: The file type of the file
                   type: string
-                  example: application/jsonf
-            
+                  example: application/json
+                  
