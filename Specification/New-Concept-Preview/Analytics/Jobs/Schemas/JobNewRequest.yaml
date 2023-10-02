@@ -1,0 +1,142 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    JobNewRequest:
+      type: object
+      properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.  
+          type: object
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+        jobName:
+          description: The human readable name of a running job
+          type: string
+          example: Bob Robertson First GWAS
+        description:
+          description: The human readable description of a running job.
+          type: string
+          example: Bob Robertson first attempt to run GWAS on a remote server
+        procedureDbId:
+          description: The unique identifier for a procedure 
+          type: string
+          example: a3b45b23
+        controlParameters:
+          description: The date and time the file was taken
+          type: array
+          items:
+            type: object
+            properties:
+              parameterId:
+                type: string
+                description: Unique identifier for this parameter
+                example: 665b33cf
+              parameterValue:
+                type: string
+                description: value sent for this parameter
+                example: '100'
+        fileDataParameters:
+          description: Input data expected from a non-BrAPI source
+          type: array
+          items:
+            type: object
+            properties:
+              parameterId:
+                type: string
+                description: Unique identifier for this parameter
+                example: 665b33cf
+              fileURL:
+                description: The complete, absolute URI path to the file file. Files might be stored on a different host or path than the BrAPI web server.
+                type: string
+                example: https://wiki.brapi.org/files/tomato
+              mimeType:
+                description: The file type of the file
+                type: string
+                example: application/epw
+              dataType:
+                type: string
+                description: The accepted list of data types
+                example: EPW
+              fileSize:
+                description: The size of the image in Bytes.
+                type: integer
+                example: 50000
+              fileTimeStamp:
+                description: The date and time the file was taken
+                format: date-time
+                type: string
+        brapiDataParameters:
+          description: Input data expected from a BrAPI source
+          type: array
+          items:
+            type: object
+            properties:
+              parameterId:
+                type: string
+                description: Unique identifier for this parameter
+                example: 665b33cf
+              brapiBaseURL:
+                description: The base URL for a BrAPI compatible server
+                type: string
+                example: https://test-server.brapi.org/brapi/v2/
+              brapiVersions:
+                description: The supported versions of the BrAPI spec for a BrAPI compatible server
+                type: array
+                example: ['V2.1', 'V2.0', 'V1.3']
+                items: 
+                  type: string
+              authToken:
+                description: The Bearer Auth token for the remote BrAPI server, if applicable
+                type: string
+                example: Bearer eyJhbGciOiJSUzI1N...
+              dataType:
+                type: string
+                description: The BrAPI class type expected
+                example: Observations
+                enum:
+                - Observations
+                - ObservationUnits
+                - Germplasm
+                - Samples
+                - AlleleMatrix
+                - Studies
+                - Locations
+                - Trials
+                - Images
+              search:
+                type: boolean
+                description: If true, use the 'POST /search/entity' endpoint instead of the basic 'GET /entity' endpoint
+                example: false
+              brapiParameters:
+                type: array
+                description: The list of parameters to be used to perform the BrAPI Query. 
+                items:
+                  type: object
+                  properties:
+                    brapiParameterName:
+                      type: string
+                      description: Name of the parameter from the BrAPI specification
+                      example: studyDbId
+                    brapiParameterType:
+                      type: string
+                      description: The type of the parameter from the BrAPI specification
+                      example: string
+                      enum: 
+                      - string
+                      - boolean
+                      - number
+                      - array
+                    brapiParameterValue:
+                      type: string
+                      description: The value of this parameter to be used in the BrAPI query
+                      example: 65bf336c
+                    
+              
+             
+

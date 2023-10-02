@@ -1,0 +1,42 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /search/files:
+    post:
+      summary: Submit a search request for `XXEntitiesXX`
+      description: |-
+        Submit a search request for `XXEntitiesXX`<br/>
+        Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+        If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+        Use the corresponding `GET /search/XXEntitiesXX/{searchResultsDbId}` to retrieve the results of the search. <br/> 
+        Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
+        <br/>
+        <br/>
+        File Implementation Notes<br/>
+        - `fileURL` should be a complete URL describing the location of the file. There is no BrAPI call for retrieving the file content, so it could be on a different path, or a different host.<br/>
+        - `descriptiveOntologyTerm` can be thought of as Tags for the file. These could be simple descriptive words, or ontology references, or full ontology URI's.<br/>
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/SearchRequestParametersPaging'
+              - $ref: '#/components/schemas/FileSearchRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/FileListResponse'
+        '202':
+          $ref: '#/components/responses/202AcceptedSearchResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Files
+      - Analysis

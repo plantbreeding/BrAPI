@@ -1,0 +1,23 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    File:
+      allOf:
+      - $ref: '#/components/schemas/FileNewRequest'
+      - type: object
+        x-brapi-metadata:
+          primaryModel: true
+          module: BrAPI-Phenotyping
+          title: File
+          description: The metadata for an file file that is connected to some phenotypic observation data.
+        required:
+        - fileDbId
+        properties:
+          fileDbId:
+            description: The unique identifier of an file
+            type: string
+            example: a55efb9c

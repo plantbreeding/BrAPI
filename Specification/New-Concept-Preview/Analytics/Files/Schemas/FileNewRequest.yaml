@@ -1,0 +1,56 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    FileNewRequest:
+      type: object
+      properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.  
+          type: object
+        copyright:
+          description: The copyright information of this file. Example 'Copyright 2018 Bob Robertson'
+          type: string
+          example: Copyright 2018 Bob Robertson
+        description:
+          description: The human readable description of an file.
+          type: string
+          example: This is a picture of a tomato
+        fileSource:
+          description: The description of where the file originated or how it was generated
+          type: string
+          example: Output from analsys job xyz123
+        fileName:
+          description: The name of the file file. Might be the same as 'fileName', but could be different.
+          type: string
+          example: file_0000231.jpg
+        fileSize:
+          description: The size of the file in Bytes.
+          type: integer
+          example: 50000
+        fileTimeStamp:
+          description: The date and time the file was taken
+          format: date-time
+          type: string
+        fileURL:
+          description: The complete, absolute URI path to the file file. Files might be stored on a different host or path than the BrAPI web server.
+          type: string
+          example: https://wiki.brapi.org/files/tomato
+        dataType:
+          type: array
+          description: The accepted list of data types
+          example: VCFW
+        mimeType:
+          description: The file type of the file
+          pattern: application/.*
+          type: string
+          example: application/vcf
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+          
+

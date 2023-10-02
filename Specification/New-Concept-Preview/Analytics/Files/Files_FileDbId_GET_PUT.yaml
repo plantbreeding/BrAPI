@@ -1,0 +1,98 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /files/{fileDbId}:
+    get:
+      summary: Get the an file metadata summary
+      description: |-
+        Get one file metadata object
+
+        Implementation Notes
+
+        - ''fileURL'' should be a complete URL describing the location of the file. There is no BrAPI call for 
+        retrieving the file content, so it could be on a different path, or a different host.
+
+      parameters:
+      - description: The unique identifier for a file
+        in: path
+        name: fileDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/FileSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Files
+      - Analysis
+    put:
+      summary: Update an existing file metadata record
+      description: |-
+        Update an existing file metadata record
+        
+        Implementation Notes
+        
+        - This endpoint should be implemented with 'PUT /files/{fileDbId}/filecontent' for full file update capability
+        
+        - A server may choose to modify the file metadata object based on the actually file which has been uploaded. 
+        
+        - File data may be stored in a database or file system. Servers should generate and provide the "fileURL" as an 
+        absolute path for retrieving the file, wherever it happens to live. 
+      parameters:
+      - description: The unique identifier for a file
+        in: path
+        name: fileDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/FileSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Files
+      - Analysis
+components:
+  responses:
+    FileSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: FileSingleResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/File'
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}

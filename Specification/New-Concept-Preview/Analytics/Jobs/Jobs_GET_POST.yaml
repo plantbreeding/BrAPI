@@ -1,0 +1,106 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /jobs:
+    get:
+      summary: Get the analysis jobs metadata summaries
+      description: Get the analysis jobs metadata summaries
+      parameters:
+      - description: The unique identifier for a Job
+        in: query
+        name: jobDbId
+        required: false
+        schema:
+          type: string
+      - description: The human readable name of a Job
+        in: query
+        name: jobName
+        required: false
+        schema:
+          type: string
+      - description: The unique identifier for a procedure
+        in: query
+        name: procedureDbId
+        required: false
+        schema:
+          type: string
+      - description: The human readable name of a procedure
+        in: query
+        name: procedureName
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/commonCropName'
+      - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/externalReferenceId'
+      - $ref: '#/components/parameters/externalReferenceSource'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/JobListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Jobs
+      - Analysis
+    post:
+      summary: Submit a new analysis job
+      description: Submit a new analysis job
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/JobNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/JobListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Jobs
+      - Analysis
+components:
+  responses:
+    JobListResponse:
+      content:
+        application/json:
+          schema:
+            title: JobListResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    description: The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.
+                    items:
+                      $ref: '#/components/schemas/Job'
+                required:
+                - data
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}
+      

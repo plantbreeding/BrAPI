@@ -1,0 +1,50 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    FileSearchRequest:
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'
+      - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'
+      - $ref: '#/components/schemas/SearchRequestParametersPrograms'
+      - type: object
+        properties:
+          fileNames:
+            description: File file names to search for.
+            items:
+              type: string
+            type: array
+            example: ['file_01032019.jpg', 'picture_field_1234.jpg'] 
+          fileSizeMax:
+            description: A maximum file file size to search for.
+            type: integer
+            example: 20000000
+          fileSizeMin:
+            description: A minimum file file size to search for.
+            type: integer
+            example: 1000
+          fileTimeStampRangeEnd:
+            description: The latest timestamp to search for.
+            format: date-time
+            type: string
+          fileTimeStampRangeStart:
+            description: The earliest timestamp to search for.
+            format: date-time
+            type: string
+          mimeTypes:
+            description: A set of file file types to search for.
+            items:
+              type: string
+            type: array
+            example: ['application/json', 'text/csv', 'application/vcf']
+          fileDbIds: 
+            description: A list of file Ids to search for
+            items:
+              type: string
+            type: array
+            example: ['564b64a6', '0d122d1d']
+

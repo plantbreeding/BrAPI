@@ -1,0 +1,53 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /files/{fileDbId}/filecontent:
+    put:
+      summary: Attach an file binary file to an existing file metadata record
+      description: |-
+        This endpoint is used to attach an file binary file to an existing file metadata record. All of the other Files endpoints 
+        deal with the JSON for file metadata, but 'PUT /files/{fileDbId}/filecontent' allows you to send any binary file with a Content 
+        Type (MIME) of file/*. When the real file is uploaded, the server may choose to update some of the metadata to reflect the 
+        reality of the file that was uploaded, and should respond with the updated JSON.
+        
+        Implementation Notes
+        
+        - This endpoint should be implemented with 'POST /files' for full file upload capability
+        
+        - This endpoint should be implemented with 'PUT /files/{fileDbId}' for full file update capability
+        
+        - A server may choose to modify the file metadata object based on the actually file which has been uploaded by this endpoint. 
+        
+        - File data may be stored in a database or file system. Servers should generate and provide the "fileURL" for retrieving the 
+          file binary file. 
+
+      parameters:
+      - description: The unique identifier for an file
+        in: path
+        name: fileDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/*:
+            schema:
+              format: binary
+              type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/FileSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Files
+      - Analysis

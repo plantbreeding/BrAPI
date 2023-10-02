@@ -1,0 +1,59 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /delete/files:
+    post:
+      summary: Submit a delete request for `Files`
+      description: |-
+        Submit a delete request for `Files`
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileSearchRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/FileDeleteResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Files
+      - Analysis
+
+components:
+  responses:
+    FileDeleteResponse:
+      content:
+        application/json:
+          schema:
+            title: FileDeleteResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  fileDbIds:
+                    description: The unique ids of the File records which have been successfully deleted
+                    items:
+                      type: string
+                    type: array
+                    example: ['6a4a59d8', '3ff067e0']
+                required:
+                - fileDbIds
+                type: object
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}

@@ -1,0 +1,136 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    Procedure:
+      type: object
+      properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.  
+          type: object
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+        procedureDbId:
+          description: The unique identifier for a procedure 
+          type: string
+          example: a3b45b23
+        procedureName:
+          description: The human readable identifier for a procedure
+          type: string
+          example: REMOTE-GWAS
+        description:
+          description: The human readable description of a running job.
+          type: string
+          example: Bob Robertson first attempt to run GWAS on a remote server
+        documentationURL:
+          description: A link to further documentation describing a procedure
+          type: string
+          example: https://plantbreeding.github.io/tool-documentation
+        controlParameters:
+          description: Simple parameters for controlling the job
+          type: array
+          items:
+            type: object
+            properties:
+              parameterId:
+                type: string
+                description: Unique identifier for this parameter
+                example: 665b33cf
+              parameterName:
+                type: string
+                description: Human readable identifier for this parameter
+                example: Number of Cycles
+              dataType:
+                $ref: '#/components/schemas/ScaleBaseClass'
+              defaultValue:
+                type: string
+                description: The default value used if the parameter is not provided. Required should be false if DefaultValue is present. 
+                example: '100'
+              exampleValue:
+                type: string
+                description: An example of what this parameter might look like 
+                example: '100'
+              required:
+                type: boolean
+                description: Is this parameter required for the job to run 
+                example: '100'
+        fileDataParameters:
+          description: Input data expected from a non-BrAPI source
+          type: array
+          items:
+            type: object
+            properties:
+              parameterId:
+                type: string
+                description: Unique identifier for this parameter
+                example: 665b33cf
+              parameterName:
+                type: string
+                description: Human readable identifier for this parameter
+                example: Weather Data
+              dataTypes:
+                type: array
+                description: The accepted list of data types
+                example: ['EPW', 'VCF']
+                items:
+                  type: string
+              mimeTypes:
+                type: array
+                description: The accepted list of file MIME types
+                example: ['application/epw', 'application/vcf']
+                items:
+                  type: string
+              required:
+                type: boolean
+                description: Is this parameter required for the job to run 
+                example: '100'
+              alternativeParameters:
+                type: array
+                description: Alternate parameter ids that would provide the same input data
+                items:
+                  type: string
+        brapiDataParameters:
+          description: Input data expected from a BrAPI compliant source
+          type: array
+          items:
+            type: object
+            properties:
+              parameterId:
+                type: string
+                description: Unique identifier for this parameter
+                example: 665b33cf
+              parameterName:
+                type: string
+                description: Human readable identifier for this parameter
+                example: Number of Cycles
+              dataType:
+                type: string
+                description: The BrAPI class type expected
+                example: Observations
+                enum:
+                - Observations
+                - ObservationUnits
+                - Germplasm
+                - Samples
+                - AlleleMatrix
+                - Studies
+                - Locations
+                - Trials
+                - Images
+              required:
+                type: boolean
+                description: Is this parameter required for the job to run 
+                example: '100'
+              alternativeParameters:
+                type: array
+                description: Alternate parameter ids that would provide the same input data
+                items:
+                  type: string
+
+          
+

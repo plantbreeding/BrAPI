@@ -1,0 +1,108 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /files:
+    get:
+      summary: Get the file metadata summaries
+      description: |-
+        Get filtered set of file metadata
+
+        Implementation Notes
+
+        - ''fileURL'' should be a complete URL describing the location of the file. There is no BrAPI call for 
+        retrieving the file content, so it could be on a different path, or a different host.
+      parameters:
+      - description: The unique identifier for a file
+        in: query
+        name: fileDbId
+        required: false
+        schema:
+          type: string
+      - description: The human readable name of an file
+        in: query
+        name: fileName
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/commonCropName'
+      - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/externalReferenceId'
+      - $ref: '#/components/parameters/externalReferenceSource'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/FileListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Files
+      - Analysis
+    post:
+      summary: Create new file metadata records
+      description: |-
+        Create new file metadata records
+
+        Implementation Notes
+        
+        - This endpoint should be implemented with 'PUT /files/{fileDbId}/filecontent' for full file upload capability
+
+        - ''fileURL'' should be a complete URL describing the location of the file. There is no BrAPI call for retrieving 
+        the file content, so it could be on a different path, or a different host.
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/FileNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/FileListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Files
+      - Analysis
+components:
+  responses:
+    FileListResponse:
+      content:
+        application/json:
+          schema:
+            title: FileListResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    description: The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.
+                    items:
+                      $ref: '#/components/schemas/File'
+                required:
+                - data
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}
+      

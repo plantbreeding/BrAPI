@@ -1,0 +1,60 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    Job:
+      allOf:
+      - $ref: '#/components/schemas/JobNewRequest'
+      - type: object
+        required:
+        - jobDbId
+        properties:
+          jobDbId:
+            description: The unique identifier of a Job
+            type: string
+            example: a55efb9c
+          jobStatus:
+            description: The current status of a Job
+            type: string
+            example: RUNNING
+            enum:
+            - SUBMITTED
+            - QUEUED
+            - RUNNING
+            - COMPLETED
+            - ERRORED
+            - CANCELED
+          jobStatusMessage:
+            description: A human readable message describing the current state of the Job
+            type: string
+            example: Running procedure 101, 8 out of 10 tasks complete
+          jobOutput:
+            description: list of output data objects from the job
+            type: array
+            items:
+              type: object
+              properties:
+                fileSize:
+                  description: The size of the file in Bytes.
+                  type: integer
+                  example: 50000
+                fileTimeStamp:
+                  description: The date and time the file was taken
+                  format: date-time
+                  type: string
+                fileURL:
+                  description: The complete, absolute URI path to the file file. Files might be stored on a different host or path than the BrAPI web server.
+                  type: string
+                  example: https://test-server.brapi.org/brapi/v2/observations?studyDbId=results123
+                dataType:
+                  type: array
+                  description: The accepted list of data types
+                  example: Observations
+                mimeType:
+                  description: The file type of the file
+                  type: string
+                  example: application/jsonf
+            
