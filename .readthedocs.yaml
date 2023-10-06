@@ -4,3 +4,9 @@ sphinx:
   builder: html
   configuration: docs/conf.py
   fail_on_warning: true
+
+  
+# Explicitly set the version of Python and its requirements
+python:
+  install:
+    - requirements: docs/requirements.txt
