@@ -5,6 +5,17 @@ openapi: 3.0.0
 paths: {}
 components:
   schemas:
+    JobStatusEnum:
+      description: The status of a Job
+      type: string
+      example: RUNNING
+      enum:
+      - SUBMITTED
+      - QUEUED
+      - RUNNING
+      - COMPLETED
+      - ERRORED
+      - CANCELED
     Job:
       allOf:
       - $ref: '#/components/schemas/JobNewRequest'
@@ -16,21 +27,24 @@ components:
             description: The unique identifier of a Job
             type: string
             example: a55efb9c
-          jobStatus:
-            description: The current status of a Job
-            type: string
-            example: RUNNING
-            enum:
-            - SUBMITTED
-            - QUEUED
-            - RUNNING
-            - COMPLETED
-            - ERRORED
-            - CANCELED
-          jobStatusMessage:
+          jobCurrentStatus:
+            $ref: '#/components/schemas/JobStatusEnum'
+          jobStatusMessages:
             description: A human readable message describing the current state of the Job
-            type: string
-            example: Running procedure 101, 8 out of 10 tasks complete
+            type: array
+            items:
+              type: object
+              properties:
+                timestamp:
+                  type: string
+                  format: date-time
+                  description: timestamp for this logging message
+                status:
+                  $ref: '#/components/schemas/JobStatusEnum'
+                message:
+                  type: string
+                  description: A human readable message describing the Job
+                  example: Running procedure 101, 8 out of 10 tasks complete
           jobOutput:
             description: list of output data objects from the job
             type: array
