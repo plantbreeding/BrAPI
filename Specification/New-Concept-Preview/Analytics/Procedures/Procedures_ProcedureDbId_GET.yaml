@@ -1,0 +1,50 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /procedures/{procedureDbId}:
+    get:
+      summary: Get a specific analysis procedure
+      description:  Get a specific analysis procedure
+      parameters:
+      - description: The unique identifier for a procedure
+        in: path
+        name: procedureDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/ProcedureSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Analysis
+components:
+  responses:
+    ProcedureSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: ProcedureSingleResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/Procedure'
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}

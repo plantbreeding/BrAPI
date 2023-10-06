@@ -1,0 +1,50 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /jobs/{jobDbId}:
+    get:
+      summary: Get a specific analysis job
+      description:  Get a specific analysis job
+      parameters:
+      - description: The unique identifier for a job
+        in: path
+        name: jobDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/JobSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Analysis
+components:
+  responses:
+    JobSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: JobSingleResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/Job'
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}
