@@ -94,7 +94,7 @@ Authorization Code Grant
    :width: 800
    :alt: Authorization Code Grant
 
-  Authorization Code Grant is recommended
+Authorization Code Grant is recommended
   when the Resource Owner is a real person and the Client Application
   can not be trusted with the Resource Owners credentials, such as a web
   application. This is the recommended Grant Type for most BrAPI use
@@ -109,7 +109,7 @@ Client Credentials Grant
    :width: 800
    :alt: Client Credentials Grant
 
-| Client Credentials Grant is recommended
+Client Credentials Grant is recommended
   when the Client Application is the Resource Owner (such as a script or
   automatic process) and can be trusted with its own credentials. These
   credentials could be a service account username and password, a shared
@@ -126,7 +126,7 @@ Implicit Grant
    :width: 800
    :alt: Implicit Grant
 
-| ImplicitGrant.png Implicit Grant is a simplified version of
+ImplicitGrant.png Implicit Grant is a simplified version of
   Authorization Code Grant. It is recommended to use Authorization Code
   Grant hen possible, but Implicit Grant is acceptable when necessary.
 
@@ -139,7 +139,7 @@ Resource Owner Password Credentials Grant
    :width: 800
    :alt: Resource Owner Password Credentials Grant
 
-| ResourceOwnerPasswordCredentialsGrant.png Resource Owner Password
+ResourceOwnerPasswordCredentialsGrant.png Resource Owner Password
   Credentials Grant involves giving the Resource Owner credentials
   directly to the Client so that the Client can obtain a token. This
   Grant Type is generally not advised if one of the other options is
