@@ -16,6 +16,7 @@ Get a filtered list of Metabolomics Protocols
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies the Metabolomics Matrix</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
 <tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>description</td></tr>
 <tr><td><span style="font-weight:bold;">equipment</span></td><td>object</td><td></td></tr>
@@ -28,7 +29,7 @@ Get a filtered list of Metabolomics Protocols
 <tr><td>equipment<br><span style="font-weight:bold;margin-left:5px">.msIonMode</span></td><td>string</td><td>Negative, Positive, Both</td></tr>
 <tr><td>equipment<br><span style="font-weight:bold;margin-left:5px">.msType</span></td><td>string</td><td>Electron Ionization (EI), Electrospray Ionization (ESI), Atmospheric Pressure Chemical Ionization (APCI), Matrix Assisted Laser Desorption Ionization (MALDI), Other (please specify below)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">headerColumns</span></td><td>array[object]</td><td>Column definitions for any matrix with this protocol</td></tr>
@@ -55,7 +56,6 @@ Get a filtered list of Metabolomics Protocols
 <tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.rawDataTransformation</span></td><td>string</td><td>the LCMS machine files were transformed into peak area</td></tr>
 <tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.sampleCollection</span></td><td>string</td><td>the tissue, time point, if the sample was frozen</td></tr>
 <tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.sampleExtraction</span></td><td>string</td><td>the extraction protocol used</td></tr>
-<tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string</td><td>The ID which uniquely identifies the Metabolomics Matrix</td></tr>
 <tr><td><span style="font-weight:bold;">publications</span></td><td>array[string]</td><td>Relevant publication(s), DOI with details</td></tr>
 </table>
 
@@ -65,7 +65,7 @@ Get a filtered list of Metabolomics Protocols
 + Parameters
     + metabolomicsProtocolDbId (Optional, string) ... description
     + observationUnitDbId (Optional, string) ... description
-    + externalReferenceID (Optional, string) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceID (Optional, string) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceSource (Optional, string) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
@@ -190,6 +190,7 @@ Get a single Metabolomics Protocol by Id. This can be used to quickly get the de
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies the Metabolomics Matrix</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
 <tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>description</td></tr>
 <tr><td><span style="font-weight:bold;">equipment</span></td><td>object</td><td></td></tr>
@@ -202,7 +203,7 @@ Get a single Metabolomics Protocol by Id. This can be used to quickly get the de
 <tr><td>equipment<br><span style="font-weight:bold;margin-left:5px">.msIonMode</span></td><td>string</td><td>Negative, Positive, Both</td></tr>
 <tr><td>equipment<br><span style="font-weight:bold;margin-left:5px">.msType</span></td><td>string</td><td>Electron Ionization (EI), Electrospray Ionization (ESI), Atmospheric Pressure Chemical Ionization (APCI), Matrix Assisted Laser Desorption Ionization (MALDI), Other (please specify below)</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">headerColumns</span></td><td>array[object]</td><td>Column definitions for any matrix with this protocol</td></tr>
@@ -229,7 +230,6 @@ Get a single Metabolomics Protocol by Id. This can be used to quickly get the de
 <tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.rawDataTransformation</span></td><td>string</td><td>the LCMS machine files were transformed into peak area</td></tr>
 <tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.sampleCollection</span></td><td>string</td><td>the tissue, time point, if the sample was frozen</td></tr>
 <tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.sampleExtraction</span></td><td>string</td><td>the extraction protocol used</td></tr>
-<tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string</td><td>The ID which uniquely identifies the Metabolomics Matrix</td></tr>
 <tr><td><span style="font-weight:bold;">publications</span></td><td>array[string]</td><td>Relevant publication(s), DOI with details</td></tr>
 </table>
 
@@ -448,15 +448,15 @@ Get a filtered list of NIRS Protocols
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies the NIRS Matrix</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
 <tr><td><span style="font-weight:bold;">deviceType</span></td><td>string</td><td>description</td></tr>
 <tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>description</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">header_column_names</span></td><td>array[integer]</td><td>description</td></tr>
-<tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string</td><td>The ID which uniquely identifies the NIRS Matrix</td></tr>
 </table>
 
 
@@ -465,7 +465,7 @@ Get a filtered list of NIRS Protocols
 + Parameters
     + nirsProtocolDbId (Optional, string) ... description
     + observationUnitDbId (Optional, string) ... description
-    + externalReferenceID (Optional, string) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceID (Optional, string) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceSource (Optional, string) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
@@ -552,15 +552,15 @@ Get a single NIRS Protocol by Id. This can be used to quickly get the details of
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies the NIRS Matrix</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
 <tr><td><span style="font-weight:bold;">deviceType</span></td><td>string</td><td>description</td></tr>
 <tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>description</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">header_column_names</span></td><td>array[integer]</td><td>description</td></tr>
-<tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string</td><td>The ID which uniquely identifies the NIRS Matrix</td></tr>
 </table>
 
 
@@ -740,10 +740,11 @@ Get a filtered list of Transcriptomics Protocols
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies the Transcriptomics Matrix</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
 <tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>description</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">headerColumns</span></td><td>array[object]</td><td>Column definitions for any matrix with this protocol</td></tr>
@@ -777,7 +778,6 @@ Get a filtered list of Transcriptomics Protocols
 <tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.sequencingLength</span></td><td>integer</td><td>The sequence length in nucleotides</td></tr>
 <tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.sequencingPlatform</span></td><td>string</td><td>The system used to perform sequencing</td></tr>
 <tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.units</span></td><td>string</td><td>Units describing the data in this matrix (counts, FPKM, etc)</td></tr>
-<tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string</td><td>The ID which uniquely identifies the Transcriptomics Matrix</td></tr>
 </table>
 
 
@@ -786,7 +786,7 @@ Get a filtered list of Transcriptomics Protocols
 + Parameters
     + transcriptomicsProtocolDbId (Optional, string) ... description
     + observationUnitDbId (Optional, string) ... description
-    + externalReferenceID (Optional, string) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceID (Optional, string) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceSource (Optional, string) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + page (Optional, integer) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
@@ -904,10 +904,11 @@ Get a single Transcriptomics Protocol by Id. This can be used to quickly get the
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies the Transcriptomics Matrix</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
 <tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>description</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460   The external reference ID. Could be a simple string or a URI.</td></tr>
+<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
 <tr><td><span style="font-weight:bold;">headerColumns</span></td><td>array[object]</td><td>Column definitions for any matrix with this protocol</td></tr>
@@ -941,7 +942,6 @@ Get a single Transcriptomics Protocol by Id. This can be used to quickly get the
 <tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.sequencingLength</span></td><td>integer</td><td>The sequence length in nucleotides</td></tr>
 <tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.sequencingPlatform</span></td><td>string</td><td>The system used to perform sequencing</td></tr>
 <tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.units</span></td><td>string</td><td>Units describing the data in this matrix (counts, FPKM, etc)</td></tr>
-<tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string</td><td>The ID which uniquely identifies the Transcriptomics Matrix</td></tr>
 </table>
 
 
