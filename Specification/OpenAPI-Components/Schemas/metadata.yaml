@@ -1,0 +1,159 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    metadata:
+      allOf:
+      - $ref: '#/components/schemas/metadataBase'
+      - type: object
+        properties:
+          pagination:
+            $ref: '#/components/schemas/basePagination'
+    metadataTokenPagination:
+      allOf:
+      - $ref: '#/components/schemas/metadataBase'
+      - type: object
+        properties:
+          pagination:
+            $ref: '#/components/schemas/tokenPagination'
+    metadataBase:
+      description: An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+      type: object
+      properties:
+        datafiles:
+          description: |-
+            The datafiles contains a list of file URLs and metadata. 
+            These files contain additional information related to the returned object and can be retrieved by a subsequent call. 
+            This could be a supplementary data file, an informational file, the uploaded file where the data originated from, a generated file representing the whole dataset in a particular format, or any other related file. 
+          items:
+            $ref: '#/components/schemas/dataFile'
+          type: array
+          example: []
+        status:
+          description: |-
+            The status field contains a list of informational status messages from the server. 
+            If no status is reported, an empty list should be returned. See Error Reporting for more information.
+          items:
+            $ref: '#/components/schemas/status'
+          type: array
+    basePagination:
+      type: object
+      description: |-
+        The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. 
+        <br> Pages are zero indexed, so the first page will be page 0 (zero).
+      required:
+      - pageSize
+      - currentPage
+      properties:
+        currentPage:
+          description: The index number for the returned page of data. This should always match the requested page number or the default page (0). 
+          type: integer
+          default: 0
+          example: 0
+        pageSize:
+          description: The number of data elements returned, aka the size of the current page. If the requested page does not have enough elements to fill a page at the requested page size, this field should indicate the actual number of elements returned.   
+          type: integer
+          default: 1000
+          example: 1000
+        totalCount:
+          description: The total number of elements that are available on the server and match the requested query parameters. 
+          type: integer
+          example: 10
+        totalPages:
+          description: |-
+            The total number of pages of elements available on the server. This should be calculated with the following formula. 
+            <br> totalPages = CEILING( totalCount / requested_page_size)
+          type: integer
+          example: 1
+    tokenPagination:
+      allOf:
+      - $ref: '#/components/schemas/basePagination'
+      - type: object
+        description: |-
+          **Deprecated in v2.1** Please use `page`. Github issue number #451 
+          <br>The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. 
+          <br>Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken to construct an additional query and move to the next or previous page respectively.  
+        required:
+        - nextPageToken
+        properties:
+          nextPageToken:
+            deprecated: true
+            description: |- 
+              **Deprecated in v2.1** Please use `page`. Github issue number #451 
+              <br>The string token used to query the next page of data.
+            type: string
+            example: cb668f63
+          currentPageToken:
+            deprecated: true
+            description: |- 
+              **Deprecated in v2.1** Please use `page`. Github issue number #451 
+              <br>The string token used to query the current page of data.
+            type: string
+            example: 48bc6ac1
+          prevPageToken:
+            deprecated: true
+            description: |- 
+              **Deprecated in v2.1** Please use `page`. Github issue number #451 
+              <br>The string token used to query the previous page of data.
+            type: string
+            example: 9659857e
+        example:
+          currentPage: 0
+          pageSize: 1000
+          totalCount: 10
+          totalPages: 1
+    dataFile:
+      type: object
+      description: A dataFile contains a URL and the relevant file metadata to represent a file
+      required:
+      - fileURL
+      properties:
+        fileURL:
+          description: The absolute URL where the file is located
+          type: string
+          format: uri
+          example: https://wiki.brapi.org/examples/datafile.xlsx
+        fileName:
+          description: The name of the file
+          type: string
+          example: datafile.xlsx
+        fileSize:
+          description: The size of the file in bytes
+          type: integer
+          example: 4398
+        fileDescription:
+          description: A human readable description of the file contents
+          type: string
+          example: This is an Excel data file
+        fileType:
+          description: The type or format of the file. Preferably MIME Type.
+          type: string
+          example:  application/vnd.ms-excel
+        fileMD5Hash:
+          description: The MD5 Hash of the file contents to be used as a check sum
+          type: string
+          example: c2365e900c81a89cf74d83dab60df146
+    status:
+      description: An array of status messages to convey technical logging information from the server to the client. 
+      required:
+      - message
+      - messageType
+      type: object
+      properties:
+        message:
+          description: A short message concerning the status of this request/response
+          type: string
+          example: Request accepted, response successful
+        messageType:
+          description: The logging level for the attached message
+          enum:
+          - DEBUG
+          - ERROR
+          - WARNING
+          - INFO
+          type: string
+          example: INFO
+

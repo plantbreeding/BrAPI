@@ -1,0 +1,16 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  parameters:
+    acceptHeader:
+      description: A standard HTTP request header that is used to request a specific content type (JSON, CSV, etc) which is "acceptable" to the client and should be returned by the server
+      example: application/json
+      in: header
+      name: Accept
+      required: true
+      schema:
+        $ref: '#/components/schemas/ContentTypes'
+

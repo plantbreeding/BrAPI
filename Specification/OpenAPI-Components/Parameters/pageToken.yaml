@@ -1,0 +1,20 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  parameters:
+    pageToken:
+      deprecated: true
+      description: |-
+        **Deprecated in v2.1** Please use `page`. Github issue number #451 
+        <br> Used to request a specific page of data to be returned.
+        <br> Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. 
+      example: 33c27874
+      in: query
+      name: pageToken
+      required: false
+      schema:
+        type: string
+

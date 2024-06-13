@@ -1,0 +1,16 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  parameters:
+    pageSize:
+      description: The size of the pages to be returned. Default is `1000`.
+      example: 1000
+      in: query
+      name: pageSize
+      required: false
+      schema:
+        type: integer
+

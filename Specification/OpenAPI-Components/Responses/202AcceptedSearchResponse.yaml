@@ -1,0 +1,26 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  responses:
+    202AcceptedSearchResponse: 
+      description: Accepted
+      headers: {}
+      content:
+        application/json: 
+          schema:
+            title: 202AcceptedSearchResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                type: object
+                properties:
+                  searchResultsDbId:
+                    type: string
+                    example: 551ae08c
