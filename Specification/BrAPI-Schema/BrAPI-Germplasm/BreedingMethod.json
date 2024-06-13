@@ -63,9 +63,12 @@
                 "description"
             ],
             "title": "Breeding Method",
-            "type": "object"
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
         }
     },
-    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/Breeding Method.json",
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/BreedingMethod.json",
     "$schema": "http://json-schema.org/draft/2020-12/schema"
 }

@@ -3,35 +3,13 @@
         "Plate": {
             "properties": {
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
                     "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference"
                     },
                     "title": "ExternalReferences",
                     "type": [
@@ -63,7 +41,7 @@
                     "type": "string"
                 },
                 "program": {
-                    "$ref": "Program.json#/$defs/Program",
+                    "$ref": "../BrAPI-Core/Program.json#/$defs/Program",
                     "description": "The ID which uniquely identifies a `Program` within the given database server",
                     "referencedAttribute": "plates",
                     "relationshipType": "many-to-one"
@@ -83,13 +61,13 @@
                     ]
                 },
                 "study": {
-                    "$ref": "Study.json#/$defs/Study",
+                    "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
                     "description": "The ID which uniquely identifies a `Study` within the given database server",
                     "referencedAttribute": "plates",
                     "relationshipType": "many-to-one"
                 },
                 "trial": {
-                    "$ref": "Trial.json#/$defs/Trial",
+                    "$ref": "../BrAPI-Core/Trial.json#/$defs/Trial",
                     "description": "The ID which uniquely identifies a `Trial` within the given database server",
                     "referencedAttribute": "plates",
                     "relationshipType": "many-to-one"
@@ -113,7 +91,10 @@
                 "plateName"
             ],
             "title": "Plate",
-            "type": "object"
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/Plate.json",

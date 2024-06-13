@@ -25,7 +25,10 @@
                 "seasonDbId"
             ],
             "title": "Season",
-            "type": "object"
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/Season.json",

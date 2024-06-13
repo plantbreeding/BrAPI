@@ -1,0 +1,72 @@
+{
+    "$defs": {
+        "DataLink": {
+            "properties": {
+                "dataFormat": {
+                    "description": "The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)\n\nMIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "description": {
+                    "description": "The general description of this data link\n\nMIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "fileFormat": {
+                    "description": "The MIME type of the file (ie text/csv, application/excel, application/zip).\n\nMIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "name": {
+                    "description": "The name of the external data link\n\nMIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "provenance": {
+                    "description": "The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "scientificType": {
+                    "description": "The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "url": {
+                    "description": "URL describing the location of this data file to view or download\n\nMIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.",
+                    "format": "uri",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "version": {
+                    "description": "The version number for this data \n\nMIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
+            },
+            "title": "DataLink",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/DataLink.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

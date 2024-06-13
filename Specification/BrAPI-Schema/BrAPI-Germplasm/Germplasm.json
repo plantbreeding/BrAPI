@@ -17,14 +17,8 @@
                     ]
                 },
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
                 },
                 "biologicalStatusOfAccessionCode": {
                     "description": "MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. \n\n100) Wild \n110) Natural \n120) Semi-natural/wild \n130) Semi-natural/sown \n200) Weedy \n300) Traditional cultivar/landrace \n400) Breeding/research material \n410) Breeders line \n411) Synthetic population \n412) Hybrid \n413) Founder stock/base population \n414) Inbred line (parent of hybrid cultivar) \n415) Segregating population \n416) Clonal selection \n420) Genetic stock \n421) Mutant (e.g. induced/insertion mutants, tilling populations) \n422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) \n423) Other genetic stocks (e.g. mapping populations) \n500) Advanced or improved cultivar (conventional breeding methods) \n600) GMO (by genetic engineering) \n999) Other (Elaborate in REMARKS field)",
@@ -138,23 +132,7 @@
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
                     "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference"
                     },
                     "title": "ExternalReferences",
                     "type": [
@@ -194,68 +172,7 @@
                                 "properties": {
                                     "geometry": {
                                         "description": "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.",
-                                        "oneOf": [
-                                            {
-                                                "description": "Copied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                                                "properties": {
-                                                    "coordinates": {
-                                                        "description": "A single position",
-                                                        "items": {
-                                                            "type": "number"
-                                                        },
-                                                        "minItems": 2,
-                                                        "type": "array"
-                                                    },
-                                                    "type": {
-                                                        "default": "Point",
-                                                        "description": "The literal string \"Point\"",
-                                                        "type": "string"
-                                                    }
-                                                },
-                                                "required": [
-                                                    "type",
-                                                    "coordinates"
-                                                ],
-                                                "type": "object"
-                                            },
-                                            {
-                                                "description": "An array of Linear Rings. Each Linear Ring is an array of Points. \n\nA Point is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                                                "properties": {
-                                                    "coordinates": {
-                                                        "description": "An array of linear rings",
-                                                        "items": {
-                                                            "description": "An array of at least four positions where the first equals the last",
-                                                            "items": {
-                                                                "description": "A single position",
-                                                                "items": {
-                                                                    "type": "number"
-                                                                },
-                                                                "minItems": 2,
-                                                                "type": "array"
-                                                            },
-                                                            "minItems": 4,
-                                                            "type": "array"
-                                                        },
-                                                        "type": "array"
-                                                    },
-                                                    "type": {
-                                                        "default": "Polygon",
-                                                        "description": "The literal string \"Polygon\"",
-                                                        "type": "string"
-                                                    }
-                                                },
-                                                "required": [
-                                                    "type",
-                                                    "coordinates"
-                                                ],
-                                                "type": "object"
-                                            }
-                                        ],
-                                        "title": "GeoJSON Geometry",
-                                        "type": [
-                                            "null",
-                                            "object"
-                                        ]
+                                        "$ref": "../BrAPI-Common/GeoJSONGeometry.json#/$defs/GeoJSONGeometry"
                                     },
                                     "type": {
                                         "default": "Feature",
@@ -448,7 +365,7 @@
                     "referencedAttribute": "germplasm",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "Sample.json#/$defs/Sample",
+                        "$ref": "../BrAPI-Genotyping/Sample.json#/$defs/Sample",
                         "description": "Sample"
                     },
                     "type": [
@@ -473,7 +390,6 @@
                 "progenyPedigreeNodes": {
                     "title": "progenyPedigreeNodes",
                     "description": "progenyPedigreeNodes",
-                    "referencedAttribute": "parentGermplasm",
                     "relationshipType": "one-to-many",
                     "items": {
                         "$ref": "PedigreeNode.json#/$defs/PedigreeNode",
@@ -487,7 +403,6 @@
                 "parentPedigreeNodes": {
                     "title": "parentPedigreeNodes",
                     "description": "parentPedigreeNodes",
-                    "referencedAttribute": "progenyGermplasm",
                     "relationshipType": "one-to-many",
                     "items": {
                         "$ref": "PedigreeNode.json#/$defs/PedigreeNode",
@@ -499,9 +414,8 @@
                     ]
                 },
                 "siblingPedigreeNodes": {
-                    "title": "siblingPedigreeNodes",
+                    "title": "SiblingPedigreeNodes",
                     "description": "siblingPedigreeNodes",
-                    "referencedAttribute": "siblingGermplasm",
                     "relationshipType": "one-to-many",
                     "items": {
                         "$ref": "PedigreeNode.json#/$defs/PedigreeNode",
@@ -518,7 +432,7 @@
                     "referencedAttribute": "germplasm",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "Observation.json#/$defs/Observation",
+                        "$ref": "../BrAPI-Phenotyping/Observation.json#/$defs/Observation",
                         "description": "Observation"
                     },
                     "type": [
@@ -532,7 +446,7 @@
                     "referencedAttribute": "germplasm",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "ObservationUnit.json#/$defs/ObservationUnit",
+                        "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnit",
                         "description": "ObservationUnit"
                     },
                     "type": [
@@ -548,7 +462,10 @@
                 "commonCropName"
             ],
             "title": "Germplasm",
-            "type": "object"
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/Germplasm.json",

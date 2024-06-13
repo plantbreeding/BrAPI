@@ -3,14 +3,8 @@
         "Image": {
             "properties": {
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
                 },
                 "copyright": {
                     "description": "The copyright information of this image. Example 'Copyright 2018 Bob Robertson'",
@@ -39,23 +33,7 @@
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
                     "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference"
                     },
                     "title": "ExternalReferences",
                     "type": [
@@ -93,68 +71,7 @@
                     "properties": {
                         "geometry": {
                             "description": "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.",
-                            "oneOf": [
-                                {
-                                    "description": "Copied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                                    "properties": {
-                                        "coordinates": {
-                                            "description": "A single position",
-                                            "items": {
-                                                "type": "number"
-                                            },
-                                            "minItems": 2,
-                                            "type": "array"
-                                        },
-                                        "type": {
-                                            "default": "Point",
-                                            "description": "The literal string \"Point\"",
-                                            "type": "string"
-                                        }
-                                    },
-                                    "required": [
-                                        "type",
-                                        "coordinates"
-                                    ],
-                                    "type": "object"
-                                },
-                                {
-                                    "description": "An array of Linear Rings. Each Linear Ring is an array of Points. \n\nA Point is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                                    "properties": {
-                                        "coordinates": {
-                                            "description": "An array of linear rings",
-                                            "items": {
-                                                "description": "An array of at least four positions where the first equals the last",
-                                                "items": {
-                                                    "description": "A single position",
-                                                    "items": {
-                                                        "type": "number"
-                                                    },
-                                                    "minItems": 2,
-                                                    "type": "array"
-                                                },
-                                                "minItems": 4,
-                                                "type": "array"
-                                            },
-                                            "type": "array"
-                                        },
-                                        "type": {
-                                            "default": "Polygon",
-                                            "description": "The literal string \"Polygon\"",
-                                            "type": "string"
-                                        }
-                                    },
-                                    "required": [
-                                        "type",
-                                        "coordinates"
-                                    ],
-                                    "type": "object"
-                                }
-                            ],
-                            "title": "GeoJSON Geometry",
-                            "type": [
-                                "null",
-                                "object"
-                            ]
+                            "$ref": "../BrAPI-Common/GeoJSONGeometry.json#/$defs/GeoJSONGeometry"
                         },
                         "type": {
                             "default": "Feature",
@@ -228,7 +145,10 @@
                 "imageDbId"
             ],
             "title": "Image",
-            "type": "object"
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/Image.json",

@@ -1,0 +1,61 @@
+{
+    "$defs": {
+        "OntologyReference": {
+            "properties": {
+                "documentationLinks": {
+                    "description": "links to various ontology documentation",
+                    "items": {
+                        "properties": {
+                            "URL": {
+                                "format": "uri",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "type": {
+                                "enum": [
+                                    "OBO",
+                                    "RDF",
+                                    "WEBPAGE",
+                                    null
+                                ],
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "ontology": {
+                    "description": "The Ontology for this reference",
+                    "$ref": "../BrAPI-Phenotyping/Ontology.json#/$defs/Ontology"
+                },
+                "version": {
+                    "description": "Ontology version (no specific format)",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
+            },
+            "required": [
+                "ontologyName",
+                "ontologyDbId"
+            ],
+            "title": "OntologyReference",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/OntologyReference.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

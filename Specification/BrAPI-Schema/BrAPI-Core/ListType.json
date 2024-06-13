@@ -1,0 +1,22 @@
+{
+    "$defs": {
+        "ListType": {
+            "description": "The type of objects that are referenced in a List",
+            "enum": [
+                "germplasm",
+                "markers",
+                "variants",
+                "programs",
+                "trials",
+                "studies",
+                "observationUnits",
+                "observations",
+                "observationVariables",
+                "samples"
+            ],
+            "type": "string"
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/ListType.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

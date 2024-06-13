@@ -1,0 +1,93 @@
+{
+    "$defs": {
+        "ListRequest": {
+            "type": "object",
+            "properties": {
+                "dateCreatedRangeStart": {
+                    "description": "Define the beginning for an interval of time and only include Lists that are created within this interval.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "dateCreatedRangeEnd": {
+                    "description": "Define the end for an interval of time and only include Lists that are created within this interval.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "dateModifiedRangeStart": {
+                    "description": "Define the beginning for an interval of time and only include Lists that are modified within this interval.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "dateModifiedRangeEnd": {
+                    "description": "Define the end for an interval of time and only include Lists that are modified within this interval.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "listDbIds": {
+                    "description": "An array of primary database identifiers to identify a set of Lists",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "55f20cf6",
+                        "3193ca3d"
+                    ]
+                },
+                "listNames": {
+                    "description": "An array of human readable names to identify a set of Lists",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "Planing List 1",
+                        "Bobs List"
+                    ]
+                },
+                "listOwnerNames": {
+                    "description": "An array of names for the people or entities who are responsible for a set of Lists",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "Bob Robertson",
+                        "Rob Robertson"
+                    ]
+                },
+                "listOwnerPersonDbIds": {
+                    "description": "An array of primary database identifiers to identify people or entities who are responsible for a set of Lists",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "bob@bob.com",
+                        "rob@bob.com"
+                    ]
+                },
+                "listSources": {
+                    "description": "An array of terms identifying lists from different sources (ie 'USER', 'SYSTEM', etc)",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "USER",
+                        "SYSTEM",
+                        "EXTERNAL"
+                    ]
+                },
+                "listType": {
+                    "$ref": "../BrAPI-Core/ListType.json#/$defs/ListType"
+                }
+            },
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/Parameters/ListRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

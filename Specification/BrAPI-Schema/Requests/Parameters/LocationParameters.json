@@ -1,0 +1,33 @@
+{
+    "$defs": {
+        "LocationParameters": {
+            "type": "object",
+            "properties": {
+                "locationDbIds": {
+                    "description": "The location ids to search for",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "b28911cf",
+                        "5071d1e4"
+                    ]
+                },
+                "locationNames": {
+                    "description": "A human readable names to search for",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "Location Alpha",
+                        "The Large Hadron Collider"
+                    ]
+                }
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/Parameters/LocationParameters.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

@@ -3,14 +3,8 @@
         "Event": {
             "properties": {
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
                 },
                 "eventDateRange": {
                     "description": "An object describing when a particular Event has taken place. An Event can occur at one or more discrete time points (`discreteDates`) or an event can happen continuously over a longer period of time (`startDate`, `endDate`)",
@@ -27,7 +21,7 @@
                             ]
                         },
                         "endDate": {
-                            "description": "The end of a continous or regularly repetitive event\n<br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
+                            "description": "The end of a continuous or regularly repetitive event\n<br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
                             "format": "date-time",
                             "type": [
                                 "null",
@@ -35,7 +29,7 @@
                             ]
                         },
                         "startDate": {
-                            "description": "The begining of a continous or regularly repetitive event\n<br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
+                            "description": "The beginning of a continuous or regularly repetitive event\n<br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
                             "format": "date-time",
                             "type": [
                                 "null",
@@ -147,7 +141,7 @@
                     "type": "array"
                 },
                 "study": {
-                    "$ref": "Study.json#/$defs/Study",
+                    "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
                     "description": "The study in which the event occurred",
                     "referencedAttribute": "events",
                     "relationshipType": "many-to-one"
@@ -158,7 +152,10 @@
                 "eventType"
             ],
             "title": "Event",
-            "type": "object"
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/Event.json",

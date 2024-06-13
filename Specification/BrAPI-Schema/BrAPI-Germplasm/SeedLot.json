@@ -3,14 +3,8 @@
         "SeedLot": {
             "properties": {
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
                 },
                 "amount": {
                     "description": "The current balance of the amount of material in a SeedLot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).",
@@ -77,23 +71,7 @@
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
                     "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference"
                     },
                     "title": "ExternalReferences",
                     "type": [
@@ -110,13 +88,13 @@
                     ]
                 },
                 "location": {
-                    "$ref": "Location.json#/$defs/Location",
+                    "$ref": "../BrAPI-Core/Location.json#/$defs/Location",
                     "description": "The unique identifier for a Location",
                     "referencedAttribute": "seedLots",
                     "relationshipType": "many-to-one"
                 },
                 "program": {
-                    "$ref": "Program.json#/$defs/Program",
+                    "$ref": "../BrAPI-Core/Program.json#/$defs/Program",
                     "description": "The unique DbId of the breeding program this Seed Lot belongs to",
                     "referencedAttribute": "seedLots",
                     "relationshipType": "many-to-one"
@@ -191,7 +169,7 @@
                     "referencedAttribute": "seedLot",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "ObservationUnit.json#/$defs/ObservationUnit",
+                        "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnit",
                         "description": "ObservationUnit"
                     },
                     "type": [
@@ -205,7 +183,10 @@
                 "seedLotName"
             ],
             "title": "SeedLot",
-            "type": "object"
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/SeedLot.json",

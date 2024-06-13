@@ -3,14 +3,8 @@
         "VariantSet": {
             "properties": {
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
                 },
                 "alleleMatrices": {
                     "title": "AlleleMatrices",
@@ -58,6 +52,7 @@
                     "description": "Set of Analysis descriptors for this VariantSet",
                     "items": {
                         "description": "An analysis contains an interpretation of one or several experiments. (e.g. SNVs, copy number variations, methylation status) together with information about the methodology used.",
+                        "title": "Analysis",
                         "properties": {
                             "analysisDbId": {
                                 "description": "Unique identifier for this analysis description",
@@ -124,7 +119,7 @@
                 "availableFormats": {
                     "description": "When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats. \n<br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)\n<br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.",
                     "items": {
-                        "description": "Each 'availableFormat' object is a pairing of dataFormat and fileFormat. These must be communicated in pairs because they are not independant parameters and sometimes one influences the other.",
+                        "description": "Each 'availableFormat' object is a pairing of dataFormat and fileFormat. These must be communicated in pairs because they are not independent parameters and sometimes one influences the other.",
                         "properties": {
                             "dataFormat": {
                                 "description": "dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)",
@@ -210,23 +205,7 @@
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
                     "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference"
                     },
                     "title": "ExternalReferences",
                     "type": [
@@ -282,7 +261,7 @@
                     "relationshipType": "many-to-one"
                 },
                 "study": {
-                    "$ref": "Study.json#/$defs/Study",
+                    "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
                     "description": "The ID of the dataset this variant set belongs to.",
                     "referencedAttribute": "variantSets",
                     "relationshipType": "many-to-one"
@@ -324,7 +303,10 @@
                 "variantSetDbId"
             ],
             "title": "VariantSet",
-            "type": "object"
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/VariantSet.json",

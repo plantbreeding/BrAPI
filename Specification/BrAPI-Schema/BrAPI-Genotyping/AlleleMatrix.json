@@ -76,6 +76,7 @@
                 },
                 "pagination": {
                     "description": "Pagination for the matrix",
+                    "title": "MatrixPage",
                     "items": {
                         "properties": {
                             "dimension": {
@@ -171,7 +172,10 @@
                 "variantSetDbIds"
             ],
             "title": "AlleleMatrix",
-            "type": "object"
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/AlleleMatrix.json",

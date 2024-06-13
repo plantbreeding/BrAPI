@@ -10,14 +10,8 @@
                     ]
                 },
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
                 },
                 "commonCropName": {
                     "description": "Common name for the crop associated with this trial",
@@ -28,52 +22,9 @@
                 },
                 "contacts": {
                     "description": "List of contact entities associated with this trial",
+                    "relationshipType": "many-to-many",
                     "items": {
-                        "properties": {
-                            "contactDbId": {
-                                "description": "The ID which uniquely identifies this contact\n\nMIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.",
-                                "type": "string"
-                            },
-                            "email": {
-                                "description": "The contacts email address\n\nMIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "instituteName": {
-                                "description": "The name of the institution which this contact is part of\n\nMIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "name": {
-                                "description": "The full name of this contact person\n\nMIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "orcid": {
-                                "description": "The Open Researcher and Contributor ID for this contact person (orcid.org)\n\nMIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "type": {
-                                "description": "The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)\n\nMIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "required": [
-                            "contactDbId"
-                        ],
-                        "type": "object"
+                        "$ref": "Contact.json#/$defs/Contact"
                     },
                     "type": [
                         "null",
@@ -138,23 +89,7 @@
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
                     "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference"
                     },
                     "title": "ExternalReferences",
                     "type": [
@@ -241,7 +176,7 @@
                     "referencedAttribute": "trial",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "Plate.json#/$defs/Plate",
+                        "$ref": "../BrAPI-Genotyping/Plate.json#/$defs/Plate",
                         "description": "Plate"
                     },
                     "type": [
@@ -255,7 +190,7 @@
                     "referencedAttribute": "trial",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "Sample.json#/$defs/Sample",
+                        "$ref": "../BrAPI-Genotyping/Sample.json#/$defs/Sample",
                         "description": "Sample"
                     },
                     "type": [
@@ -269,7 +204,7 @@
                     "referencedAttribute": "trial",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "ObservationUnit.json#/$defs/ObservationUnit",
+                        "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnit",
                         "description": "ObservationUnit"
                     },
                     "type": [
@@ -283,7 +218,10 @@
                 "trialDbId"
             ],
             "title": "Trial",
-            "type": "object"
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/Trial.json",

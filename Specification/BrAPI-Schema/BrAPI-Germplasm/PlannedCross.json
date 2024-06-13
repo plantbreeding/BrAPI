@@ -3,14 +3,8 @@
         "PlannedCross": {
             "properties": {
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
                 },
                 "crossType": {
                     "description": "the type of cross",
@@ -38,23 +32,7 @@
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
                     "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference"
                     },
                     "title": "ExternalReferences",
                     "type": [
@@ -63,104 +41,12 @@
                     ]
                 },
                 "parent1": {
-                    "properties": {
-                        "germplasmDbId": {
-                            "description": "the unique identifier for a germplasm",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "germplasmName": {
-                            "description": "the human readable name for a germplasm",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "observationUnitDbId": {
-                            "description": "the unique identifier for an observation unit",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "observationUnitName": {
-                            "description": "the human readable name for an observation unit",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "parentType": {
-                            "description": "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
-                            "enum": [
-                                "MALE",
-                                "FEMALE",
-                                "SELF",
-                                "POPULATION",
-                                null
-                            ],
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        }
-                    },
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "$ref": "CrossParent.json#/$defs/CrossParent",
+                    "description": "the first parent used in the cross"
                 },
                 "parent2": {
-                    "properties": {
-                        "germplasmDbId": {
-                            "description": "the unique identifier for a germplasm",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "germplasmName": {
-                            "description": "the human readable name for a germplasm",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "observationUnitDbId": {
-                            "description": "the unique identifier for an observation unit",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "observationUnitName": {
-                            "description": "the human readable name for an observation unit",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "parentType": {
-                            "description": "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
-                            "enum": [
-                                "MALE",
-                                "FEMALE",
-                                "SELF",
-                                "POPULATION",
-                                null
-                            ],
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        }
-                    },
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "$ref": "CrossParent.json#/$defs/CrossParent",
+                    "description": "the second parent used in the cross"
                 },
                 "plannedCrossDbId": {
                     "description": "the unique identifier for a planned cross",
@@ -205,7 +91,10 @@
                 "plannedCrossDbId"
             ],
             "title": "PlannedCross",
-            "type": "object"
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/PlannedCross.json",

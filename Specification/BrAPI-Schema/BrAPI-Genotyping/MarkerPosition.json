@@ -3,14 +3,8 @@
         "MarkerPosition": {
             "properties": {
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
                 },
                 "linkageGroupName": {
                     "description": "The Uniquely Identifiable name of a `LinkageGroup`\n<br> This might be a chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.",
@@ -40,7 +34,10 @@
                 }
             },
             "title": "MarkerPosition",
-            "type": "object"
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/MarkerPosition.json",

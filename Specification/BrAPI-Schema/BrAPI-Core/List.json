@@ -3,14 +3,8 @@
         "List": {
             "properties": {
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
                 },
                 "data": {
                     "description": "The array of DbIds of the BrAPI objects contained in a List",
@@ -42,23 +36,7 @@
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
                     "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference"
                     },
                     "title": "ExternalReferences",
                     "type": [
@@ -110,19 +88,7 @@
                 },
                 "listType": {
                     "description": "A flag to indicate the type of objects that are referenced in a List",
-                    "enum": [
-                        "germplasm",
-                        "markers",
-                        "variants",
-                        "programs",
-                        "trials",
-                        "studies",
-                        "observationUnits",
-                        "observations",
-                        "observationVariables",
-                        "samples"
-                    ],
-                    "type": "string"
+                    "$ref": "ListType.json#/$defs/ListType"
                 }
             },
             "required": [
@@ -131,7 +97,10 @@
                 "listDbId"
             ],
             "title": "List",
-            "type": "object"
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": true
+            }
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/List.json",

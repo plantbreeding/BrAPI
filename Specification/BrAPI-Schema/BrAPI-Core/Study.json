@@ -10,14 +10,8 @@
                     ]
                 },
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
                 },
                 "commonCropName": {
                     "description": "Common name for the crop associated with this study",
@@ -28,52 +22,9 @@
                 },
                 "contacts": {
                     "description": "List of contact entities associated with this study",
+                    "relationshipType": "many-to-many",
                     "items": {
-                        "properties": {
-                            "contactDbId": {
-                                "description": "The ID which uniquely identifies this contact\n\nMIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.",
-                                "type": "string"
-                            },
-                            "email": {
-                                "description": "The contacts email address\n\nMIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "instituteName": {
-                                "description": "The name of the institution which this contact is part of\n\nMIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "name": {
-                                "description": "The full name of this contact person\n\nMIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "orcid": {
-                                "description": "The Open Researcher and Contributor ID for this contact person (orcid.org)\n\nMIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "type": {
-                                "description": "The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)\n\nMIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "required": [
-                            "contactDbId"
-                        ],
-                        "type": "object"
+                        "$ref": "Contact.json#/$defs/Contact"
                     },
                     "type": [
                         "null",
@@ -90,66 +41,7 @@
                 "dataLinks": {
                     "description": "List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.",
                     "items": {
-                        "properties": {
-                            "dataFormat": {
-                                "description": "The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)\n\nMIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "description": {
-                                "description": "The general description of this data link\n\nMIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "fileFormat": {
-                                "description": "The MIME type of the file (ie text/csv, application/excel, application/zip).\n\nMIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "name": {
-                                "description": "The name of the external data link\n\nMIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "provenance": {
-                                "description": "The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "scientificType": {
-                                "description": "The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "url": {
-                                "description": "URL describing the location of this data file to view or download\n\nMIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.",
-                                "format": "uri",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "version": {
-                                "description": "The version number for this data \n\nMIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "DataLink.json#/$defs/DataLink"
                     },
                     "type": [
                         "null",
@@ -257,23 +149,7 @@
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
                     "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference"
                     },
                     "title": "ExternalReferences",
                     "type": [
@@ -377,7 +253,7 @@
                 "observationVariables": {
                     "description": "The list of Observation Variables being used in this study. \n\nThis list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. ",
                     "items": {
-                        "$ref": "ObservationVariable.json#/$defs/ObservationVariable"
+                        "$ref": "../BrAPI-Phenotyping/ObservationVariable.json#/$defs/ObservationVariable"
                     },
                     "referencedAttribute": "studies",
                     "relationshipType": "many-to-many",
@@ -449,7 +325,7 @@
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "CallSet.json#/$defs/CallSet",
+                        "$ref": "../BrAPI-Genotyping/CallSet.json#/$defs/CallSet",
                         "description": "CallSet"
                     },
                     "type": [
@@ -463,7 +339,7 @@
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "Plate.json#/$defs/Plate",
+                        "$ref": "../BrAPI-Genotyping/Plate.json#/$defs/Plate",
                         "description": "Plate"
                     },
                     "type": [
@@ -477,7 +353,7 @@
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "Sample.json#/$defs/Sample",
+                        "$ref": "../BrAPI-Genotyping/Sample.json#/$defs/Sample",
                         "description": "Sample"
                     },
                     "type": [
@@ -491,7 +367,7 @@
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "VariantSet.json#/$defs/VariantSet",
+                        "$ref": "../BrAPI-Genotyping/VariantSet.json#/$defs/VariantSet",
                         "description": "VariantSet"
                     },
                     "type": [
@@ -505,7 +381,7 @@
                     "referencedAttribute": "study",
                     "relationshipType": "many-to-many",
                     "items": {
-                        "$ref": "Event.json#/$defs/Event",
+                        "$ref": "../BrAPI-Phenotyping/Event.json#/$defs/Event",
                         "description": "Event"
                     },
                     "type": [
@@ -519,7 +395,7 @@
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "Observation.json#/$defs/Observation",
+                        "$ref": "../BrAPI-Phenotyping/Observation.json#/$defs/Observation",
                         "description": "Observation"
                     },
                     "type": [
@@ -533,7 +409,7 @@
                     "referencedAttribute": "study",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "ObservationUnit.json#/$defs/ObservationUnit",
+                        "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnit",
                         "description": "ObservationUnit"
                     },
                     "type": [
@@ -547,7 +423,10 @@
                 "studyDbId"
             ],
             "title": "Study",
-            "type": "object"
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/Study.json",

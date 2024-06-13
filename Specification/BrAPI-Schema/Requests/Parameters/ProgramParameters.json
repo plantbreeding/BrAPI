@@ -1,0 +1,33 @@
+{
+    "$defs": {
+        "ProgramParameters": {
+            "type": "object",
+            "properties": {
+                "programDbIds": {
+                    "description": "A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. \n\nUse this parameter to only return results associated with the given programs. \n\nUse `GET /programs` to find the list of available programs on a server.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "example": [
+                        "8f5de35b",
+                        "0e2d4a13"
+                    ]
+                },
+                "programNames": {
+                    "description": "Use this parameter to only return results associated with the given program names. Program names are not required to be unique.\n\nUse `GET /programs` to find the list of available programs on a server.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "example": [
+                        "Better Breeding Program",
+                        "Best Breeding Program"
+                    ]
+                }
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/Parameters/ProgramParameters.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

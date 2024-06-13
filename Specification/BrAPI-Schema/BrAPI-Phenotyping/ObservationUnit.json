@@ -3,17 +3,11 @@
         "ObservationUnit": {
             "properties": {
                 "additionalInfo": {
-                    "additionalProperties": {
-                        "type": "string"
-                    },
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
                 },
                 "cross": {
-                    "$ref": "Cross.json#/$defs/Cross",
+                    "$ref": "../BrAPI-Germplasm/Cross.json#/$defs/Cross",
                     "description": "the unique identifier for a cross",
                     "referencedAttribute": "observationUnits",
                     "relationshipType": "many-to-one"
@@ -21,23 +15,7 @@
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
                     "items": {
-                        "properties": {
-                            "referenceId": {
-                                "description": "The external reference ID. Could be a simple string or a URI.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "referenceSource": {
-                                "description": "An identifier for the source system or database of this reference",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference"
                     },
                     "title": "ExternalReferences",
                     "type": [
@@ -46,13 +24,13 @@
                     ]
                 },
                 "germplasm": {
-                    "$ref": "Germplasm.json#/$defs/Germplasm",
+                    "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm",
                     "description": "The ID which uniquely identifies a germplasm",
                     "referencedAttribute": "observationUnits",
                     "relationshipType": "many-to-one"
                 },
                 "location": {
-                    "$ref": "Location.json#/$defs/Location",
+                    "$ref": "../BrAPI-Core/Location.json#/$defs/Location",
                     "description": "The ID which uniquely identifies a location, associated with this study",
                     "referencedAttribute": "observationUnits",
                     "relationshipType": "many-to-one"
@@ -96,68 +74,7 @@
                             "properties": {
                                 "geometry": {
                                     "description": "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.",
-                                    "oneOf": [
-                                        {
-                                            "description": "Copied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                                            "properties": {
-                                                "coordinates": {
-                                                    "description": "A single position",
-                                                    "items": {
-                                                        "type": "number"
-                                                    },
-                                                    "minItems": 2,
-                                                    "type": "array"
-                                                },
-                                                "type": {
-                                                    "default": "Point",
-                                                    "description": "The literal string \"Point\"",
-                                                    "type": "string"
-                                                }
-                                            },
-                                            "required": [
-                                                "type",
-                                                "coordinates"
-                                            ],
-                                            "type": "object"
-                                        },
-                                        {
-                                            "description": "An array of Linear Rings. Each Linear Ring is an array of Points. \n\nA Point is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                                            "properties": {
-                                                "coordinates": {
-                                                    "description": "An array of linear rings",
-                                                    "items": {
-                                                        "description": "An array of at least four positions where the first equals the last",
-                                                        "items": {
-                                                            "description": "A single position",
-                                                            "items": {
-                                                                "type": "number"
-                                                            },
-                                                            "minItems": 2,
-                                                            "type": "array"
-                                                        },
-                                                        "minItems": 4,
-                                                        "type": "array"
-                                                    },
-                                                    "type": "array"
-                                                },
-                                                "type": {
-                                                    "default": "Polygon",
-                                                    "description": "The literal string \"Polygon\"",
-                                                    "type": "string"
-                                                }
-                                            },
-                                            "required": [
-                                                "type",
-                                                "coordinates"
-                                            ],
-                                            "type": "object"
-                                        }
-                                    ],
-                                    "title": "GeoJSON Geometry",
-                                    "type": [
-                                        "null",
-                                        "object"
-                                    ]
+                                    "$ref": "../BrAPI-Common/GeoJSONGeometry.json#/$defs/GeoJSONGeometry"
                                 },
                                 "type": {
                                     "default": "Feature",
@@ -257,7 +174,7 @@
                             ]
                         },
                         "positionCoordinateXType": {
-                            "description": "The type of positional coordinate used. Must be one of the following values \n\nLONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nLATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nPLANTED_ROW - The physical planted row number \n\nPLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row \n\nGRID_ROW - The row index number of a square grid overlay \n\nGRID_COL - The column index number of a square grid overlay \n\nMEASURED_ROW - The distance in meters from a defined 0-th row \n\nMEASURED_COL - The distance in meters from a defined 0-th column ",
+                            "description": "The type of positional coordinate used. Must be one of the following values \n\nLONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nLATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nPLANTED_ROW - The physical planted row number \n\nPLANTED_INDIVIDUAL - The physical counted number, could be independent or within a planted row \n\nGRID_ROW - The row index number of a square grid overlay \n\nGRID_COL - The column index number of a square grid overlay \n\nMEASURED_ROW - The distance in meters from a defined 0-th row \n\nMEASURED_COL - The distance in meters from a defined 0-th column ",
                             "enum": [
                                 "LONGITUDE",
                                 "LATITUDE",
@@ -282,7 +199,7 @@
                             ]
                         },
                         "positionCoordinateYType": {
-                            "description": "The type of positional coordinate used. Must be one of the following values \n\nLONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nLATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nPLANTED_ROW - The physical planted row number  \n\nPLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row \n\nGRID_ROW - The row index number of a square grid overlay \n\nGRID_COL - The column index number of a square grid overlay \n\nMEASURED_ROW - The distance in meters from a defined 0-th row \n\nMEASURED_COL - The distance in meters from a defined 0-th column ",
+                            "description": "The type of positional coordinate used. Must be one of the following values \n\nLONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nLATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nPLANTED_ROW - The physical planted row number  \n\nPLANTED_INDIVIDUAL - The physical counted number, could be independent or within a planted row \n\nGRID_ROW - The row index number of a square grid overlay \n\nGRID_COL - The column index number of a square grid overlay \n\nMEASURED_ROW - The distance in meters from a defined 0-th row \n\nMEASURED_COL - The distance in meters from a defined 0-th column ",
                             "enum": [
                                 "LONGITUDE",
                                 "LATITUDE",
@@ -306,19 +223,19 @@
                     ]
                 },
                 "program": {
-                    "$ref": "Program.json#/$defs/Program",
+                    "$ref": "../BrAPI-Core/Program.json#/$defs/Program",
                     "description": "The ID which uniquely identifies a program",
                     "referencedAttribute": "observationUnits",
                     "relationshipType": "many-to-one"
                 },
                 "seedLot": {
-                    "$ref": "SeedLot.json#/$defs/SeedLot",
+                    "$ref": "../BrAPI-Germplasm/SeedLot.json#/$defs/SeedLot",
                     "description": "The unique identifier for the originating Seed Lot",
                     "referencedAttribute": "observationUnits",
                     "relationshipType": "many-to-one"
                 },
                 "study": {
-                    "$ref": "Study.json#/$defs/Study",
+                    "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
                     "description": "The ID which uniquely identifies a study within the given database server",
                     "referencedAttribute": "observationUnits",
                     "relationshipType": "many-to-one"
@@ -350,7 +267,7 @@
                     ]
                 },
                 "trial": {
-                    "$ref": "Trial.json#/$defs/Trial",
+                    "$ref": "../BrAPI-Core/Trial.json#/$defs/Trial",
                     "description": "The ID which uniquely identifies a trial",
                     "referencedAttribute": "observationUnits",
                     "relationshipType": "many-to-one"
@@ -361,7 +278,7 @@
                     "referencedAttribute": "observationUnit",
                     "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "Sample.json#/$defs/Sample",
+                        "$ref": "../BrAPI-Genotyping/Sample.json#/$defs/Sample",
                         "description": "Sample"
                     },
                     "type": [
@@ -416,7 +333,10 @@
                 "observationUnitDbId"
             ],
             "title": "ObservationUnit",
-            "type": "object"
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/ObservationUnit.json",

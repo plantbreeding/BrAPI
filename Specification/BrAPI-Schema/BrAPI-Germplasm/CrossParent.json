@@ -1,0 +1,45 @@
+{
+    "$defs": {
+        "CrossParent": {
+            "properties": {
+                "germplasm": {
+                    "description": "the germplasm of the cross parent",
+                    "$ref": "Germplasm.json#/$defs/Germplasm",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "observationUnit": {
+                    "description": "the Observation Unit of the cross parent",
+                    "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnit",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "parentType": {
+                    "description": "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
+                    "enum": [
+                        "MALE",
+                        "FEMALE",
+                        "SELF",
+                        "POPULATION",
+                        null
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
+            },
+            "title": "CrossParent",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/CrossParent.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

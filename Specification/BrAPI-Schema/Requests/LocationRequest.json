@@ -1,0 +1,134 @@
+{
+    "$defs": {
+        "LocationRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/PagingParameters.json#/$defs/PagingParameters"
+                },
+                {
+                    "$ref": "Parameters/ExternalReferenceParameters.json#/$defs/ExternalReferenceParameters"
+                },
+                {
+                    "$ref": "Parameters/LocationParameters.json#/$defs/LocationParameters"
+                },
+                {
+                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
+                },
+                {
+                    "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "abbreviations": {
+                            "description": "A list of shortened human readable names for a set of Locations",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "L1",
+                                "LHC"
+                            ]
+                        },
+                        "altitudeMin": {
+                            "description": "The minimum altitude to search for",
+                            "type": "number",
+                            "example": 20
+                        },
+                        "altitudeMax": {
+                            "description": "The maximum altitude to search for",
+                            "type": "number",
+                            "example": 200
+                        },
+                        "countryCodes": {
+                            "description": "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "USA",
+                                "PER"
+                            ]
+                        },
+                        "countryNames": {
+                            "description": "The full name of the country to search for",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "United States of America",
+                                "Peru"
+                            ]
+                        },
+                        "coordinates": {
+                            "$ref": "Schemas/GeoJSONSearchArea.json#/$defs/GeoJSONSearchArea"
+                        },
+                        "instituteAddresses": {
+                            "description": "The street address of the institute to search for",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "123 Main Street",
+                                "456 Side Street"
+                            ]
+                        },
+                        "instituteNames": {
+                            "description": "The name of the institute to search for",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "The Institute",
+                                "The Other Institute"
+                            ]
+                        },
+                        "locationTypes": {
+                            "description": "The type of location this represents (ex. Breeding Location, Storage Location, etc)",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "Nursery",
+                                "Storage Location"
+                            ]
+                        },
+                        "parentLocationDbIds": {
+                            "description": "The unique identifier for a Location\n<br/> The Parent Location defines the encompassing location that this location belongs to. \nFor example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "b28911cf",
+                                "5071d1e4"
+                            ]
+                        },
+                        "parentLocationNames": {
+                            "description": "A human readable name for a location\n<br/> The Parent Location defines the encompassing location that this location belongs to. \nFor example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "Location Alpha",
+                                "The Large Hadron Collider"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/LocationRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}
