@@ -1,0 +1,223 @@
+{
+    "$defs": {
+        "VariableBaseClassParameters": {
+            "allOf": [
+                {
+                    "$ref": "PagingParameters.json#/$defs/PagingParameters"
+                },
+                {
+                    "$ref": "ExternalReferenceParameters.json#/$defs/ExternalReferenceParameters"
+                },
+                {
+                    "$ref": "CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
+                },
+                {
+                    "$ref": "ProgramParameters.json#/$defs/ProgramParameters"
+                },
+                {
+                    "$ref": "TrialParameters.json#/$defs/TrialParameters"
+                },
+                {
+                    "$ref": "StudyParameters.json#/$defs/StudyParameters"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "studyDbId": {
+                            "description": "**Deprecated in v2.1** Please use `studyDbIds`. Github issue number #483 \n<br>The unique ID of a studies to filter on",
+                            "deprecated": true,
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "5bcac0ae",
+                                "7f48e22d"
+                            ]
+                        },
+                        "ontologyDbIds": {
+                            "description": "List of ontology IDs to search for",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "f44f7b23",
+                                "a26b576e"
+                            ]
+                        },
+                        "methodDbIds": {
+                            "description": "List of methods to filter search results",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "07e34f83",
+                                "d3d5517a"
+                            ]
+                        },
+                        "methodNames": {
+                            "description": "Human readable name for the method\n<br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "Measuring Tape",
+                                "Spectrometer"
+                            ]
+                        },
+                        "methodPUIs": {
+                            "description": "The Permanent Unique Identifier of a Method, usually in the form of a URI",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "http://my-traits.com/trait/CO_123:0000212",
+                                "http://my-traits.com/trait/CO_123:0003557"
+                            ]
+                        },
+                        "scaleDbIds": {
+                            "description": "The unique identifier for a Scale",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "a13ecffa",
+                                "7e1afe4f"
+                            ]
+                        },
+                        "scaleNames": {
+                            "description": "Name of the scale\n<br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "Meters",
+                                "Liters"
+                            ]
+                        },
+                        "scalePUIs": {
+                            "description": "The Permanent Unique Identifier of a Scale, usually in the form of a URI",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "http://my-traits.com/trait/CO_123:0000336",
+                                "http://my-traits.com/trait/CO_123:0000560"
+                            ]
+                        },
+                        "dataTypes": {
+                            "description": "List of scale data types to filter search results",
+                            "items": {
+                                "$ref": "../../BrAPI-Common/TraitDataType.json#/$defs/TraitDataType"
+                            },
+                            "type": "array",
+                            "example": [
+                                "Numerical",
+                                "Ordinal",
+                                "Text"
+                            ]
+                        },
+                        "traitClasses": {
+                            "description": "List of trait classes to filter search results",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "morphological",
+                                "phenological",
+                                "agronomical"
+                            ]
+                        },
+                        "traitDbIds": {
+                            "description": "The unique identifier for a Trait",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "ef81147b",
+                                "78d82fad"
+                            ]
+                        },
+                        "traitNames": {
+                            "description": "The human readable name of a trait\n<br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "Stalk Height",
+                                "Root Color"
+                            ]
+                        },
+                        "traitPUIs": {
+                            "description": "The Permanent Unique Identifier of a Trait, usually in the form of a URI",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "http://my-traits.com/trait/CO_123:0000456",
+                                "http://my-traits.com/trait/CO_123:0000820"
+                            ]
+                        },
+                        "traitAttributes": {
+                            "description": "A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the attribute is the observed feature (or characteristic) of the entity e.g., for \"grain colour\", attribute = \"colour\"",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "Height",
+                                "Color"
+                            ]
+                        },
+                        "traitAttributePUIs": {
+                            "description": "The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI\n<br/>A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the attribute is the observed feature (or characteristic) of the entity e.g., for \"grain colour\", attribute = \"colour\"",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "http://my-traits.com/trait/CO_123:0008336",
+                                "http://my-traits.com/trait/CO_123:0001092"
+                            ]
+                        },
+                        "traitEntities": {
+                            "description": "A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the entity is the part of the plant that the trait refers to e.g., for \"grain colour\", entity = \"grain\"",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "Stalk",
+                                "Root"
+                            ]
+                        },
+                        "traitEntityPUIs": {
+                            "description": "The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI\n<br/>A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the entity is the part of the plant that the trait refers to e.g., for \"grain colour\", entity = \"grain\" ",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "http://my-traits.com/trait/CO_123:0004098",
+                                "http://my-traits.com/trait/CO_123:0002366"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/Parameters/VariableBaseClassParameters.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

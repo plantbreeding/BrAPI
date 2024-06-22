@@ -1,0 +1,19 @@
+{
+    "$defs": {
+        "ObservationVariableRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/VariableBaseClassParameters.json#/$defs/VariableBaseClassParameters"
+                },
+                {
+                    "$ref": "Parameters/ObservationVariableParameters.json#/$defs/ObservationVariableParameters"
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/ObservationVariableRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

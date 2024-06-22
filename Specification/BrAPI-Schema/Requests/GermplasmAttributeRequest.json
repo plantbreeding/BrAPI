@@ -1,0 +1,68 @@
+{
+    "$defs": {
+        "GermplasmAttributeRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/VariableBaseClassParameters.json#/$defs/VariableBaseClassParameters"
+                },
+                {
+                    "$ref": "Parameters/GermplasmParameters.json#/$defs/GermplasmParameters"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "attributeDbIds": {
+                            "description": "List of Germplasm Attribute IDs to search for",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "2ef15c9f",
+                                "318e7f7d"
+                            ]
+                        },
+                        "attributeNames": {
+                            "description": "List of human readable Germplasm Attribute names to search for",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "Plant Height 1",
+                                "Root Color"
+                            ]
+                        },
+                        "attributePUIs": {
+                            "description": "The Permanent Unique Identifier of an Attribute, usually in the form of a URI",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "http://my-traits.com/trait/CO_123:0008012",
+                                "http://my-traits.com/trait/CO_123:0007261"
+                            ]
+                        },
+                        "attributeCategories": {
+                            "description": "General category for the attribute. very similar to Trait class.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "Morphological",
+                                "Physical"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/GermplasmAttributeRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

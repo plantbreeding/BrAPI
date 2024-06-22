@@ -1,0 +1,58 @@
+{
+    "$defs": {
+        "CrossRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/PagingParameters.json#/$defs/PagingParameters"
+                },
+                {
+                    "$ref": "Parameters/ExternalReferenceParameters.json#/$defs/ExternalReferenceParameters"
+                },
+                {
+                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
+                },
+                {
+                    "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "crossingProjectDbIds": {
+                            "description": "Search for Crossing Projects with this unique id",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "crossingProjectNames": {
+                            "description": "The human readable name for a crossing project",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "crossDbIds": {
+                            "description": "Search for Cross with this unique id",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "crossNames": {
+                            "description": "Search for Cross with this human readable name",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/CrossRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

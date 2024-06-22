@@ -220,7 +220,7 @@
             "title": "Trial",
             "type": "object",
             "brapi-metadata": {
-                "primaryModel": false
+                "primaryModel": true
             }
         }
     },

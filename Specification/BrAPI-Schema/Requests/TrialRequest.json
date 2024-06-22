@@ -1,0 +1,79 @@
+{
+    "$defs": {
+        "TrialRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/PagingParameters.json#/$defs/PagingParameters"
+                },
+                {
+                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
+                },
+                {
+                    "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
+                },
+                {
+                    "$ref": "Parameters/TrialParameters.json#/$defs/TrialParameters"
+                },
+                {
+                    "$ref": "Parameters/StudyParameters.json#/$defs/StudyParameters"
+                },
+                {
+                    "$ref": "Parameters/LocationParameters.json#/$defs/LocationParameters"
+                },
+                {
+                    "$ref": "Parameters/ObservationVariableParameters.json#/$defs/ObservationVariableParameters"
+                },
+                {
+                    "$ref": "Parameters/ExternalReferenceParameters.json#/$defs/ExternalReferenceParameters"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "active": {
+                            "description": "A flag to indicate if a Trial is currently active and ongoing",
+                            "type": "boolean",
+                            "example": true
+                        },
+                        "contactDbIds": {
+                            "description": "List of contact entities associated with this trial",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "e0f70c2a",
+                                "b82f0967"
+                            ]
+                        },
+                        "searchDateRangeStart": {
+                            "description": "The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.\n\nReturn a Trial entity if any of the following cases are true\n\n- `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null \n\n- `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`\n\n- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null\n\n- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`",
+                            "format": "date",
+                            "type": "string"
+                        },
+                        "searchDateRangeEnd": {
+                            "description": "The end of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.\n\nReturn a Trial entity if any of the following cases are true\n\n- `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null \n\n- `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`\n\n- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null\n\n- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`",
+                            "format": "date",
+                            "type": "string"
+                        },
+                        "trialPUIs": {
+                            "description": "A permanent identifier for a trial. Could be DOI or other URI formatted identifier.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "https://doi.org/01093190",
+                                "https://doi.org/11192409"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/TrialRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

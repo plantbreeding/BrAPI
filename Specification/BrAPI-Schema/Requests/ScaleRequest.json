@@ -1,0 +1,55 @@
+{
+    "$defs": {
+        "ScaleRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/OntologyParameters.json#/$defs/OntologyParameters"
+                },
+                {
+                    "$ref": "Parameters/PagingParameters.json#/$defs/PagingParameters"
+                },
+                {
+                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
+                },
+                {
+                    "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
+                },
+                {
+                    "$ref": "Parameters/ExternalReferenceParameters.json#/$defs/ExternalReferenceParameters"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "scaleDbIds": {
+                            "description": "The unique identifier for a scale.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "3cd0ca36",
+                                "983f3b14"
+                            ]
+                        },
+                        "observationVariableDbIds": {
+                            "description": "The unique identifier for an observation variable.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "3cd0ca36",
+                                "983f3b14"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/ScaleRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

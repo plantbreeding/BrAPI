@@ -1,0 +1,18 @@
+{
+    "$defs": {
+        "OntologyParameters": {
+            "type": "object",
+            "properties": {
+                "ontologyDbIds": {
+                    "description": "The unique identifier for an ontology definition. Use this parameter to filter results based on a specific ontology \n\n  Use `GET /ontologies` to find the list of available ontologies on a server.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/Parameters/OntologyParameters.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

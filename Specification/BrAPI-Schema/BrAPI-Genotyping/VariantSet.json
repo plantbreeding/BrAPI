@@ -305,7 +305,7 @@
             "title": "VariantSet",
             "type": "object",
             "brapi-metadata": {
-                "primaryModel": false
+                "primaryModel": true
             }
         }
     },

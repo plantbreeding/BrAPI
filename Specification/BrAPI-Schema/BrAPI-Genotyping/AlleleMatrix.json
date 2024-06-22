@@ -15,6 +15,7 @@
                     "description": "The 'dataMatrices' are an array of matrix objects that hold the allele data and associated metadata. Each matrix should be the same size and orientation, aligned with the \"callSetDbIds\" as columns and the \"variantDbIds\" as rows.",
                     "items": {
                         "description": "This is a single data matrix. It could be the allele matrix or an additional layer of metadata associated with each genotype value.",
+                        "title": "DataMatrix",
                         "properties": {
                             "dataMatrix": {
                                 "description": "The two dimensional array of data, providing the allele matrix or an additional layer of metadata associated with each genotype value. Each matrix should be the same size and orientation, aligned with the \"callSetDbIds\" as columns and the \"variantDbIds\" as rows.",
@@ -174,7 +175,7 @@
             "title": "AlleleMatrix",
             "type": "object",
             "brapi-metadata": {
-                "primaryModel": false
+                "primaryModel": true
             }
         }
     },

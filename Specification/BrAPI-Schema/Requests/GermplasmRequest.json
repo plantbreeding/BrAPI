@@ -1,0 +1,160 @@
+{
+    "$defs": {
+        "GermplasmRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/PagingParameters.json#/$defs/PagingParameters"
+                },
+                {
+                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
+                },
+                {
+                    "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
+                },
+                {
+                    "$ref": "Parameters/GermplasmParameters.json#/$defs/GermplasmParameters"
+                },
+                {
+                    "$ref": "Parameters/TrialParameters.json#/$defs/TrialParameters"
+                },
+                {
+                    "$ref": "Parameters/StudyParameters.json#/$defs/StudyParameters"
+                },
+                {
+                    "$ref": "Parameters/ExternalReferenceParameters.json#/$defs/ExternalReferenceParameters"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "germplasmPUIs": {
+                            "description": "List of Permanent Unique Identifiers to identify germplasm",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "http://pui.per/accession/A0000003",
+                                "http://pui.per/accession/A0000477"
+                            ]
+                        },
+                        "accessionNumbers": {
+                            "description": "A collection of unique identifiers for materials or germplasm within a genebank\n\nMCPD (v2.1) (ACCENUMB) 2. This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection (e.g. \"PI 113869\").",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "A0000003",
+                                "A0000477"
+                            ]
+                        },
+                        "collections": {
+                            "description": "A specific panel/collection/population name this germplasm belongs to.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "RDP1",
+                                "MDP1"
+                            ]
+                        },
+                        "familyCodes": {
+                            "description": "A familyCode representing the family this germplasm belongs to.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "fa000203",
+                                "fa009965"
+                            ]
+                        },
+                        "instituteCodes": {
+                            "description": "The code for the institute that maintains the material. \n<br/> MCPD (v2.1) (INSTCODE) 1. FAO WIEWS code of the institute where the accession is maintained. The codes consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. PER001). The current set of institute codes is available from http://www.fao.org/wiews. For those institutes not yet having an FAO Code, or for those with \"obsolete\" codes, see \"Common formatting rules (v)\".",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "PER001",
+                                "NOR001"
+                            ]
+                        },
+                        "binomialNames": {
+                            "description": "List of the full binomial name (scientific name) to identify a germplasm",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "Aspergillus fructus",
+                                "Zea mays"
+                            ]
+                        },
+                        "genus": {
+                            "description": "List of Genus names to identify germplasm",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "Aspergillus",
+                                "Zea"
+                            ]
+                        },
+                        "species": {
+                            "description": "List of Species names to identify germplasm",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "fructus",
+                                "mays"
+                            ]
+                        },
+                        "synonyms": {
+                            "description": "List of alternative names or IDs used to reference this germplasm",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "variety_1",
+                                "2c38f9b6"
+                            ]
+                        },
+                        "parentDbIds": {
+                            "description": "Search for Germplasm with these parents",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "72c1001f",
+                                "7346c553"
+                            ]
+                        },
+                        "progenyDbIds": {
+                            "description": "Search for Germplasm with these children",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "16e16a7e",
+                                "ce06cf9e"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/GermplasmRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

@@ -1,0 +1,33 @@
+{
+    "$defs": {
+        "GermplasmParameters": {
+            "type": "object",
+            "properties": {
+                "germplasmDbIds": {
+                    "description": "List of IDs which uniquely identify germplasm to search for",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "example": [
+                        "e9c6edd7",
+                        "1b1df4a6"
+                    ]
+                },
+                "germplasmNames": {
+                    "description": "List of human readable names to identify germplasm to search for",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "example": [
+                        "A0000003",
+                        "A0000477"
+                    ]
+                }
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/Parameters/GermplasmParameters.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

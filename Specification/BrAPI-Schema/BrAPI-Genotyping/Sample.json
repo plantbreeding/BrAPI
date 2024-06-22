@@ -85,6 +85,13 @@
                         "string"
                     ]
                 },
+                "sampleDbId": {
+                    "description": "The ID which uniquely identifies a `Sample`\n<br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
                 "sampleGroupId": {
                     "description": "The ID which uniquely identifies a group of `Samples`",
                     "type": [
@@ -158,7 +165,7 @@
             "title": "Sample",
             "type": "object",
             "brapi-metadata": {
-                "primaryModel": false
+                "primaryModel": true
             }
         }
     },

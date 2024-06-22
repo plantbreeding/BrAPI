@@ -1,0 +1,64 @@
+{
+    "$defs": {
+        "MarkerPositionRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/PagingParameters.json#/$defs/PagingParameters"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "mapDbIds": {
+                            "description": "A list of IDs which uniquely identify `GenomeMaps` within the given database server",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "7e6fa8aa",
+                                "bedc418c"
+                            ]
+                        },
+                        "linkageGroupNames": {
+                            "description": "A list of Uniquely Identifiable linkage group names",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "Chromosome 2",
+                                "Chromosome 3"
+                            ]
+                        },
+                        "variantDbIds": {
+                            "description": "A list of IDs which uniquely identify `Variants` within the given database server",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "a0caa928",
+                                "f8894a26"
+                            ]
+                        },
+                        "minPosition": {
+                            "description": "The minimum position of markers in a given map",
+                            "type": "integer",
+                            "example": 250
+                        },
+                        "maxPosition": {
+                            "description": "The maximum position of markers in a given map",
+                            "type": "integer",
+                            "example": 4000
+                        }
+                    }
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/MarkerPositionRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

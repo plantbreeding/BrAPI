@@ -1,0 +1,82 @@
+{
+    "$defs": {
+        "ReferenceSetRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/PagingParameters.json#/$defs/PagingParameters"
+                },
+                {
+                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
+                },
+                {
+                    "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
+                },
+                {
+                    "$ref": "Parameters/GermplasmParameters.json#/$defs/GermplasmParameters"
+                },
+                {
+                    "$ref": "Parameters/TrialParameters.json#/$defs/TrialParameters"
+                },
+                {
+                    "$ref": "Parameters/StudyParameters.json#/$defs/StudyParameters"
+                },
+                {
+                    "$ref": "Parameters/ExternalReferenceParameters.json#/$defs/ExternalReferenceParameters"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "accessions": {
+                            "type": "array",
+                            "description": "If set, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "A0009283",
+                                "A0006657"
+                            ]
+                        },
+                        "assemblyPUIs": {
+                            "type": "array",
+                            "description": "If set, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "doi:10.15454/312953986E3",
+                                "doi:10.15454/312953986E3"
+                            ]
+                        },
+                        "md5checksums": {
+                            "type": "array",
+                            "description": "If set, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match).",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "c2365e900c81a89cf74d83dab60df146"
+                            ]
+                        },
+                        "referenceSetDbIds": {
+                            "type": "array",
+                            "description": "The `ReferenceSets` to search.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "32a19dd7",
+                                "2c182c18"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/ReferenceSetRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

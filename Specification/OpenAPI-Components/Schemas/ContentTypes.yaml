@@ -1,0 +1,14 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ContentTypes:
+      enum:
+      - application/json
+      - text/csv
+      - text/tsv
+      - application/flapjack
+      type: string

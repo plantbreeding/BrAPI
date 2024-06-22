@@ -175,7 +175,7 @@
             "title": "GermplasmAttribute",
             "type": "object",
             "brapi-metadata": {
-                "primaryModel": false
+                "primaryModel": true
             }
         }
     },

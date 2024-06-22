@@ -94,7 +94,7 @@
             "title": "Call",
             "type": "object",
             "brapi-metadata": {
-                "primaryModel": false
+                "primaryModel": true
             }
         }
     },

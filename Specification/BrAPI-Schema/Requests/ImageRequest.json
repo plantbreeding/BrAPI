@@ -1,0 +1,153 @@
+{
+    "$defs": {
+        "ImageRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/PagingParameters.json#/$defs/PagingParameters"
+                },
+                {
+                    "$ref": "Parameters/ExternalReferenceParameters.json#/$defs/ExternalReferenceParameters"
+                },
+                {
+                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
+                },
+                {
+                    "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "descriptiveOntologyTerms": {
+                            "description": "A list of terms to formally describe the image to search for. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "doi:10.1002/0470841559",
+                                "Red",
+                                "ncbi:0300294"
+                            ]
+                        },
+                        "imageFileNames": {
+                            "description": "Image file names to search for.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "image_01032019.jpg",
+                                "picture_field_1234.jpg"
+                            ]
+                        },
+                        "imageFileSizeMax": {
+                            "description": "A maximum image file size to search for.",
+                            "type": "integer",
+                            "example": 20000000
+                        },
+                        "imageFileSizeMin": {
+                            "description": "A minimum image file size to search for.",
+                            "type": "integer",
+                            "example": 1000
+                        },
+                        "imageHeightMax": {
+                            "description": "A maximum image height to search for.",
+                            "type": "integer",
+                            "example": 1080
+                        },
+                        "imageHeightMin": {
+                            "description": "A minimum image height to search for.",
+                            "type": "integer",
+                            "example": 720
+                        },
+                        "imageLocation": {
+                            "$ref": "Schemas/GeoJSONSearchArea.json#/$defs/GeoJSONSearchArea"
+                        },
+                        "imageNames": {
+                            "description": "Human readable names to search for.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "Image 43",
+                                "Tractor in field"
+                            ]
+                        },
+                        "imageTimeStampRangeEnd": {
+                            "description": "The latest timestamp to search for.",
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "imageTimeStampRangeStart": {
+                            "description": "The earliest timestamp to search for.",
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "imageWidthMax": {
+                            "description": "A maximum image width to search for.",
+                            "type": "integer",
+                            "example": 1920
+                        },
+                        "imageWidthMin": {
+                            "description": "A minimum image width to search for.",
+                            "type": "integer",
+                            "example": 1280
+                        },
+                        "mimeTypes": {
+                            "description": "A set of image file types to search for.",
+                            "items": {
+                                "pattern": "image/.*",
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "image/jpg",
+                                "image/jpeg",
+                                "image/gif"
+                            ]
+                        },
+                        "observationDbIds": {
+                            "description": "A list of observation Ids this image is associated with to search for",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "47326456",
+                                "fc9823ac"
+                            ]
+                        },
+                        "imageDbIds": {
+                            "description": "A list of image Ids to search for",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "564b64a6",
+                                "0d122d1d"
+                            ]
+                        },
+                        "observationUnitDbIds": {
+                            "description": "A set of observation unit identifiers to search for.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "f5e4b273",
+                                "328c9424"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/ImageRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

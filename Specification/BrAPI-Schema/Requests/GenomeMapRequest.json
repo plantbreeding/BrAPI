@@ -1,0 +1,61 @@
+{
+    "$defs": {
+        "GenomeMapRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/PagingParameters.json#/$defs/PagingParameters"
+                },
+                {
+                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
+                },
+                {
+                    "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
+                },
+                {
+                    "$ref": "Parameters/TrialParameters.json#/$defs/TrialParameters"
+                },
+                {
+                    "$ref": "Parameters/StudyParameters.json#/$defs/StudyParameters"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "mapDbIds": {
+                            "description": "The ID which uniquely identifies a `GenomeMap`",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "mapPUI": {
+                            "description": "The DOI or other permanent identifier for a `GenomeMap`",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "scientificName": {
+                            "description": "Full scientific binomial format name. This includes Genus, Species, and Sub-species",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "types": {
+                            "description": "The type of map, usually \"Genetic\" or \"Physical\"",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    }
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/GenomeMapRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

@@ -1,0 +1,89 @@
+{
+    "$defs": {
+        "ProgramRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/PagingParameters.json#/$defs/PagingParameters"
+                },
+                {
+                    "$ref": "Parameters/ExternalReferenceParameters.json#/$defs/ExternalReferenceParameters"
+                },
+                {
+                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
+                },
+                {
+                    "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "abbreviations": {
+                            "description": "A list of shortened human readable names for a set of Programs",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "P1",
+                                "P2"
+                            ]
+                        },
+                        "leadPersonDbIds": {
+                            "description": "The person DbIds of the program leader to search for",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "d8bd96c7",
+                                "a2b9c8e7"
+                            ]
+                        },
+                        "leadPersonNames": {
+                            "description": "The names of the program leader to search for",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "Bob Robertson",
+                                "Rob Robertson"
+                            ]
+                        },
+                        "objectives": {
+                            "description": "A program objective to search for",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "Objective Code One",
+                                "This is a longer objective search query"
+                            ]
+                        },
+                        "programTypes": {
+                            "description": "The type of program entity this object represents\n<br/> 'STANDARD' represents a standard, permanent breeding program\n<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding ",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "STANDARD",
+                                    "PROJECT"
+                                ]
+                            },
+                            "type": "array",
+                            "example": [
+                                "STANDARD",
+                                "PROJECT"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/ProgramRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

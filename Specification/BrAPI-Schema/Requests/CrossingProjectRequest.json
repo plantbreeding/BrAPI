@@ -1,0 +1,48 @@
+{
+    "$defs": {
+        "CrossingProjectRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/PagingParameters.json#/$defs/PagingParameters"
+                },
+                {
+                    "$ref": "Parameters/ExternalReferenceParameters.json#/$defs/ExternalReferenceParameters"
+                },
+                {
+                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
+                },
+                {
+                    "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "crossingProjectDbIds": {
+                            "description": "Search for Crossing Projects with this unique id",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "crossingProjectNames": {
+                            "description": "The human readable name for a crossing project",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "includePotentialParents": {
+                            "description": "If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.",
+                            "type": "boolean"
+                        }
+                     }
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/CrossingProjectRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

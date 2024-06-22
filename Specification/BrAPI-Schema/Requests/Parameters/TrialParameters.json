@@ -1,0 +1,33 @@
+{
+    "$defs": {
+        "TrialParameters": {
+            "type": "object",
+            "properties": {
+                "trialDbIds": {
+                    "description": "The ID which uniquely identifies a trial to search for",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "d2593dc2",
+                        "9431a731"
+                    ]
+                },
+                "trialNames": {
+                    "description": "The human readable name of a trial to search for",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "All Yield Trials 2016",
+                        "Disease Resistance Study Comparison Group"
+                    ]
+                }
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/Parameters/TrialParameters.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}
