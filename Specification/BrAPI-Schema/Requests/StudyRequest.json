@@ -42,31 +42,6 @@
                                 "Summer 2018"
                             ]
                         },
-                        "sortBy": {
-                            "description": "Name of one of the fields within the study object on which results can be sorted",
-                            "enum": [
-                                "studyDbId",
-                                "trialDbId",
-                                "programDbId",
-                                "locationDbId",
-                                "seasonDbId",
-                                "studyType",
-                                "studyName",
-                                "studyLocation",
-                                "programName",
-                                "germplasmDbId",
-                                "observationVariableDbId"
-                            ],
-                            "type": "string"
-                        },
-                        "sortOrder": {
-                            "description": "Order results should be sorted. ex. \"ASC\" or \"DESC\"",
-                            "enum": [
-                                "ASC",
-                                "DESC"
-                            ],
-                            "type": "string"
-                        },
                         "studyTypes": {
                             "description": "The type of study being performed. ex. \"Yield Trial\", etc",
                             "items": {
