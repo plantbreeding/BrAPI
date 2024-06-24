@@ -3,19 +3,19 @@
         "CallSetRequest": {
             "allOf": [
                 {
-                    "$ref": "Parameters/GermplasmParameters.json#/$defs/GermplasmParameters"
+                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
                 },
                 {
-                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
+                    "$ref": "Parameters/GermplasmParameters.json#/$defs/GermplasmParameters"
                 },
                 {
                     "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
                 },
                 {
-                    "$ref": "Parameters/TrialParameters.json#/$defs/TrialParameters"
+                    "$ref": "Parameters/StudyParameters.json#/$defs/StudyParameters"
                 },
                 {
-                    "$ref": "Parameters/StudyParameters.json#/$defs/StudyParameters"
+                    "$ref": "Parameters/TrialParameters.json#/$defs/TrialParameters"
                 },
                 {
                     "type": "object",

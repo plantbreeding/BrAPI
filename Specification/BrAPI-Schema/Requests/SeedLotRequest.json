@@ -6,10 +6,10 @@
                     "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
                 },
                 {
-                    "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
+                    "$ref": "Parameters/GermplasmParameters.json#/$defs/GermplasmParameters"
                 },
                 {
-                    "$ref": "Parameters/GermplasmParameters.json#/$defs/GermplasmParameters"
+                    "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
                 },
                 {
                     "type": "object",

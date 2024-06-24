@@ -3,10 +3,10 @@
         "TraitRequest": {
             "allOf": [
                 {
-                    "$ref": "Parameters/OntologyParameters.json#/$defs/OntologyParameters"
+                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
                 },
                 {
-                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
+                    "$ref": "Parameters/OntologyParameters.json#/$defs/OntologyParameters"
                 },
                 {
                     "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"

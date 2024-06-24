@@ -3,10 +3,10 @@
         "LocationRequest": {
             "allOf": [
                 {
-                    "$ref": "Parameters/LocationParameters.json#/$defs/LocationParameters"
+                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
                 },
                 {
-                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
+                    "$ref": "Parameters/LocationParameters.json#/$defs/LocationParameters"
                 },
                 {
                     "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"

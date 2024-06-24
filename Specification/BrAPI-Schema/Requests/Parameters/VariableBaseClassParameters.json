@@ -9,10 +9,10 @@
                     "$ref": "ProgramParameters.json#/$defs/ProgramParameters"
                 },
                 {
-                    "$ref": "TrialParameters.json#/$defs/TrialParameters"
+                    "$ref": "StudyParameters.json#/$defs/StudyParameters"
                 },
                 {
-                    "$ref": "StudyParameters.json#/$defs/StudyParameters"
+                    "$ref": "TrialParameters.json#/$defs/TrialParameters"
                 },
                 {
                     "type": "object",

@@ -6,22 +6,22 @@
                     "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
                 },
                 {
-                    "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
-                },
-                {
-                    "$ref": "Parameters/TrialParameters.json#/$defs/TrialParameters"
-                },
-                {
-                    "$ref": "Parameters/StudyParameters.json#/$defs/StudyParameters"
+                    "$ref": "Parameters/GermplasmParameters.json#/$defs/GermplasmParameters"
                 },
                 {
                     "$ref": "Parameters/LocationParameters.json#/$defs/LocationParameters"
                 },
                 {
-                    "$ref": "Parameters/GermplasmParameters.json#/$defs/GermplasmParameters"
+                    "$ref": "Parameters/StudyParameters.json#/$defs/StudyParameters"
                 },
                 {
                     "$ref": "Parameters/ObservationVariableParameters.json#/$defs/ObservationVariableParameters"
+                },
+                {
+                    "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
+                },
+                {
+                    "$ref": "Parameters/TrialParameters.json#/$defs/TrialParameters"
                 },
                 {
                     "type": "object",

@@ -3,10 +3,10 @@
         "GermplasmAttributeRequest": {
             "allOf": [
                 {
-                    "$ref": "Parameters/VariableBaseClassParameters.json#/$defs/VariableBaseClassParameters"
+                    "$ref": "Parameters/GermplasmParameters.json#/$defs/GermplasmParameters"
                 },
                 {
-                    "$ref": "Parameters/GermplasmParameters.json#/$defs/GermplasmParameters"
+                    "$ref": "Parameters/VariableBaseClassParameters.json#/$defs/VariableBaseClassParameters"
                 },
                 {
                     "type": "object",

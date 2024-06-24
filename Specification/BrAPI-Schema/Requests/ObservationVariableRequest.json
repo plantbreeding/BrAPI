@@ -3,10 +3,10 @@
         "ObservationVariableRequest": {
             "allOf": [
                 {
-                    "$ref": "Parameters/VariableBaseClassParameters.json#/$defs/VariableBaseClassParameters"
+                    "$ref": "Parameters/ObservationVariableParameters.json#/$defs/ObservationVariableParameters"
                 },
                 {
-                    "$ref": "Parameters/ObservationVariableParameters.json#/$defs/ObservationVariableParameters"
+                    "$ref": "Parameters/VariableBaseClassParameters.json#/$defs/VariableBaseClassParameters"
                 }
             ],
             "brapi-metadata": {

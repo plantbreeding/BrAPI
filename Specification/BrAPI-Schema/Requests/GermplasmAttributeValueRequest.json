@@ -3,10 +3,10 @@
         "GermplasmAttributeValueRequest": {
             "allOf": [
                 {
-                    "$ref": "Parameters/GermplasmParameters.json#/$defs/GermplasmParameters"
+                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
                 },
                 {
-                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
+                    "$ref": "Parameters/GermplasmParameters.json#/$defs/GermplasmParameters"
                 },
                 {
                     "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
