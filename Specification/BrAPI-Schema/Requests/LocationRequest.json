@@ -3,12 +3,6 @@
         "LocationRequest": {
             "allOf": [
                 {
-                    "$ref": "Parameters/PagingParameters.json#/$defs/PagingParameters"
-                },
-                {
-                    "$ref": "Parameters/ExternalReferenceParameters.json#/$defs/ExternalReferenceParameters"
-                },
-                {
                     "$ref": "Parameters/LocationParameters.json#/$defs/LocationParameters"
                 },
                 {

@@ -1,62 +1,52 @@
 {
     "$defs": {
         "SeasonRequest": {
-            "allOf": [
-                {
-                    "$ref": "Parameters/PagingParameters.json#/$defs/PagingParameters"
+            "type": "object",
+            "properties": {
+                "seasonDbIds": {
+                    "description": "The unique identifier for a season. For backward compatibility it can be a string like '2012', '1957-2004'.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "example": [
+                        "2012",
+                        "1957-2004"
+                    ]
                 },
-                {
-                    "$ref": "Parameters/ExternalReferenceParameters.json#/$defs/ExternalReferenceParameters"
+                "seasons": {
+                    "description": "The term to describe a given season. Example \"Spring\" OR \"May\" OR \"Planting_Time_7\".",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "example": [
+                        "Spring",
+                        "Planting_Time_7"
+                    ]
                 },
-                {
-                    "type": "object",
-                    "properties": {
-                        "seasonDbIds": {
-                            "description": "The unique identifier for a season. For backward compatibility it can be a string like '2012', '1957-2004'.",
-                            "items": {
-                                "type": "string"
-                            },
-                            "type": "array",
-                            "example": [
-                                "2012",
-                                "1957-2004"
-                            ]
-                        },
-                        "seasons": {
-                            "description": "The term to describe a given season. Example \"Spring\" OR \"May\" OR \"Planting_Time_7\".",
-                            "items": {
-                                "type": "string"
-                            },
-                            "type": "array",
-                            "example": [
-                                "Spring",
-                                "Planting_Time_7"
-                            ]
-                        },
-                        "seasonNames": {
-                            "description": "The term to describe a given season. Example \"Spring\" OR \"May\" OR \"Planting_Time_7\".",
-                            "items": {
-                                "type": "string"
-                            },
-                            "type": "array",
-                            "example": [
-                                "Objective Code One",
-                                "This is a longer objective search query"
-                            ]
-                        },
-                        "years": {
-                            "description": "The 4 digit year of a season. Example \"2017\"",
-                            "items": {
-                                "type": "string"
-                            },
-                            "type": "array",
-                            "example": [
-                                "2017"
-                            ]
-                        }
-                    }
+                "seasonNames": {
+                    "description": "The term to describe a given season. Example \"Spring\" OR \"May\" OR \"Planting_Time_7\".",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "example": [
+                        "Objective Code One",
+                        "This is a longer objective search query"
+                    ]
+                },
+                "years": {
+                    "description": "The 4 digit year of a season. Example \"2017\"",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "example": [
+                        "2017"
+                    ]
                 }
-            ],
+            },
             "brapi-metadata": {
                 "request": true
             }

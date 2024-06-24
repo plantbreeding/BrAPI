@@ -6,9 +6,6 @@
                     "$ref": "Parameters/OntologyParameters.json#/$defs/OntologyParameters"
                 },
                 {
-                    "$ref": "Parameters/PagingParameters.json#/$defs/PagingParameters"
-                },
-                {
                     "type": "object",
                     "properties": {
                         "ontologyNames": {

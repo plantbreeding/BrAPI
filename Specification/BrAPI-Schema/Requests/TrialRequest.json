@@ -3,9 +3,6 @@
         "TrialRequest": {
             "allOf": [
                 {
-                    "$ref": "Parameters/PagingParameters.json#/$defs/PagingParameters"
-                },
-                {
                     "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
                 },
                 {
@@ -22,9 +19,6 @@
                 },
                 {
                     "$ref": "Parameters/ObservationVariableParameters.json#/$defs/ObservationVariableParameters"
-                },
-                {
-                    "$ref": "Parameters/ExternalReferenceParameters.json#/$defs/ExternalReferenceParameters"
                 },
                 {
                     "type": "object",

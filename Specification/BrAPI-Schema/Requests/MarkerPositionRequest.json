@@ -3,9 +3,6 @@
         "MarkerPositionRequest": {
             "allOf": [
                 {
-                    "$ref": "Parameters/PagingParameters.json#/$defs/PagingParameters"
-                },
-                {
                     "type": "object",
                     "properties": {
                         "mapDbIds": {
