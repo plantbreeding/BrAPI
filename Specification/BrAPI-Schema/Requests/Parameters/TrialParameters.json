@@ -25,6 +25,9 @@
                         "Disease Resistance Study Comparison Group"
                     ]
                 }
+            },
+            "brapi-metadata": {
+                "parameters": true
             }
         }
     },

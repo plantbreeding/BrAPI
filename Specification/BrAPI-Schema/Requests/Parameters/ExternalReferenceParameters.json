@@ -37,6 +37,9 @@
                         "Field App Name"
                     ]
                 }
+            },
+            "brapi-metadata": {
+                "parameters": true
             }
         }
     },

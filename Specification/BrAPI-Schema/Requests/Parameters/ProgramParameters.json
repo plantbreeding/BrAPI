@@ -25,6 +25,9 @@
                         "Best Breeding Program"
                     ]
                 }
+            },
+            "brapi-metadata": {
+                "parameters": true
             }
         }
     },

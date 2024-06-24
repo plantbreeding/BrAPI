@@ -25,6 +25,9 @@
                         "A0000477"
                     ]
                 }
+            },
+            "brapi-metadata": {
+                "parameters": true
             }
         }
     },

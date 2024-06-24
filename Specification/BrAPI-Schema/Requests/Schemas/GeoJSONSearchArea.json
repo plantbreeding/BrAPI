@@ -1,12 +1,12 @@
 {
     "$defs": {
         "GeoJSONSearchArea": {
+            "title": "GeoJSONSearchArea",
             "allOf": [
                 {
                     "$ref": "../../BrAPI-Common/GeoJSON.json#/$defs/GeoJSON"
                 },
                 {
-                    "title": "GeoJSONSearchArea",
                     "type": "object",
                     "description": "A GeoJSON Polygon which describes an area to search for other GeoJSON objects. All contained Points and intersecting Polygons should be returned as search results. \n\nAll coordinates are decimal values on the WGS84 geographic coordinate reference system.",
                     "properties": {},

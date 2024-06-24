@@ -36,6 +36,9 @@
                         "http://my-traits.com/trait/CO_123:0007261"
                     ]
                 }
+            },
+            "brapi-metadata": {
+                "parameters": true
             }
         }
     },

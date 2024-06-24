@@ -10,6 +10,9 @@
                     },
                     "type": "array"
                 }
+            },
+            "brapi-metadata": {
+                "parameters": true
             }
         }
     },

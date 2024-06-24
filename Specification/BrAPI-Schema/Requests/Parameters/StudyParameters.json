@@ -25,6 +25,9 @@
                         "Wheat Yield Trial 246"
                     ]
                 }
+            },
+            "brapi-metadata": {
+                "parameters": true
             }
         }
     },

@@ -13,6 +13,9 @@
                     "example": 1000,
                     "type": "integer"
                 }
+            },
+            "brapi-metadata": {
+                "parameters": true
             }
         }
     },
