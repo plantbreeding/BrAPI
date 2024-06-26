@@ -169,8 +169,8 @@
                 }
             },
             "required": [
-                "callSetDbIds",
-                "variantSetDbIds"
+                "callSets",
+                "variantSets"
             ],
             "title": "AlleleMatrix",
             "type": "object",

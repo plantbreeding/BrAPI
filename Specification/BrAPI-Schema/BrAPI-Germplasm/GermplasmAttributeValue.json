@@ -50,8 +50,7 @@
                 }
             },
             "required": [
-                "attributeValueDbId",
-                "attributeName"
+                "attribute"
             ],
             "title": "GermplasmAttributeValue",
             "type": "object",

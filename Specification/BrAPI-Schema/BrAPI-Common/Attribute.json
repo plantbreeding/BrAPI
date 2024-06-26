@@ -13,6 +13,10 @@
                             "type": "string",
                             "example": "Morphological"
                         },
+                        "attributeDbId": {
+                            "description": "The ID which uniquely identifies this attribute within the given database server",
+                            "type": "string"
+                        },
                         "attributeName": {
                             "description": "A human readable name for this attribute",
                             "type": "string",

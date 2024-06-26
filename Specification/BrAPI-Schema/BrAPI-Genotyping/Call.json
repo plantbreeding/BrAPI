@@ -87,9 +87,9 @@
                 }
             },
             "required": [
-                "callSetDbId",
-                "variantDbId",
-                "variantSetDbId"
+                "callSet",
+                "variant",
+                "variantSet"
             ],
             "title": "Call",
             "type": "object",
