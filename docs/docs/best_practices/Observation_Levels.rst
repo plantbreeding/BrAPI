@@ -157,12 +157,14 @@ like this.
          {
             "levelCode": "Field_01",
             "levelName": "field",
-            "levelOrder": 1
+            "levelOrder": 1,
+            "observationUnitDbId": "5a189d45-2fe0-48ac-9cbd-56d142a29770"
          },
          {
             "levelCode": "Block_012",
             "levelName": "block",
-            "levelOrder": 2
+            "levelOrder": 2,
+            "observationUnitDbId": "017f17d5-c420-4723-94ea-64d4379975b2"
          }
       ]
    }
