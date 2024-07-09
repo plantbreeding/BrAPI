@@ -65,7 +65,7 @@
             "title": "Breeding Method",
             "type": "object",
             "brapi-metadata": {
-                "primaryModel": false
+                "primaryModel": true
             }
         }
     },

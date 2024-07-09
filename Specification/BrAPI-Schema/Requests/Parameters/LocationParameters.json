@@ -25,6 +25,9 @@
                         "The Large Hadron Collider"
                     ]
                 }
+            },
+            "brapi-metadata": {
+                "parameters": true
             }
         }
     },

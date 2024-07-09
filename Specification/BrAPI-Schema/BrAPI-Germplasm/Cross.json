@@ -147,7 +147,7 @@
             "title": "Cross",
             "type": "object",
             "brapi-metadata": {
-                "primaryModel": false
+                "primaryModel": true
             }
         }
     },

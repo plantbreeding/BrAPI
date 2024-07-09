@@ -3,16 +3,10 @@
         "LocationRequest": {
             "allOf": [
                 {
-                    "$ref": "Parameters/PagingParameters.json#/$defs/PagingParameters"
-                },
-                {
-                    "$ref": "Parameters/ExternalReferenceParameters.json#/$defs/ExternalReferenceParameters"
+                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
                 },
                 {
                     "$ref": "Parameters/LocationParameters.json#/$defs/LocationParameters"
-                },
-                {
-                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
                 },
                 {
                     "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"

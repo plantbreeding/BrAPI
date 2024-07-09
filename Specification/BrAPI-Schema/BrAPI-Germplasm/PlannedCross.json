@@ -93,7 +93,7 @@
             "title": "PlannedCross",
             "type": "object",
             "brapi-metadata": {
-                "primaryModel": false
+                "primaryModel": true
             }
         }
     },

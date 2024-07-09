@@ -1,0 +1,48 @@
+{
+    "$defs": {
+        "Attribute": {
+            "allOf": [
+                {
+                    "$ref": "../BrAPI-Common/Variable.json#/$defs/Variable"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "attributeCategory": {
+                            "description": "General category for the attribute. very similar to Trait class.",
+                            "type": "string",
+                            "example": "Morphological"
+                        },
+                        "attributeDbId": {
+                            "description": "The ID which uniquely identifies this attribute within the given database server",
+                            "type": "string"
+                        },
+                        "attributeName": {
+                            "description": "A human readable name for this attribute",
+                            "type": "string",
+                            "example": "Plant Height 1"
+                        },
+                        "attributePUI": {
+                            "description": "The Permanent Unique Identifier of an Attribute, usually in the form of a URI",
+                            "type": "string",
+                            "example": "http://my-traits.com/trait/CO_123:0008012"
+                        },
+                        "attributeDescription": {
+                            "description": "A human readable description of this attribute",
+                            "type": "string",
+                            "example": "Height of the plant measured in meters by a tape"
+                        }
+                    },
+                    "required": [
+                        "attributeName"
+                    ]
+                }
+            ],
+            "brapi-metadata": {
+                "interface": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/Attribute.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

@@ -36,7 +36,7 @@
             "title": "MarkerPosition",
             "type": "object",
             "brapi-metadata": {
-                "primaryModel": false
+                "primaryModel": true
             }
         }
     },

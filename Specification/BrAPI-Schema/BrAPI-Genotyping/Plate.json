@@ -24,6 +24,10 @@
                         "string"
                     ]
                 },
+                "plateDbId": {
+                    "description": "The ID which uniquely identifies a `Plate`",
+                    "type": "string"
+                },
                 "plateFormat": {
                     "description": "Enum for plate formats, usually \"PLATE_96\" for a 96 well plate or \"TUBES\" for plateless format",
                     "enum": [
@@ -93,7 +97,7 @@
             "title": "Plate",
             "type": "object",
             "brapi-metadata": {
-                "primaryModel": false
+                "primaryModel": true
             }
         }
     },

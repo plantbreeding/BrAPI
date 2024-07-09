@@ -14,6 +14,9 @@
                         "Paw Paw"
                     ]
                 }
+            },
+            "brapi-metadata": {
+                "parameters": true
             }
         }
     },

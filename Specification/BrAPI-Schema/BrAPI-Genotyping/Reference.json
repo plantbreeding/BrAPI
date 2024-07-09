@@ -111,6 +111,7 @@
                 },
                 "species": {
                     "description": "An ontology term describing an attribute.",
+                    "title": "OntologyTerm",
                     "properties": {
                         "term": {
                             "description": "Ontology term - the label of the ontology term the termId is pointing to.",
@@ -154,7 +155,7 @@
             "title": "Reference",
             "type": "object",
             "brapi-metadata": {
-                "primaryModel": false
+                "primaryModel": true
             }
         }
     },

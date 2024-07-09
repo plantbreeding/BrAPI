@@ -203,7 +203,7 @@
             "title": "Variant",
             "type": "object",
             "brapi-metadata": {
-                "primaryModel": false
+                "primaryModel": true
             }
         }
     },

@@ -1,0 +1,48 @@
+{
+    "$defs": {
+        "SeedLotRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
+                },
+                {
+                    "$ref": "Parameters/GermplasmParameters.json#/$defs/GermplasmParameters"
+                },
+                {
+                    "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "seedLotDbIds": {
+                            "description": "Unique id for a seed lot on this server",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "crossDbIds": {
+                            "description": "Search for Cross with this unique id",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "crossNames": {
+                            "description": "Search for Cross with this human readable name",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/SeedLotRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

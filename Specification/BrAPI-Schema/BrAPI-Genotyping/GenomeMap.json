@@ -109,7 +109,7 @@
             "title": "GenomeMap",
             "type": "object",
             "brapi-metadata": {
-                "primaryModel": false
+                "primaryModel": true
             }
         }
     },

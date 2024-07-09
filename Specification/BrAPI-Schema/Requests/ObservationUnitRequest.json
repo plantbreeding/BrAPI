@@ -1,0 +1,111 @@
+{
+    "$defs": {
+        "ObservationUnitRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
+                },
+                {
+                    "$ref": "Parameters/GermplasmParameters.json#/$defs/GermplasmParameters"
+                },
+                {
+                    "$ref": "Parameters/LocationParameters.json#/$defs/LocationParameters"
+                },
+                {
+                    "$ref": "Parameters/StudyParameters.json#/$defs/StudyParameters"
+                },
+                {
+                    "$ref": "Parameters/ObservationVariableParameters.json#/$defs/ObservationVariableParameters"
+                },
+                {
+                    "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
+                },
+                {
+                    "$ref": "Parameters/TrialParameters.json#/$defs/TrialParameters"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "observationUnitDbIds": {
+                            "description": "The unique id of an observation unit",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "66bab7e3",
+                                "0e5e7f99"
+                            ]
+                        },
+                        "observationUnitNames": {
+                            "description": "The human readable identifier for an Observation Unit",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "FieldA_PlotB",
+                                "SpecialPlantName"
+                            ]
+                        },
+                        "observationLevels": {
+                            "description": "Searches for values in ObservationUnit->observationUnitPosition->observationLevel",
+                            "type": "array",
+                            "items": {
+                                "$ref": "../BrAPI-Phenotyping/ObservationUnitLevel.json#/$defs/ObservationUnitLevel"
+                            },
+                            "example": [
+                                {
+                                    "levelName": "plot",
+                                    "levelCode": "Plot_123"
+                                },
+                                {
+                                    "levelName": "plot",
+                                    "levelCode": "Plot_456"
+                                },
+                                {
+                                    "levelName": "plot",
+                                    "levelCode": "Plot_789"
+                                }
+                            ]
+                        },
+                        "observationLevelRelationships": {
+                            "description": "Searches for values in ObservationUnit->observationUnitPosition->observationLevelRelationships",
+                            "type": "array",
+                            "items": {
+                                "$ref": "../BrAPI-Phenotyping/ObservationUnitLevelRelationship.json#/$defs/ObservationUnitLevelRelationship"
+                            },
+                            "example": [
+                                {
+                                    "levelName": "field",
+                                    "levelCode": "Field_1"
+                                }
+                            ]
+                        },
+                        "includeObservations": {
+                            "description": "Use this parameter to include a list of observations embedded in each ObservationUnit object. \n\nCAUTION - Use this parameter at your own risk. It may return large, unpaginated lists of observation data. Only set this value to True if you are sure you need to.",
+                            "type": "boolean",
+                            "example": false
+                        },
+                        "seasonDbIds": {
+                            "description": "The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "Spring 2018",
+                                "Season A"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/ObservationRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

@@ -147,7 +147,7 @@
             "title": "Image",
             "type": "object",
             "brapi-metadata": {
-                "primaryModel": false
+                "primaryModel": true
             }
         }
     },

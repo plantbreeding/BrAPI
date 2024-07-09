@@ -46,8 +46,7 @@
                 }
             },
             "required": [
-                "ontologyName",
-                "ontologyDbId"
+                "ontology"
             ],
             "title": "OntologyReference",
             "type": "object",

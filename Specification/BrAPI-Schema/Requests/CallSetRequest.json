@@ -1,0 +1,88 @@
+{
+    "$defs": {
+        "CallSetRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
+                },
+                {
+                    "$ref": "Parameters/GermplasmParameters.json#/$defs/GermplasmParameters"
+                },
+                {
+                    "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
+                },
+                {
+                    "$ref": "Parameters/StudyParameters.json#/$defs/StudyParameters"
+                },
+                {
+                    "$ref": "Parameters/TrialParameters.json#/$defs/TrialParameters"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "sampleDbIds": {
+                            "description": "A list of IDs which uniquely identify `Samples` within the given database server",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "758d3f6d",
+                                "39c0a3f7"
+                            ]
+                        },
+                        "sampleNames": {
+                            "description": "A list of human readable names associated with `Samples`",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "Sample_123",
+                                "Sample_789"
+                            ]
+                        },
+                        "callSetDbIds": {
+                            "description": "A list of IDs which uniquely identify `CallSets` within the given database server",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "6c7486b2",
+                                "49c36a73"
+                            ]
+                        },
+                        "callSetNames": {
+                            "description": "A list of human readable names associated with `CallSets`",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "Sample_123_DNA_Run_456",
+                                "Sample_789_DNA_Run_101"
+                            ]
+                        },
+                        "variantSetDbIds": {
+                            "description": "A list of IDs which uniquely identify `VariantSets` within the given database server",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "8a9a8972",
+                                "32a2649a"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/CallSetRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

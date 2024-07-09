@@ -1,0 +1,136 @@
+{
+    "$defs": {
+        "Variable": {
+            "properties": {
+                "additionalInfo": {
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
+                },
+                "commonCropName": {
+                    "description": "Crop name (examples: \"Maize\", \"Wheat\")",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "contextOfUse": {
+                    "description": "Indication of how trait is routinely used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "defaultValue": {
+                    "description": "Variable default value. (examples: \"red\", \"2.3\", etc.)",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "documentationURL": {
+                    "description": "A URL to the human readable documentation of an object",
+                    "format": "uri",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "externalReferences": {
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "items": {
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference"
+                    },
+                    "title": "ExternalReferences",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "growthStage": {
+                    "description": "Growth stage at which measurement is made (examples: \"flowering\")",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "institution": {
+                    "description": "Name of institution submitting the variable",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "language": {
+                    "description": "2 letter ISO 639-1 code for the language of submission of the variable.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "method": {
+                    "description": "A description of the way an Observation should be collected. \n<br>For example, an ObservationVariable might be defined with a Trait of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\". This variable would be distinct from a variable with the Method \"estimation\" or \"drone image processing\". ",
+                    "$ref": "../BrAPI-Phenotyping/Method.json#/$defs/Method"
+                },
+                "ontologyReference": {
+                    "description": "MIAPPE V1.1\n\n(DM-85) Variable accession number - Accession number of the variable in the Crop Ontology\n\n(DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).",
+                    "$ref": "../BrAPI-Phenotyping/OntologyReference.json#/$defs/OntologyReference"
+                },
+                "scale": {
+                    "description": "A Scale describes the units and acceptable values for an ObservationVariable. \n<br>For example, an ObservationVariable might be defined with a Trait of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\". This variable would be distinct from a variable with the Scale \"inches\" or \"pixels\".",
+                    "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/Scale"
+                },
+                "scientist": {
+                    "description": "Name of scientist submitting the variable.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "status": {
+                    "description": "Variable status. (examples: \"recommended\", \"obsolete\", \"legacy\", etc.)",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "submissionTimestamp": {
+                    "description": "Timestamp when the Variable was added (ISO 8601)",
+                    "format": "date-time",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "synonyms": {
+                    "description": "Other variable names",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "trait": {
+                    "description": "A Trait describes what property is being observed. \n<br>For example, an ObservationVariable might be defined with a Trait of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\". This variable would be distinct from a variable with the Trait \"Leaf length\" or \"Flower height\". ",
+                    "$ref": "../BrAPI-Phenotyping/Trait.json#/$defs/Trait"
+                }
+            },
+            "required": [
+                "method",
+                "trait",
+                "scale"
+            ],
+            "title": "Variable",
+            "type": "object",
+            "brapi-metadata": {
+                "interface": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/Variable.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

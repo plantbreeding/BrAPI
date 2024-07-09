@@ -50,13 +50,12 @@
                 }
             },
             "required": [
-                "attributeValueDbId",
-                "attributeName"
+                "attribute"
             ],
             "title": "GermplasmAttributeValue",
             "type": "object",
             "brapi-metadata": {
-                "primaryModel": false
+                "primaryModel": true
             }
         }
     },
