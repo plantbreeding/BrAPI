@@ -77,7 +77,7 @@
                     "relationshipType": "many-to-one"
                 },
                 "season": {
-                    "$ref": "Season.json#/$defs/Season",
+                    "$ref": "../BrAPI-Core/Season.json#/$defs/Season",
                     "relationshipType": "many-to-one"
                 },
                 "study": {
