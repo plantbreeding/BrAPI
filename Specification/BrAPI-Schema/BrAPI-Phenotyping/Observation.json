@@ -77,33 +77,8 @@
                     "relationshipType": "many-to-one"
                 },
                 "season": {
-                    "properties": {
-                        "seasonDbId": {
-                            "description": "The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'",
-                            "type": "string"
-                        },
-                        "seasonName": {
-                            "description": "Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "year": {
-                            "description": "The 4 digit year of the season.",
-                            "type": [
-                                "null",
-                                "integer"
-                            ]
-                        }
-                    },
-                    "required": [
-                        "seasonDbId"
-                    ],
-                    "type": [
-                        "null",
-                        "object"
-                    ]
+                    "$ref": "../BrAPI-Core/Season.json#/$defs/Season",
+                    "relationshipType": "many-to-one"
                 },
                 "study": {
                     "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
