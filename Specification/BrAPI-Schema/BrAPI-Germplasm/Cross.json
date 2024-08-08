@@ -46,20 +46,7 @@
                 },
                 "crossType": {
                     "description": "the type of cross",
-                    "enum": [
-                        "BIPARENTAL",
-                        "SELF",
-                        "OPEN_POLLINATED",
-                        "BULK",
-                        "BULK_SELFED",
-                        "BULK_OPEN_POLLINATED",
-                        "DOUBLE_HAPLOID",
-                        null
-                    ],
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "$ref": "CrossType.json#/$defs/CrossType"
                 },
                 "crossingProject": {
                     "$ref": "CrossingProject.json#/$defs/CrossingProject",

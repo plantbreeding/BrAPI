@@ -1,0 +1,19 @@
+{
+    "$defs": {
+        "CrossType": {
+            "description": "The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK',  'BULK_SELFED',  'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'.",
+            "enum": [
+                "BIPARENTAL",
+                "SELF",
+                "OPEN_POLLINATED",
+                "BULK",
+                "BULK_SELFED",
+                "BULK_OPEN_POLLINATED",
+                "DOUBLE_HAPLOID"
+            ],
+            "type": "string"
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/ParentType.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}
