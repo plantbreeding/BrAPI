@@ -12,6 +12,6 @@
             "type": "string"
         }
     },
-    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/ParentType.json",
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/ParentType.json",
     "$schema": "http://json-schema.org/draft/2020-12/schema"
 }
