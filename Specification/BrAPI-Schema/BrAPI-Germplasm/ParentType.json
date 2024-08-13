@@ -1,0 +1,17 @@
+{
+    "$defs": {
+        "ParentType": {
+            "description": "The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \\n\\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \\n\\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \\nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \\nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\\nIn this way, A could be a male parent to B, but a female parent to C. ",
+            "enum": [
+                "MALE",
+                "FEMALE",
+                "SELF",
+                "POPULATION",
+                "CLONAL"
+            ],
+            "type": "string"
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/ParentType.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

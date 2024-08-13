@@ -20,17 +20,7 @@
                 },
                 "parentType": {
                     "description": "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
-                    "enum": [
-                        "MALE",
-                        "FEMALE",
-                        "SELF",
-                        "POPULATION",
-                        null
-                    ],
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "$ref": "ParentType.json#/$defs/ParentType"
                 }
             },
             "title": "CrossParent",
