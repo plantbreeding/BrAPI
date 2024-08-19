@@ -143,11 +143,19 @@ Observation Unit.
    attached Observation Unit. This should include a ``levelCode`` for
    every level above the current ``observationLevel``. This is where
    things like Field number, Block, Rep, etc should be recorded for an
-   Observation Unit.
+   Observation Unit. If a level has an ``ObservationUnit`` associated
+   with it, include the ``observationUnitDbId``. This is intended to
+   construct a strict hierarchy of observationUnits. If there is no
+   ``ObservationUnit`` associated with this level, the 
+   ``observationUnitDbId`` field can set to NULL or omitted from the
+   response.
 
 Example: With the ``observationLevel`` above declaring this Observation
 Unit to be a Plot, then the Field and Block numbers might be defined
-like this.
+like this. In this example, the Block level has an associated
+``ObservationUnit`` so the ``observationUnitDbId`` is included, while
+the Field level has no associated ``ObservationUnit``, so the
+``observationUnitDbId`` is null for the Field level.
 
 
 .. code-block:: json
@@ -158,7 +166,7 @@ like this.
             "levelCode": "Field_01",
             "levelName": "field",
             "levelOrder": 1,
-            "observationUnitDbId": "5a189d45-2fe0-48ac-9cbd-56d142a29770"
+            "observationUnitDbId": null
          },
          {
             "levelCode": "Block_012",
