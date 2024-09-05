@@ -13,56 +13,13 @@
                 },
                 "dataMatrices": {
                     "description": "The 'dataMatrices' are an array of matrix objects that hold the allele data and associated metadata. Each matrix should be the same size and orientation, aligned with the \"callSetDbIds\" as columns and the \"variantDbIds\" as rows.",
+					"relationshipType": "one-to-many",
+					"referencedAttribute": "alleleMatrix",
                     "items": {
-                        "description": "This is a single data matrix. It could be the allele matrix or an additional layer of metadata associated with each genotype value.",
-                        "title": "DataMatrix",
-                        "properties": {
-                            "dataMatrix": {
-                                "description": "The two dimensional array of data, providing the allele matrix or an additional layer of metadata associated with each genotype value. Each matrix should be the same size and orientation, aligned with the \"callSetDbIds\" as columns and the \"variantDbIds\" as rows.",
-                                "items": {
-                                    "description": "An array of rows in the data matrix",
-                                    "items": {
-                                        "description": "All the values per row (columns) in the data matrix",
-                                        "type": "string"
-                                    },
-                                    "type": "array"
-                                },
-                                "type": [
-                                    "null",
-                                    "array"
-                                ]
-                            },
-                            "dataMatrixAbbreviation": {
-                                "description": "The abbreviated code of the field represented in this data matrix. These codes should match the VCF standard when possible and the key word \"GT\" is reserved for the allele matrix. Examples of other metadata matrices include: \"GQ\", \"RD\", and \"HQ\"\n<br> This maps to a FORMAT field in the VCF file standard.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "dataMatrixName": {
-                                "description": "The name of the field represented in this data matrix. The key word \"Genotype\" is reserved for the allele matrix. Examples of other metadata matrices include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype Quality\"\n<br> This maps to a FORMAT field in the VCF file standard.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "dataType": {
-                                "description": "The type of field represented in this data matrix. This is intended to help parse the data out of JSON.",
-                                "enum": [
-                                    "string",
-                                    "integer",
-                                    "float",
-                                    "boolean",
-                                    null
-                                ],
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Genotyping/AlleleMatrix.json#/$defs/DataMatrices",
+                        "description": "DataMatrices"
                     },
+                    "title": "DataMatrices",
                     "type": [
                         "null",
                         "array"
@@ -77,52 +34,13 @@
                 },
                 "pagination": {
                     "description": "Pagination for the matrix",
-                    "title": "MatrixPage",
+					"relationshipType": "one-to-many",
+					"referencedAttribute": "alleleMatrix",
                     "items": {
-                        "properties": {
-                            "dimension": {
-                                "description": "The dimension of the matrix being paginated",
-                                "enum": [
-                                    "CALLSETS",
-                                    "VARIANTS",
-                                    null
-                                ],
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "page": {
-                                "description": "the requested page number (zero indexed)",
-                                "type": [
-                                    "null",
-                                    "integer"
-                                ]
-                            },
-                            "pageSize": {
-                                "description": "the maximum number of elements per page in this dimension of the matrix",
-                                "type": [
-                                    "null",
-                                    "integer"
-                                ]
-                            },
-                            "totalCount": {
-                                "description": "The total number of elements that are available on the server and match the requested query parameters.",
-                                "type": [
-                                    "null",
-                                    "integer"
-                                ]
-                            },
-                            "totalPages": {
-                                "description": "The total number of pages of elements available on the server. This should be calculated with the following formula. \n<br/>totalPages = CEILING( totalCount / requested_page_size)",
-                                "type": [
-                                    "null",
-                                    "integer"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Genotyping/AlleleMatrix.json#/$defs/Pagination",
+                        "description": "Pagination"
                     },
+                    "title": "Pagination",
                     "type": [
                         "null",
                         "array"
@@ -177,7 +95,134 @@
             "brapi-metadata": {
                 "primaryModel": true
             }
-        }
+        },
+        "DataMatrices": {
+			"properties": {
+				"dataMatricesDbId": {
+                    "description": "This is a single data matrix. It could be the allele matrix or an additional layer of metadata associated with each genotype value.",
+                    "type": "string"
+				},
+				"dataMatrix": {
+                    "description": "The two dimensional array of data, providing the allele matrix or an additional layer of metadata associated with each genotype value. Each matrix should be the same size and orientation, aligned with the \"callSetDbIds\" as columns and the \"variantDbIds\" as rows.",
+                    "items": {
+                        "description": "An array of rows in the data matrix",
+                        "items": {
+                            "description": "All the values per row (columns) in the data matrix",
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "dataMatrixAbbreviation": {
+                    "description": "The abbreviated code of the field represented in this data matrix. These codes should match the VCF standard when possible and the key word \"GT\" is reserved for the allele matrix. Examples of other metadata matrices include: \"GQ\", \"RD\", and \"HQ\"\n<br> This maps to a FORMAT field in the VCF file standard.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "dataMatrixName": {
+                    "description": "The name of the field represented in this data matrix. The key word \"Genotype\" is reserved for the allele matrix. Examples of other metadata matrices include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype Quality\"\n<br> This maps to a FORMAT field in the VCF file standard.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "dataType": {
+                    "description": "The type of field represented in this data matrix. This is intended to help parse the data out of JSON.",
+                    "enum": [
+                        "string",
+                        "integer",
+                        "float",
+                        "boolean",
+                        null
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+				"alleleMatrix": {
+					"description": "Data matrices associated with an alleleMatrix",
+					"$ref": "../BrAPI-Genotyping/AlleleMatrix.json#/$defs/AlleleMatrix",
+					"relationshipType": "many-to-one",
+					"referencedAttribute": "dataMatrices"
+				}
+			},
+			"required": [
+                "dataMatricesDbId"
+            ],
+            "title": "DataMatrix",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+		},
+        "Pagination": {
+			"properties": {
+				"paginationDbId": {
+                    "description": "Pagination for the matrix",
+                    "type": "string"
+				},
+				"dimension": {
+                    "description": "The dimension of the matrix being paginated",
+                    "enum": [
+                        "CALLSETS",
+                        "VARIANTS",
+                        null
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "page": {
+                    "description": "the requested page number (zero indexed)",
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "pageSize": {
+                    "description": "the maximum number of elements per page in this dimension of the matrix",
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "totalCount": {
+                    "description": "The total number of elements that are available on the server and match the requested query parameters.",
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "totalPages": {
+                    "description": "The total number of pages of elements available on the server. This should be calculated with the following formula. \n<br/>totalPages = CEILING( totalCount / requested_page_size)",
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+				"alleleMatrix": {
+					"description": "Pgination associated with an alleleMatrix",
+					"$ref": "../BrAPI-Genotyping/AlleleMatrix.json#/$defs/AlleleMatrix",
+					"relationshipType": "many-to-one",
+					"referencedAttribute": "pagination"
+				}
+			},
+			"required": [
+                "paginationDbId"
+            ],
+            "title": "Pagination",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+		}
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/AlleleMatrix.json",
     "$schema": "http://json-schema.org/draft/2020-12/schema"

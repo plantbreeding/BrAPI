@@ -4,7 +4,15 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+                        "description": "AdditionalInfo"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "callSet": {
                     "$ref": "CallSet.json#/$defs/CallSet",
@@ -14,46 +22,13 @@
                 },
                 "genotypeMetadata": {
                     "description": "Genotype Metadata are additional layers of metadata associated with each genotype.",
+					"relationshipType": "one-to-many",
+					"referencedAttribute": "call",
                     "items": {
-                        "properties": {
-                            "dataType": {
-                                "description": "The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.",
-                                "enum": [
-                                    "string",
-                                    "integer",
-                                    "float",
-                                    "boolean",
-                                    null
-                                ],
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "fieldAbbreviation": {
-                                "description": "The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: \"GQ\", \"RD\", and \"HQ\"\n<br> This maps to a FORMAT field in the VCF file standard.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "fieldName": {
-                                "description": "The name of the field represented in this Genotype Field. Examples include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype Quality\"\n<br> This maps to a FORMAT field in the VCF file standard.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "fieldValue": {
-                                "description": "The additional metadata value associated with this genotype call",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Genotyping/Call.json#/$defs/GenotypeMetadata",
+                        "description": "GenotypeMetadata"
                     },
+                    "title": "GenotypeMetadata",
                     "type": [
                         "null",
                         "array"
@@ -96,7 +71,64 @@
             "brapi-metadata": {
                 "primaryModel": true
             }
-        }
+        },
+        "GenotypeMetadata": {
+			"properties": {
+				"genotypeMetadataDbId": {
+                    "description": "MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.",
+                    "type": "string"
+				},
+				"dataType": {
+                    "description": "The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.",
+                    "enum": [
+                        "string",
+                        "integer",
+                        "float",
+                        "boolean",
+                        null
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "fieldAbbreviation": {
+                    "description": "The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: \"GQ\", \"RD\", and \"HQ\"\n<br> This maps to a FORMAT field in the VCF file standard.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "fieldName": {
+                    "description": "The name of the field represented in this Genotype Field. Examples include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype Quality\"\n<br> This maps to a FORMAT field in the VCF file standard.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "fieldValue": {
+                    "description": "The additional metadata value associated with this genotype call",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+				"call": {
+					"description": "Genotype metadata associated with a call",
+					"$ref": "../BrAPI-Genotyping/Call.json#/$defs/Call",
+					"relationshipType": "many-to-one",
+					"referencedAttribute": "genotypeMetadata"
+				}
+			},
+			"required": [
+                "genotypeMetadataDbId"
+            ],
+            "title": "GenotypeMetadata",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+		}
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/Call.json",
     "$schema": "http://json-schema.org/draft/2020-12/schema"

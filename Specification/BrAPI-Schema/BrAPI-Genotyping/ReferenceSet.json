@@ -4,7 +4,15 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+                        "description": "AdditionalInfo"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "assemblyPUI": {
                     "description": "The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.",
@@ -29,8 +37,10 @@
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference"
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
+                        "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
                     "type": [
@@ -72,25 +82,13 @@
                 },
                 "sourceGermplasm": {
                     "description": "All known corresponding Germplasm",
+					"relationshipType": "one-to-many",
+					"referencedAttribute": "referenceSet",
                     "items": {
-                        "properties": {
-                            "germplasmDbId": {
-                                "description": "The ID which uniquely identifies a germplasm within the given database server",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "germplasmName": {
-                                "description": "The human readable name of a germplasm",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Common/SourceGermplasm.json#/$defs/SourceGermplasm",
+                        "description": "SourceGermplasm"
                     },
+                    "title": "SourceGermplasm",
                     "type": [
                         "null",
                         "array"
@@ -105,25 +103,16 @@
                 },
                 "species": {
                     "description": "An ontology term describing an attribute.",
-                    "properties": {
-                        "term": {
-                            "description": "Ontology term - the label of the ontology term the termId is pointing to.",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "termURI": {
-                            "description": "Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        }
+					"relationshipType": "one-to-many",
+					"referencedAttribute": "referenceSet",
+                    "items": {
+                        "$ref": "../BrAPI-Common/Species.json#/$defs/Species",
+                        "description": "Species"
                     },
+                    "title": "Species",
                     "type": [
                         "null",
-                        "object"
+                        "array"
                     ]
                 },
                 "references": {

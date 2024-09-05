@@ -1,0 +1,44 @@
+{
+    "$defs": {
+        "SourceGermplasm": {
+			"properties": {
+				"germplasmDbId": {
+                    "description": "The ID which uniquely identifies a `Germplasm` within the given database server",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "germplasmName": {
+                    "description": "The human readable name of a `Germplasm`",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+				"reference": {
+					"description": "Germplasm associated with a reference",
+					"$ref": "../BrAPI-Genotyping/Reference.json#/$defs/Reference",
+					"relationshipType": "many-to-one",
+					"referencedAttribute": "sourceGermplasm"
+				},
+                "referenceSet": {
+					"description": "Germplasm associated with a reference",
+					"$ref": "../BrAPI-Genotyping/ReferenceSet.json#/$defs/ReferenceSet",
+					"relationshipType": "many-to-one",
+					"referencedAttribute": "sourceGermplasm"
+				}
+			},
+			"required": [
+                "germplasmDbId"
+            ],
+            "title": "sourceGermplasm",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+		}
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Common/SourceGermplasm.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

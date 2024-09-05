@@ -4,42 +4,28 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
-                },
-                "eventDateRange": {
-                    "description": "An object describing when a particular Event has taken place. An Event can occur at one or more discrete time points (`discreteDates`) or an event can happen continuously over a longer period of time (`startDate`, `endDate`)",
-                    "properties": {
-                        "discreteDates": {
-                            "description": "A list of dates when the event occurred\n<br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
-                            "items": {
-                                "format": "date-time",
-                                "type": "string"
-                            },
-                            "type": [
-                                "null",
-                                "array"
-                            ]
-                        },
-                        "endDate": {
-                            "description": "The end of a continuous or regularly repetitive event\n<br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
-                            "format": "date-time",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        },
-                        "startDate": {
-                            "description": "The beginning of a continuous or regularly repetitive event\n<br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
-                            "format": "date-time",
-                            "type": [
-                                "null",
-                                "string"
-                            ]
-                        }
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+                        "description": "AdditionalInfo"
                     },
                     "type": [
                         "null",
-                        "object"
+                        "array"
+                    ]
+                },
+                "eventDateRange": {
+                    "description": "An object describing when a particular Event has taken place. An Event can occur at one or more discrete time points (`discreteDates`) or an event can happen continuously over a longer period of time (`startDate`, `endDate`)",
+                    "relationshipType": "one-to-many",
+					"referencedAttribute": "event",
+                    "items": {
+                        "$ref": "../BrAPI-Phenotyping/Event.json#/$defs/EventDateRange",
+                        "description": "EventDateRange"
+                    },
+                    "title": "EventDateRange",
+                    "type": [
+                        "null",
+                        "array"
                     ]
                 },
                 "eventDbId": {
@@ -55,63 +41,13 @@
                 },
                 "eventParameters": {
                     "description": "A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI",
+                    "relationshipType": "one-to-many",
+					"referencedAttribute": "event",
                     "items": {
-                        "properties": {
-                            "code": {
-                                "description": "The shortened code name of an event parameter\n<br>ICASA \"Code_Display\"",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "description": {
-                                "description": "A human readable description of this event parameter. This description is usually associated with the 'name' and 'code' of an event parameter.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "name": {
-                                "description": "The full name of an event parameter\n<br>ICASA \"Variable_Name\"",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "units": {
-                                "description": "The units or data type of the 'value'. \n<br>If the 'value' comes from a standardized vocabulary or an encoded list of values, then 'unit' should be 'code'. \n<br>If the 'value' IS NOT a number, then 'unit' should specify a data type eg. 'text', 'boolean', 'date', etc. \n<br>If the value IS a number, then 'unit' should specify the units used eg. 'ml', 'cm', etc\n<br>ICASA \"Unit_or_type\"",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "value": {
-                                "description": "The single value of this event parameter. This single value is accurate for all the dates in the date range. If 'value' is populated then 'valuesByDate' should NOT be populated.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "valueDescription": {
-                                "description": "If the event parameter 'unit' field is 'code', then use 'valueDescription' to add a human readable description to the value.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "valuesByDate": {
-                                "description": "An array of values corresponding to each timestamp in the 'discreteDates' array of this event. The 'valuesByDate' array should exactly match the size of the 'discreteDates' array. If 'valuesByDate' is populated then 'value' should NOT be populated.",
-                                "items": {
-                                    "type": "string"
-                                },
-                                "type": [
-                                    "null",
-                                    "array"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Phenotyping/Event.json#/$defs/EventParameters",
+                        "description": "EventParameters"
                     },
+                    "title": "EventParameters",
                     "type": [
                         "null",
                         "array"
@@ -155,6 +91,129 @@
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
+            }
+        },
+        "EventDateRange": {
+            "properties": {
+                "rangeDbId": {
+                    "description": "the unique identifier to a event date range",
+                    "type": "string"
+                },
+                "discreteDates": {
+                    "description": "A list of dates when the event occurred\n<br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
+                    "items": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "endDate": {
+                    "description": "The end of a continuous or regularly repetitive event\n<br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
+                    "format": "date-time",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "startDate": {
+                    "description": "The beginning of a continuous or regularly repetitive event\n<br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
+                    "format": "date-time",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "event": {
+                    "description": "associated event",
+                    "$ref": "../BrAPI-Phenotyping/Event.json#/$defs/Event",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "eventDateRange"
+                }
+            },
+            "required": [
+                "rangeDbId"
+            ],
+            "title": "EventDateRange",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+        },
+        "EventParameters": {
+            "properties": {
+                "parametersDbId": {
+                    "description": "The unique identifier to a event",
+                    "type": "string"
+                },
+                "code": {
+                    "description": "The shortened code name of an event parameter\n<br>ICASA \"Code_Display\"",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "description": {
+                    "description": "A human readable description of this event parameter. This description is usually associated with the 'name' and 'code' of an event parameter.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "name": {
+                    "description": "The full name of an event parameter\n<br>ICASA \"Variable_Name\"",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "units": {
+                    "description": "The units or data type of the 'value'. \n<br>If the 'value' comes from a standardized vocabulary or an encoded list of values, then 'unit' should be 'code'. \n<br>If the 'value' IS NOT a number, then 'unit' should specify a data type eg. 'text', 'boolean', 'date', etc. \n<br>If the value IS a number, then 'unit' should specify the units used eg. 'ml', 'cm', etc\n<br>ICASA \"Unit_or_type\"",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "value": {
+                    "description": "The single value of this event parameter. This single value is accurate for all the dates in the date range. If 'value' is populated then 'valuesByDate' should NOT be populated.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "valueDescription": {
+                    "description": "If the event parameter 'unit' field is 'code', then use 'valueDescription' to add a human readable description to the value.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "valuesByDate": {
+                    "description": "An array of values corresponding to each timestamp in the 'discreteDates' array of this event. The 'valuesByDate' array should exactly match the size of the 'discreteDates' array. If 'valuesByDate' is populated then 'value' should NOT be populated.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "event": {
+                    "description": "associated event",
+                    "$ref": "../BrAPI-Phenotyping/Event.json#/$defs/Event",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "eventParameters"
+                }
+            },
+            "required": [
+                "parametersDbId"
+            ],
+            "title": "EventParameters",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
             }
         }
     },

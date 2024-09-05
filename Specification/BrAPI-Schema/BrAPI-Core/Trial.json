@@ -11,7 +11,15 @@
                 },
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+                        "description": "AdditionalInfo"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "commonCropName": {
                     "description": "Common name for the crop associated with this trial",
@@ -33,39 +41,13 @@
                 },
                 "datasetAuthorships": {
                     "description": "License and citation information for the data in this trial",
+					"relationshipType": "one-to-many",
+					"referencedAttribute": "trial",
                     "items": {
-                        "properties": {
-                            "datasetPUI": {
-                                "description": "The DOI or other permanent unique identifier for this published dataset",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "license": {
-                                "description": "MIAPPE V1.1 (DM-7) License - License for the reuse of the data associated with this investigation. The Creative Commons licenses cover most use cases and are recommended.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "publicReleaseDate": {
-                                "description": "MIAPPE V1.1 (DM-6) Public release date - Date of first public release of the dataset presently being described.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "submissionDate": {
-                                "description": "MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Core/Trial.json#/$defs/DatasetAuthorships",
+                        "description": "DatasetAuthorships"
                     },
+                    "title": "DatasetAuthorships",
                     "type": [
                         "null",
                         "array"
@@ -88,8 +70,10 @@
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference"
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
+                        "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
                     "type": [
@@ -119,23 +103,13 @@
                 },
                 "publications": {
                     "description": "MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.",
+					"relationshipType": "one-to-many",
+					"referencedAttribute": "trial",
                     "items": {
-                        "properties": {
-                            "publicationPUI": {
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "publicationReference": {
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Core/Trial.json#/$defs/Publications",
+                        "description": "Publications"
                     },
+                    "title": "Publications",
                     "type": [
                         "null",
                         "array"
@@ -222,7 +196,91 @@
             "brapi-metadata": {
                 "primaryModel": true
             }
-        }
+        },
+        "DatasetAuthorships": {
+			"properties": {
+				"datasetAuthorshipsDbId": {
+                    "description": "License and citation information for the data in this trial",
+                    "type": "string"
+				},
+				"datasetPUI": {
+                    "description": "The DOI or other permanent unique identifier for this published dataset",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "license": {
+                    "description": "MIAPPE V1.1 (DM-7) License - License for the reuse of the data associated with this investigation. The Creative Commons licenses cover most use cases and are recommended.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "publicReleaseDate": {
+                    "description": "MIAPPE V1.1 (DM-6) Public release date - Date of first public release of the dataset presently being described.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "submissionDate": {
+                    "description": "MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+				"trial": {
+					"description": "Dataset authorships associated with a trial",
+					"$ref": "../BrAPI-Core/Trial.json#/$defs/Trial",
+					"relationshipType": "many-to-one",
+					"referencedAttribute": "datasetAuthorships"
+				}
+			},
+			"required": [
+                "datasetAuthorshipsDbId"
+            ],
+            "title": "DatasetAuthorships",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+		},
+        "Publications": {
+			"properties": {
+				"publicationsDbId": {
+                    "description": "MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.",
+                    "type": "string"
+				},
+				"publicationPUI": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "publicationReference": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+				"trial": {
+					"description": "Publications associated with a trial",
+					"$ref": "../BrAPI-Core/Trial.json#/$defs/Trial",
+					"relationshipType": "many-to-one",
+					"referencedAttribute": "publications"
+				}
+			},
+			"required": [
+                "publicationsDbId"
+            ],
+            "title": "Publications",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+		}
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/Trial.json",
     "$schema": "http://json-schema.org/draft/2020-12/schema"
