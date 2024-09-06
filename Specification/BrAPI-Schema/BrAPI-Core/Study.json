@@ -355,6 +355,10 @@
         },
         "EnvironmentParameters": {
             "properties": {
+                "description": {
+                    "description": "Human-readable value of the environment parameter (defined above) constant within the experiment",
+                    "type": "string"
+                },
                 "environmentParametersDbId": {
                     "description": "Human-readable value of the environment parameter (defined above) constant within the experiment",
                     "type": "string"
@@ -399,7 +403,7 @@
                     ]
                 },
                 "study": {
-                    "description": "Enviroment parameters associated with a study",
+                    "description": "Environment parameters associated with a study",
                     "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
                     "relationshipType": "many-to-one",
                     "referencedAttribute": "environmentParameters"
