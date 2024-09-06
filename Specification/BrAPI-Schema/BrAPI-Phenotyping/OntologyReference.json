@@ -5,7 +5,7 @@
                 "documentationLinks": {
                     "description": "links to various ontology documentation",
                     "relationshipType": "one-to-many",
-					"referencedAttribute": "ontologyReference",
+                    "referencedAttribute": "ontologyReference",
                     "items": {
                         "$ref": "../BrAPI-Phenotyping/OntologyReference.json#/$defs/DocumentationLinks",
                         "description": "DocumentationLinks"

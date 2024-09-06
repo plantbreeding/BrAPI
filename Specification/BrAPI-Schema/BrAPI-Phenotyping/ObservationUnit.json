@@ -66,7 +66,7 @@
                 "observationUnitPosition": {
                     "description": "All positional and layout information related to this Observation Unit \n\nMIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) \nor level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. \nLevels of observation must be consistent with those listed in the Study section.",
                     "relationshipType": "one-to-many",
-					"referencedAttribute": "observationUnit",
+                    "referencedAttribute": "observationUnit",
                     "items": {
                         "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnitPosition",
                         "description": "ObservationUnitPosition"
@@ -98,7 +98,7 @@
                 "treatments": {
                     "description": "List of treatments applied to an observation unit.\n\nMIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.",
                     "relationshipType": "one-to-many",
-					"referencedAttribute": "observationUnit",
+                    "referencedAttribute": "observationUnit",
                     "items": {
                         "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/Treatments",
                         "description": "Treatments"

@@ -17,7 +17,7 @@
                 "eventDateRange": {
                     "description": "An object describing when a particular Event has taken place. An Event can occur at one or more discrete time points (`discreteDates`) or an event can happen continuously over a longer period of time (`startDate`, `endDate`)",
                     "relationshipType": "one-to-many",
-					"referencedAttribute": "event",
+                    "referencedAttribute": "event",
                     "items": {
                         "$ref": "../BrAPI-Phenotyping/Event.json#/$defs/EventDateRange",
                         "description": "EventDateRange"
@@ -42,7 +42,7 @@
                 "eventParameters": {
                     "description": "A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI",
                     "relationshipType": "one-to-many",
-					"referencedAttribute": "event",
+                    "referencedAttribute": "event",
                     "items": {
                         "$ref": "../BrAPI-Phenotyping/Event.json#/$defs/EventParameters",
                         "description": "EventParameters"

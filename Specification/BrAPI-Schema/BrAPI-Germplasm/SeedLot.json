@@ -24,7 +24,7 @@
                 "contentMixture": {
                     "description": "The mixture of germplasm present in the seed lot.\n<br/>\nIf this seed lot only contains a single germplasm, the response should contain the name \nand DbId of that germplasm with a mixturePercentage value of 100\n<br/>\nIf the seed lot contains a mixture of different germplasm, the response should contain \nthe name and DbId every germplasm present. The mixturePercentage field should contain \nthe ratio of each germplasm in the total mixture. All of the mixturePercentage values \nin this array should sum to equal 100.",
                     "relationshipType": "one-to-many",
-					"referencedAttribute": "seedLot",
+                    "referencedAttribute": "seedLot",
                     "items": {
                         "$ref": "../BrAPI-Germplasm/SeedLot.json#/$defs/ContentMixture",
                         "description": "ContentMixture"

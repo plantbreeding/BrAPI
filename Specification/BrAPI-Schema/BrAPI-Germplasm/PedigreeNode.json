@@ -69,7 +69,7 @@
                 "parents": {
                     "description": "A list of parent germplasm references in the pedigree tree for this germplasm. These represent edges in the tree, connecting to other nodes.\n<br/> Typically, this array should only have one parent (clonal or self) or two parents (cross). In some special cases, there may be more parents, usually when the exact parent is not known. \n<br/> If the parameter 'includeParents' is set to false, then this array should be empty, null, or not present in the response.",
                     "relationshipType": "one-to-many",
-					"referencedAttribute": "pedigreeNode",
+                    "referencedAttribute": "pedigreeNode",
                     "items": {
                         "$ref": "../BrAPI-Germplasm/PedigreeNode.json#/$defs/Parents",
                         "description": "Parents"
@@ -90,7 +90,7 @@
                 "progeny": {
                     "description": "A list of germplasm references that are direct children of this germplasm. These represent edges in the tree, connecting to other nodes.\n<br/> The given germplasm could have a large number of progeny, across a number of different breeding methods. The 'parentType' shows \n      the type of parent this germplasm is to each of the child germplasm references.\n<br/> If the parameter 'includeProgeny' is set to false, then this array should be empty, null, or not present in the response.",
                     "relationshipType": "one-to-many",
-					"referencedAttribute": "pedigreeNode",
+                    "referencedAttribute": "pedigreeNode",
                     "items": {
                         "$ref": "../BrAPI-Germplasm/PedigreeNode.json#/$defs/Progeny",
                         "description": "Progeny"

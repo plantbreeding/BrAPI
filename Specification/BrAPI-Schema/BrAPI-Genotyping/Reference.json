@@ -88,8 +88,8 @@
                 },
                 "sourceGermplasm": {
                     "description": "All known corresponding Germplasm",
-					"relationshipType": "one-to-many",
-					"referencedAttribute": "reference",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "reference",
                     "items": {
                         "$ref": "../BrAPI-Common/SourceGermplasm.json#/$defs/SourceGermplasm",
                         "description": "SourceGermplasm"
@@ -109,8 +109,8 @@
                 },
                 "species": {
                     "description": "An ontology term describing an attribute.",
-					"relationshipType": "one-to-many",
-					"referencedAttribute": "reference",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "reference",
                     "items": {
                         "$ref": "../BrAPI-Common/Species.json#/$defs/Species",
                         "description": "Species"
@@ -146,8 +146,6 @@
                 "primaryModel": true
             }
         }
-        
-       
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/Reference.json",
     "$schema": "http://json-schema.org/draft/2020-12/schema"

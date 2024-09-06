@@ -82,8 +82,8 @@
                 },
                 "sourceGermplasm": {
                     "description": "All known corresponding Germplasm",
-					"relationshipType": "one-to-many",
-					"referencedAttribute": "referenceSet",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "referenceSet",
                     "items": {
                         "$ref": "../BrAPI-Common/SourceGermplasm.json#/$defs/SourceGermplasm",
                         "description": "SourceGermplasm"
@@ -103,8 +103,8 @@
                 },
                 "species": {
                     "description": "An ontology term describing an attribute.",
-					"relationshipType": "one-to-many",
-					"referencedAttribute": "referenceSet",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "referenceSet",
                     "items": {
                         "$ref": "../BrAPI-Common/Species.json#/$defs/Species",
                         "description": "Species"

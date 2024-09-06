@@ -23,29 +23,29 @@
                     "description": "The literal string \"Feature\""
                 },
                 "image": {
-					"description": "Geometry associated with an image",
-					"$ref": "../BrAPI-Phenotyping/Image.json#/$defs/Image",
-					"relationshipType": "many-to-one",
-					"referencedAttribute": "imageLocation"
-				},
+                    "description": "Geometry associated with an image",
+                    "$ref": "../BrAPI-Phenotyping/Image.json#/$defs/Image",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "imageLocation"
+                },
                 "observation": {
-					"description": "Geometry associated with an image",
-					"$ref": "../BrAPI-Phenotyping/Observation.json#/$defs/Observation",
-					"relationshipType": "many-to-one",
-					"referencedAttribute": "geoCoordinates"
-				},
+                    "description": "Geometry associated with an image",
+                    "$ref": "../BrAPI-Phenotyping/Observation.json#/$defs/Observation",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "geoCoordinates"
+                },
                 "observationUnit": {
-					"description": "Geometry associated with an image",
-					"$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnitPosition",
-					"relationshipType": "many-to-one",
-					"referencedAttribute": "geoCoordinates"
-				},
+                    "description": "Geometry associated with an image",
+                    "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnitPosition",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "geoCoordinates"
+                },
                 "germplasmOrigin": {
-					"description": "Geometry associated with an image",
-					"$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/GermplasmOrigin",
-					"relationshipType": "many-to-one",
-					"referencedAttribute": "coordinates"
-				}
+                    "description": "Geometry associated with an image",
+                    "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/GermplasmOrigin",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "coordinates"
+                }
             },
             "required": [
                 "geometryDbId"

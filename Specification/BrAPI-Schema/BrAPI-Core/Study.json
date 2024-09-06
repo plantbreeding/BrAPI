@@ -74,8 +74,8 @@
                 },
                 "environmentParameters": {
                     "description": "Environmental parameters that were kept constant throughout the study and did not change between observation units.\n\nMIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).",
-					"relationshipType": "one-to-many",
-					"referencedAttribute": "study",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "study",
                     "items": {
                         "$ref": "../BrAPI-Core/Study.json#/$defs/EnvironmentParameters",
                         "description": "EnvironmentParameters"
@@ -88,8 +88,8 @@
                 },
                 "experimentalDesign": {
                     "description": "The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology",
-					"relationshipType": "one-to-many",
-					"referencedAttribute": "study",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "study",
                     "items": {
                         "$ref": "../BrAPI-Core/Study.json#/$defs/ExperimentalDesign",
                         "description": "ExperimentalDesign"
@@ -115,8 +115,8 @@
                 },
                 "growthFacility": {
                     "description": "Short description of the facility in which the study was carried out.",
-					"relationshipType": "one-to-many",
-					"referencedAttribute": "study",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "study",
                     "items": {
                         "$ref": "../BrAPI-Core/Study.json#/$defs/GrowthFacility",
                         "description": "GrowthFacility"
@@ -129,8 +129,8 @@
                 },
                 "lastUpdate": {
                     "description": "The date and time when this study was last modified",
-					"relationshipType": "one-to-many",
-					"referencedAttribute": "study",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "study",
                     "items": {
                         "$ref": "../BrAPI-Core/Study.json#/$defs/LastUpdate",
                         "description": "LastUpdate"
@@ -156,8 +156,8 @@
                 },
                 "observationLevels": {
                     "description": "Observation levels indicate the granularity level at which the measurements are taken. `levelName` \ndefines the level, `levelOrder` defines where that level exists in the hierarchy of levels. \n`levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are \nat the bottom of the hierarchy (ie plant > 6). \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
-					"relationshipType": "one-to-many",
-					"referencedAttribute": "study",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "study",
                     "items": {
                         "$ref": "../BrAPI-Core/Study.json#/$defs/ObservationLevels",
                         "description": "ObservationLevels"
@@ -354,12 +354,12 @@
             }
         },
         "EnvironmentParameters": {
-			"properties": {
-				"environmentParametersDbId": {
+            "properties": {
+                "environmentParametersDbId": {
                     "description": "Human-readable value of the environment parameter (defined above) constant within the experiment",
                     "type": "string"
-				},
-				"parameterName": {
+                },
+                "parameterName": {
                     "description": "Name of the environment parameter constant within the experiment\n\nMIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. ",
                     "type": "string"
                 },
@@ -398,14 +398,14 @@
                         "string"
                     ]
                 },
-				"study": {
-					"description": "Enviroment parameters associated with a study",
-					"$ref": "../BrAPI-Core/Study.json#/$defs/Study",
-					"relationshipType": "many-to-one",
-					"referencedAttribute": "environmentParameters"
-				}
-			},
-			"required": [
+                "study": {
+                    "description": "Enviroment parameters associated with a study",
+                    "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "environmentParameters"
+                }
+            },
+            "required": [
                 "environmentParametersDbId",
                 "parameterName",
                 "description"
@@ -415,14 +415,14 @@
             "brapi-metadata": {
                 "primaryModel": false
             }
-		},
+        },
         "ExperimentalDesign": {
-			"properties": {
-				"experimentalDesignDbId": {
+            "properties": {
+                "experimentalDesignDbId": {
                     "description": "The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology",
                     "type": "string"
-				},
-				"PUI": {
+                },
+                "PUI": {
                     "description": "MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.",
                     "type": [
                         "null",
@@ -436,14 +436,14 @@
                         "string"
                     ]
                 },
-				"study": {
-					"description": "Experimental design associated with a study",
-					"$ref": "../BrAPI-Core/Study.json#/$defs/Study",
-					"relationshipType": "many-to-one",
-					"referencedAttribute": "experimentalDesign"
-				}
-			},
-			"required": [
+                "study": {
+                    "description": "Experimental design associated with a study",
+                    "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "experimentalDesign"
+                }
+            },
+            "required": [
                 "experimentalDesignDbId"
             ],
             "title": "ExperimentalDesign",
@@ -451,14 +451,14 @@
             "brapi-metadata": {
                 "primaryModel": false
             }
-		},
+        },
         "GrowthFacility": {
-			"properties": {
-				"growthFacilityDbId": {
+            "properties": {
+                "growthFacilityDbId": {
                     "description": "Short description of the facility in which the study was carried out.",
                     "type": "string"
-				},
-				"PUI": {
+                },
+                "PUI": {
                     "description": "MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.",
                     "type": [
                         "null",
@@ -472,14 +472,14 @@
                         "string"
                     ]
                 },
-				"study": {
-					"description": "Growth facility associated with a study",
-					"$ref": "../BrAPI-Core/Study.json#/$defs/Study",
-					"relationshipType": "many-to-one",
-					"referencedAttribute": "growthFacility"
-				}
-			},
-			"required": [
+                "study": {
+                    "description": "Growth facility associated with a study",
+                    "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "growthFacility"
+                }
+            },
+            "required": [
                 "growthFacilityDbId"
             ],
             "title": "GrowthFacility",
@@ -487,14 +487,14 @@
             "brapi-metadata": {
                 "primaryModel": false
             }
-		},
+        },
         "LastUpdate": {
-			"properties": {
-				"lastUpdateDbId": {
+            "properties": {
+                "lastUpdateDbId": {
                     "description": "The date and time when this study was last modified",
                     "type": "string"
-				},
-				"timestamp": {
+                },
+                "timestamp": {
                     "format": "date-time",
                     "type": [
                         "null",
@@ -507,14 +507,14 @@
                         "string"
                     ]
                 },
-				"study": {
-					"description": "Last update associated with a study",
-					"$ref": "../BrAPI-Core/Study.json#/$defs/Study",
-					"relationshipType": "many-to-one",
-					"referencedAttribute": "lastUpdate"
-				}
-			},
-			"required": [
+                "study": {
+                    "description": "Last update associated with a study",
+                    "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "lastUpdate"
+                }
+            },
+            "required": [
                 "lastUpdateDbId"
             ],
             "title": "LastUpdate",
@@ -522,14 +522,14 @@
             "brapi-metadata": {
                 "primaryModel": false
             }
-		},
+        },
         "ObservationLevels": {
-			"properties": {
-				"observationLevelsDbId": {
+            "properties": {
+                "observationLevelsDbId": {
                     "description": "Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). ",
                     "type": "string"
-				},
-				"levelName": {
+                },
+                "levelName": {
                     "description": "A name for this level \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
                     "type": [
                         "null",
@@ -543,14 +543,14 @@
                         "integer"
                     ]
                 },
-				"study": {
-					"description": "Observation levels associated with a study",
-					"$ref": "../BrAPI-Core/Study.json#/$defs/Study",
-					"relationshipType": "many-to-one",
-					"referencedAttribute": "observationLevels"
-				}
-			},
-			"required": [
+                "study": {
+                    "description": "Observation levels associated with a study",
+                    "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "observationLevels"
+                }
+            },
+            "required": [
                 "observationLevelsDbId"
             ],
             "title": "ObservationUnitHierarchyLevel",
@@ -558,8 +558,7 @@
             "brapi-metadata": {
                 "primaryModel": false
             }
-		}
-    
+        }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/Study.json",
     "$schema": "http://json-schema.org/draft/2020-12/schema"

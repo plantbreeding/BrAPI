@@ -1,8 +1,8 @@
 {
     "$defs": {
         "Species": {
-			"properties": {
-				"specieDbId": {
+            "properties": {
+                "specieDbId": {
                     "description": "An ontology term describing an attribute.",
                     "type": [
                         "null",
@@ -23,20 +23,20 @@
                         "string"
                     ]
                 },
-				"reference": {
-					"description": "Species associated with a reference",
-					"$ref": "../BrAPI-Genotyping/Reference.json#/$defs/Reference",
-					"relationshipType": "many-to-one",
-					"referencedAttribute": "species"
-				},
+                "reference": {
+                    "description": "Species associated with a reference",
+                    "$ref": "../BrAPI-Genotyping/Reference.json#/$defs/Reference",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "species"
+                },
                 "referenceSet": {
-					"description": "Species associated with a referenceSet",
-					"$ref": "../BrAPI-Genotyping/ReferenceSet.json#/$defs/ReferenceSet",
-					"relationshipType": "many-to-one",
-					"referencedAttribute": "species"
-				}
-			},
-			"required": [
+                    "description": "Species associated with a referenceSet",
+                    "$ref": "../BrAPI-Genotyping/ReferenceSet.json#/$defs/ReferenceSet",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "species"
+                }
+            },
+            "required": [
                 "specieDbId"
             ],
             "title": "OntologyTerm",
@@ -44,7 +44,7 @@
             "brapi-metadata": {
                 "primaryModel": false
             }
-		}
+        }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Common/Species.json",
     "$schema": "http://json-schema.org/draft/2020-12/schema"

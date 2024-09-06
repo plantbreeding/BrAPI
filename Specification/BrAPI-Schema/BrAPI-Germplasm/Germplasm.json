@@ -114,7 +114,7 @@
                 "donors": {
                     "description": "List of donor institutes",
                     "relationshipType": "one-to-many",
-					"referencedAttribute": "germplasm",
+                    "referencedAttribute": "germplasm",
                     "items": {
                         "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Donors",
                         "description": "Donors"
@@ -156,7 +156,7 @@
                 "germplasmOrigin": {
                     "description": "Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.",
                     "relationshipType": "one-to-many",
-					"referencedAttribute": "germplasm",
+                    "referencedAttribute": "germplasm",
                     "items": {
                         "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/GermplasmOrigin",
                         "description": "GermplasmOrigin"
@@ -230,7 +230,7 @@
                 "storageTypes": {
                     "description": "The type of storage this germplasm is kept in at a genebank.",
                     "relationshipType": "one-to-many",
-					"referencedAttribute": "germplasm",
+                    "referencedAttribute": "germplasm",
                     "items": {
                         "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/StorageTypes",
                         "description": "StorageTypes"
@@ -258,7 +258,7 @@
                 "synonyms": {
                     "description": "List of alternative names or IDs used to reference this germplasm\n\nMCPD (v2.1) (OTHERNUMB) 24. Any other identifiers known to exist in other collections for this accession. Use the following format: INSTCODE:ACCENUMB;INSTCODE:identifier;INSTCODE and identifier are separated by a colon without space. Pairs of INSTCODE and identifier are separated by a semicolon without space. When the institute is not known, the identifier should be preceded by a colon.",
                     "relationshipType": "one-to-many",
-					"referencedAttribute": "germplasm",
+                    "referencedAttribute": "germplasm",
                     "items": {
                         "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Synonyms",
                         "description": "Synonyms"
@@ -272,7 +272,7 @@
                 "taxonIds": {
                     "description": "The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as \"ncbiTaxon\" preferably with a purl. The rank of this ID should be species.\n\nMIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.",
                     "relationshipType": "one-to-many",
-					"referencedAttribute": "germplasm",
+                    "referencedAttribute": "germplasm",
                     "items": {
                         "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Synonyms",
                         "description": "Synonyms"
@@ -391,34 +391,34 @@
                 "primaryModel": true
             }
         },
-		"Donors": {
+        "Donors": {
             "properties": {
-				"donorDbId": {
-					"description": "the unique identifier for a donor",
+                "donorDbId": {
+                    "description": "the unique identifier for a donor",
                     "type": "string"
-				},
-				"donorAccessionNumber": {
-					"description": "The accession number assigned by the donor\n\nMCPD (v2.1) (DONORNUMB) 23. Identifier assigned to an accession by the donor. Follows ACCENUMB standard.",
-					"type": [
-						"null",
-						"string"
-					]
-				},
-				"donorInstituteCode": {
-					"description": "The institute code for the donor institute\n<br/>MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.",
-					"type": [
-						"null",
-						"string"
-					]
-				},
-				"germplasm": {
-					"description": "donoers associated with a germplasm",
-					"$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm",
-					"relationshipType": "many-to-one",
-					"referencedAttribute": "donors"
-				}
-			},
-			"required": [
+                },
+                "donorAccessionNumber": {
+                    "description": "The accession number assigned by the donor\n\nMCPD (v2.1) (DONORNUMB) 23. Identifier assigned to an accession by the donor. Follows ACCENUMB standard.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "donorInstituteCode": {
+                    "description": "The institute code for the donor institute\n<br/>MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "germplasm": {
+                    "description": "donoers associated with a germplasm",
+                    "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "donors"
+                }
+            },
+            "required": [
                 "donorDbId"
             ],
             "title": "Donors",
@@ -426,7 +426,7 @@
             "brapi-metadata": {
                 "primaryModel": false
             }
-		},
+        },
         "GermplasmOrigin": {
             "properties": {
                 "originDbID": {
@@ -456,9 +456,9 @@
                 },
                 "germplasm": {
                     "description": "associated germplasm",
-					"$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm",
-					"relationshipType": "many-to-one",
-					"referencedAttribute": "germplasmOrigin"
+                    "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "germplasmOrigin"
                 }
             },
             "required": [
@@ -504,9 +504,9 @@
                 },
                 "germplasm": {
                     "description": "associated germplasm",
-					"$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm",
-					"relationshipType": "many-to-one",
-					"referencedAttribute": "storageTypes"
+                    "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "storageTypes"
                 }
             },
             "required": [
@@ -540,9 +540,9 @@
                 },
                 "germplasm": {
                     "description": "associated germplasm",
-					"$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm",
-					"relationshipType": "many-to-one",
-					"referencedAttribute": "synonyms"
+                    "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "synonyms"
                 }
             },
             "required": [

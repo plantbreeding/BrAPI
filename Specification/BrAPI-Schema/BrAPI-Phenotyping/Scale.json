@@ -79,7 +79,7 @@
                 },
                 "validValues": {
                     "relationshipType": "one-to-many",
-					"referencedAttribute": "scale",
+                    "referencedAttribute": "scale",
                     "items": {
                         "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/ValidValues",
                         "description": "ValidValues"
@@ -110,7 +110,7 @@
                 "categories": {
                     "description": "List of possible values with optional labels",
                     "relationshipType": "one-to-many",
-					"referencedAttribute": "validValues",
+                    "referencedAttribute": "validValues",
                     "items": {
                         "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/Categories",
                         "description": "Categories"
@@ -154,7 +154,7 @@
         "Categories": {
             "properties": {
                 "categoriesDbId": {
-                   "description": "the unique identifier of a category",
+                    "description": "the unique identifier of a category",
                     "type": "string"
                 },
                 "label": {

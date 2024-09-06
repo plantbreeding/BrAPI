@@ -22,8 +22,8 @@
                 },
                 "genotypeMetadata": {
                     "description": "Genotype Metadata are additional layers of metadata associated with each genotype.",
-					"relationshipType": "one-to-many",
-					"referencedAttribute": "call",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "call",
                     "items": {
                         "$ref": "../BrAPI-Genotyping/Call.json#/$defs/GenotypeMetadata",
                         "description": "GenotypeMetadata"
@@ -73,12 +73,12 @@
             }
         },
         "GenotypeMetadata": {
-			"properties": {
-				"genotypeMetadataDbId": {
+            "properties": {
+                "genotypeMetadataDbId": {
                     "description": "MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.",
                     "type": "string"
-				},
-				"dataType": {
+                },
+                "dataType": {
                     "description": "The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.",
                     "enum": [
                         "string",
@@ -113,14 +113,14 @@
                         "string"
                     ]
                 },
-				"call": {
-					"description": "Genotype metadata associated with a call",
-					"$ref": "../BrAPI-Genotyping/Call.json#/$defs/Call",
-					"relationshipType": "many-to-one",
-					"referencedAttribute": "genotypeMetadata"
-				}
-			},
-			"required": [
+                "call": {
+                    "description": "Genotype metadata associated with a call",
+                    "$ref": "../BrAPI-Genotyping/Call.json#/$defs/Call",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "genotypeMetadata"
+                }
+            },
+            "required": [
                 "genotypeMetadataDbId"
             ],
             "title": "GenotypeMetadata",
@@ -128,7 +128,7 @@
             "brapi-metadata": {
                 "primaryModel": false
             }
-		}
+        }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/Call.json",
     "$schema": "http://json-schema.org/draft/2020-12/schema"
