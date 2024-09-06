@@ -429,8 +429,8 @@
         },
         "GermplasmOrigin": {
             "properties": {
-                "originDbID": {
-                    "description": "the unique idenifier for a origin",
+                "originDbId": {
+                    "description": "the unique identifier for a origin",
                     "type": "string"
                 },
                 "coordinateUncertainty": {
@@ -472,8 +472,8 @@
         },
         "StorageTypes": {
             "properties": {
-                "storageDbID": {
-                    "description": "the unique idenifier for a storage type",
+                "storageDbId": {
+                    "description": "the unique identifier for a storage type",
                     "type": "string"
                 },
                 "code": {
@@ -521,7 +521,7 @@
         "Synonyms": {
             "properties": {
                 "synonymDbId": {
-                    "description": "the unique idenifier for a synonym",
+                    "description": "the unique identifier for a synonym",
                     "type": "string"
                 },
                 "synonym": {
