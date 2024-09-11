@@ -6,10 +6,10 @@ Oct 2021 Virtual Hackathon
 October 4, 2021 - October 8, 2021
 
 :Agenda:
-    `Hackathon Agenda Webpage <https://brapi.org/events/hackathon-oct-2021#agenda-section>`__
+    `Hackathon Agenda Webpage <https://brapi.org/events/hackathon?id=hackathon-oct-2021#agenda-section>`__
 :Topics:
-    | `Project List <https://brapi.org/events/hackathon-oct-2021#projects-section>`__  
-    | `Notes and Recordings <https://brapi.org/events/hackathon-mar-2021>`__ 
+    | `Project List <https://brapi.org/events/hackathon?id=hackathon-oct-2021#projects-section>`__  
+    | `Notes and Recordings <https://brapi.org/events/hackathon?id=hackathon-mar-2021>`__ 
 :Wrap-up:
     `Hackathon Debrief News Post (Nov 11, 2021) <https://brapi.org/news/nov-11-2021>`__ 
 
@@ -22,7 +22,7 @@ March 8, 2021 - March 19, 2021
     `Hackathon Agenda (Google Doc) <https://docs.google.com/spreadsheets/d/1z9whaJlzTMNuNpq5vVgSxwsmbJfCedPGj3jRfcIX0oE>`__
 :Topics:
     | `Project List (Google Doc) <https://docs.google.com/document/d/1z4EtlSPTkA8FsopVhHrXSIjTOiEkZDqLW_-RiYFCqVY>`__  
-    | `Notes and Recordings <https://brapi.org/events/hackathon-mar-2021>`__
+    | `Notes and Recordings <https://brapi.org/events/hackathon?id=hackathon-mar-2021>`__
 :Wrap-up:
     `Hackathon Debrief News Post (Apr 8, 2021) <https://brapi.org/news/apr-08-2021>`__ 
 
@@ -58,7 +58,7 @@ Sept 10, 2018 - Sept 14, 2018
 :Topics:
     `Project List (Google Doc) <https://docs.google.com/document/d/1TmqhC5xFHxYpEQXflXwX_y7H7kRLJaYMEaSPKjNf2G4/edit>`__
 :Wrap-up:
-    `Texcoco Hackathon News Post <https://brapi.org/news/sept-27-2018>`__
+    `Texcoco Hackathon News Post <https://brapi.org/news/sep-27-2018>`__
     
 
 Feb 2018 Versailles
@@ -70,7 +70,7 @@ Feb 5, 2018 - Feb 9, 2018
 :Topics:
     `Topics Google Doc <https://docs.google.com/document/d/11u0qMTgCBjlYfqed5w_CKZULiJAhC4xscIph1Qc3sEY/edit>`__
 :Wrap-up:
-    `Versailles Debrief News Post <https://brapi.org/news.php?id=feb-14-2018>`__
+    `Versailles Debrief News Post <https://brapi.org/news/feb-14-2018>`__
 
 Jun 2017 Seattle
 ----------------
