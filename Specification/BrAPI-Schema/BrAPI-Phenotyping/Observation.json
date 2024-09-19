@@ -4,15 +4,8 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "relationshipType": "one-to-many",
-                    "items": {
-                        "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
-                        "description": "AdditionalInfo"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
                 },
                 "collector": {
                     "description": "The name or identifier of the entity which collected the observation",
@@ -36,17 +29,9 @@
                 },
                 "geoCoordinates": {
                     "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                    "relationshipType": "one-to-many",
+                    "relationshipType": "one-to-one",
                     "referencedAttribute": "observation",
-                    "items": {
-                        "$ref": "../BrAPI-Common/GeoJSON.json#/$defs/GeoJSON",
-                        "description": "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed."
-                    },
-                    "title": "GeoJSON",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+					"$ref": "../BrAPI-Common/GeoJSON.json#/$defs/GeoJSON"
                 },
                 "germplasm": {
                     "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm",

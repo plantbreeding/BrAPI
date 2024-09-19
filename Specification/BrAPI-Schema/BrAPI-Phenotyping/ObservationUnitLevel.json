@@ -23,6 +23,13 @@
                         "null",
                         "integer"
                     ]
+                },
+				"observationUnitLevelDbId": {
+                    "description": "The ID which uniquely identifies a observation unit level",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
                 }
             },
             "required": [],

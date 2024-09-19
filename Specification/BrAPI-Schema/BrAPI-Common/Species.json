@@ -2,7 +2,7 @@
     "$defs": {
         "Species": {
             "properties": {
-                "specieDbId": {
+                "speciesDbId": {
                     "description": "An ontology term describing an attribute.",
                     "type": [
                         "null",

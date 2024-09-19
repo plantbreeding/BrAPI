@@ -4,15 +4,8 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "relationshipType": "one-to-many",
-                    "items": {
-                        "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
-                        "description": "AdditionalInfo"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "one-to-one",
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
                 },
                 "breedingMethod": {
                     "$ref": "BreedingMethod.json#/$defs/BreedingMethod",
@@ -71,13 +64,20 @@
                     "relationshipType": "one-to-many",
                     "referencedAttribute": "pedigreeNode",
                     "items": {
-                        "$ref": "../BrAPI-Germplasm/PedigreeNode.json#/$defs/Parents",
-                        "description": "Parents"
+                        "$ref": "../BrAPI-Germplasm/PedigreeNode.json#/$defs/GermplasmParent",
+                        "description": "GermplasmParents"
                     },
-                    "title": "Parents",
+                    "title": "GermplasmParents",
                     "type": [
                         "null",
                         "array"
+                    ]
+                },
+				"pedigreeNodeDbId": {
+                    "description": "The ID which uniquely identifies a pedigree node",
+                    "type": [
+                        "null",
+                        "string"
                     ]
                 },
                 "pedigreeString": {
@@ -92,7 +92,7 @@
                     "relationshipType": "one-to-many",
                     "referencedAttribute": "pedigreeNode",
                     "items": {
-                        "$ref": "../BrAPI-Germplasm/PedigreeNode.json#/$defs/Progeny",
+                        "$ref": "../BrAPI-Germplasm/PedigreeNode.json#/$defs/GermplasmChild",
                         "description": "Progeny"
                     },
                     "title": "Progeny",
@@ -124,9 +124,9 @@
                 "primaryModel": true
             }
         },
-        "Parents": {
+        "GermplasmParent": {
             "properties": {
-                "parentDbId": {
+                "germplasmParentDbId": {
                     "description": "a unique identifiere for a parent",
                     "type": "string"
                 },
@@ -158,9 +158,9 @@
                 "primaryModel": false
             }
         },
-        "Progeny": {
+        "GermplasmChild": {
             "properties": {
-                "parentDbId": {
+                "germplasmChildDbId": {
                     "description": "a unique identifiere for a progeny",
                     "type": "string"
                 },
@@ -182,7 +182,7 @@
                 }
             },
             "required": [
-                "progenyDbId",
+                "germplasmChildDbId",
                 "progenyGermplasm",
                 "parentType"
             ],

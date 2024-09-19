@@ -4,15 +4,8 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "relationshipType": "one-to-many",
-                    "items": {
-                        "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
-                        "description": "AdditionalInfo"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
                 },
                 "alleleMatrices": {
                     "title": "AlleleMatrices",
@@ -70,19 +63,11 @@
                         "array"
                     ]
                 },
-                "availableFormats": {
+                "availableFormat": {
                     "description": "When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats. \n<br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)\n<br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.",
-                    "relationshipType": "one-to-many",
+                    "relationshipType": "one-to-one",
                     "referencedAttribute": "variantSet",
-                    "items": {
-                        "$ref": "../BrAPI-Genotyping/VariantSet.json#/$defs/AvailableFormats",
-                        "description": "AvailableFormats"
-                    },
-                    "title": "AvailableFormats",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+					"$ref": "../BrAPI-Genotyping/VariantSet.json#/$defs/AvailableFormat"
                 },
                 "callSetCount": {
                     "description": "The number of CallSets included in this VariantSet",
@@ -104,19 +89,11 @@
                         "array"
                     ]
                 },
-                "metadataFields": {
-                    "description": "The 'metadataFields' array indicates which types of genotyping data and metadata are available in the VariantSet. \n<br> When possible, these field names and abbreviations should follow the VCF standard ",
-                    "relationshipType": "one-to-many",
+                "metadataField": {
+                    "description": "The 'metadataField' indicates which types of genotyping data and metadata are available in the VariantSet. \n<br> When possible, these field names and abbreviations should follow the VCF standard ",
+                    "relationshipType": "one-to-one",
                     "referencedAttribute": "variantSet",
-                    "items": {
-                        "$ref": "../BrAPI-Genotyping/VariantSet.json#/$defs/MetadataFields",
-                        "description": "MetadataFields"
-                    },
-                    "title": "MetadataFields",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+					"$ref": "../BrAPI-Genotyping/VariantSet.json#/$defs/MetadataField"
                 },
                 "referenceSet": {
                     "$ref": "ReferenceSet.json#/$defs/ReferenceSet",
@@ -244,9 +221,9 @@
                 "primaryModel": false
             }
         },
-        "AvailableFormats": {
+        "AvailableFormat": {
             "properties": {
-                "formatDbId": {
+                "availableFormatDbId": {
                     "description": "When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats. \n<br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)\n<br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.",
                     "type": [
                         "null",
@@ -327,7 +304,7 @@
                 }
             },
             "required": [
-                "formatDbId"
+                "availableFormatDbId"
             ],
             "title": "AvailableFormats",
             "type": "object",
@@ -335,7 +312,7 @@
                 "primaryModel": false
             }
         },
-        "MetadataFields": {
+        "MetadataField": {
             "properties": {
                 "metadataFieldDbId": {
                     "description": "This represents a type of genotyping data or metadata available in this VariantSet",

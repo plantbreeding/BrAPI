@@ -4,15 +4,8 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "relationshipType": "one-to-many",
-                    "items": {
-                        "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
-                        "description": "AdditionalInfo"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
                 },
                 "assemblyPUI": {
                     "description": "The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.",
@@ -101,33 +94,18 @@
                         "string"
                     ]
                 },
-                "species": {
+				"species": {
                     "description": "An ontology term describing an attribute.",
-                    "relationshipType": "one-to-many",
+                    "relationshipType": "one-to-one",
                     "referencedAttribute": "referenceSet",
-                    "items": {
-                        "$ref": "../BrAPI-Common/Species.json#/$defs/Species",
-                        "description": "Species"
-                    },
-                    "title": "Species",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+					"$ref": "../BrAPI-Common/Species.json#/$defs/Species"
                 },
                 "references": {
                     "title": "references",
                     "description": "references",
                     "referencedAttribute": "referenceSet",
-                    "relationshipType": "one-to-many",
-                    "items": {
-                        "$ref": "Reference.json#/$defs/Reference",
-                        "description": "Reference"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "one-to-one",
+					"$ref": "Reference.json#/$defs/Reference"
                 },
                 "variants": {
                     "title": "variants",

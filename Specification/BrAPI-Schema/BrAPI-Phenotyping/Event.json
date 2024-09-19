@@ -4,15 +4,8 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "relationshipType": "one-to-many",
-                    "items": {
-                        "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
-                        "description": "AdditionalInfo"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
                 },
                 "eventDateRange": {
                     "description": "An object describing when a particular Event has taken place. An Event can occur at one or more discrete time points (`discreteDates`) or an event can happen continuously over a longer period of time (`startDate`, `endDate`)",
@@ -44,7 +37,7 @@
                     "relationshipType": "one-to-many",
                     "referencedAttribute": "event",
                     "items": {
-                        "$ref": "../BrAPI-Phenotyping/Event.json#/$defs/EventParameters",
+                        "$ref": "../BrAPI-Phenotyping/Event.json#/$defs/EventParameter",
                         "description": "EventParameters"
                     },
                     "title": "EventParameters",
@@ -95,7 +88,7 @@
         },
         "EventDateRange": {
             "properties": {
-                "rangeDbId": {
+                "eventDateRangeDbId": {
                     "description": "the unique identifier to a event date range",
                     "type": "string"
                 },
@@ -134,7 +127,7 @@
                 }
             },
             "required": [
-                "rangeDbId"
+                "eventDateRangeDbId"
             ],
             "title": "EventDateRange",
             "type": "object",
@@ -142,9 +135,9 @@
                 "primaryModel": false
             }
         },
-        "EventParameters": {
+        "EventParameter": {
             "properties": {
-                "parametersDbId": {
+                "eventParameterDbId": {
                     "description": "The unique identifier to a event",
                     "type": "string"
                 },
@@ -208,7 +201,7 @@
                 }
             },
             "required": [
-                "parametersDbId"
+                "eventParameterDbId"
             ],
             "title": "EventParameters",
             "type": "object",

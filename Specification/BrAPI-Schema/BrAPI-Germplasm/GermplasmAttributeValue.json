@@ -4,15 +4,8 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "relationshipType": "one-to-many",
-                    "items": {
-                        "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
-                        "description": "AdditionalInfo"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "relationshipType": "one-to-one",
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
                 },
                 "attribute": {
                     "$ref": "GermplasmAttribute.json#/$defs/GermplasmAttribute",
@@ -20,7 +13,7 @@
                     "referencedAttribute": "attributeValues",
                     "relationshipType": "many-to-one"
                 },
-                "attributeValueDbId": {
+                "germplasmAttributeValueDbId": {
                     "description": "The ID which uniquely identifies this attribute value within the given database server",
                     "type": "string"
                 },

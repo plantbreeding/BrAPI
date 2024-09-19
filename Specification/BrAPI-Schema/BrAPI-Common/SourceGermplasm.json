@@ -2,7 +2,7 @@
     "$defs": {
         "SourceGermplasm": {
             "properties": {
-                "germplasmDbId": {
+                "sourceGermplasmDbId": {
                     "description": "The ID which uniquely identifies a `Germplasm` within the given database server",
                     "type": [
                         "null",
@@ -30,7 +30,7 @@
                 }
             },
             "required": [
-                "germplasmDbId"
+                "sourceGermplasmDbId"
             ],
             "title": "sourceGermplasm",
             "type": "object",

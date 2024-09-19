@@ -4,15 +4,8 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "relationshipType": "one-to-many",
-                    "items": {
-                        "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
-                        "description": "AdditionalInfo"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
                 },
                 "amount": {
                     "description": "The current balance of the amount of material in a SeedLot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).",
@@ -167,7 +160,7 @@
         },
         "ContentMixture": {
             "properties": {
-                "mixtureDbId": {
+                "contentMixtureDbId": {
                     "description": "The unique DbId for a cross contained in this seed lot",
                     "type": [
                         "null",
@@ -210,7 +203,7 @@
                 }
             },
             "required": [
-                "mixtureDbId"
+                "contentMixtureDbId"
             ],
             "title": "ContentMixture",
             "type": "object",

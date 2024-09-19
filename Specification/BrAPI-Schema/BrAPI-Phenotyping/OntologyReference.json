@@ -7,7 +7,7 @@
                     "relationshipType": "one-to-many",
                     "referencedAttribute": "ontologyReference",
                     "items": {
-                        "$ref": "../BrAPI-Phenotyping/OntologyReference.json#/$defs/DocumentationLinks",
+                        "$ref": "../BrAPI-Phenotyping/OntologyReference.json#/$defs/DocumentationLink",
                         "description": "DocumentationLinks"
                     },
                     "title": "DocumentationLinks",
@@ -18,7 +18,15 @@
                 },
                 "ontology": {
                     "description": "The Ontology for this reference",
+                    "relationshipType": "one-to-one",
                     "$ref": "../BrAPI-Phenotyping/Ontology.json#/$defs/Ontology"
+                },
+				"ontologyReferenceDbId": {
+                    "description": "The ID which uniquely identifies a ontology reference",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
                 },
                 "version": {
                     "description": "Ontology version (no specific format)",
@@ -37,9 +45,9 @@
                 "primaryModel": false
             }
         },
-        "DocumentationLinks": {
+        "DocumentationLink": {
             "properties": {
-                "linkDbId": {
+                "documentationLinkDbId": {
                     "description": "the unique identifier for a documentation link",
                     "type": "string"
                 },

@@ -4,15 +4,8 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "relationshipType": "one-to-many",
-                    "items": {
-                        "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
-                        "description": "AdditionalInfo"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
                 },
                 "cross": {
                     "$ref": "../BrAPI-Germplasm/Cross.json#/$defs/Cross",
@@ -100,7 +93,7 @@
                     "relationshipType": "one-to-many",
                     "referencedAttribute": "observationUnit",
                     "items": {
-                        "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/Treatments",
+                        "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/Treatment",
                         "description": "Treatments"
                     },
                     "title": "Treatments",
@@ -183,7 +176,7 @@
         },
         "ObservationUnitPosition": {
             "properties": {
-                "positionDbId": {
+                "observationUnitPositionDbId": {
                     "description": "the unique identifier for a observation unit position",
                     "type": "string"
                 },
@@ -216,10 +209,12 @@
                 },
                 "observationLevel": {
                     "$ref": "../BrAPI-Phenotyping/ObservationUnitLevel.json#/$defs/ObservationUnitLevel",
+                    "relationshipType": "one-to-one",
                     "description": "The exact level and level code of an observation unit. \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. \n\nMIAPPE V1.1 DM-71 Observation unit type \"Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended. \nThe observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). \nAlternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead.\" "
                 },
                 "observationLevelRelationships": {
                     "description": "Observation levels indicate the granularity level at which the measurements are taken. `levelName` \ndefines the level, `levelOrder` defines where that level exists in the hierarchy of levels. \n`levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are \nat the bottom of the hierarchy (ie plant > 6). `levelCode` is an ID code for this level tag. Identify \nthis observation unit by each level of the hierarchy where it exists. \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** ",
+                    "relationshipType": "one-to-one",
                     "items": {
                         "$ref": "../BrAPI-Phenotyping/ObservationUnitLevelRelationship.json#/$defs/ObservationUnitLevelRelationship"
                     },
@@ -286,7 +281,7 @@
                 }
             },
             "required": [
-                "positionDbId"
+                "observationUnitPositionDbId"
             ],
             "title": "ObservationUnitPosition",
             "type": "object",
@@ -294,7 +289,7 @@
                 "primaryModel": false
             }
         },
-        "Treatments": {
+        "Treatment": {
             "properties": {
                 "treatmentDbId": {
                     "description": "the unique identifier for a treatment",

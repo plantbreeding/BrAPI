@@ -4,22 +4,15 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "relationshipType": "one-to-many",
-                    "items": {
-                        "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
-                        "description": "AdditionalInfo"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
                 },
                 "crossAttributes": {
                     "description": "Set of custom attributes associated with a cross",
                     "relationshipType": "one-to-many",
                     "referencedAttribute": "cross",
                     "items": {
-                        "$ref": "../BrAPI-Germplasm/Cross.json#/$defs/CrossAttributes",
+                        "$ref": "../BrAPI-Germplasm/Cross.json#/$defs/CrossAttribute",
                         "description": "CrossAttributes"
                     },
                     "title": "CrossAttributes",
@@ -81,8 +74,8 @@
                     "relationshipType": "one-to-many",
                     "referencedAttribute": "cross",
                     "items": {
-                        "$ref": "../BrAPI-Germplasm/Cross.json#/$defs/PollinationEvents",
-                        "description": "PollinationEvents"
+                        "$ref": "../BrAPI-Germplasm/Cross.json#/$defs/PollinationEvent",
+                        "description": "PollinationEvent"
                     },
                     "title": "PollinationEvents",
                     "type": [
@@ -114,9 +107,9 @@
                 "primaryModel": true
             }
         },
-        "CrossAttributes": {
+        "CrossAttribute": {
             "properties": {
-                "attributeDbId": {
+                "crossAttributeDbId": {
                     "description": "the unique identifier for a cross attribute",
                     "type": "string"
                 },
@@ -142,7 +135,7 @@
                 }
             },
             "required": [
-                "crossDbId"
+                "crossAttributeDbId"
             ],
             "title": "CrossAttributes",
             "type": "object",
@@ -150,10 +143,10 @@
                 "primaryModel": true
             }
         },
-        "PollinationEvents": {
+        "PollinationEvent": {
             "properties": {
-                "eventDbId": {
-                    "description": "the unique identifier for a polination event",
+                "pollinationEventDbId": {
+                    "description": "the unique identifier for a pollination event",
                     "type": "string"
                 },
                 "pollinationNumber": {
@@ -186,7 +179,7 @@
                 }
             },
             "required": [
-                "eventDbId"
+                "pollinationEventDbId"
             ],
             "title": "PollinationEvents",
             "type": "object",

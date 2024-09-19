@@ -2,7 +2,7 @@
     "$defs": {
         "ExternalReference": {
             "properties": {
-                "referenceId": {
+                "externalReferenceDbId": {
                     "description": "The external reference ID. Could be a simple string or a URI.",
                     "type": [
                         "null",
