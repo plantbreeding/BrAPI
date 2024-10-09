@@ -100,9 +100,12 @@
                 },
                 "growthFacility": {
                     "description": "Short description of the facility in which the study was carried out.",
-                    "relationshipType": "one-to-one",
+                    "relationshipType": "one-to-many",
                     "referencedAttribute": "study",
-					"$ref": "../BrAPI-Core/Study.json#/$defs/GrowthFacility"
+					"items": {
+						"$ref": "../BrAPI-Core/Study.json#/$defs/GrowthFacility",
+						"description": "GrowthFacility"
+					}
                 },
                 "lastUpdate": {
                     "description": "The date and time when this study was last modified",

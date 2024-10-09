@@ -88,11 +88,7 @@
         },
         "EventDateRange": {
             "properties": {
-                "eventDateRangeDbId": {
-                    "description": "the unique identifier to a event date range",
-                    "type": "string"
-                },
-                "discreteDates": {
+				"discreteDates": {
                     "description": "A list of dates when the event occurred\n<br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
                     "items": {
                         "format": "date-time",
@@ -126,9 +122,6 @@
                     "referencedAttribute": "eventDateRange"
                 }
             },
-            "required": [
-                "eventDateRangeDbId"
-            ],
             "title": "EventDateRange",
             "type": "object",
             "brapi-metadata": {
@@ -137,10 +130,6 @@
         },
         "EventParameter": {
             "properties": {
-                "eventParameterDbId": {
-                    "description": "The unique identifier to a event",
-                    "type": "string"
-                },
                 "code": {
                     "description": "The shortened code name of an event parameter\n<br>ICASA \"Code_Display\"",
                     "type": [
@@ -200,9 +189,6 @@
                     "referencedAttribute": "eventParameters"
                 }
             },
-            "required": [
-                "eventParameterDbId"
-            ],
             "title": "EventParameters",
             "type": "object",
             "brapi-metadata": {

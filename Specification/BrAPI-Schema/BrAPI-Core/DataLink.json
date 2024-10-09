@@ -2,13 +2,6 @@
     "$defs": {
         "DataLink": {
             "properties": {
-				"dataLinkDbId": {
-                    "description": "The ID which uniquely identifies a data link",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
                 "dataFormat": {
                     "description": "The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)\n\nMIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.",
                     "type": [

@@ -47,10 +47,6 @@
         },
         "DocumentationLink": {
             "properties": {
-                "documentationLinkDbId": {
-                    "description": "the unique identifier for a documentation link",
-                    "type": "string"
-                },
                 "URL": {
                     "format": "uri",
                     "type": [
@@ -77,9 +73,6 @@
                     "referencedAttribute": "documentationLinks"
                 }
             },
-            "required": [
-                "linkDbId"
-            ],
             "title": "DocumentationLinks",
             "type": "object",
             "brapi-metadata": {

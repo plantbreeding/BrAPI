@@ -109,10 +109,6 @@
         },
         "CrossAttribute": {
             "properties": {
-                "crossAttributeDbId": {
-                    "description": "the unique identifier for a cross attribute",
-                    "type": "string"
-                },
                 "crossAttributeName": {
                     "description": "the human readable name of a cross attribute",
                     "type": [
@@ -134,9 +130,6 @@
                     "referencedAttribute": "crossAttributes"
                 }
             },
-            "required": [
-                "crossAttributeDbId"
-            ],
             "title": "CrossAttributes",
             "type": "object",
             "brapi-metadata": {
@@ -145,10 +138,6 @@
         },
         "PollinationEvent": {
             "properties": {
-                "pollinationEventDbId": {
-                    "description": "the unique identifier for a pollination event",
-                    "type": "string"
-                },
                 "pollinationNumber": {
                     "description": "The unique identifier for this pollination event",
                     "type": [
@@ -178,9 +167,6 @@
                     "referencedAttribute": "pollinationEvents"
                 }
             },
-            "required": [
-                "pollinationEventDbId"
-            ],
             "title": "PollinationEvents",
             "type": "object",
             "brapi-metadata": {

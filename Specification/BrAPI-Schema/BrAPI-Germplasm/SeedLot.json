@@ -160,13 +160,6 @@
         },
         "ContentMixture": {
             "properties": {
-                "contentMixtureDbId": {
-                    "description": "The unique DbId for a cross contained in this seed lot",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
                 "crossName": {
                     "description": "The human readable name for a cross contained in this seed lot",
                     "type": [
@@ -202,9 +195,6 @@
                     "referencedAttribute": "contentMixture"
                 }
             },
-            "required": [
-                "contentMixtureDbId"
-            ],
             "title": "ContentMixture",
             "type": "object",
             "brapi-metadata": {

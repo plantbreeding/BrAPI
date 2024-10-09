@@ -176,10 +176,6 @@
         },
         "ObservationUnitPosition": {
             "properties": {
-                "observationUnitPositionDbId": {
-                    "description": "the unique identifier for a observation unit position",
-                    "type": "string"
-                },
                 "entryType": {
                     "description": "The type of entry for this observation unit. ex. \"CHECK\", \"TEST\", \"FILLER\"",
                     "enum": [
@@ -280,9 +276,6 @@
                     "referencedAttribute": "observationUnitPosition"
                 }
             },
-            "required": [
-                "observationUnitPositionDbId"
-            ],
             "title": "ObservationUnitPosition",
             "type": "object",
             "brapi-metadata": {

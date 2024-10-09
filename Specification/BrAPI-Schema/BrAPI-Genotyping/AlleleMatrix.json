@@ -2,13 +2,6 @@
     "$defs": {
         "AlleleMatrix": {
             "properties": {
-				"alleleMatrixDbId": {
-                    "description": "The ID which uniquely identifies a allele matrix",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
                 "callSets": {
                     "description": "A list of unique identifiers for the CallSets contained in the matrix response. This array should match the ordering for columns in the matrix. A CallSet is a unique combination of a Sample and a sequencing event. CallSets often have a 1-to-1 relationship with Samples, but this is not always the case.",
                     "items": {

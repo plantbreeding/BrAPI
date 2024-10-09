@@ -422,10 +422,6 @@
         },
         "GermplasmOrigin": {
             "properties": {
-                "germplasmOriginDbId": {
-                    "description": "the unique identifier for a origin",
-                    "type": "string"
-                },
                 "coordinateUncertainty": {
                     "description": "Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.",
                     "type": [
@@ -454,9 +450,6 @@
                     "referencedAttribute": "germplasmOrigin"
                 }
             },
-            "required": [
-                "germplasmOriginDbId"
-            ],
             "title": "GermplasmOrigin",
             "type": "object",
             "brapi-metadata": {
@@ -465,10 +458,6 @@
         },
         "StorageType": {
             "properties": {
-                "storageTypeDbId": {
-                    "description": "the unique identifier for a storage type",
-                    "type": "string"
-                },
                 "code": {
                     "description": "The 2 digit code representing the type of storage this germplasm is kept in at a genebank. \n\nMCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) \n\n10) Seed collection \n11) Short term \n12) Medium term \n13) Long term \n20) Field collection \n30) In vitro collection \n40) Cryo-preserved collection \n50) DNA collection \n99) Other (elaborate in REMARKS field)",
                     "enum": [
@@ -502,9 +491,6 @@
                     "referencedAttribute": "storageTypes"
                 }
             },
-            "required": [
-                "storageTypeDbId"
-            ],
             "title": "StorageTypes",
             "type": "object",
             "brapi-metadata": {
@@ -549,7 +535,7 @@
         },
         "TaxonId": {
             "properties": {
-                "taxonIdDbId": {
+                "taxonDbId": {
                     "description": "The identifier (name, ID, URI) of a particular taxonomy within the source provider",
                     "type": "string"
                 },
@@ -570,7 +556,7 @@
             },
             "required": [
                 "sourceName",
-                "taxonIdDbId",
+                "taxonDbId",
                 "taxonId"
             ],
             "title": "TaxonIds",

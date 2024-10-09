@@ -223,13 +223,6 @@
         },
         "AvailableFormat": {
             "properties": {
-                "availableFormatDbId": {
-                    "description": "When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats. \n<br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)\n<br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
                 "dataFormat": {
                     "description": "dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)",
                     "enum": [
@@ -303,9 +296,6 @@
                     "referencedAttribute": "availableFormats"
                 }
             },
-            "required": [
-                "availableFormatDbId"
-            ],
             "title": "AvailableFormats",
             "type": "object",
             "brapi-metadata": {

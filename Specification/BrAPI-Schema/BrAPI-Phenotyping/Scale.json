@@ -95,12 +95,8 @@
                 "primaryModel": true
             }
         },
-        "ValidValue": {
+        "ValidValues": {
             "properties": {
-                "validValueDbId": {
-                    "description": "the unique identifier of a valid value",
-                    "type": "string"
-                },
                 "categories": {
                     "description": "List of possible values with optional labels",
                     "relationshipType": "one-to-many",
@@ -136,9 +132,6 @@
                     "referencedAttribute": "validValues"
                 }
             },
-            "required": [
-                "validValueDbId"
-            ],
             "title": "ValidValues",
             "type": "object",
             "brapi-metadata": {
@@ -147,10 +140,6 @@
         },
         "Category": {
             "properties": {
-                "categoryDbId": {
-                    "description": "the unique identifier of a category",
-                    "type": "string"
-                },
                 "label": {
                     "description": "A text label for a category",
                     "type": [
@@ -167,14 +156,11 @@
                 },
                 "validValues": {
                     "description": "associated valid values",
-                    "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/ValidValue",
+                    "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/ValidValues",
                     "relationshipType": "many-to-one",
                     "referencedAttribute": "categories"
                 }
             },
-            "required": [
-                "categoriesDbId"
-            ],
             "title": "Categories",
             "type": "object",
             "brapi-metadata": {

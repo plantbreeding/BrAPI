@@ -7,14 +7,7 @@
                     "relationshipType": "one-to-one",
                     "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
                 },
-				"markerPositionDbId": {
-                    "description": "The ID which uniquely identifies a marker position",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "linkageGroupName": {
+				"linkageGroupName": {
                     "description": "The Uniquely Identifiable name of a `LinkageGroup`\n<br> This might be a chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.",
                     "type": [
                         "null",

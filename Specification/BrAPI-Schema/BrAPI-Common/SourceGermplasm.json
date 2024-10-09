@@ -2,13 +2,6 @@
     "$defs": {
         "SourceGermplasm": {
             "properties": {
-                "sourceGermplasmDbId": {
-                    "description": "The ID which uniquely identifies a `Germplasm` within the given database server",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
                 "germplasmName": {
                     "description": "The human readable name of a `Germplasm`",
                     "type": [
@@ -29,9 +22,6 @@
                     "referencedAttribute": "sourceGermplasm"
                 }
             },
-            "required": [
-                "sourceGermplasmDbId"
-            ],
             "title": "sourceGermplasm",
             "type": "object",
             "brapi-metadata": {

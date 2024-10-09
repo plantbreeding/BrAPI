@@ -13,7 +13,7 @@
                     "referencedAttribute": "attributeValues",
                     "relationshipType": "many-to-one"
                 },
-                "germplasmAttributeValueDbId": {
+                "attributeValueDbId": {
                     "description": "The ID which uniquely identifies this attribute value within the given database server",
                     "type": "string"
                 },
