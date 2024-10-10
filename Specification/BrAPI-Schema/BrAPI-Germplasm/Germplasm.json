@@ -370,6 +370,18 @@
                         "null",
                         "array"
                     ]
+                },
+                "reference": {
+                    "description": "Germplasm associated with a reference",
+                    "$ref": "../BrAPI-Genotyping/Reference.json#/$defs/Reference",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "sourceGermplasm"
+                },
+                "referenceSet": {
+                    "description": "Germplasm associated with a reference",
+                    "$ref": "../BrAPI-Genotyping/ReferenceSet.json#/$defs/ReferenceSet",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "sourceGermplasm"
                 }
             },
             "required": [
@@ -386,10 +398,6 @@
         },
         "Donor": {
             "properties": {
-                "donorDbId": {
-                    "description": "the unique identifier for a donor",
-                    "type": "string"
-                },
                 "donorAccessionNumber": {
                     "description": "The accession number assigned by the donor\n\nMCPD (v2.1) (DONORNUMB) 23. Identifier assigned to an accession by the donor. Follows ACCENUMB standard.",
                     "type": [
@@ -414,7 +422,7 @@
             "required": [
                 "donorDbId"
             ],
-            "title": "Donors",
+            "title": "Donor",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
@@ -491,7 +499,7 @@
                     "referencedAttribute": "storageTypes"
                 }
             },
-            "title": "StorageTypes",
+            "title": "StorageType",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
@@ -499,10 +507,6 @@
         },
         "Synonym": {
             "properties": {
-                "synonymDbId": {
-                    "description": "the unique identifier for a synonym",
-                    "type": "string"
-                },
                 "synonym": {
                     "description": "Alternative name or ID used to reference this germplasm",
                     "type": [
@@ -524,10 +528,7 @@
                     "referencedAttribute": "synonyms"
                 }
             },
-            "required": [
-                "synonymDbId"
-            ],
-            "title": "Synonyms",
+            "title": "Synonym",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
@@ -535,10 +536,6 @@
         },
         "TaxonId": {
             "properties": {
-                "taxonDbId": {
-                    "description": "The identifier (name, ID, URI) of a particular taxonomy within the source provider",
-                    "type": "string"
-                },
                 "taxonId": {
                     "description": "The identifier (name, ID, URI) of a particular taxonomy within the source provider",
                     "type": "string"
@@ -559,7 +556,7 @@
                 "taxonDbId",
                 "taxonId"
             ],
-            "title": "TaxonIds",
+            "title": "TaxonId",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

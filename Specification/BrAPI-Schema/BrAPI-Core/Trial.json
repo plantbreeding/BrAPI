@@ -192,10 +192,6 @@
         },
         "DatasetAuthorships": {
             "properties": {
-                "datasetAuthorshipsDbId": {
-                    "description": "License and citation information for the data in this trial",
-                    "type": "string"
-                },
                 "datasetPUI": {
                     "description": "The DOI or other permanent unique identifier for this published dataset",
                     "type": [
@@ -231,9 +227,6 @@
                     "referencedAttribute": "datasetAuthorships"
                 }
             },
-            "required": [
-                "datasetAuthorshipsDbId"
-            ],
             "title": "DatasetAuthorships",
             "type": "object",
             "brapi-metadata": {
@@ -242,10 +235,6 @@
         },
         "Publications": {
             "properties": {
-                "publicationsDbId": {
-                    "description": "MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.",
-                    "type": "string"
-                },
                 "publicationPUI": {
                     "type": [
                         "null",
@@ -265,9 +254,6 @@
                     "referencedAttribute": "publications"
                 }
             },
-            "required": [
-                "publicationsDbId"
-            ],
             "title": "Publications",
             "type": "object",
             "brapi-metadata": {
