@@ -167,19 +167,11 @@
                         "string"
                     ]
                 },
-                "germplasmDbId": {
-                    "description": "The unique DbId of the Germplasm contained in this Seed Lot",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "germplasmName": {
-                    "description": "The human readable name of the Germplasm contained in this Seed Lot",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                "germplasm": {
+                    "$ref": "Germplasm.json#/$defs/Germplasm",
+                    "description": "The ID which uniquely identifies a germplasm",
+                    "referencedAttribute": "parentPedigreeNodes",
+                    "relationshipType": "many-to-one"
                 },
                 "mixturePercentage": {
                     "description": "The percentage of the given germplasm in the seed lot mixture.",
