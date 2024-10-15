@@ -2,7 +2,6 @@
     "$defs": {
         "SampleRequest": {
             "allOf": [
-
                 {
                     "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
                 },
@@ -18,7 +17,6 @@
                 {
                     "$ref": "Parameters/TrialParameters.json#/$defs/TrialParameters"
                 },
-
                 {
                     "type": "object",
                     "properties": {

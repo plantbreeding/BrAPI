@@ -18,7 +18,8 @@
                 },
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
                 },
                 "biologicalStatusOfAccessionCode": {
                     "description": "MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. \n\n100) Wild \n110) Natural \n120) Semi-natural/wild \n130) Semi-natural/sown \n200) Weedy \n300) Traditional cultivar/landrace \n400) Breeding/research material \n410) Breeders line \n411) Synthetic population \n412) Hybrid \n413) Founder stock/base population \n414) Inbred line (parent of hybrid cultivar) \n415) Segregating population \n416) Clonal selection \n420) Genetic stock \n421) Mutant (e.g. induced/insertion mutants, tilling populations) \n422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) \n423) Other genetic stocks (e.g. mapping populations) \n500) Advanced or improved cultivar (conventional breeding methods) \n600) GMO (by genetic engineering) \n999) Other (Elaborate in REMARKS field)",
@@ -105,25 +106,13 @@
                 },
                 "donors": {
                     "description": "List of donor institutes",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "germplasm",
                     "items": {
-                        "properties": {
-                            "donorAccessionNumber": {
-                                "description": "The accession number assigned by the donor\n                              \nMCPD (v2.1) (DONORNUMB) 23. Identifier assigned to an accession by the donor. Follows ACCENUMB standard.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "donorInstituteCode": {
-                                "description": "The institute code for the donor institute\n<br/>MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Donor",
+                        "description": "Donors"
                     },
+                    "title": "Donors",
                     "type": [
                         "null",
                         "array"
@@ -131,8 +120,10 @@
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference"
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
+                        "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
                     "type": [
@@ -157,41 +148,13 @@
                 },
                 "germplasmOrigin": {
                     "description": "Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "germplasm",
                     "items": {
-                        "description": "MIAPPE V1.1 (DM-52) \n\nMIAPPE V1.1 (DM-53) \n\nMIAPPE V1.1 (DM-54) \n\nMIAPPE V1.1 (DM-55)\n\nMCPD (v2.1) (COORDUNCERT) 15.5 \n\nMCPD (v2.1) (ELEVATION) 16. \n\nMCPD (v2.1) (GEOREFMETH) 15.7 \n\nMCPD (v2.1) (DECLATITUDE) 15.1 \n\nMCPD (v2.1) (DECLONGITUDE) 15.3 ",
-                        "properties": {
-                            "coordinateUncertainty": {
-                                "description": "Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "coordinates": {
-                                "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                                "properties": {
-                                    "geometry": {
-                                        "description": "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.",
-                                        "$ref": "../BrAPI-Common/GeoJSONGeometry.json#/$defs/GeoJSONGeometry"
-                                    },
-                                    "type": {
-                                        "default": "Feature",
-                                        "description": "The literal string \"Feature\"",
-                                        "type": [
-                                            "null",
-                                            "string"
-                                        ]
-                                    }
-                                },
-                                "title": "GeoJSON",
-                                "type": [
-                                    "null",
-                                    "object"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/GermplasmOrigin",
+                        "description": "GermplasmOrigin"
                     },
+                    "title": "GermplasmOrigin",
                     "type": [
                         "null",
                         "array"
@@ -259,37 +222,13 @@
                 },
                 "storageTypes": {
                     "description": "The type of storage this germplasm is kept in at a genebank.",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "germplasm",
                     "items": {
-                        "properties": {
-                            "code": {
-                                "description": "The 2 digit code representing the type of storage this germplasm is kept in at a genebank. \n\nMCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) \n\n10) Seed collection \n11) Short term \n12) Medium term \n13) Long term \n20) Field collection \n30) In vitro collection \n40) Cryo-preserved collection \n50) DNA collection \n99) Other (elaborate in REMARKS field)",
-                                "enum": [
-                                    "10",
-                                    "11",
-                                    "12",
-                                    "13",
-                                    "20",
-                                    "30",
-                                    "40",
-                                    "50",
-                                    "99",
-                                    null
-                                ],
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "description": {
-                                "description": "A supplemental text description of the storage type",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/StorageType",
+                        "description": "StorageTypes"
                     },
+                    "title": "StorageTypes",
                     "type": [
                         "null",
                         "array"
@@ -311,25 +250,13 @@
                 },
                 "synonyms": {
                     "description": "List of alternative names or IDs used to reference this germplasm\n\nMCPD (v2.1) (OTHERNUMB) 24. Any other identifiers known to exist in other collections for this accession. Use the following format: INSTCODE:ACCENUMB;INSTCODE:identifier;INSTCODE and identifier are separated by a colon without space. Pairs of INSTCODE and identifier are separated by a semicolon without space. When the institute is not known, the identifier should be preceded by a colon.",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "germplasm",
                     "items": {
-                        "properties": {
-                            "synonym": {
-                                "description": "Alternative name or ID used to reference this germplasm",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "type": {
-                                "description": "A descriptive classification for this synonym",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Synonym",
+                        "description": "Synonyms"
                     },
+                    "title": "Synonyms",
                     "type": [
                         "null",
                         "array"
@@ -337,23 +264,13 @@
                 },
                 "taxonIds": {
                     "description": "The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as \"ncbiTaxon\" preferably with a purl. The rank of this ID should be species.\n\nMIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "germplasm",
                     "items": {
-                        "properties": {
-                            "sourceName": {
-                                "description": "The human readable name of the taxonomy provider",
-                                "type": "string"
-                            },
-                            "taxonId": {
-                                "description": "The identifier (name, ID, URI) of a particular taxonomy within the source provider",
-                                "type": "string"
-                            }
-                        },
-                        "required": [
-                            "sourceName",
-                            "taxonId"
-                        ],
-                        "type": "object"
+                        "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/TaxonId",
+                        "description": "TaxonIds"
                     },
+                    "title": "TaxonIds",
                     "type": [
                         "null",
                         "array"
@@ -465,6 +382,187 @@
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
+            }
+        },
+        "Donor": {
+            "properties": {
+                "donorDbId": {
+                    "description": "the unique identifier for a donor",
+                    "type": "string"
+                },
+                "donorAccessionNumber": {
+                    "description": "The accession number assigned by the donor\n\nMCPD (v2.1) (DONORNUMB) 23. Identifier assigned to an accession by the donor. Follows ACCENUMB standard.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "donorInstituteCode": {
+                    "description": "The institute code for the donor institute\n<br/>MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "germplasm": {
+                    "description": "donoers associated with a germplasm",
+                    "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "donors"
+                }
+            },
+            "required": [
+                "donorDbId"
+            ],
+            "title": "Donors",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+        },
+        "GermplasmOrigin": {
+            "properties": {
+                "coordinateUncertainty": {
+                    "description": "Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "coordinates": {
+                    "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "germplasmOrigin",
+                    "items": {
+                        "$ref": "../BrAPI-Common/GeoJSON.json#/$defs/GeoJSON",
+                        "description": "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed."
+                    },
+                    "title": "GeoJSON",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "germplasm": {
+                    "description": "associated germplasm",
+                    "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "germplasmOrigin"
+                }
+            },
+            "title": "GermplasmOrigin",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+        },
+        "StorageType": {
+            "properties": {
+                "code": {
+                    "description": "The 2 digit code representing the type of storage this germplasm is kept in at a genebank. \n\nMCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) \n\n10) Seed collection \n11) Short term \n12) Medium term \n13) Long term \n20) Field collection \n30) In vitro collection \n40) Cryo-preserved collection \n50) DNA collection \n99) Other (elaborate in REMARKS field)",
+                    "enum": [
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "20",
+                        "30",
+                        "40",
+                        "50",
+                        "99",
+                        null
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "description": {
+                    "description": "A supplemental text description of the storage type",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "germplasm": {
+                    "description": "associated germplasm",
+                    "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "storageTypes"
+                }
+            },
+            "title": "StorageTypes",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+        },
+        "Synonym": {
+            "properties": {
+                "synonymDbId": {
+                    "description": "the unique identifier for a synonym",
+                    "type": "string"
+                },
+                "synonym": {
+                    "description": "Alternative name or ID used to reference this germplasm",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "type": {
+                    "description": "A descriptive classification for this synonym",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "germplasm": {
+                    "description": "associated germplasm",
+                    "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "synonyms"
+                }
+            },
+            "required": [
+                "synonymDbId"
+            ],
+            "title": "Synonyms",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+        },
+        "TaxonId": {
+            "properties": {
+                "taxonDbId": {
+                    "description": "The identifier (name, ID, URI) of a particular taxonomy within the source provider",
+                    "type": "string"
+                },
+                "taxonId": {
+                    "description": "The identifier (name, ID, URI) of a particular taxonomy within the source provider",
+                    "type": "string"
+                },
+                "sourceName": {
+                    "description": "The human readable name of the taxonomy provider",
+                    "type": "string"
+                },
+                "germplasm": {
+                    "description": "associated germplasm",
+                    "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "taxonIds"
+                }
+            },
+            "required": [
+                "sourceName",
+                "taxonDbId",
+                "taxonId"
+            ],
+            "title": "TaxonIds",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
             }
         }
     },

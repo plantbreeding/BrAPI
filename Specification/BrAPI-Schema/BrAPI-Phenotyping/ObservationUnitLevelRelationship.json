@@ -30,6 +30,13 @@
                         "null",
                         "string"
                     ]
+                },
+				"observationUnitLevelRelationshipDbId": {
+                    "description": "The ID which uniquely identifies a observaton unit level relationship",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
                 }
             },
             "title": "ObservationUnitLevelRelationship",

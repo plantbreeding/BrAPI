@@ -4,6 +4,7 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "relationshipType": "one-to-one",
                     "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
                 },
                 "breedingMethod": {
@@ -34,8 +35,10 @@
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference"
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
+                        "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
                     "type": [
@@ -58,29 +61,23 @@
                 },
                 "parents": {
                     "description": "A list of parent germplasm references in the pedigree tree for this germplasm. These represent edges in the tree, connecting to other nodes.\n<br/> Typically, this array should only have one parent (clonal or self) or two parents (cross). In some special cases, there may be more parents, usually when the exact parent is not known. \n<br/> If the parameter 'includeParents' is set to false, then this array should be empty, null, or not present in the response.",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "pedigreeNode",
                     "items": {
-                        "title": "GermplasmParent",
-                        "properties": {
-                            "parentGermplasm": {
-                                "$ref": "Germplasm.json#/$defs/Germplasm",
-                                "description": "The ID which uniquely identifies a parent germplasm",
-                                "referencedAttribute": "progenyPedigreeNodes",
-                                "relationshipType": "many-to-one"
-                            },
-                            "parentType": {
-                                "description": "The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C. ",
-                                "$ref": "ParentType.json#/$defs/ParentType"
-                            }
-                        },
-                        "required": [
-                            "parentGermplasm",
-                            "parentType"
-                        ],
-                        "type": "object"
+                        "$ref": "../BrAPI-Germplasm/PedigreeNode.json#/$defs/GermplasmParent",
+                        "description": "GermplasmParents"
                     },
+                    "title": "GermplasmParents",
                     "type": [
                         "null",
                         "array"
+                    ]
+                },
+				"pedigreeNodeDbId": {
+                    "description": "The ID which uniquely identifies a pedigree node",
+                    "type": [
+                        "null",
+                        "string"
                     ]
                 },
                 "pedigreeString": {
@@ -92,26 +89,13 @@
                 },
                 "progeny": {
                     "description": "A list of germplasm references that are direct children of this germplasm. These represent edges in the tree, connecting to other nodes.\n<br/> The given germplasm could have a large number of progeny, across a number of different breeding methods. The 'parentType' shows \n      the type of parent this germplasm is to each of the child germplasm references.\n<br/> If the parameter 'includeProgeny' is set to false, then this array should be empty, null, or not present in the response.",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "pedigreeNode",
                     "items": {
-                        "title": "GermplasmChild",
-                        "properties": {
-                            "progenyGermplasm": {
-                                "$ref": "Germplasm.json#/$defs/Germplasm",
-                                "description": "The ID which uniquely identifies a parent germplasm",
-                                "referencedAttribute": "parentPedigreeNodes",
-                                "relationshipType": "many-to-one"
-                            },
-                            "parentType": {
-                                "description": "The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C. ",
-                                "$ref": "ParentType.json#/$defs/ParentType"
-                            }
-                        },
-                        "required": [
-                            "progenyGermplasm",
-                            "parentType"
-                        ],
-                        "type": "object"
+                        "$ref": "../BrAPI-Germplasm/PedigreeNode.json#/$defs/GermplasmChild",
+                        "description": "Progeny"
                     },
+                    "title": "Progeny",
                     "type": [
                         "null",
                         "array"
@@ -138,6 +122,74 @@
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
+            }
+        },
+        "GermplasmParent": {
+            "properties": {
+                "germplasmParentDbId": {
+                    "description": "a unique identifiere for a parent",
+                    "type": "string"
+                },
+                "parentGermplasm": {
+                    "$ref": "Germplasm.json#/$defs/Germplasm",
+                    "description": "The ID which uniquely identifies a parent germplasm",
+                    "referencedAttribute": "progenyPedigreeNodes",
+                    "relationshipType": "many-to-one"
+                },
+                "parentType": {
+                    "description": "The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C. ",
+                    "$ref": "ParentType.json#/$defs/ParentType"
+                },
+                "pedigreeNode": {
+                    "description": "associated pedigreeNode",
+                    "$ref": "../BrAPI-Germplasm/PedigreeNode.json#/$defs/PedigreeNode",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "parents"
+                }
+            },
+            "required": [
+                "parentDbId",
+                "parentGermplasm",
+                "parentType"
+            ],
+            "title": "Parents",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+        },
+        "GermplasmChild": {
+            "properties": {
+                "germplasmChildDbId": {
+                    "description": "a unique identifiere for a progeny",
+                    "type": "string"
+                },
+                "progenyGermplasm": {
+                    "$ref": "Germplasm.json#/$defs/Germplasm",
+                    "description": "The ID which uniquely identifies a parent germplasm",
+                    "referencedAttribute": "parentPedigreeNodes",
+                    "relationshipType": "many-to-one"
+                },
+                "parentType": {
+                    "description": "The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C. ",
+                    "$ref": "ParentType.json#/$defs/ParentType"
+                },
+                "pedigreeNode": {
+                    "description": "associated pedigreeNode",
+                    "$ref": "../BrAPI-Germplasm/PedigreeNode.json#/$defs/PedigreeNode",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "parents"
+                }
+            },
+            "required": [
+                "germplasmChildDbId",
+                "progenyGermplasm",
+                "parentType"
+            ],
+            "title": "Progeny",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
             }
         }
     },

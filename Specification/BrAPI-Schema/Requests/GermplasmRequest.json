@@ -17,7 +17,6 @@
                 {
                     "$ref": "Parameters/TrialParameters.json#/$defs/TrialParameters"
                 },
-
                 {
                     "type": "object",
                     "properties": {

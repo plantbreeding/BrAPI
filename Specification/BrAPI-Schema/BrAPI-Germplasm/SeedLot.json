@@ -4,7 +4,8 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
                 },
                 "amount": {
                     "description": "The current balance of the amount of material in a SeedLot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).",
@@ -15,46 +16,13 @@
                 },
                 "contentMixture": {
                     "description": "The mixture of germplasm present in the seed lot.\n<br/>\nIf this seed lot only contains a single germplasm, the response should contain the name \nand DbId of that germplasm with a mixturePercentage value of 100\n<br/>\nIf the seed lot contains a mixture of different germplasm, the response should contain \nthe name and DbId every germplasm present. The mixturePercentage field should contain \nthe ratio of each germplasm in the total mixture. All of the mixturePercentage values \nin this array should sum to equal 100.",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "seedLot",
                     "items": {
-                        "properties": {
-                            "crossDbId": {
-                                "description": "The unique DbId for a cross contained in this seed lot",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "crossName": {
-                                "description": "The human readable name for a cross contained in this seed lot",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "germplasmDbId": {
-                                "description": "The unique DbId of the Germplasm contained in this Seed Lot",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "germplasmName": {
-                                "description": "The human readable name of the Germplasm contained in this Seed Lot",
-                                "type": [
-                                    "null",
-                                    "string"
-                                ]
-                            },
-                            "mixturePercentage": {
-                                "description": "The percentage of the given germplasm in the seed lot mixture.",
-                                "type": [
-                                    "null",
-                                    "integer"
-                                ]
-                            }
-                        },
-                        "type": "object"
+                        "$ref": "../BrAPI-Germplasm/SeedLot.json#/$defs/ContentMixture",
+                        "description": "ContentMixture"
                     },
+                    "title": "ContentMixture",
                     "type": [
                         "null",
                         "array"
@@ -70,8 +38,10 @@
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference"
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
+                        "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
                     "type": [
@@ -186,6 +156,49 @@
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
+            }
+        },
+        "ContentMixture": {
+            "properties": {
+                "crossName": {
+                    "description": "The human readable name for a cross contained in this seed lot",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "germplasmDbId": {
+                    "description": "The unique DbId of the Germplasm contained in this Seed Lot",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "germplasmName": {
+                    "description": "The human readable name of the Germplasm contained in this Seed Lot",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "mixturePercentage": {
+                    "description": "The percentage of the given germplasm in the seed lot mixture.",
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "seedLot": {
+                    "description": "associated seedLot",
+                    "$ref": "../BrAPI-Germplasm/SeedLot.json#/$defs/SeedLot",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "contentMixture"
+                }
+            },
+            "title": "ContentMixture",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
             }
         }
     },
