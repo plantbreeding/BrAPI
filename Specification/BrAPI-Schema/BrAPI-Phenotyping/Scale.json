@@ -4,8 +4,7 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
-					"relationshipType": "one-to-one"
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
                 },
                 "dataType": {
                     "description": "<p>Class of the scale, entries can be</p>\n<p>\"Code\" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. \"75VD\" means \"75 %\" of the plant is infected and the plant is very delayed.</p>\n<p>\"Date\" - The date class is for events expressed in a time format, See ISO 8601</p>\n<p>\"Duration\" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p>\n<p>\"Nominal\" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p>\n<p>\"Numerical\" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p>\n<p>\"Ordinal\" - Ordinal scales are scales composed of ordered categories</p>\n<p>\"Text\" - A free text is used to express the trait.</p>",
@@ -33,10 +32,8 @@
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-                    "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
-                        "description": "ExternalReferences"
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference"
                     },
                     "title": "ExternalReferences",
                     "type": [
@@ -46,7 +43,6 @@
                 },
                 "ontologyReference": {
                     "description": "MIAPPE V1.1\n\n(DM-85) Variable accession number - Accession number of the variable in the Crop Ontology\n\n(DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).",
-                    "relationshipType": "one-to-one",
                     "$ref": "../BrAPI-Phenotyping/OntologyReference.json#/$defs/OntologyReference"
                 },
                 "scaleDbId": {
@@ -72,16 +68,51 @@
                     ]
                 },
                 "validValues": {
-                    "relationshipType": "one-to-many",
-                    "referencedAttribute": "scale",
-                    "items": {
-                        "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/ValidValue",
-                        "description": "ValidValues"
+                    "properties": {
+                        "categories": {
+                            "description": "List of possible values with optional labels",
+                            "items": {
+                                "properties": {
+                                    "label": {
+                                        "description": "A text label for a category",
+                                        "type": [
+                                            "null",
+                                            "string"
+                                        ]
+                                    },
+                                    "value": {
+                                        "description": "The actual value for a category",
+                                        "type": [
+                                            "null",
+                                            "string"
+                                        ]
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": [
+                                "null",
+                                "array"
+                            ]
+                        },
+                        "maximumValue": {
+                            "description": "Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "minimumValue": {
+                            "description": "Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
                     },
-                    "title": "ValidValues",
                     "type": [
                         "null",
-                        "array"
+                        "object"
                     ]
                 }
             },
@@ -93,78 +124,6 @@
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
-            }
-        },
-        "ValidValues": {
-            "properties": {
-                "categories": {
-                    "description": "List of possible values with optional labels",
-                    "relationshipType": "one-to-many",
-                    "referencedAttribute": "validValues",
-                    "items": {
-                        "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/Category",
-                        "description": "Categories"
-                    },
-                    "title": "Categories",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
-                },
-                "maximumValue": {
-                    "description": "Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "minimumValue": {
-                    "description": "Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "scale": {
-                    "description": "associated scale",
-                    "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/Scale",
-                    "relationshipType": "many-to-one",
-                    "referencedAttribute": "validValues"
-                }
-            },
-            "title": "ValidValues",
-            "type": "object",
-            "brapi-metadata": {
-                "primaryModel": false
-            }
-        },
-        "Category": {
-            "properties": {
-                "label": {
-                    "description": "A text label for a category",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "value": {
-                    "description": "The actual value for a category",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "validValues": {
-                    "description": "associated valid values",
-                    "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/ValidValues",
-                    "relationshipType": "many-to-one",
-                    "referencedAttribute": "categories"
-                }
-            },
-            "title": "Categories",
-            "type": "object",
-            "brapi-metadata": {
-                "primaryModel": false
             }
         }
     },

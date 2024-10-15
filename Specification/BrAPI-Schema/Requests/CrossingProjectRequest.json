@@ -29,7 +29,7 @@
                             "description": "If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.",
                             "type": "boolean"
                         }
-                    }
+                     }
                 }
             ],
             "brapi-metadata": {

@@ -4,8 +4,7 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
-					"relationshipType": "one-to-one"
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
                 },
                 "cross": {
                     "$ref": "../BrAPI-Germplasm/Cross.json#/$defs/Cross",
@@ -15,10 +14,8 @@
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-                    "relationshipType": "one-to-many",
                     "items": {
-                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
-                        "description": "ExternalReferences"
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference"
                     },
                     "title": "ExternalReferences",
                     "type": [
@@ -58,16 +55,110 @@
                 },
                 "observationUnitPosition": {
                     "description": "All positional and layout information related to this Observation Unit \n\nMIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) \nor level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. \nLevels of observation must be consistent with those listed in the Study section.",
-                    "relationshipType": "one-to-many",
-                    "referencedAttribute": "observationUnit",
-                    "items": {
-                        "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnitPosition",
-                        "description": "ObservationUnitPosition"
+                    "properties": {
+                        "entryType": {
+                            "description": "The type of entry for this observation unit. ex. \"CHECK\", \"TEST\", \"FILLER\"",
+                            "enum": [
+                                "CHECK",
+                                "TEST",
+                                "FILLER",
+                                null
+                            ],
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "geoCoordinates": {
+                            "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
+                            "properties": {
+                                "geometry": {
+                                    "description": "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.",
+                                    "$ref": "../BrAPI-Common/GeoJSONGeometry.json#/$defs/GeoJSONGeometry"
+                                },
+                                "type": {
+                                    "default": "Feature",
+                                    "description": "The literal string \"Feature\"",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                    ]
+                                }
+                            },
+                            "title": "GeoJSON",
+                            "type": [
+                                "null",
+                                "object"
+                            ]
+                        },
+                        "observationLevel": {
+                            "$ref": "../BrAPI-Phenotyping/ObservationUnitLevel.json#/$defs/ObservationUnitLevel",
+                            "description": "The exact level and level code of an observation unit. \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. \n\nMIAPPE V1.1 DM-71 Observation unit type \"Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended. \nThe observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). \nAlternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead.\" "
+                        },
+                        "observationLevelRelationships": {
+                            "description": "Observation levels indicate the granularity level at which the measurements are taken. `levelName` \ndefines the level, `levelOrder` defines where that level exists in the hierarchy of levels. \n`levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are \nat the bottom of the hierarchy (ie plant > 6). `levelCode` is an ID code for this level tag. Identify \nthis observation unit by each level of the hierarchy where it exists. \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** ",
+                            "items": {
+                                "$ref": "../BrAPI-Phenotyping/ObservationUnitLevelRelationship.json#/$defs/ObservationUnitLevelRelationship"
+                            },
+                            "type": [
+                                "null",
+                                "array"
+                            ]
+                        },
+                        "positionCoordinateX": {
+                            "description": "The X position coordinate for an observation unit. Different systems may use different coordinate systems.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "positionCoordinateXType": {
+                            "description": "The type of positional coordinate used. Must be one of the following values \n\nLONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nLATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nPLANTED_ROW - The physical planted row number \n\nPLANTED_INDIVIDUAL - The physical counted number, could be independent or within a planted row \n\nGRID_ROW - The row index number of a square grid overlay \n\nGRID_COL - The column index number of a square grid overlay \n\nMEASURED_ROW - The distance in meters from a defined 0-th row \n\nMEASURED_COL - The distance in meters from a defined 0-th column ",
+                            "enum": [
+                                "LONGITUDE",
+                                "LATITUDE",
+                                "PLANTED_ROW",
+                                "PLANTED_INDIVIDUAL",
+                                "GRID_ROW",
+                                "GRID_COL",
+                                "MEASURED_ROW",
+                                "MEASURED_COL",
+                                null
+                            ],
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "positionCoordinateY": {
+                            "description": "The Y position coordinate for an observation unit. Different systems may use different coordinate systems.",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "positionCoordinateYType": {
+                            "description": "The type of positional coordinate used. Must be one of the following values \n\nLONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nLATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nPLANTED_ROW - The physical planted row number  \n\nPLANTED_INDIVIDUAL - The physical counted number, could be independent or within a planted row \n\nGRID_ROW - The row index number of a square grid overlay \n\nGRID_COL - The column index number of a square grid overlay \n\nMEASURED_ROW - The distance in meters from a defined 0-th row \n\nMEASURED_COL - The distance in meters from a defined 0-th column ",
+                            "enum": [
+                                "LONGITUDE",
+                                "LATITUDE",
+                                "PLANTED_ROW",
+                                "PLANTED_INDIVIDUAL",
+                                "GRID_ROW",
+                                "GRID_COL",
+                                "MEASURED_ROW",
+                                "MEASURED_COL",
+                                null
+                            ],
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
                     },
-                    "title": "ObservationUnitPosition",
                     "type": [
                         "null",
-                        "array"
+                        "object"
                     ]
                 },
                 "program": {
@@ -90,13 +181,25 @@
                 },
                 "treatments": {
                     "description": "List of treatments applied to an observation unit.\n\nMIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.",
-                    "relationshipType": "one-to-many",
-                    "referencedAttribute": "observationUnit",
                     "items": {
-                        "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/Treatment",
-                        "description": "Treatments"
+                        "properties": {
+                            "factor": {
+                                "description": "The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc\n\nMIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "modality": {
+                                "description": "The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc\n\nMIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. ",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
+                        },
+                        "type": "object"
                     },
-                    "title": "Treatments",
                     "type": [
                         "null",
                         "array"
@@ -172,150 +275,6 @@
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
-            }
-        },
-        "ObservationUnitPosition": {
-            "properties": {
-                "entryType": {
-                    "description": "The type of entry for this observation unit. ex. \"CHECK\", \"TEST\", \"FILLER\"",
-                    "enum": [
-                        "CHECK",
-                        "TEST",
-                        "FILLER",
-                        null
-                    ],
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "geoCoordinates": {
-                    "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                    "relationshipType": "one-to-many",
-                    "referencedAttribute": "observationUnit",
-                    "items": {
-                        "$ref": "../BrAPI-Common/GeoJSON.json#/$defs/GeoJSON",
-                        "description": "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed."
-                    },
-                    "title": "GeoJSON",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
-                },
-                "observationLevel": {
-                    "$ref": "../BrAPI-Phenotyping/ObservationUnitLevel.json#/$defs/ObservationUnitLevel",
-                    "relationshipType": "one-to-one",
-                    "description": "The exact level and level code of an observation unit. \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. \n\nMIAPPE V1.1 DM-71 Observation unit type \"Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended. \nThe observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). \nAlternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead.\" "
-                },
-                "observationLevelRelationships": {
-                    "description": "Observation levels indicate the granularity level at which the measurements are taken. `levelName` \ndefines the level, `levelOrder` defines where that level exists in the hierarchy of levels. \n`levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are \nat the bottom of the hierarchy (ie plant > 6). `levelCode` is an ID code for this level tag. Identify \nthis observation unit by each level of the hierarchy where it exists. \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** ",
-                    "relationshipType": "one-to-one",
-                    "items": {
-                        "$ref": "../BrAPI-Phenotyping/ObservationUnitLevelRelationship.json#/$defs/ObservationUnitLevelRelationship"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
-                },
-                "positionCoordinateX": {
-                    "description": "The X position coordinate for an observation unit. Different systems may use different coordinate systems.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "positionCoordinateXType": {
-                    "description": "The type of positional coordinate used. Must be one of the following values \n\nLONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nLATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nPLANTED_ROW - The physical planted row number \n\nPLANTED_INDIVIDUAL - The physical counted number, could be independent or within a planted row \n\nGRID_ROW - The row index number of a square grid overlay \n\nGRID_COL - The column index number of a square grid overlay \n\nMEASURED_ROW - The distance in meters from a defined 0-th row \n\nMEASURED_COL - The distance in meters from a defined 0-th column ",
-                    "enum": [
-                        "LONGITUDE",
-                        "LATITUDE",
-                        "PLANTED_ROW",
-                        "PLANTED_INDIVIDUAL",
-                        "GRID_ROW",
-                        "GRID_COL",
-                        "MEASURED_ROW",
-                        "MEASURED_COL",
-                        null
-                    ],
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "positionCoordinateY": {
-                    "description": "The Y position coordinate for an observation unit. Different systems may use different coordinate systems.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "positionCoordinateYType": {
-                    "description": "The type of positional coordinate used. Must be one of the following values \n\nLONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nLATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nPLANTED_ROW - The physical planted row number  \n\nPLANTED_INDIVIDUAL - The physical counted number, could be independent or within a planted row \n\nGRID_ROW - The row index number of a square grid overlay \n\nGRID_COL - The column index number of a square grid overlay \n\nMEASURED_ROW - The distance in meters from a defined 0-th row \n\nMEASURED_COL - The distance in meters from a defined 0-th column ",
-                    "enum": [
-                        "LONGITUDE",
-                        "LATITUDE",
-                        "PLANTED_ROW",
-                        "PLANTED_INDIVIDUAL",
-                        "GRID_ROW",
-                        "GRID_COL",
-                        "MEASURED_ROW",
-                        "MEASURED_COL",
-                        null
-                    ],
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "observationUnit": {
-                    "description": "associated observation Unit",
-                    "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnit",
-                    "relationshipType": "many-to-one",
-                    "referencedAttribute": "observationUnitPosition"
-                }
-            },
-            "title": "ObservationUnitPosition",
-            "type": "object",
-            "brapi-metadata": {
-                "primaryModel": false
-            }
-        },
-        "Treatment": {
-            "properties": {
-                "treatmentDbId": {
-                    "description": "the unique identifier for a treatment",
-                    "type": "string"
-                },
-                "factor": {
-                    "description": "The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc\n\nMIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "modality": {
-                    "description": "The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc\n\nMIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. ",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "observationUnit": {
-                    "description": "associated observation Unit",
-                    "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnit",
-                    "relationshipType": "many-to-one",
-                    "referencedAttribute": "treatments"
-                }
-            },
-            "required": [
-                "treatmentDbId"
-            ],
-            "title": "Treatments",
-            "type": "object",
-            "brapi-metadata": {
-                "primaryModel": false
             }
         }
     },

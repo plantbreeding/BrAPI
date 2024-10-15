@@ -2,16 +2,8 @@
     "$defs": {
         "CrossParent": {
             "properties": {
-				"crossParentDbId": {
-                    "description": "The ID which uniquely identifies a cross parent",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
                 "germplasm": {
                     "description": "the germplasm of the cross parent",
-					"relationshipType": "one-to-one",
                     "$ref": "Germplasm.json#/$defs/Germplasm",
                     "type": [
                         "null",
@@ -20,7 +12,6 @@
                 },
                 "observationUnit": {
                     "description": "the Observation Unit of the cross parent",
-                    "relationshipType": "one-to-one",
                     "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnit",
                     "type": [
                         "null",
