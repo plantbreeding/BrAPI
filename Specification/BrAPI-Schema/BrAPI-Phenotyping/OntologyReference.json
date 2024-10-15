@@ -4,13 +4,30 @@
             "properties": {
                 "documentationLinks": {
                     "description": "links to various ontology documentation",
-                    "relationshipType": "one-to-many",
-                    "referencedAttribute": "ontologyReference",
                     "items": {
-                        "$ref": "../BrAPI-Phenotyping/OntologyReference.json#/$defs/DocumentationLink",
-                        "description": "DocumentationLinks"
+                        "properties": {
+                            "URL": {
+                                "format": "uri",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "type": {
+                                "enum": [
+                                    "OBO",
+                                    "RDF",
+                                    "WEBPAGE",
+                                    null
+                                ],
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
+                        },
+                        "type": "object"
                     },
-                    "title": "DocumentationLinks",
                     "type": [
                         "null",
                         "array"
@@ -18,15 +35,7 @@
                 },
                 "ontology": {
                     "description": "The Ontology for this reference",
-                    "relationshipType": "one-to-one",
                     "$ref": "../BrAPI-Phenotyping/Ontology.json#/$defs/Ontology"
-                },
-				"ontologyReferenceDbId": {
-                    "description": "The ID which uniquely identifies a ontology reference",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
                 },
                 "version": {
                     "description": "Ontology version (no specific format)",
@@ -40,40 +49,6 @@
                 "ontology"
             ],
             "title": "OntologyReference",
-            "type": "object",
-            "brapi-metadata": {
-                "primaryModel": false
-            }
-        },
-        "DocumentationLink": {
-            "properties": {
-                "URL": {
-                    "format": "uri",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "type": {
-                    "enum": [
-                        "OBO",
-                        "RDF",
-                        "WEBPAGE",
-                        null
-                    ],
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "ontologyReference": {
-                    "description": "associated ontology reference",
-                    "$ref": "../BrAPI-Phenotyping/OntologyReference.json#/$defs/OntologyReference",
-                    "relationshipType": "many-to-one",
-                    "referencedAttribute": "documentationLinks"
-                }
-            },
-            "title": "DocumentationLinks",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
