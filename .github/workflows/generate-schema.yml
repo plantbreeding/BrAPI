@@ -10,7 +10,7 @@ name: Java CI with Gradle
 on:
   push:
     branches: [ "data-model-separation" ]
-
+  workflow_dispatch:
 jobs:
   build:
 
