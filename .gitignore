@@ -3,6 +3,7 @@
 .DS_Store
 .settings/
 .vscode/
+.idea
 
 /_temp
 brapi_blueprint.apib
