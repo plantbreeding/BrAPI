@@ -1,0 +1,23 @@
+apply plugin : "java"
+ext {
+  javaMainClass = 'org.brapi.schematools.cli.BrAPICommand'
+  brapiSchemaToolsVersion = '0.5.0-SNAPSHOT'
+}
+
+repositories {
+  mavenCentral()
+  maven {url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'}
+}
+
+dependencies {
+  implementation "org.brapi:brapi-schema-tools-cli:$brapiSchemaToolsVersion"
+}
+
+tasks.register('validate', JavaExec) {
+  group = 'BrAPI'
+  description = 'Validate the Json Schema'
+  classpath = sourceSets.main.runtimeClasspath
+  mainClass = javaMainClass
+  workingDir = '../'
+  args = ['validate', 'Specification/BrAPI-Schema']
+}
