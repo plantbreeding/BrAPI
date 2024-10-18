@@ -1,0 +1,49 @@
+apply plugin : "java"
+ext {
+  javaMainClass = 'org.brapi.schematools.cli.BrAPICommand'
+  brapiSchemaToolsVersion = '0.7.0-SNAPSHOT'
+}
+
+repositories {
+  mavenCentral()
+  maven {url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'}
+}
+
+dependencies {
+  implementation "org.brapi:brapi-schema-tools-cli:$brapiSchemaToolsVersion"
+}
+
+tasks.register("validate", JavaExec) {
+  group = 'BrAPI'
+  description = 'Validate the Json Schema'
+  classpath = sourceSets.main.runtimeClasspath
+  mainClass = javaMainClass
+  workingDir = '../'
+  args = ['validate', 'Specification/BrAPI-Schema', '-x']
+}
+
+tasks.register("generateGraphQL", JavaExec) {
+  group = 'BrAPI'
+  description = 'Generate GraphQL schema from the Json Schema'
+  classpath = sourceSets.main.runtimeClasspath
+  mainClass = javaMainClass
+  workingDir = '../'
+  args = ['generate',
+          'Specification/BrAPI-Schema',
+          '-l', 'GRAPHQL',
+          '-f', 'Specification/Generated/schema.graphqls',
+          '-x']
+}
+
+tasks.register("generateOpenAPI", JavaExec) {
+  group = 'BrAPI'
+  description = 'Generate GraphQL schema from the Json Schema'
+  classpath = sourceSets.main.runtimeClasspath
+  mainClass = javaMainClass
+  workingDir = '../'
+  args = ['generate', 'Specification/BrAPI-Schema',
+          '-l', 'OPEN_API',
+          '-f', 'Specification/Generated/brapi_openapi.json',
+          '-c', 'Specification\\OpenAPI-Components',
+          '-x']
+}
