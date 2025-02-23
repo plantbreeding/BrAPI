@@ -12,4 +12,6 @@ COPY Scripts /src/Scripts
 
 RUN find /src/Scripts -type f -print0 | xargs -0 dos2unix
 
+RUN chmod +x ./Scripts/buildDocs.sh
+
 CMD ["./Scripts/buildDocs.sh"]
