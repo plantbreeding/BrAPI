@@ -58,7 +58,7 @@ python3 ./Scripts/buildBlueprint.py -out "./Specification/BrAPI-Genotyping/" -he
 echo
 echo
 echo "Build complete OpenAPI in one YAML file: ./brapi_openapi.yaml for sharing."
-python3 ./Scripts/buildOpenAPI.py ./Specification/swaggerBrAPIPlusMetaData.yaml ./Specification/BrAPI-Core/ ./Specification/BrAPI-Germplasm/ ./Specification/BrAPI-Genotyping/ ./Specification/BrAPI-Phenotyping/ ./Specification/Components >> ./build/results/buildOpenAPICompleteResults.txt
+python3 ./Scripts/buildOpenAPI.py ./Specification/swaggerMetaData.yaml ./Specification/BrAPI-Core/ ./Specification/BrAPI-Germplasm/ ./Specification/BrAPI-Genotyping/ ./Specification/BrAPI-Phenotyping/ ./Specification/Components >> ./build/results/buildOpenAPICompleteResults.txt
 
 cp ./Specification/BrAPI-Core/brapi_openapi.yaml ./build/brapi_openapi.yaml
 
