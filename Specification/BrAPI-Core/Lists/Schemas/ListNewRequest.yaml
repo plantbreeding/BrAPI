@@ -13,6 +13,7 @@ components:
           data:
             description: The array of DbIds of the BrAPI objects contained in a List
             type: array
+            nullable: true
             items:
               type: string
             example: ['758a78c0', '2c78f9ee']
