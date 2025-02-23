@@ -13,38 +13,48 @@ components:
             type: string
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
           type: object
+          nullable: true
         description:
           description: description of this person
           type: string
+          nullable: true
           example: Bob likes pina coladas and getting caught in the rain. 
         emailAddress:
           description: email address for this person
           type: string
+          nullable: true
           example: bob@bob.com
         firstName:
           description: Persons first name
           type: string
+          nullable: true
           example: Bob
         lastName:
           description: Persons last name
           type: string
+          nullable: true
           example: Robertson
         mailingAddress:
           description: physical address of this person
           type: string
+          nullable: true
           example: 123 Street Ave, City, State, Country
         middleName:
           description: Persons middle name
           type: string
+          nullable: true
           example: Danger
         phoneNumber:
           description: phone number of this person
           type: string
+          nullable: true
           example: +1-555-555-5555
         userID:
           description: A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.
           type: string
+          nullable: true
           example: bob-23
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
+          nullable: true
           

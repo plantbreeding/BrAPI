@@ -18,6 +18,7 @@ components:
         seasonName:
           description: Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.
           type: string
+          nullable: true
           example: Spring
         seasonDbId:
           description: The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'
@@ -26,5 +27,6 @@ components:
         year:
           description: The 4 digit year of the season.
           type: integer
+          nullable: true
           example: 2018
 

@@ -13,21 +13,25 @@ components:
         active:
           description: A flag to indicate if a Trial is currently active and ongoing
           type: boolean
+          nullable: true
           example: true
         additionalInfo:
           additionalProperties:
             type: string
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
           type: object
+          nullable: true
         commonCropName:
           description: Common name for the crop associated with this trial
           type: string
+          nullable: true
           example: Wheat
         contacts:
           description: List of contact entities associated with this trial
           items:
             $ref: '#/components/schemas/Contact'
           type: array
+          nullable: true
         datasetAuthorships:
           description: License and citation information for the data in this trial
           items:
@@ -35,54 +39,67 @@ components:
               datasetPUI:
                 description: The DOI or other permanent unique identifier for this published dataset
                 type: string
+                nullable: true
                 example: doi:10.15454/312953986E3
               license:
                 description: MIAPPE V1.1 (DM-7) License - License for the reuse of the data associated with this investigation. The Creative Commons licenses cover most use cases and are recommended.
                 type: string
+                nullable: true
                 example: https://CreativeCommons.org/licenses/by/4.0
               submissionDate:
                 description: MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.
                 type: string
+                nullable: true
                 format: date
               publicReleaseDate:
                 description: MIAPPE V1.1 (DM-6) Public release date - Date of first public release of the dataset presently being described.
                 type: string
+                nullable: true
                 format: date
             type: object
           type: array
+          nullable: true
         documentationURL:
           description: A URL to the human readable documentation of an object
           format: uri
           type: string
+          nullable: true
           example: https://wiki.brapi.org
         endDate:
           description: The date this trial ends
           format: date
           type: string
+          nullable: true
         programDbId:
           description: A program identifier to search for
           type: string
+          nullable: true
           example: 673f378a
         programName:
           description: Human readable name of the program
           type: string
+          nullable: true
           example: Tomatillo_Breeding_Program
         publications:
           description: MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.
           type: array
+          nullable: true
           items: 
             type: object
             properties:
               publicationPUI:
                 type: string
+                nullable: true
                 example: doi:10.15454/312953986E3
               publicationReference:
                 type: string
+                nullable: true
                 example: Selby, BrAPI - An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190
         startDate:
           description: The date this trial started
           format: date
           type: string
+          nullable: true
         trialName:
           description: |-
             The human readable name of a trial
@@ -96,11 +113,14 @@ components:
             
             MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.
           type: string
+          nullable: true
           example: General drought resistance trial initiated in Peru before duplication in Africa
         trialPUI:
           description: A permanent identifier for a trial. Could be DOI or other URI formatted identifier.
           type: string
+          nullable: true
           example: https://doi.org/101093190
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
+          nullable: true
           

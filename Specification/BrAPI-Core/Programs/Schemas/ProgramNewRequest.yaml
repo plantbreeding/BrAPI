@@ -13,32 +13,39 @@ components:
         abbreviation:
           description: A shortened version of the human readable name for a Program
           type: string
+          nullable: true
           example: P1
         additionalInfo:
           additionalProperties:
             type: string
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
           type: object
+          nullable: true
         commonCropName:
           description: Common name for the crop which this program is for
           type: string
+          nullable: true
           example: Tomatillo
         documentationURL:
           description: A URL to the human readable documentation of an object
           format: uri
           type: string
+          nullable: true
           example: https://wiki.brapi.org
         leadPersonDbId:
           description: The unique identifier of the program leader
           type: string
+          nullable: true
           example: fe6f5c50
         leadPersonName:
           description: The name of the program leader
           type: string
+          nullable: true
           example: Bob Robertson
         objective:
           description: The primary objective of the program
           type: string
+          nullable: true
           example: Make a better tomatillo
         programName:
           description: Human readable name of the program
@@ -57,8 +64,10 @@ components:
         fundingInformation:
           description: Information describing the grant or funding source for this program
           type: string
+          nullable: true
           example: 'EU: FP7-244374'
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
+          nullable: true
           
 
