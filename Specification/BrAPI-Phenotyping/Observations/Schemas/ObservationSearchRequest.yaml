@@ -23,16 +23,19 @@ components:
             items:
               type: string
             type: array
+            nullable: true
             example: ['6a4a59d8', '3ff067e0']
           observationUnitDbIds: 
             description: The unique id of an Observation Unit
             items:
               type: string
             type: array
+            nullable: true
             example: ['76f559b5', '066bc5d3'] 
           observationLevels: 
             description: Searches for values in ObservationUnit->observationUnitPosition->observationLevel
-            type: array 
+            type: array
+            nullable: true
             items:
               $ref: '#/components/schemas/ObservationUnitLevel' 
             example:
@@ -44,7 +47,8 @@ components:
                 levelCode: Plot_789
           observationLevelRelationships: 
             description: Searches for values in ObservationUnit->observationUnitPosition->observationLevelRelationships
-            type: array 
+            type: array
+            nullable: true
             items: 
               $ref: '#/components/schemas/ObservationUnitLevelRelationship'
             example: 
@@ -54,14 +58,17 @@ components:
             description: Timestamp range end
             format: date-time
             type: string
+            nullable: true
           observationTimeStampRangeStart:
             description: Timestamp range start
             format: date-time
             type: string
+            nullable: true
           seasonDbIds: 
             description: The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
             items:
               type: string
             type: array
+            nullable: true
             example: ['Spring 2018', 'Season A']
   

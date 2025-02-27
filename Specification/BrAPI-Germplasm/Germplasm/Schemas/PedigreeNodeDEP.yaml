@@ -13,18 +13,22 @@ components:
         crossingProjectDbId:
           description: The crossing project used to generate this germplasm
           type: string
+          nullable: true
           example: 625e745a
         crossingYear:
           description: The year the parents were originally crossed
           type: integer
+          nullable: true
           example: 2005
         germplasmName:
           description: A human readable name for a germplasm
           type: string
+          nullable: true
           example: A0021004
         familyCode:
           description: The code representing the family
           type: string
+          nullable: true
           example: F0000203
         germplasmDbId:
           description: The ID which uniquely identifies a germplasm
@@ -33,10 +37,12 @@ components:
         pedigree:
           description: The string representation of the pedigree in PURDY notation.
           type: string
+          nullable: true
           example: A0000001/A0000002
         parents:
           description: List of parent nodes in the pedigree tree.
           type: array
+          nullable: true
           items:
             type: object
             properties:
@@ -47,6 +53,7 @@ components:
               germplasmName:
                 description: the human readable name of the parent of this germplasm
                 type: string
+                nullable: true
                 example: A0000592
               parentType:
                 $ref: '#/components/schemas/ParentTypeDEP'
@@ -60,6 +67,7 @@ components:
         siblings:
           description: List of sibling germplasm
           type: array
+          nullable: true
           items:
             type: object
             properties:

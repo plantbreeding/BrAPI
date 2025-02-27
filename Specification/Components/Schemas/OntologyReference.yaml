@@ -24,6 +24,7 @@ components:
         documentationLinks:
           description: links to various ontology documentation
           type: array
+          nullable: true
           items:
             type: object
             properties:
@@ -49,5 +50,6 @@ components:
         version:
           description: Ontology version (no specific format)
           type: string
+          nullable: true
           example: 7.2.3
 

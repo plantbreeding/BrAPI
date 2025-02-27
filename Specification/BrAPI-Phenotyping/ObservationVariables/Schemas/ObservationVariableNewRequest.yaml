@@ -20,6 +20,7 @@ components:
           observationVariablePUI:
             description: The Permanent Unique Identifier of a Observation Variable, usually in the form of a URI
             type: string
+            nullable: true
             example: http://my-traits.com/trait/CO_123:0009012
         required:
         - observationVariableName

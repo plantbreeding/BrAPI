@@ -19,12 +19,14 @@ components:
         pagination:
           description: Pagination for the matrix
           type: array
+          nullable: true
           items:
             type: object
             properties:
               dimension:
                 description: The dimension of the matrix being paginated
                 type: string
+                nullable: true
                 enum:
                 - CALLSETS
                 - VARIANTS
@@ -32,20 +34,24 @@ components:
               pageSize: 
                 description: the maximum number of elements per page in this dimension of the matrix
                 type: integer
+                nullable: true
                 example: 500
               page: 
                 description: the requested page number (zero indexed) 
                 type: integer
+                nullable: true
                 example: 0
               totalCount:
                 description: The total number of elements that are available on the server and match the requested query parameters. 
                 type: integer
+                nullable: true
                 example: 10000
               totalPages:
                 description: |-
                   The total number of pages of elements available on the server. This should be calculated with the following formula. 
                   <br/>totalPages = CEILING( totalCount / requested_page_size)
                 type: integer
+                nullable: true
                 example: 20
           example:
             -  dimension: VARIANTS
@@ -73,12 +79,14 @@ components:
         variantDbIds: 
           description: A list of unique identifiers for the Variants contained in the matrix response. This array should match the ordering for rows in the matrix.
           type: array
+          nullable: true
           items:
             type: string
           example: ['feb54257', 'feb40355', 'feb40323']
         dataMatrices:
           description: The 'dataMatrices' are an array of matrix objects that hold the allele data and associated metadata. Each matrix should be the same size and orientation, aligned with the "callSetDbIds" as columns and the "variantDbIds" as rows.
           type: array
+          nullable: true
           items:
             description: This is a single data matrix. It could be the allele matrix or an additional layer of metadata associated with each genotype value.
             type: object
@@ -86,6 +94,7 @@ components:
               dataType:
                 description: The type of field represented in this data matrix. This is intended to help parse the data out of JSON.
                 type: string
+                nullable: true
                 enum:
                 - string
                 - integer
@@ -97,16 +106,19 @@ components:
                   The name of the field represented in this data matrix. The key word "Genotype" is reserved for the allele matrix. Examples of other metadata matrices include: "Genotype Quality", "Read Depth", and "Haplotype Quality"
                   <br> This maps to a FORMAT field in the VCF file standard.
                 type: string
+                nullable: true
                 example: Genotype
               dataMatrixAbbreviation:
                 description: |-
                   The abbreviated code of the field represented in this data matrix. These codes should match the VCF standard when possible and the key word "GT" is reserved for the allele matrix. Examples of other metadata matrices include: "GQ", "RD", and "HQ"
                   <br> This maps to a FORMAT field in the VCF file standard.
                 type: string
+                nullable: true
                 example: GT
               dataMatrix:
                 description: The two dimensional array of data, providing the allele matrix or an additional layer of metadata associated with each genotype value. Each matrix should be the same size and orientation, aligned with the "callSetDbIds" as columns and the "variantDbIds" as rows.
                 type: array
+                nullable: true
                 items:
                   description: An array of rows in the data matrix
                   type: array
@@ -135,16 +147,20 @@ components:
         expandHomozygotes: 
           description: Should homozygotes be expanded (true) or collapsed into a single occurrence (false)
           type: boolean
+          nullable: true
           example: true
         sepPhased:
           description: The string used as a separator for phased allele calls.
           type: string
+          nullable: true
           example: '|'
         sepUnphased:
           description: The string used as a separator for unphased allele calls.
           type: string
+          nullable: true
           example: '/'
         unknownString:
           description: The string used as a representation for missing data.
           type: string
+          nullable: true
           example: '.'

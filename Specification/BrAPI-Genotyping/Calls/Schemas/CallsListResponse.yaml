@@ -34,17 +34,21 @@ components:
                   expandHomozygotes: 
                     description: Should homozygotes be expanded (true) or collapsed into a single occurrence (false)
                     type: boolean
+                    nullable: true
                     example: true
                   sepPhased:
                     description: The string used as a separator for phased allele calls.
                     type: string
+                    nullable: true
                     example: '|'
                   sepUnphased:
                     description: The string used as a separator for unphased allele calls.
                     type: string
+                    nullable: true
                     example: '/'
                   unknownString:
                     description: The string used as a representation for missing data.
                     type: string
+                    nullable: true
                     example: '.'
                     

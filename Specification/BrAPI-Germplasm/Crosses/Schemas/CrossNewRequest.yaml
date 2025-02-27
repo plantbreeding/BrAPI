@@ -13,29 +13,36 @@ components:
             type: string
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
           type: object
+          nullable: true
         crossingProjectDbId:
           description: the unique identifier for a crossing project
           type: string
+          nullable: true
           example: 696d7c92
-        crossingProjectName: 
+        crossingProjectName:
           description: the human readable name for a crossing project
           type: string
+          nullable: true
           example: my_Crosses_2018
         crossName: 
           description: the human readable name for a cross
           type: string
+          nullable: true
           example: my_Crosses_2018_01
         plannedCrossDbId:
           description: the unique identifier for a planned cross
           type: string
+          nullable: true
           example: c8905568
         plannedCrossName: 
           description: the human readable name for a planned cross
           type: string
+          nullable: true
           example: my_Crosses_2018_01
         crossType: 
           description: the type of cross
           type: string
+          nullable: true
           enum:
           - BIPARENTAL
           - SELF
@@ -47,34 +54,42 @@ components:
           example: BIPARENTAL
         parent1: 
           $ref: '#/components/schemas/CrossParent'
+          nullable: true
         parent2: 
           $ref: '#/components/schemas/CrossParent'
+          nullable: true
         pollinationTimeStamp: 
           description: |-
             **Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265 
             <br>The timestamp when the pollination took place
           type: string
+          nullable: true
           format: date-time
           deprecated: true
         pollinationEvents:
           description: The list of pollination events that occurred for this cross
           type: array
+          nullable: true
           items:
             type: object
             properties:
               pollinationTimeStamp: 
                 description: The timestamp when the pollination took place
                 type: string
+                nullable: true
                 format: date-time
               pollinationSuccessful:
                 description: True if the pollination was successful
                 type: boolean
+                nullable: true
               pollinationNumber:
                 description: The unique identifier for this pollination event
                 type: string
+                nullable: true
         crossAttributes: 
           description: Set of custom attributes associated with a cross
           type: array
+          nullable: true
           items:
             description: a custom attributes associated with a cross
             type: object
@@ -82,10 +97,12 @@ components:
               crossAttributeName:
                 description: the human readable name of a cross attribute
                 type: string
+                nullable: true
                 example: Humidity Percentage
               crossAttributeValue: 
                 description: the value of a cross attribute
                 type: string
+                nullable: true
                 example: '45'
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'

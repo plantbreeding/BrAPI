@@ -120,6 +120,7 @@ components:
             
             MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study
           type: string
+          nullable: true
           example: INRA's Walnut Genetic Resources Observation at Kenya
         studyCode:
           description: A short human readable code for a study
@@ -134,6 +135,7 @@ components:
         studyType:
           description: The type of study being performed. ex. "Yield Trial", etc
           type: string
+          nullable: true
           example: Phenotyping
         trialDbId:
           description: The ID which uniquely identifies a trial

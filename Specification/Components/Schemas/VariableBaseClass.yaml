@@ -17,36 +17,44 @@ components:
             type: string
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
           type: object
+          nullable: true
         contextOfUse:
           description: 'Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])'
           items:
             type: string
           type: array
+          nullable: true
           example: ["Trial evaluation", "Nursery evaluation"]
         commonCropName:
           description: 'Crop name (examples: "Maize", "Wheat")'
           type: string
+          nullable: true
           example: Maize
         defaultValue:
           description: 'Variable default value. (examples: "red", "2.3", etc.)'
           type: string
+          nullable: true
           example: '2.0'
         documentationURL:
           description: A URL to the human readable documentation of an object
           format: uri
           type: string
+          nullable: true
           example: https://wiki.brapi.org/documentation.html
         growthStage:
           description: 'Growth stage at which measurement is made (examples: "flowering")'
           type: string
+          nullable: true
           example: flowering
         institution:
           description: Name of institution submitting the variable
           type: string
+          nullable: true
           example: The BrAPI Institute
         language:
           description: 2 letter ISO 639-1 code for the language of submission of the variable.
           type: string
+          nullable: true
           example: en
         method:
           allOf:
@@ -59,6 +67,7 @@ components:
                 example: 0adb2764
         ontologyReference:
           $ref: '#/components/schemas/OntologyReference'
+          nullable: true
         scale:
           allOf:
           - $ref: '#/components/schemas/ScaleBaseClass'
@@ -73,20 +82,24 @@ components:
         scientist:
           description: Name of scientist submitting the variable.
           type: string
+          nullable: true
           example: Dr. Bob Robertson
         status:
           description: 'Variable status. (examples: "recommended", "obsolete", "legacy", etc.)'
           type: string
+          nullable: true
           example: recommended
         submissionTimestamp:
           description: Timestamp when the Variable was added (ISO 8601)
           format: date-time
           type: string
+          nullable: true
         synonyms:
           description: Other variable names
           items:
             type: string
           type: array
+          nullable: true
           example: ['Maize Height', 'Stalk Height', 'Corn Height']
         trait:
           allOf:
@@ -99,4 +112,5 @@ components:
                 example: 9b2e34f5
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
+          nullable: true
 

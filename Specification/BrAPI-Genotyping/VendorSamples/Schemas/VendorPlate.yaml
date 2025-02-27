@@ -11,15 +11,19 @@ components:
         clientPlateBarcode:
           description: (Optional) The value of the bar code attached to this plate
           type: string
+          nullable: true
           example: 31dd5787
         clientPlateId:
           description: The ID which uniquely identifies this plate to the client making the request
           type: string
+          nullable: true
           example: 0ad6c0ef
         sampleSubmissionFormat:
           $ref: '#/components/schemas/PlateFormat'
+          nullable: true
         samples:
           items:
             $ref: '#/components/schemas/VendorSample'
           type: array
+          nullable: true
 

@@ -21,6 +21,7 @@ components:
             items:
               type: string
             type: array
+            nullable: true
             example: ['http://pui.per/accession/A0000003', 'http://pui.per/accession/A0000477']
           accessionNumbers:
             description: |- 
@@ -30,18 +31,21 @@ components:
             items:
               type: string
             type: array
+            nullable: true
             example: ['A0000003', 'A0000477']
           collections:
             description: A specific panel/collection/population name this germplasm belongs to.
             items:
               type: string
             type: array
+            nullable: true
             example: ['RDP1', 'MDP1']
           familyCodes: 
             description: A familyCode representing the family this germplasm belongs to.
             items:
               type: string
             type: array
+            nullable: true
             example: ['f0000203', 'fa009965']
           instituteCodes:
             description: |-
@@ -50,52 +54,63 @@ components:
             items:
               type: string
             type: array
+            nullable: true
             example: ['PER001', 'NOR001']
           binomialNames: 
             description: List of the full binomial name (scientific name) to identify a germplasm
             items:
               type: string
             type: array
+            nullable: true
             example: ['Aspergillus fructus', 'Zea mays']
           genus: 
             description: List of Genus names to identify germplasm
             items:
               type: string
             type: array
+            nullable: true
             example: ['Aspergillus', 'Zea']
           species:
             description: List of Species names to identify germplasm
             items:
               type: string
             type: array
+            nullable: true
             example: ['fructus', 'mays']
           synonyms:
             description: List of alternative names or IDs used to reference this germplasm
             items:
               type: string
             type: array
+            nullable: true
             example: ['variety_1', '2c38f9b6']
           includeParents:
             description: If this parameter is true, include the array of parents in the response
             type: boolean
+            nullable: true
             example: true
           includeSiblings:
             description: If this parameter is true, include the array of siblings in the response
             type: boolean
+            nullable: true
             example: true
           includeProgeny:
             description: If this parameter is true, include the array of progeny in the response
             type: boolean
+            nullable: true
             example: true
           includeFullTree:
             description: If this parameter is true, recursively include ALL of the nodes available in this pedigree tree 
             type: boolean
+            nullable: true
             example: true
           pedigreeDepth:
             description: Recursively include this number of levels up the tree in the response (parents, grand-parents, great-grand-parents, etc)
             type: integer
+            nullable: true
             example: 3
           progenyDepth:
             description: Recursively include this number of levels down the tree in the response (children, grand-children, great-grand-children, etc)
             type: integer
+            nullable: true
             example: 3

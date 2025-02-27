@@ -93,7 +93,7 @@ components:
     positionRange:
       name: positionRange
       description: |-
-        The postion range to search
+        The position range to search
         <br/> Uses the format "contig:start-end" where "contig" is the chromosome or contig name, "start" is  
         the starting position of the range, and "end" is the ending position of the range
         <br> Example: CRHOM_1:12000-14000

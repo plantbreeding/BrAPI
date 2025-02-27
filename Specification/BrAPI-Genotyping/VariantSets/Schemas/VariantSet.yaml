@@ -21,14 +21,17 @@ components:
             type: string
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
           type: object
+          nullable: true
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
+          nullable: true
         availableFormats:
           description: |-
             When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats. 
             <br/>'dataFormat' defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)
             <br/>'fileFormat' defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.
           type: array
+          nullable: true
           items:
             $ref: '#/components/schemas/AvailableFormat'
         metadataFields:
@@ -36,10 +39,12 @@ components:
             The 'metadataFields' array indicates which types of genotyping data and metadata are available in the VariantSet. 
             <br> When possible, these field names and abbreviations should follow the VCF standard 
           type: array
+          nullable: true
           items:
             description: |-
               This represents a type of genotyping data or metadata available in this VariantSet
             type: object
+            nullable: true
             properties:
               dataType:
                 description: The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.
@@ -63,11 +68,13 @@ components:
         analysis:
           description: Set of Analysis descriptors for this VariantSet 
           type: array
+          nullable: true
           items:
             $ref: '#/components/schemas/Analysis'
         studyDbId:
           description: The ID of the dataset this variant set belongs to.
           type: string
+          nullable: true
           example: 2fc3b034
         variantSetDbId: 
           description: The unique identifier for a VariantSet
@@ -76,17 +83,21 @@ components:
         variantSetName:
           description: The human readable name for a VariantSet
           type: string
+          nullable: true
           example: Maize QC DataSet 002334 
         variantCount:
           description: The number of Variants included in this VariantSet
           type: integer
+          nullable: true
           example: 250
         callSetCount:
           description: The number of CallSets included in this VariantSet
           type: integer
+          nullable: true
           example: 341
         referenceSetDbId:
           description: The ID of the reference set that describes the sequences used by the variants in this set.
           type: string
+          nullable: tru
           example: 57eae639
 

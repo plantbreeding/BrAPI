@@ -13,6 +13,7 @@ components:
         clientSampleBarCode:
           description: (Optional) The value of the bar code attached to this sample
           type: string
+          nullable: true
           example: 7c07e527
         clientSampleId:
           description: The ID which uniquely identifies this sample to the client making the request
@@ -21,40 +22,50 @@ components:
         column:
           description: The Column identifier for this samples location in the plate
           type: integer
+          nullable: true
           minimum: 1
           maximum: 12
           example: 6
         comments:
           description: Generic comments about this sample for the vendor
           type: string
+          nullable: true
           example: This is my favorite sample, please be extra careful with it.
         concentration:
           $ref: '#/components/schemas/Measurement'
         organismName:
           description: Scientific organism name
           type: string
+          nullable: true
           example: Aspergillus fructus
         row:
           description: The Row identifier for this samples location in the plate
           type: string
+          nullable: true
           example: B
         speciesName:
           description: Scientific species name
           type: string
+          nullable: true
           example: Aspergillus fructus
         taxonomyOntologyReference:
           $ref: '#/components/schemas/OntologyReference'
+          nullable: true
         tissueType:
           description: The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.
           type: string
+          nullable: true
           example: Root
         tissueTypeOntologyReference:
           $ref: '#/components/schemas/OntologyReference'
+          nullable: true
         volume: 
           $ref: '#/components/schemas/Measurement'
+          nullable: true
         well:
           description: The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.
           type: string
+          nullable: true
           example: B6
     Measurement: 
       type: object

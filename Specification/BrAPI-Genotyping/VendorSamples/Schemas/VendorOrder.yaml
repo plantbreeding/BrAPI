@@ -31,6 +31,7 @@ components:
             type: string
           description: A map of additional data required by the requested service. This includes things like Volume and Concentration.
           type: object
+          nullable: true
           example:
             genus: Zea
             species: mays
