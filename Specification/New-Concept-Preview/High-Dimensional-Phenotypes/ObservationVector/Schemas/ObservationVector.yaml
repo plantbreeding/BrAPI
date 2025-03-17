@@ -29,7 +29,7 @@ components:
           description: description
           type: string
           example: fe6f5c50
-        tissue_type:
+        tissueType:
           description: description
           type: string
           example: root

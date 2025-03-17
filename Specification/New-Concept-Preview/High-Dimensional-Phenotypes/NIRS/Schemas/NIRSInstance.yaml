@@ -1,0 +1,23 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    NIRSInstance:
+      title: NIRSInstance
+      type: object
+      properties:
+        instanceId:
+          description: Relates data matrix to a specific instance
+          type: string
+          example: abc123
+        uploadTimestamp:
+          description: Timestamp for initial upload of spectral data matrix into database 
+          type: date-time
+          example: 2024-01-03 3:04:05
+        deviceSerialNumber:
+          description: Serial number of the spectrometer device
+          type: string
+          example: ABC1234567
