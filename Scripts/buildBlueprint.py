@@ -32,7 +32,7 @@ def go():
 	headerHTML = ''
 	with open(headerPath, "r") as headerFile:
 		try:
-			fileObj = yaml.load(headerFile)
+			fileObj = yaml.safe_load(headerFile)
 			if 'info' in fileObj:
 				if 'description' in fileObj['info']:
 					headerHTML = parseHTMLToMD(fileObj['info']['description'])

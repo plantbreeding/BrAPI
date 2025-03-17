@@ -9,7 +9,7 @@ import os
 def buildTermBrowserData(specPath):
 	with open(specPath + '/brapi_openapi.yaml', "r") as stream:
 		try:
-			fullBrAPI = yaml.load(stream)
+			fullBrAPI = yaml.safe_load(stream)
 			stream.close()
 		except yaml.YAMLError as exc:
 			stream.close()

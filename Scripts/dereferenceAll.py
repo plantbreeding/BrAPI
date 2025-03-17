@@ -105,7 +105,7 @@ def dereferenceBrAPI(filePath = './brapi_openapi.yaml', verbose = False):
         print(filePath)
     with open(filePath, "r") as stream:
         try:
-            fileObj = yaml.load(stream)
+            fileObj = yaml.safe_load(stream)
             stream.close()
         except yaml.YAMLError as exc:
             stream.close()
