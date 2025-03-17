@@ -62,7 +62,7 @@ components:
               type: string
               example: gradient of solvent A (2mM ammonium hydroxide and 0.1% formic acid) to solvent B (Acetonitrile, 0.1% formic acid)
             chromatographyType:  
-              description: Type of chromatography used: liquid or gas
+              description: Type of chromatography used, liquid or gas
               type: string
               enum: [LC, GC]
               example: LC
