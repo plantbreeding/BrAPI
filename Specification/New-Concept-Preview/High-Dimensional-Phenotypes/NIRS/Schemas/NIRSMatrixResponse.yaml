@@ -17,8 +17,22 @@ components:
                 $ref: '#/components/schemas/metadata'
               result:
                 properties:
-                  instance:
-                    $ref: '#/components/schemas/NIRSInstance'
+                  instanceId:
+                    description: Relates data matrix to a specific instance
+                    type: string
+                    example: abc123
+                  uploadTimestamp:
+                    description: Timestamp for initial upload of spectral data matrix into database 
+                    type: date-time
+                    example: 2024-01-03 3:04:05
+                  deviceSerialNumber:
+                    description: Serial number of the spectrometer device
+                    type: string
+                    example: ABC1234567
+                  protocolDbId:
+                    description: description
+                    type: string
+                    example: fe6f5c50
                   data:
                     items:
                       $ref: '#/components/schemas/ObservationVector'

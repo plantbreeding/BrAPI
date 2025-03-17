@@ -25,10 +25,6 @@ components:
           description: description
           type: string
           example: e3675c4a
-        protocolDbId:
-          description: description
-          type: string
-          example: fe6f5c50
         tissueType:
           description: description
           type: string

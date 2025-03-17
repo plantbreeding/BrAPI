@@ -17,8 +17,20 @@ components:
           type: number
           format: double
           example: 1062.5227
+        charge:
+          description: Positive or Negative charge associated with metabolite, can be derived from mass to charge ratio
+          type: string
+          example: positive
+        fragmentation:
+          description: Fragmentation m/z intensity output
+          type: string
+          example: 239:3349 240:1454 342:3557 343:1562
+        modifications:
+          description: List metabolite modifications prior to instrument analysis
+          type: string
+          example: trimethylsilation
         retentionTime:
-          description: retention time, also standard from machine output; users shoud confirm that unit is 'seconds'
+          description: retention time, also standard from machine output; users should confirm that unit is 'seconds'
           type: number
           format: double
           example: 342.256063
@@ -53,8 +65,12 @@ components:
           example: ['Avenacoside A']
         chemicalSpecies:
           description: Family of chemical
-          type: object
+          type: string
           example: Amino Acids
+        metaboliteReliability:
+          description: A number 1 through 5, related to Schymanski et al 2014, https://doi.org/10.1021/es5002105. 1: confrimed structure, 2: probable structure, 3: tentative candidate, 4:unequivocal molecular formula, 5:exact mass of interest
+          type: integer
+          example: 1
         spectraSource:
           description: The source database that defines the connection between spectra and compound
           type: object

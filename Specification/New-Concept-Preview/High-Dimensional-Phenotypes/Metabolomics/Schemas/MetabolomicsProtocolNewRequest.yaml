@@ -20,86 +20,93 @@ components:
           format: uri
           type: string
           example: https://wiki.brapi.org
-        headerColumns:
+        analysisType: 
+          description: Mass spectrometry or Nuclear Magnetic Resonance Spectroscopy 
+          type: string
+          enum: [MS, NMR]
+          example: MS
+        sampleExtractionMethod: 
+          description: the extraction protocol used
+          type: string
+          example: biphasic, polar extract with methanol from 100 mg of tissue
+        targeted: 
+          description: targeted
+          type: boolean
+          example: true
+        metaboliteIdentification: 
+          description: metabolite annotations were assigned to peaks
+          type: string
+          example: RAMSearch, MSFinder
+        metaboliteSearchEngine: 
+          description: How the metabolite database was searched
+          type: string
+          example: TagFinder4.1 manual supervised annotation
+        rawDataTransformationProtocol: 
+          description: Methods for how files from the LCMS machine were transformed into peak area
+          type: string
+          example: XCMS, centWave, RamCLUSTR
+        protocolComments: 
+          description: Any comments collected by the researcher about protocols, machinery, etc. corresponding to a sample
+          type: string
+          example: comments
+        metabolites:
           description: Column definitions for any matrix with this protocol 
           type: array
           items:
             $ref: '#/components/schemas/Metabolite'
-        phenotypeUnits: 
-          description: Free text, e.g. relative abundance, BLUP, drBLUP, concentration (specify units, e.g. ug/g)
-          type: string
-          example: relative abundance
-        publications: 
-          description: Relevant publication(s), DOI with details
-          type: array
-          items:
-            type: string
-            example: https://doi.org/10.1093/example
-        equipment: 
+        chromatography: 
           type: object
           properties:
-            analysisType: 
-              description: MS or NMR. If NMR is selected, the rest of Equipment are not needed
-              type: string
-              enum: [MS, NMR]
-              example: MS
-            chromatographyType:  
-              description: description
-              type: string
-              enum: [LC, GC]
-              example: LC
-            chromatographySystem:  
-              description: User free text to specify brand of chromotography system
-              type: string
-              example: Waters Acuity UPLC
-            chromatographyColumn:  
-              description: User free text to specify brand of chromotography column
-              type: string
-              example: Waters 164 Acquity UPLC CSH Phenyl Hexyl column (1.7 IM, 1.0 x 100 mm)
-            msInstrumentName:  
-              description: User free text to specify brand of MS system
-              type: string
-              example: Waters Xevo G2 TOF-MS
-            msInstrumentType:  
-              description: User free text, e.g. time of flight (TOF), triple quadropole
-              type: string
-              example: TOF
-            msType:  
-              description: Electron Ionization (EI), Electrospray Ionization (ESI), Atmospheric Pressure Chemical Ionization (APCI), Matrix Assisted Laser Desorption Ionization (MALDI), Other (please specify below)
-              type: string
-              example: ESI
-            msIonMode:  
-              description: Negative, Positive, Both
-              type: string
-              example: Positive
-        protocol:
-          type: object
-          properties:
-            sampleCollection: 
-              description: the tissue, time point, if the sample was frozen
-              type: string
-              example: seed, mature
-            sampleExtraction: 
-              description: the extraction protocol used
-              type: string
-              example: biphasic, polar extract with methanol from 100 mg of tissue
-            chromatography: 
+            chromatographyProtocol: 
               description: the LC protocol, instrument settings, calibration procedure
               type: string
               example: gradient of solvent A (2mM ammonium hydroxide and 0.1% formic acid) to solvent B (Acetonitrile, 0.1% formic acid)
-            massSpectrometry: 
+            chromatographyType:  
+              description: Type of chromatography used: liquid or gas
+              type: string
+              enum: [LC, GC]
+              example: LC
+            chromatographyInstrument:  
+              description: Brand of chromotography system
+              type: string
+              example: Waters Acuity UPLC
+            chromatographyAutoSamplerModel:  
+              description: Name of autosampler
+              type: string
+              example: Waters Autosampler
+            chromatographyColumnModel:  
+              description: Brand of chromotography column
+              type: string
+              example: Waters 164 Acquity UPLC CSH Phenyl Hexyl column (1.7 IM, 1.0 x 100 mm)
+            chromatographyColumnType:  
+              description: the type of chromotography column
+              type: string
+              example: Phenyl Hexyl column
+        massSpectrometry: 
+          type: object
+          properties:
+            massSpectrometryInstrument:  
+              description: Brand and model of MS system
+              type: string
+              example: Waters Xevo G2 TOF-MS
+            massSpectrometryMassAnalyzer:  
+              description: User free text, e.g. time of flight (TOF), triple quadropole
+              type: string
+              example: TOF
+            massSpectrometryIonSource:  
+              description: Electron Ionization (EI), Electrospray Ionization (ESI), Atmospheric Pressure Chemical Ionization (APCI), Matrix Assisted Laser Desorption Ionization (MALDI), Other (please specify below)
+              type: string
+              example: ESI
+            massSpectrometryScanPolarity:  
+              description: Negative, Positive, Both
+              type: string
+              example: Positive
+            massSpectrometryScanMZRange: 
+              description: single vs paired end (60-800)
+              type: number
+              example: 60
+            massSpectrometryProtocol: 
               description: instrument settings, calibration procedure
               type: string
               example: scanning 50-2000 m/z at 0.2 seconds per scan, alternating between MS (6 V collision energy) and MSE mode (15-30 V ramp)
-            rawDataTransformation: 
-              description: the LCMS machine files were transformed into peak area
-              type: string
-              example: XCMS, centWave, RamCLUSTR
-            metaboliteIdentification: 
-              description: metabolite annotations were assigned to peaks
-              type: string
-              example: RAMSearch, MSFinder
-            phenotype: 
-              description: BLUPs were calculated from the peak area
-              type: string
-              example: NA
+
