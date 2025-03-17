@@ -362,7 +362,7 @@ Get a Metabolomics data matrix by MetabolomicsProtocolDbId
 <tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string</td><td>description</td></tr>
 <tr><td><span style="font-weight:bold;">row</span></td><td>array[string]</td><td>description</td></tr>
 <tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string</td><td>description</td></tr>
-<tr><td><span style="font-weight:bold;">tissue_type</span></td><td>string</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">tissueType</span></td><td>string</td><td>description</td></tr>
 </table>
 
 
@@ -413,7 +413,7 @@ Get a Metabolomics data matrix by MetabolomicsProtocolDbId
                     "0.5473"
                 ],
                 "sampleDbId": "e3675c4a",
-                "tissue_type": "root"
+                "tissueType": "root"
             }
         ]
     }
@@ -450,13 +450,16 @@ Get a filtered list of NIRS Protocols
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies the NIRS Matrix</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">deviceType</span></td><td>string</td><td>description</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">deviceFrequencyNumber</span></td><td>integer</td><td>Total number of wavelengths measured in each scan of the device</td></tr>
+<tr><td><span style="font-weight:bold;">deviceType</span></td><td>string</td><td>Spectrometer device name</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>Link to detailed Standard Operating Procedure (SOP) for protocol</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td><span style="font-weight:bold;">header_column_names</span></td><td>array[integer]</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">frequencies</span></td><td>array[integer]</td><td>Wavelength in nanometers</td></tr>
+<tr><td><span style="font-weight:bold;">protocolDescription</span></td><td>string</td><td>Human-readable text describing the protocol in more detail</td></tr>
+<tr><td><span style="font-weight:bold;">protocolTitle</span></td><td>string</td><td>Human-readable string summarizing the protocol</td></tr>
 </table>
 
 
@@ -499,6 +502,7 @@ Get a filtered list of NIRS Protocols
         "data": [
             {
                 "additionalInfo": {},
+                "deviceFrequencyNumber": 200,
                 "deviceType": "SCIO",
                 "documentationURL": "https://wiki.brapi.org",
                 "externalReferences": [
@@ -511,13 +515,15 @@ Get a filtered list of NIRS Protocols
                         "referenceSource": "Remote Data Collection Upload Tool"
                     }
                 ],
-                "header_column_names": [
+                "frequencies": [
                     740,
                     742,
                     744,
                     746
                 ],
-                "protocolDbId": "f60f15b2"
+                "protocolDbId": "f60f15b2",
+                "protocolDescription": "Details on sample preparation, calibration, & model used",
+                "protocolTitle": "Foss DS3 NIRS protocol for ground butter beans"
             }
         ]
     }
@@ -554,13 +560,16 @@ Get a single NIRS Protocol by Id. This can be used to quickly get the details of
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies the NIRS Matrix</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">deviceType</span></td><td>string</td><td>description</td></tr>
-<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">deviceFrequencyNumber</span></td><td>integer</td><td>Total number of wavelengths measured in each scan of the device</td></tr>
+<tr><td><span style="font-weight:bold;">deviceType</span></td><td>string</td><td>Spectrometer device name</td></tr>
+<tr><td><span style="font-weight:bold;">documentationURL</span></td><td>string<br>(uri)</td><td>Link to detailed Standard Operating Procedure (SOP) for protocol</td></tr>
 <tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
 <tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
-<tr><td><span style="font-weight:bold;">header_column_names</span></td><td>array[integer]</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">frequencies</span></td><td>array[integer]</td><td>Wavelength in nanometers</td></tr>
+<tr><td><span style="font-weight:bold;">protocolDescription</span></td><td>string</td><td>Human-readable text describing the protocol in more detail</td></tr>
+<tr><td><span style="font-weight:bold;">protocolTitle</span></td><td>string</td><td>Human-readable string summarizing the protocol</td></tr>
 </table>
 
 
@@ -596,6 +605,7 @@ Get a single NIRS Protocol by Id. This can be used to quickly get the details of
     },
     "result": {
         "additionalInfo": {},
+        "deviceFrequencyNumber": 200,
         "deviceType": "SCIO",
         "documentationURL": "https://wiki.brapi.org",
         "externalReferences": [
@@ -608,13 +618,15 @@ Get a single NIRS Protocol by Id. This can be used to quickly get the details of
                 "referenceSource": "Remote Data Collection Upload Tool"
             }
         ],
-        "header_column_names": [
+        "frequencies": [
             740,
             742,
             744,
             746
         ],
-        "protocolDbId": "f60f15b2"
+        "protocolDbId": "f60f15b2",
+        "protocolDescription": "Details on sample preparation, calibration, & model used",
+        "protocolTitle": "Foss DS3 NIRS protocol for ground butter beans"
     }
 }
 ```
@@ -647,14 +659,19 @@ Get a NIRS data matrix by NIRSProtocolDbId
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
-<tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
-<tr><td><span style="font-weight:bold;">observationTimeStamp</span></td><td>string<br>(date-time)</td><td>The date and time when this observation was made</td></tr>
-<tr><td><span style="font-weight:bold;">observationUnitDbId</span></td><td>string</td><td>description</td></tr>
-<tr><td><span style="font-weight:bold;">observationUnitName</span></td><td>string</td><td>description</td></tr>
-<tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string</td><td>description</td></tr>
-<tr><td><span style="font-weight:bold;">row</span></td><td>array[string]</td><td>description</td></tr>
-<tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string</td><td>description</td></tr>
-<tr><td><span style="font-weight:bold;">tissue_type</span></td><td>string</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">data</span></td><td>array[object]<br><span style="font-size: smaller; color: red;">(Required)</span></td><td></td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>Additional arbitrary info</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.observationTimeStamp</span></td><td>string<br>(date-time)</td><td>The date and time when this observation was made</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.observationUnitDbId</span></td><td>string</td><td>description</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.observationUnitName</span></td><td>string</td><td>description</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.protocolDbId</span></td><td>string</td><td>description</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.row</span></td><td>array[string]</td><td>description</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.sampleDbId</span></td><td>string</td><td>description</td></tr>
+<tr><td>data<br><span style="font-weight:bold;margin-left:5px">.tissueType</span></td><td>string</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">instance</span></td><td>object</td><td></td></tr>
+<tr><td>instance<br><span style="font-weight:bold;margin-left:5px">.deviceSerialNumber</span></td><td>string</td><td>Serial number of the spectrometer device</td></tr>
+<tr><td>instance<br><span style="font-weight:bold;margin-left:5px">.instanceId</span></td><td>string</td><td>Relates data matrix to a specific instance</td></tr>
+<tr><td>instance<br><span style="font-weight:bold;margin-left:5px">.uploadTimestamp</span></td><td>date-time</td><td>Timestamp for initial upload of spectral data matrix into database</td></tr>
 </table>
 
 
@@ -705,9 +722,14 @@ Get a NIRS data matrix by NIRSProtocolDbId
                     "0.5473"
                 ],
                 "sampleDbId": "e3675c4a",
-                "tissue_type": "root"
+                "tissueType": "root"
             }
-        ]
+        ],
+        "instance": {
+            "deviceSerialNumber": "ABC1234567",
+            "instanceId": "abc123",
+            "uploadTimestamp": "2024-01-03 03:04:05"
+        }
     }
 }
 ```
@@ -1066,7 +1088,7 @@ Get a Transcriptomics data matrix by TranscriptomicsProtocolDbId
 <tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string</td><td>description</td></tr>
 <tr><td><span style="font-weight:bold;">row</span></td><td>array[string]</td><td>description</td></tr>
 <tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string</td><td>description</td></tr>
-<tr><td><span style="font-weight:bold;">tissue_type</span></td><td>string</td><td>description</td></tr>
+<tr><td><span style="font-weight:bold;">tissueType</span></td><td>string</td><td>description</td></tr>
 </table>
 
 
@@ -1117,7 +1139,7 @@ Get a Transcriptomics data matrix by TranscriptomicsProtocolDbId
                     "0.5473"
                 ],
                 "sampleDbId": "e3675c4a",
-                "tissue_type": "root"
+                "tissueType": "root"
             }
         ]
     }
