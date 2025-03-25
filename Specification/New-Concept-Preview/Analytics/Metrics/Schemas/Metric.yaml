@@ -1,0 +1,76 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    Metric:
+      type: object
+      properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.  
+          type: object
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+        procedureDbId:
+          description: The unique identifier for a procedure 
+          type: string
+          example: a3b45b23
+        procedureName:
+          description: The human readable identifier for a procedure
+          type: string
+          example: REMOTE-GWAS
+        jobDbId:
+          description: The unique identifier of a Job
+          type: string
+          example: a55efb9c
+        jobName:
+          description: The human readable name of a running job
+          type: string
+          example: Bob Robertson First GWAS
+        studyDbId:
+          description: The unique identifier of a Study
+          type: string
+          example: 9a5c5efb
+        studyName:
+          description: The human readable name of a Study
+          type: string
+          example: BrAPI Wheat - NY 2023
+        variableDbId:
+          description: The unique identifier of a Variable
+          type: string
+          example: b95efca5
+        variableName:
+          description: The human readable name of a Variable
+          type: string
+          example: Plant_Height_cm
+        parameterName:
+          description: The human readable name of a procedure parameter
+          type: string
+          example: plotH2_designation
+        methodDescription:
+          description: The analysis method used
+          type: string
+          example: vg/(vg+ve)-designation
+        value:
+          description: The value of the metric
+          type: string
+          example: "0.6637"
+        stdError:
+          description: The standard error of the metric value
+          type: string
+          example: "0.0034"
+        metricDbId:
+          description: The unique identifier of a Metric
+          type: string
+          example: 5ceb9fa5
+
+
+          
+
+
+          
+

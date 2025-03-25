@@ -23,6 +23,10 @@ components:
           description: The human readable identifier for a procedure
           type: string
           example: REMOTE-GWAS
+        version:
+          description: A version number or identifier for a procedure 
+          type: string
+          example: v2.3
         description:
           description: The human readable description of a running job.
           type: string
