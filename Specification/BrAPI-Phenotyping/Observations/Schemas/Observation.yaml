@@ -12,8 +12,8 @@ components:
         x-brapi-metadata:
           primaryModel: true
           module: BrAPI-Phenotyping
-          title: Observation
-          description: A value assigned for a specific ObservationVariable when observing a specific ObservationUnit. 
+        title: Observation
+        description: A value assigned for a specific ObservationVariable when observing a specific ObservationUnit.
         required:
         - observationDbId
         properties:

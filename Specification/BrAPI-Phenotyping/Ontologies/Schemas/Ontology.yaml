@@ -12,8 +12,8 @@ components:
         x-brapi-metadata:
           primaryModel: true
           module: BrAPI-Phenotyping
-          title: Ontology
-          description: The identifier and metadata needed to reference an external controlled vocabulary 
+        title: Ontology
+        description: The identifier and metadata needed to reference an external controlled vocabulary
         required:
         - ontologyDbId
         properties:
