@@ -83,7 +83,7 @@ def readFileToDict(path):
 	fileObj = {}	
 	with open(path, "r") as stream:
 		try:
-			fileObj = yaml.load(stream)
+			fileObj = yaml.safe_load(stream)
 			stream.close()
 		except yaml.YAMLError as exc:
 			print(exc)
