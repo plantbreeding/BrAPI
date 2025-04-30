@@ -12,7 +12,7 @@ components:
         x-brapi-metadata:
           primaryModel: true
           module: BrAPI-Phenotyping
-          title: Method
+        title: Method
         required:
         - methodDbId
         properties:
