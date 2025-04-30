@@ -1,0 +1,487 @@
+{
+    "$defs": {
+        "Study": {
+            "properties": {
+                "active": {
+                    "description": "A flag to indicate if a Study is currently active and ongoing",
+                    "type": [
+                        "null",
+                        "boolean"
+                    ]
+                },
+                "additionalInfo": {
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
+                },
+                "commonCropName": {
+                    "description": "Common name for the crop associated with this study",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "contacts": {
+                    "description": "List of contact entities associated with this study",
+                    "relationshipType": "many-to-many",
+                    "items": {
+                        "$ref": "Contact.json#/$defs/Contact"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "culturalPractices": {
+                    "description": "MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "dataLinks": {
+                    "description": "List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.",
+                    "items": {
+                        "$ref": "DataLink.json#/$defs/DataLink"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "documentationURL": {
+                    "description": "A URL to the human readable documentation of an object",
+                    "format": "uri",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "endDate": {
+                    "description": "The date the study ends\n\nMIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended",
+                    "format": "date-time",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "environmentParameters": {
+                    "description": "Environmental parameters that were kept constant throughout the study and did not change between observation units.\n\nMIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "study",
+                    "items": {
+                        "$ref": "../BrAPI-Core/Study.json#/$defs/EnvironmentParameters",
+                        "description": "EnvironmentParameters"
+                    },
+                    "title": "EnvironmentParameters",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "experimentalDesign": {
+                    "description": "The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology",
+                    "relationshipType": "one-to-one",
+                    "referencedAttribute": "study",
+                    "$ref": "../BrAPI-Core/Study.json#/$defs/ExperimentalDesign"
+                },
+                "externalReferences": {
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
+                        "description": "ExternalReferences"
+                    },
+                    "title": "ExternalReferences",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "growthFacility": {
+                    "description": "Short description of the facility in which the study was carried out.",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "study",
+					"$ref": "../BrAPI-Core/Study.json#/$defs/GrowthFacility"
+                },
+                "lastUpdate": {
+                    "description": "The date and time when this study was last modified",
+                    "relationshipType": "one-to-one",
+                    "referencedAttribute": "study",
+                    "$ref": "../BrAPI-Core/Study.json#/$defs/LastUpdate"
+                },
+                "license": {
+                    "description": "The usage license associated with the study data",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "location": {
+                    "$ref": "Location.json#/$defs/Location",
+                    "description": "The unique identifier for a Location",
+                    "referencedAttribute": "studies",
+                    "relationshipType": "many-to-one"
+                },
+                "observationLevels": {
+                    "description": "Observation levels indicate the granularity level at which the measurements are taken. `levelName` \ndefines the level, `levelOrder` defines where that level exists in the hierarchy of levels. \n`levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are \nat the bottom of the hierarchy (ie plant > 6). \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Common/ObservationUnitHierarchyLevel.json#/$defs/ObservationUnitHierarchyLevel",
+                        "description": "ObservationLevels"
+                    },
+                    "title": "ObservationLevels",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "observationUnitsDescription": {
+                    "description": "MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "observationVariables": {
+                    "description": "The list of Observation Variables being used in this study. \n\nThis list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. ",
+                    "items": {
+                        "$ref": "../BrAPI-Phenotyping/ObservationVariable.json#/$defs/ObservationVariable"
+                    },
+                    "referencedAttribute": "studies",
+                    "relationshipType": "many-to-many",
+                    "type": "array"
+                },
+                "seasons": {
+                    "description": "List of seasons over which this study was performed.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "startDate": {
+                    "description": "The date this study started\n\nMIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started",
+                    "format": "date-time",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "studyCode": {
+                    "description": "A short human readable code for a study",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "studyDbId": {
+                    "description": "The ID which uniquely identifies a study within the given database server\n\nMIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.",
+                    "type": "string"
+                },
+                "studyDescription": {
+                    "description": "The description of this study\n\nMIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "studyName": {
+                    "description": "The human readable name for a study\n\nMIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study",
+                    "type": "string"
+                },
+                "studyPUI": {
+                    "description": "A permanent unique identifier associated with this study data. For example, a URI or DOI",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "studyType": {
+                    "description": "The type of study being performed. ex. \"Yield Trial\", etc",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "trial": {
+                    "$ref": "Trial.json#/$defs/Trial",
+                    "description": "The ID which uniquely identifies a trial",
+                    "referencedAttribute": "studies",
+                    "relationshipType": "many-to-one"
+                },
+                "callSets": {
+                    "title": "CallSets",
+                    "description": "",
+                    "referencedAttribute": "study",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Genotyping/CallSet.json#/$defs/CallSet",
+                        "description": "CallSet"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "plates": {
+                    "title": "plates",
+                    "description": "plates",
+                    "referencedAttribute": "study",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Genotyping/Plate.json#/$defs/Plate",
+                        "description": "Plate"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "samples": {
+                    "title": "samples",
+                    "description": "samples",
+                    "referencedAttribute": "study",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Genotyping/Sample.json#/$defs/Sample",
+                        "description": "Sample"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "variantSets": {
+                    "title": "variantSets",
+                    "description": "variantSets",
+                    "referencedAttribute": "study",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Genotyping/VariantSet.json#/$defs/VariantSet",
+                        "description": "VariantSet"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "events": {
+                    "title": "events",
+                    "description": "events",
+                    "referencedAttribute": "study",
+                    "relationshipType": "many-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Phenotyping/Event.json#/$defs/Event",
+                        "description": "Event"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "observations": {
+                    "title": "observations",
+                    "description": "observations",
+                    "referencedAttribute": "study",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Phenotyping/Observation.json#/$defs/Observation",
+                        "description": "Observation"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "observationUnits": {
+                    "title": "observationUnits",
+                    "description": "observationUnits",
+                    "referencedAttribute": "study",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnit",
+                        "description": "ObservationUnit"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "studyName",
+                "studyDbId"
+            ],
+            "title": "Study",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": true
+            }
+        },
+        "EnvironmentParameters": {
+            "properties": {
+                "description": {
+                    "description": "Human-readable value of the environment parameter (defined above) constant within the experiment",
+                    "type": "string"
+                },
+                "environmentParametersDbId": {
+                    "description": "Human-readable value of the environment parameter (defined above) constant within the experiment",
+                    "type": "string"
+                },
+                "parameterName": {
+                    "description": "Name of the environment parameter constant within the experiment\n\nMIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. ",
+                    "type": "string"
+                },
+                "parameterPUI": {
+                    "description": "URI pointing to an ontology class for the parameter",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "unit": {
+                    "description": "Unit of the value for this parameter",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "unitPUI": {
+                    "description": "URI pointing to an ontology class for the unit",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "value": {
+                    "description": "Numerical or categorical value\n\nMIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "valuePUI": {
+                    "description": "URI pointing to an ontology class for the parameter value",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "study": {
+                    "description": "Environment parameters associated with a study",
+                    "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "environmentParameters"
+                }
+            },
+            "required": [
+                "environmentParametersDbId",
+                "parameterName",
+                "description"
+            ],
+            "title": "EnvironmentParameters",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+        },
+        "ExperimentalDesign": {
+            "properties": {
+                "PUI": {
+                    "description": "MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "description": {
+                    "description": "MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be \"unknown\"/\"NA\", \"aggregated/reduced data\", or simply 'none'.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "study": {
+                    "description": "Experimental design associated with a study",
+                    "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "experimentalDesign"
+                }
+            },
+            "title": "ExperimentalDesign",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+        },
+        "GrowthFacility": {
+            "properties": {
+                "PUI": {
+                    "description": "MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "description": {
+                    "description": "MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "study": {
+                    "description": "Growth facility associated with a study",
+                    "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "growthFacility"
+                }
+            },
+            "title": "GrowthFacility",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+        },
+        "LastUpdate": {
+            "properties": {
+                "lastUpdateDbId": {
+                    "description": "The date and time when this study was last modified",
+                    "type": "string"
+                },
+                "timestamp": {
+                    "format": "date-time",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "version": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "study": {
+                    "description": "Last update associated with a study",
+                    "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "lastUpdate"
+                }
+            },
+            "required": [
+                "lastUpdateDbId"
+            ],
+            "title": "LastUpdate",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/Study.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

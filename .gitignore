@@ -2,7 +2,9 @@
 .pydevproject
 .DS_Store
 .settings/
+.idea
 .vscode/
+.idea
 
 /_temp
 brapi_blueprint.apib
@@ -10,3 +12,5 @@ brapi_openapi.yaml
 out.yaml
 Scripts/__pycache__/
 brapi_blueprint.apib.json
+/generator/.gradle/
+/generator/build

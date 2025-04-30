@@ -1,0 +1,47 @@
+{
+    "$defs": {
+        "ObservationVariableParameters": {
+            "type": "object",
+            "properties": {
+                "observationVariableDbIds": {
+                    "description": "The DbIds of Variables to search for",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "example": [
+                        "a646187d",
+                        "6d23513b"
+                    ]
+                },
+                "observationVariableNames": {
+                    "description": "The names of Variables to search for",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "example": [
+                        "Plant Height in meters",
+                        "Wheat rust score 1-5"
+                    ]
+                },
+                "observationVariablePUIs": {
+                    "description": "The Permanent Unique Identifier of an Observation Variable, usually in the form of a URI",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "example": [
+                        "http://my-traits.com/trait/CO_123:0008012",
+                        "http://my-traits.com/trait/CO_123:0007261"
+                    ]
+                }
+            },
+            "brapi-metadata": {
+                "parameters": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/Parameters/ObservationVariableParameters.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

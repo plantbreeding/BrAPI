@@ -1,0 +1,196 @@
+{
+    "$defs": {
+        "SeedLot": {
+            "properties": {
+                "additionalInfo": {
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
+                },
+                "amount": {
+                    "description": "The current balance of the amount of material in a SeedLot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).",
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "contentMixture": {
+                    "description": "The mixture of germplasm present in the seed lot.\n<br/>\nIf this seed lot only contains a single germplasm, the response should contain the name \nand DbId of that germplasm with a mixturePercentage value of 100\n<br/>\nIf the seed lot contains a mixture of different germplasm, the response should contain \nthe name and DbId every germplasm present. The mixturePercentage field should contain \nthe ratio of each germplasm in the total mixture. All of the mixturePercentage values \nin this array should sum to equal 100.",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "seedLot",
+                    "items": {
+                        "$ref": "../BrAPI-Germplasm/SeedLot.json#/$defs/ContentMixture",
+                        "description": "ContentMixture"
+                    },
+                    "title": "ContentMixture",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "createdDate": {
+                    "description": "The time stamp for when this seed lot was created",
+                    "format": "date-time",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "externalReferences": {
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
+                        "description": "ExternalReferences"
+                    },
+                    "title": "ExternalReferences",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "lastUpdated": {
+                    "description": "The timestamp for the last update to this Seed Lot (including transactions)",
+                    "format": "date-time",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "location": {
+                    "$ref": "../BrAPI-Core/Location.json#/$defs/Location",
+                    "description": "The unique identifier for a Location",
+                    "referencedAttribute": "seedLots",
+                    "relationshipType": "many-to-one"
+                },
+                "program": {
+                    "$ref": "../BrAPI-Core/Program.json#/$defs/Program",
+                    "description": "The unique DbId of the breeding program this Seed Lot belongs to",
+                    "referencedAttribute": "seedLots",
+                    "relationshipType": "many-to-one"
+                },
+                "seedLotDbId": {
+                    "description": "Unique DbId for the Seed Lot",
+                    "type": "string"
+                },
+                "seedLotDescription": {
+                    "description": "A general description of this Seed Lot",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "seedLotName": {
+                    "description": "A human readable name for this Seed Lot",
+                    "type": "string"
+                },
+                "sourceCollection": {
+                    "description": "The description of the source where this material was originally collected (wild, nursery, etc)",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "storageLocation": {
+                    "description": "Description the storage location",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "units": {
+                    "description": "A description of the things being counted in a SeedLot (seeds, bulbs, kg, tree, etc)",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "fromSeedLotTransactions": {
+                    "title": "fromSeedLotTransactions",
+                    "description": "fromSeedLotTransactions",
+                    "referencedAttribute": "fromSeedLot",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "SeedLotTransaction.json#/$defs/SeedLotTransaction",
+                        "description": "SeedLotTransaction"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "toSeedLotTransactions": {
+                    "title": "toSeedLotTransactions",
+                    "description": "toSeedLotTransactions",
+                    "referencedAttribute": "toSeedLot",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "SeedLotTransaction.json#/$defs/SeedLotTransaction",
+                        "description": "SeedLotTransaction"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "observationUnits": {
+                    "title": "observationUnits",
+                    "description": "observationUnits",
+                    "referencedAttribute": "seedLot",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnit",
+                        "description": "ObservationUnit"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "seedLotDbId",
+                "seedLotName"
+            ],
+            "title": "SeedLot",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": true
+            }
+        },
+        "ContentMixture": {
+            "properties": {
+                "cross": {
+                    "$ref": "Cross.json#/$defs/Cross",
+                    "description": "The cross for the germplasm using in this content mixture",
+                    "relationshipType": "many-to-one"
+                },
+                "germplasm": {
+                    "$ref": "Germplasm.json#/$defs/Germplasm",
+                    "description": "The germplasm using in this content mixture",
+                    "relationshipType": "many-to-one"
+                },
+                "mixturePercentage": {
+                    "description": "The percentage of the given germplasm in the seed lot mixture.",
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "seedLot": {
+                    "description": "associated seedLot",
+                    "$ref": "../BrAPI-Germplasm/SeedLot.json#/$defs/SeedLot",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "contentMixture"
+                }
+            },
+            "title": "ContentMixture",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/SeedLot.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

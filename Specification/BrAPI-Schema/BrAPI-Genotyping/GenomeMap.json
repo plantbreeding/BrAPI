@@ -1,0 +1,119 @@
+{
+    "$defs": {
+        "GenomeMap": {
+            "properties": {
+                "additionalInfo": {
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "relationshipType": "one-to-one",
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
+                },
+                "markerPositions": {
+                    "title": "markerPositions",
+                    "description": "markerPositions",
+                    "referencedAttribute": "map",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "MarkerPosition.json#/$defs/MarkerPosition",
+                        "description": "MarkerPosition"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "comments": {
+                    "description": "Additional comments about a `GenomeMap`",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "commonCropName": {
+                    "description": "The common name of the `Crop`",
+                    "type": "string"
+                },
+                "documentationURL": {
+                    "description": "A URL to the human readable documentation of an object",
+                    "format": "uri",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "linkageGroupCount": {
+                    "description": "The number of linkage groups present in a `GenomeMap`",
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "mapDbId": {
+                    "description": "The unique identifier for a `GenomeMap`",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "mapName": {
+                    "description": "The human readable identifier for a `GenomeMap`",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "mapPUI": {
+                    "description": "The DOI or other permanent identifier for a `GenomeMap`",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "markerCount": {
+                    "description": "The number of markers present in a `GenomeMap`",
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "publishedDate": {
+                    "description": "The date this `GenomeMap` was published",
+                    "format": "date-time",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "scientificName": {
+                    "description": "Full scientific binomial format name. This includes Genus, Species, and Sub-species",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "type": {
+                    "description": "The type of map this represents, usually \"Genetic\" or \"Physical\"",
+                    "type": "string"
+                },
+                "unit": {
+                    "description": "The units used to describe the data in a `GenomeMap`",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
+            },
+            "required": [
+                "mapDbId",
+                "commonCropName",
+                "type"
+            ],
+            "title": "GenomeMap",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/GenomeMap.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

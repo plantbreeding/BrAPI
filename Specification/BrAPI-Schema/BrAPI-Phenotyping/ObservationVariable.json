@@ -1,0 +1,68 @@
+{
+    "$defs": {
+        "ObservationVariable": {
+            "allOf": [
+                {
+                    "$ref": "../BrAPI-Common/Variable.json#/$defs/Variable"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "observationVariableDbId": {
+                            "description": "Variable unique identifier\n\nMIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.",
+                            "type": "string"
+                        },
+                        "observationVariableName": {
+                            "description": "Variable name (usually a short name)\n\nMIAPPE V1.1 (DM-84) Variable name - Name of the variable.",
+                            "type": "string"
+                        },
+                        "observationVariablePUI": {
+                            "description": "The Permanent Unique Identifier of a Observation Variable, usually in the form of a URI",
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "studies": {
+                            "title": "Studies",
+                            "description": "",
+                            "referencedAttribute": "observationVariables",
+                            "relationshipType": "many-to-many",
+                            "items": {
+                                "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
+                                "description": "Study"
+                            },
+                            "type": [
+                                "null",
+                                "array"
+                            ]
+                        },
+                        "observations": {
+                            "title": "observations",
+                            "description": "observations",
+                            "referencedAttribute": "observationVariable",
+                            "relationshipType": "one-to-many",
+                            "items": {
+                                "$ref": "Observation.json#/$defs/Observation",
+                                "description": "Observation"
+                            },
+                            "type": [
+                                "null",
+                                "array"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "observationVariableName",
+                        "observationVariableDbId"
+                    ]
+                }
+            ],
+            "brapi-metadata": {
+                "primaryModel": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/ObservationVariable.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

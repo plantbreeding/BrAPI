@@ -1,0 +1,57 @@
+{
+    "$defs": {
+        "Contact": {
+            "properties": {
+                "contactDbId": {
+                    "description": "The ID which uniquely identifies this contact\n\nMIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "The contacts email address\n\nMIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "instituteName": {
+                    "description": "The name of the institution which this contact is part of\n\nMIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "name": {
+                    "description": "The full name of this contact person\n\nMIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "orcid": {
+                    "description": "The Open Researcher and Contributor ID for this contact person (orcid.org)\n\nMIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "type": {
+                    "description": "The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)\n\nMIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
+            },
+            "required": [
+                "contactDbId"
+            ],
+            "type": "object",
+            "title": "Contact",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/Contact.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

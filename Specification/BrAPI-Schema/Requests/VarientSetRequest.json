@@ -1,0 +1,85 @@
+{
+    "$defs": {
+        "VariantSetRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
+                },
+                {
+                    "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
+                },
+                {
+                    "$ref": "Parameters/StudyParameters.json#/$defs/StudyParameters"
+                },
+                {
+                    "$ref": "Parameters/TrialParameters.json#/$defs/TrialParameters"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "callSetDbIds": {
+                            "description": "The unique identifier representing a CallSet",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "9569cfc4",
+                                "da1e888c"
+                            ]
+                        },
+                        "variantDbIds": {
+                            "description": "The unique identifier representing a Variant",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "c80f068b",
+                                "eb7c5f50"
+                            ]
+                        },
+                        "variantSetDbIds": {
+                            "description": "The unique identifier representing a VariantSet",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "b2903842",
+                                "dcbb8558"
+                            ]
+                        },
+                        "referenceDbIds": {
+                            "description": "The unique identifier representing a genotype Reference",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "89ab4d17",
+                                "74d3b63d"
+                            ]
+                        },
+                        "referenceSetDbIds": {
+                            "description": "The unique identifier representing a genotype ReferenceSet",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "d3b63d4d",
+                                "3b63d74b"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/VariantSetRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

@@ -1,0 +1,124 @@
+{
+    "$defs": {
+        "Person": {
+            "properties": {
+                "additionalInfo": {
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
+                },
+                "description": {
+                    "description": "description of this person",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "emailAddress": {
+                    "description": "email address for this person",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "externalReferences": {
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
+                        "description": "ExternalReferences"
+                    },
+                    "title": "ExternalReferences",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "firstName": {
+                    "description": "Persons first name",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "lastName": {
+                    "description": "Persons last name",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "mailingAddress": {
+                    "description": "physical address of this person",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "middleName": {
+                    "description": "Persons middle name",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "personDbId": {
+                    "description": "Unique ID for a person",
+                    "type": "string"
+                },
+                "phoneNumber": {
+                    "description": "phone number of this person",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "userID": {
+                    "description": "A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "lists": {
+                    "title": "Lists",
+                    "description": "",
+                    "referencedAttribute": "listOwnerPerson",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "List.json#/$defs/List",
+                        "description": "List"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "programs": {
+                    "title": "Programs",
+                    "description": "",
+                    "referencedAttribute": "leadPerson",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Program.json#/$defs/Program",
+                        "description": "Program"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "personDbId"
+            ],
+            "title": "Person",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/Person.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

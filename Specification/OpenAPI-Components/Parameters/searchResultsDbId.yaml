@@ -1,0 +1,15 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  parameters:
+    searchResultsDbId:
+      description: Unique identifier which references the search results
+      in: path
+      name: searchResultsDbId
+      required: true
+      schema:
+        type: string
+

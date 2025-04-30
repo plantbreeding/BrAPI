@@ -1,0 +1,93 @@
+{
+    "$defs": {
+        "PlannedCross": {
+            "properties": {
+                "additionalInfo": {
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
+                },
+                "crossType": {
+                    "description": "the type of cross",
+                    "$ref": "CrossType.json#/$defs/CrossType"
+                },
+                "crossingProject": {
+                    "$ref": "CrossingProject.json#/$defs/CrossingProject",
+                    "description": "the unique identifier for a crossing project",
+                    "referencedAttribute": "plannedCrosses",
+                    "relationshipType": "many-to-one"
+                },
+                "externalReferences": {
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
+                        "description": "ExternalReferences"
+                    },
+                    "title": "ExternalReferences",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "parent1": {
+                    "$ref": "CrossParent.json#/$defs/CrossParent",
+                    "description": "the first parent used in the cross"
+                },
+                "parent2": {
+                    "$ref": "CrossParent.json#/$defs/CrossParent",
+                    "description": "the second parent used in the cross"
+                },
+                "plannedCrossDbId": {
+                    "description": "the unique identifier for a planned cross",
+                    "type": "string"
+                },
+                "plannedCrossName": {
+                    "description": "the human readable name for a planned cross",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "status": {
+                    "description": "The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').",
+                    "enum": [
+                        "TODO",
+                        "DONE",
+                        "SKIPPED",
+                        null
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "title": "PlannedCrossStatus"
+                },
+                "crosses": {
+                    "title": "crosses",
+                    "description": "crosses",
+                    "referencedAttribute": "plannedCross",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Cross.json#/$defs/Cross",
+                        "description": "Cross"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "plannedCrossDbId"
+            ],
+            "title": "PlannedCross",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/PlannedCross.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

@@ -1,0 +1,88 @@
+{
+    "$defs": {
+        "StudyRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
+                },
+                {
+                    "$ref": "Parameters/GermplasmParameters.json#/$defs/GermplasmParameters"
+                },
+                {
+                    "$ref": "Parameters/LocationParameters.json#/$defs/LocationParameters"
+                },
+                {
+                    "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
+                },
+                {
+                    "$ref": "Parameters/StudyParameters.json#/$defs/StudyParameters"
+                },
+                {
+                    "$ref": "Parameters/TrialParameters.json#/$defs/TrialParameters"
+                },
+                {
+                    "$ref": "Parameters/ObservationVariableParameters.json#/$defs/ObservationVariableParameters"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "active": {
+                            "description": "A flag to indicate if a Study is currently active and ongoing",
+                            "type": "boolean",
+                            "example": true
+                        },
+                        "seasonDbIds": {
+                            "description": "The ID which uniquely identifies a season",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "Harvest Two 2017",
+                                "Summer 2018"
+                            ]
+                        },
+                        "studyTypes": {
+                            "description": "The type of study being performed. ex. \"Yield Trial\", etc",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "Yield Trial",
+                                "Disease Resistance Trial"
+                            ]
+                        },
+                        "studyCodes": {
+                            "description": "A short human readable code for a study",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "Grape_Yield_Spring_2018",
+                                "Walnut_Kenya"
+                            ]
+                        },
+                        "studyPUIs": {
+                            "description": "Permanent unique identifier associated with study data. For example, a URI or DOI",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "doi:10.155454/12349537312",
+                                "https://pui.per/d8dd35e1"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/StudyRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

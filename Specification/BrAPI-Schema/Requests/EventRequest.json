@@ -1,0 +1,60 @@
+{
+    "$defs": {
+        "EventRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/StudyParameters.json#/$defs/StudyParameters"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "observationUnitDbIds": {
+                            "description": "The ID which uniquely identifies an observation unit.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "3cd0ca36",
+                                "983f3b14"
+                            ]
+                        },
+                        "eventDbIds": {
+                            "description": "Filter based on an Event DbId.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "bba0b258",
+                                "ff97d4f0"
+                            ]
+                        },
+                        "eventTypes": {
+                            "description": "Filter based on an Event Type",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "dateRangeStart": {
+                            "description": "Filter based on an Event start date.",
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "dateRangeEnd": {
+                            "description": "Filter based on an Event start date.",
+                            "format": "date-time",
+                            "type": "string"
+                        }
+                    }
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/EventRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

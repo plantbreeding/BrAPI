@@ -1,0 +1,116 @@
+{
+    "$defs": {
+        "ObservationRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
+                },
+                {
+                    "$ref": "Parameters/GermplasmParameters.json#/$defs/GermplasmParameters"
+                },
+                {
+                    "$ref": "Parameters/LocationParameters.json#/$defs/LocationParameters"
+                },
+                {
+                    "$ref": "Parameters/ObservationVariableParameters.json#/$defs/ObservationVariableParameters"
+                },
+                {
+                    "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
+                },
+                {
+                    "$ref": "Parameters/StudyParameters.json#/$defs/StudyParameters"
+                },
+                {
+                    "$ref": "Parameters/TrialParameters.json#/$defs/TrialParameters"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "observationDbIds": {
+                            "description": "The unique id of an Observation",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "6a4a59d8",
+                                "3ff067e0"
+                            ]
+                        },
+                        "observationUnitDbIds": {
+                            "description": "The unique id of an Observation Unit",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "76f559b5",
+                                "066bc5d3"
+                            ]
+                        },
+                        "observationLevels": {
+                            "description": "Searches for values in ObservationUnit->observationUnitPosition->observationLevel",
+                            "type": "array",
+                            "items": {
+                                "$ref": "../BrAPI-Phenotyping/ObservationUnitLevel.json#/$defs/ObservationUnitLevel"
+                            },
+                            "example": [
+                                {
+                                    "levelName": "plot",
+                                    "levelCode": "Plot_123"
+                                },
+                                {
+                                    "levelName": "plot",
+                                    "levelCode": "Plot_456"
+                                },
+                                {
+                                    "levelName": "plot",
+                                    "levelCode": "Plot_789"
+                                }
+                            ]
+                        },
+                        "observationLevelRelationships": {
+                            "description": "Searches for values in ObservationUnit->observationUnitPosition->observationLevelRelationships",
+                            "type": "array",
+                            "items": {
+                                "$ref": "../BrAPI-Phenotyping/ObservationUnitLevelRelationship.json#/$defs/ObservationUnitLevelRelationship"
+                            },
+                            "example": [
+                                {
+                                    "levelName": "field",
+                                    "levelCode": "Field_1"
+                                }
+                            ]
+                        },
+                        "observationTimeStampRangeEnd": {
+                            "description": "Timestamp range end",
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "observationTimeStampRangeStart": {
+                            "description": "Timestamp range start",
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "seasonDbIds": {
+                            "description": "The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "Spring 2018",
+                                "Season A"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/ObservationRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

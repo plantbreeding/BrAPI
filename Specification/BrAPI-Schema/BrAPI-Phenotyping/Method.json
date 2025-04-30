@@ -1,0 +1,87 @@
+{
+    "$defs": {
+        "Method": {
+            "properties": {
+                "additionalInfo": {
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
+                },
+                "bibliographicalReference": {
+                    "description": "Bibliographical reference describing the method.\n<br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "description": {
+                    "description": "Method description\n<br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "externalReferences": {
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
+                        "description": "ExternalReferences"
+                    },
+                    "title": "ExternalReferences",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "formula": {
+                    "description": "For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "methodClass": {
+                    "description": "Method class (examples: \"Measurement\", \"Counting\", \"Estimation\", \"Computation\", etc.)",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "methodDbId": {
+                    "description": "Method unique identifier",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "methodName": {
+                    "description": "Human readable name for the method\n<br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation",
+                    "type": "string"
+                },
+                "methodPUI": {
+                    "description": "The Permanent Unique Identifier of a Method, usually in the form of a URI",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "ontologyReference": {
+                    "description": "MIAPPE V1.1\n\n(DM-85) Variable accession number - Accession number of the variable in the Crop Ontology\n\n(DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).",
+                    "relationshipType": "one-to-one",
+                    "$ref": "../BrAPI-Phenotyping/OntologyReference.json#/$defs/OntologyReference"
+                }
+            },
+            "required": [
+                "methodName"
+            ],
+            "title": "Method",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/Method.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

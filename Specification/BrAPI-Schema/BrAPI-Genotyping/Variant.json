@@ -1,0 +1,215 @@
+{
+    "$defs": {
+        "Variant": {
+            "properties": {
+                "additionalInfo": {
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
+                },
+                "markerPositions": {
+                    "title": "markerPositions",
+                    "description": "markerPositions",
+                    "referencedAttribute": "variant",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "MarkerPosition.json#/$defs/MarkerPosition",
+                        "description": "MarkerPosition"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "alleleMatrices": {
+                    "title": "AlleleMatrices",
+                    "description": "",
+                    "referencedAttribute": "variants",
+                    "relationshipType": "many-to-many",
+                    "items": {
+                        "$ref": "AlleleMatrix.json#/$defs/AlleleMatrix",
+                        "description": "AlleleMatrix"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "calls": {
+                    "title": "Calls",
+                    "description": "",
+                    "referencedAttribute": "variant",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Call.json#/$defs/Call",
+                        "description": "Call"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "analysis": {
+                    "description": "Set of Analysis descriptors for this VariantSet",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "ciend": {
+                    "description": "Similar to \"cipos\", but for the variant's end position (which is derived from start + svlen).",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "cipos": {
+                    "description": "In the case of structural variants, start and end of the variant may not\nbe known with an exact base position. \"cipos\" provides an interval with\nhigh confidence for the start position. The interval is provided by 0 or\n2 signed integers which are added to the start position.\nBased on the use in VCF v4.2",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "created": {
+                    "description": "The timestamp when this variant was created.",
+                    "format": "date-time",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "end": {
+                    "description": "This field is optional and may be ignored if there is no relevant map or reference to be associated with.\n<br>The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated \nby `start + referenceBases.length`.",
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "externalReferences": {
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
+                        "description": "ExternalReferences"
+                    },
+                    "title": "ExternalReferences",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "filtersApplied": {
+                    "description": "True if filters were applied for this variant. VCF column 7 \"FILTER\" any value other than the missing value.",
+                    "type": [
+                        "null",
+                        "boolean"
+                    ]
+                },
+                "filtersFailed": {
+                    "description": "Zero or more filters that failed for this variant. VCF column 7 \"FILTER\" shared across all alleles in the same VCF record.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "filtersPassed": {
+                    "description": "True if all filters for this variant passed. VCF column 7 \"FILTER\" value PASS.",
+                    "type": [
+                        "null",
+                        "boolean"
+                    ]
+                },
+                "reference": {
+                    "$ref": "Reference.json#/$defs/Reference",
+                    "description": "The unique identifier for a Reference",
+                    "referencedAttribute": "variants",
+                    "relationshipType": "many-to-one"
+                },
+                "referenceBases": {
+                    "description": "The reference bases for this variant. They start at the given start position.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "referenceSet": {
+                    "$ref": "ReferenceSet.json#/$defs/ReferenceSet",
+                    "description": "The unique identifier for a ReferenceSet",
+                    "referencedAttribute": "variants",
+                    "relationshipType": "many-to-one"
+                },
+                "start": {
+                    "description": "This field is optional and may be ignored if there is no relevant map or reference to be associated with.\n<br> The start position at which this variant occurs (0-based). This corresponds to the first base of the string \nof reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning \nthe join of circular genomes are represented as two variants one on each side of the join (position 0).",
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "svlen": {
+                    "description": "Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2",
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "updated": {
+                    "description": "The time at which this variant was last updated.",
+                    "format": "date-time",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "variantDbId": {
+                    "description": "The ID which uniquely identifies a `Variant`",
+                    "type": "string"
+                },
+                "variantNames": {
+                    "description": "A human readable name associated with a `Variant`",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "variantSet": {
+                    "$ref": "VariantSet.json#/$defs/VariantSet",
+                    "description": "An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.",
+                    "referencedAttribute": "variants",
+                    "relationshipType": "many-to-one"
+                },
+                "variantType": {
+                    "description": "The \"variant_type\" is used to denote e.g. structural variants.\nExamples:\n  DUP  : duplication of sequence following \"start\"\n  DEL  : deletion of sequence following \"start\"",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
+            },
+            "required": [
+                "variantDbId"
+            ],
+            "title": "Variant",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/Variant.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

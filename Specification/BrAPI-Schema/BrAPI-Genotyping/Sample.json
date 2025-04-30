@@ -1,0 +1,177 @@
+{
+    "$defs": {
+        "Sample": {
+            "properties": {
+                "additionalInfo": {
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
+                },
+                "callSets": {
+                    "title": "CallSets",
+                    "description": "",
+                    "referencedAttribute": "sample",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "CallSet.json#/$defs/CallSet",
+                        "description": "CallSet"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "column": {
+                    "description": "The Column identifier for this `Sample` location in the `Plate`",
+                    "maximum": 12,
+                    "minimum": 1,
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "externalReferences": {
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
+                        "description": "ExternalReferences"
+                    },
+                    "title": "ExternalReferences",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "germplasm": {
+                    "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm",
+                    "description": "The ID which uniquely identifies a `Germplasm`",
+                    "referencedAttribute": "samples",
+                    "relationshipType": "many-to-one"
+                },
+                "observationUnit": {
+                    "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnit",
+                    "description": "The ID which uniquely identifies an `ObservationUnit`",
+                    "referencedAttribute": "samples",
+                    "relationshipType": "many-to-one"
+                },
+                "plate": {
+                    "$ref": "Plate.json#/$defs/Plate",
+                    "description": "The ID which uniquely identifies a `Plate` of `Sample`",
+                    "referencedAttribute": "samples",
+                    "relationshipType": "many-to-one"
+                },
+                "program": {
+                    "$ref": "../BrAPI-Core/Program.json#/$defs/Program",
+                    "description": "The ID which uniquely identifies a `Program` within the given database server",
+                    "referencedAttribute": "samples",
+                    "relationshipType": "many-to-one"
+                },
+                "row": {
+                    "description": "The Row identifier for this `Sample` location in the `Plate`",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "sampleBarcode": {
+                    "description": "A unique identifier physically attached to the `Sample`",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "sampleDescription": {
+                    "description": "Description of a `Sample`\n<br>MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "sampleDbId": {
+                    "description": "The ID which uniquely identifies a `Sample`\n<br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "sampleGroupId": {
+                    "description": "The ID which uniquely identifies a group of `Samples`",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "sampleName": {
+                    "description": "The human readable name of the `Sample`",
+                    "type": "string"
+                },
+                "samplePUI": {
+                    "description": "A permanent unique identifier for the `Sample` (DOI, URL, UUID, etc)\n<br> MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. ",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "sampleTimestamp": {
+                    "description": "The date and time a `Sample` was collected from the field\n<br> MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested",
+                    "format": "date-time",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "sampleType": {
+                    "description": "The type of `Sample` taken. ex. 'DNA', 'RNA', 'Tissue', etc",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "study": {
+                    "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
+                    "description": "The ID which uniquely identifies a `Study` within the given database server",
+                    "referencedAttribute": "samples",
+                    "relationshipType": "many-to-one"
+                },
+                "takenBy": {
+                    "description": "The name or identifier of the entity which took the `Sample` from the field",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "tissueType": {
+                    "description": "The type of tissue sampled. ex. 'Leaf', 'Root', etc.\n<br> MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "trial": {
+                    "$ref": "../BrAPI-Core/Trial.json#/$defs/Trial",
+                    "description": "The ID which uniquely identifies a `Trial` within the given database server",
+                    "referencedAttribute": "samples",
+                    "relationshipType": "many-to-one"
+                },
+                "well": {
+                    "description": "The Well identifier for this `Sample` location in the `Plate`. Usually a concatenation of Row and Column, or just a number if the `Samples` are not part of an ordered `Plate`.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
+            },
+            "required": [
+                "sampleName"
+            ],
+            "title": "Sample",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/Sample.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

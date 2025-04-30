@@ -1,0 +1,109 @@
+{
+    "$defs": {
+        "Plate": {
+            "properties": {
+                "additionalInfo": {
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
+                },
+                "externalReferences": {
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
+                        "description": "ExternalReferences"
+                    },
+                    "title": "ExternalReferences",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "plateBarcode": {
+                    "description": "A unique identifier physically attached to a `Plate`",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "plateDbId": {
+                    "description": "The ID which uniquely identifies a `Plate`",
+                    "type": "string"
+                },
+                "plateFormat": {
+                    "description": "Enum for plate formats, usually \"PLATE_96\" for a 96 well plate or \"TUBES\" for plateless format",
+                    "enum": [
+                        "PLATE_96",
+                        "TUBES",
+                        null
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "plateName": {
+                    "description": "A human readable name for a `Plate`",
+                    "type": "string"
+                },
+                "program": {
+                    "$ref": "../BrAPI-Core/Program.json#/$defs/Program",
+                    "description": "The ID which uniquely identifies a `Program` within the given database server",
+                    "referencedAttribute": "plates",
+                    "relationshipType": "many-to-one"
+                },
+                "sampleType": {
+                    "description": "The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc",
+                    "enum": [
+                        "DNA",
+                        "RNA",
+                        "TISSUE",
+                        "MIXED",
+                        null
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "study": {
+                    "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
+                    "description": "The ID which uniquely identifies a `Study` within the given database server",
+                    "referencedAttribute": "plates",
+                    "relationshipType": "many-to-one"
+                },
+                "trial": {
+                    "$ref": "../BrAPI-Core/Trial.json#/$defs/Trial",
+                    "description": "The ID which uniquely identifies a `Trial` within the given database server",
+                    "referencedAttribute": "plates",
+                    "relationshipType": "many-to-one"
+                },
+                "samples": {
+                    "title": "samples",
+                    "description": "samples",
+                    "referencedAttribute": "plate",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Sample.json#/$defs/Sample",
+                        "description": "Sample"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "plateName"
+            ],
+            "title": "Plate",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/Plate.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}
