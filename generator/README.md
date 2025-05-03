@@ -7,9 +7,11 @@ The files are generated in the Specification/Generated directory.
 ### How to use
 
 To generate all use the following
-    ```
-    ./gradlew generateAll
-    ```
+
+``
+./gradlew generateAll
+``
+
 For individual tasks try
 
 * *generateGraphQL* to generate the GraphQL Schema from the JSON Schema
@@ -19,7 +21,7 @@ For individual tasks try
 
 The files are generated in the Specification/Generated directory.
 
-to change the version of BrAPI used in the file name edit the *brapiVersion* in
+To change the version of BrAPI used in the file name edit the *brapiVersion* in
 [Settings](settings.gradle).
 
 ### Configuration
