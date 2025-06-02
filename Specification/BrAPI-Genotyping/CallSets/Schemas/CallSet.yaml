@@ -35,7 +35,7 @@ components:
           type: string
           example: eb2bfd3d
         callSetName:
-          description: The human readable name which identifies a germplasm within the given database server 
+          description: The human readable name which identifies a callSet within the given database server
           type: string
           example: Sample_123_DNA_Run_456
         updated:
