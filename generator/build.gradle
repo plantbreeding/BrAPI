@@ -1,8 +1,7 @@
 apply plugin : "java"
 ext {
   javaMainClass = 'org.brapi.schematools.cli.BrAPICommand'
-  brapiSchemaToolsVersion = '0.27.0-SNAPSHOT'
-  brapiVersion = 'v2_1'
+  brapiSchemaToolsVersion = '0.30.0-SNAPSHOT'
 }
 
 repositories {
@@ -29,7 +28,7 @@ tasks.register("generateGraphQL", JavaExec) {
   classpath = sourceSets.main.runtimeClasspath
   mainClass = javaMainClass
   workingDir = '../'
-  def filename = "Specification/Generated/brapi_" + brapiVersion + ".graphqls"
+  def filename = "Specification/Generated/brapi_generated.graphqls"
   args = ['generate',
           'Specification/BrAPI-Schema',
           '-l', 'GRAPHQL',
@@ -43,7 +42,7 @@ tasks.register("generateOpenAPI", JavaExec) {
   classpath = sourceSets.main.runtimeClasspath
   mainClass = javaMainClass
   workingDir = '../'
-  def filename = "Specification/Generated/brapi_" + brapiVersion + ".json"
+  def filename = "Specification/Generated/brapi_generated.json"
   args = ['generate', 'Specification/BrAPI-Schema',
           '-l', 'OPEN_API',
           '-f', filename,
@@ -57,7 +56,7 @@ tasks.register("generateOWL", JavaExec) {
   classpath = sourceSets.main.runtimeClasspath
   mainClass = javaMainClass
   workingDir = '../'
-  def filename = "Specification/Generated/brapi_" + brapiVersion + ".ttl"
+  def filename = "Specification/Generated/brapi_generated.ttl"
   args = ['generate', 'Specification/BrAPI-Schema',
           '-l', 'OWL',
           '-f', filename,
