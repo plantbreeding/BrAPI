@@ -32,6 +32,7 @@ components:
       x-brapi-metadata:
         primaryModel: true
         module: BrAPI-Germplasm
-        title: Breeding Method
-        description: The techniques and protocol used to produce a Cross or Germplasm 
+      title: Breeding Method
+      description: The techniques and protocol used to produce a Cross or Germplasm
+
 

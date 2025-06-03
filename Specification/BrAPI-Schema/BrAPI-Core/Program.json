@@ -1,0 +1,183 @@
+{
+    "$defs": {
+        "Program": {
+            "properties": {
+                "abbreviation": {
+                    "description": "A shortened version of the human readable name for a Program",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "additionalInfo": {
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
+                },
+                "commonCropName": {
+                    "description": "Common name for the crop which this program is for",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "documentationURL": {
+                    "description": "A URL to the human readable documentation of an object",
+                    "format": "uri",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "externalReferences": {
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
+                        "description": "ExternalReferences"
+                    },
+                    "title": "ExternalReferences",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "fundingInformation": {
+                    "description": "Information describing the grant or funding source for this program",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "leadPerson": {
+                    "$ref": "Person.json#/$defs/Person",
+                    "description": "The unique identifier of the program leader",
+                    "referencedAttribute": "programs",
+                    "relationshipType": "many-to-one"
+                },
+                "objective": {
+                    "description": "The primary objective of the program",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "programDbId": {
+                    "description": "The ID which uniquely identifies the program",
+                    "type": "string"
+                },
+                "programName": {
+                    "description": "Human readable name of the program",
+                    "type": "string"
+                },
+                "programType": {
+                    "description": "The type of program entity this object represents\n<br/> 'STANDARD' represents a standard, permanent breeding program\n<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   ",
+                    "enum": [
+                        "STANDARD",
+                        "PROJECT",
+                        null
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "trials": {
+                    "title": "Trials",
+                    "description": "",
+                    "referencedAttribute": "program",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Trial.json#/$defs/Trial",
+                        "description": "Trials"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "plates": {
+                    "title": "plates",
+                    "description": "plates",
+                    "referencedAttribute": "program",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Genotyping/Plate.json#/$defs/Plate",
+                        "description": "Plate"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "samples": {
+                    "title": "samples",
+                    "description": "samples",
+                    "referencedAttribute": "program",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Genotyping/Sample.json#/$defs/Sample",
+                        "description": "Sample"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "crossingProjects": {
+                    "title": "crossingProjects",
+                    "description": "crossingProjects",
+                    "referencedAttribute": "program",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Germplasm/CrossingProject.json#/$defs/CrossingProject",
+                        "description": "CrossingProject"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "seedLots": {
+                    "title": "seedLots",
+                    "description": "seedLots",
+                    "referencedAttribute": "program",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Germplasm/SeedLot.json#/$defs/SeedLot",
+                        "description": "SeedLot"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "observationUnits": {
+                    "title": "observationUnits",
+                    "description": "observationUnits",
+                    "referencedAttribute": "program",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnit",
+                        "description": "ObservationUnit"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "programDbId",
+                "programName"
+            ],
+            "title": "Program",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/Program.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

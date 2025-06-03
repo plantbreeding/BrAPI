@@ -10,8 +10,8 @@ components:
       x-brapi-metadata:
         primaryModel: true
         module: BrAPI-Genotyping
-        title: MarkerPosition
-        description: A MarkerPosition describes a particular genetic marker at a specific position on a GenomeMap. A collection of MarkerPositions make up the data to represent a full GenomeMap.
+      title: MarkerPosition
+      description: A MarkerPosition describes a particular genetic marker at a specific position on a GenomeMap. A collection of MarkerPositions make up the data to represent a full GenomeMap.
       properties:
         additionalInfo:
           additionalProperties:

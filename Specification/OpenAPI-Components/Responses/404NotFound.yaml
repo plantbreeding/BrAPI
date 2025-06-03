@@ -1,0 +1,15 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  responses:
+    404NotFound:
+      description: Not Found
+      headers: {}
+      content:
+        application/json:
+          example: ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found
+          schema:
+            type: string

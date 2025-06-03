@@ -1,0 +1,28 @@
+{
+    "$defs": {
+        "OntologyRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/OntologyParameters.json#/$defs/OntologyParameters"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "ontologyNames": {
+                            "description": "The human readable identifier for an ontology definition.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    }
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/OntologyRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

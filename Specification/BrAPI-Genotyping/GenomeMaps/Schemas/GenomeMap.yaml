@@ -10,8 +10,8 @@ components:
       x-brapi-metadata:
         primaryModel: true
         module: BrAPI-Genotyping
-        title: GenomeMap
-        description: The GenomeMap represents the metadata associated with a reference map of a particular species genome. A GenomeMap can either represent a physical map or genetic map.     
+      title: GenomeMap
+      description: The GenomeMap represents the metadata associated with a reference map of a particular species genome. A GenomeMap can either represent a physical map or genetic map.
       required:
       - mapDbId
       - mapName

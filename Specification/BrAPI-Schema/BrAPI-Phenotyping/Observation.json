@@ -1,0 +1,117 @@
+{
+    "$defs": {
+        "Observation": {
+            "properties": {
+                "additionalInfo": {
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
+                },
+                "collector": {
+                    "description": "The name or identifier of the entity which collected the observation",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "externalReferences": {
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
+                        "description": "ExternalReferences"
+                    },
+                    "title": "ExternalReferences",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "geoCoordinates": {
+                    "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
+                    "relationshipType": "one-to-one",
+                    "referencedAttribute": "observation",
+					"$ref": "../BrAPI-Common/GeoJSON.json#/$defs/GeoJSON"
+                },
+                "germplasm": {
+                    "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm",
+                    "description": "The ID which uniquely identifies a germplasm",
+                    "referencedAttribute": "observations",
+                    "relationshipType": "many-to-one"
+                },
+                "observationDbId": {
+                    "description": "The ID which uniquely identifies an observation",
+                    "type": "string"
+                },
+                "observationTimeStamp": {
+                    "description": "The date and time when this observation was made",
+                    "format": "date-time",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "observationUnit": {
+                    "$ref": "ObservationUnit.json#/$defs/ObservationUnit",
+                    "description": "The ID which uniquely identifies an observation unit",
+                    "referencedAttribute": "observations",
+                    "relationshipType": "many-to-one"
+                },
+                "observationVariable": {
+                    "$ref": "ObservationVariable.json#/$defs/ObservationVariable",
+                    "description": "The ID which uniquely identifies an observation variable",
+                    "referencedAttribute": "observations",
+                    "relationshipType": "many-to-one"
+                },
+                "season": {
+                    "$ref": "../BrAPI-Core/Season.json#/$defs/Season",
+                    "relationshipType": "many-to-one"
+                },
+                "study": {
+                    "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
+                    "description": "The ID which uniquely identifies a study within the given database server",
+                    "referencedAttribute": "observations",
+                    "relationshipType": "many-to-one"
+                },
+                "uploadedBy": {
+                    "description": "The name or id of the user who uploaded the observation to the database system",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "value": {
+                    "description": "The value of the data collected as an observation",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "images": {
+                    "title": "images",
+                    "description": "images",
+                    "referencedAttribute": "observations",
+                    "relationshipType": "many-to-many",
+                    "items": {
+                        "$ref": "Image.json#/$defs/Image",
+                        "description": "Image"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "observationDbId"
+            ],
+            "title": "Observation",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/Observation.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

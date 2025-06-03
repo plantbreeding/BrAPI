@@ -1,0 +1,25 @@
+{
+    "$defs": {
+        "ExternalReference": {
+            "properties": {
+                "referenceId": {
+                    "description": "The external reference ID. Could be a simple string or a URI.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "referenceSource": {
+                    "description": "An identifier for the source system or database of this reference",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
+            },
+            "type": "object"
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Components/Common/ExternalReference.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

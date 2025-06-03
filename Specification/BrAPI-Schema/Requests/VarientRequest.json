@@ -1,0 +1,102 @@
+{
+    "$defs": {
+        "VariantRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/CommonCropNamesParameters.json#/$defs/CommonCropNamesParameters"
+                },
+                {
+                    "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
+                },
+                {
+                    "$ref": "Parameters/StudyParameters.json#/$defs/StudyParameters"
+                },
+                {
+                    "$ref": "Parameters/TrialParameters.json#/$defs/TrialParameters"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "callSetDbIds": {
+                            "deprecated": true,
+                            "description": "**Deprecated in v2.1** Parameter unnecessary. Github issue number #474 \n<br/>Only return variant calls which belong to call sets with these IDs. If unspecified, return all variants and no variant call objects.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "4639fe3e",
+                                "b60d900b"
+                            ]
+                        },
+                        "end": {
+                            "description": "The end of the window (0-based, exclusive) for which overlapping variants should be returned.",
+                            "type": "integer",
+                            "example": 1500
+                        },
+                        "referenceDbId": {
+                            "deprecated": true,
+                            "description": "**Deprecated in v2.1** Please use `referenceDbIds`. Github issue number #472\n<br/>Only return variants on this reference.",
+                            "type": "string",
+                            "example": "120a2d5c"
+                        },
+                        "referenceDbIds": {
+                            "description": "The unique identifier representing a genotype `Reference`",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "89ab4d17",
+                                "74d3b63d"
+                            ]
+                        },
+                        "referenceSetDbIds": {
+                            "description": "The unique identifier representing a genotype `ReferenceSet`",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "d3b63d4d",
+                                "3b63d74b"
+                            ]
+                        },
+                        "start": {
+                            "description": "The beginning of the window (0-based, inclusive) for which overlapping variants should be returned. Genomic positions are non-negative integers less than reference length. Requests spanning the join of circular genomes are represented as two requests one on each side of the join (position 0).",
+                            "type": "integer",
+                            "example": 100
+                        },
+                        "variantDbIds": {
+                            "description": "A list of IDs which uniquely identify `Variants`",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "3b63d889",
+                                "ab4d174d"
+                            ]
+                        },
+                        "variantSetDbIds": {
+                            "description": "A list of IDs which uniquely identify `VariantSets`",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "ba63d810",
+                                "434d1760"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/VariantRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

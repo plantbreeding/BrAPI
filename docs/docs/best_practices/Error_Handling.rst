@@ -11,41 +11,51 @@ response which has an error status code (4XX and 5XX) should have a
 plain text body with a reasonable error message which can be displayed
 to a user if necessary.
 
-+------+-----------------------+------------------------------------------------------------------------------------------------------------+
-| Code | Description           | Use Case                                                                                                   |
-+======+=======================+============================================================================================================+
-| 200  | OK                    | Use code 200 for every successful JSON response. The 'status' array in a response                          |
-|      |                       | metadata may contain addition logged errors as described below.                                            |
-+------+-----------------------+------------------------------------------------------------------------------------------------------------+
-| 202  | Accepted              | Use code 202 when a request has been received and "Accepted" by the server, but                            |
-|      |                       | more processing time is needed before a complete response is ready. See BrAPI documentation                |
-|      |                       | on Search Services for more details on when to use this code.                                              |
-+------+-----------------------+------------------------------------------------------------------------------------------------------------+
-| 400  | Bad Request           | Use code 400 when there is something wrong with the request. This could be a problem with any of the query |
-|      |                       | parameters or request body object.                                                                         |
-|      |                       |                                                                                                            |
-|      |                       | \- Example: A malformed JSON object which does not match the expected schema.                              |
-|      |                       |                                                                                                            |
-|      |                       | \- Example: A parameter is sent as a alphanumeric string but is expected to be an integer                  |
-+------+-----------------------+------------------------------------------------------------------------------------------------------------+
-| 401  | Unauthorized          | Use code 401 when the request does not pass authorization checks. This                                     |
-|      |                       | could be caused by a missing Authorization token header, if the token is                                   |
-|      |                       | expired, or can not be verified. 401 can be replaced by 403 if desired.                                    |
-+------+-----------------------+------------------------------------------------------------------------------------------------------------+
-| 403  | Forbidden             | Use code 403 when the user is not allowed to access the requested resource. This                           |
-|      |                       | could be caused by a system level authorization error (as described by 401) or                             |
-|      |                       | by a more granular user permission issue.                                                                  |
-+------+-----------------------+------------------------------------------------------------------------------------------------------------+
-| 404  | Not Found             | Most servers and libraries have automatic 404 errors built in for unknown paths tried against              |
-|      |                       | the server. Use 404 explicitly when there is a path parameter which can not be found. Most                 |
-|      |                       | path parameters in BrAPI are DbIds of specific objects, so if a requested DbId doesn't exist in            |
-|      |                       | the database, return a 404.                                                                                |
-+------+-----------------------+------------------------------------------------------------------------------------------------------------+
-| 500  | Internal Server Error | Status code 500 indicates that the server has malfunctioned in some way. Use 500 for                       |
-|      |                       | all unexpected exceptions, code defects, or configuration issues. For security, it                         |
-|      |                       | is a best practice to implement an explicit error handler which can hide the cause                         |
-|      |                       | of the error from the client and return a generic error message.                                           |
-+------+-----------------------+------------------------------------------------------------------------------------------------------------+
++------+------------------------+--------------------------------------------------------------------------------------------------+
+| Code | Description            | Use Case                                                                                         |
++======+========================+==================================================================================================+
+|  200 |  OK                    |  Use code 200 for every successful JSON response. The 'status' array in a response               |
+|      |                        |  metadata may contain addition logged errors as described below.                                 |
++------+------------------------+--------------------------------------------------------------------------------------------------+
+|  202 |  Accepted              |  Use code 202 when a request has been received and "Accepted" by the server, but                 |
+|      |                        |  more processing time is needed before a complete response is ready. See BrAPI documentation     |
+|      |                        |  on Search Services for more details on when to use this code.                                   |
++------+------------------------+--------------------------------------------------------------------------------------------------+
+|  400 |  Bad Request           |  Use code 400 when there is something wrong with the request. This could be a problem with any   |
+|      |                        |  of the query parameters or request body object.                                                 |
+|      |                        |                                                                                                  |
+|      |                        |  \- Example: A malformed JSON object which does not match the expected schema.                   |
+|      |                        |                                                                                                  |
+|      |                        |  \- Example: A parameter is sent as a alphanumeric string but is expected to be an integer       |
++------+------------------------+--------------------------------------------------------------------------------------------------+
+|  401 |  Unauthorized          |  Use code 401 when the request does not pass authorization checks. This                          |
+|      |                        |  could be caused by a missing Authorization token header, if the token is                        |
+|      |                        |  expired, or can not be verified. 401 can be replaced by 403 if desired.                         |
++------+------------------------+--------------------------------------------------------------------------------------------------+
+|  403 |  Forbidden             |  Use code 403 when the user is not allowed to access the requested resource. This                |
+|      |                        |  could be caused by a system level authorization error (as described by 401) or                  |
+|      |                        |  by a more granular user permission issue, like trying to modify data they don't own.            |
++------+------------------------+--------------------------------------------------------------------------------------------------+
+|  404 |  Not Found             |  Most servers and libraries have automatic 404 errors built in for unknown paths tried against   |
+|      |                        |  the server. If a BrAPI endpoint is not implemented in a particular system, any requests to that |
+|      |                        |  endpoint should return a 404.                                                                   |
+|      |                        |                                                                                                  |
+|      |                        |  A 404 might be used explicitly when there is a path parameter which can not be found. Most      |
+|      |                        |  path parameters in BrAPI are DbIds of specific objects, so if a requested DbId doesn't exist in |
+|      |                        |  the database, return a 404.                                                                     |
++------+------------------------+--------------------------------------------------------------------------------------------------+
+|  405 |  Not Found             |  Use a 405 status code when the path of an endpoint is available, but a specific HTTP method is  |
+|      |                        |  not available for that path. For example, "GET /brapi/v2/programs" is implemented and available |
+|      |                        |  on the server but "POST /brapi/v2/programs" is not implemented. Any request to                  |
+|      |                        |  "POST /brapi/v2/programs" should return a 405 instead of a 404 to indicate the path is valid,   |
+|      |                        |  but the method is not.                                                                          |
++------+------------------------+--------------------------------------------------------------------------------------------------+
+|  500 |  Internal Server Error |  Status code 500 indicates that the server has malfunctioned in some way. Use 500 for            |
+|      |                        |  all unexpected exceptions, code defects, or configuration issues. For security, it              |
+|      |                        |  is a best practice to implement an explicit error handler which can hide the cause              |
+|      |                        |  of the error from the client and return a generic error message.                                |
++------+------------------------+--------------------------------------------------------------------------------------------------+
+
 
 
 Metadata Status Array

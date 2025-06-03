@@ -6,6 +6,7 @@
 
 
 import yaml
+from yaml import Loader, Dumper, load, dump
 import glob
 import sys
 import os
@@ -32,7 +33,7 @@ def go(rootPaths, metaFilePath = './swaggerMetaData.yaml'):
     for filename in filenames:
         with open(filename, "r") as stream:
             try:
-                fileObj = yaml.load(stream)
+                fileObj = yaml.safe_load(stream)
                 if 'paths' in fileObj:
                     paths.update(fileObj['paths'])
                 if 'components' in fileObj:
@@ -55,7 +56,7 @@ def go(rootPaths, metaFilePath = './swaggerMetaData.yaml'):
     out = {}
     with open(metaFilePath, "r") as metaFile:
         try:
-            out = yaml.load(metaFile)
+            out = yaml.safe_load(metaFile)
         except yaml.YAMLError as exc:
             print(exc)
             

@@ -1,0 +1,152 @@
+{
+    "$defs": {
+        "ReferenceSet": {
+            "properties": {
+                "additionalInfo": {
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
+                },
+                "assemblyPUI": {
+                    "description": "The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "commonCropName": {
+                    "description": "Common name for the crop",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "description": {
+                    "description": "Optional free text description of this reference set.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "externalReferences": {
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
+                        "description": "ExternalReferences"
+                    },
+                    "title": "ExternalReferences",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "isDerived": {
+                    "description": "A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).",
+                    "type": [
+                        "null",
+                        "boolean"
+                    ]
+                },
+                "md5checksum": {
+                    "description": "Order-independent MD5 checksum which identifies this `ReferenceSet`.\n\nTo compute this checksum, make a list of `Reference.md5checksum` for all\n`Reference` s in this set. Then sort that list, and take the MD5 hash of\nall the strings concatenated together. Express the hash as a lower-case\nhexadecimal string.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "referenceSetDbId": {
+                    "description": "The unique identifier for a ReferenceSet",
+                    "type": "string"
+                },
+                "referenceSetName": {
+                    "description": "The human readable name of a ReferenceSet",
+                    "type": "string"
+                },
+                "sourceAccessions": {
+                    "description": "All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "sourceGermplasm": {
+                    "description": "All known corresponding Germplasm",
+                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "referenceSet",
+                    "items": {
+                        "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm",
+                        "description": "SourceGermplasm"
+                    },
+                    "title": "SourceGermplasm",
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "sourceURI": {
+                    "description": "Specifies a FASTA format file/string.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+				"species": {
+                    "description": "An ontology term describing an attribute.",
+                    "relationshipType": "one-to-one",
+                    "referencedAttribute": "referenceSet",
+					"$ref": "../BrAPI-Common/OntologyTerm.json#/$defs/OntologyTerm"
+                },
+                "references": {
+                    "title": "references",
+                    "description": "references",
+                    "referencedAttribute": "referenceSet",
+                    "relationshipType": "one-to-one",
+					"$ref": "Reference.json#/$defs/Reference"
+                },
+                "variants": {
+                    "title": "variants",
+                    "description": "variants",
+                    "referencedAttribute": "referenceSet",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "Variant.json#/$defs/Variant",
+                        "description": "Variant"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "variantSets": {
+                    "title": "variantSets",
+                    "description": "variantSets",
+                    "referencedAttribute": "referenceSet",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "VariantSet.json#/$defs/VariantSet",
+                        "description": "VariantSet"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                }
+            },
+            "required": [
+                "referenceSetDbId",
+                "referenceSetName"
+            ],
+            "title": "ReferenceSet",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Genotyping/ReferenceSet.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

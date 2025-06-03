@@ -1,0 +1,19 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  parameters:
+    authorizationHeader:
+      description: |-
+        HTTP HEADER - Token used for Authorization 
+        
+        <strong> Bearer {token_string} </strong>
+      example: Bearer XXXX
+      in: header
+      name: Authorization
+      schema:
+        pattern: ^Bearer .*$
+        type: string
+

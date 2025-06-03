@@ -12,7 +12,7 @@ def getObject(filename):
 	fileObj = {}	
 	with open(filename, "r") as stream:
 		try:
-			fileObj = yaml.load(stream)
+			fileObj = yaml.safe_load(stream)
 			stream.close()
 		except yaml.YAMLError as exc:
 			print(exc)

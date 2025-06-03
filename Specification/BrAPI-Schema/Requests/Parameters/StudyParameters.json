@@ -1,0 +1,36 @@
+{
+    "$defs": {
+        "StudyParameters": {
+            "type": "object",
+            "properties": {
+                "studyDbIds": {
+                    "description": "List of study identifiers to search for",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "example": [
+                        "cf6c4bd4",
+                        "691e69d6"
+                    ]
+                },
+                "studyNames": {
+                    "description": "List of study names to filter search results",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "example": [
+                        "The First Bob Study 2017",
+                        "Wheat Yield Trial 246"
+                    ]
+                }
+            },
+            "brapi-metadata": {
+                "parameters": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/Parameters/StudyParameters.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

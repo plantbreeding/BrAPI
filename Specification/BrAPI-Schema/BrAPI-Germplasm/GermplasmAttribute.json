@@ -1,0 +1,36 @@
+{
+    "$defs": {
+        "GermplasmAttribute": {
+            "allOf": [
+                {
+                    "$ref": "../BrAPI-Common/Attribute.json#/$defs/Attribute"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "attributeValues": {
+                            "title": "attributeValues",
+                            "description": "attributeValues",
+                            "referencedAttribute": "attribute",
+                            "relationshipType": "one-to-many",
+                            "items": {
+                                "$ref": "GermplasmAttributeValue.json#/$defs/GermplasmAttributeValue",
+                                "description": "GermplasmAttributeValue"
+                            },
+                            "type": [
+                                "null",
+                                "array"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "title": "GermplasmAttribute",
+            "brapi-metadata": {
+                "primaryModel": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/GermplasmAttribute.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}
