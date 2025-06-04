@@ -1,8 +1,7 @@
 apply plugin : "java"
 ext {
   javaMainClass = 'org.brapi.schematools.cli.BrAPICommand'
-  brapiSchemaToolsVersion = '0.20.0-SNAPSHOT'
-  brapiVersion = 'v2_1'
+  brapiSchemaToolsVersion = '0.30.0-SNAPSHOT'
 }
 
 repositories {
@@ -12,6 +11,26 @@ repositories {
 
 dependencies {
   implementation "org.brapi:brapi-schema-tools-cli:$brapiSchemaToolsVersion"
+}
+
+openapiProcessor {
+
+  brapiOpenAPI {
+    processorName "json"
+    processor 'io.openapiprocessor:openapi-processor-json:2021.2'
+    apiPath "${buildDir}/build/brapi_openapi.yaml"
+    targetDir "${buildDir}/stn/"
+  }
+}
+
+tasks.register('copyOpenApi', Copy) {
+  dependsOn  processBrapiOpenAPI
+  from "${buildDir}/stn/openapi.json"
+  into "${brapiDir}/Specification/Generated/"
+  rename { String fileName ->
+    fileName.replace("openapi.json", "brapi_openapi.json")
+  }
+  eachFile { println it.file }
 }
 
 tasks.register("validate", JavaExec) {
@@ -29,12 +48,13 @@ tasks.register("generateGraphQL", JavaExec) {
   classpath = sourceSets.main.runtimeClasspath
   mainClass = javaMainClass
   workingDir = '../'
-  def filename = "Specification/Generated/brapi_" + brapiVersion + ".graphqls"
+  def filename = "Specification/Generated/brapi_generated.graphqls"
   args = ['generate',
           'Specification/BrAPI-Schema',
           '-l', 'GRAPHQL',
           '-f', filename,
-          '-x']
+          '-x',
+          '-s']
 }
 
 tasks.register("generateOpenAPI", JavaExec) {
@@ -43,12 +63,13 @@ tasks.register("generateOpenAPI", JavaExec) {
   classpath = sourceSets.main.runtimeClasspath
   mainClass = javaMainClass
   workingDir = '../'
-  def filename = "Specification/Generated/brapi_" + brapiVersion + ".json"
+  def filename = "Specification/Generated/brapi_generated.json"
   args = ['generate', 'Specification/BrAPI-Schema',
           '-l', 'OPEN_API',
           '-f', filename,
           '-c', 'Specification/OpenAPI-Components',
-          '-x']
+          '-x',
+          '-s']
 }
 
 tasks.register("generateOWL", JavaExec) {
@@ -57,16 +78,38 @@ tasks.register("generateOWL", JavaExec) {
   classpath = sourceSets.main.runtimeClasspath
   mainClass = javaMainClass
   workingDir = '../'
-  def filename = "Specification/Generated/brapi_" + brapiVersion + ".ttl"
+  def filename = "Specification/Generated/brapi_generated.ttl"
   args = ['generate', 'Specification/BrAPI-Schema',
           '-l', 'OWL',
           '-f', filename,
           '-m', 'generator/ont-model-metadata.yaml',
-          '-x']
+          '-x',
+          '-s']
 }
 
 tasks.register("generateAll") {
   dependsOn generateGraphQL
   dependsOn generateOpenAPI
   dependsOn generateOWL
+}
+
+tasks.register("compareOpenAPI", JavaExec) {
+  group = 'BrAPI'
+  description = 'Compared the compiles OpenAPI schema from the YAML files with the one generated from the Json Schema'
+  classpath = sourceSets.main.runtimeClasspath
+  mainClass = javaMainClass
+  workingDir = '../'
+  def filename1 = "Specification/Generated/brapi_openapi.json"
+  def filename2 = "Specification/Generated/brapi_generated.json"
+  def filename = "Specification/Generated/brapi_openapi_comparison.md"
+  args = ['compare', filename1, filename2,
+          '-l', 'OPEN_API',
+          '-f', filename,
+          '-w', 'MARKDOWN',
+          '-x',
+          '-s']
+}
+
+tasks.register("compareAll") {
+  dependsOn compareOpenAPI
 }
