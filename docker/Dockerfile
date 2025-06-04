@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y dos2unix
 
 WORKDIR /src
 
-COPY ../../Scripts /src/Scripts
+COPY ../Scripts /src/Scripts
 
 RUN find /src/Scripts -type f -print0 | xargs -0 dos2unix
 
