@@ -31,7 +31,7 @@ openapiProcessor {
 tasks.register('copyOpenApi', Copy) {
   dependsOn  processBrapiOpenAPI
   from "${buildDir}/stn/openapi.json"
-  into "${brapiDir}/Specification/Generated/"
+  into "${buildDir}/Specification/Generated/"
   rename { String fileName ->
     fileName.replace("openapi.json", "brapi_openapi.json")
   }
