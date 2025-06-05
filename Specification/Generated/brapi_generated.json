@@ -5,7 +5,7 @@
     "version" : "0.0.0"
   },
   "paths" : {
-    "/breedingMethods" : {
+    "/breedingmethods" : {
       "get" : {
         "tags" : [ "Germplasm" ],
         "summary" : "Get a filtered list of BreedingMethod",
@@ -111,7 +111,7 @@
         }
       }
     },
-    "/callSets" : {
+    "/callsets" : {
       "get" : {
         "tags" : [ "CallSets" ],
         "summary" : "Get a filtered list of CallSet",
@@ -411,7 +411,7 @@
         }
       }
     },
-    "/crossingProjects" : {
+    "/crossingprojects" : {
       "get" : {
         "tags" : [ "CrossingProjects" ],
         "summary" : "Get a filtered list of CrossingProject",
@@ -609,7 +609,7 @@
         }
       }
     },
-    "/genomeMaps" : {
+    "/maps" : {
       "get" : {
         "tags" : [ "GenomeMaps" ],
         "summary" : "Get a filtered list of GenomeMap",
@@ -965,14 +965,6 @@
             "type" : "string"
           }
         }, {
-          "name" : "germplasmName",
-          "in" : "query",
-          "description" : "List of human readable names to identify germplasm to search for",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
           "name" : "commonCropName",
           "in" : "query",
           "description" : "The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.\n\nUse this parameter to only return results associated with the given crops. \n\nUse `GET /commoncropnames` to find the list of available crops on a server.",
@@ -984,62 +976,6 @@
           "name" : "programDbId",
           "in" : "query",
           "description" : "A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. \n\nUse this parameter to only return results associated with the given programs. \n\nUse `GET /programs` to find the list of available programs on a server.",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "programName",
-          "in" : "query",
-          "description" : "Use this parameter to only return results associated with the given program names. Program names are not required to be unique.\n\nUse `GET /programs` to find the list of available programs on a server.",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "studyDbId",
-          "in" : "query",
-          "description" : "List of study identifiers to search for",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "studyName",
-          "in" : "query",
-          "description" : "List of study names to filter search results",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "trialDbId",
-          "in" : "query",
-          "description" : "The ID which uniquely identifies a trial to search for",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "trialName",
-          "in" : "query",
-          "description" : "The human readable name of a trial to search for",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "studyDbId",
-          "in" : "query",
-          "description" : "**Deprecated in v2.1** Please use `studyDbIds`. Github issue number #483 \n<br>The unique ID of a studies to filter on",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "ontologyDbId",
-          "in" : "query",
-          "description" : "List of ontology IDs to search for",
           "required" : false,
           "schema" : {
             "type" : "string"
@@ -1093,23 +1029,6 @@
             "type" : "string"
           }
         }, {
-          "name" : "dataType",
-          "in" : "query",
-          "description" : "List of scale data types to filter search results",
-          "required" : false,
-          "schema" : {
-            "type" : "object",
-            "$ref" : "#/components/schemas/TraitDataType"
-          }
-        }, {
-          "name" : "traitClass",
-          "in" : "query",
-          "description" : "List of trait classes to filter search results",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
           "name" : "traitDbId",
           "in" : "query",
           "description" : "The unique identifier for a Trait",
@@ -1129,38 +1048,6 @@
           "name" : "traitPUI",
           "in" : "query",
           "description" : "The Permanent Unique Identifier of a Trait, usually in the form of a URI",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "traitAttribute",
-          "in" : "query",
-          "description" : "A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the attribute is the observed feature (or characteristic) of the entity e.g., for \"grain colour\", attribute = \"colour\"",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "traitAttributePUI",
-          "in" : "query",
-          "description" : "The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI\n<br/>A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the attribute is the observed feature (or characteristic) of the entity e.g., for \"grain colour\", attribute = \"colour\"",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "traitEntity",
-          "in" : "query",
-          "description" : "A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the entity is the part of the plant that the trait refers to e.g., for \"grain colour\", entity = \"grain\"",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "traitEntityPUI",
-          "in" : "query",
-          "description" : "The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI\n<br/>A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the entity is the part of the plant that the trait refers to e.g., for \"grain colour\", entity = \"grain\" ",
           "required" : false,
           "schema" : {
             "type" : "string"
@@ -1373,7 +1260,6 @@
           "description" : "List of scale data types to filter search results",
           "required" : false,
           "schema" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/TraitDataType"
           }
         }, {
@@ -1523,7 +1409,6 @@
           "in" : "query",
           "required" : false,
           "schema" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/GeoJSONSearchArea"
           }
         }, {
@@ -1743,7 +1628,6 @@
           "in" : "query",
           "required" : false,
           "schema" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/ListType"
           }
         }, {
@@ -1897,7 +1781,6 @@
           "in" : "query",
           "required" : false,
           "schema" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/GeoJSONSearchArea"
           }
         }, {
@@ -2001,7 +1884,7 @@
         }
       }
     },
-    "/markerPositions" : {
+    "/markerpositions" : {
       "get" : {
         "tags" : [ "MarkerPositions" ],
         "summary" : "Get a filtered list of MarkerPosition",
@@ -2324,7 +2207,6 @@
           "description" : "Searches for values in ObservationUnit->observationUnitPosition->observationLevel",
           "required" : false,
           "schema" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/ObservationUnitLevel"
           }
         }, {
@@ -2333,7 +2215,6 @@
           "description" : "Searches for values in ObservationUnit->observationUnitPosition->observationLevelRelationships",
           "required" : false,
           "schema" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/ObservationUnitLevelRelationship"
           }
         }, {
@@ -2388,6 +2269,38 @@
           }
         }
       },
+      "put" : {
+        "tags" : [ "Observations" ],
+        "summary" : "Update the details for an existing Observation",
+        "description" : "Update the details for an existing Observation",
+        "parameters" : [ {
+          "$ref" : "#/components/parameters/authorizationHeader"
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "array",
+                "$ref" : "#/components/schemas/ObservationNewRequest"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "$ref" : "#/components/responses/ObservationListResponse"
+          },
+          "400" : {
+            "$ref" : "#/components/responses/400BadRequest"
+          },
+          "401" : {
+            "$ref" : "#/components/responses/401Unauthorized"
+          },
+          "403" : {
+            "$ref" : "#/components/responses/403Forbidden"
+          }
+        }
+      },
       "post" : {
         "tags" : [ "Observations" ],
         "summary" : "Create new Observation",
@@ -2421,7 +2334,7 @@
         }
       }
     },
-    "/observationUnits" : {
+    "/observationunits" : {
       "get" : {
         "tags" : [ "ObservationUnits" ],
         "summary" : "Get a filtered list of ObservationUnit",
@@ -2560,7 +2473,6 @@
           "description" : "Searches for values in ObservationUnit->observationUnitPosition->observationLevel",
           "required" : false,
           "schema" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/ObservationUnitLevel"
           }
         }, {
@@ -2569,7 +2481,6 @@
           "description" : "Searches for values in ObservationUnit->observationUnitPosition->observationLevelRelationships",
           "required" : false,
           "schema" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/ObservationUnitLevelRelationship"
           }
         }, {
@@ -2601,6 +2512,38 @@
         }, {
           "$ref" : "#/components/parameters/authorizationHeader"
         } ],
+        "responses" : {
+          "200" : {
+            "$ref" : "#/components/responses/ObservationUnitListResponse"
+          },
+          "400" : {
+            "$ref" : "#/components/responses/400BadRequest"
+          },
+          "401" : {
+            "$ref" : "#/components/responses/401Unauthorized"
+          },
+          "403" : {
+            "$ref" : "#/components/responses/403Forbidden"
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "ObservationUnits" ],
+        "summary" : "Update the details for an existing ObservationUnit",
+        "description" : "Update the details for an existing ObservationUnit",
+        "parameters" : [ {
+          "$ref" : "#/components/parameters/authorizationHeader"
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "array",
+                "$ref" : "#/components/schemas/ObservationUnitNewRequest"
+              }
+            }
+          }
+        },
         "responses" : {
           "200" : {
             "$ref" : "#/components/responses/ObservationUnitListResponse"
@@ -2649,7 +2592,7 @@
         }
       }
     },
-    "/observationVariables" : {
+    "/variables" : {
       "get" : {
         "tags" : [ "ObservationVariables" ],
         "summary" : "Get a filtered list of ObservationVariable",
@@ -2804,7 +2747,6 @@
           "description" : "List of scale data types to filter search results",
           "required" : false,
           "schema" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/TraitDataType"
           }
         }, {
@@ -3008,7 +2950,7 @@
         }
       }
     },
-    "/pedigrees" : {
+    "/pedigree" : {
       "get" : {
         "tags" : [ "PedigreeNodes" ],
         "summary" : "Get a filtered list of PedigreeNode",
@@ -3422,7 +3364,7 @@
         }
       }
     },
-    "/plannedCrosses" : {
+    "/plannedcrosses" : {
       "get" : {
         "tags" : [ "Crosses" ],
         "summary" : "Get a filtered list of PlannedCross",
@@ -4082,7 +4024,7 @@
         }
       }
     },
-    "/referenceSets" : {
+    "/referencesets" : {
       "get" : {
         "tags" : [ "ReferenceSets" ],
         "summary" : "Get a filtered list of ReferenceSet",
@@ -4381,6 +4323,38 @@
           }
         }
       },
+      "put" : {
+        "tags" : [ "Samples" ],
+        "summary" : "Update the details for an existing Sample",
+        "description" : "Update the details for an existing Sample",
+        "parameters" : [ {
+          "$ref" : "#/components/parameters/authorizationHeader"
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "array",
+                "$ref" : "#/components/schemas/SampleNewRequest"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "$ref" : "#/components/responses/SampleListResponse"
+          },
+          "400" : {
+            "$ref" : "#/components/responses/400BadRequest"
+          },
+          "401" : {
+            "$ref" : "#/components/responses/401Unauthorized"
+          },
+          "403" : {
+            "$ref" : "#/components/responses/403Forbidden"
+          }
+        }
+      },
       "post" : {
         "tags" : [ "Samples" ],
         "summary" : "Create new Sample",
@@ -4620,7 +4594,7 @@
         }
       }
     },
-    "/seedLots" : {
+    "/seedlots" : {
       "get" : {
         "tags" : [ "SeedLots" ],
         "summary" : "Get a filtered list of SeedLot",
@@ -5440,7 +5414,7 @@
         }
       }
     },
-    "/variantSets" : {
+    "/variantsets" : {
       "get" : {
         "tags" : [ "VariantSets" ],
         "summary" : "Get a filtered list of VariantSet",
@@ -5570,7 +5544,7 @@
         }
       }
     },
-    "/breedingMethods/{breedingMethodDbId}" : {
+    "/breedingmethods/{breedingMethodDbId}" : {
       "get" : {
         "tags" : [ "Germplasm" ],
         "summary" : "Get the details of a specific BreedingMethod",
@@ -5591,41 +5565,7 @@
         }
       }
     },
-    "/calls/{callDbId}" : {
-      "put" : {
-        "tags" : [ "Calls" ],
-        "summary" : "Update the details for an existing Call",
-        "description" : "Update the details for an existing Call",
-        "parameters" : [ {
-          "$ref" : "#/components/parameters/authorizationHeader"
-        } ],
-        "requestBody" : {
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "type" : "object",
-                "$ref" : "#/components/schemas/Call"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "200" : {
-            "$ref" : "#/components/responses/CallSingleResponse"
-          },
-          "400" : {
-            "$ref" : "#/components/responses/400BadRequest"
-          },
-          "401" : {
-            "$ref" : "#/components/responses/401Unauthorized"
-          },
-          "403" : {
-            "$ref" : "#/components/responses/403Forbidden"
-          }
-        }
-      }
-    },
-    "/callSets/{callSetDbId}" : {
+    "/callsets/{callSetDbId}" : {
       "get" : {
         "tags" : [ "CallSets" ],
         "summary" : "Get the details of a specific CallSet",
@@ -5646,7 +5586,7 @@
         }
       }
     },
-    "/callSets/{callSetDbId}/calls" : {
+    "/callsets/{callSetDbId}/calls" : {
       "get" : {
         "tags" : [ "Calls" ],
         "summary" : "Get a filtered list of Call",
@@ -5730,7 +5670,7 @@
         }
       }
     },
-    "/crossingProjects/{crossingProjectDbId}" : {
+    "/crossingprojects/{crossingProjectDbId}" : {
       "get" : {
         "tags" : [ "CrossingProjects" ],
         "summary" : "Get the details of a specific CrossingProject",
@@ -5761,7 +5701,6 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "object",
                 "$ref" : "#/components/schemas/CrossingProjectNewRequest"
               }
             }
@@ -5783,7 +5722,7 @@
         }
       }
     },
-    "/genomeMaps/{mapDbId}" : {
+    "/maps/{mapDbId}" : {
       "get" : {
         "tags" : [ "GenomeMaps" ],
         "summary" : "Get the details of a specific GenomeMap",
@@ -5835,7 +5774,6 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "object",
                 "$ref" : "#/components/schemas/GermplasmNewRequest"
               }
             }
@@ -5888,7 +5826,6 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "object",
                 "$ref" : "#/components/schemas/GermplasmAttributeNewRequest"
               }
             }
@@ -5941,7 +5878,6 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "object",
                 "$ref" : "#/components/schemas/GermplasmAttributeValueNewRequest"
               }
             }
@@ -5994,7 +5930,6 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "object",
                 "$ref" : "#/components/schemas/ImageNewRequest"
               }
             }
@@ -6047,7 +5982,6 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "object",
                 "$ref" : "#/components/schemas/ListNewRequest"
               }
             }
@@ -6100,7 +6034,6 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "object",
                 "$ref" : "#/components/schemas/LocationNewRequest"
               }
             }
@@ -6153,7 +6086,6 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "object",
                 "$ref" : "#/components/schemas/MethodNewRequest"
               }
             }
@@ -6194,41 +6126,9 @@
             "$ref" : "#/components/responses/403Forbidden"
           }
         }
-      },
-      "put" : {
-        "tags" : [ "Observations" ],
-        "summary" : "Update the details for an existing Observation",
-        "description" : "Update the details for an existing Observation",
-        "parameters" : [ {
-          "$ref" : "#/components/parameters/authorizationHeader"
-        } ],
-        "requestBody" : {
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "type" : "object",
-                "$ref" : "#/components/schemas/ObservationNewRequest"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "200" : {
-            "$ref" : "#/components/responses/ObservationSingleResponse"
-          },
-          "400" : {
-            "$ref" : "#/components/responses/400BadRequest"
-          },
-          "401" : {
-            "$ref" : "#/components/responses/401Unauthorized"
-          },
-          "403" : {
-            "$ref" : "#/components/responses/403Forbidden"
-          }
-        }
       }
     },
-    "/observationUnits/{observationUnitDbId}" : {
+    "/observationunits/{observationUnitDbId}" : {
       "get" : {
         "tags" : [ "ObservationUnits" ],
         "summary" : "Get the details of a specific ObservationUnit",
@@ -6247,41 +6147,9 @@
             "$ref" : "#/components/responses/403Forbidden"
           }
         }
-      },
-      "put" : {
-        "tags" : [ "ObservationUnits" ],
-        "summary" : "Update the details for an existing ObservationUnit",
-        "description" : "Update the details for an existing ObservationUnit",
-        "parameters" : [ {
-          "$ref" : "#/components/parameters/authorizationHeader"
-        } ],
-        "requestBody" : {
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "type" : "object",
-                "$ref" : "#/components/schemas/ObservationUnitNewRequest"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "200" : {
-            "$ref" : "#/components/responses/ObservationUnitSingleResponse"
-          },
-          "400" : {
-            "$ref" : "#/components/responses/400BadRequest"
-          },
-          "401" : {
-            "$ref" : "#/components/responses/401Unauthorized"
-          },
-          "403" : {
-            "$ref" : "#/components/responses/403Forbidden"
-          }
-        }
       }
     },
-    "/observationVariables/{observationVariableDbId}" : {
+    "/variables/{observationVariableDbId}" : {
       "get" : {
         "tags" : [ "ObservationVariables" ],
         "summary" : "Get the details of a specific ObservationVariable",
@@ -6312,7 +6180,6 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "object",
                 "$ref" : "#/components/schemas/ObservationVariableNewRequest"
               }
             }
@@ -6365,7 +6232,6 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "object",
                 "$ref" : "#/components/schemas/OntologyNewRequest"
               }
             }
@@ -6374,59 +6240,6 @@
         "responses" : {
           "200" : {
             "$ref" : "#/components/responses/OntologySingleResponse"
-          },
-          "400" : {
-            "$ref" : "#/components/responses/400BadRequest"
-          },
-          "401" : {
-            "$ref" : "#/components/responses/401Unauthorized"
-          },
-          "403" : {
-            "$ref" : "#/components/responses/403Forbidden"
-          }
-        }
-      }
-    },
-    "/pedigrees/{pedigreeNodeDbId}" : {
-      "get" : {
-        "tags" : [ "PedigreeNodes" ],
-        "summary" : "Get the details of a specific PedigreeNode",
-        "description" : "Get details for a PedigreeNode",
-        "responses" : {
-          "200" : {
-            "$ref" : "#/components/responses/PedigreeNodeSingleResponse"
-          },
-          "400" : {
-            "$ref" : "#/components/responses/400BadRequest"
-          },
-          "401" : {
-            "$ref" : "#/components/responses/401Unauthorized"
-          },
-          "403" : {
-            "$ref" : "#/components/responses/403Forbidden"
-          }
-        }
-      },
-      "put" : {
-        "tags" : [ "PedigreeNodes" ],
-        "summary" : "Update the details for an existing PedigreeNode",
-        "description" : "Update the details for an existing PedigreeNode",
-        "parameters" : [ {
-          "$ref" : "#/components/parameters/authorizationHeader"
-        } ],
-        "requestBody" : {
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "type" : "object",
-                "$ref" : "#/components/schemas/PedigreeNode"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "200" : {
-            "$ref" : "#/components/responses/PedigreeNodeSingleResponse"
           },
           "400" : {
             "$ref" : "#/components/responses/400BadRequest"
@@ -6471,7 +6284,6 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "object",
                 "$ref" : "#/components/schemas/PersonNewRequest"
               }
             }
@@ -6498,38 +6310,6 @@
         "tags" : [ "Plates" ],
         "summary" : "Get the details of a specific Plate",
         "description" : "Get details for a Plate",
-        "responses" : {
-          "200" : {
-            "$ref" : "#/components/responses/PlateSingleResponse"
-          },
-          "400" : {
-            "$ref" : "#/components/responses/400BadRequest"
-          },
-          "401" : {
-            "$ref" : "#/components/responses/401Unauthorized"
-          },
-          "403" : {
-            "$ref" : "#/components/responses/403Forbidden"
-          }
-        }
-      },
-      "put" : {
-        "tags" : [ "Plates" ],
-        "summary" : "Update the details for an existing Plate",
-        "description" : "Update the details for an existing Plate",
-        "parameters" : [ {
-          "$ref" : "#/components/parameters/authorizationHeader"
-        } ],
-        "requestBody" : {
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "type" : "object",
-                "$ref" : "#/components/schemas/PlateNewRequest"
-              }
-            }
-          }
-        },
         "responses" : {
           "200" : {
             "$ref" : "#/components/responses/PlateSingleResponse"
@@ -6577,7 +6357,6 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "object",
                 "$ref" : "#/components/schemas/ProgramNewRequest"
               }
             }
@@ -6620,7 +6399,7 @@
         }
       }
     },
-    "/referenceSets/{referenceSetDbId}" : {
+    "/referencesets/{referenceSetDbId}" : {
       "get" : {
         "tags" : [ "ReferenceSets" ],
         "summary" : "Get the details of a specific ReferenceSet",
@@ -6646,38 +6425,6 @@
         "tags" : [ "Samples" ],
         "summary" : "Get the details of a specific Sample",
         "description" : "Get details for a Sample",
-        "responses" : {
-          "200" : {
-            "$ref" : "#/components/responses/SampleSingleResponse"
-          },
-          "400" : {
-            "$ref" : "#/components/responses/400BadRequest"
-          },
-          "401" : {
-            "$ref" : "#/components/responses/401Unauthorized"
-          },
-          "403" : {
-            "$ref" : "#/components/responses/403Forbidden"
-          }
-        }
-      },
-      "put" : {
-        "tags" : [ "Samples" ],
-        "summary" : "Update the details for an existing Sample",
-        "description" : "Update the details for an existing Sample",
-        "parameters" : [ {
-          "$ref" : "#/components/parameters/authorizationHeader"
-        } ],
-        "requestBody" : {
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "type" : "object",
-                "$ref" : "#/components/schemas/SampleNewRequest"
-              }
-            }
-          }
-        },
         "responses" : {
           "200" : {
             "$ref" : "#/components/responses/SampleSingleResponse"
@@ -6725,7 +6472,6 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "object",
                 "$ref" : "#/components/schemas/ScaleNewRequest"
               }
             }
@@ -6778,7 +6524,6 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "object",
                 "$ref" : "#/components/schemas/Season"
               }
             }
@@ -6800,7 +6545,7 @@
         }
       }
     },
-    "/seedLots/{seedLotDbId}" : {
+    "/seedlots/{seedLotDbId}" : {
       "get" : {
         "tags" : [ "SeedLots" ],
         "summary" : "Get the details of a specific SeedLot",
@@ -6831,7 +6576,6 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "object",
                 "$ref" : "#/components/schemas/SeedLotNewRequest"
               }
             }
@@ -6884,7 +6628,6 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "object",
                 "$ref" : "#/components/schemas/StudyNewRequest"
               }
             }
@@ -6937,7 +6680,6 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "object",
                 "$ref" : "#/components/schemas/TraitNewRequest"
               }
             }
@@ -6990,7 +6732,6 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "object",
                 "$ref" : "#/components/schemas/TrialNewRequest"
               }
             }
@@ -7117,7 +6858,7 @@
         }
       }
     },
-    "/variantSets/{variantSetDbId}" : {
+    "/variantsets/{variantSetDbId}" : {
       "get" : {
         "tags" : [ "VariantSets" ],
         "summary" : "Get the details of a specific VariantSet",
@@ -7138,7 +6879,7 @@
         }
       }
     },
-    "/variantSets/{variantSetDbId}/calls" : {
+    "/variantsets/{variantSetDbId}/calls" : {
       "get" : {
         "tags" : [ "Calls" ],
         "summary" : "Get a filtered list of Call",
@@ -7222,7 +6963,7 @@
         }
       }
     },
-    "/variantSets/{variantSetDbId}/callSets" : {
+    "/variantsets/{variantSetDbId}/callsets" : {
       "get" : {
         "tags" : [ "CallSets" ],
         "summary" : "Get a filtered list of CallSet",
@@ -7368,7 +7109,7 @@
         }
       }
     },
-    "/variantSets/{variantSetDbId}/variants" : {
+    "/variantsets/{variantSetDbId}/variants" : {
       "get" : {
         "tags" : [ "Variants" ],
         "summary" : "Get a filtered list of Variant",
@@ -7524,6 +7265,30 @@
         }
       }
     },
+    "/search/allelematrix" : {
+      "post" : {
+        "tags" : [ "AlleleMatrix" ],
+        "summary" : "Submit a search request for `AlleleMatrix`",
+        "description" : "Submit a search request for `AlleleMatrix`<br/>\nSearch requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \nIf a server needs more time to process the request, it might respond with a `searchResultsDbId`. \nUse the corresponding `GET /search/alleleMatrix/{searchResultsDbId}` to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\">Search Services documentation</a> for additional implementation details.",
+        "responses" : {
+          "200" : {
+            "$ref" : "#/components/responses/AlleleMatrixListResponse"
+          },
+          "202" : {
+            "$ref" : "#/components/responses/202AcceptedSearchResponse"
+          },
+          "400" : {
+            "$ref" : "#/components/responses/400BadRequest"
+          },
+          "401" : {
+            "$ref" : "#/components/responses/401Unauthorized"
+          },
+          "403" : {
+            "$ref" : "#/components/responses/403Forbidden"
+          }
+        }
+      }
+    },
     "/search/calls" : {
       "post" : {
         "tags" : [ "Calls" ],
@@ -7548,7 +7313,7 @@
         }
       }
     },
-    "/search/callSets" : {
+    "/search/callsets" : {
       "post" : {
         "tags" : [ "CallSets" ],
         "summary" : "Submit a search request for `CallSet`",
@@ -7556,54 +7321,6 @@
         "responses" : {
           "200" : {
             "$ref" : "#/components/responses/CallSetListResponse"
-          },
-          "202" : {
-            "$ref" : "#/components/responses/202AcceptedSearchResponse"
-          },
-          "400" : {
-            "$ref" : "#/components/responses/400BadRequest"
-          },
-          "401" : {
-            "$ref" : "#/components/responses/401Unauthorized"
-          },
-          "403" : {
-            "$ref" : "#/components/responses/403Forbidden"
-          }
-        }
-      }
-    },
-    "/search/events" : {
-      "post" : {
-        "tags" : [ "Events" ],
-        "summary" : "Submit a search request for `Event`",
-        "description" : "Submit a search request for `Event`<br/>\nSearch requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \nIf a server needs more time to process the request, it might respond with a `searchResultsDbId`. \nUse the corresponding `GET /search/event/{searchResultsDbId}` to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\">Search Services documentation</a> for additional implementation details.",
-        "responses" : {
-          "200" : {
-            "$ref" : "#/components/responses/EventListResponse"
-          },
-          "202" : {
-            "$ref" : "#/components/responses/202AcceptedSearchResponse"
-          },
-          "400" : {
-            "$ref" : "#/components/responses/400BadRequest"
-          },
-          "401" : {
-            "$ref" : "#/components/responses/401Unauthorized"
-          },
-          "403" : {
-            "$ref" : "#/components/responses/403Forbidden"
-          }
-        }
-      }
-    },
-    "/search/genomeMaps" : {
-      "post" : {
-        "tags" : [ "GenomeMaps" ],
-        "summary" : "Submit a search request for `GenomeMap`",
-        "description" : "Submit a search request for `GenomeMap`<br/>\nSearch requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \nIf a server needs more time to process the request, it might respond with a `searchResultsDbId`. \nUse the corresponding `GET /search/genomeMap/{searchResultsDbId}` to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\">Search Services documentation</a> for additional implementation details.",
-        "responses" : {
-          "200" : {
-            "$ref" : "#/components/responses/GenomeMapListResponse"
           },
           "202" : {
             "$ref" : "#/components/responses/202AcceptedSearchResponse"
@@ -7764,7 +7481,7 @@
         }
       }
     },
-    "/search/markerPositions" : {
+    "/search/markerpositions" : {
       "post" : {
         "tags" : [ "MarkerPositions" ],
         "summary" : "Submit a search request for `MarkerPosition`",
@@ -7812,7 +7529,7 @@
         }
       }
     },
-    "/search/observationUnits" : {
+    "/search/observationunits" : {
       "post" : {
         "tags" : [ "ObservationUnits" ],
         "summary" : "Submit a search request for `ObservationUnit`",
@@ -7836,7 +7553,7 @@
         }
       }
     },
-    "/search/observationVariables" : {
+    "/search/variables" : {
       "post" : {
         "tags" : [ "ObservationVariables" ],
         "summary" : "Submit a search request for `ObservationVariable`",
@@ -7860,7 +7577,7 @@
         }
       }
     },
-    "/search/pedigrees" : {
+    "/search/pedigree" : {
       "post" : {
         "tags" : [ "PedigreeNodes" ],
         "summary" : "Submit a search request for `PedigreeNode`",
@@ -7980,7 +7697,7 @@
         }
       }
     },
-    "/search/referenceSets" : {
+    "/search/referencesets" : {
       "post" : {
         "tags" : [ "ReferenceSets" ],
         "summary" : "Submit a search request for `ReferenceSet`",
@@ -8012,30 +7729,6 @@
         "responses" : {
           "200" : {
             "$ref" : "#/components/responses/SampleListResponse"
-          },
-          "202" : {
-            "$ref" : "#/components/responses/202AcceptedSearchResponse"
-          },
-          "400" : {
-            "$ref" : "#/components/responses/400BadRequest"
-          },
-          "401" : {
-            "$ref" : "#/components/responses/401Unauthorized"
-          },
-          "403" : {
-            "$ref" : "#/components/responses/403Forbidden"
-          }
-        }
-      }
-    },
-    "/search/seedLots" : {
-      "post" : {
-        "tags" : [ "SeedLots" ],
-        "summary" : "Submit a search request for `SeedLot`",
-        "description" : "Submit a search request for `SeedLot`<br/>\nSearch requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \nIf a server needs more time to process the request, it might respond with a `searchResultsDbId`. \nUse the corresponding `GET /search/seedLot/{searchResultsDbId}` to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\">Search Services documentation</a> for additional implementation details.",
-        "responses" : {
-          "200" : {
-            "$ref" : "#/components/responses/SeedLotListResponse"
           },
           "202" : {
             "$ref" : "#/components/responses/202AcceptedSearchResponse"
@@ -8124,7 +7817,7 @@
         }
       }
     },
-    "/search/variantSets" : {
+    "/search/variantsets" : {
       "post" : {
         "tags" : [ "VariantSets" ],
         "summary" : "Submit a search request for `VariantSet`",
@@ -8135,6 +7828,27 @@
           },
           "202" : {
             "$ref" : "#/components/responses/202AcceptedSearchResponse"
+          },
+          "400" : {
+            "$ref" : "#/components/responses/400BadRequest"
+          },
+          "401" : {
+            "$ref" : "#/components/responses/401Unauthorized"
+          },
+          "403" : {
+            "$ref" : "#/components/responses/403Forbidden"
+          }
+        }
+      }
+    },
+    "/search/allelematrix/{searchResultsDbId}" : {
+      "get" : {
+        "tags" : [ "AlleleMatrix" ],
+        "summary" : "Submit a search request for `AlleleMatrix`<br/>\nSearch requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \nIf a server needs more time to process the request, it might respond with a `searchResultsDbId`. \nUse the corresponding `GET /search/alleleMatrix/{searchResultsDbId}` to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\">Search Services documentation</a> for additional implementation details.",
+        "description" : "Get the results of a `AlleleMatrix` search request <br/>\nClients should submit a search request using the corresponding `POST /search/alleleMatrix` endpoint.\nSearch requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \nIf a server needs more time to process the request, it might respond with a `searchResultsDbId`. \nUse this endpoint to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\">Search Services documentation</a> for additional implementation details.",
+        "responses" : {
+          "200" : {
+            "$ref" : "#/components/responses/AlleleMatrixListResponse"
           },
           "400" : {
             "$ref" : "#/components/responses/400BadRequest"
@@ -8169,7 +7883,7 @@
         }
       }
     },
-    "/search/callSets/{searchResultsDbId}" : {
+    "/search/callsets/{searchResultsDbId}" : {
       "get" : {
         "tags" : [ "CallSets" ],
         "summary" : "Submit a search request for `CallSet`<br/>\nSearch requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \nIf a server needs more time to process the request, it might respond with a `searchResultsDbId`. \nUse the corresponding `GET /search/callSet/{searchResultsDbId}` to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\">Search Services documentation</a> for additional implementation details.",
@@ -8177,48 +7891,6 @@
         "responses" : {
           "200" : {
             "$ref" : "#/components/responses/CallSetListResponse"
-          },
-          "400" : {
-            "$ref" : "#/components/responses/400BadRequest"
-          },
-          "401" : {
-            "$ref" : "#/components/responses/401Unauthorized"
-          },
-          "403" : {
-            "$ref" : "#/components/responses/403Forbidden"
-          }
-        }
-      }
-    },
-    "/search/events/{searchResultsDbId}" : {
-      "get" : {
-        "tags" : [ "Events" ],
-        "summary" : "Submit a search request for `Event`<br/>\nSearch requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \nIf a server needs more time to process the request, it might respond with a `searchResultsDbId`. \nUse the corresponding `GET /search/event/{searchResultsDbId}` to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\">Search Services documentation</a> for additional implementation details.",
-        "description" : "Get the results of a `Event` search request <br/>\nClients should submit a search request using the corresponding `POST /search/event` endpoint.\nSearch requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \nIf a server needs more time to process the request, it might respond with a `searchResultsDbId`. \nUse this endpoint to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\">Search Services documentation</a> for additional implementation details.",
-        "responses" : {
-          "200" : {
-            "$ref" : "#/components/responses/EventListResponse"
-          },
-          "400" : {
-            "$ref" : "#/components/responses/400BadRequest"
-          },
-          "401" : {
-            "$ref" : "#/components/responses/401Unauthorized"
-          },
-          "403" : {
-            "$ref" : "#/components/responses/403Forbidden"
-          }
-        }
-      }
-    },
-    "/search/genomeMaps/{searchResultsDbId}" : {
-      "get" : {
-        "tags" : [ "GenomeMaps" ],
-        "summary" : "Submit a search request for `GenomeMap`<br/>\nSearch requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \nIf a server needs more time to process the request, it might respond with a `searchResultsDbId`. \nUse the corresponding `GET /search/genomeMap/{searchResultsDbId}` to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\">Search Services documentation</a> for additional implementation details.",
-        "description" : "Get the results of a `GenomeMap` search request <br/>\nClients should submit a search request using the corresponding `POST /search/genomeMap` endpoint.\nSearch requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \nIf a server needs more time to process the request, it might respond with a `searchResultsDbId`. \nUse this endpoint to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\">Search Services documentation</a> for additional implementation details.",
-        "responses" : {
-          "200" : {
-            "$ref" : "#/components/responses/GenomeMapListResponse"
           },
           "400" : {
             "$ref" : "#/components/responses/400BadRequest"
@@ -8358,7 +8030,7 @@
         }
       }
     },
-    "/search/markerPositions/{searchResultsDbId}" : {
+    "/search/markerpositions/{searchResultsDbId}" : {
       "get" : {
         "tags" : [ "MarkerPositions" ],
         "summary" : "Submit a search request for `MarkerPosition`<br/>\nSearch requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \nIf a server needs more time to process the request, it might respond with a `searchResultsDbId`. \nUse the corresponding `GET /search/markerPosition/{searchResultsDbId}` to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\">Search Services documentation</a> for additional implementation details.",
@@ -8400,7 +8072,7 @@
         }
       }
     },
-    "/search/observationUnits/{searchResultsDbId}" : {
+    "/search/observationunits/{searchResultsDbId}" : {
       "get" : {
         "tags" : [ "ObservationUnits" ],
         "summary" : "Submit a search request for `ObservationUnit`<br/>\nSearch requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \nIf a server needs more time to process the request, it might respond with a `searchResultsDbId`. \nUse the corresponding `GET /search/observationUnit/{searchResultsDbId}` to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\">Search Services documentation</a> for additional implementation details.",
@@ -8421,7 +8093,7 @@
         }
       }
     },
-    "/search/observationVariables/{searchResultsDbId}" : {
+    "/search/variables/{searchResultsDbId}" : {
       "get" : {
         "tags" : [ "ObservationVariables" ],
         "summary" : "Submit a search request for `ObservationVariable`<br/>\nSearch requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \nIf a server needs more time to process the request, it might respond with a `searchResultsDbId`. \nUse the corresponding `GET /search/observationVariable/{searchResultsDbId}` to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\">Search Services documentation</a> for additional implementation details.",
@@ -8442,7 +8114,7 @@
         }
       }
     },
-    "/search/pedigrees/{searchResultsDbId}" : {
+    "/search/pedigree/{searchResultsDbId}" : {
       "get" : {
         "tags" : [ "PedigreeNodes" ],
         "summary" : "Submit a search request for `PedigreeNode`<br/>\nSearch requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \nIf a server needs more time to process the request, it might respond with a `searchResultsDbId`. \nUse the corresponding `GET /search/pedigreeNode/{searchResultsDbId}` to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\">Search Services documentation</a> for additional implementation details.",
@@ -8547,7 +8219,7 @@
         }
       }
     },
-    "/search/referenceSets/{searchResultsDbId}" : {
+    "/search/referencesets/{searchResultsDbId}" : {
       "get" : {
         "tags" : [ "ReferenceSets" ],
         "summary" : "Submit a search request for `ReferenceSet`<br/>\nSearch requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \nIf a server needs more time to process the request, it might respond with a `searchResultsDbId`. \nUse the corresponding `GET /search/referenceSet/{searchResultsDbId}` to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\">Search Services documentation</a> for additional implementation details.",
@@ -8576,27 +8248,6 @@
         "responses" : {
           "200" : {
             "$ref" : "#/components/responses/SampleListResponse"
-          },
-          "400" : {
-            "$ref" : "#/components/responses/400BadRequest"
-          },
-          "401" : {
-            "$ref" : "#/components/responses/401Unauthorized"
-          },
-          "403" : {
-            "$ref" : "#/components/responses/403Forbidden"
-          }
-        }
-      }
-    },
-    "/search/seedLots/{searchResultsDbId}" : {
-      "get" : {
-        "tags" : [ "SeedLots" ],
-        "summary" : "Submit a search request for `SeedLot`<br/>\nSearch requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \nIf a server needs more time to process the request, it might respond with a `searchResultsDbId`. \nUse the corresponding `GET /search/seedLot/{searchResultsDbId}` to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\">Search Services documentation</a> for additional implementation details.",
-        "description" : "Get the results of a `SeedLot` search request <br/>\nClients should submit a search request using the corresponding `POST /search/seedLot` endpoint.\nSearch requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \nIf a server needs more time to process the request, it might respond with a `searchResultsDbId`. \nUse this endpoint to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\">Search Services documentation</a> for additional implementation details.",
-        "responses" : {
-          "200" : {
-            "$ref" : "#/components/responses/SeedLotListResponse"
           },
           "400" : {
             "$ref" : "#/components/responses/400BadRequest"
@@ -8673,7 +8324,7 @@
         }
       }
     },
-    "/search/variantSets/{searchResultsDbId}" : {
+    "/search/variantsets/{searchResultsDbId}" : {
       "get" : {
         "tags" : [ "VariantSets" ],
         "summary" : "Submit a search request for `VariantSet`<br/>\nSearch requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \nIf a server needs more time to process the request, it might respond with a `searchResultsDbId`. \nUse the corresponding `GET /search/variantSet/{searchResultsDbId}` to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\">Search Services documentation</a> for additional implementation details.",
@@ -8742,6 +8393,26 @@
         },
         "required" : [ "callSetDbIds", "variantSetDbIds" ]
       },
+      "AlleleMatrixSearchRequest" : {
+        "type" : "object",
+        "properties" : {
+          "expandHomozygotes" : {
+            "type" : "boolean"
+          },
+          "preview" : {
+            "type" : "boolean"
+          },
+          "sepPhased" : {
+            "type" : "string"
+          },
+          "sepUnphased" : {
+            "type" : "string"
+          },
+          "unknownString" : {
+            "type" : "string"
+          }
+        }
+      },
       "Analysis" : {
         "type" : "object",
         "properties" : {
@@ -8782,7 +8453,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "attributeCategory" : {
@@ -8825,15 +8495,12 @@
             "type" : "string"
           },
           "method" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/Method"
           },
           "ontologyReference" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/OntologyReference"
           },
           "scale" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/Scale"
           },
           "scientist" : {
@@ -8852,7 +8519,6 @@
             }
           },
           "trait" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/Trait"
           }
         },
@@ -8916,7 +8582,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "callSetDbId" : {
@@ -8964,7 +8629,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "callSetDbId" : {
@@ -9082,14 +8746,12 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "crossName" : {
             "type" : "string"
           },
           "crossType" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/CrossType"
           },
           "crossingProjectDbId" : {
@@ -9099,11 +8761,9 @@
             "type" : "string"
           },
           "parent1" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/CrossParent"
           },
           "parent2" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/CrossParent"
           },
           "plannedCrossDbId" : {
@@ -9136,7 +8796,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "crossDbId" : {
@@ -9146,7 +8805,6 @@
             "type" : "string"
           },
           "crossType" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/CrossType"
           },
           "crossingProjectDbId" : {
@@ -9156,11 +8814,9 @@
             "type" : "string"
           },
           "parent1" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/CrossParent"
           },
           "parent2" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/CrossParent"
           },
           "plannedCrossDbId" : {
@@ -9176,7 +8832,6 @@
         "type" : "object",
         "properties" : {
           "germplasm" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/Germplasm"
           },
           "observationUnitDbId" : {
@@ -9189,7 +8844,6 @@
             "type" : "string"
           },
           "parentType" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/ParentType"
           }
         }
@@ -9203,7 +8857,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "commonCropName" : {
@@ -9228,7 +8881,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "commonCropName" : {
@@ -9285,7 +8937,6 @@
         "type" : "object",
         "properties" : {
           "alleleMatrix" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AlleleMatrix"
           },
           "dataMatrix" : {
@@ -9414,7 +9065,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "eventDbId" : {
@@ -9499,17 +9149,6 @@
           }
         }
       },
-      "EventSearchRequest" : {
-        "type" : "object",
-        "properties" : {
-          "dateRangeEnd" : {
-            "type" : "string"
-          },
-          "dateRangeStart" : {
-            "type" : "string"
-          }
-        }
-      },
       "ExperimentalDesign" : {
         "type" : "object",
         "properties" : {
@@ -9545,7 +9184,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "comments" : {
@@ -9589,15 +9227,10 @@
         },
         "required" : [ "commonCropName", "mapDbId", "type" ]
       },
-      "GenomeMapSearchRequest" : {
-        "type" : "object",
-        "properties" : { }
-      },
       "GenotypeMetadata" : {
         "type" : "object",
         "properties" : {
           "call" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/Call"
           },
           "dataType" : {
@@ -9621,7 +9254,6 @@
         "description" : "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
         "properties" : {
           "geometry" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/GeoJSONGeometry"
           },
           "type" : {
@@ -9630,7 +9262,6 @@
         }
       },
       "GeoJSONGeometry" : {
-        "type" : "object",
         "oneOf" : [ {
           "type" : "object",
           "description" : "Copied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
@@ -9669,6 +9300,32 @@
           "required" : [ "coordinateDbIds", "type" ]
         } ]
       },
+      "GeoJSONSearchArea" : {
+        "type" : "object",
+        "properties" : {
+          "geometry" : {
+            "$ref" : "#/components/schemas/GeoJSONGeometry"
+          },
+          "germplasmOrigin" : {
+            "$ref" : "#/components/schemas/GermplasmOrigin"
+          },
+          "imageDbId" : {
+            "type" : "string"
+          },
+          "imageName" : {
+            "type" : "string"
+          },
+          "observationDbId" : {
+            "type" : "string"
+          },
+          "observationUnit" : {
+            "$ref" : "#/components/schemas/ObservationUnitPosition"
+          },
+          "type" : {
+            "type" : "string"
+          }
+        }
+      },
       "Germplasm" : {
         "type" : "object",
         "properties" : {
@@ -9679,7 +9336,6 @@
             "type" : "string"
           },
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "biologicalStatusOfAccessionCode" : {
@@ -9763,7 +9419,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "attributeCategory" : {
@@ -9848,7 +9503,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "attributeCategory" : {
@@ -9940,7 +9594,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "attributeDbId" : {
@@ -9974,7 +9627,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "attributeDbId" : {
@@ -10024,7 +9676,6 @@
             "type" : "string"
           },
           "parentType" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/ParentType"
           },
           "pedigreeNodeDbId" : {
@@ -10043,7 +9694,6 @@
             "type" : "string"
           },
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "biologicalStatusOfAccessionCode" : {
@@ -10156,7 +9806,6 @@
             "type" : "string"
           },
           "parentType" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/ParentType"
           },
           "pedigreeNodeDbId" : {
@@ -10193,7 +9842,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "copyright" : {
@@ -10214,7 +9862,6 @@
             "format" : "int32"
           },
           "imageLocation" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/GeoJSON"
           },
           "imageName" : {
@@ -10255,7 +9902,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "copyright" : {
@@ -10279,7 +9925,6 @@
             "format" : "int32"
           },
           "imageLocation" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/GeoJSON"
           },
           "imageName" : {
@@ -10336,7 +9981,6 @@
             "format" : "int32"
           },
           "imageLocation" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/GeoJSONSearchArea"
           },
           "imageTimeStampRangeEnd" : {
@@ -10383,7 +10027,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "dateCreated" : {
@@ -10409,7 +10052,6 @@
             "type" : "string"
           },
           "listType" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/ListType"
           },
           "personDbId" : {
@@ -10422,7 +10064,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "dateCreated" : {
@@ -10451,7 +10092,6 @@
             "type" : "string"
           },
           "listType" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/ListType"
           },
           "personDbId" : {
@@ -10476,7 +10116,6 @@
             "type" : "string"
           },
           "listType" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/ListType"
           }
         }
@@ -10493,7 +10132,6 @@
             "type" : "string"
           },
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "childLocationDbIds" : {
@@ -10509,7 +10147,6 @@
             "type" : "string"
           },
           "coordinates" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/GeoJSON"
           },
           "countryCode" : {
@@ -10561,7 +10198,6 @@
             "type" : "string"
           },
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "childLocationDbIds" : {
@@ -10577,7 +10213,6 @@
             "type" : "string"
           },
           "coordinates" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/GeoJSON"
           },
           "countryCode" : {
@@ -10632,7 +10267,6 @@
             "type" : "number"
           },
           "coordinates" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/GeoJSONSearchArea"
           }
         }
@@ -10641,7 +10275,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "linkageGroupName" : {
@@ -10704,7 +10337,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "bibliographicalReference" : {
@@ -10735,7 +10367,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "bibliographicalReference" : {
@@ -10769,14 +10400,12 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "collector" : {
             "type" : "string"
           },
           "geoCoordinates" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/GeoJSON"
           },
           "germplasmDbId" : {
@@ -10837,14 +10466,12 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "collector" : {
             "type" : "string"
           },
           "geoCoordinates" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/GeoJSON"
           },
           "germplasmDbId" : {
@@ -10919,7 +10546,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "crossDbId" : {
@@ -11026,7 +10652,6 @@
             "format" : "int32"
           },
           "observationUnit" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/ObservationUnit"
           }
         }
@@ -11035,7 +10660,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "crossDbId" : {
@@ -11110,7 +10734,6 @@
             "enum" : [ "CHECK", "TEST", "FILLER" ]
           },
           "observationLevel" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/ObservationUnitLevel"
           },
           "observationUnitDbId" : {
@@ -11152,7 +10775,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "commonCropName" : {
@@ -11225,7 +10847,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "commonCropName" : {
@@ -11305,7 +10926,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "authors" : {
@@ -11336,7 +10956,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "authors" : {
@@ -11370,7 +10989,6 @@
         "type" : "object",
         "properties" : {
           "ontology" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/Ontology"
           },
           "ontologyReferenceDbId" : {
@@ -11397,7 +11015,6 @@
         "type" : "object",
         "properties" : {
           "alleleMatrix" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AlleleMatrix"
           },
           "dimension" : {
@@ -11432,7 +11049,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "breedingMethodDbId" : {
@@ -11510,7 +11126,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "description" : {
@@ -11544,7 +11159,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "description" : {
@@ -11585,11 +11199,9 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "crossType" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/CrossType"
           },
           "crossingProjectDbId" : {
@@ -11599,11 +11211,9 @@
             "type" : "string"
           },
           "parent1" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/CrossParent"
           },
           "parent2" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/CrossParent"
           },
           "plannedCrossDbId" : {
@@ -11624,7 +11234,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "plateBarcode" : {
@@ -11674,7 +11283,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "plateBarcode" : {
@@ -11754,7 +11362,6 @@
             "type" : "string"
           },
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "commonCropName" : {
@@ -11790,7 +11397,6 @@
             "type" : "string"
           },
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "commonCropName" : {
@@ -11850,7 +11456,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "commonCropName" : {
@@ -11891,7 +11496,6 @@
             "type" : "string"
           },
           "species" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/OntologyTerm"
           },
           "variantDbIds" : {
@@ -11923,7 +11527,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "assemblyPUI" : {
@@ -11960,7 +11563,6 @@
             "type" : "string"
           },
           "species" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/OntologyTerm"
           },
           "variantDbIds" : {
@@ -11982,7 +11584,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "assemblyPUI" : {
@@ -12022,7 +11623,6 @@
             "type" : "string"
           },
           "species" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/OntologyTerm"
           },
           "variantDbIds" : {
@@ -12048,7 +11648,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "callSetDbIds" : {
@@ -12149,7 +11748,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "callSetDbIds" : {
@@ -12257,7 +11855,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "dataType" : {
@@ -12282,7 +11879,6 @@
             "type" : "string"
           },
           "validValues" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/ValidValues"
           }
         },
@@ -12292,7 +11888,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "dataType" : {
@@ -12320,7 +11915,6 @@
             "type" : "string"
           },
           "validValues" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/ValidValues"
           }
         },
@@ -12346,7 +11940,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "amount" : {
@@ -12392,7 +11985,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "amount" : {
@@ -12437,15 +12029,10 @@
         },
         "required" : [ "seedLotDbId", "seedLotDbId", "seedLotName" ]
       },
-      "SeedLotSearchRequest" : {
-        "type" : "object",
-        "properties" : { }
-      },
       "SeedLotTransaction" : {
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "amount" : {
@@ -12501,7 +12088,6 @@
             "type" : "boolean"
           },
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "commonCropName" : {
@@ -12529,11 +12115,9 @@
             }
           },
           "experimentalDesign" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/ExperimentalDesign"
           },
           "growthFacility" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/GrowthFacility"
           },
           "lastUpdateDbId" : {
@@ -12594,7 +12178,6 @@
             "type" : "boolean"
           },
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "commonCropName" : {
@@ -12622,11 +12205,9 @@
             }
           },
           "experimentalDesign" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/ExperimentalDesign"
           },
           "growthFacility" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/GrowthFacility"
           },
           "lastUpdateDbId" : {
@@ -12736,7 +12317,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "attribute" : {
@@ -12784,7 +12364,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "attribute" : {
@@ -12853,7 +12432,6 @@
             "type" : "boolean"
           },
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "commonCropName" : {
@@ -12862,7 +12440,6 @@
           "contacts" : {
             "type" : "array",
             "items" : {
-              "type" : "object",
               "$ref" : "#/components/schemas/Contact"
             }
           },
@@ -12906,7 +12483,6 @@
             "type" : "boolean"
           },
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "commonCropName" : {
@@ -12915,7 +12491,6 @@
           "contacts" : {
             "type" : "array",
             "items" : {
-              "type" : "object",
               "$ref" : "#/components/schemas/Contact"
             }
           },
@@ -12996,7 +12571,6 @@
             "type" : "string"
           },
           "validValues" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/ValidValues"
           },
           "value" : {
@@ -13008,7 +12582,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "commonCropName" : {
@@ -13036,15 +12609,12 @@
             "type" : "string"
           },
           "method" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/Method"
           },
           "ontologyReference" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/OntologyReference"
           },
           "scale" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/Scale"
           },
           "scientist" : {
@@ -13063,7 +12633,6 @@
             }
           },
           "trait" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/Trait"
           }
         },
@@ -13073,7 +12642,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "created" : {
@@ -13150,7 +12718,6 @@
         "type" : "object",
         "properties" : {
           "additionalInfo" : {
-            "type" : "object",
             "$ref" : "#/components/schemas/AdditionalInfo"
           },
           "analysiDbIds" : {
@@ -13369,26 +12936,17 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/ObservationVariable"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
+                  "$ref" : "#/components/schemas/ObservationVariable"
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -13404,26 +12962,17 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/SeedLot"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
+                  "$ref" : "#/components/schemas/SeedLot"
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -13439,26 +12988,17 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/Variant"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
+                  "$ref" : "#/components/schemas/Variant"
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -13502,26 +13042,17 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/Study"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
+                  "$ref" : "#/components/schemas/Study"
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -13530,20 +13061,20 @@
           }
         }
       },
-      "MethodSingleResponse" : {
+      "MarkerPositionListResponse" : {
         "description" : "OK",
         "content" : {
           "application/json" : {
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
@@ -13551,8 +13082,7 @@
                     "data" : {
                       "type" : "array",
                       "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/Method"
+                        "$ref" : "#/components/schemas/MarkerPosition"
                       }
                     }
                   },
@@ -13560,7 +13090,7 @@
                 }
               },
               "required" : [ "metadata", "result" ],
-              "title" : "MethodSingleResponse"
+              "title" : "MarkerPositionListResponse"
             }
           }
         }
@@ -13572,7 +13102,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -13582,11 +13112,45 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Trial"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/Trial"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
               "title" : "TrialListResponse"
+            }
+          }
+        }
+      },
+      "MethodSingleResponse" : {
+        "description" : "OK",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "@context" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/Context"
+                },
+                "metadata" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/metadata"
+                },
+                "result" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/Method"
+                }
+              },
+              "required" : [ "metadata", "result" ],
+              "title" : "MethodSingleResponse"
             }
           }
         }
@@ -13598,7 +13162,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -13608,7 +13172,15 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/SeedLot"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/SeedLot"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -13624,7 +13196,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -13634,7 +13206,15 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/VariantSet"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/VariantSet"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -13650,13 +13230,39 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
+                  "$ref" : "#/components/schemas/metadata"
+                },
+                "result" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/Sample"
+                }
+              },
+              "required" : [ "metadata", "result" ],
+              "title" : "SampleSingleResponse"
+            }
+          }
+        }
+      },
+      "CallSetListResponse" : {
+        "description" : "OK",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "@context" : {
+                  "type" : "object",
                   "$ref" : "#/components/schemas/Context"
+                },
+                "metadata" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
@@ -13664,8 +13270,7 @@
                     "data" : {
                       "type" : "array",
                       "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/Sample"
+                        "$ref" : "#/components/schemas/CallSet"
                       }
                     }
                   },
@@ -13673,7 +13278,7 @@
                 }
               },
               "required" : [ "metadata", "result" ],
-              "title" : "SampleSingleResponse"
+              "title" : "CallSetListResponse"
             }
           }
         }
@@ -13685,26 +13290,17 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/CallSet"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
+                  "$ref" : "#/components/schemas/CallSet"
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -13720,42 +13316,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
-                },
-                "metadata" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
-                },
-                "result" : {
-                  "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/VariantSet"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
-                }
-              },
-              "required" : [ "metadata", "result" ],
-              "title" : "VariantSetSingleResponse"
-            }
-          }
-        }
-      },
-      "CallSetListResponse" : {
-        "description" : "OK",
-        "content" : {
-          "application/json" : {
-            "schema" : {
-              "type" : "object",
-              "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -13765,46 +13326,11 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/CallSet"
+                  "$ref" : "#/components/schemas/VariantSet"
                 }
               },
               "required" : [ "metadata", "result" ],
-              "title" : "CallSetListResponse"
-            }
-          }
-        }
-      },
-      "ReferenceSetSingleResponse" : {
-        "description" : "OK",
-        "content" : {
-          "application/json" : {
-            "schema" : {
-              "type" : "object",
-              "properties" : {
-                "'@context'" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
-                },
-                "metadata" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
-                },
-                "result" : {
-                  "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/ReferenceSet"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
-                }
-              },
-              "required" : [ "metadata", "result" ],
-              "title" : "ReferenceSetSingleResponse"
+              "title" : "VariantSetSingleResponse"
             }
           }
         }
@@ -13816,7 +13342,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -13826,7 +13352,15 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/ObservationVariable"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/ObservationVariable"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -13835,20 +13369,46 @@
           }
         }
       },
-      "EventSingleResponse" : {
+      "ReferenceSetSingleResponse" : {
         "description" : "OK",
         "content" : {
           "application/json" : {
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
+                  "$ref" : "#/components/schemas/metadata"
+                },
+                "result" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/ReferenceSet"
+                }
+              },
+              "required" : [ "metadata", "result" ],
+              "title" : "ReferenceSetSingleResponse"
+            }
+          }
+        }
+      },
+      "CrossListResponse" : {
+        "description" : "OK",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "@context" : {
+                  "type" : "object",
                   "$ref" : "#/components/schemas/Context"
+                },
+                "metadata" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
@@ -13856,8 +13416,7 @@
                     "data" : {
                       "type" : "array",
                       "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/Event"
+                        "$ref" : "#/components/schemas/Cross"
                       }
                     }
                   },
@@ -13865,7 +13424,7 @@
                 }
               },
               "required" : [ "metadata", "result" ],
-              "title" : "EventSingleResponse"
+              "title" : "CrossListResponse"
             }
           }
         }
@@ -13877,26 +13436,17 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/Image"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
+                  "$ref" : "#/components/schemas/Image"
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -13912,7 +13462,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -13922,7 +13472,15 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Plate"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/Plate"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -13938,7 +13496,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -13948,7 +13506,15 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Season"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/Season"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -13964,7 +13530,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -13974,7 +13540,15 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/ObservationUnit"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/ObservationUnit"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -13990,7 +13564,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -14000,7 +13574,15 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Reference"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/Reference"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -14016,7 +13598,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -14026,11 +13608,53 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Observation"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/Observation"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
               "title" : "ObservationListResponse"
+            }
+          }
+        }
+      },
+      "AlleleMatrixListResponse" : {
+        "description" : "OK",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "@context" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/Context"
+                },
+                "metadata" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/metadata"
+                },
+                "result" : {
+                  "type" : "object",
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/AlleleMatrix"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
+                }
+              },
+              "required" : [ "metadata", "result" ],
+              "title" : "AlleleMatrixListResponse"
             }
           }
         }
@@ -14042,26 +13666,17 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/GenomeMap"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
+                  "$ref" : "#/components/schemas/GenomeMap"
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -14077,7 +13692,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -14087,11 +13702,53 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Person"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/Person"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
               "title" : "PersonListResponse"
+            }
+          }
+        }
+      },
+      "PlannedCrossListResponse" : {
+        "description" : "OK",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "@context" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/Context"
+                },
+                "metadata" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/metadata"
+                },
+                "result" : {
+                  "type" : "object",
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/PlannedCross"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
+                }
+              },
+              "required" : [ "metadata", "result" ],
+              "title" : "PlannedCrossListResponse"
             }
           }
         }
@@ -14103,7 +13760,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -14113,7 +13770,15 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Location"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/Location"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -14140,65 +13805,21 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/Ontology"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
+                  "$ref" : "#/components/schemas/Ontology"
                 }
               },
               "required" : [ "metadata", "result" ],
               "title" : "OntologySingleResponse"
-            }
-          }
-        }
-      },
-      "CrossSingleResponse" : {
-        "description" : "OK",
-        "content" : {
-          "application/json" : {
-            "schema" : {
-              "type" : "object",
-              "properties" : {
-                "'@context'" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
-                },
-                "metadata" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
-                },
-                "result" : {
-                  "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/Cross"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
-                }
-              },
-              "required" : [ "metadata", "result" ],
-              "title" : "CrossSingleResponse"
             }
           }
         }
@@ -14210,7 +13831,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -14220,7 +13841,15 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Program"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/Program"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -14236,26 +13865,17 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/ObservationUnit"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
+                  "$ref" : "#/components/schemas/ObservationUnit"
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -14271,7 +13891,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -14281,7 +13901,15 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Scale"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/Scale"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -14297,7 +13925,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -14307,7 +13935,15 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/List"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/List"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -14334,7 +13970,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -14344,7 +13980,15 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Method"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/Method"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -14360,7 +14004,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -14370,7 +14014,15 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/CrossingProject"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/CrossingProject"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -14386,26 +14038,17 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/GermplasmAttribute"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
+                  "$ref" : "#/components/schemas/GermplasmAttribute"
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -14421,26 +14064,17 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/Trait"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
+                  "$ref" : "#/components/schemas/Trait"
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -14467,7 +14101,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -14477,7 +14111,15 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/GermplasmAttribute"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/GermplasmAttribute"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -14493,7 +14135,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -14503,11 +14145,53 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Germplasm"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/Germplasm"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
               "title" : "GermplasmListResponse"
+            }
+          }
+        }
+      },
+      "EventListResponse" : {
+        "description" : "OK",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "@context" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/Context"
+                },
+                "metadata" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/metadata"
+                },
+                "result" : {
+                  "type" : "object",
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/Event"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
+                }
+              },
+              "required" : [ "metadata", "result" ],
+              "title" : "EventListResponse"
             }
           }
         }
@@ -14519,26 +14203,17 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/CrossingProject"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
+                  "$ref" : "#/components/schemas/CrossingProject"
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -14554,7 +14229,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -14564,38 +14239,11 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Trait"
-                }
-              },
-              "required" : [ "metadata", "result" ],
-              "title" : "TraitListResponse"
-            }
-          }
-        }
-      },
-      "PedigreeNodeSingleResponse" : {
-        "description" : "OK",
-        "content" : {
-          "application/json" : {
-            "schema" : {
-              "type" : "object",
-              "properties" : {
-                "'@context'" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
-                },
-                "metadata" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
-                },
-                "result" : {
-                  "type" : "object",
                   "properties" : {
                     "data" : {
                       "type" : "array",
                       "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/PedigreeNode"
+                        "$ref" : "#/components/schemas/Trait"
                       }
                     }
                   },
@@ -14603,7 +14251,7 @@
                 }
               },
               "required" : [ "metadata", "result" ],
-              "title" : "PedigreeNodeSingleResponse"
+              "title" : "TraitListResponse"
             }
           }
         }
@@ -14615,7 +14263,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -14625,7 +14273,15 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Sample"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/Sample"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -14641,7 +14297,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -14651,7 +14307,15 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/ReferenceSet"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/ReferenceSet"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -14667,26 +14331,17 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/Trial"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
+                  "$ref" : "#/components/schemas/Trial"
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -14702,26 +14357,17 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/Germplasm"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
+                  "$ref" : "#/components/schemas/Germplasm"
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -14730,20 +14376,20 @@
           }
         }
       },
-      "PlannedCrossSingleResponse" : {
+      "OntologyListResponse" : {
         "description" : "OK",
         "content" : {
           "application/json" : {
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
@@ -14751,8 +14397,7 @@
                     "data" : {
                       "type" : "array",
                       "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/PlannedCross"
+                        "$ref" : "#/components/schemas/Ontology"
                       }
                     }
                   },
@@ -14760,7 +14405,7 @@
                 }
               },
               "required" : [ "metadata", "result" ],
-              "title" : "PlannedCrossSingleResponse"
+              "title" : "OntologyListResponse"
             }
           }
         }
@@ -14772,26 +14417,17 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/Reference"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
+                  "$ref" : "#/components/schemas/Reference"
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -14807,42 +14443,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
-                },
-                "metadata" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
-                },
-                "result" : {
-                  "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/Season"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
-                }
-              },
-              "required" : [ "metadata", "result" ],
-              "title" : "SeasonSingleResponse"
-            }
-          }
-        }
-      },
-      "OntologyListResponse" : {
-        "description" : "OK",
-        "content" : {
-          "application/json" : {
-            "schema" : {
-              "type" : "object",
-              "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -14852,11 +14453,11 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Ontology"
+                  "$ref" : "#/components/schemas/Season"
                 }
               },
               "required" : [ "metadata", "result" ],
-              "title" : "OntologyListResponse"
+              "title" : "SeasonSingleResponse"
             }
           }
         }
@@ -14879,7 +14480,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -14889,7 +14490,15 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Study"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/Study"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -14905,65 +14514,21 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/Scale"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
+                  "$ref" : "#/components/schemas/Scale"
                 }
               },
               "required" : [ "metadata", "result" ],
               "title" : "ScaleSingleResponse"
-            }
-          }
-        }
-      },
-      "BreedingMethodSingleResponse" : {
-        "description" : "OK",
-        "content" : {
-          "application/json" : {
-            "schema" : {
-              "type" : "object",
-              "properties" : {
-                "'@context'" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
-                },
-                "metadata" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
-                },
-                "result" : {
-                  "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/BreedingMethod"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
-                }
-              },
-              "required" : [ "metadata", "result" ],
-              "title" : "BreedingMethodSingleResponse"
             }
           }
         }
@@ -14975,7 +14540,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -14985,11 +14550,45 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Call"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/Call"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
               "title" : "CallListResponse"
+            }
+          }
+        }
+      },
+      "BreedingMethodSingleResponse" : {
+        "description" : "OK",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "@context" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/Context"
+                },
+                "metadata" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/metadata"
+                },
+                "result" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/BreedingMethod"
+                }
+              },
+              "required" : [ "metadata", "result" ],
+              "title" : "BreedingMethodSingleResponse"
             }
           }
         }
@@ -15001,26 +14600,17 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/Location"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
+                  "$ref" : "#/components/schemas/Location"
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -15036,65 +14626,21 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/Person"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
+                  "$ref" : "#/components/schemas/Person"
                 }
               },
               "required" : [ "metadata", "result" ],
               "title" : "PersonSingleResponse"
-            }
-          }
-        }
-      },
-      "MarkerPositionSingleResponse" : {
-        "description" : "OK",
-        "content" : {
-          "application/json" : {
-            "schema" : {
-              "type" : "object",
-              "properties" : {
-                "'@context'" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
-                },
-                "metadata" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
-                },
-                "result" : {
-                  "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/MarkerPosition"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
-                }
-              },
-              "required" : [ "metadata", "result" ],
-              "title" : "MarkerPositionSingleResponse"
             }
           }
         }
@@ -15106,7 +14652,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -15116,38 +14662,11 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Image"
-                }
-              },
-              "required" : [ "metadata", "result" ],
-              "title" : "ImageListResponse"
-            }
-          }
-        }
-      },
-      "PlateSingleResponse" : {
-        "description" : "OK",
-        "content" : {
-          "application/json" : {
-            "schema" : {
-              "type" : "object",
-              "properties" : {
-                "'@context'" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
-                },
-                "metadata" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
-                },
-                "result" : {
-                  "type" : "object",
                   "properties" : {
                     "data" : {
                       "type" : "array",
                       "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/Plate"
+                        "$ref" : "#/components/schemas/Image"
                       }
                     }
                   },
@@ -15155,7 +14674,7 @@
                 }
               },
               "required" : [ "metadata", "result" ],
-              "title" : "PlateSingleResponse"
+              "title" : "ImageListResponse"
             }
           }
         }
@@ -15167,7 +14686,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -15177,11 +14696,45 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Variant"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/Variant"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
               "title" : "VariantListResponse"
+            }
+          }
+        }
+      },
+      "PlateSingleResponse" : {
+        "description" : "OK",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "@context" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/Context"
+                },
+                "metadata" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/metadata"
+                },
+                "result" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/Plate"
+                }
+              },
+              "required" : [ "metadata", "result" ],
+              "title" : "PlateSingleResponse"
             }
           }
         }
@@ -15193,7 +14746,75 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/Context"
+                },
+                "metadata" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/metadata"
+                },
+                "result" : {
+                  "type" : "object",
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/GermplasmAttributeValue"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
+                }
+              },
+              "required" : [ "metadata", "result" ],
+              "title" : "GermplasmAttributeValueListResponse"
+            }
+          }
+        }
+      },
+      "BreedingMethodListResponse" : {
+        "description" : "OK",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "@context" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/Context"
+                },
+                "metadata" : {
+                  "type" : "object",
+                  "$ref" : "#/components/schemas/metadata"
+                },
+                "result" : {
+                  "type" : "object",
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/BreedingMethod"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
+                }
+              },
+              "required" : [ "metadata", "result" ],
+              "title" : "BreedingMethodListResponse"
+            }
+          }
+        }
+      },
+      "GermplasmAttributeValueSingleResponse" : {
+        "description" : "OK",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -15207,103 +14828,7 @@
                 }
               },
               "required" : [ "metadata", "result" ],
-              "title" : "GermplasmAttributeValueListResponse"
-            }
-          }
-        }
-      },
-      "GermplasmAttributeValueSingleResponse" : {
-        "description" : "OK",
-        "content" : {
-          "application/json" : {
-            "schema" : {
-              "type" : "object",
-              "properties" : {
-                "'@context'" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
-                },
-                "metadata" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
-                },
-                "result" : {
-                  "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/GermplasmAttributeValue"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
-                }
-              },
-              "required" : [ "metadata", "result" ],
               "title" : "GermplasmAttributeValueSingleResponse"
-            }
-          }
-        }
-      },
-      "BreedingMethodListResponse" : {
-        "description" : "OK",
-        "content" : {
-          "application/json" : {
-            "schema" : {
-              "type" : "object",
-              "properties" : {
-                "'@context'" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
-                },
-                "metadata" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/metadata"
-                },
-                "result" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/BreedingMethod"
-                }
-              },
-              "required" : [ "metadata", "result" ],
-              "title" : "BreedingMethodListResponse"
-            }
-          }
-        }
-      },
-      "CallSingleResponse" : {
-        "description" : "OK",
-        "content" : {
-          "application/json" : {
-            "schema" : {
-              "type" : "object",
-              "properties" : {
-                "'@context'" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
-                },
-                "metadata" : {
-                  "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
-                },
-                "result" : {
-                  "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/Call"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
-                }
-              },
-              "required" : [ "metadata", "result" ],
-              "title" : "CallSingleResponse"
             }
           }
         }
@@ -15315,7 +14840,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -15325,7 +14850,15 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/GenomeMap"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/GenomeMap"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -15341,7 +14874,7 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
@@ -15351,7 +14884,15 @@
                 },
                 "result" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/PedigreeNode"
+                  "properties" : {
+                    "data" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/components/schemas/PedigreeNode"
+                      }
+                    }
+                  },
+                  "required" : [ "data" ]
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -15367,26 +14908,17 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/Observation"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
+                  "$ref" : "#/components/schemas/Observation"
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -15402,26 +14934,17 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/List"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
+                  "$ref" : "#/components/schemas/List"
                 }
               },
               "required" : [ "metadata", "result" ],
@@ -15437,26 +14960,17 @@
             "schema" : {
               "type" : "object",
               "properties" : {
-                "'@context'" : {
+                "@context" : {
                   "type" : "object",
                   "$ref" : "#/components/schemas/Context"
                 },
                 "metadata" : {
                   "type" : "object",
-                  "$ref" : "#/components/schemas/Context"
+                  "$ref" : "#/components/schemas/metadata"
                 },
                 "result" : {
                   "type" : "object",
-                  "properties" : {
-                    "data" : {
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "$ref" : "#/components/schemas/Program"
-                      }
-                    }
-                  },
-                  "required" : [ "data" ]
+                  "$ref" : "#/components/schemas/Program"
                 }
               },
               "required" : [ "metadata", "result" ],
