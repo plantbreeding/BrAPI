@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Set up Docker Compose
-        ses: docker/setup-compose-action@v1
+        uses: docker/setup-compose-action@v1
       - name: Build and run the Docker image
         run: docker compose run build-docs
       - name: Set up JDK 21
