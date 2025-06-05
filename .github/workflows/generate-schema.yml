@@ -8,10 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build the Docker image
-        run: docker build docker --tag build-docs
-      - name: Run the Docker image
-        run: docker run -w /src -v ./Specification:/src/Specification -v ./build:/src/build build-docs ./Scripts/buildDocs.sh
+      - name: Build and run the Docker image
+        run: docker compose run build-docs
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:

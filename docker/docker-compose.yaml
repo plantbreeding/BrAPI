@@ -1,6 +1,8 @@
 services:
   build-docs:
-    build: .
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
     volumes:
       - ../Specification:/src/Specification
       - ../build:/src/build
