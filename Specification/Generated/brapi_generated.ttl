@@ -31,6 +31,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label    "sourceName"@en;
         rdfs:range    xsd:string .
 
+[ rdf:type   owl:Class;
+  owl:oneOf  ( <http://brapi.org/DartSeq> <http://brapi.org/VCF> <http://brapi.org/Hapmap> <http://brapi.org/tabular> <http://brapi.org/JSON> )
+] .
+
 <http://brapi.org/Location/slope>
         rdf:type      owl:DatatypeProperty;
         rdfs:comment  "Describes the approximate slope (height/distance) of a Location."@en;
@@ -116,6 +120,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label    "defaultValue"@en;
         rdfs:range    xsd:string .
 
+[ rdf:type   owl:Class;
+  owl:oneOf  ( <http://brapi.org/BIPARENTAL> <http://brapi.org/SELF> <http://brapi.org/OPEN_POLLINATED> <http://brapi.org/BULK> <http://brapi.org/BULK_SELFED> <http://brapi.org/BULK_OPEN_POLLINATED> <http://brapi.org/DOUBLE_HAPLOID> )
+] .
+
 <http://brapi.org/PositionCoordinateYType>
         rdf:type      owl:Class;
         rdfs:comment  "The type of positional coordinate used. Must be one of the following values \n\nLONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nLATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nPLANTED_ROW - The physical planted row number  \n\nPLANTED_INDIVIDUAL - The physical counted number, could be independent or within a planted row \n\nGRID_ROW - The row index number of a square grid overlay \n\nGRID_COL - The column index number of a square grid overlay \n\nMEASURED_ROW - The distance in meters from a defined 0-th row \n\nMEASURED_COL - The distance in meters from a defined 0-th column "@en;
@@ -142,19 +150,19 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label    "analysis"@en;
         rdfs:range    xsd:string .
 
-<http://brapi.org/SeedLot/additionalInfo>
-        rdf:type      owl:ObjectProperty;
-        rdfs:comment  "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."@en;
-        rdfs:domain   <http://brapi.org/SeedLot>;
-        rdfs:label    "additionalInfo"@en;
-        rdfs:range    <http://brapi.org/AdditionalInfo> .
-
 <http://brapi.org/ContentMixture/seedLot>
         rdf:type      owl:ObjectProperty;
         rdfs:comment  "associated seedLot"@en;
         rdfs:domain   <http://brapi.org/ContentMixture>;
         rdfs:label    "seedLot"@en;
         rdfs:range    <http://brapi.org/SeedLot> .
+
+<http://brapi.org/SeedLot/additionalInfo>
+        rdf:type      owl:ObjectProperty;
+        rdfs:comment  "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."@en;
+        rdfs:domain   <http://brapi.org/SeedLot>;
+        rdfs:label    "additionalInfo"@en;
+        rdfs:range    <http://brapi.org/AdditionalInfo> .
 
 <http://brapi.org/SeedLot/program>
         rdf:type      owl:ObjectProperty;
@@ -239,6 +247,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:domain   <http://brapi.org/Cross>;
         rdfs:label    "crossName"@en;
         rdfs:range    xsd:string .
+
+[ rdf:type   owl:Class;
+  owl:oneOf  ( <http://brapi.org/germplasm> <http://brapi.org/markers> <http://brapi.org/variants> <http://brapi.org/programs> <http://brapi.org/trials> <http://brapi.org/studies> <http://brapi.org/observationUnits> <http://brapi.org/observations> <http://brapi.org/observationVariables> <http://brapi.org/samples> )
+] .
 
 <http://brapi.org/Method/description>
         rdf:type      owl:DatatypeProperty;
@@ -507,19 +519,19 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label    "crossAttributeValue"@en;
         rdfs:range    xsd:string .
 
-<http://brapi.org/CrossingProject/program>
-        rdf:type      owl:ObjectProperty;
-        rdfs:comment  "the unique identifier for a program"@en;
-        rdfs:domain   <http://brapi.org/CrossingProject>;
-        rdfs:label    "program"@en;
-        rdfs:range    <http://brapi.org/Program> .
-
 <http://brapi.org/Reference/commonCropName>
         rdf:type      owl:DatatypeProperty;
         rdfs:comment  "Common name for the crop"@en;
         rdfs:domain   <http://brapi.org/Reference>;
         rdfs:label    "commonCropName"@en;
         rdfs:range    xsd:string .
+
+<http://brapi.org/CrossingProject/program>
+        rdf:type      owl:ObjectProperty;
+        rdfs:comment  "the unique identifier for a program"@en;
+        rdfs:domain   <http://brapi.org/CrossingProject>;
+        rdfs:label    "program"@en;
+        rdfs:range    <http://brapi.org/Program> .
 
 <http://brapi.org/Variable/growthStage>
         rdf:type      owl:DatatypeProperty;
@@ -666,19 +678,19 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label    "availableFormats"@en;
         rdfs:range    <http://brapi.org/AvailableFormat> .
 
-<http://brapi.org/PlannedCross/crosses>
-        rdf:type      owl:ObjectProperty;
-        rdfs:comment  "crosses"@en;
-        rdfs:domain   <http://brapi.org/PlannedCross>;
-        rdfs:label    "crosses"@en;
-        rdfs:range    <http://brapi.org/Cross> .
-
 <http://brapi.org/Program/programType>
         rdf:type      owl:ObjectProperty;
         rdfs:comment  "The type of program entity this object represents\n<br/> 'STANDARD' represents a standard, permanent breeding program\n<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   "@en;
         rdfs:domain   <http://brapi.org/Program>;
         rdfs:label    "programType"@en;
         rdfs:range    <http://brapi.org/ProgramType> .
+
+<http://brapi.org/PlannedCross/crosses>
+        rdf:type      owl:ObjectProperty;
+        rdfs:comment  "crosses"@en;
+        rdfs:domain   <http://brapi.org/PlannedCross>;
+        rdfs:label    "crosses"@en;
+        rdfs:range    <http://brapi.org/Cross> .
 
 <http://brapi.org/412>
         rdf:type  owl:NamedIndividual , <http://brapi.org/BiologicalStatusOfAccessionCode> .
@@ -763,23 +775,9 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdf:type    owl:Class;
         rdfs:label  "BreedingMethod"@en .
 
-<http://brapi.org/GermplasmChild/pedigreeNode>
-        rdf:type      owl:ObjectProperty;
-        rdfs:comment  "associated pedigreeNode"@en;
-        rdfs:domain   <http://brapi.org/GermplasmChild>;
-        rdfs:label    "pedigreeNode"@en;
-        rdfs:range    <http://brapi.org/PedigreeNode> .
-
 <http://brapi.org/Observation>
         rdf:type    owl:Class;
         rdfs:label  "Observation"@en .
-
-<http://brapi.org/Variable/contextOfUse>
-        rdf:type      owl:DatatypeProperty;
-        rdfs:comment  "Indication of how trait is routinely used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])"@en;
-        rdfs:domain   <http://brapi.org/Variable>;
-        rdfs:label    "contextOfUse"@en;
-        rdfs:range    xsd:string .
 
 <http://brapi.org/ObservationVariable/additionalInfo>
         rdf:type      owl:ObjectProperty;
@@ -787,6 +785,20 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:domain   <http://brapi.org/ObservationVariable>;
         rdfs:label    "additionalInfo"@en;
         rdfs:range    <http://brapi.org/AdditionalInfo> .
+
+<http://brapi.org/GermplasmChild/pedigreeNode>
+        rdf:type      owl:ObjectProperty;
+        rdfs:comment  "associated pedigreeNode"@en;
+        rdfs:domain   <http://brapi.org/GermplasmChild>;
+        rdfs:label    "pedigreeNode"@en;
+        rdfs:range    <http://brapi.org/PedigreeNode> .
+
+<http://brapi.org/Variable/contextOfUse>
+        rdf:type      owl:DatatypeProperty;
+        rdfs:comment  "Indication of how trait is routinely used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])"@en;
+        rdfs:domain   <http://brapi.org/Variable>;
+        rdfs:label    "contextOfUse"@en;
+        rdfs:range    xsd:string .
 
 <http://brapi.org/Variable/ontologyReference>
         rdf:type      owl:ObjectProperty;
@@ -903,6 +915,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:domain   <http://brapi.org/Germplasm>;
         rdfs:label    "germplasmPUI"@en;
         rdfs:range    xsd:string .
+
+[ rdf:type   owl:Class;
+  owl:oneOf  ( <http://brapi.org/TODO> <http://brapi.org/DONE> <http://brapi.org/SKIPPED> )
+] .
 
 <http://brapi.org/MarkerPosition/additionalInfo>
         rdf:type      owl:ObjectProperty;
@@ -1029,6 +1045,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:domain   <http://brapi.org/Germplasm>;
         rdfs:label    "instituteName"@en;
         rdfs:range    xsd:string .
+
+[ rdf:type   owl:Class;
+  owl:oneOf  ( <http://brapi.org/STANDARD> <http://brapi.org/PROJECT> )
+] .
 
 <http://brapi.org/DatasetAuthorships>
         rdf:type    owl:Class;
@@ -1504,15 +1524,15 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label    "mapPUI"@en;
         rdfs:range    xsd:string .
 
+<http://brapi.org/OBO>
+        rdf:type  owl:NamedIndividual , <http://brapi.org/Type> .
+
 <http://brapi.org/Variable/trait>
         rdf:type      owl:ObjectProperty;
         rdfs:comment  "A Trait describes what property is being observed. \n<br>For example, an ObservationVariable might be defined with a Trait of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\". This variable would be distinct from a variable with the Trait \"Leaf length\" or \"Flower height\". "@en;
         rdfs:domain   <http://brapi.org/Variable>;
         rdfs:label    "trait"@en;
         rdfs:range    <http://brapi.org/Trait> .
-
-<http://brapi.org/OBO>
-        rdf:type  owl:NamedIndividual , <http://brapi.org/Type> .
 
 <http://brapi.org/Image/mimeType>
         rdf:type      owl:DatatypeProperty;
@@ -1733,6 +1753,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://brapi.org/MetadataField>
         rdf:type    owl:Class;
         rdfs:label  "MetadataField"@en .
+
+[ rdf:type   owl:Class;
+  owl:oneOf  ( <http://brapi.org/string> <http://brapi.org/integer> <http://brapi.org/float> <http://brapi.org/boolean> )
+] .
 
 <http://brapi.org/Method>
         rdf:type    owl:Class;
@@ -1961,6 +1985,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label    "variantNames"@en;
         rdfs:range    xsd:string .
 
+[ rdf:type   owl:Class;
+  owl:oneOf  ( <http://brapi.org/CALLSETS> <http://brapi.org/VARIANTS> )
+] .
+
 <http://brapi.org/Germplasm/parentPedigreeNodes>
         rdf:type      owl:ObjectProperty;
         rdfs:comment  "parentPedigreeNodes"@en;
@@ -2054,6 +2082,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://brapi.org/TEST>
         rdf:type  owl:NamedIndividual , <http://brapi.org/EntryType> .
+
+[ rdf:type   owl:Class;
+  owl:oneOf  ( <http://brapi.org/text/csv> <http://brapi.org/text/tsv> <http://brapi.org/application/excel> <http://brapi.org/application/zip> <http://brapi.org/application/json> )
+] .
 
 <http://brapi.org/ListType>
         rdf:type      owl:Class;
@@ -2223,12 +2255,9 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label    "programDbId"@en;
         rdfs:range    xsd:string .
 
-<http://brapi.org/Sample/externalReferences>
-        rdf:type      owl:ObjectProperty;
-        rdfs:comment  "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI."@en;
-        rdfs:domain   <http://brapi.org/Sample>;
-        rdfs:label    "externalReferences"@en;
-        rdfs:range    <http://brapi.org/ExternalReference> .
+[ rdf:type   owl:Class;
+  owl:oneOf  ( <http://brapi.org/OBO> <http://brapi.org/RDF> <http://brapi.org/WEBPAGE> )
+] .
 
 <http://brapi.org/AvailableFormat/expandHomozygotes>
         rdf:type      owl:DatatypeProperty;
@@ -2236,6 +2265,13 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:domain   <http://brapi.org/AvailableFormat>;
         rdfs:label    "expandHomozygotes"@en;
         rdfs:range    xsd:boolean .
+
+<http://brapi.org/Sample/externalReferences>
+        rdf:type      owl:ObjectProperty;
+        rdfs:comment  "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI."@en;
+        rdfs:domain   <http://brapi.org/Sample>;
+        rdfs:label    "externalReferences"@en;
+        rdfs:range    <http://brapi.org/ExternalReference> .
 
 <http://brapi.org/Treatment/factor>
         rdf:type      owl:DatatypeProperty;
@@ -2313,6 +2349,13 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:comment  "The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow."@en;
         rdfs:domain   <http://brapi.org/DataLink>;
         rdfs:label    "provenance"@en;
+        rdfs:range    xsd:string .
+
+<http://brapi.org/Analysis/analysisName>
+        rdf:type      owl:DatatypeProperty;
+        rdfs:comment  "A human readable name for this analysis"@en;
+        rdfs:domain   <http://brapi.org/Analysis>;
+        rdfs:label    "analysisName"@en;
         rdfs:range    xsd:string .
 
 <http://brapi.org/40>
@@ -2494,15 +2537,15 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://brapi.org/observationVariables>
         rdf:type  owl:NamedIndividual , <http://brapi.org/ListType> .
 
+<http://brapi.org/string>
+        rdf:type  owl:NamedIndividual , <http://brapi.org/DataType> .
+
 <http://brapi.org/PedigreeNode/pedigreeNodeDbId>
         rdf:type      owl:DatatypeProperty;
         rdfs:comment  "The ID which uniquely identifies a pedigree node"@en;
         rdfs:domain   <http://brapi.org/PedigreeNode>;
         rdfs:label    "pedigreeNodeDbId"@en;
         rdfs:range    xsd:string .
-
-<http://brapi.org/string>
-        rdf:type  owl:NamedIndividual , <http://brapi.org/DataType> .
 
 <http://brapi.org/GenomeMap>
         rdf:type    owl:Class;
@@ -2598,13 +2641,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label    "ontologyReference"@en;
         rdfs:range    <http://brapi.org/OntologyReference> .
 
-<http://brapi.org/EnvironmentParameters/study>
-        rdf:type      owl:ObjectProperty;
-        rdfs:comment  "Environment parameters associated with a study"@en;
-        rdfs:domain   <http://brapi.org/EnvironmentParameters>;
-        rdfs:label    "study"@en;
-        rdfs:range    <http://brapi.org/Study> .
-
 <http://brapi.org/Variant/end>
         rdf:type      owl:DatatypeProperty;
         rdfs:comment  "This field is optional and may be ignored if there is no relevant map or reference to be associated with.\n<br>The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated \nby `start + referenceBases.length`."@en;
@@ -2612,10 +2648,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label    "end"@en;
         rdfs:range    xsd:integer .
 
-<http://brapi.org/Sample/study>
+<http://brapi.org/EnvironmentParameters/study>
         rdf:type      owl:ObjectProperty;
-        rdfs:comment  "The ID which uniquely identifies a `Study` within the given database server"@en;
-        rdfs:domain   <http://brapi.org/Sample>;
+        rdfs:comment  "Environment parameters associated with a study"@en;
+        rdfs:domain   <http://brapi.org/EnvironmentParameters>;
         rdfs:label    "study"@en;
         rdfs:range    <http://brapi.org/Study> .
 
@@ -2632,6 +2668,13 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:domain   <http://brapi.org/Study>;
         rdfs:label    "license"@en;
         rdfs:range    xsd:string .
+
+<http://brapi.org/Sample/study>
+        rdf:type      owl:ObjectProperty;
+        rdfs:comment  "The ID which uniquely identifies a `Study` within the given database server"@en;
+        rdfs:domain   <http://brapi.org/Sample>;
+        rdfs:label    "study"@en;
+        rdfs:range    <http://brapi.org/Study> .
 
 <http://brapi.org/Reference/variants>
         rdf:type      owl:ObjectProperty;
@@ -3034,6 +3077,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label    "methodName"@en;
         rdfs:range    xsd:string .
 
+[ rdf:type   owl:Class;
+  owl:oneOf  ( <http://brapi.org/PLATE_96> <http://brapi.org/TUBES> )
+] .
+
 <http://brapi.org/GermplasmAttribute/institution>
         rdf:type      owl:DatatypeProperty;
         rdfs:comment  "Name of institution submitting the variable"@en;
@@ -3357,6 +3404,12 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:domain   <http://brapi.org/Cross>;
         rdfs:label    "crossAttributes"@en;
         rdfs:range    <http://brapi.org/CrossAttribute> .
+        
+<http://brapi.org/Scale/validValues>
+        rdf:type     owl:ObjectProperty;
+        rdfs:domain  <http://brapi.org/Scale>;
+        rdfs:label   "validValues"@en;
+        rdfs:range   <http://brapi.org/ValidValues> .
 
 <http://brapi.org/JSON>
         rdf:type  owl:NamedIndividual , <http://brapi.org/DataFormat> .
@@ -3367,12 +3420,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:domain   <http://brapi.org/Study>;
         rdfs:label    "studyType"@en;
         rdfs:range    xsd:string .
-
-<http://brapi.org/Scale/validValues>
-        rdf:type     owl:ObjectProperty;
-        rdfs:domain  <http://brapi.org/Scale>;
-        rdfs:label   "validValues"@en;
-        rdfs:range   <http://brapi.org/ValidValues> .
 
 <http://brapi.org/DataLink/scientificType>
         rdf:type      owl:DatatypeProperty;
@@ -3512,15 +3559,15 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label    "environmentParametersDbId"@en;
         rdfs:range    xsd:string .
 
+<http://brapi.org/421>
+        rdf:type  owl:NamedIndividual , <http://brapi.org/BiologicalStatusOfAccessionCode> .
+
 <http://brapi.org/ReferenceSet/md5checksum>
         rdf:type      owl:DatatypeProperty;
         rdfs:comment  "Order-independent MD5 checksum which identifies this `ReferenceSet`.\n\nTo compute this checksum, make a list of `Reference.md5checksum` for all\n`Reference` s in this set. Then sort that list, and take the MD5 hash of\nall the strings concatenated together. Express the hash as a lower-case\nhexadecimal string."@en;
         rdfs:domain   <http://brapi.org/ReferenceSet>;
         rdfs:label    "md5checksum"@en;
         rdfs:range    xsd:string .
-
-<http://brapi.org/421>
-        rdf:type  owl:NamedIndividual , <http://brapi.org/BiologicalStatusOfAccessionCode> .
 
 <http://brapi.org/ObservationUnit/externalReferences>
         rdf:type      owl:ObjectProperty;
@@ -3571,6 +3618,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:domain   <http://brapi.org/GermplasmAttribute>;
         rdfs:label    "scientist"@en;
         rdfs:range    xsd:string .
+
+[ rdf:type   owl:Class;
+  owl:oneOf  ( <http://brapi.org/10> <http://brapi.org/11> <http://brapi.org/12> <http://brapi.org/13> <http://brapi.org/20> <http://brapi.org/30> <http://brapi.org/40> <http://brapi.org/50> <http://brapi.org/99> )
+] .
 
 <http://brapi.org/Plate/trial>
         rdf:type      owl:ObjectProperty;
@@ -3666,6 +3717,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:domain   <http://brapi.org/Plate>;
         rdfs:label    "plateName"@en;
         rdfs:range    xsd:string .
+
+[ rdf:type   owl:Class;
+  owl:oneOf  ( <http://brapi.org/Code> <http://brapi.org/Date> <http://brapi.org/Duration> <http://brapi.org/Nominal> <http://brapi.org/Numerical> <http://brapi.org/Ordinal> <http://brapi.org/Text> )
+] .
 
 <http://brapi.org/PlannedCross/crossingProject>
         rdf:type      owl:ObjectProperty;
@@ -3804,6 +3859,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label    "fieldName"@en;
         rdfs:range    xsd:string .
 
+[ rdf:type   owl:Class;
+  owl:oneOf  ( <http://brapi.org/CHECK> <http://brapi.org/TEST> <http://brapi.org/FILLER> )
+] .
+
 <http://brapi.org/MEASURED_ROW>
         rdf:type  <http://brapi.org/PositionCoordinateYType> , owl:NamedIndividual , <http://brapi.org/PositionCoordinateXType> .
 
@@ -3890,6 +3949,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:domain   <http://brapi.org/Variable>;
         rdfs:label    "synonyms"@en;
         rdfs:range    xsd:string .
+
+[ rdf:type   owl:Class;
+  owl:oneOf  ( <http://brapi.org/string> <http://brapi.org/integer> <http://brapi.org/float> <http://brapi.org/boolean> )
+] .
 
 <http://brapi.org/List/listOwnerName>
         rdf:type      owl:DatatypeProperty;
@@ -4173,19 +4236,19 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:comment  "<p>Class of the scale, entries can be</p>\n<p>\"Code\" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. \"75VD\" means \"75 %\" of the plant is infected and the plant is very delayed.</p>\n<p>\"Date\" - The date class is for events expressed in a time format, See ISO 8601</p>\n<p>\"Duration\" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p>\n<p>\"Nominal\" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p>\n<p>\"Numerical\" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p>\n<p>\"Ordinal\" - Ordinal scales are scales composed of ordered categories</p>\n<p>\"Text\" - A free text is used to express the trait.</p>"@en;
         rdfs:label    "TraitDataType"@en .
 
-<http://brapi.org/ReferenceSet/species>
-        rdf:type      owl:ObjectProperty;
-        rdfs:comment  "An ontology term describing an attribute."@en;
-        rdfs:domain   <http://brapi.org/ReferenceSet>;
-        rdfs:label    "species"@en;
-        rdfs:range    <http://brapi.org/OntologyTerm> .
-
 <http://brapi.org/Plate/plateBarcode>
         rdf:type      owl:DatatypeProperty;
         rdfs:comment  "A unique identifier physically attached to a `Plate`"@en;
         rdfs:domain   <http://brapi.org/Plate>;
         rdfs:label    "plateBarcode"@en;
         rdfs:range    xsd:string .
+
+<http://brapi.org/ReferenceSet/species>
+        rdf:type      owl:ObjectProperty;
+        rdfs:comment  "An ontology term describing an attribute."@en;
+        rdfs:domain   <http://brapi.org/ReferenceSet>;
+        rdfs:label    "species"@en;
+        rdfs:range    <http://brapi.org/OntologyTerm> .
 
 <http://brapi.org/List/listDbId>
         rdf:type      owl:DatatypeProperty;
@@ -4402,6 +4465,13 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label    "potentialParents"@en;
         rdfs:range    <http://brapi.org/CrossParent> .
 
+<http://brapi.org/CallSet/callSetName>
+        rdf:type      owl:DatatypeProperty;
+        rdfs:comment  "The human readable name which identifies a germplasm within the given database server"@en;
+        rdfs:domain   <http://brapi.org/CallSet>;
+        rdfs:label    "callSetName"@en;
+        rdfs:range    xsd:string .
+
 <http://brapi.org/Sample/additionalInfo>
         rdf:type      owl:ObjectProperty;
         rdfs:comment  "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."@en;
@@ -4563,18 +4633,18 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label    "markerCount"@en;
         rdfs:range    xsd:integer .
 
-<http://brapi.org/PlannedCross/plannedCrossDbId>
-        rdf:type      owl:DatatypeProperty;
-        rdfs:comment  "the unique identifier for a planned cross"@en;
-        rdfs:domain   <http://brapi.org/PlannedCross>;
-        rdfs:label    "plannedCrossDbId"@en;
-        rdfs:range    xsd:string .
-
 <http://brapi.org/Study/studyCode>
         rdf:type      owl:DatatypeProperty;
         rdfs:comment  "A short human readable code for a study"@en;
         rdfs:domain   <http://brapi.org/Study>;
         rdfs:label    "studyCode"@en;
+        rdfs:range    xsd:string .
+
+<http://brapi.org/PlannedCross/plannedCrossDbId>
+        rdf:type      owl:DatatypeProperty;
+        rdfs:comment  "the unique identifier for a planned cross"@en;
+        rdfs:domain   <http://brapi.org/PlannedCross>;
+        rdfs:label    "plannedCrossDbId"@en;
         rdfs:range    xsd:string .
 
 <http://brapi.org/Synonym>
@@ -4817,15 +4887,15 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://brapi.org/50>
         rdf:type  owl:NamedIndividual , <http://brapi.org/StorageTypeCode> .
 
+<http://brapi.org/Hapmap>
+        rdf:type  owl:NamedIndividual , <http://brapi.org/DataFormat> .
+
 <http://brapi.org/Attribute/documentationURL>
         rdf:type      owl:DatatypeProperty;
         rdfs:comment  "A URL to the human readable documentation of an object"@en;
         rdfs:domain   <http://brapi.org/Attribute>;
         rdfs:label    "documentationURL"@en;
         rdfs:range    xsd:string .
-
-<http://brapi.org/Hapmap>
-        rdf:type  owl:NamedIndividual , <http://brapi.org/DataFormat> .
 
 <http://brapi.org/VariantSet/variantSetDbId>
         rdf:type      owl:DatatypeProperty;
@@ -4893,6 +4963,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:domain   <http://brapi.org/CallSet>;
         rdfs:label    "updated"@en;
         rdfs:range    xsd:string .
+
+[ rdf:type   owl:Class;
+  owl:oneOf  ( <http://brapi.org/100> <http://brapi.org/110> <http://brapi.org/120> <http://brapi.org/130> <http://brapi.org/200> <http://brapi.org/300> <http://brapi.org/400> <http://brapi.org/410> <http://brapi.org/411> <http://brapi.org/412> <http://brapi.org/413> <http://brapi.org/414> <http://brapi.org/415> <http://brapi.org/416> <http://brapi.org/420> <http://brapi.org/421> <http://brapi.org/422> <http://brapi.org/423> <http://brapi.org/500> <http://brapi.org/600> <http://brapi.org/999> )
+] .
 
 <http://brapi.org/Call/additionalInfo>
         rdf:type      owl:ObjectProperty;
@@ -5335,6 +5409,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label    "commonCropName"@en;
         rdfs:range    xsd:string .
 
+[ rdf:type   owl:Class;
+  owl:oneOf  ( <http://brapi.org/LONGITUDE> <http://brapi.org/LATITUDE> <http://brapi.org/PLANTED_ROW> <http://brapi.org/PLANTED_INDIVIDUAL> <http://brapi.org/GRID_ROW> <http://brapi.org/GRID_COL> <http://brapi.org/MEASURED_ROW> <http://brapi.org/MEASURED_COL> )
+] .
+
 <http://brapi.org/Study/additionalInfo>
         rdf:type      owl:ObjectProperty;
         rdfs:comment  "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."@en;
@@ -5387,6 +5465,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label    "geoCoordinates"@en;
         rdfs:range    <http://brapi.org/GeoJSON> .
 
+[ rdf:type   owl:Class;
+  owl:oneOf  ( <http://brapi.org/string> <http://brapi.org/integer> <http://brapi.org/float> <http://brapi.org/boolean> )
+] .
+
 <http://brapi.org/Contact/instituteName>
         rdf:type      owl:DatatypeProperty;
         rdfs:comment  "The name of the institution which this contact is part of\n\nMIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to"@en;
@@ -5417,6 +5499,9 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 [ rdf:type   owl:Class;
   owl:oneOf  ( <http://brapi.org/DNA> <http://brapi.org/RNA> <http://brapi.org/TISSUE> <http://brapi.org/MIXED> )
 ] .
+
+<http://brapi.org/GRID_ROW>
+        rdf:type  <http://brapi.org/PositionCoordinateYType> , owl:NamedIndividual , <http://brapi.org/PositionCoordinateXType> .
 
 <http://brapi.org/DNA>
         rdf:type  owl:NamedIndividual , <http://brapi.org/SampleType> .
@@ -5485,6 +5570,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdf:type    owl:Class;
         rdfs:label  "Variant"@en .
 
+[ rdf:type   owl:Class;
+  owl:oneOf  ( <http://brapi.org/DNA> <http://brapi.org/RNA> <http://brapi.org/TISSUE> <http://brapi.org/MIXED> )
+] .
+
 <http://brapi.org/BreedingMethod/breedingMethodDbId>
         rdf:type      owl:DatatypeProperty;
         rdfs:comment  "the unique identifier for this breeding method"@en;
@@ -5532,12 +5621,9 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label    "dataType"@en;
         rdfs:range    <http://brapi.org/DataType> .
 
-<http://brapi.org/PedigreeNode/parents>
-        rdf:type      owl:ObjectProperty;
-        rdfs:comment  "A list of parent germplasm references in the pedigree tree for this germplasm. These represent edges in the tree, connecting to other nodes.\n<br/> Typically, this array should only have one parent (clonal or self) or two parents (cross). In some special cases, there may be more parents, usually when the exact parent is not known. \n<br/> If the parameter 'includeParents' is set to false, then this array should be empty, null, or not present in the response."@en;
-        rdfs:domain   <http://brapi.org/PedigreeNode>;
-        rdfs:label    "parents"@en;
-        rdfs:range    <http://brapi.org/GermplasmParent> .
+[ rdf:type   owl:Class;
+  owl:oneOf  ( <http://brapi.org/LONGITUDE> <http://brapi.org/LATITUDE> <http://brapi.org/PLANTED_ROW> <http://brapi.org/PLANTED_INDIVIDUAL> <http://brapi.org/GRID_ROW> <http://brapi.org/GRID_COL> <http://brapi.org/MEASURED_ROW> <http://brapi.org/MEASURED_COL> )
+] .
 
 <http://brapi.org/Attribute/contextOfUse>
         rdf:type      owl:DatatypeProperty;
@@ -5545,6 +5631,17 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:domain   <http://brapi.org/Attribute>;
         rdfs:label    "contextOfUse"@en;
         rdfs:range    xsd:string .
+
+<http://brapi.org/PedigreeNode/parents>
+        rdf:type      owl:ObjectProperty;
+        rdfs:comment  "A list of parent germplasm references in the pedigree tree for this germplasm. These represent edges in the tree, connecting to other nodes.\n<br/> Typically, this array should only have one parent (clonal or self) or two parents (cross). In some special cases, there may be more parents, usually when the exact parent is not known. \n<br/> If the parameter 'includeParents' is set to false, then this array should be empty, null, or not present in the response."@en;
+        rdfs:domain   <http://brapi.org/PedigreeNode>;
+        rdfs:label    "parents"@en;
+        rdfs:range    <http://brapi.org/GermplasmParent> .
+
+[ rdf:type   owl:Class;
+  owl:oneOf  ( <http://brapi.org/Code> <http://brapi.org/Date> <http://brapi.org/Duration> <http://brapi.org/Nominal> <http://brapi.org/Numerical> <http://brapi.org/Ordinal> <http://brapi.org/Text> )
+] .
 
 <http://brapi.org/Attribute/attributeName>
         rdf:type      owl:DatatypeProperty;
@@ -5851,6 +5948,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:domain   <http://brapi.org/Image>;
         rdfs:label    "imageFileName"@en;
         rdfs:range    xsd:string .
+
+[ rdf:type   owl:Class;
+  owl:oneOf  ( <http://brapi.org/MALE> <http://brapi.org/FEMALE> <http://brapi.org/SELF> <http://brapi.org/POPULATION> <http://brapi.org/CLONAL> )
+] .
 
 <http://brapi.org/Study/contacts>
         rdf:type      owl:ObjectProperty;
