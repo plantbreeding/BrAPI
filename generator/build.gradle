@@ -1,7 +1,7 @@
 
 plugins {
   id 'java'
-  id("io.openapiprocessor.openapi-processor") version "2023.2"
+  id("io.openapiprocessor.openapi-processor") version "2021.2"
 }
 
 ext {
