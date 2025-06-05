@@ -23,26 +23,31 @@ components:
           items:
             type: string
           type: array
+          nullable: true
           example: ['T', 'TAC']
         alternateBases:
           description: The bases that appear instead of the reference bases. Multiple alternate alleles are possible.
           items:
             type: string
           type: array
+          nullable: true
           example: ['T', 'TAC']
         additionalInfo:
           additionalProperties:
             type: string
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
           type: object
+          nullable: true
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
+          nullable: true
         ciend:
           items:
             type: integer
           description: Similar to "cipos", but for the variant's end position (which is derived from start + svlen).
           example: [ -1000, 0 ]
           type: array
+          nullable: true
         cipos:
           items:
             type: integer
@@ -54,9 +59,11 @@ components:
             Based on the use in VCF v4.2
           example: [ -12000, 1000 ]
           type: array
+          nullable: true
         created:
           description: The timestamp when this variant was created.
           type: string
+          nullable: true
           format: date-time
         end:
           description: |-
@@ -64,52 +71,63 @@ components:
             <br>The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated 
             by `start + referenceBases.length`.
           type: integer
+          nullable: true
           example: 518
         filtersApplied:
           description: True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.
           format: boolean
           type: boolean
+          nullable: true
           example: True
         filtersFailed:
           description: Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.
           items:
             type: string
           type: array
+          nullable: true
           example: ['d629a669', '3f14f578']
         filtersPassed:
           description: True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.
           format: boolean
           type: boolean
+          nullable: true
           example: True
         variantDbId:
           description: The ID which uniquely identifies a `Variant`
           type: string
+          nullable: true
           example: 628e89c5
         variantNames:
           description: A human readable name associated with a `Variant`
           items:
             type: string
           type: array
+          nullable: true
           example: ['RefSNP_ID_1', '06ea312e']
         referenceDbId:
           description: The unique identifier for a Reference
           type: string
+          nullable: true
           example: fc0a81d0
         referenceName:
           description: The reference on which this variant occurs. (e.g. `chr_20` or `X`)
           type: string
+          nullable: true
           example: chr_20
         referenceBases:
           description: The reference bases for this variant. They start at the given start position.
           type: string
+          nullable: true
           example: A
         referenceSetDbId:
           description: The unique identifier for a ReferenceSet
           type: string
+          nullable: true
           example: c1ecfef1
         referenceSetName:
           description: The human readable name of the ReferenceSet
           type: string
+          nullable: true
           example: The Best Assembly Ever
         start:
           description: |-
@@ -118,18 +136,22 @@ components:
             of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning 
             the join of circular genomes are represented as two variants one on each side of the join (position 0).
           type: integer
+          nullable: true
           example: 500
         svlen:
           description: Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2
           type: integer
+          nullable: true
           example: 1500
         updated:
           description: The time at which this variant was last updated.
           type: string
+          nullable: true
           format: date-time
         variantSetDbId: 
           description: An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.
           type: array
+          nullable: true
           items: 
             type: string
           example: ['c8ae400b', 'ef2c204b']
@@ -140,4 +162,5 @@ components:
               DUP  : duplication of sequence following "start"
               DEL  : deletion of sequence following "start"
           type: string
+          nullable: true
           example: DUP

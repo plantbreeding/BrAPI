@@ -30,6 +30,8 @@ components:
           description: Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.
           type: string
           example: '20'
+          nullable: true
         coordinates:
           $ref: '#/components/schemas/geoJSON'
+          nullable: true
 

@@ -14,6 +14,7 @@ components:
         germplasmName:
           description: A human readable name for a germplasm
           type: string
+          nullable: true
           example: A0021004
         germplasmDbId:
           description: The ID which uniquely identifies a germplasm
@@ -29,6 +30,7 @@ components:
               germplasmName:
                 description: The human readable name of a progeny germplasm
                 type: string
+                nullable: true
                 example: A0021011
               germplasmDbId:
                 description: The unique identifier of a progeny germplasm

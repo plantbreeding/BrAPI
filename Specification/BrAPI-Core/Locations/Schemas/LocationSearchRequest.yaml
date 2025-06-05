@@ -17,46 +17,55 @@ components:
           abbreviations:
             description: A list of shortened human readable names for a set of Locations
             type: array
+            nullable: true
             items:
               type: string
             example: ['L1', 'LHC']
           altitudeMin:
             description: The minimum altitude to search for
             type: number
+            nullable: true
             example: 20
           altitudeMax:
             description: The maximum altitude to search for
             type: number
+            nullable: true
             example: 200
           countryCodes:
             description: '[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec'
             type: array
+            nullable: true
             items:
               type: string
             example: ['USA', 'PER']
           countryNames:
             description: The full name of the country to search for
             type: array
+            nullable: true
             items:
               type: string
             example: ['United States of America', 'Peru']
           coordinates: 
             $ref: '#/components/schemas/geoJSONSearchArea'
+            nullable: true
           instituteAddresses:
             description: The street address of the institute to search for
             type: array
+            nullable: true
             items:
               type: string
             example: ['123 Main Street', '456 Side Street']
           instituteNames:
             description: The name of the institute to search for
             type: array
+            nullable: true
             items:
               type: string
             example: ['The Institute', 'The Other Institute']
           locationTypes: 
             description: The type of location this represents (ex. Breeding Location, Storage Location, etc)
             type: array
+            nullable: true
             items:
               type: string
             example: ['Nursery', 'Storage Location']
@@ -66,6 +75,7 @@ components:
               <br/> The Parent Location defines the encompassing location that this location belongs to. 
               For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.
             type: array
+            nullable: true
             items:
               type: string
             example: ['b28911cf', '5071d1e4']
@@ -75,6 +85,7 @@ components:
               <br/> The Parent Location defines the encompassing location that this location belongs to. 
               For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.
             type: array
+            nullable: true
             items:
               type: string
             example: ['Location Alpha', 'The Large Hadron Collider']

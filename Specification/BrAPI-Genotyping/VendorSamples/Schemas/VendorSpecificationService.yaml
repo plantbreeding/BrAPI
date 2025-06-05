@@ -14,6 +14,7 @@ components:
         serviceDescription:
           description: Description of the vendor platform
           type: string
+          nullable: true
           example: A combined DNA extract and Sequencing process using technology and science. Lots of automated pipet machines. 
         serviceId:
           description: Unique identifier for this service
@@ -29,14 +30,17 @@ components:
           - FIXED
           - DISCOVERABLE
           type: string
+          nullable: true
           example: FIXED
         servicePlatformName:
           description: The technology platform used by this service
           type: string
+          nullable: true
           example: RNA-seq
         specificRequirements:
           description: Additional arbitrary requirements for a particular platform
           type: array
+          nullable: true
           items:
             type: object
             properties:

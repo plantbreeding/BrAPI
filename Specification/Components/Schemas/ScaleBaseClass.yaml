@@ -18,11 +18,14 @@ components:
             type: string
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
           type: object
+          nullable: true
         dataType:
           $ref: '#/components/schemas/TraitDataType'
+          nullable: true
         decimalPlaces:
           description: For numerical, number of decimal places to be reported
           type: integer
+          nullable: true
           example: 2
         ontologyReference:
           $ref: '#/components/schemas/OntologyReference'
@@ -31,10 +34,12 @@ components:
             Name of the scale
             <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable
           type: string
+          nullable: true
           example: Meters
         scalePUI:
           description: The Permanent Unique Identifier of a Scale, usually in the form of a URI
           type: string
+          nullable: true
           example: http://my-traits.com/trait/CO_123:0000112
         units:
           description: |-
@@ -42,9 +47,11 @@ components:
             form of the units, intended to be displayed with every value using this scale. Usually this only 
             applies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.
           type: string
+          nullable: true
           example: m
         validValues:
           type: object
+          nullable: true
           properties:
             categories: 
               description: List of possible values with optional labels
@@ -70,6 +77,7 @@ components:
                 **Deprecated in v2.1** Please use `maximumValue`. Github issue number #450 
                 <br>Maximum value for numerical scales. Typically used for data capture control and QC.
               type: integer
+              nullable: true
               example: 9999
               deprecated: true
             min:
@@ -78,15 +86,19 @@ components:
                 <br>Minimum value for numerical scales. Typically used for data capture control and QC.
               type: integer
               example: 2
+              nullable: true
               deprecated: true
             maximumValue:
               description: Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.
               type: string
+              nullable: true
               example: '9999'
             minimumValue:
               description: Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.
               type: string
+              nullable: true
               example: '2'
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
+          nullable: true
 

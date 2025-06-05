@@ -17,6 +17,7 @@ components:
         parameterPUI:
           description: URI pointing to an ontology class for the parameter
           type: string
+          nullable: true
           example: PECO:0007155
         description:
           description: Human-readable value of the environment parameter (defined above) constant within the experiment
@@ -28,18 +29,22 @@ components:
             
             MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.
           type: string
+          nullable: true
           example: clay soil
         valuePUI:
           description: URI pointing to an ontology class for the parameter value
           type: string
+          nullable: true
           example: ENVO:00002262
         unit:
           description: Unit of the value for this parameter
           type: string
+          nullable: true
           example: pH
         unitPUI:
           description: URI pointing to an ontology class for the unit
           type: string
+          nullable: true
           example: PECO:0007059
       required:
       - parameterName

@@ -15,6 +15,7 @@ components:
       type: object
       properties:
         observationLevel:
+          nullable: true
           allOf:
           - $ref: '#/components/schemas/ObservationUnitLevel'
           - type: object
@@ -38,7 +39,8 @@ components:
             For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
 
             **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** 
-          type: array 
+          type: array
+          nullable: true
           items:
             $ref: '#/components/schemas/ObservationUnitLevelRelationship' 
           example:
@@ -58,10 +60,12 @@ components:
           - TEST
           - FILLER
           type: string
+          nullable: true
           example: TEST
         positionCoordinateX:
           description: The X position coordinate for an observation unit. Different systems may use different coordinate systems.
           type: string
+          nullable: true
           example: '74'
         positionCoordinateXType:
           description: |-
@@ -92,10 +96,12 @@ components:
           - MEASURED_ROW
           - MEASURED_COL
           type: string
+          nullable: true
           example: GRID_COL
         positionCoordinateY:
           description: The Y position coordinate for an observation unit. Different systems may use different coordinate systems.
           type: string
+          nullable: true
           example: '03'
         positionCoordinateYType:
           description: |-
@@ -126,6 +132,8 @@ components:
           - MEASURED_ROW
           - MEASURED_COL
           type: string
+          nullable: true
           example: GRID_ROW
         geoCoordinates:
           $ref: '#/components/schemas/geoJSON'
+          nullable: true

@@ -14,6 +14,7 @@ components:
             
             MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
           type: string
+          nullable: true
           example: fertilizer
         modality:
           description: |-
@@ -21,5 +22,6 @@ components:
             
             MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. 
           type: string
+          nullable: true
           example: low fertilizer
 

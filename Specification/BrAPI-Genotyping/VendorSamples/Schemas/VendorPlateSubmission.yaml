@@ -30,6 +30,7 @@ components:
               clientPlateBarcode:
                 description: (Optional) The value of the bar code attached to this plate
                 type: string
+                nullable: true
                 example: bfb33593
               clientPlateId:
                 description: The ID which uniquely identifies this plate to the client making the request

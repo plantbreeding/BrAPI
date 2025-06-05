@@ -20,6 +20,7 @@ components:
             
             MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.
           type: string
+          nullable: true
           example: bob@bob.com
         instituteName:
           description: |-
@@ -27,6 +28,7 @@ components:
             
             MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to
           type: string
+          nullable: true
           example: The BrAPI Institute
         name:
           description: |-
@@ -34,6 +36,7 @@ components:
             
             MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)
           type: string
+          nullable: true
           example: Bob Robertson
         orcid:
           description: |-
@@ -41,6 +44,7 @@ components:
             
             MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.
           type: string
+          nullable: true
           example: http://orcid.org/0000-0001-8640-1750
         type:
           description: |-
@@ -48,6 +52,7 @@ components:
             
             MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation
           type: string
+          nullable: true
           example: PI
       required:
       - contactDbId

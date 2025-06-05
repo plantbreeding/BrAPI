@@ -1,0 +1,8 @@
+services:
+  build-docs:
+    build: .
+    volumes:
+      - ../Specification:/src/Specification
+      - ../build:/src/build
+    working_dir: /src
+    command: ["./Scripts/buildDocs.sh" ]

@@ -76,8 +76,12 @@ noalias_dumper.ignore_aliases = lambda self, data: True
 rootPaths = []
 metaFilePath = '.' + '/swaggerMetaData.yaml'
 if len(sys.argv) > 1 :
-    rootPaths = sys.argv[1:]
-    metaFilePath = rootPaths[0] + '/swaggerMetaData.yaml'
+    if len(sys.argv) > 2 and sys.argv[1].endswith(".yaml"):
+        rootPaths = sys.argv[2:]
+        metaFilePath = sys.argv[1]
+    else:
+        rootPaths = sys.argv[1:]
+        metaFilePath = rootPaths[0] + '/swaggerMetaData.yaml'
 else:
     print('need at least one root directory')
     exit(1)

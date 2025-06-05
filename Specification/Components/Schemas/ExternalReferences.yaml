@@ -22,6 +22,7 @@ components:
               **Deprecated in v2.1** Please use `referenceId`. Github issue number #460 
               <br>The external reference ID. Could be a simple string or a URI.
             type: string
+            nullable: true
           referenceId:
             description: The external reference ID. Could be a simple string or a URI.
             type: string

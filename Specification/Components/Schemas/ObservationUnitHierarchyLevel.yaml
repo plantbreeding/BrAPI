@@ -18,7 +18,7 @@ components:
 
         For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
       properties:
-        levelName: 
+        levelName:
           description: |-
             A name for this level 
 
@@ -26,6 +26,7 @@ components:
 
             For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
           type: string
+          nullable: true
           example: plot
         levelOrder: 
           description: |-
@@ -34,4 +35,5 @@ components:
 
             For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
           type: integer
+          nullable: true
           example: 2

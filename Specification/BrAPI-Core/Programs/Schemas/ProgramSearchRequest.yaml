@@ -18,24 +18,28 @@ components:
             items:
               type: string
             type: array
+            nullable: true
             example: ['P1', 'P2']
           leadPersonDbIds:
             description: The person DbIds of the program leader to search for
             items:
               type: string
             type: array
+            nullable: true
             example: ['d8bd96c7', 'a2b9c8e7']
           leadPersonNames:
             description: The names of the program leader to search for
             items:
               type: string
             type: array
+            nullable: true
             example: ['Bob Robertson', 'Rob Robertson']
           objectives:
             description: A program objective to search for
             items:
               type: string
             type: array
+            nullable: true
             example: ['Objective Code One', 'This is a longer objective search query']
           programTypes:
             description: |-
@@ -48,4 +52,5 @@ components:
               - STANARD
               - PROJECT
             type: array
+            nullable: true
             example: ['STANARD', 'PROJECT']

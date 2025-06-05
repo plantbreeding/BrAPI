@@ -4,10 +4,14 @@ on:
   push:
   workflow_dispatch:
 jobs:
-  build:
+  generate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Build the Docker image
+        run: docker build docker --tag build-docs
+      - name: Run the Docker image
+        run: docker run -w /src -v ./Specification:/src/Specification -v ./build:/src/build build-docs ./Scripts/buildDocs.sh
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
@@ -16,10 +20,16 @@ jobs:
       - name: Change wrapper permissions
         working-directory: ./generator/
         run: chmod +x ./gradlew
+      - name: Copy compile specification
+        working-directory: ./generator/
+        run: ./gradlew validate
       - name: Validate
         working-directory: ./generator/
         run: ./gradlew validate
       - name: Generate OpenAPI, GraphQL and OWL
         working-directory: ./generator/
         run: ./gradlew generateAll
+      - name: Compare OpenAPI
+        working-directory: ./generator/
+        run: ./gradlew compareAll
       - uses: stefanzweifel/git-auto-commit-action@v5

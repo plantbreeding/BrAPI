@@ -18,6 +18,7 @@ components:
         shipmentForms: 
           description: Array of paper forms which need to be printed and included with the physical shipment
           type: array
+          nullable: true
           items: 
             type: object
             title: ShipmentForm
@@ -27,14 +28,17 @@ components:
               fileDescription:
                 description: The human readable long description for this form
                 type: string
+                nullable: true
                 example: This is a shipment manifest form 
               fileName: 
                 description: The human readable name for this form
                 type: string
+                nullable: true
                 example: Shipment Manifest
               fileURL: 
                 description: The URL to download this form
                 type: string
+                nullable: true
                 format: uri
                 example: https://vendor.org/forms/manifest.pdf
 
