@@ -1,10 +1,16 @@
-apply plugin : "java"
+
+plugins {
+  id 'java'
+  id("io.openapiprocessor.openapi-processor") version "2023.2"
+}
+
 ext {
   javaMainClass = 'org.brapi.schematools.cli.BrAPICommand'
   brapiSchemaToolsVersion = '0.30.0-SNAPSHOT'
 }
 
 repositories {
+  gradlePluginPortal()
   mavenCentral()
   maven {url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'}
 }
@@ -14,10 +20,9 @@ dependencies {
 }
 
 openapiProcessor {
-
   brapiOpenAPI {
     processorName "json"
-    processor 'io.openapiprocessor:openapi-processor-json:2021.2'
+    processor 'io.openapiprocessor:openapi-processor-json:2023.2'
     apiPath "${buildDir}/build/brapi_openapi.yaml"
     targetDir "${buildDir}/stn/"
   }
