@@ -23,7 +23,7 @@ openapiProcessor {
   brapiOpenAPI {
     processorName "json"
     processor 'io.openapiprocessor:openapi-processor-json:2021.2'
-    apiPath "${buildDir}/brapi_openapi.yaml"
+    apiPath "../build/brapi_openapi.yaml"
     targetDir "${buildDir}/stn/"
   }
 }
@@ -31,7 +31,7 @@ openapiProcessor {
 tasks.register('copyOpenApi', Copy) {
   dependsOn  processBrapiOpenAPI
   from "${buildDir}/stn/openapi.json"
-  into "${buildDir}/Specification/Generated/"
+  into "../Specification/Generated/"
   rename { String fileName ->
     fileName.replace("openapi.json", "brapi_openapi.json")
   }
