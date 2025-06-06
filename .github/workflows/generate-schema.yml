@@ -13,7 +13,7 @@ jobs:
       - name: Build and run the Docker image
         working-directory: ./docker
         run: docker compose run build-docs
-      - name: Copy compiled specification
+      - name: Convert compiled specification
         working-directory: ./docker
         run: docker compose run gen-swagger
       - name: Set up JDK 21
@@ -24,6 +24,9 @@ jobs:
       - name: Change wrapper permissions
         working-directory: ./generator
         run: chmod +x ./gradlew
+      - name: Copy compiled specification
+        working-directory: ./generator
+        run: ./gradlew copyOpenApi
       - name: Validate
         working-directory: ./generator
         run: ./gradlew validate
