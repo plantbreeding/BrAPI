@@ -100,7 +100,7 @@ tasks.register("generateAll") {
 
 tasks.register("compareOpenAPI", JavaExec) {
   group = 'BrAPI'
-  description = 'Compared the compiles OpenAPI schema from the YAML files with the one generated from the Json Schema'
+  description = 'Compare the compiled OpenAPI schema from the YAML files with the one generated from the Json Schema'
   classpath = sourceSets.main.runtimeClasspath
   mainClass = javaMainClass
   workingDir = '../'
