@@ -13,4 +13,4 @@ services:
       - ../Specification:/src/Specification
       - ../build:/src/build
     image: swaggerapi/swagger-codegen-cli
-    command: generate -i /src/build/brapi_openapi.yaml -l swagger -o /src/Specification
+    command: generate -i /src/build/brapi_openapi.yaml -l openapi -o /src/Specification
