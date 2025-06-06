@@ -16,6 +16,15 @@ dependencies {
   implementation "org.brapi:brapi-schema-tools-cli:$brapiSchemaToolsVersion"
 }
 
+tasks.register('copyOpenApi', Copy) {
+  from "../build/openapi.json"
+  into "../Specification/Generated/"
+  rename { String fileName ->
+    fileName.replace("openapi.json", "brapi_openapi.json")
+  }
+  eachFile { println it.file }
+}
+
 tasks.register("validate", JavaExec) {
   group = 'BrAPI'
   description = 'Validate the Json Schema'

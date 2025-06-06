@@ -10,7 +10,6 @@ services:
     command: ["./Scripts/buildDocs.sh" ]
   gen-swagger:
     volumes:
-      - ../Specification:/src/Specification
       - ../build:/src/build
-    image: swaggerapi/swagger-codegen-cli
-    command: generate -i /src/build/brapi_openapi.yaml -l openapi -o /src/Specification
+    image: openapitools/openapi-generator-cli
+    command: generate -i /src/build/brapi_openapi.yaml -g openapi -o /src/build
