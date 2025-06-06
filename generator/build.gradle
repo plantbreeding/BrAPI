@@ -22,7 +22,7 @@ dependencies {
 openapiProcessor {
   brapiOpenAPI {
     processorName "json"
-    processor 'io.openapiprocessor:openapi-processor-json:2023.2'
+    processor 'io.openapiprocessor:openapi-processor-json:2021.1'
     apiPath "${buildDir}/build/brapi_openapi.yaml"
     targetDir "${buildDir}/stn/"
   }
