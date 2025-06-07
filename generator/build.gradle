@@ -85,7 +85,7 @@ tasks.register("generateAll") {
   dependsOn generateOWL
 }
 
-tasks.register("compareOpenAPI", JavaExec) {
+tasks.register("compareOpenAPIMD", JavaExec) {
   group = 'BrAPI'
   description = 'Compare the compiled OpenAPI schema from the YAML files with the one generated from the Json Schema'
   classpath = sourceSets.main.runtimeClasspath
@@ -102,6 +102,24 @@ tasks.register("compareOpenAPI", JavaExec) {
           '-s']
 }
 
+tasks.register("compareOpenAPIJSON", JavaExec) {
+  group = 'BrAPI'
+  description = 'Compare the compiled OpenAPI schema from the YAML files with the one generated from the Json Schema'
+  classpath = sourceSets.main.runtimeClasspath
+  mainClass = javaMainClass
+  workingDir = '../'
+  def filename1 = "Specification/Generated/brapi_openapi.json"
+  def filename2 = "Specification/Generated/brapi_generated.json"
+  def filename = "Specification/Generated/brapi_openapi_comparison.json"
+  args = ['compare', filename1, filename2,
+          '-l', 'OPEN_API',
+          '-f', filename,
+          '-w', 'JSON',
+          '-x',
+          '-s']
+}
+
 tasks.register("compareAll") {
-  dependsOn compareOpenAPI
+  dependsOn compareOpenAPIMD
+  dependsOn compareOpenAPIJSON
 }
