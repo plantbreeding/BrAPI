@@ -96,6 +96,7 @@ tasks.register("compareOpenAPIMD", JavaExec) {
   def filename = "Specification/Generated/brapi_openapi_comparison.md"
   args = ['compare', filename1, filename2,
           '-l', 'OPEN_API',
+          '-m', 'generator/openapi-metadata.yaml',
           '-f', filename,
           '-w', 'MARKDOWN',
           '-x',
