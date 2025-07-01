@@ -3,10 +3,10 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /predictions:
+  /metrics:
     get:
-      summary: Get the analysis predictions available on a server
-      description: Get the analysis predictions available on a server
+      summary: Get the analysis metrics available on a server
+      description: Get the analysis metrics available on a server
       parameters:
       - description: The unique identifier for a Job
         in: query
@@ -61,7 +61,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          $ref: '#/components/responses/PredictionListResponse'
+          $ref: '#/components/responses/MetricListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -69,14 +69,38 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - Analysis
+      - Metrics
+    post:
+      summary: Create new Metric records
+      description: |-
+        Create new Metric records
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/MetricNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/MetricListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Metrics
 components:
   responses:
-    PredictionListResponse:
+    MetricListResponse:
       content:
         application/json:
           schema:
-            title: PredictionListResponse
+            title: MetricListResponse
             type: object
             properties:
               '@context':
@@ -90,7 +114,7 @@ components:
                     type: array
                     description: The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.
                     items:
-                      $ref: '#/components/schemas/Prediction'
+                      $ref: '#/components/schemas/Metric'
                 required:
                 - data
             required:

@@ -1,0 +1,61 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    MetricSearchRequest:
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'
+      - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'
+      - $ref: '#/components/schemas/SearchRequestParametersPrograms'
+      - $ref: '#/components/schemas/SearchRequestParametersStudies'
+      - $ref: '#/components/schemas/SearchRequestParametersGermplasm'
+      - $ref: '#/components/schemas/SearchRequestParametersObservationVariables'
+      - type: object
+        properties:
+          procedureDbIds:
+            description: The unique identifiers for procedures
+            items:
+              type: string
+            type: array
+            example: ["a3b45b23", "b45ba3b4"]
+          procedureNames:
+            description: The human readable identifiers for procedures
+            items:
+              type: string
+            type: array
+            example: ["REMOTE-GWAS", "QA/QC"]
+          jobDbIds:
+            description: The unique identifiers of Jobs
+            items:
+              type: string
+            type: array
+            example: ["a55efb9c", "55e45b23"]
+          jobNames:
+            description: The human readable names of running jobs
+            items:
+              type: string
+            type: array
+            example: ["Bob Robertson First GWAS", "Standard QA/QC #445"]
+          metricDbIds:
+            description: The unique identifiers of metrics
+            items:
+              type: string
+            type: array
+            example: ["5e23fb9c", "45ba55e5"]
+          metricNames:
+            description: The human readable names of metrics
+            items:
+              type: string
+            type: array
+            example: ["plotH2_designation", "plotY2"]
+
+
+          
+
+
+          
+

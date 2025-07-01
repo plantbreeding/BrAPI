@@ -1,0 +1,81 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /predictions/{predictionDbId}:
+    get:
+      summary: Get the analysis predictions available on a server
+      description: Get the analysis predictions available on a server
+      parameters:
+      - description: The unique identifier for a prediction value
+        in: path
+        name: predictionDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/PredictionSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Predictions
+    put:
+      summary: Update an existing Prediction record
+      description: |-
+        Update an existing Prediction record
+      parameters:
+      - description: The unique identifier for a file
+        in: path
+        name: predictionDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PredictionNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/PredictionSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Predictions
+components:
+  responses:
+    PredictionSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: PredictionSingleResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/Prediction'
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}
+      

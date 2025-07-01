@@ -6,67 +6,21 @@ paths: {}
 components:
   schemas:
     Prediction:
-      type: object
-      properties:
-        additionalInfo:
-          additionalProperties:
+      allOf:
+      - $ref: '#/components/schemas/PredictionNewRequest'
+      - type: object
+        x-brapi-metadata:
+          primaryModel: true
+          module: BrAPI-Phenotyping
+        title: Prediction
+        description: The prediction value as an output of some analysis
+        required:
+        - predictionDbId
+        properties:
+          predictionDbId:
+            description: The unique identifier of a Prediction
             type: string
-          description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.  
-          type: object
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
-        procedureDbId:
-          description: The unique identifier for a procedure 
-          type: string
-          example: a3b45b23
-        procedureName:
-          description: The human readable identifier for a procedure
-          type: string
-          example: REMOTE-GWAS
-        jobDbId:
-          description: The unique identifier of a Job
-          type: string
-          example: a55efb9c
-        jobName:
-          description: The human readable name of a running job
-          type: string
-          example: Bob Robertson First GWAS
-        studyDbId:
-          description: The unique identifier of a Study
-          type: string
-          example: 9a5c5efb
-        studyName:
-          description: The human readable name of a Study
-          type: string
-          example: BrAPI Wheat - NY 2023
-        variableDbId:
-          description: The unique identifier of a Variable
-          type: string
-          example: b95efca5
-        variableName:
-          description: The human readable name of a Variable
-          type: string
-          example: Plant_Height_cm
-        predictionDbId:
-          description: The unique identifier of a Prediction
-          type: string
-          example: XYZ001
-        value:
-          description: The value of the prediction
-          type: string
-          example: "1026.4"
-        stdError:
-          description: The standard error of the prediction value
-          type: string
-          example: "28.7"
-        reliability:
-          description: The reliability of the prediction value
-          type: string
-          example: "0.993"
-
-
-          
-
+            example: XYZ001
 
           
 
