@@ -20,7 +20,7 @@ components:
           predictionDbId:
             description: The unique identifier of a Prediction
             type: string
-            example: XYZ001
+            example: 43ab644f
 
           
 

@@ -94,7 +94,7 @@ components:
               authToken:
                 description: The Bearer Auth token for the remote BrAPI server, if applicable
                 type: string
-                example: Bearer eyJhbGciOiJSUzI1N...
+                example: Bearer ef0ab6c9...
               dataType:
                 type: string
                 description: The BrAPI class type expected

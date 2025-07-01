@@ -37,7 +37,7 @@ components:
               type: string
               example: We used the 3'RNA-seq method
             sequencingCenter:
-              description: The organization where sequencing occured
+              description: The organization where sequencing occurred
               type: string
               example: Cornell University Institute of Biotechnology
             sequencingPlatform:

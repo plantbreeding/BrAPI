@@ -62,7 +62,7 @@ components:
                 fileURL:
                   description: The complete, absolute URI path to the file file. Files might be stored on a different host or path than the BrAPI web server.
                   type: string
-                  example: https://test-server.brapi.org/brapi/v2/observations?studyDbId=results123
+                  example: https://test-server.brapi.org/brapi/v2/observations?studyDbId=4f1a2630
                 dataType:
                   type: string
                   description: The accepted list of data types

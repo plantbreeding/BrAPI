@@ -809,7 +809,7 @@ Get a filtered list of Transcriptomics Protocols
 <tr><td>protocol<br>.referenceGenome<br><span style="font-weight:bold;margin-left:5px">.genomeAssemblyName</span></td><td>string</td><td>The human readable name of the reference genome</td></tr>
 <tr><td>protocol<br>.referenceGenome<br><span style="font-weight:bold;margin-left:5px">.genomeURL</span></td><td>string</td><td>A URL pointing to the location of the reference genome file. (example file types; .fasta, .fa, etc)</td></tr>
 <tr><td>protocol<br>.referenceGenome<br><span style="font-weight:bold;margin-left:5px">.genomeVersion</span></td><td>string</td><td>the version number of the reference genome</td></tr>
-<tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.sequencingCenter</span></td><td>string</td><td>The organization where sequencing occured</td></tr>
+<tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.sequencingCenter</span></td><td>string</td><td>The organization where sequencing occurred</td></tr>
 <tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.sequencingLength</span></td><td>integer</td><td>The sequence length in nucleotides</td></tr>
 <tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.sequencingPlatform</span></td><td>string</td><td>The system used to perform sequencing</td></tr>
 <tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.units</span></td><td>string</td><td>Units describing the data in this matrix (counts, FPKM, etc)</td></tr>
@@ -973,7 +973,7 @@ Get a single Transcriptomics Protocol by Id. This can be used to quickly get the
 <tr><td>protocol<br>.referenceGenome<br><span style="font-weight:bold;margin-left:5px">.genomeAssemblyName</span></td><td>string</td><td>The human readable name of the reference genome</td></tr>
 <tr><td>protocol<br>.referenceGenome<br><span style="font-weight:bold;margin-left:5px">.genomeURL</span></td><td>string</td><td>A URL pointing to the location of the reference genome file. (example file types; .fasta, .fa, etc)</td></tr>
 <tr><td>protocol<br>.referenceGenome<br><span style="font-weight:bold;margin-left:5px">.genomeVersion</span></td><td>string</td><td>the version number of the reference genome</td></tr>
-<tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.sequencingCenter</span></td><td>string</td><td>The organization where sequencing occured</td></tr>
+<tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.sequencingCenter</span></td><td>string</td><td>The organization where sequencing occurred</td></tr>
 <tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.sequencingLength</span></td><td>integer</td><td>The sequence length in nucleotides</td></tr>
 <tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.sequencingPlatform</span></td><td>string</td><td>The system used to perform sequencing</td></tr>
 <tr><td>protocol<br><span style="font-weight:bold;margin-left:5px">.units</span></td><td>string</td><td>Units describing the data in this matrix (counts, FPKM, etc)</td></tr>

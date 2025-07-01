@@ -48,7 +48,7 @@ def go():
                 exit(1)
 
 def parseLine(line):
-    splitPattern = re.compile("([^\w\d]|[_])+")  
+    splitPattern = re.compile(r'([^\w\d]|[_])+')  
     words = splitPattern.split(line)
     # Split Camel Case words 
     wordsCamel = []
@@ -65,7 +65,7 @@ def parseLine(line):
     return(words)
 
 def camel_case_split(identifier):
-    matches = re.finditer('.+?(?:(?<=[a-z0-9])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z0-9])|$)', identifier)
+    matches = re.finditer(r'.+?(?:(?<=[a-z0-9])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z0-9])|$)', identifier)
     return [m.group(0) for m in matches]
 
 
