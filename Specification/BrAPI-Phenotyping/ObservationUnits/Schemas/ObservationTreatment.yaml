@@ -11,17 +11,58 @@ components:
         factor:
           description: |-
             The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
+
+            MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
+            
+            **Deprecated in v2.2** Please use `factorName`. Github issue number #539
+          type: string
+          nullable: true
+          deprecated: true
+          example: fertilizer
+        factorName:
+          description: |-
+            The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc
             
             MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
           type: string
           nullable: true
-          example: fertilizer
+          example:
+            - fertilizer
+            - irrigation
+        factorPUI:
+          description: |-
+            The PUI of the factor which may link to an ontology
+          type: string
+          nullable: true
+          example:
+            - test-factor:dia2020-2-nv.fertilizer
+            - test-factor:dia2020-2-nv.irrigation
         modality:
           description: |-
             The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc
+
+            MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.
+            
+            **Deprecated in v2.2** Please use `modalityName`. Github issue number #539
+          type: string
+          nullable: true
+          deprecated: true
+          example: low fertilizer
+        modalityName:
+          description: |-
+            The treatment/factor modality or level. For example 'low fertilizer', 'yellow rust inoculation', 'high water', etc
             
             MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. 
           type: string
           nullable: true
-          example: low fertilizer
-
+          example:
+            - low fertilizer
+            - High input
+        modalityPUI:
+          description: |-
+            The PUI of the modality which may link to an ontology
+          type: string
+          nullable: true
+          example:
+            - test-factor:dia2020-2-nv.lf
+            - test-factor:dia2020-2-nv.irrigation.ww
