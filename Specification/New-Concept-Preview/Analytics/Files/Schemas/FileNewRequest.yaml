@@ -24,7 +24,7 @@ components:
         fileSource:
           description: The description of where the file originated or how it was generated
           type: string
-          example: Output from analsys job xyz123
+          example: Output from analysis job a823b0c3
         fileName:
           description: The name of the file file. Might be the same as 'fileName', but could be different.
           type: string
