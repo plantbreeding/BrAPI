@@ -1,7 +1,10 @@
-apply plugin : "java"
+plugins {
+  id 'java'
+}
+
 ext {
   javaMainClass = 'org.brapi.schematools.cli.BrAPICommand'
-  brapiSchemaToolsVersion = '0.30.0-SNAPSHOT'
+  brapiSchemaToolsVersion = '0.31.0-SNAPSHOT'
 }
 
 repositories {
@@ -13,20 +16,9 @@ dependencies {
   implementation "org.brapi:brapi-schema-tools-cli:$brapiSchemaToolsVersion"
 }
 
-openapiProcessor {
-
-  brapiOpenAPI {
-    processorName "json"
-    processor 'io.openapiprocessor:openapi-processor-json:2021.2'
-    apiPath "${buildDir}/build/brapi_openapi.yaml"
-    targetDir "${buildDir}/stn/"
-  }
-}
-
 tasks.register('copyOpenApi', Copy) {
-  dependsOn  processBrapiOpenAPI
-  from "${buildDir}/stn/openapi.json"
-  into "${brapiDir}/Specification/Generated/"
+  from "../build/openapi.json"
+  into "../Specification/Generated/"
   rename { String fileName ->
     fileName.replace("openapi.json", "brapi_openapi.json")
   }
@@ -95,7 +87,7 @@ tasks.register("generateAll") {
 
 tasks.register("compareOpenAPI", JavaExec) {
   group = 'BrAPI'
-  description = 'Compared the compiles OpenAPI schema from the YAML files with the one generated from the Json Schema'
+  description = 'Compare the compiled OpenAPI schema from the YAML files with the one generated from the Json Schema'
   classpath = sourceSets.main.runtimeClasspath
   mainClass = javaMainClass
   workingDir = '../'
