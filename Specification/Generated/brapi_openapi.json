@@ -18706,7 +18706,7 @@
         "properties" : {
           "PUI" : {
             "deprecated" : true,
-            "description" : "MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.",
+            "description" : "MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.\n\n**Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539",
             "example" : "CO_715:0000145",
             "nullable" : true,
             "type" : "string"
@@ -33714,7 +33714,7 @@
         "properties" : {
           "PUI" : {
             "deprecated" : true,
-            "description" : "MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.",
+            "description" : "MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.\n\n**Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539",
             "example" : "CO_715:0000145",
             "nullable" : true,
             "type" : "string"
