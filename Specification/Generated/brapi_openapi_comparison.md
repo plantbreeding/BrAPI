@@ -14438,6 +14438,34 @@ Changed response : **200 OK**
 
                 * Added property `studyPUI` (string)
 
+                * Deleted property `experimentFactors` (array)
+                    > The factors used in the experimental design
+
+
+                * Deleted property `experimentalDesignPUI` (string)
+                    > MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.
+
+
+                * Deleted property `firstRepRand` (boolean)
+                    > Is the first replication random
+
+
+                * Deleted property `layoutPattern` (string)
+                    > How the trial is layout in the field
+
+
+                * Deleted property `randomizationType` (string)
+                    > The type of randomization use to create the experimental design
+
+
+                * Deleted property `rowsPerPlot` (number)
+                    > The number of rows in a plot
+
+
+                * Deleted property `setSize` (number)
+                    > The size of the sets in the design
+
+
                 * Changed property `PUI` (string)
 
                 * Changed property `description` (string)
@@ -14596,6 +14624,34 @@ Changed response : **200 OK**
                 * Added property `studyName` (string)
 
                 * Added property `studyPUI` (string)
+
+                * Deleted property `experimentFactors` (array)
+                    > The factors used in the experimental design
+
+
+                * Deleted property `experimentalDesignPUI` (string)
+                    > MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.
+
+
+                * Deleted property `firstRepRand` (boolean)
+                    > Is the first replication random
+
+
+                * Deleted property `layoutPattern` (string)
+                    > How the trial is layout in the field
+
+
+                * Deleted property `randomizationType` (string)
+                    > The type of randomization use to create the experimental design
+
+
+                * Deleted property `rowsPerPlot` (number)
+                    > The number of rows in a plot
+
+
+                * Deleted property `setSize` (number)
+                    > The size of the sets in the design
+
 
                 * Changed property `PUI` (string)
 
@@ -15048,6 +15104,34 @@ Changed response : **200 OK**
 
                 * Added property `studyPUI` (string)
 
+                * Deleted property `experimentFactors` (array)
+                    > The factors used in the experimental design
+
+
+                * Deleted property `experimentalDesignPUI` (string)
+                    > MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.
+
+
+                * Deleted property `firstRepRand` (boolean)
+                    > Is the first replication random
+
+
+                * Deleted property `layoutPattern` (string)
+                    > How the trial is layout in the field
+
+
+                * Deleted property `randomizationType` (string)
+                    > The type of randomization use to create the experimental design
+
+
+                * Deleted property `rowsPerPlot` (number)
+                    > The number of rows in a plot
+
+
+                * Deleted property `setSize` (number)
+                    > The size of the sets in the design
+
+
                 * Changed property `PUI` (string)
 
                 * Changed property `description` (string)
@@ -15182,6 +15266,34 @@ Changed response : **200 OK**
                 * Added property `studyName` (string)
 
                 * Added property `studyPUI` (string)
+
+                * Deleted property `experimentFactors` (array)
+                    > The factors used in the experimental design
+
+
+                * Deleted property `experimentalDesignPUI` (string)
+                    > MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.
+
+
+                * Deleted property `firstRepRand` (boolean)
+                    > Is the first replication random
+
+
+                * Deleted property `layoutPattern` (string)
+                    > How the trial is layout in the field
+
+
+                * Deleted property `randomizationType` (string)
+                    > The type of randomization use to create the experimental design
+
+
+                * Deleted property `rowsPerPlot` (number)
+                    > The number of rows in a plot
+
+
+                * Deleted property `setSize` (number)
+                    > The size of the sets in the design
+
 
                 * Changed property `PUI` (string)
 
@@ -15323,6 +15435,34 @@ Changed response : **200 OK**
 
             * Added property `studyPUI` (string)
 
+            * Deleted property `experimentFactors` (array)
+                > The factors used in the experimental design
+
+
+            * Deleted property `experimentalDesignPUI` (string)
+                > MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.
+
+
+            * Deleted property `firstRepRand` (boolean)
+                > Is the first replication random
+
+
+            * Deleted property `layoutPattern` (string)
+                > How the trial is layout in the field
+
+
+            * Deleted property `randomizationType` (string)
+                > The type of randomization use to create the experimental design
+
+
+            * Deleted property `rowsPerPlot` (number)
+                > The number of rows in a plot
+
+
+            * Deleted property `setSize` (number)
+                > The size of the sets in the design
+
+
             * Changed property `PUI` (string)
 
             * Changed property `description` (string)
@@ -15446,6 +15586,34 @@ New required properties:
 
     * Added property `studyPUI` (string)
 
+    * Deleted property `experimentFactors` (array)
+        > The factors used in the experimental design
+
+
+    * Deleted property `experimentalDesignPUI` (string)
+        > MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.
+
+
+    * Deleted property `firstRepRand` (boolean)
+        > Is the first replication random
+
+
+    * Deleted property `layoutPattern` (string)
+        > How the trial is layout in the field
+
+
+    * Deleted property `randomizationType` (string)
+        > The type of randomization use to create the experimental design
+
+
+    * Deleted property `rowsPerPlot` (number)
+        > The number of rows in a plot
+
+
+    * Deleted property `setSize` (number)
+        > The size of the sets in the design
+
+
     * Changed property `PUI` (string)
 
     * Changed property `description` (string)
@@ -15568,6 +15736,34 @@ Changed response : **200 OK**
             * Added property `studyName` (string)
 
             * Added property `studyPUI` (string)
+
+            * Deleted property `experimentFactors` (array)
+                > The factors used in the experimental design
+
+
+            * Deleted property `experimentalDesignPUI` (string)
+                > MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.
+
+
+            * Deleted property `firstRepRand` (boolean)
+                > Is the first replication random
+
+
+            * Deleted property `layoutPattern` (string)
+                > How the trial is layout in the field
+
+
+            * Deleted property `randomizationType` (string)
+                > The type of randomization use to create the experimental design
+
+
+            * Deleted property `rowsPerPlot` (number)
+                > The number of rows in a plot
+
+
+            * Deleted property `setSize` (number)
+                > The size of the sets in the design
+
 
             * Changed property `PUI` (string)
 
