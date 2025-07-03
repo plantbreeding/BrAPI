@@ -17,7 +17,10 @@ components:
           nullable: true
           example: Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information.
         PUI:
-          description: MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.
+          description: |- 
+            MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.
+            
+            **Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539
           type: string
           deprecated: true
           nullable: true
