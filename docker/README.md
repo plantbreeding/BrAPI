@@ -4,7 +4,7 @@ The Docker container builds the BrAPI Specification and other documentation from
 separate OpenAPI yaml files in the [Specification Directory](../Specification).
 
 You can run the Docker container directly to generate the BrAPI Specification and other documentation with
-the command
+the command. 
 
 ```shell
 docker compose run build-docs

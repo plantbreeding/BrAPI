@@ -14,3 +14,4 @@ Scripts/__pycache__/
 brapi_blueprint.apib.json
 /generator/.gradle/
 /generator/build
+/build
