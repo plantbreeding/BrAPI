@@ -677,11 +677,42 @@ type EventsSearchResponse {
   searchResultsDbId: String
 }
 
+type ExperimentFactor {
+  """
+  The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
+  
+  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
+  """
+  factor: String
+  "The PUI of the factor which may link to an ontology."
+  factorPUI: String
+  """
+  The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
+  
+  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
+  """
+  modalities: [Modality]
+}
+
 type ExperimentalDesign {
-  "MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology."
+  "MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology. **Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539"
   PUI: String
   "MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be \"unknown\"/\"NA\", \"aggregated/reduced data\", or simply 'none'."
   description: String
+  "The factors used in the experimental design."
+  experimentFactors: [ExperimentFactor]
+  "MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology."
+  experimentalDesignPUI: String
+  "Is the first replication random."
+  firstRepRand: Boolean
+  "How the trial is layout in the field."
+  layoutPattern: String
+  "The type of randomization use to create the experimental design."
+  randomizationType: String
+  "The number of rows in a plot."
+  rowsPerPlot: Float
+  "The size of the sets in the design."
+  setSize: Float
   "Experimental design associated with a study"
   study: Study
 }
@@ -1406,6 +1437,17 @@ type Method {
 type MethodListResponse {
   data: [Method]
   page: PageInfo
+}
+
+type Modality {
+  """
+  The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc
+  
+  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. 
+  """
+  modality: String
+  "The PUI of the modality which may link to an ontology."
+  modalityPUI: String
 }
 
 type Mutation {
@@ -2849,12 +2891,16 @@ type Treatment {
   MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
   """
   factor: String
+  "The PUI of the factor which may link to an ontology."
+  factorPUI: String
   """
   The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc
   
   MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. 
   """
   modality: String
+  "The PUI of the modality which may link to an ontology."
+  modalityPUI: String
   "associated observation Unit"
   observationUnit: ObservationUnit
 }
@@ -3935,11 +3981,42 @@ input EventsInput {
   studyNames: [String]
 }
 
+input ExperimentFactorInput {
+  """
+  The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
+  
+  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
+  """
+  factor: String
+  "The PUI of the factor which may link to an ontology."
+  factorPUI: String
+  """
+  The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
+  
+  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
+  """
+  modalities: [ModalityInput]
+}
+
 input ExperimentalDesignInput {
-  "MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology."
+  "MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology. **Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539"
   PUI: String
   "MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be \"unknown\"/\"NA\", \"aggregated/reduced data\", or simply 'none'."
   description: String
+  "The factors used in the experimental design."
+  experimentFactors: [ExperimentFactorInput]
+  "MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology."
+  experimentalDesignPUI: String
+  "Is the first replication random."
+  firstRepRand: Boolean
+  "How the trial is layout in the field."
+  layoutPattern: String
+  "The type of randomization use to create the experimental design."
+  randomizationType: String
+  "The number of rows in a plot."
+  rowsPerPlot: Float
+  "The size of the sets in the design."
+  setSize: Float
   "Experimental design associated with a study"
   study: StudyInput
 }
@@ -5001,6 +5078,17 @@ input MethodsInput {
   programNames: [String]
   "The unique identifier for a method."
   scaleDbIds: [String]
+}
+
+input ModalityInput {
+  """
+  The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc
+  
+  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. 
+  """
+  modality: String
+  "The PUI of the modality which may link to an ontology."
+  modalityPUI: String
 }
 
 input ObservationInput {
@@ -6851,12 +6939,16 @@ input TreatmentInput {
   MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
   """
   factor: String
+  "The PUI of the factor which may link to an ontology."
+  factorPUI: String
   """
   The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc
   
   MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. 
   """
   modality: String
+  "The PUI of the modality which may link to an ontology."
+  modalityPUI: String
   "associated observation Unit"
   observationUnit: ObservationUnitInput
 }

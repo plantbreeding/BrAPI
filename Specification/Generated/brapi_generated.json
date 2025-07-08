@@ -9149,6 +9149,31 @@
           }
         }
       },
+      "ExperimentFactor" : {
+        "type" : "object",
+        "properties" : {
+          "factor" : {
+            "type" : "string"
+          },
+          "factorPUI" : {
+            "type" : "string"
+          },
+          "modalities" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "modality" : {
+                  "type" : "string"
+                },
+                "modalityPUI" : {
+                  "type" : "string"
+                }
+              }
+            }
+          }
+        }
+      },
       "ExperimentalDesign" : {
         "type" : "object",
         "properties" : {
@@ -9157,6 +9182,30 @@
           },
           "description" : {
             "type" : "string"
+          },
+          "experimentFactors" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ExperimentFactor"
+            }
+          },
+          "experimentalDesignPUI" : {
+            "type" : "string"
+          },
+          "firstRepRand" : {
+            "type" : "boolean"
+          },
+          "layoutPattern" : {
+            "type" : "string"
+          },
+          "randomizationType" : {
+            "type" : "string"
+          },
+          "rowsPerPlot" : {
+            "type" : "number"
+          },
+          "setSize" : {
+            "type" : "number"
           },
           "studyDbId" : {
             "type" : "string"
@@ -12114,8 +12163,8 @@
               "type" : "string"
             }
           },
-          "experimentalDesign" : {
-            "$ref" : "#/components/schemas/ExperimentalDesign"
+          "experimentalDesignPUI" : {
+            "type" : "string"
           },
           "growthFacility" : {
             "$ref" : "#/components/schemas/GrowthFacility"
@@ -12204,8 +12253,8 @@
               "type" : "string"
             }
           },
-          "experimentalDesign" : {
-            "$ref" : "#/components/schemas/ExperimentalDesign"
+          "experimentalDesignPUI" : {
+            "type" : "string"
           },
           "growthFacility" : {
             "$ref" : "#/components/schemas/GrowthFacility"
@@ -12411,7 +12460,13 @@
           "factor" : {
             "type" : "string"
           },
+          "factorPUI" : {
+            "type" : "string"
+          },
           "modality" : {
+            "type" : "string"
+          },
+          "modalityPUI" : {
             "type" : "string"
           },
           "observationUnitDbId" : {

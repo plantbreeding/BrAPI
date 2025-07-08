@@ -14350,6 +14350,8 @@ Changed response : **200 OK**
 
             * Added property `environmentParameterDbIds` (array)
 
+            * Added property `experimentalDesignPUI` (string)
+
             * Added property `lastUpdateDbId` (string)
 
             * Added property `trialPUI` (string)
@@ -14367,6 +14369,8 @@ Changed response : **200 OK**
                 > 
                 > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
 
+
+            * Deleted property `experimentalDesign` (object)
 
             * Deleted property `externalReferences` (array)
                 > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -14429,46 +14433,6 @@ Changed response : **200 OK**
             * Changed property `trialDbId` (string)
 
             * Changed property `trialName` (string)
-
-            * Changed property `experimentalDesign` (object)
-
-                * Added property `studyDbId` (string)
-
-                * Added property `studyName` (string)
-
-                * Added property `studyPUI` (string)
-
-                * Deleted property `experimentFactors` (array)
-                    > The factors used in the experimental design
-
-
-                * Deleted property `experimentalDesignPUI` (string)
-                    > MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.
-
-
-                * Deleted property `firstRepRand` (boolean)
-                    > Is the first replication random
-
-
-                * Deleted property `layoutPattern` (string)
-                    > How the trial is layout in the field
-
-
-                * Deleted property `randomizationType` (string)
-                    > The type of randomization use to create the experimental design
-
-
-                * Deleted property `rowsPerPlot` (number)
-                    > The number of rows in a plot
-
-
-                * Deleted property `setSize` (number)
-                    > The size of the sets in the design
-
-
-                * Changed property `PUI` (string)
-
-                * Changed property `description` (string)
 
             * Changed property `growthFacility` (object)
 
@@ -14537,6 +14501,8 @@ Changed response : **200 OK**
 
             * Added property `environmentParameterDbIds` (array)
 
+            * Added property `experimentalDesignPUI` (string)
+
             * Added property `lastUpdateDbId` (string)
 
             * Added property `trialPUI` (string)
@@ -14554,6 +14520,8 @@ Changed response : **200 OK**
                 > 
                 > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
 
+
+            * Deleted property `experimentalDesign` (object)
 
             * Deleted property `externalReferences` (array)
                 > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -14616,46 +14584,6 @@ Changed response : **200 OK**
             * Changed property `trialDbId` (string)
 
             * Changed property `trialName` (string)
-
-            * Changed property `experimentalDesign` (object)
-
-                * Added property `studyDbId` (string)
-
-                * Added property `studyName` (string)
-
-                * Added property `studyPUI` (string)
-
-                * Deleted property `experimentFactors` (array)
-                    > The factors used in the experimental design
-
-
-                * Deleted property `experimentalDesignPUI` (string)
-                    > MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.
-
-
-                * Deleted property `firstRepRand` (boolean)
-                    > Is the first replication random
-
-
-                * Deleted property `layoutPattern` (string)
-                    > How the trial is layout in the field
-
-
-                * Deleted property `randomizationType` (string)
-                    > The type of randomization use to create the experimental design
-
-
-                * Deleted property `rowsPerPlot` (number)
-                    > The number of rows in a plot
-
-
-                * Deleted property `setSize` (number)
-                    > The size of the sets in the design
-
-
-                * Changed property `PUI` (string)
-
-                * Changed property `description` (string)
 
             * Changed property `growthFacility` (object)
 
@@ -15016,6 +14944,8 @@ Changed response : **200 OK**
 
             * Added property `environmentParameterDbIds` (array)
 
+            * Added property `experimentalDesignPUI` (string)
+
             * Added property `lastUpdateDbId` (string)
 
             * Added property `trialPUI` (string)
@@ -15033,6 +14963,8 @@ Changed response : **200 OK**
                 > 
                 > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
 
+
+            * Deleted property `experimentalDesign` (object)
 
             * Deleted property `externalReferences` (array)
                 > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -15095,46 +15027,6 @@ Changed response : **200 OK**
             * Changed property `trialDbId` (string)
 
             * Changed property `trialName` (string)
-
-            * Changed property `experimentalDesign` (object)
-
-                * Added property `studyDbId` (string)
-
-                * Added property `studyName` (string)
-
-                * Added property `studyPUI` (string)
-
-                * Deleted property `experimentFactors` (array)
-                    > The factors used in the experimental design
-
-
-                * Deleted property `experimentalDesignPUI` (string)
-                    > MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.
-
-
-                * Deleted property `firstRepRand` (boolean)
-                    > Is the first replication random
-
-
-                * Deleted property `layoutPattern` (string)
-                    > How the trial is layout in the field
-
-
-                * Deleted property `randomizationType` (string)
-                    > The type of randomization use to create the experimental design
-
-
-                * Deleted property `rowsPerPlot` (number)
-                    > The number of rows in a plot
-
-
-                * Deleted property `setSize` (number)
-                    > The size of the sets in the design
-
-
-                * Changed property `PUI` (string)
-
-                * Changed property `description` (string)
 
             * Changed property `growthFacility` (object)
 
@@ -15179,6 +15071,8 @@ Changed response : **200 OK**
 
             * Added property `environmentParameterDbIds` (array)
 
+            * Added property `experimentalDesignPUI` (string)
+
             * Added property `lastUpdateDbId` (string)
 
             * Added property `trialPUI` (string)
@@ -15196,6 +15090,8 @@ Changed response : **200 OK**
                 > 
                 > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
 
+
+            * Deleted property `experimentalDesign` (object)
 
             * Deleted property `externalReferences` (array)
                 > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -15258,46 +15154,6 @@ Changed response : **200 OK**
             * Changed property `trialDbId` (string)
 
             * Changed property `trialName` (string)
-
-            * Changed property `experimentalDesign` (object)
-
-                * Added property `studyDbId` (string)
-
-                * Added property `studyName` (string)
-
-                * Added property `studyPUI` (string)
-
-                * Deleted property `experimentFactors` (array)
-                    > The factors used in the experimental design
-
-
-                * Deleted property `experimentalDesignPUI` (string)
-                    > MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.
-
-
-                * Deleted property `firstRepRand` (boolean)
-                    > Is the first replication random
-
-
-                * Deleted property `layoutPattern` (string)
-                    > How the trial is layout in the field
-
-
-                * Deleted property `randomizationType` (string)
-                    > The type of randomization use to create the experimental design
-
-
-                * Deleted property `rowsPerPlot` (number)
-                    > The number of rows in a plot
-
-
-                * Deleted property `setSize` (number)
-                    > The size of the sets in the design
-
-
-                * Changed property `PUI` (string)
-
-                * Changed property `description` (string)
 
             * Changed property `growthFacility` (object)
 
@@ -15347,6 +15203,8 @@ Changed response : **200 OK**
 
         * Added property `environmentParameterDbIds` (array)
 
+        * Added property `experimentalDesignPUI` (string)
+
         * Added property `lastUpdateDbId` (string)
 
         * Added property `trialPUI` (string)
@@ -15364,6 +15222,8 @@ Changed response : **200 OK**
             > 
             > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
 
+
+        * Deleted property `experimentalDesign` (object)
 
         * Deleted property `externalReferences` (array)
             > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -15427,46 +15287,6 @@ Changed response : **200 OK**
 
         * Changed property `trialName` (string)
 
-        * Changed property `experimentalDesign` (object)
-
-            * Added property `studyDbId` (string)
-
-            * Added property `studyName` (string)
-
-            * Added property `studyPUI` (string)
-
-            * Deleted property `experimentFactors` (array)
-                > The factors used in the experimental design
-
-
-            * Deleted property `experimentalDesignPUI` (string)
-                > MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.
-
-
-            * Deleted property `firstRepRand` (boolean)
-                > Is the first replication random
-
-
-            * Deleted property `layoutPattern` (string)
-                > How the trial is layout in the field
-
-
-            * Deleted property `randomizationType` (string)
-                > The type of randomization use to create the experimental design
-
-
-            * Deleted property `rowsPerPlot` (number)
-                > The number of rows in a plot
-
-
-            * Deleted property `setSize` (number)
-                > The size of the sets in the design
-
-
-            * Changed property `PUI` (string)
-
-            * Changed property `description` (string)
-
         * Changed property `growthFacility` (object)
 
             * Added property `studyDbId` (string)
@@ -15502,6 +15322,8 @@ New required properties:
 
 * Added property `environmentParameterDbIds` (array)
 
+* Added property `experimentalDesignPUI` (string)
+
 * Added property `lastUpdateDbId` (string)
 
 * Added property `studyDbId` (string)
@@ -15521,6 +15343,8 @@ New required properties:
     > 
     > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
 
+
+* Deleted property `experimentalDesign` (object)
 
 * Deleted property `externalReferences` (array)
     > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -15578,46 +15402,6 @@ New required properties:
 
 * Changed property `trialName` (string)
 
-* Changed property `experimentalDesign` (object)
-
-    * Added property `studyDbId` (string)
-
-    * Added property `studyName` (string)
-
-    * Added property `studyPUI` (string)
-
-    * Deleted property `experimentFactors` (array)
-        > The factors used in the experimental design
-
-
-    * Deleted property `experimentalDesignPUI` (string)
-        > MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.
-
-
-    * Deleted property `firstRepRand` (boolean)
-        > Is the first replication random
-
-
-    * Deleted property `layoutPattern` (string)
-        > How the trial is layout in the field
-
-
-    * Deleted property `randomizationType` (string)
-        > The type of randomization use to create the experimental design
-
-
-    * Deleted property `rowsPerPlot` (number)
-        > The number of rows in a plot
-
-
-    * Deleted property `setSize` (number)
-        > The size of the sets in the design
-
-
-    * Changed property `PUI` (string)
-
-    * Changed property `description` (string)
-
 * Changed property `growthFacility` (object)
 
     * Added property `studyDbId` (string)
@@ -15649,6 +15433,8 @@ Changed response : **200 OK**
 
         * Added property `environmentParameterDbIds` (array)
 
+        * Added property `experimentalDesignPUI` (string)
+
         * Added property `lastUpdateDbId` (string)
 
         * Added property `trialPUI` (string)
@@ -15666,6 +15452,8 @@ Changed response : **200 OK**
             > 
             > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
 
+
+        * Deleted property `experimentalDesign` (object)
 
         * Deleted property `externalReferences` (array)
             > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -15728,46 +15516,6 @@ Changed response : **200 OK**
         * Changed property `trialDbId` (string)
 
         * Changed property `trialName` (string)
-
-        * Changed property `experimentalDesign` (object)
-
-            * Added property `studyDbId` (string)
-
-            * Added property `studyName` (string)
-
-            * Added property `studyPUI` (string)
-
-            * Deleted property `experimentFactors` (array)
-                > The factors used in the experimental design
-
-
-            * Deleted property `experimentalDesignPUI` (string)
-                > MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.
-
-
-            * Deleted property `firstRepRand` (boolean)
-                > Is the first replication random
-
-
-            * Deleted property `layoutPattern` (string)
-                > How the trial is layout in the field
-
-
-            * Deleted property `randomizationType` (string)
-                > The type of randomization use to create the experimental design
-
-
-            * Deleted property `rowsPerPlot` (number)
-                > The number of rows in a plot
-
-
-            * Deleted property `setSize` (number)
-                > The size of the sets in the design
-
-
-            * Changed property `PUI` (string)
-
-            * Changed property `description` (string)
 
         * Changed property `growthFacility` (object)
 

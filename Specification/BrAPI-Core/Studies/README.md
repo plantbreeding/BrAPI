@@ -92,7 +92,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.  **Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentFactors</span></td><td>array[object]</td><td>The factors used in the experimental design</td></tr>
-<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorName</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
 <tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
 <tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.modalities</span></td><td></td><td></td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentalDesignPUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
@@ -317,7 +317,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                     "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information.",
                     "experimentFactors": [
                         {
-                            "factorName": "fertilizer",
+                            "factor": "fertilizer",
                             "factorPUI": "test-factor:dia2020-2-nv.fertilizer"
                         }
                     ],
@@ -483,7 +483,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.  **Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentFactors</span></td><td>array[object]</td><td>The factors used in the experimental design</td></tr>
-<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorName</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
 <tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
 <tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.modalities</span></td><td></td><td></td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentalDesignPUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
@@ -600,7 +600,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                     "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information.",
                     "experimentFactors": [
                         {
-                            "factorName": "fertilizer",
+                            "factor": "fertilizer",
                             "factorPUI": "test-factor:dia2020-2-nv.fertilizer"
                         }
                     ],
@@ -768,7 +768,7 @@ StartDate and endDate should be ISO-8601 format for dates
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.  **Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentFactors</span></td><td>array[object]</td><td>The factors used in the experimental design</td></tr>
-<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorName</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
 <tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
 <tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.modalities</span></td><td></td><td></td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentalDesignPUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
@@ -902,7 +902,7 @@ StartDate and endDate should be ISO-8601 format for dates
                     "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information.",
                     "experimentFactors": [
                         {
-                            "factorName": "fertilizer",
+                            "factor": "fertilizer",
                             "factorPUI": "test-factor:dia2020-2-nv.fertilizer"
                         }
                     ],
@@ -1039,7 +1039,7 @@ StartDate and endDate should be ISO-8601 format for dates
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.  **Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentFactors</span></td><td>array[object]</td><td>The factors used in the experimental design</td></tr>
-<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorName</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
 <tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
 <tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.modalities</span></td><td></td><td></td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentalDesignPUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
@@ -1117,7 +1117,7 @@ StartDate and endDate should be ISO-8601 format for dates
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.  **Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentFactors</span></td><td>array[object]</td><td>The factors used in the experimental design</td></tr>
-<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorName</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
 <tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
 <tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.modalities</span></td><td></td><td></td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentalDesignPUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
@@ -1210,7 +1210,7 @@ StartDate and endDate should be ISO-8601 format for dates
             "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information.",
             "experimentFactors": [
                 {
-                    "factorName": "fertilizer",
+                    "factor": "fertilizer",
                     "factorPUI": "test-factor:dia2020-2-nv.fertilizer"
                 }
             ],
@@ -1347,7 +1347,7 @@ StartDate and endDate should be ISO-8601 format for dates
                     "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information.",
                     "experimentFactors": [
                         {
-                            "factorName": "fertilizer",
+                            "factor": "fertilizer",
                             "factorPUI": "test-factor:dia2020-2-nv.fertilizer"
                         }
                     ],
@@ -1483,7 +1483,7 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.  **Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentFactors</span></td><td>array[object]</td><td>The factors used in the experimental design</td></tr>
-<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorName</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
 <tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
 <tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.modalities</span></td><td></td><td></td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentalDesignPUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
@@ -1596,7 +1596,7 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
             "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information.",
             "experimentFactors": [
                 {
-                    "factorName": "fertilizer",
+                    "factor": "fertilizer",
                     "factorPUI": "test-factor:dia2020-2-nv.fertilizer"
                 }
             ],
@@ -1730,7 +1730,7 @@ Update an existing Study with new data
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.  **Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentFactors</span></td><td>array[object]</td><td>The factors used in the experimental design</td></tr>
-<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorName</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
 <tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
 <tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.modalities</span></td><td></td><td></td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentalDesignPUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
@@ -1808,7 +1808,7 @@ Update an existing Study with new data
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.  **Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentFactors</span></td><td>array[object]</td><td>The factors used in the experimental design</td></tr>
-<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorName</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
 <tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
 <tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.modalities</span></td><td></td><td></td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentalDesignPUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
@@ -1901,7 +1901,7 @@ Update an existing Study with new data
         "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information.",
         "experimentFactors": [
             {
-                "factorName": "fertilizer",
+                "factor": "fertilizer",
                 "factorPUI": "test-factor:dia2020-2-nv.fertilizer"
             }
         ],
@@ -2035,7 +2035,7 @@ Update an existing Study with new data
             "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information.",
             "experimentFactors": [
                 {
-                    "factorName": "fertilizer",
+                    "factor": "fertilizer",
                     "factorPUI": "test-factor:dia2020-2-nv.fertilizer"
                 }
             ],

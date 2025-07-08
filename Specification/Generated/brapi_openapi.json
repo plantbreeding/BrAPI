@@ -18720,7 +18720,7 @@
           "experimentFactors" : {
             "description" : "The factors used in the experimental design",
             "items" : {
-              "$ref" : "#/components/schemas/ExperimentalDesign_experimentFactors_inner"
+              "$ref" : "#/components/schemas/ExperimentFactor"
             },
             "nullable" : true,
             "type" : "array"
@@ -22754,13 +22754,7 @@
         "properties" : {
           "factor" : {
             "deprecated" : true,
-            "description" : "The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc\n\nMIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.\n\n**Deprecated in v2.2** Please use `factorName`. Github issue number #539",
-            "example" : "fertilizer",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "factorName" : {
-            "description" : "The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc\n\nMIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.",
+            "description" : "The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc\n\nMIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.",
             "example" : "fertilizer",
             "nullable" : true,
             "type" : "string"
@@ -22773,13 +22767,7 @@
           },
           "modality" : {
             "deprecated" : true,
-            "description" : "The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc\n\nMIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.\n\n**Deprecated in v2.2** Please use `modalityName`. Github issue number #539",
-            "example" : "low fertilizer",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "modalityName" : {
-            "description" : "The treatment/factor modality or level. For example 'low fertilizer', 'yellow rust inoculation', 'high water', etc\n\nMIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. ",
+            "description" : "The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc\n\nMIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.",
             "example" : "low fertilizer",
             "nullable" : true,
             "type" : "string"
@@ -32345,9 +32333,9 @@
         },
         "type" : "object"
       },
-      "ExperimentalDesign_experimentFactors_inner_modalities_inner" : {
+      "ExperimentFactor_modalities_inner" : {
         "properties" : {
-          "modalityName" : {
+          "modality" : {
             "description" : "The treatment/factor modality or level. For example 'low fertilizer', 'yellow rust inoculation', 'high water', etc\n\nMIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.",
             "example" : "low fertilizer",
             "nullable" : true,
@@ -32362,9 +32350,9 @@
         },
         "type" : "object"
       },
-      "ExperimentalDesign_experimentFactors_inner" : {
+      "ExperimentFactor" : {
         "properties" : {
-          "factorName" : {
+          "factor" : {
             "description" : "The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc\n\nMIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.",
             "example" : "fertilizer",
             "nullable" : true,
@@ -32378,11 +32366,12 @@
           },
           "modalities" : {
             "items" : {
-              "$ref" : "#/components/schemas/ExperimentalDesign_experimentFactors_inner_modalities_inner"
+              "$ref" : "#/components/schemas/ExperimentFactor_modalities_inner"
             },
             "type" : "array"
           }
         },
+        "title" : "ExperimentFactor",
         "type" : "object"
       },
       "Germplasm_donors_inner" : {
@@ -33374,13 +33363,7 @@
         "properties" : {
           "factor" : {
             "deprecated" : true,
-            "description" : "The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc\n\nMIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.\n\n**Deprecated in v2.2** Please use `factorName`. Github issue number #539",
-            "example" : "fertilizer",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "factorName" : {
-            "description" : "The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc\n\nMIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.",
+            "description" : "The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc\n\nMIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.",
             "example" : "fertilizer",
             "nullable" : true,
             "type" : "string"
@@ -33393,13 +33376,7 @@
           },
           "modality" : {
             "deprecated" : true,
-            "description" : "The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc\n\nMIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.\n\n**Deprecated in v2.2** Please use `modalityName`. Github issue number #539",
-            "example" : "low fertilizer",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "modalityName" : {
-            "description" : "The treatment/factor modality or level. For example 'low fertilizer', 'yellow rust inoculation', 'high water', etc\n\nMIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. ",
+            "description" : "The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc\n\nMIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.",
             "example" : "low fertilizer",
             "nullable" : true,
             "type" : "string"
@@ -33728,7 +33705,7 @@
           "experimentFactors" : {
             "description" : "The factors used in the experimental design",
             "items" : {
-              "$ref" : "#/components/schemas/ExperimentalDesign_experimentFactors_inner"
+              "$ref" : "#/components/schemas/ExperimentFactor"
             },
             "nullable" : true,
             "type" : "array"
