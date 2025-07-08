@@ -26,7 +26,7 @@ Get a filtered list of Transcriptomics Instances
 <tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string</td><td>The ID which uniquely identifies the Transcriptomics protocol</td></tr>
 <tr><td><span style="font-weight:bold;">researchPurpose</span></td><td>string</td><td>Human-readable string summarizing the research purpose</td></tr>
 <tr><td><span style="font-weight:bold;">sraAccession</span></td><td>string</td><td>Accession name provided upon SRA upload</td></tr>
-<tr><td><span style="font-weight:bold;">uploadTimestamp</span></td><td>date-time</td><td>Timestamp for initial upload of spectral data matrix into database</td></tr>
+<tr><td><span style="font-weight:bold;">uploadTimestamp</span></td><td>string<br>(date-time)</td><td>Timestamp for initial upload of spectral data matrix into database</td></tr>
 </table>
 
 
@@ -128,7 +128,7 @@ Get a filtered list of Transcriptomics Instances
 <tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string</td><td>The ID which uniquely identifies the Transcriptomics protocol</td></tr>
 <tr><td><span style="font-weight:bold;">researchPurpose</span></td><td>string</td><td>Human-readable string summarizing the research purpose</td></tr>
 <tr><td><span style="font-weight:bold;">sraAccession</span></td><td>string</td><td>Accession name provided upon SRA upload</td></tr>
-<tr><td><span style="font-weight:bold;">uploadTimestamp</span></td><td>date-time</td><td>Timestamp for initial upload of spectral data matrix into database</td></tr>
+<tr><td><span style="font-weight:bold;">uploadTimestamp</span></td><td>string<br>(date-time)</td><td>Timestamp for initial upload of spectral data matrix into database</td></tr>
 </table>
 
 
@@ -230,7 +230,7 @@ Get a filtered list of Transcriptomics Instances
 <tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string</td><td>The ID which uniquely identifies the Transcriptomics protocol</td></tr>
 <tr><td><span style="font-weight:bold;">researchPurpose</span></td><td>string</td><td>Human-readable string summarizing the research purpose</td></tr>
 <tr><td><span style="font-weight:bold;">sraAccession</span></td><td>string</td><td>Accession name provided upon SRA upload</td></tr>
-<tr><td><span style="font-weight:bold;">uploadTimestamp</span></td><td>date-time</td><td>Timestamp for initial upload of spectral data matrix into database</td></tr>
+<tr><td><span style="font-weight:bold;">uploadTimestamp</span></td><td>string<br>(date-time)</td><td>Timestamp for initial upload of spectral data matrix into database</td></tr>
 </table>
 
 
@@ -341,7 +341,7 @@ Get a matrix of Transcriptomics data. A valid request must include a "protocolDb
 <tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string</td><td>The ID which uniquely identifies the Transcriptomics protocol</td></tr>
 <tr><td><span style="font-weight:bold;">researchPurpose</span></td><td>string</td><td>Human-readable string summarizing the research purpose</td></tr>
 <tr><td><span style="font-weight:bold;">sraAccession</span></td><td>string</td><td>Accession name provided upon SRA upload</td></tr>
-<tr><td><span style="font-weight:bold;">uploadTimestamp</span></td><td>date-time</td><td>Timestamp for initial upload of spectral data matrix into database</td></tr>
+<tr><td><span style="font-weight:bold;">uploadTimestamp</span></td><td>string<br>(date-time)</td><td>Timestamp for initial upload of spectral data matrix into database</td></tr>
 </table>
 
 
@@ -463,7 +463,7 @@ Get a matrix of Transcriptomics data. A valid request must include a "protocolDb
 <tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string</td><td>The ID which uniquely identifies the Transcriptomics protocol</td></tr>
 <tr><td><span style="font-weight:bold;">researchPurpose</span></td><td>string</td><td>Human-readable string summarizing the research purpose</td></tr>
 <tr><td><span style="font-weight:bold;">sraAccession</span></td><td>string</td><td>Accession name provided upon SRA upload</td></tr>
-<tr><td><span style="font-weight:bold;">uploadTimestamp</span></td><td>date-time</td><td>Timestamp for initial upload of spectral data matrix into database</td></tr>
+<tr><td><span style="font-weight:bold;">uploadTimestamp</span></td><td>string<br>(date-time)</td><td>Timestamp for initial upload of spectral data matrix into database</td></tr>
 </table>
 
 
@@ -585,7 +585,7 @@ Get a matrix of Transcriptomics data. A valid request must include a "protocolDb
 <tr><td><span style="font-weight:bold;">protocolDbId</span></td><td>string</td><td>The ID which uniquely identifies the Transcriptomics protocol</td></tr>
 <tr><td><span style="font-weight:bold;">researchPurpose</span></td><td>string</td><td>Human-readable string summarizing the research purpose</td></tr>
 <tr><td><span style="font-weight:bold;">sraAccession</span></td><td>string</td><td>Accession name provided upon SRA upload</td></tr>
-<tr><td><span style="font-weight:bold;">uploadTimestamp</span></td><td>date-time</td><td>Timestamp for initial upload of spectral data matrix into database</td></tr>
+<tr><td><span style="font-weight:bold;">uploadTimestamp</span></td><td>string<br>(date-time)</td><td>Timestamp for initial upload of spectral data matrix into database</td></tr>
 </table>
 
 
