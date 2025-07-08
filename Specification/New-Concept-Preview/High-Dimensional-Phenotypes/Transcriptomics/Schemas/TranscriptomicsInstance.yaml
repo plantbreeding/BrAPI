@@ -5,33 +5,32 @@ openapi: 3.0.0
 paths: {}
 components:
   schemas:
-    NIRSInstance:
-      title: NIRSInstance
+    TranscriptomicsInstance:
+      title: TranscriptomicsInstance
       type: object
       properties:
         instanceId:
           description: Relates data matrix to a specific instance
           type: string
           example: abc123
+        protocolDbId:
+          description: The ID which uniquely identifies the Transcriptomics protocol 
+          type: string
+          example: f60f15b2
         uploadTimestamp:
           description: Timestamp for initial upload of spectral data matrix into database 
           type: date-time
           example: 2024-01-03 3:04:05
-        deviceSerialNumber:
-          description: Serial number of the spectrometer device
+        sraAccession:
+          description: Accession name provided upon SRA upload
           type: string
           example: ABC1234567
-        protocolDbId:
-          description: The ID which uniquely identifies the NIRS protocol 
+        researchPurpose:
+          description: Human-readable string summarizing the research purpose
           type: string
-          example: f60f15b2
+          example: Yield Trial Summer 2025
         columnHeaders:
           description: An ordered list of column header definitions for this instance
           type: array
-          example: [{"frequency":740}, {"frequency":742}, {"frequency":744}, {"frequency":746}]
           items:
-            type: object
-            properties:
-              frequency:
-                description: Wavelength in nanometers 
-                type: integer
+            $ref: '#/components/schemas/Transcriptome'

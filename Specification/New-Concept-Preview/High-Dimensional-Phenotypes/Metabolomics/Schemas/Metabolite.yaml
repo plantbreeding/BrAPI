@@ -8,15 +8,48 @@ components:
     Metabolite:
       type: object
       properties:
-        compoundDbId:
-          description: The Unique Compound ID in this database to link to other data sets
+        chebi:
+          description: at least one cmpdID required; all can be generated from CHEBI and/or InChI
           type: string
-          example: LC.03.0001
+          example: CHEBI:75854
+        metaboliteId:
+          description: metabolite ID in metabolite data file; these are entered as columns in this file in Metabolights
+          type: string
+          example: 1,2,4-Benzenetriol
+        inchi:
+          description: at least one cmpdID required; all can be generated from CHEBI and/or InChI, another standard formula
+          type: string
+          example: InChI=1S/C39H68O5/c1-3-5-7-9-11-13-15-17-19-21-23-25-27-29-31-33-38(41)43-36-37(35-40)44-39(42)34-32-30-28-26-24-22-20-18-16-14-12-10-8-6-4-2/h11-14,17-20,37,40H,3-10,15-16,21-36H2,1-2H3/b13-11-,14-12-,19-17-,20-18-/t37-/m0/s1
+        inchiKey:
+          description: at least one cmpdID required; all can be generated from CHEBI and/or InChI, shortened version of InCHI ID
+          type: string
+          example: MQGBAQLIFKSMEM-ZHARMHCNSA-N
+        pubChemId:
+          description: at least one cmpdID required; all can be generated from CHEBI and/or InChI, pubchem URL is another standard
+          type: string
+          example: '10787'
+        chemicalFormula:
+          description: metaboltie chemical formula 
+          type: string
+          example: C6H6O3
+        putativeMetaboliteIdentification:
+          description: Naming this putative anntoation because untargeted data, not same curation process as metabolights
+          type: string
+          example: Phenylalanine, sucrose, avenanthramide
+        putativeMetaboliteIndentificationSynonyms:
+          description: metabolite synonyms, alternate names of any of the above
+          type: string
+          example: L-Phenylalanine, sugar, caffeoyltyramine
         massToCharge:
           description: m/z ratio, standard from output, should be a number
           type: number
           format: double
           example: 1062.5227
+        retentionTime:
+          description: retention time, also standard from machine output; users should confirm that unit is 'seconds'
+          type: number
+          format: double
+          example: 342.256063
         charge:
           description: Positive or Negative charge associated with metabolite, can be derived from mass to charge ratio
           type: string
@@ -29,59 +62,17 @@ components:
           description: List metabolite modifications prior to instrument analysis
           type: string
           example: trimethylsilation
-        retentionTime:
-          description: retention time, also standard from machine output; users should confirm that unit is 'seconds'
-          type: number
-          format: double
-          example: 342.256063
-        chemicalFormula:
-          description: standard formula
-          type: string
-          example: C6H6O3
-        chebi:
-          description: CHEBI id; standard formula
-          type: string
-          example: CHEBI:75854
-        inchi:
-          description: InCHI is another standard universal formula
-          type: string
-          example: InChI=1S/C39H68O5/c1-3-5-7-9-11-13-15-17-19-21-23-25-27-29-31-33-38(41)43-36-37(35-40)44-39(42)34-32-30-28-26-24-22-20-18-16-14-12-10-8-6-4-2/h11-14,17-20,37,40H,3-10,15-16,21-36H2,1-2H3/b13-11-,14-12-,19-17-,20-18-/t37-/m0/s1
-        inchiKey:
-          description: shortened version of inchi; users choose one or the other
-          type: string
-          example: MQGBAQLIFKSMEM-ZHARMHCNSA-N
-        pubChemURL:
-          description: The PubChem reference URL connected to this compound
-          example: https://pubchem.ncbi.nlm.nih.gov/compound/5988
-        metaboliteIdentification:
-          description: Name of compound
-          type: string
-          example: Avenacoside A
-        synonyms:
-          description: Name of compound
-          type: array
-          items:
-            type: string
-          example: ['Avenacoside A']
-        chemicalSpecies:
-          description: Family of chemical
+        metaboliteSpecies:
+          description: Metabolite categorization, autofilled in Metabolights
           type: string
           example: Amino Acids
+        metaboliteSearchEngineScore:
+          description: Score provided by search engine
+          type: string
+          example: '?'
         metaboliteReliability:
           description: A number 1 through 5, related to Schymanski et al 2014, doi.org/10.1021/es5002105. 1= confrimed structure, 2= probable structure, 3= tentative candidate, 4=unequivocal molecular formula, 5=exact mass of interest
           type: integer
           example: 1
-        spectraSource:
-          description: The source database that defines the connection between spectra and compound
-          type: object
-          properties:
-            database:
-              description: Database identifier (Name or URL)
-              type: string
-              example: gmd.mpimp-golm.mpg.de
-            databaseVersion:
-              description: Family of chemical
-              type: string
-              example: var alk 161212
 
 

@@ -3,27 +3,37 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /nirs/{nirsProtocolDbId}/matrix:
+  /nirs/matrix:
     get:
-      summary: Get a NIRS data matrix by NIRSProtocolDbId
-      description: Get a NIRS data matrix by NIRSProtocolDbId
+      summary: Get a matrix of NIRS data
+      description: Get a matrix of NIRS data. A valid request must include a "protocolDbId", an "instanceDbId", or both.
       parameters:
-      - name: nirsProtocolDbId
-        description: Path parameter protocol id
-        in: path
-        required: true
+      - name: instanceDbId
+        description: A unique identifier for a NIRS Instance
+        in: query
+        required: false
         schema:
           type: string
-      - name: studyDbId
-        description: filter by study
+      - name: protocolDbId
+        description: A unique identifier for a NIRS Protocol
         in: query
+        required: false
         schema:
           type: string
       - name: observationUnitDbId
-        description: filter by study
+        description: A unique identifier for an Observation Unit
         in: query
+        required: false
         schema:
           type: string
+      - name: sampleDbId
+        description: A unique identifier for a field sample
+        in: query
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':

@@ -3,31 +3,41 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /transcriptomics/{transcriptomicsProtocolDbId}/matrix:
+  /nirs/matrix:
     get:
-      summary: Get a Transcriptomics data matrix by TranscriptomicsProtocolDbId
-      description: Get a Transcriptomics data matrix by TranscriptomicsProtocolDbId
+      summary: Get a matrix of Transcriptomics data
+      description: Get a matrix of Transcriptomics data. A valid request must include a "protocolDbId", an "instanceDbId", or both.
       parameters:
-      - name: transcriptomicsProtocolDbId
-        description: Path parameter protocol id
-        in: path
-        required: true
+      - name: instanceDbId
+        description: A unique identifier for a Transcriptomics Instance
+        in: query
+        required: false
         schema:
           type: string
-      - name: studyDbId
-        description: filter by study
+      - name: protocolDbId
+        description: A unique identifier for a Transcriptomics Protocol
         in: query
+        required: false
         schema:
           type: string
       - name: observationUnitDbId
-        description: filter by study
+        description: A unique identifier for an Observation Unit
         in: query
+        required: false
         schema:
           type: string
+      - name: sampleDbId
+        description: A unique identifier for a field sample
+        in: query
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          $ref: '#/components/responses/MatrixResponse'
+          $ref: '#/components/responses/TranscriptomicsMatrixResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -40,7 +50,7 @@ paths:
 #      summary: Submit a new matrix
 #      description: Submit a new matrix
 #      parameters:
-#      - name: transcriptomicsProtocolDbId
+#      - name: nirsProtocolDbId
 #        description: Filter by the common crop name. Exact match.
 #        in: path
 #        required: true
@@ -67,7 +77,7 @@ paths:
 #      summary: Update an existing matrix
 #      description: Update an existing matrix 
 #      parameters:
-#      - name: transcriptomicsProtocolDbId
+#      - name: nirsProtocolDbId
 #        description: Filter by the common crop name. Exact match.
 #        in: path
 #        required: true

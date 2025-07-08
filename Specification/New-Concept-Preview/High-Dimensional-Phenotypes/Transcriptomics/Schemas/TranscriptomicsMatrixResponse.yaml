@@ -5,11 +5,11 @@ openapi: 3.0.0
 paths: {}
 components:
   responses:
-    NIRSMatrixResponse:
+    TranscriptomicsMatrixResponse:
       content:
         application/json:
           schema:
-            title: NIRSMatrixResponse
+            title: TranscriptomicsMatrixResponse
             properties:
               '@context':
                 $ref: '#/components/schemas/Context'
@@ -17,11 +17,11 @@ components:
                 $ref: '#/components/schemas/metadata'
               result:
                 allOf:
-                - $ref: '#/components/schemas/NIRSInstance'
+                - $ref: '#/components/schemas/TranscriptomicsInstance'
                 - properties:
                     data:
                       items:
-                        $ref: '#/components/schemas/NIRSMatrixRow'
+                        $ref: '#/components/schemas/TranscriptomicsMatrixRow'
                       type: array
                   required:
                   - data
@@ -33,7 +33,7 @@ components:
       description: OK
       headers: {}
   schemas:
-    NIRSMatrixRow:
+    TranscriptomicsMatrixRow:
       type: object
       properties:
         observationUnitDbId:
@@ -48,15 +48,23 @@ components:
           description: Description of the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number from Plant Ontology
           type: string
           example: PO:0009010; seed
-        scanTimestamp:
-          description: Timestamp specific to each individual scan, provided by some spectrometers.
+        tissueDevStage:
+          description: Stage in life of the plant structure during which the sample was taken, in the form of an accession number from Plant Ontology
+          type: string
+          example: PO:0001083, inflorescence development stage
+        tissueHarvester:
+          description: Identifier for the researcher who harvested the tissue 
+          type: string
+          example: MLWilson
+        tissueHarvestDate:
+          description: Date of tissue harvest 
           format: date-time
           type: string
           example: 2024-01-02 3:04:05
         comments:
           description: Any comments collected by the researcher during sample preparation and data collection, specific to each scan.
           type: string
-          example: root
+          example: Senescing tissue
         row:
           description: description
           type: array

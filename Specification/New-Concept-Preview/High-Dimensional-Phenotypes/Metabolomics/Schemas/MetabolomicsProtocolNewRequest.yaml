@@ -8,6 +8,14 @@ components:
     MetabolomicsProtocolNewRequest:
       type: object
       properties:
+        protocolTitle:
+          description: Human-readable string summarizing the protocol
+          type: string
+          example: Foss DS3 NIRS protocol for ground butter beans
+        protocolDescription:
+          description: Human-readable text describing the protocol in more detail
+          type: string
+          example: Details on sample preparation, calibration, & model used
         additionalInfo:
           additionalProperties:
             type: string
@@ -15,28 +23,19 @@ components:
           type: object
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-        documentationURL:
-          description: description
-          format: uri
-          type: string
-          example: https://wiki.brapi.org
         analysisType: 
           description: Mass spectrometry or Nuclear Magnetic Resonance Spectroscopy 
           type: string
           enum: [MS, NMR]
           example: MS
         sampleExtractionMethod: 
-          description: the extraction protocol used
+          description: the Sample extraction method used 
           type: string
-          example: biphasic, polar extract with methanol from 100 mg of tissue
-        targeted: 
-          description: targeted
-          type: boolean
-          example: true
-        metaboliteIdentification: 
+          example: Liquid-Liquid Extraction
+        metaboliteAnnotationMethod: 
           description: metabolite annotations were assigned to peaks
           type: string
-          example: RAMSearch, MSFinder
+          example: Freetext or URL method
         metaboliteSearchEngine: 
           description: How the metabolite database was searched
           type: string
@@ -45,15 +44,10 @@ components:
           description: Methods for how files from the LCMS machine were transformed into peak area
           type: string
           example: XCMS, centWave, RamCLUSTR
-        protocolComments: 
+        comments: 
           description: Any comments collected by the researcher about protocols, machinery, etc. corresponding to a sample
           type: string
           example: comments
-        metabolites:
-          description: Column definitions for any matrix with this protocol 
-          type: array
-          items:
-            $ref: '#/components/schemas/Metabolite'
         chromatography: 
           type: object
           properties:
@@ -90,11 +84,11 @@ components:
               type: string
               example: Waters Xevo G2 TOF-MS
             massSpectrometryMassAnalyzer:  
-              description: User free text, e.g. time of flight (TOF), triple quadropole
+              description: Mass analyzer used for mass-to-charge ratio 
               type: string
               example: TOF
             massSpectrometryIonSource:  
-              description: Electron Ionization (EI), Electrospray Ionization (ESI), Atmospheric Pressure Chemical Ionization (APCI), Matrix Assisted Laser Desorption Ionization (MALDI), Other (please specify below)
+              description: Ion Source used by mass analyzer. Electron Ionization (EI), Electrospray Ionization (ESI), Atmospheric Pressure Chemical Ionization (APCI), Matrix Assisted Laser Desorption Ionization (MALDI), Other (please specify below)
               type: string
               example: ESI
             massSpectrometryScanPolarity:  
@@ -106,7 +100,7 @@ components:
               type: number
               example: 60
             massSpectrometryProtocol: 
-              description: instrument settings, calibration procedure
+              description: Mass spectrometry protocol, instrument settings, calibration procedure, or link to protocol
               type: string
               example: scanning 50-2000 m/z at 0.2 seconds per scan, alternating between MS (6 V collision energy) and MSE mode (15-30 V ramp)
 

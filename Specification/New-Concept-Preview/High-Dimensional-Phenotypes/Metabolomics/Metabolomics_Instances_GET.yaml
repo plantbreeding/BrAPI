@@ -3,19 +3,31 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /nirs:
+  /nirs/instances:
     get:
-      summary: Get a filtered list of NIRS Protocols
-      description: Get a filtered list of NIRS Protocols
+      summary: Get a filtered list of Metabolomics Instances
+      description: Get a filtered list of Metabolomics Instances
       parameters:
-      - name: nirsProtocolDbId
-        description: description
+      - name: instanceDbId
+        description: A unique identifier for a Metabolomics Instance
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: protocolDbId
+        description: A unique identifier for a Metabolomics Protocol
         in: query
         required: false
         schema:
           type: string
       - name: observationUnitDbId
-        description: description
+        description: A unique identifier for an Observation Unit
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: sampleDbId
+        description: A unique identifier for a field sample
         in: query
         required: false
         schema:
@@ -27,7 +39,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          $ref: '#/components/responses/NIRSProtocolListResponse'
+          $ref: '#/components/responses/MetabolomicsInstanceListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -36,36 +48,13 @@ paths:
           $ref: '#/components/responses/403Forbidden'
       tags:
       - High-Dimensional-Phenotypes
-#    post:
-#      summary: Add a new NIRS Protocol to the database
-#      description: Add a new NIRS Protocol to the database
-#      parameters:
-#      - $ref: '#/components/parameters/authorizationHeader'
-#      requestBody:
-#        content:
-#          application/json:
-#            schema:
-#              type: array
-#              items: 
-#                $ref: '#/components/schemas/NIRSProtocolNewRequest'
-#      responses:
-#        '200':
-#          $ref: '#/components/responses/NIRSProtocolListResponse'
-#        '400':
-#          $ref: '#/components/responses/400BadRequest'
-#        '401':
-#          $ref: '#/components/responses/401Unauthorized'
-#        '403':
-#          $ref: '#/components/responses/403Forbidden'
-#      tags:
-#      - High-Dimensional-Phenotypes
 components:
   responses:
-    NIRSProtocolListResponse:
+    MetabolomicsInstanceListResponse:
       content:
         application/json:
           schema:
-            title: NIRSProtocolListResponse
+            title: MetabolomicsInstanceListResponse
             properties:
               '@context':
                 $ref: '#/components/schemas/Context'
@@ -75,7 +64,7 @@ components:
                 properties:
                   data:
                     items:
-                      $ref: '#/components/schemas/NIRSProtocol'
+                      $ref: '#/components/schemas/MetabolomicsInstance'
                     type: array
                 required:
                 - data

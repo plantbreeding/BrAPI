@@ -5,33 +5,32 @@ openapi: 3.0.0
 paths: {}
 components:
   schemas:
-    NIRSInstance:
-      title: NIRSInstance
+    MetabolomicsInstance:
+      title: MetabolomicsInstance
       type: object
       properties:
         instanceId:
           description: Relates data matrix to a specific instance
           type: string
           example: abc123
+        protocolDbId:
+          description: The ID which uniquely identifies the Metabolomics protocol 
+          type: string
+          example: f60f15b2
         uploadTimestamp:
           description: Timestamp for initial upload of spectral data matrix into database 
           type: date-time
           example: 2024-01-03 3:04:05
-        deviceSerialNumber:
-          description: Serial number of the spectrometer device
+        metaboliteDatabase:
+          description: Database used for metabolic review, and sample upload
           type: string
-          example: ABC1234567
-        protocolDbId:
-          description: The ID which uniquely identifies the NIRS protocol 
+          example: gmd.mpimp-golm.mpg.de
+        metaboliteDatabaseVersion:
+          description: Version of database used for metabolic review, and sample upload
           type: string
-          example: f60f15b2
+          example: var5 alk 161212
         columnHeaders:
           description: An ordered list of column header definitions for this instance
           type: array
-          example: [{"frequency":740}, {"frequency":742}, {"frequency":744}, {"frequency":746}]
           items:
-            type: object
-            properties:
-              frequency:
-                description: Wavelength in nanometers 
-                type: integer
+            $ref: '#/components/schemas/Metabolite'

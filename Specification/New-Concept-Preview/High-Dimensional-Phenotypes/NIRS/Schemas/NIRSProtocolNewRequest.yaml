@@ -36,12 +36,6 @@ components:
           description: Total number of wavelengths measured in each scan of the device
           type: integer
           example: 200
-        frequencies:
-          description: Wavelength in nanometers 
-          type: array
-          example: [740, 742, 744, 746]
-          items:
-            type: integer
 
           
 
