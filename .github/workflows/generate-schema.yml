@@ -7,7 +7,11 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
       - name: Set up Docker Compose
         uses: docker/setup-compose-action@v1
       - name: Build and run the Docker image
@@ -37,3 +41,5 @@ jobs:
         working-directory: ./generator
         run: ./gradlew compareAll
       - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
