@@ -8,6 +8,14 @@ components:
     TranscriptomicsProtocolNewRequest:
       type: object
       properties:
+        protocolTitle:
+          description: Human-readable string summarizing the protocol
+          type: string
+          example: Foss DS3 NIRS protocol for ground butter beans
+        protocolDescription:
+          description: Human-readable text describing the protocol in more detail
+          type: string
+          example: Details on sample preparation, calibration, & model used
         additionalInfo:
           additionalProperties:
             type: string
@@ -49,7 +57,7 @@ components:
               example: https://www.maizegdb.org/genome/assembly/Zm-B73-REFERENCE-NAM-5.0
         annotationFile:
           description: The reference annotation file used
-          type: string
+          type: object
           properties: 
             annotationFileName:
               description: The human readable name of the annotation file
@@ -64,7 +72,7 @@ components:
               type: string
               example: https://phytozome-next.jgi.doe.gov/info/Zmays_Zm_B73_REFERENCE_NAM_5_0_55
         units:
-          description: Units of sequence input: counts, normalized FPKM, RPKM, TPM, TMM
+          description: Units of sequence input (counts, normalized FPKM, RPKM, TPM, TMM)
           type: string
           example: TPM
         readLength:
