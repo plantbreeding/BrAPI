@@ -235,7 +235,7 @@ retrieving the file content, so it could be on a different path, or a different 
                 "fileDbId": "a55efb9c",
                 "fileName": "file_0000231.jpg",
                 "fileSize": 50000,
-                "fileSource": "Output from analsys job xyz123",
+                "fileSource": "Output from analysis job a823b0c3",
                 "fileTimeStamp": "2018-01-01T14:47:23-0600",
                 "fileURL": "https://wiki.brapi.org/files/tomato",
                 "mimeType": "application/vcf"
@@ -344,7 +344,7 @@ the file content, so it could be on a different path, or a different host.
         ],
         "fileName": "file_0000231.jpg",
         "fileSize": 50000,
-        "fileSource": "Output from analsys job xyz123",
+        "fileSource": "Output from analysis job a823b0c3",
         "fileTimeStamp": "2018-01-01T14:47:23-0600",
         "fileURL": "https://wiki.brapi.org/files/tomato",
         "mimeType": "application/vcf"
@@ -395,7 +395,7 @@ the file content, so it could be on a different path, or a different host.
                 "fileDbId": "a55efb9c",
                 "fileName": "file_0000231.jpg",
                 "fileSize": 50000,
-                "fileSource": "Output from analsys job xyz123",
+                "fileSource": "Output from analysis job a823b0c3",
                 "fileTimeStamp": "2018-01-01T14:47:23-0600",
                 "fileURL": "https://wiki.brapi.org/files/tomato",
                 "mimeType": "application/vcf"
@@ -504,7 +504,7 @@ retrieving the file content, so it could be on a different path, or a different 
         "fileDbId": "a55efb9c",
         "fileName": "file_0000231.jpg",
         "fileSize": 50000,
-        "fileSource": "Output from analsys job xyz123",
+        "fileSource": "Output from analysis job a823b0c3",
         "fileTimeStamp": "2018-01-01T14:47:23-0600",
         "fileURL": "https://wiki.brapi.org/files/tomato",
         "mimeType": "application/vcf"
@@ -618,7 +618,7 @@ absolute path for retrieving the file, wherever it happens to live.
     ],
     "fileName": "file_0000231.jpg",
     "fileSize": 50000,
-    "fileSource": "Output from analsys job xyz123",
+    "fileSource": "Output from analysis job a823b0c3",
     "fileTimeStamp": "2018-01-01T14:47:23-0600",
     "fileURL": "https://wiki.brapi.org/files/tomato",
     "mimeType": "application/vcf"
@@ -666,7 +666,7 @@ absolute path for retrieving the file, wherever it happens to live.
         "fileDbId": "a55efb9c",
         "fileName": "file_0000231.jpg",
         "fileSize": 50000,
-        "fileSource": "Output from analsys job xyz123",
+        "fileSource": "Output from analysis job a823b0c3",
         "fileTimeStamp": "2018-01-01T14:47:23-0600",
         "fileURL": "https://wiki.brapi.org/files/tomato",
         "mimeType": "application/vcf"
@@ -787,7 +787,7 @@ Implementation Notes
         "fileDbId": "a55efb9c",
         "fileName": "file_0000231.jpg",
         "fileSize": 50000,
-        "fileSource": "Output from analsys job xyz123",
+        "fileSource": "Output from analysis job a823b0c3",
         "fileTimeStamp": "2018-01-01T14:47:23-0600",
         "fileURL": "https://wiki.brapi.org/files/tomato",
         "mimeType": "application/vcf"
@@ -3237,7 +3237,7 @@ File Implementation Notes<br/>
                 "fileDbId": "a55efb9c",
                 "fileName": "file_0000231.jpg",
                 "fileSize": 50000,
-                "fileSource": "Output from analsys job xyz123",
+                "fileSource": "Output from analysis job a823b0c3",
                 "fileTimeStamp": "2018-01-01T14:47:23-0600",
                 "fileURL": "https://wiki.brapi.org/files/tomato",
                 "mimeType": "application/vcf"
@@ -3382,7 +3382,7 @@ File Implementation Notes<br/>
                 "fileDbId": "a55efb9c",
                 "fileName": "file_0000231.jpg",
                 "fileSize": 50000,
-                "fileSource": "Output from analsys job xyz123",
+                "fileSource": "Output from analysis job a823b0c3",
                 "fileTimeStamp": "2018-01-01T14:47:23-0600",
                 "fileURL": "https://wiki.brapi.org/files/tomato",
                 "mimeType": "application/vcf"
@@ -3444,10 +3444,10 @@ File Implementation Notes<br/>
 
 ### Post - /search/metrics [POST /brapi/v2/search/metrics]
 
-Submit a search request for `XXEntitiesXX`<br/>
+Submit a search request for `Metrics`<br/>
 Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
 If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
-Use the corresponding `GET /search/XXEntitiesXX/{searchResultsDbId}` to retrieve the results of the search. <br/> 
+Use the corresponding `GET /search/metrics/{searchResultsDbId}` to retrieve the results of the search. <br/> 
 Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
 <br/>
 
