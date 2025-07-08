@@ -3,7 +3,7 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /nirs/instances:
+  /transcriptomics/instances:
     get:
       summary: Get a filtered list of Transcriptomics Instances
       description: Get a filtered list of Transcriptomics Instances

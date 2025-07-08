@@ -3,7 +3,7 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /nirs/instances:
+  /metabolomics/instances:
     get:
       summary: Get a filtered list of Metabolomics Instances
       description: Get a filtered list of Metabolomics Instances
