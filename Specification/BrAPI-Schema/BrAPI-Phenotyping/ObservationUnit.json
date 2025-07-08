@@ -285,20 +285,12 @@
         "Treatment": {
             "properties": {
                 "factor": {
-                    "description": "The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc\n\nMIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor. **Deprecated in v2.2** Please use `factorName`. Github issue number #539",
-                    "type": [
-                        "null",
-                        "string"
-                    ],
-                    "deprecated": true,
-                    "examples": ["fertilizer"]
-                },
-                "factorName": {
                     "description": "The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc\n\nMIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.",
                     "type": [
                         "null",
                         "string"
                     ],
+                    "deprecated": true,
                     "examples": ["fertilizer"]
                 },
                 "factorPUI": {
@@ -316,14 +308,6 @@
                         "string"
                     ],
                     "deprecated": true,
-                    "examples": ["low fertilizer"]
-                },
-                "modalityName": {
-                    "description": "The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc\n\nMIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. ",
-                    "type": [
-                        "null",
-                        "string"
-                    ],
                     "examples": ["low fertilizer"]
                 },
                 "modalityPUI": {

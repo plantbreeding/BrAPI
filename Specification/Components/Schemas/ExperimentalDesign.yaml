@@ -57,8 +57,9 @@ components:
             nullable: true
             items:
               type: object
+              title: "ExperimentFactor"
               properties:
-                factorName:
+                factor:
                   description: |-
                     The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc
                     
@@ -76,7 +77,7 @@ components:
                   items:
                     type: object
                     properties:
-                      modalityName:
+                      modality:
                         description: |-
                           The treatment/factor modality or level. For example 'low fertilizer', 'yellow rust inoculation', 'high water', etc
 
