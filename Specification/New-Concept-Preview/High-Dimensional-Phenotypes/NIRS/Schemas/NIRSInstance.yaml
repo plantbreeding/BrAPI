@@ -15,7 +15,8 @@ components:
           example: abc123
         uploadTimestamp:
           description: Timestamp for initial upload of spectral data matrix into database 
-          type: date-time
+          type: string
+          format: date-time
           example: 2024-01-03 3:04:05
         deviceSerialNumber:
           description: Serial number of the spectrometer device
