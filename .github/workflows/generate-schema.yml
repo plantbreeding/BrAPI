@@ -16,7 +16,8 @@ jobs:
         run: |
           echo "COMMIT_MESSAGE=$(git log -1 --pretty=format:'%s')" >> "$GITHUB_ENV"
           echo "skip_job=false" >> "$GITHUB_OUTPUT"
-      - name: skip
+      - id: skip
+        name: Skip if automated push
         if: contains(env.COMMIT_MESSAGE, 'Apply automatic changes')
         run: |
           echo "Automated commit detected - skipping job"
