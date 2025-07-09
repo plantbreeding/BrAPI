@@ -41,5 +41,3 @@ jobs:
         working-directory: ./generator
         run: ./gradlew compareAll
       - uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          ssh-key: ${{ secrets.DEPLOY_KEY }}
