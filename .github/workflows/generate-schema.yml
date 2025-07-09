@@ -10,17 +10,12 @@ jobs:
       skip_job: ${{ steps.skip.outputs.skip_job }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          ssh-key: ${{ secrets.DEPLOY_KEY }}
-      
+        uses: actions/checkout@v4      
       - name: Check last commit message
         id: commit-message
         run: |
           echo "COMMIT_MESSAGE=$(git log -1 --pretty=format:'%s')" >> "$GITHUB_ENV"
           echo "skip_job=false" >> "$GITHUB_OUTPUT"
-
       - name: skip
         if: contains(env.COMMIT_MESSAGE, 'Apply automatic changes')
         run: |
@@ -32,6 +27,11 @@ jobs:
     needs: check
     if: needs.check.outputs.skip_job != 'true'
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
       - name: Set up Docker Compose
         uses: docker/setup-compose-action@v1
       - name: Build and run the Docker image
