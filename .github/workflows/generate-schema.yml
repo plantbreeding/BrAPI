@@ -6,13 +6,23 @@ on:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    if: ${{ github.actor != 'github-actions[bot]' && github.event_name != 'push' || github.event.pusher.name != 'github-actions[bot]' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ssh-key: ${{ secrets.DEPLOY_KEY }}
+      
+      - name: Check last commit message
+        id: commit-message
+        run: echo "COMMIT_MESSAGE=$(git log -1 --pretty=format:'%s')" >> $GITHUB_ENV
+
+      - name: Skip if commit is automated
+        if: contains(env.COMMIT_MESSAGE, 'Apply automatic changes')
+        run: |
+          echo "Automated commit detected - skipping job"
+          exit 0
+          
       - name: Set up Docker Compose
         uses: docker/setup-compose-action@v1
       - name: Build and run the Docker image
