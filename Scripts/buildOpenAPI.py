@@ -2,6 +2,8 @@
 
 # --------------------------------------------READ ME-------------------------------------------------------
 # Run this script to combine all the pieces of the the BrAPI specification into a single swagger file.
+# Example
+# > python3 ./Scripts/buildOpenAPI.py "./Specification/BrAPI-Core/" "./Specification/Components/"
 # ----------------------------------------------------------------------------------------------------------
 
 
@@ -63,7 +65,7 @@ def go(rootPaths, metaFilePath = './swaggerMetaData.yaml'):
     out['paths'].update(paths)
     out['components'].update(defin)
     
-    out = dereferenceAll.dereferenceAllOfClause(out, out)
+    # out = dereferenceAll.dereferenceAllOfClause(out, out)
     
     with open(outFilePath, 'w') as outfile:
         print(outFilePath)

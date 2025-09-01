@@ -1,0 +1,3441 @@
+openapi: 3.0.0
+info:
+  title: BrAPI-Core
+  version: 0.0.0
+servers:
+- url: /
+security:
+- AuthorizationToken: []
+paths:
+  /serverinfo:
+    get:
+      tags:
+      - Server Info
+      summary: Get the list of implemented Calls
+      description: "Implementation Notes\n\nHaving a consistent structure for the\
+        \ path string of each call is very \nimportant for teams to be able to connect\
+        \ and find errors. Read more on Github.\n\nHere are the rules for the path\
+        \ of each call that should be returned\n\nEvery word in the call path should\
+        \ match the documentation exactly, both in \nspelling and capitalization.\
+        \ Note that path strings are all lower case, but \npath parameters are camel\
+        \ case.\n\nEach path should start relative to \\\"/\\\" and therefore should\
+        \ not include \\\"/\\\"\n\nNo leading or trailing slashes (\\\"/\\\") \n\n\
+        Path parameters are wrapped in curly braces (\\\"{}\\\"). The name of the\
+        \ path parameter \nshould be spelled exactly as it is specified in the documentation.\n\
+        \nExamples \n\nGOOD   \"call\": \"germplasm/{germplasmDbId}/pedigree\" \n\n\
+        BAD    \"call\": \"germplasm/{id}/pedigree\"\n\nBAD    \"call\": \"germplasm/{germplasmDBid}/pedigree\"\
+        \ \n\nBAD    \"call\": \"brapi/v2/germplasm/{germplasmDbId}/pedigree\" \n\n\
+        BAD    \"call\": \"/germplasm/{germplasmDbId}/pedigree/\" \n\nBAD    \"call\"\
+        : \"germplasm/<germplasmDbId>/pedigree\""
+      parameters:
+      - name: contentType
+        in: query
+        description: Filter the list of endpoints based on the response content type.
+        required: false
+        style: form
+        explode: true
+        schema:
+          $ref: "#/components/schemas/ContentTypes"
+      - name: dataType
+        in: query
+        description: |-
+          **Deprecated in v2.1** Please use `contentType`. Github issue number #443
+          <br>The data format supported by the call.
+        required: false
+        deprecated: true
+        style: form
+        explode: true
+        schema:
+          $ref: "#/components/schemas/ContentTypes"
+      - $ref: "#/components/parameters/authorizationHeader"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: ServerInfoResponse
+                required:
+                - metadata
+                - result
+                type: object
+                properties:
+                  '@context':
+                    $ref: "#/components/schemas/Context"
+                  metadata:
+                    $ref: "#/components/schemas/metadata"
+                  result:
+                    $ref: "#/components/schemas/ServerInfo"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /commoncropnames:
+    get:
+      tags:
+      - Common Crop Names
+      summary: Get the Common Crop Names
+      description: "List the common crop names for the crops available in a database\
+        \ server. \n\nThis call is ** required ** for multi-crop systems where data\
+        \ from multiple \ncrops may be stored in the same database server. A distinct\
+        \ database server \nis defined by everything in the URL before \"/brapi/v2\"\
+        , including host \nname and base path.\n\nThis call is recommended for single\
+        \ crop systems to be compatible with \nmulti-crop clients. For a single crop\
+        \ system the response should contain \nan array with exactly 1 element. \n\
+        \nThe common crop name can be used as a search parameter for Programs, \n\
+        Studies, and Germplasm."
+      parameters:
+      - $ref: "#/components/parameters/page"
+      - $ref: "#/components/parameters/pageSize"
+      - $ref: "#/components/parameters/authorizationHeader"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: commonCropNamesResponse
+                required:
+                - metadata
+                - result
+                type: object
+                properties:
+                  '@context':
+                    $ref: "#/components/schemas/Context"
+                  metadata:
+                    $ref: "#/components/schemas/metadata"
+                  result:
+                    required:
+                    - data
+                    type: object
+                    properties:
+                      data:
+                        type: array
+                        description: The array of crop names available on the server
+                        example:
+                        - Tomatillo
+                        - Paw Paw
+                        items:
+                          type: string
+                          description: supported crop name
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /lists/{listDbId}/data:
+    post:
+      tags:
+      - Lists
+      summary: Add new data members to a specific List
+      description: Add new data members to a specific List
+      parameters:
+      - name: listDbId
+        in: path
+        description: The unique identifier of a generic List
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - $ref: "#/components/parameters/authorizationHeader"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              example:
+              - 758a78c0
+              - 2c78f9ee
+              items:
+                type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: listResponse
+                required:
+                - metadata
+                - result
+                type: object
+                properties:
+                  '@context':
+                    $ref: "#/components/schemas/Context"
+                  metadata:
+                    $ref: "#/components/schemas/metadata"
+                  result:
+                    $ref: "#/components/schemas/List"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
+  /lists/{listDbId}/items:
+    post:
+      tags:
+      - Lists
+      summary: Add Items to a specific List
+      description: "**Deprecated in v2.1** Please use `POST /lists/{listDbId}/data`.\
+        \ Github issue number #444 \n<br/> Add new data to a specific generic lists"
+      parameters:
+      - name: listDbId
+        in: path
+        description: The unique identifier of a List
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - $ref: "#/components/parameters/authorizationHeader"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              example:
+              - 758a78c0
+              - 2c78f9ee
+              items:
+                type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: listResponse
+                required:
+                - metadata
+                - result
+                type: object
+                properties:
+                  '@context':
+                    $ref: "#/components/schemas/Context"
+                  metadata:
+                    $ref: "#/components/schemas/metadata"
+                  result:
+                    $ref: "#/components/schemas/List"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
+      deprecated: true
+  /studytypes:
+    get:
+      tags:
+      - Studies
+      summary: Get the Study Types
+      description: Call to retrieve the list of study types.
+      parameters:
+      - $ref: "#/components/parameters/page"
+      - $ref: "#/components/parameters/pageSize"
+      - $ref: "#/components/parameters/authorizationHeader"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: studyTypesResponse
+                required:
+                - metadata
+                - result
+                type: object
+                properties:
+                  '@context':
+                    $ref: "#/components/schemas/Context"
+                  metadata:
+                    $ref: "#/components/schemas/metadata"
+                  result:
+                    required:
+                    - data
+                    type: object
+                    properties:
+                      data:
+                        type: array
+                        description: The list of all StudyTypes available on a given
+                          server.
+                        example:
+                        - Crossing Nursery
+                        - Yield study
+                        items:
+                          type: string
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /lists:
+    get:
+      tags:
+      - Lists
+      summary: Get a filtered list of List
+      description: Get a list of List
+      parameters:
+      - name: dateCreatedRangeStart
+        in: query
+        description: Define the beginning for an interval of time and only include
+          Lists that are created within this interval.
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: dateCreatedRangeEnd
+        in: query
+        description: Define the end for an interval of time and only include Lists
+          that are created within this interval.
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: dateModifiedRangeStart
+        in: query
+        description: Define the beginning for an interval of time and only include
+          Lists that are modified within this interval.
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: dateModifiedRangeEnd
+        in: query
+        description: Define the end for an interval of time and only include Lists
+          that are modified within this interval.
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: listDbId
+        in: query
+        description: An array of primary database identifiers to identify a set of
+          Lists
+        required: false
+        schema:
+          type: string
+      - name: listName
+        in: query
+        description: An array of human readable names to identify a set of Lists
+        required: false
+        schema:
+          type: string
+      - name: listOwnerName
+        in: query
+        description: An array of names for the people or entities who are responsible
+          for a set of Lists
+        required: false
+        schema:
+          type: string
+      - name: listOwnerPersonDbId
+        in: query
+        description: An array of primary database identifiers to identify people or
+          entities who are responsible for a set of Lists
+        required: false
+        schema:
+          type: string
+      - name: listSource
+        in: query
+        description: "An array of terms identifying lists from different sources (ie\
+          \ 'USER', 'SYSTEM', etc)"
+        required: false
+        schema:
+          type: string
+      - name: listType
+        in: query
+        required: false
+        schema:
+          $ref: "#/components/schemas/ListType"
+      - name: commonCropName
+        in: query
+        description: "The BrAPI Common Crop Name is the simple, generalized, widely\
+          \ accepted name of the organism being researched. It is most often used\
+          \ in multi-crop systems where digital resources need to be divided at a\
+          \ high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common\
+          \ crop names.\n\nUse this parameter to only return results associated with\
+          \ the given crop. \n\nUse `GET /commoncropnames` to find the list of available\
+          \ crops on a server."
+        required: false
+        schema:
+          type: string
+      - name: programDbId
+        in: query
+        description: "Use this parameter to only return results associated with the\
+          \ given `Program` unique identifier. \n<br/>Use `GET /programs` to find\
+          \ the list of available `Programs` on a server."
+        required: false
+        schema:
+          type: string
+      - $ref: "#/components/parameters/externalReferenceID"
+      - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceSource"
+      - $ref: "#/components/parameters/page"
+      - $ref: "#/components/parameters/pageSize"
+      - $ref: "#/components/parameters/authorizationHeader"
+      responses:
+        "200":
+          $ref: "#/components/responses/ListListResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+    post:
+      tags:
+      - Lists
+      summary: Create new List
+      description: Add new List to database
+      parameters:
+      - $ref: "#/components/parameters/authorizationHeader"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ListNewRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/ListListResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /locations:
+    get:
+      tags:
+      - Locations
+      summary: Get a filtered list of Location
+      description: Get a list of Location
+      parameters:
+      - name: commonCropName
+        in: query
+        description: "The BrAPI Common Crop Name is the simple, generalized, widely\
+          \ accepted name of the organism being researched. It is most often used\
+          \ in multi-crop systems where digital resources need to be divided at a\
+          \ high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common\
+          \ crop names.\n\nUse this parameter to only return results associated with\
+          \ the given crops. \n\nUse `GET /commoncropnames` to find the list of available\
+          \ crops on a server."
+        required: false
+        schema:
+          type: string
+      - name: locationDbId
+        in: query
+        description: The location ids to search for
+        required: false
+        schema:
+          type: string
+      - name: locationName
+        in: query
+        description: A human readable names to search for
+        required: false
+        schema:
+          type: string
+      - name: programDbId
+        in: query
+        description: "A BrAPI Program represents the high level organization or group\
+          \ who is responsible for conducting trials and studies. Things like Breeding\
+          \ Programs and Funded Projects are considered BrAPI Programs. \n\nUse this\
+          \ parameter to only return results associated with the given programs. \n\
+          \nUse `GET /programs` to find the list of available programs on a server."
+        required: false
+        schema:
+          type: string
+      - name: programName
+        in: query
+        description: |-
+          Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+
+          Use `GET /programs` to find the list of available programs on a server.
+        required: false
+        schema:
+          type: string
+      - name: abbreviation
+        in: query
+        description: A list of shortened human readable names for a set of Locations
+        required: false
+        schema:
+          type: string
+      - name: altitudeMin
+        in: query
+        description: The minimum altitude to search for
+        required: false
+        schema:
+          type: number
+      - name: altitudeMax
+        in: query
+        description: The maximum altitude to search for
+        required: false
+        schema:
+          type: number
+      - name: countryCode
+        in: query
+        description: "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)\
+          \ spec"
+        required: false
+        schema:
+          type: string
+      - name: countryName
+        in: query
+        description: The full name of the country to search for
+        required: false
+        schema:
+          type: string
+      - name: coordinate
+        in: query
+        required: false
+        schema:
+          $ref: "#/components/schemas/GeoJSONSearchArea"
+      - name: instituteAddress
+        in: query
+        description: The street address of the institute to search for
+        required: false
+        schema:
+          type: string
+      - name: instituteName
+        in: query
+        description: The name of the institute to search for
+        required: false
+        schema:
+          type: string
+      - name: locationType
+        in: query
+        description: "The type of location this represents (ex. Breeding Location,\
+          \ Storage Location, etc)"
+        required: false
+        schema:
+          type: string
+      - name: parentLocationDbId
+        in: query
+        description: "The unique identifier for a Location\n<br/> The Parent Location\
+          \ defines the encompassing location that this location belongs to. \nFor\
+          \ example, an Institution might have multiple Field Stations inside it and\
+          \ each Field Station might have multiple Fields."
+        required: false
+        schema:
+          type: string
+      - name: parentLocationName
+        in: query
+        description: "A human readable name for a location\n<br/> The Parent Location\
+          \ defines the encompassing location that this location belongs to. \nFor\
+          \ example, an Institution might have multiple Field Stations inside it and\
+          \ each Field Station might have multiple Fields."
+        required: false
+        schema:
+          type: string
+      - $ref: "#/components/parameters/externalReferenceID"
+      - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceSource"
+      - $ref: "#/components/parameters/page"
+      - $ref: "#/components/parameters/pageSize"
+      - $ref: "#/components/parameters/authorizationHeader"
+      responses:
+        "200":
+          $ref: "#/components/responses/LocationListResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+    post:
+      tags:
+      - Locations
+      summary: Create new Location
+      description: Add new Location to database
+      parameters:
+      - $ref: "#/components/parameters/authorizationHeader"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LocationNewRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/LocationListResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /people:
+    get:
+      tags:
+      - People
+      summary: Get a filtered list of Person
+      description: Get a list of Person
+      parameters:
+      - name: commonCropName
+        in: query
+        description: "The BrAPI Common Crop Name is the simple, generalized, widely\
+          \ accepted name of the organism being researched. It is most often used\
+          \ in multi-crop systems where digital resources need to be divided at a\
+          \ high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common\
+          \ crop names.\n\nUse this parameter to only return results associated with\
+          \ the given crops. \n\nUse `GET /commoncropnames` to find the list of available\
+          \ crops on a server."
+        required: false
+        schema:
+          type: string
+      - name: programDbId
+        in: query
+        description: "A BrAPI Program represents the high level organization or group\
+          \ who is responsible for conducting trials and studies. Things like Breeding\
+          \ Programs and Funded Projects are considered BrAPI Programs. \n\nUse this\
+          \ parameter to only return results associated with the given programs. \n\
+          \nUse `GET /programs` to find the list of available programs on a server."
+        required: false
+        schema:
+          type: string
+      - name: programName
+        in: query
+        description: |-
+          Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+
+          Use `GET /programs` to find the list of available programs on a server.
+        required: false
+        schema:
+          type: string
+      - name: emailAddress
+        in: query
+        description: email address for this person
+        required: false
+        schema:
+          type: string
+      - name: firstName
+        in: query
+        description: Persons first name
+        required: false
+        schema:
+          type: string
+      - name: lastName
+        in: query
+        description: Persons last name
+        required: false
+        schema:
+          type: string
+      - name: mailingAddress
+        in: query
+        description: physical address of this person
+        required: false
+        schema:
+          type: string
+      - name: middleName
+        in: query
+        description: Persons middle name
+        required: false
+        schema:
+          type: string
+      - name: personDbId
+        in: query
+        description: Unique ID for this person
+        required: false
+        schema:
+          type: string
+      - name: phoneNumber
+        in: query
+        description: phone number of this person
+        required: false
+        schema:
+          type: string
+      - name: userID
+        in: query
+        description: A systems user ID associated with this person. Different from
+          personDbId because you could have a person who is not a user of the system.
+        required: false
+        schema:
+          type: string
+      - $ref: "#/components/parameters/externalReferenceID"
+      - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceSource"
+      - $ref: "#/components/parameters/page"
+      - $ref: "#/components/parameters/pageSize"
+      - $ref: "#/components/parameters/authorizationHeader"
+      responses:
+        "200":
+          $ref: "#/components/responses/PersonListResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+    post:
+      tags:
+      - People
+      summary: Create new Person
+      description: Add new Person to database
+      parameters:
+      - $ref: "#/components/parameters/authorizationHeader"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PersonNewRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/PersonListResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /programs:
+    get:
+      tags:
+      - Programs
+      summary: Get a filtered list of Program
+      description: Get a list of Program
+      parameters:
+      - name: commonCropName
+        in: query
+        description: "The BrAPI Common Crop Name is the simple, generalized, widely\
+          \ accepted name of the organism being researched. It is most often used\
+          \ in multi-crop systems where digital resources need to be divided at a\
+          \ high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common\
+          \ crop names.\n\nUse this parameter to only return results associated with\
+          \ the given crops. \n\nUse `GET /commoncropnames` to find the list of available\
+          \ crops on a server."
+        required: false
+        schema:
+          type: string
+      - name: programDbId
+        in: query
+        description: "A BrAPI Program represents the high level organization or group\
+          \ who is responsible for conducting trials and studies. Things like Breeding\
+          \ Programs and Funded Projects are considered BrAPI Programs. \n\nUse this\
+          \ parameter to only return results associated with the given programs. \n\
+          \nUse `GET /programs` to find the list of available programs on a server."
+        required: false
+        schema:
+          type: string
+      - name: programName
+        in: query
+        description: |-
+          Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+
+          Use `GET /programs` to find the list of available programs on a server.
+        required: false
+        schema:
+          type: string
+      - name: abbreviation
+        in: query
+        description: A list of shortened human readable names for a set of Programs
+        required: false
+        schema:
+          type: string
+      - name: leadPersonDbId
+        in: query
+        description: The person DbIds of the program leader to search for
+        required: false
+        schema:
+          type: string
+      - name: leadPersonName
+        in: query
+        description: The names of the program leader to search for
+        required: false
+        schema:
+          type: string
+      - name: objectife
+        in: query
+        description: A program objective to search for
+        required: false
+        schema:
+          type: string
+      - name: programType
+        in: query
+        description: "The type of program entity this object represents\n<br/> 'STANDARD'\
+          \ represents a standard, permanent breeding program\n<br/> 'PROJECT' represents\
+          \ a short term project, usually with a set time limit based on funding "
+        required: false
+        schema:
+          type: string
+          enum:
+          - STANDARD
+          - PROJECT
+      - $ref: "#/components/parameters/externalReferenceID"
+      - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceSource"
+      - $ref: "#/components/parameters/page"
+      - $ref: "#/components/parameters/pageSize"
+      - $ref: "#/components/parameters/authorizationHeader"
+      responses:
+        "200":
+          $ref: "#/components/responses/ProgramListResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+    post:
+      tags:
+      - Programs
+      summary: Create new Program
+      description: Add new Program to database
+      parameters:
+      - $ref: "#/components/parameters/authorizationHeader"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProgramNewRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/ProgramListResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /seasons:
+    get:
+      tags:
+      - Seasons
+      summary: Get a filtered list of Season
+      description: Get a list of Season
+      parameters:
+      - name: seasonDbId
+        in: query
+        description: "The unique identifier for a season. For backward compatibility\
+          \ it can be a string like '2012', '1957-2004'."
+        required: false
+        schema:
+          type: string
+      - name: season
+        in: query
+        description: The term to describe a given season. Example "Spring" OR "May"
+          OR "Planting_Time_7".
+        required: false
+        schema:
+          type: string
+      - name: seasonName
+        in: query
+        description: The term to describe a given season. Example "Spring" OR "May"
+          OR "Planting_Time_7".
+        required: false
+        schema:
+          type: string
+      - name: year
+        in: query
+        description: The 4 digit year of a season. Example "2017"
+        required: false
+        schema:
+          type: string
+      - $ref: "#/components/parameters/page"
+      - $ref: "#/components/parameters/pageSize"
+      - $ref: "#/components/parameters/authorizationHeader"
+      responses:
+        "200":
+          $ref: "#/components/responses/SeasonListResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+    post:
+      tags:
+      - Seasons
+      summary: Create new Season
+      description: Add new Season to database
+      parameters:
+      - $ref: "#/components/parameters/authorizationHeader"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Season"
+      responses:
+        "200":
+          $ref: "#/components/responses/SeasonListResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /studies:
+    get:
+      tags:
+      - Studies
+      summary: Get a filtered list of Study
+      description: Get a list of Study
+      parameters:
+      - name: commonCropName
+        in: query
+        description: "The BrAPI Common Crop Name is the simple, generalized, widely\
+          \ accepted name of the organism being researched. It is most often used\
+          \ in multi-crop systems where digital resources need to be divided at a\
+          \ high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common\
+          \ crop names.\n\nUse this parameter to only return results associated with\
+          \ the given crops. \n\nUse `GET /commoncropnames` to find the list of available\
+          \ crops on a server."
+        required: false
+        schema:
+          type: string
+      - name: germplasmDbId
+        in: query
+        description: List of IDs which uniquely identify germplasm to search for
+        required: false
+        schema:
+          type: string
+      - name: germplasmName
+        in: query
+        description: List of human readable names to identify germplasm to search
+          for
+        required: false
+        schema:
+          type: string
+      - name: locationDbId
+        in: query
+        description: The location ids to search for
+        required: false
+        schema:
+          type: string
+      - name: locationName
+        in: query
+        description: A human readable names to search for
+        required: false
+        schema:
+          type: string
+      - name: programDbId
+        in: query
+        description: "A BrAPI Program represents the high level organization or group\
+          \ who is responsible for conducting trials and studies. Things like Breeding\
+          \ Programs and Funded Projects are considered BrAPI Programs. \n\nUse this\
+          \ parameter to only return results associated with the given programs. \n\
+          \nUse `GET /programs` to find the list of available programs on a server."
+        required: false
+        schema:
+          type: string
+      - name: programName
+        in: query
+        description: |-
+          Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+
+          Use `GET /programs` to find the list of available programs on a server.
+        required: false
+        schema:
+          type: string
+      - name: studyDbId
+        in: query
+        description: List of study identifiers to search for
+        required: false
+        schema:
+          type: string
+      - name: studyName
+        in: query
+        description: List of study names to filter search results
+        required: false
+        schema:
+          type: string
+      - name: trialDbId
+        in: query
+        description: The ID which uniquely identifies a trial to search for
+        required: false
+        schema:
+          type: string
+      - name: trialName
+        in: query
+        description: The human readable name of a trial to search for
+        required: false
+        schema:
+          type: string
+      - name: observationVariableDbId
+        in: query
+        description: The DbIds of Variables to search for
+        required: false
+        schema:
+          type: string
+      - name: observationVariableName
+        in: query
+        description: The names of Variables to search for
+        required: false
+        schema:
+          type: string
+      - name: observationVariablePUI
+        in: query
+        description: "The Permanent Unique Identifier of an Observation Variable,\
+          \ usually in the form of a URI"
+        required: false
+        schema:
+          type: string
+      - name: actife
+        in: query
+        description: A flag to indicate if a Study is currently active and ongoing
+        required: false
+        schema:
+          type: boolean
+      - name: seasonDbId
+        in: query
+        description: The ID which uniquely identifies a season
+        required: false
+        schema:
+          type: string
+      - name: studyType
+        in: query
+        description: "The type of study being performed. ex. \"Yield Trial\", etc"
+        required: false
+        schema:
+          type: string
+      - name: studyCode
+        in: query
+        description: A short human readable code for a study
+        required: false
+        schema:
+          type: string
+      - name: studyPUI
+        in: query
+        description: "Permanent unique identifier associated with study data. For\
+          \ example, a URI or DOI"
+        required: false
+        schema:
+          type: string
+      - $ref: "#/components/parameters/externalReferenceID"
+      - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceSource"
+      - $ref: "#/components/parameters/page"
+      - $ref: "#/components/parameters/pageSize"
+      - $ref: "#/components/parameters/authorizationHeader"
+      responses:
+        "200":
+          $ref: "#/components/responses/StudyListResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+    post:
+      tags:
+      - Studies
+      summary: Create new Study
+      description: Add new Study to database
+      parameters:
+      - $ref: "#/components/parameters/authorizationHeader"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StudyNewRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/StudyListResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /trials:
+    get:
+      tags:
+      - Trials
+      summary: Get a filtered list of Trial
+      description: Get a list of Trial
+      parameters:
+      - name: commonCropName
+        in: query
+        description: "The BrAPI Common Crop Name is the simple, generalized, widely\
+          \ accepted name of the organism being researched. It is most often used\
+          \ in multi-crop systems where digital resources need to be divided at a\
+          \ high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common\
+          \ crop names.\n\nUse this parameter to only return results associated with\
+          \ the given crops. \n\nUse `GET /commoncropnames` to find the list of available\
+          \ crops on a server."
+        required: false
+        schema:
+          type: string
+      - name: locationDbId
+        in: query
+        description: The location ids to search for
+        required: false
+        schema:
+          type: string
+      - name: locationName
+        in: query
+        description: A human readable names to search for
+        required: false
+        schema:
+          type: string
+      - name: observationVariableDbId
+        in: query
+        description: The DbIds of Variables to search for
+        required: false
+        schema:
+          type: string
+      - name: observationVariableName
+        in: query
+        description: The names of Variables to search for
+        required: false
+        schema:
+          type: string
+      - name: observationVariablePUI
+        in: query
+        description: "The Permanent Unique Identifier of an Observation Variable,\
+          \ usually in the form of a URI"
+        required: false
+        schema:
+          type: string
+      - name: programDbId
+        in: query
+        description: "A BrAPI Program represents the high level organization or group\
+          \ who is responsible for conducting trials and studies. Things like Breeding\
+          \ Programs and Funded Projects are considered BrAPI Programs. \n\nUse this\
+          \ parameter to only return results associated with the given programs. \n\
+          \nUse `GET /programs` to find the list of available programs on a server."
+        required: false
+        schema:
+          type: string
+      - name: programName
+        in: query
+        description: |-
+          Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+
+          Use `GET /programs` to find the list of available programs on a server.
+        required: false
+        schema:
+          type: string
+      - name: studyDbId
+        in: query
+        description: List of study identifiers to search for
+        required: false
+        schema:
+          type: string
+      - name: studyName
+        in: query
+        description: List of study names to filter search results
+        required: false
+        schema:
+          type: string
+      - name: trialDbId
+        in: query
+        description: The ID which uniquely identifies a trial to search for
+        required: false
+        schema:
+          type: string
+      - name: trialName
+        in: query
+        description: The human readable name of a trial to search for
+        required: false
+        schema:
+          type: string
+      - name: actife
+        in: query
+        description: A flag to indicate if a Trial is currently active and ongoing
+        required: false
+        schema:
+          type: boolean
+      - name: contactDbId
+        in: query
+        description: List of contact entities associated with this trial
+        required: false
+        schema:
+          type: string
+      - name: searchDateRangeStart
+        in: query
+        description: "The start of the overlapping search date range. `searchDateRangeStart`\
+          \ must be before `searchDateRangeEnd`.\n\nReturn a Trial entity if any of\
+          \ the following cases are true\n\n- `searchDateRangeStart` is before `trial.endDate`\
+          \ AND `searchDateRangeEnd` is null \n\n- `searchDateRangeStart` is before\
+          \ `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`\n\n\
+          - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart`\
+          \ is null\n\n- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart`\
+          \ is before `trial.endDate`"
+        required: false
+        schema:
+          type: string
+      - name: searchDateRangeEnd
+        in: query
+        description: "The end of the overlapping search date range. `searchDateRangeStart`\
+          \ must be before `searchDateRangeEnd`.\n\nReturn a Trial entity if any of\
+          \ the following cases are true\n\n- `searchDateRangeStart` is before `trial.endDate`\
+          \ AND `searchDateRangeEnd` is null \n\n- `searchDateRangeStart` is before\
+          \ `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`\n\n\
+          - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart`\
+          \ is null\n\n- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart`\
+          \ is before `trial.endDate`"
+        required: false
+        schema:
+          type: string
+      - name: trialPUI
+        in: query
+        description: A permanent identifier for a trial. Could be DOI or other URI
+          formatted identifier.
+        required: false
+        schema:
+          type: string
+      - $ref: "#/components/parameters/externalReferenceID"
+      - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceSource"
+      - $ref: "#/components/parameters/page"
+      - $ref: "#/components/parameters/pageSize"
+      - $ref: "#/components/parameters/authorizationHeader"
+      responses:
+        "200":
+          $ref: "#/components/responses/TrialListResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+    post:
+      tags:
+      - Trials
+      summary: Create new Trial
+      description: Add new Trial to database
+      parameters:
+      - $ref: "#/components/parameters/authorizationHeader"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TrialNewRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/TrialListResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /lists/{listDbId}:
+    get:
+      tags:
+      - Lists
+      summary: Get the details of a specific List
+      description: Get details for a List
+      responses:
+        "200":
+          $ref: "#/components/responses/ListSingleResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+    put:
+      tags:
+      - Lists
+      summary: Update the details for an existing List
+      description: Update the details for an existing List
+      parameters:
+      - $ref: "#/components/parameters/authorizationHeader"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ListNewRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/ListSingleResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /locations/{locationDbId}:
+    get:
+      tags:
+      - Locations
+      summary: Get the details of a specific Location
+      description: Get details for a Location
+      responses:
+        "200":
+          $ref: "#/components/responses/LocationSingleResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+    put:
+      tags:
+      - Locations
+      summary: Update the details for an existing Location
+      description: Update the details for an existing Location
+      parameters:
+      - $ref: "#/components/parameters/authorizationHeader"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LocationNewRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/LocationSingleResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /people/{personDbId}:
+    get:
+      tags:
+      - People
+      summary: Get the details of a specific Person
+      description: Get details for a Person
+      responses:
+        "200":
+          $ref: "#/components/responses/PersonSingleResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+    put:
+      tags:
+      - People
+      summary: Update the details for an existing Person
+      description: Update the details for an existing Person
+      parameters:
+      - $ref: "#/components/parameters/authorizationHeader"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PersonNewRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/PersonSingleResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /programs/{programDbId}:
+    get:
+      tags:
+      - Programs
+      summary: Get the details of a specific Program
+      description: Get details for a Program
+      responses:
+        "200":
+          $ref: "#/components/responses/ProgramSingleResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+    put:
+      tags:
+      - Programs
+      summary: Update the details for an existing Program
+      description: Update the details for an existing Program
+      parameters:
+      - $ref: "#/components/parameters/authorizationHeader"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProgramNewRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/ProgramSingleResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /seasons/{seasonDbId}:
+    get:
+      tags:
+      - Seasons
+      summary: Get the details of a specific Season
+      description: Get details for a Season
+      responses:
+        "200":
+          $ref: "#/components/responses/SeasonSingleResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+    put:
+      tags:
+      - Seasons
+      summary: Update the details for an existing Season
+      description: Update the details for an existing Season
+      parameters:
+      - $ref: "#/components/parameters/authorizationHeader"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Season"
+      responses:
+        "200":
+          $ref: "#/components/responses/SeasonSingleResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /studies/{studyDbId}:
+    get:
+      tags:
+      - Studies
+      summary: Get the details of a specific Study
+      description: Get details for a Study
+      responses:
+        "200":
+          $ref: "#/components/responses/StudySingleResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+    put:
+      tags:
+      - Studies
+      summary: Update the details for an existing Study
+      description: Update the details for an existing Study
+      parameters:
+      - $ref: "#/components/parameters/authorizationHeader"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StudyNewRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/StudySingleResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /trials/{trialDbId}:
+    get:
+      tags:
+      - Trials
+      summary: Get the details of a specific Trial
+      description: Get details for a Trial
+      responses:
+        "200":
+          $ref: "#/components/responses/TrialSingleResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+    put:
+      tags:
+      - Trials
+      summary: Update the details for an existing Trial
+      description: Update the details for an existing Trial
+      parameters:
+      - $ref: "#/components/parameters/authorizationHeader"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TrialNewRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/TrialSingleResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /search/lists:
+    post:
+      tags:
+      - Lists
+      summary: Submit a search request for `List`
+      description: "Submit a search request for `List`<br/>\nSearch requests allow\
+        \ a client to send a complex query for data. However, the server may not respond\
+        \ with the search results immediately. \nIf a server needs more time to process\
+        \ the request, it might respond with a `searchResultsDbId`. \nUse the corresponding\
+        \ `GET /search/list/{searchResultsDbId}` to retrieve the results of the search.\
+        \ <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\
+        >Search Services documentation</a> for additional implementation details."
+      responses:
+        "200":
+          $ref: "#/components/responses/ListListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /search/locations:
+    post:
+      tags:
+      - Locations
+      summary: Submit a search request for `Location`
+      description: "Submit a search request for `Location`<br/>\nSearch requests allow\
+        \ a client to send a complex query for data. However, the server may not respond\
+        \ with the search results immediately. \nIf a server needs more time to process\
+        \ the request, it might respond with a `searchResultsDbId`. \nUse the corresponding\
+        \ `GET /search/location/{searchResultsDbId}` to retrieve the results of the\
+        \ search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\
+        >Search Services documentation</a> for additional implementation details."
+      responses:
+        "200":
+          $ref: "#/components/responses/LocationListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /search/people:
+    post:
+      tags:
+      - People
+      summary: Submit a search request for `Person`
+      description: "Submit a search request for `Person`<br/>\nSearch requests allow\
+        \ a client to send a complex query for data. However, the server may not respond\
+        \ with the search results immediately. \nIf a server needs more time to process\
+        \ the request, it might respond with a `searchResultsDbId`. \nUse the corresponding\
+        \ `GET /search/person/{searchResultsDbId}` to retrieve the results of the\
+        \ search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\
+        >Search Services documentation</a> for additional implementation details."
+      responses:
+        "200":
+          $ref: "#/components/responses/PersonListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /search/programs:
+    post:
+      tags:
+      - Programs
+      summary: Submit a search request for `Program`
+      description: "Submit a search request for `Program`<br/>\nSearch requests allow\
+        \ a client to send a complex query for data. However, the server may not respond\
+        \ with the search results immediately. \nIf a server needs more time to process\
+        \ the request, it might respond with a `searchResultsDbId`. \nUse the corresponding\
+        \ `GET /search/program/{searchResultsDbId}` to retrieve the results of the\
+        \ search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\
+        >Search Services documentation</a> for additional implementation details."
+      responses:
+        "200":
+          $ref: "#/components/responses/ProgramListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /search/studies:
+    post:
+      tags:
+      - Studies
+      summary: Submit a search request for `Study`
+      description: "Submit a search request for `Study`<br/>\nSearch requests allow\
+        \ a client to send a complex query for data. However, the server may not respond\
+        \ with the search results immediately. \nIf a server needs more time to process\
+        \ the request, it might respond with a `searchResultsDbId`. \nUse the corresponding\
+        \ `GET /search/study/{searchResultsDbId}` to retrieve the results of the search.\
+        \ <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\
+        >Search Services documentation</a> for additional implementation details."
+      responses:
+        "200":
+          $ref: "#/components/responses/StudyListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /search/trials:
+    post:
+      tags:
+      - Trials
+      summary: Submit a search request for `Trial`
+      description: "Submit a search request for `Trial`<br/>\nSearch requests allow\
+        \ a client to send a complex query for data. However, the server may not respond\
+        \ with the search results immediately. \nIf a server needs more time to process\
+        \ the request, it might respond with a `searchResultsDbId`. \nUse the corresponding\
+        \ `GET /search/trial/{searchResultsDbId}` to retrieve the results of the search.\
+        \ <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\
+        >Search Services documentation</a> for additional implementation details."
+      responses:
+        "200":
+          $ref: "#/components/responses/TrialListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /search/lists/{searchResultsDbId}:
+    get:
+      tags:
+      - Lists
+      summary: "Submit a search request for `List`<br/>\nSearch requests allow a client\
+        \ to send a complex query for data. However, the server may not respond with\
+        \ the search results immediately. \nIf a server needs more time to process\
+        \ the request, it might respond with a `searchResultsDbId`. \nUse the corresponding\
+        \ `GET /search/list/{searchResultsDbId}` to retrieve the results of the search.\
+        \ <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\
+        >Search Services documentation</a> for additional implementation details."
+      description: "Get the results of a `List` search request <br/>\nClients should\
+        \ submit a search request using the corresponding `POST /search/list` endpoint.\n\
+        Search requests allow a client to send a complex query for data. However,\
+        \ the server may not respond with the search results immediately. \nIf a server\
+        \ needs more time to process the request, it might respond with a `searchResultsDbId`.\
+        \ \nUse this endpoint to retrieve the results of the search. <br/> \nReview\
+        \ the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\
+        >Search Services documentation</a> for additional implementation details."
+      responses:
+        "200":
+          $ref: "#/components/responses/ListListResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /search/locations/{searchResultsDbId}:
+    get:
+      tags:
+      - Locations
+      summary: "Submit a search request for `Location`<br/>\nSearch requests allow\
+        \ a client to send a complex query for data. However, the server may not respond\
+        \ with the search results immediately. \nIf a server needs more time to process\
+        \ the request, it might respond with a `searchResultsDbId`. \nUse the corresponding\
+        \ `GET /search/location/{searchResultsDbId}` to retrieve the results of the\
+        \ search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\
+        >Search Services documentation</a> for additional implementation details."
+      description: "Get the results of a `Location` search request <br/>\nClients\
+        \ should submit a search request using the corresponding `POST /search/location`\
+        \ endpoint.\nSearch requests allow a client to send a complex query for data.\
+        \ However, the server may not respond with the search results immediately.\
+        \ \nIf a server needs more time to process the request, it might respond with\
+        \ a `searchResultsDbId`. \nUse this endpoint to retrieve the results of the\
+        \ search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\
+        >Search Services documentation</a> for additional implementation details."
+      responses:
+        "200":
+          $ref: "#/components/responses/LocationListResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /search/people/{searchResultsDbId}:
+    get:
+      tags:
+      - People
+      summary: "Submit a search request for `Person`<br/>\nSearch requests allow a\
+        \ client to send a complex query for data. However, the server may not respond\
+        \ with the search results immediately. \nIf a server needs more time to process\
+        \ the request, it might respond with a `searchResultsDbId`. \nUse the corresponding\
+        \ `GET /search/person/{searchResultsDbId}` to retrieve the results of the\
+        \ search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\
+        >Search Services documentation</a> for additional implementation details."
+      description: "Get the results of a `Person` search request <br/>\nClients should\
+        \ submit a search request using the corresponding `POST /search/person` endpoint.\n\
+        Search requests allow a client to send a complex query for data. However,\
+        \ the server may not respond with the search results immediately. \nIf a server\
+        \ needs more time to process the request, it might respond with a `searchResultsDbId`.\
+        \ \nUse this endpoint to retrieve the results of the search. <br/> \nReview\
+        \ the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\
+        >Search Services documentation</a> for additional implementation details."
+      responses:
+        "200":
+          $ref: "#/components/responses/PersonListResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /search/programs/{searchResultsDbId}:
+    get:
+      tags:
+      - Programs
+      summary: "Submit a search request for `Program`<br/>\nSearch requests allow\
+        \ a client to send a complex query for data. However, the server may not respond\
+        \ with the search results immediately. \nIf a server needs more time to process\
+        \ the request, it might respond with a `searchResultsDbId`. \nUse the corresponding\
+        \ `GET /search/program/{searchResultsDbId}` to retrieve the results of the\
+        \ search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\
+        >Search Services documentation</a> for additional implementation details."
+      description: "Get the results of a `Program` search request <br/>\nClients should\
+        \ submit a search request using the corresponding `POST /search/program` endpoint.\n\
+        Search requests allow a client to send a complex query for data. However,\
+        \ the server may not respond with the search results immediately. \nIf a server\
+        \ needs more time to process the request, it might respond with a `searchResultsDbId`.\
+        \ \nUse this endpoint to retrieve the results of the search. <br/> \nReview\
+        \ the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\
+        >Search Services documentation</a> for additional implementation details."
+      responses:
+        "200":
+          $ref: "#/components/responses/ProgramListResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /search/studies/{searchResultsDbId}:
+    get:
+      tags:
+      - Studies
+      summary: "Submit a search request for `Study`<br/>\nSearch requests allow a\
+        \ client to send a complex query for data. However, the server may not respond\
+        \ with the search results immediately. \nIf a server needs more time to process\
+        \ the request, it might respond with a `searchResultsDbId`. \nUse the corresponding\
+        \ `GET /search/study/{searchResultsDbId}` to retrieve the results of the search.\
+        \ <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\
+        >Search Services documentation</a> for additional implementation details."
+      description: "Get the results of a `Study` search request <br/>\nClients should\
+        \ submit a search request using the corresponding `POST /search/study` endpoint.\n\
+        Search requests allow a client to send a complex query for data. However,\
+        \ the server may not respond with the search results immediately. \nIf a server\
+        \ needs more time to process the request, it might respond with a `searchResultsDbId`.\
+        \ \nUse this endpoint to retrieve the results of the search. <br/> \nReview\
+        \ the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\
+        >Search Services documentation</a> for additional implementation details."
+      responses:
+        "200":
+          $ref: "#/components/responses/StudyListResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+  /search/trials/{searchResultsDbId}:
+    get:
+      tags:
+      - Trials
+      summary: "Submit a search request for `Trial`<br/>\nSearch requests allow a\
+        \ client to send a complex query for data. However, the server may not respond\
+        \ with the search results immediately. \nIf a server needs more time to process\
+        \ the request, it might respond with a `searchResultsDbId`. \nUse the corresponding\
+        \ `GET /search/trial/{searchResultsDbId}` to retrieve the results of the search.\
+        \ <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\
+        >Search Services documentation</a> for additional implementation details."
+      description: "Get the results of a `Trial` search request <br/>\nClients should\
+        \ submit a search request using the corresponding `POST /search/trial` endpoint.\n\
+        Search requests allow a client to send a complex query for data. However,\
+        \ the server may not respond with the search results immediately. \nIf a server\
+        \ needs more time to process the request, it might respond with a `searchResultsDbId`.\
+        \ \nUse this endpoint to retrieve the results of the search. <br/> \nReview\
+        \ the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\
+        >Search Services documentation</a> for additional implementation details."
+      responses:
+        "200":
+          $ref: "#/components/responses/TrialListResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+components:
+  schemas:
+    Service:
+      required:
+      - methods
+      - service
+      - versions
+      type: object
+      properties:
+        service:
+          type: string
+          description: The name of the available call as recorded in the documentation
+          example: "germplasm/{germplasmDbId}/pedigree"
+        contentTypes:
+          type: array
+          description: The possible content types returned by the service endpoint
+          example:
+          - application/json
+          items:
+            $ref: "#/components/schemas/ContentTypes"
+        dataTypes:
+          type: array
+          description: "**Deprecated in v2.1** Please use `contentTypes`. Github issue\
+            \ number #443 \n<br/>The possible data formats returned by the available\
+            \ call "
+          example:
+          - application/json
+          deprecated: true
+          items:
+            $ref: "#/components/schemas/ContentTypes"
+        methods:
+          type: array
+          description: The possible HTTP Methods to be used with the available call
+          example:
+          - GET
+          - POST
+          items:
+            type: string
+            enum:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+        versions:
+          type: array
+          description: The supported versions of a particular call
+          example:
+          - "2.0"
+          - "2.1"
+          items:
+            type: string
+            enum:
+            - "2.0"
+            - "2.1"
+            - "2.2"
+    ServerInfo:
+      required:
+      - calls
+      type: object
+      properties:
+        contactEmail:
+          type: string
+          description: A contact email address for this server management
+          example: contact@institute.org
+        documentationURL:
+          type: string
+          description: A URL to the human readable documentation of an object
+          example: institute.org/server
+        organizationURL:
+          type: string
+          description: The URL of the organization that manages this server and data
+          example: institute.org/home
+        organizationName:
+          type: string
+          description: The name of the organization that manages this server and data
+          example: The Institute
+        serverName:
+          type: string
+          description: The name of this server
+          example: The BrAPI Test Server
+        serverDescription:
+          type: string
+          description: A description of this server
+          example: |-
+            The BrAPI Test Server
+            Web Server - Apache Tomcat 7.0.32
+            Database - Postgres 10
+            Supported BrAPI Version - V2.0
+        location:
+          type: string
+          description: "Physical location of this server (ie. City, Country)"
+          example: USA
+        calls:
+          type: array
+          description: Array of available calls on this server
+          items:
+            $ref: "#/components/schemas/Service"
+    AdditionalInfo:
+      type: object
+      properties:
+        additionalProperties:
+          type: string
+      description: "A free space containing any additional information related to\
+        \ a particular object. A data source may provide any JSON object, unrestricted\
+        \ by the BrAPI specification."
+    Attribute:
+      required:
+      - attributeName
+      - method
+      - scale
+      - trait
+      type: object
+      properties:
+        additionalInfo:
+          $ref: "#/components/schemas/AdditionalInfo"
+        attributeCategory:
+          type: string
+        attributeDbId:
+          type: string
+        attributeDescription:
+          type: string
+        attributeName:
+          type: string
+        attributePUI:
+          type: string
+        commonCropName:
+          type: string
+        contextOfUse:
+          type: array
+          items:
+            type: string
+        defaultValue:
+          type: string
+        documentationURL:
+          type: string
+        growthStage:
+          type: string
+        institution:
+          type: string
+        language:
+          type: string
+        method:
+          $ref: "#/components/schemas/Method"
+        ontologyReference:
+          $ref: "#/components/schemas/OntologyReference"
+        scale:
+          $ref: "#/components/schemas/Scale"
+        scientist:
+          type: string
+        status:
+          type: string
+        submissionTimestamp:
+          type: string
+          format: date-time
+        synonyms:
+          type: array
+          items:
+            type: string
+        trait:
+          $ref: "#/components/schemas/Trait"
+    Contact:
+      required:
+      - contactDbId
+      type: object
+      properties:
+        contactDbId:
+          type: string
+        email:
+          type: string
+        instituteName:
+          type: string
+        name:
+          type: string
+        orcid:
+          type: string
+        type:
+          type: string
+    ContentTypes:
+      type: string
+      enum:
+      - application/json
+      - text/csv
+      - text/tsv
+      - application/flapjack
+    Context:
+      title: context
+      type: array
+      description: "The JSON-LD Context is used to provide JSON-LD definitions to\
+        \ each field in a JSON object. By providing an array of context file urls,\
+        \ a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information,\
+        \ see https://w3c.github.io/json-ld-syntax/#the-context"
+      example:
+      - https://brapi.org/jsonld/context/metadata.jsonld
+      items:
+        type: string
+        format: uri
+    DataLink:
+      type: object
+      properties:
+        dataFormat:
+          type: string
+        description:
+          type: string
+        fileFormat:
+          type: string
+        name:
+          type: string
+        provenance:
+          type: string
+        scientificType:
+          type: string
+        url:
+          type: string
+        version:
+          type: string
+    DatasetAuthorships:
+      type: object
+      properties:
+        datasetPUI:
+          type: string
+        license:
+          type: string
+        publicReleaseDate:
+          type: string
+        submissionDate:
+          type: string
+        trialDbId:
+          type: string
+        trialName:
+          type: string
+        trialPUI:
+          type: string
+    EnvironmentParameters:
+      required:
+      - description
+      - environmentParametersDbId
+      - parameterName
+      type: object
+      properties:
+        description:
+          type: string
+        environmentParametersDbId:
+          type: string
+        parameterName:
+          type: string
+        parameterPUI:
+          type: string
+        studyDbId:
+          type: string
+        studyName:
+          type: string
+        studyPUI:
+          type: string
+        unit:
+          type: string
+        unitPUI:
+          type: string
+        value:
+          type: string
+        valuePUI:
+          type: string
+    ExperimentalDesign:
+      type: object
+      properties:
+        PUI:
+          type: string
+        description:
+          type: string
+        studyDbId:
+          type: string
+        studyName:
+          type: string
+        studyPUI:
+          type: string
+    ExternalReference:
+      type: object
+      properties:
+        referenceId:
+          type: string
+        referenceSource:
+          type: string
+    GeoJSON:
+      type: object
+      properties:
+        geometry:
+          $ref: "#/components/schemas/GeoJSONGeometry"
+        type:
+          type: string
+      description: |-
+        One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
+
+        Copied from RFC 7946 Section 3.1.1
+
+        A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
+        easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
+    GeoJSONGeometry:
+      oneOf:
+      - required:
+        - coordinateDbIds
+        - type
+        type: object
+        properties:
+          coordinates:
+            type: array
+            items:
+              type: number
+          type:
+            type: string
+        description: |-
+          Copied from RFC 7946 Section 3.1.1
+
+          A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
+          easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
+      - required:
+        - coordinateDbIds
+        - type
+        type: object
+        properties:
+          coordinates:
+            type: array
+            items:
+              type: array
+              items:
+                type: array
+                items:
+                  type: number
+          type:
+            type: string
+        description: "An array of Linear Rings. Each Linear Ring is an array of Points.\
+          \ \n\nA Point is an array of numbers. There MUST be two or more elements.\
+          \ The first two elements are longitude and latitude, or\neasting and northing,\
+          \ precisely in that order and using decimal numbers. Altitude or elevation\
+          \ MAY be included as an optional third element."
+    GeoJSONSearchArea:
+      type: object
+      properties:
+        geometry:
+          $ref: "#/components/schemas/GeoJSONGeometry"
+        germplasmOrigin:
+          $ref: "#/components/schemas/GermplasmOrigin"
+        imageDbId:
+          type: string
+        imageName:
+          type: string
+        observationDbId:
+          type: string
+        observationUnit:
+          $ref: "#/components/schemas/ObservationUnitPosition"
+        type:
+          type: string
+    GrowthFacility:
+      type: object
+      properties:
+        PUI:
+          type: string
+        description:
+          type: string
+        studyDbId:
+          type: string
+        studyName:
+          type: string
+        studyPUI:
+          type: string
+    LastUpdate:
+      required:
+      - lastUpdateDbId
+      type: object
+      properties:
+        lastUpdateDbId:
+          type: string
+        studyDbId:
+          type: string
+        studyName:
+          type: string
+        studyPUI:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        version:
+          type: string
+    List:
+      required:
+      - listDbId
+      - listName
+      - listType
+      type: object
+      properties:
+        additionalInfo:
+          $ref: "#/components/schemas/AdditionalInfo"
+        dateCreated:
+          type: string
+          format: date-time
+        dateModified:
+          type: string
+          format: date-time
+        listDescription:
+          type: string
+        listName:
+          type: string
+        listOwnerName:
+          type: string
+        listSize:
+          type: integer
+          format: int32
+        listSource:
+          type: string
+        listType:
+          $ref: "#/components/schemas/ListType"
+        personDbId:
+          type: string
+      description: "A List represents a collection of other BrAPI data objects. Typically\
+        \ these are custom lists generated by a user to keep track of interesting\
+        \ data. For example, a user might build a List of Germplasm that they have\
+        \ manually marked for further study."
+    ListNewRequest:
+      required:
+      - listDbId
+      - listDbId
+      - listName
+      - listType
+      type: object
+      properties:
+        additionalInfo:
+          $ref: "#/components/schemas/AdditionalInfo"
+        dateCreated:
+          type: string
+          format: date-time
+        dateModified:
+          type: string
+          format: date-time
+        listDbId:
+          type: string
+        listDescription:
+          type: string
+        listName:
+          type: string
+        listOwnerName:
+          type: string
+        listSize:
+          type: integer
+          format: int32
+        listSource:
+          type: string
+        listType:
+          $ref: "#/components/schemas/ListType"
+        personDbId:
+          type: string
+      description: "A List represents a collection of other BrAPI data objects. Typically\
+        \ these are custom lists generated by a user to keep track of interesting\
+        \ data. For example, a user might build a List of Germplasm that they have\
+        \ manually marked for further study."
+    ListSearchRequest:
+      type: object
+      properties:
+        commonCropName:
+          type: string
+        dateCreatedRangeEnd:
+          type: string
+          format: date-time
+        dateCreatedRangeStart:
+          type: string
+          format: date-time
+        dateModifiedRangeEnd:
+          type: string
+          format: date-time
+        dateModifiedRangeStart:
+          type: string
+          format: date-time
+        listType:
+          $ref: "#/components/schemas/ListType"
+        programDbId:
+          type: string
+      description: "A List represents a collection of other BrAPI data objects. Typically\
+        \ these are custom lists generated by a user to keep track of interesting\
+        \ data. For example, a user might build a List of Germplasm that they have\
+        \ manually marked for further study."
+    ListType:
+      type: string
+      description: The type of objects that are referenced in a List
+      enum:
+      - germplasm
+      - markers
+      - variants
+      - programs
+      - trials
+      - studies
+      - observationUnits
+      - observations
+      - observationVariables
+      - samples
+    Location:
+      required:
+      - locationDbId
+      - locationName
+      type: object
+      properties:
+        abbreviation:
+          type: string
+        additionalInfo:
+          $ref: "#/components/schemas/AdditionalInfo"
+        childLocationDbIds:
+          type: array
+          items:
+            type: string
+        coordinateDescription:
+          type: string
+        coordinateUncertainty:
+          type: string
+        coordinates:
+          $ref: "#/components/schemas/GeoJSON"
+        countryCode:
+          type: string
+        countryName:
+          type: string
+        documentationURL:
+          type: string
+        environmentType:
+          type: string
+        exposure:
+          type: string
+        instituteAddress:
+          type: string
+        instituteName:
+          type: string
+        locationDbId:
+          type: string
+        locationName:
+          type: string
+        locationType:
+          type: string
+        siteStatus:
+          type: string
+        slope:
+          type: string
+        topography:
+          type: string
+    LocationNewRequest:
+      required:
+      - locationDbId
+      - locationDbId
+      - locationName
+      type: object
+      properties:
+        abbreviation:
+          type: string
+        additionalInfo:
+          $ref: "#/components/schemas/AdditionalInfo"
+        childLocationDbIds:
+          type: array
+          items:
+            type: string
+        coordinateDescription:
+          type: string
+        coordinateUncertainty:
+          type: string
+        coordinates:
+          $ref: "#/components/schemas/GeoJSON"
+        countryCode:
+          type: string
+        countryName:
+          type: string
+        documentationURL:
+          type: string
+        environmentType:
+          type: string
+        exposure:
+          type: string
+        instituteAddress:
+          type: string
+        instituteName:
+          type: string
+        locationDbId:
+          type: string
+        locationName:
+          type: string
+        locationType:
+          type: string
+        siteStatus:
+          type: string
+        slope:
+          type: string
+        topography:
+          type: string
+    LocationSearchRequest:
+      type: object
+      properties:
+        altitudeMax:
+          type: number
+        altitudeMin:
+          type: number
+        coordinates:
+          $ref: "#/components/schemas/GeoJSONSearchArea"
+    ObservationUnitHierarchyLevel:
+      type: object
+      properties:
+        levelName:
+          type: string
+        levelOrder:
+          type: integer
+          format: int32
+      description: "The exact level and level code of an observation unit. \n\nFor\
+        \ more information on Observation Levels, please review the <a target=\"_blank\"\
+        \ href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation\
+        \ Levels documentation</a>. \n\nMIAPPE V1.1 DM-71 Observation unit type \"\
+        Type of observation unit in textual form, usually one of the following: study,\
+        \ block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit\
+        \ types is possible but not recommended. \nThe observation unit type can not\
+        \ be used to indicate sub-plant levels. However, observations can still be\
+        \ made on the sub-plant level, as long as the details are indicated in the\
+        \ associated observed variable (see observed variables). \nAlternatively,\
+        \ it is possible to use samples for more detailed tracing of sub-plant units,\
+        \ attaching the observations to them instead.\" "
+    OntologyTerm:
+      type: object
+      properties:
+        term:
+          type: string
+        termURI:
+          type: string
+    Person:
+      required:
+      - personDbId
+      type: object
+      properties:
+        additionalInfo:
+          $ref: "#/components/schemas/AdditionalInfo"
+        description:
+          type: string
+        emailAddress:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        mailingAddress:
+          type: string
+        middleName:
+          type: string
+        phoneNumber:
+          type: string
+        userID:
+          type: string
+    PersonNewRequest:
+      required:
+      - personDbId
+      - personDbId
+      type: object
+      properties:
+        additionalInfo:
+          $ref: "#/components/schemas/AdditionalInfo"
+        description:
+          type: string
+        emailAddress:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        mailingAddress:
+          type: string
+        middleName:
+          type: string
+        personDbId:
+          type: string
+        phoneNumber:
+          type: string
+        userID:
+          type: string
+    PersonSearchRequest:
+      type: object
+      properties: {}
+    Program:
+      required:
+      - programDbId
+      - programName
+      type: object
+      properties:
+        abbreviation:
+          type: string
+        additionalInfo:
+          $ref: "#/components/schemas/AdditionalInfo"
+        commonCropName:
+          type: string
+        documentationURL:
+          type: string
+        fundingInformation:
+          type: string
+        objective:
+          type: string
+        personDbId:
+          type: string
+        programName:
+          type: string
+        programType:
+          type: string
+          description: "The type of program entity this object represents\n<br/> 'STANDARD'\
+            \ represents a standard, permanent breeding program\n<br/> 'PROJECT' represents\
+            \ a short term project, usually with a set time limit based on funding\
+            \   "
+          enum:
+          - STANDARD
+          - PROJECT
+    ProgramNewRequest:
+      required:
+      - programDbId
+      - programDbId
+      - programName
+      type: object
+      properties:
+        abbreviation:
+          type: string
+        additionalInfo:
+          $ref: "#/components/schemas/AdditionalInfo"
+        commonCropName:
+          type: string
+        documentationURL:
+          type: string
+        fundingInformation:
+          type: string
+        objective:
+          type: string
+        personDbId:
+          type: string
+        programDbId:
+          type: string
+        programName:
+          type: string
+        programType:
+          type: string
+          description: "The type of program entity this object represents\n<br/> 'STANDARD'\
+            \ represents a standard, permanent breeding program\n<br/> 'PROJECT' represents\
+            \ a short term project, usually with a set time limit based on funding\
+            \   "
+          enum:
+          - STANDARD
+          - PROJECT
+    ProgramSearchRequest:
+      type: object
+      properties: {}
+    Publication:
+      type: object
+      properties:
+        publicationPUI:
+          type: string
+        publicationReference:
+          type: string
+        trialDbId:
+          type: string
+        trialName:
+          type: string
+        trialPUI:
+          type: string
+    Season:
+      required:
+      - seasonDbId
+      type: object
+      properties:
+        seasonDbId:
+          type: string
+        seasonName:
+          type: string
+        year:
+          type: integer
+          format: int32
+    Study:
+      required:
+      - studyDbId
+      - studyName
+      type: object
+      properties:
+        active:
+          type: boolean
+        additionalInfo:
+          $ref: "#/components/schemas/AdditionalInfo"
+        commonCropName:
+          type: string
+        contactDbIds:
+          type: array
+          items:
+            type: string
+        culturalPractices:
+          type: string
+        documentationURL:
+          type: string
+        endDate:
+          type: string
+          format: date-time
+        environmentParameterDbIds:
+          type: array
+          items:
+            type: string
+        experimentalDesign:
+          $ref: "#/components/schemas/ExperimentalDesign"
+        growthFacility:
+          $ref: "#/components/schemas/GrowthFacility"
+        lastUpdateDbId:
+          type: string
+        license:
+          type: string
+        locationDbId:
+          type: string
+        locationName:
+          type: string
+        observationUnitsDescription:
+          type: string
+        observationVariableDbIds:
+          type: array
+          items:
+            type: string
+        startDate:
+          type: string
+          format: date-time
+        studyCode:
+          type: string
+        studyDescription:
+          type: string
+        studyName:
+          type: string
+        studyPUI:
+          type: string
+        studyType:
+          type: string
+        trialDbId:
+          type: string
+        trialName:
+          type: string
+        trialPUI:
+          type: string
+    StudyNewRequest:
+      required:
+      - studyDbId
+      - studyDbId
+      - studyName
+      type: object
+      properties:
+        active:
+          type: boolean
+        additionalInfo:
+          $ref: "#/components/schemas/AdditionalInfo"
+        commonCropName:
+          type: string
+        contactDbIds:
+          type: array
+          items:
+            type: string
+        culturalPractices:
+          type: string
+        documentationURL:
+          type: string
+        endDate:
+          type: string
+          format: date-time
+        environmentParameterDbIds:
+          type: array
+          items:
+            type: string
+        experimentalDesign:
+          $ref: "#/components/schemas/ExperimentalDesign"
+        growthFacility:
+          $ref: "#/components/schemas/GrowthFacility"
+        lastUpdateDbId:
+          type: string
+        license:
+          type: string
+        locationDbId:
+          type: string
+        locationName:
+          type: string
+        observationUnitsDescription:
+          type: string
+        observationVariableDbIds:
+          type: array
+          items:
+            type: string
+        startDate:
+          type: string
+          format: date-time
+        studyCode:
+          type: string
+        studyDbId:
+          type: string
+        studyDescription:
+          type: string
+        studyName:
+          type: string
+        studyPUI:
+          type: string
+        studyType:
+          type: string
+        trialDbId:
+          type: string
+        trialName:
+          type: string
+        trialPUI:
+          type: string
+    StudySearchRequest:
+      type: object
+      properties:
+        active:
+          type: boolean
+    TraitDataType:
+      type: string
+      description: |-
+        <p>Class of the scale, entries can be</p>
+        <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p>
+        <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p>
+        <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p>
+        <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p>
+        <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p>
+        <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p>
+        <p>"Text" - A free text is used to express the trait.</p>
+      enum:
+      - Code
+      - Date
+      - Duration
+      - Nominal
+      - Numerical
+      - Ordinal
+      - Text
+    Trial:
+      required:
+      - trialDbId
+      - trialName
+      type: object
+      properties:
+        active:
+          type: boolean
+        additionalInfo:
+          $ref: "#/components/schemas/AdditionalInfo"
+        commonCropName:
+          type: string
+        contacts:
+          type: array
+          items:
+            $ref: "#/components/schemas/Contact"
+        documentationURL:
+          type: string
+        endDate:
+          type: string
+        programDbId:
+          type: string
+        programName:
+          type: string
+        startDate:
+          type: string
+        studyDbIds:
+          type: array
+          items:
+            type: string
+        trialDescription:
+          type: string
+        trialName:
+          type: string
+        trialPUI:
+          type: string
+    TrialNewRequest:
+      required:
+      - trialDbId
+      - trialDbId
+      - trialName
+      type: object
+      properties:
+        active:
+          type: boolean
+        additionalInfo:
+          $ref: "#/components/schemas/AdditionalInfo"
+        commonCropName:
+          type: string
+        contacts:
+          type: array
+          items:
+            $ref: "#/components/schemas/Contact"
+        documentationURL:
+          type: string
+        endDate:
+          type: string
+        programDbId:
+          type: string
+        programName:
+          type: string
+        startDate:
+          type: string
+        studyDbIds:
+          type: array
+          items:
+            type: string
+        trialDbId:
+          type: string
+        trialDescription:
+          type: string
+        trialName:
+          type: string
+        trialPUI:
+          type: string
+    TrialSearchRequest:
+      type: object
+      properties:
+        active:
+          type: boolean
+        searchDateRangeEnd:
+          type: string
+        searchDateRangeStart:
+          type: string
+    Variable:
+      required:
+      - method
+      - scale
+      - trait
+      type: object
+      properties:
+        additionalInfo:
+          $ref: "#/components/schemas/AdditionalInfo"
+        commonCropName:
+          type: string
+        contextOfUse:
+          type: array
+          items:
+            type: string
+        defaultValue:
+          type: string
+        documentationURL:
+          type: string
+        growthStage:
+          type: string
+        institution:
+          type: string
+        language:
+          type: string
+        method:
+          $ref: "#/components/schemas/Method"
+        ontologyReference:
+          $ref: "#/components/schemas/OntologyReference"
+        scale:
+          $ref: "#/components/schemas/Scale"
+        scientist:
+          type: string
+        status:
+          type: string
+        submissionTimestamp:
+          type: string
+          format: date-time
+        synonyms:
+          type: array
+          items:
+            type: string
+        trait:
+          $ref: "#/components/schemas/Trait"
+    basePagination:
+      required:
+      - currentPage
+      - pageSize
+      type: object
+      properties:
+        currentPage:
+          type: integer
+          description: The index number for the returned page of data. This should
+            always match the requested page number or the default page (0).
+          example: 0
+          default: 0
+        pageSize:
+          type: integer
+          description: "The number of data elements returned, aka the size of the\
+            \ current page. If the requested page does not have enough elements to\
+            \ fill a page at the requested page size, this field should indicate the\
+            \ actual number of elements returned."
+          example: 1000
+          default: 1000
+        totalCount:
+          type: integer
+          description: The total number of elements that are available on the server
+            and match the requested query parameters.
+          example: 10
+        totalPages:
+          type: integer
+          description: "The total number of pages of elements available on the server.\
+            \ This should be calculated with the following formula. \n<br> totalPages\
+            \ = CEILING( totalCount / requested_page_size)"
+          example: 1
+      description: "The pagination object is applicable only when the payload contains\
+        \ a \"data\" key. It describes the pagination of the data contained in the\
+        \ \"data\" array, as a way to identify which subset of data is being returned.\
+        \ \n<br> Pages are zero indexed, so the first page will be page 0 (zero)."
+    dataFile:
+      required:
+      - fileURL
+      type: object
+      properties:
+        fileURL:
+          type: string
+          description: The absolute URL where the file is located
+          format: uri
+          example: https://wiki.brapi.org/examples/datafile.xlsx
+        fileName:
+          type: string
+          description: The name of the file
+          example: datafile.xlsx
+        fileSize:
+          type: integer
+          description: The size of the file in bytes
+          example: 4398
+        fileDescription:
+          type: string
+          description: A human readable description of the file contents
+          example: This is an Excel data file
+        fileType:
+          type: string
+          description: The type or format of the file. Preferably MIME Type.
+          example: application/vnd.ms-excel
+        fileMD5Hash:
+          type: string
+          description: The MD5 Hash of the file contents to be used as a check sum
+          example: c2365e900c81a89cf74d83dab60df146
+      description: A dataFile contains a URL and the relevant file metadata to represent
+        a file
+    metadata:
+      allOf:
+      - $ref: "#/components/schemas/metadataBase"
+      - type: object
+        properties:
+          pagination:
+            $ref: "#/components/schemas/basePagination"
+    metadataBase:
+      type: object
+      properties:
+        datafiles:
+          type: array
+          description: "The datafiles contains a list of file URLs and metadata. \n\
+            These files contain additional information related to the returned object\
+            \ and can be retrieved by a subsequent call. \nThis could be a supplementary\
+            \ data file, an informational file, the uploaded file where the data originated\
+            \ from, a generated file representing the whole dataset in a particular\
+            \ format, or any other related file. "
+          example: []
+          items:
+            $ref: "#/components/schemas/dataFile"
+        status:
+          type: array
+          description: "The status field contains a list of informational status messages\
+            \ from the server. \nIf no status is reported, an empty list should be\
+            \ returned. See Error Reporting for more information."
+          items:
+            $ref: "#/components/schemas/status"
+      description: "An object in the BrAPI standard response model that describes\
+        \ some information about the service call being performed. This includes supplementary\
+        \ data, status log messages, and pagination information."
+    metadataTokenPagination:
+      allOf:
+      - $ref: "#/components/schemas/metadataBase"
+      - type: object
+        properties:
+          pagination:
+            $ref: "#/components/schemas/tokenPagination"
+    status:
+      required:
+      - message
+      - messageType
+      type: object
+      properties:
+        message:
+          type: string
+          description: A short message concerning the status of this request/response
+          example: "Request accepted, response successful"
+        messageType:
+          type: string
+          description: The logging level for the attached message
+          example: INFO
+          enum:
+          - DEBUG
+          - ERROR
+          - WARNING
+          - INFO
+      description: An array of status messages to convey technical logging information
+        from the server to the client.
+    tokenPagination:
+      allOf:
+      - $ref: "#/components/schemas/basePagination"
+      - required:
+        - nextPageToken
+        type: object
+        properties:
+          nextPageToken:
+            type: string
+            description: "**Deprecated in v2.1** Please use `page`. Github issue number\
+              \ #451 \n<br>The string token used to query the next page of data."
+            example: cb668f63
+            deprecated: true
+          currentPageToken:
+            type: string
+            description: "**Deprecated in v2.1** Please use `page`. Github issue number\
+              \ #451 \n<br>The string token used to query the current page of data."
+            example: 48bc6ac1
+            deprecated: true
+          prevPageToken:
+            type: string
+            description: "**Deprecated in v2.1** Please use `page`. Github issue number\
+              \ #451 \n<br>The string token used to query the previous page of data."
+            example: 9659857e
+            deprecated: true
+        description: "**Deprecated in v2.1** Please use `page`. Github issue number\
+          \ #451 \n<br>The pagination object is applicable only when the payload contains\
+          \ a \"data\" key. It describes the pagination of the data contained in the\
+          \ \"data\" array, as a way to identify which subset of data is being returned.\
+          \ \n<br>Tokenized pages are for large data sets which can not be efficiently\
+          \ broken into indexed pages. Use the nextPageToken and prevPageToken to\
+          \ construct an additional query and move to the next or previous page respectively.\
+          \  "
+        example:
+          currentPage: 0
+          pageSize: 1000
+          totalCount: 10
+          totalPages: 1
+  responses:
+    "401Unauthorized":
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            type: string
+          example: ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization
+            token
+    "202AcceptedSearchResponse":
+      description: Accepted
+      content:
+        application/json:
+          schema:
+            title: 202AcceptedSearchResponse
+            type: object
+            properties:
+              '@context':
+                $ref: "#/components/schemas/Context"
+              metadata:
+                $ref: "#/components/schemas/metadata"
+              result:
+                type: object
+                properties:
+                  searchResultsDbId:
+                    type: string
+                    example: 551ae08c
+    StudySingleResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            title: StudySingleResponse
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: "#/components/schemas/Context"
+              metadata:
+                $ref: "#/components/schemas/metadata"
+              result:
+                $ref: "#/components/schemas/Study"
+    PersonListResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            title: PersonListResponse
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: "#/components/schemas/Context"
+              metadata:
+                $ref: "#/components/schemas/metadata"
+              result:
+                required:
+                - data
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Person"
+    LocationListResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            title: LocationListResponse
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: "#/components/schemas/Context"
+              metadata:
+                $ref: "#/components/schemas/metadata"
+              result:
+                required:
+                - data
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Location"
+    TrialListResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            title: TrialListResponse
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: "#/components/schemas/Context"
+              metadata:
+                $ref: "#/components/schemas/metadata"
+              result:
+                required:
+                - data
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Trial"
+    "403Forbidden":
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            type: string
+          example: ERROR - 2018-10-08T18:15:11Z - User does not have permission to
+            perform this action
+    ProgramListResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            title: ProgramListResponse
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: "#/components/schemas/Context"
+              metadata:
+                $ref: "#/components/schemas/metadata"
+              result:
+                required:
+                - data
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Program"
+    TrialSingleResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            title: TrialSingleResponse
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: "#/components/schemas/Context"
+              metadata:
+                $ref: "#/components/schemas/metadata"
+              result:
+                $ref: "#/components/schemas/Trial"
+    ListListResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            title: ListListResponse
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: "#/components/schemas/Context"
+              metadata:
+                $ref: "#/components/schemas/metadata"
+              result:
+                required:
+                - data
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/List"
+    SeasonSingleResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            title: SeasonSingleResponse
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: "#/components/schemas/Context"
+              metadata:
+                $ref: "#/components/schemas/metadata"
+              result:
+                $ref: "#/components/schemas/Season"
+    "400BadRequest":
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            type: string
+          example: |-
+            ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object
+
+            ERROR - 2018-10-08T18:15:11Z - Invalid query parameter
+
+            ERROR - 2018-10-08T18:15:11Z - Required parameter is missing
+    "404NotFound":
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            type: string
+          example: ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not
+            found
+    StudyListResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            title: StudyListResponse
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: "#/components/schemas/Context"
+              metadata:
+                $ref: "#/components/schemas/metadata"
+              result:
+                required:
+                - data
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Study"
+    LocationSingleResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            title: LocationSingleResponse
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: "#/components/schemas/Context"
+              metadata:
+                $ref: "#/components/schemas/metadata"
+              result:
+                $ref: "#/components/schemas/Location"
+    SeasonListResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            title: SeasonListResponse
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: "#/components/schemas/Context"
+              metadata:
+                $ref: "#/components/schemas/metadata"
+              result:
+                required:
+                - data
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Season"
+    ListSingleResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            title: ListSingleResponse
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: "#/components/schemas/Context"
+              metadata:
+                $ref: "#/components/schemas/metadata"
+              result:
+                $ref: "#/components/schemas/List"
+    PersonSingleResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            title: PersonSingleResponse
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: "#/components/schemas/Context"
+              metadata:
+                $ref: "#/components/schemas/metadata"
+              result:
+                $ref: "#/components/schemas/Person"
+    ProgramSingleResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            title: ProgramSingleResponse
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: "#/components/schemas/Context"
+              metadata:
+                $ref: "#/components/schemas/metadata"
+              result:
+                $ref: "#/components/schemas/Program"
+  parameters:
+    externalReferenceID:
+      name: externalReferenceID
+      in: query
+      description: "**Deprecated in v2.1** Please use `externalReferenceId`. Github\
+        \ issue number #460 \n<br>An external reference ID. Could be a simple string\
+        \ or a URI. (use with `externalReferenceSource` parameter)"
+      required: false
+      deprecated: true
+      style: form
+      explode: true
+      schema:
+        type: string
+    externalReferenceId:
+      name: externalReferenceId
+      in: query
+      description: An external reference ID. Could be a simple string or a URI. (use
+        with `externalReferenceSource` parameter)
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+    externalReferenceSource:
+      name: externalReferenceSource
+      in: query
+      description: An identifier for the source system or database of an external
+        reference (use with `externalReferenceId` parameter)
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+    acceptHeader:
+      name: Accept
+      in: header
+      description: "A standard HTTP request header that is used to request a specific\
+        \ content type (JSON, CSV, etc) which is \"acceptable\" to the client and\
+        \ should be returned by the server"
+      required: true
+      style: simple
+      explode: false
+      schema:
+        $ref: "#/components/schemas/ContentTypes"
+      example: application/json
+    searchResultsDbId:
+      name: searchResultsDbId
+      in: path
+      description: Unique identifier which references the search results
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+    pageSize:
+      name: pageSize
+      in: query
+      description: The size of the pages to be returned. Default is `1000`.
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: integer
+      example: 1000
+    authorizationHeader:
+      name: Authorization
+      in: header
+      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
+        \ {token_string} </strong>"
+      required: false
+      style: simple
+      explode: false
+      schema:
+        pattern: ^Bearer .*$
+        type: string
+      example: Bearer XXXX
+    page:
+      name: page
+      in: query
+      description: |-
+        Used to request a specific page of data to be returned.
+
+        The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: integer
+      example: "0"
+    pageToken:
+      name: pageToken
+      in: query
+      description: "**Deprecated in v2.1** Please use `page`. Github issue number\
+        \ #451 \n<br> Used to request a specific page of data to be returned.\n<br>\
+        \ Tokenized pages are for large data sets which can not be efficiently broken\
+        \ into indexed pages. Use the nextPageToken and prevPageToken from a prior\
+        \ response to construct a query and move to the next or previous page respectively. "
+      required: false
+      deprecated: true
+      style: form
+      explode: true
+      schema:
+        type: string
+      example: 33c27874
+  securitySchemes:
+    AuthorizationToken:
+      type: http
+      description: OAuth Bearer Token - A valid Bearer token to prove authorization
+      scheme: bearer
+      bearerFormat: nonce token or JWT

@@ -36,7 +36,7 @@ paths:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    $ref: '#/components/schemas/ListDetails'
+                    $ref: '#/components/schemas/List'
                 required:
                 - metadata
                 - result

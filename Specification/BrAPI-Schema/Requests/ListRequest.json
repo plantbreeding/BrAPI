@@ -81,6 +81,16 @@
                 },
                 "listType": {
                     "$ref": "../BrAPI-Core/ListType.json#/$defs/ListType"
+                },
+                "commonCropName": {
+                    "description": "The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.\n\nUse this parameter to only return results associated with the given crop. \n\nUse `GET /commoncropnames` to find the list of available crops on a server.",
+                    "type": "string",
+                    "example": "Maize"
+                },
+                "programDbId": {
+                    "description": "Use this parameter to only return results associated with the given `Program` unique identifier. \n<br/>Use `GET /programs` to find the list of available `Programs` on a server.",
+                    "type": "string",
+                    "example": "a7cc80e3"
                 }
             },
             "brapi-metadata": {
