@@ -93,7 +93,7 @@
                     "relationshipType": "one-to-many",
                     "referencedAttribute": "observationUnit",
                     "items": {
-                        "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/Treatment",
+                        "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationTreatment",
                         "description": "Treatments"
                     },
                     "title": "Treatments",
@@ -317,7 +317,7 @@
                     "referencedAttribute": "treatments"
                 }
             },
-            "title": "Treatment",
+            "title": "ObservationTreatment",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

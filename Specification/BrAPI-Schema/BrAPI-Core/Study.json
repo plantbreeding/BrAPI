@@ -502,7 +502,7 @@
                         "properties": {
                             "modality": {
                                 "description": "The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc\n\nMIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. ",
-                                "type": "string"
+                                "type": "string",
                                 "examples": [
                                     "low fertilizer"
                                 ]
