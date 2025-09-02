@@ -132,6 +132,7 @@
                 "scale"
             ],
             "title": "Variable",
+            "description": "A unique combination of Trait, Method, and Scale to define a clear context for an Observation.",
             "type": "object",
             "brapi-metadata": {
                 "interface": true

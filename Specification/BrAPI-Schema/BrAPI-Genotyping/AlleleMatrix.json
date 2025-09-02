@@ -91,6 +91,7 @@
                 "variantSets"
             ],
             "title": "AlleleMatrix",
+            "description": "The AlleleMatrix object is used to describe a matrix of genotyping results. This 2d array of data reduces the overall size of the response for larger datasets, when compared to the Calls endpoints. This makes genotype data retrieval faster and easier.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
@@ -149,6 +150,7 @@
                 }
             },
             "title": "DataMatrix",
+            "description": "A two dimensional array that holds allele data or associated metadata. Each matrix should be the same size and orientation, aligned with the \"callSetDbIds\" as columns and the \"variantDbIds\" as rows.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
@@ -204,6 +206,7 @@
                 }
             },
             "title": "Pagination",
+            "description": "Pagination info for the matrix",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

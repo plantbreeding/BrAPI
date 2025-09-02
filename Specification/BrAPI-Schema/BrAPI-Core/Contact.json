@@ -47,6 +47,7 @@
             ],
             "type": "object",
             "title": "Contact",
+            "description": "A persons contact information",
             "brapi-metadata": {
                 "primaryModel": false
             }

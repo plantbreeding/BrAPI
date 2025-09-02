@@ -106,6 +106,7 @@
                 "observationDbId"
             ],
             "title": "Observation",
+            "description": "A value assigned for a specific ObservationVariable when observing a specific ObservationUnit.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true

@@ -153,6 +153,7 @@
                 "seedLotName"
             ],
             "title": "SeedLot",
+            "description": "A SeedLot, also known as an InventoryLot, is a collection of starting material (seeds, bulbs, root-stock, etc) for a particular Germplasm. The amount of material available for each Germplasm can be increased by seed production and decreased by planting or trading with another breeding Program.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
@@ -185,6 +186,7 @@
                 }
             },
             "title": "ContentMixture",
+            "description": "The mixture of germplasm present in the seed lot. \n<br/>If this seed lot only contains a single germplasm, the response should contain the name and DbId of that germplasm with a mixturePercentage value of 100 \n<br/>If the seed lot contains a mixture of different germplasm, the response should contain the name and DbId every germplasm present. The mixturePercentage field should contain the ratio of each germplasm in the total mixture. All of the mixturePercentage values in this array should sum to equal 100.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

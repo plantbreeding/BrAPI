@@ -87,6 +87,7 @@
                 "scaleName"
             ],
             "title": "Scale",
+            "description": "A Scale describes the units and acceptable values for an ObservationVariable. \n<br>For example, an ObservationVariable might be defined with a Trait of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\". This variable would be distinct from a variable with the Scale \"inches\" or \"pixels\".",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
@@ -130,6 +131,7 @@
                 }
             },
             "title": "ValidValues",
+            "description": "Metadata describing the acceptable values for this Scale",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
@@ -159,6 +161,7 @@
                 }
             },
             "title": "ValidValuesCategory",
+            "description": "If the Scale is a categorical type, these objects define the valid options",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

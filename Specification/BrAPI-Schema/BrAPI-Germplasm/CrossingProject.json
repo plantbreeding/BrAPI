@@ -106,6 +106,7 @@
                 "crossingProjectName"
             ],
             "title": "CrossingProject",
+            "description": "A project structure where a list of PlannedCrosses is generated, the crossing events occur in the field, and the resulting actual Crosses can documented.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true

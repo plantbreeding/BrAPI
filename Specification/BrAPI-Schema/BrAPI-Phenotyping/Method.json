@@ -76,6 +76,7 @@
                 "methodName"
             ],
             "title": "Method",
+            "description": "A description of the way an Observation should be collected. \n<br>For example, an ObservationVariable might be defined with a Trait of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\". This variable would be distinct from a variable with the Method \"estimation\" or \"drone image processing\". ",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
