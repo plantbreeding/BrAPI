@@ -132,6 +132,7 @@
                 "imageDbId"
             ],
             "title": "Image",
+            "description": "The metadata for an image file that is connected to some phenotypic observation data.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true

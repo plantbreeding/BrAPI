@@ -81,6 +81,7 @@
                 "eventType"
             ],
             "title": "Event",
+            "description": "An event is discrete occurrence at a particular time in the experiment. Events may be the realization of Treatments or parts of Treatments, or may be confounding to Treatments. \n<br> ICASA Management Events allow for the following types -> planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
@@ -123,6 +124,7 @@
                 }
             },
             "title": "EventDateRange",
+            "description": "An object describing when a particular Event has taken place. An Event can occur at one or more discrete time points (`discreteDates`) or an event can happen continuously over a longer period of time (`startDate`, `endDate`)",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
@@ -190,6 +192,7 @@
                 }
             },
             "title": "EventParameter",
+            "description": "An object describing additional event parameters. Each of the following accepts a human-readable value or URI",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

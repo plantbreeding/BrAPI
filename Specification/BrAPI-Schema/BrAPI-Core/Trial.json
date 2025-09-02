@@ -185,6 +185,7 @@
                 "trialDbId"
             ],
             "title": "Trial",
+            "description": "A Trial represents a collection of Study objects, and the metadata associated with that collection. A Trial could represent a multi-location experiment, and could contain information related to publications and data licensing.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
@@ -228,6 +229,7 @@
                 }
             },
             "title": "DatasetAuthorships",
+            "description": "License and citation information for the data in this trial",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
@@ -255,6 +257,7 @@
                 }
             },
             "title": "Publication",
+            "description": "MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
