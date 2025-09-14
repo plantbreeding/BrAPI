@@ -118,6 +118,7 @@
                 "germplasm"
             ],
             "title": "PedigreeNode",
+            "description": "A representation of a particular Germplasm within a pedigree tree, and all the links to its parents, siblings, and children. From a list of PedigreeNode objects, a client application should have all the information it needs to draw a pedigree tree visualization, or calculate genetic distances.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
@@ -147,6 +148,7 @@
                 "parentType"
             ],
             "title": "GermplasmParent",
+            "description": "A germplasm reference that is a direct parent of this germplasm. These represent edges in the tree, connecting to other nodes.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
@@ -176,6 +178,7 @@
                 "parentType"
             ],
             "title": "GermplasmChild",
+            "description": "A germplasm reference that is a direct child of this germplasm. These represent edges in the tree, connecting to other nodes.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

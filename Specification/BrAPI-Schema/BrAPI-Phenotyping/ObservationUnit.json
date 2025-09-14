@@ -93,7 +93,7 @@
                     "relationshipType": "one-to-many",
                     "referencedAttribute": "observationUnit",
                     "items": {
-                        "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationTreatment",
+                        "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/Treatment",
                         "description": "Treatments"
                     },
                     "title": "Treatments",
@@ -277,6 +277,7 @@
                 }
             },
             "title": "ObservationUnitPosition",
+            "description": "All positional and layout information related to this Observation Unit",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
@@ -286,11 +287,6 @@
             "properties": {
                 "factor": {
                     "description": "The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc\n\nMIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.",
-                    "type": "string",
-                    "examples": ["fertilizer"]
-                },
-                "factorPUI": {
-                    "description": "The PUI of the factor which may link to an ontology.",
                     "type": [
                         "null",
                         "string"
@@ -299,11 +295,6 @@
                 },
                 "modality": {
                     "description": "The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc\n\nMIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. ",
-                    "type": "string",
-                    "examples": ["low fertilizer"]
-                },
-                "modalityPUI": {
-                    "description": "The PUI of the modality which may link to an ontology.",
                     "type": [
                         "null",
                         "string"
@@ -318,6 +309,7 @@
                 }
             },
             "title": "ObservationTreatment",
+            "description": "The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc. MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

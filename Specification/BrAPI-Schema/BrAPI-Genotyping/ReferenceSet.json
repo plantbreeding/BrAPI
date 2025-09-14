@@ -141,6 +141,7 @@
                 "referenceSetName"
             ],
             "title": "ReferenceSet",
+            "description": "A `ReferenceSet` is a set of `Reference` s which typically comprise a reference assembly, such as `GRCH_38`. A `ReferenceSet` defines a common coordinate space for comparing reference-aligned experimental data.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true

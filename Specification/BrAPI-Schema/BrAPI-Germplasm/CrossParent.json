@@ -26,6 +26,7 @@
                 }
             },
             "title": "CrossParent",
+            "description": "The identifying information gor the parent material of a cross.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

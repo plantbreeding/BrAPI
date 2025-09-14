@@ -156,6 +156,7 @@
                 "variantSetDbId"
             ],
             "title": "VariantSet",
+            "description": "A VariantSet is a collection of variants and variant calls intended to be analyzed together.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
@@ -228,6 +229,7 @@
                 "analysisDbId"
             ],
             "title": "Analysis",
+            "description": "An analysis contains an interpretation of one or several experiments. (e.g. SNVs, copy number variations, methylation status) together with information about the methodology used.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
@@ -309,6 +311,7 @@
                 }
             },
             "title": "AvailableFormat",
+            "description": "Each 'availableFormat' object is a pairing of dataFormat and fileFormat. These must be communicated in pairs because they are not independent parameters and sometimes one influences the other.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
@@ -352,6 +355,7 @@
                 }
             },
             "title": "MetadataField",
+            "description": "Indicates which types of genotyping data and metadata are available in the VariantSet. \n<br> When possible, these field names and abbreviations should follow the VCF standard ",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

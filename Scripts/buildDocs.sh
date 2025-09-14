@@ -27,7 +27,7 @@ echo
 echo
 echo "Build OpenAPI YAML files per domain: ./brapi_openapi.yaml"
 echo "Building  BrAPI-Core"
-python3 ./Scripts/buildOpenAPI.py "./Specification/BrAPI-Core/" "./Specification/Components/" "./Specification/BrAPI-Germplasm/" >> ./build/results/buildOpenAPIBrAPI-Coreesults.txt
+python3 ./Scripts/buildOpenAPI.py "./Specification/BrAPI-Core/" "./Specification/Components/" "./Specification/BrAPI-Germplasm/" >> ./build/results/buildOpenAPIBrAPI-CoreResults.txt
 echo "Building  BrAPI-Germplasm"
 python3 ./Scripts/buildOpenAPI.py "./Specification/BrAPI-Germplasm/" "./Specification/Components/" >> ./build/results/buildOpenAPIBrAPI-GermplasmResults.txt
 echo "Building  BrAPI-Phenotyping"
