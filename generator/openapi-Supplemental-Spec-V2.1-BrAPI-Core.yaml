@@ -1,0 +1,175 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /serverinfo:
+    get:
+      description: |-
+        Implementation Notes
+        
+        Having a consistent structure for the path string of each call is very 
+        important for teams to be able to connect and find errors. Read more on Github.
+        
+        Here are the rules for the path of each call that should be returned
+        
+        Every word in the call path should match the documentation exactly, both in 
+        spelling and capitalization. Note that path strings are all lower case, but 
+        path parameters are camel case.
+        
+        Each path should start relative to \"/\" and therefore should not include \"/\"
+        
+        No leading or trailing slashes (\"/\") 
+        
+        Path parameters are wrapped in curly braces (\"{}\"). The name of the path parameter 
+        should be spelled exactly as it is specified in the documentation.
+        
+        Examples 
+        
+        GOOD   "call": "germplasm/{germplasmDbId}/pedigree" 
+        
+        BAD    "call": "germplasm/{id}/pedigree"
+        
+        BAD    "call": "germplasm/{germplasmDBid}/pedigree" 
+        
+        BAD    "call": "brapi/v2/germplasm/{germplasmDbId}/pedigree" 
+        
+        BAD    "call": "/germplasm/{germplasmDbId}/pedigree/" 
+        
+        BAD    "call": "germplasm/<germplasmDbId>/pedigree"
+      parameters:
+      - description: Filter the list of endpoints based on the response content type.
+        in: query
+        name: contentType
+        required: false
+        schema:
+          $ref: '#/components/schemas/ContentTypes'
+      - description: |-
+          **Deprecated in v2.1** Please use `contentType`. Github issue number #443
+          <br>The data format supported by the call.
+        deprecated: true
+        in: query
+        name: dataType
+        required: false
+        schema:
+          $ref: '#/components/schemas/ContentTypes'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  '@context':
+                    $ref: '#/components/schemas/Context'
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/ServerInfo'
+                required:
+                - metadata
+                - result
+                title: ServerInfoResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      summary: Get the list of implemented Calls
+      tags:
+      - Server Info
+components:
+  schemas:
+    Service: 
+      type: object
+      required:
+      - service
+      - versions
+      - methods
+      properties:
+        service:
+          description: The name of the available call as recorded in the documentation
+          type: string
+          example: germplasm/{germplasmDbId}/pedigree
+        contentTypes:
+          description: The possible content types returned by the service endpoint
+          items:
+            $ref: '#/components/schemas/ContentTypes'
+          type: array
+          example: ['application/json']
+        dataTypes:
+          description:  |-
+            **Deprecated in v2.1** Please use `contentTypes`. Github issue number #443 
+            <br/>The possible data formats returned by the available call 
+          deprecated: true
+          items:
+            $ref: '#/components/schemas/ContentTypes'
+          type: array
+          example: ['application/json']
+        methods:
+          description: The possible HTTP Methods to be used with the available call
+          items:
+            enum:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+            type: string
+          type: array
+          example: ['GET', 'POST']
+        versions:
+          description: The supported versions of a particular call
+          items:
+            enum:
+            - '2.0'
+            - '2.1'
+            - '2.2'
+            type: string
+          type: array
+          example: ['2.0', '2.1']
+    ServerInfo: 
+      type: object
+      required:
+      - calls
+      properties:
+        contactEmail:
+          description: A contact email address for this server management
+          type: string
+          example: contact@institute.org
+        documentationURL:
+          description: A URL to the human readable documentation of an object
+          type: string
+          example: institute.org/server
+        organizationURL:
+          description: The URL of the organization that manages this server and data
+          type: string
+          example: institute.org/home
+        organizationName:
+          description: The name of the organization that manages this server and data
+          type: string
+          example: The Institute
+        serverName:
+          description: The name of this server
+          type: string
+          example: The BrAPI Test Server
+        serverDescription:
+          description: A description of this server
+          type: string
+          example: |-
+            The BrAPI Test Server
+            Web Server - Apache Tomcat 7.0.32
+            Database - Postgres 10
+            Supported BrAPI Version - V2.0
+        location:
+          description: Physical location of this server (ie. City, Country)
+          type: string
+          example: USA
+        calls:
+          description: Array of available calls on this server
+          items:
+            $ref: '#/components/schemas/Service'
+          type: array
