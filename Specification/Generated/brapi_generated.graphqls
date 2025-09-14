@@ -1597,6 +1597,27 @@ type ObservationListResponse {
   page: PageInfo
 }
 
+type ObservationTreatment {
+  """
+  The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
+  
+  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
+  """
+  factor: String
+  "The PUI of the factor which may link to an ontology."
+  factorPUI: String
+  """
+  The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc
+  
+  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. 
+  """
+  modality: String
+  "The PUI of the modality which may link to an ontology."
+  modalityPUI: String
+  "associated observation Unit"
+  observationUnit: ObservationUnit
+}
+
 type ObservationUnit {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfo
@@ -1641,7 +1662,7 @@ type ObservationUnit {
   
   MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.
   """
-  treatments: [Treatment]
+  treatments: [ObservationTreatment]
   "The ID which uniquely identifies a trial"
   trial: Trial
 }
@@ -2882,27 +2903,6 @@ type Trait {
 type TraitListResponse {
   data: [Trait]
   page: PageInfo
-}
-
-type Treatment {
-  """
-  The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
-  
-  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
-  """
-  factor: String
-  "The PUI of the factor which may link to an ontology."
-  factorPUI: String
-  """
-  The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc
-  
-  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. 
-  """
-  modality: String
-  "The PUI of the modality which may link to an ontology."
-  modalityPUI: String
-  "associated observation Unit"
-  observationUnit: ObservationUnit
 }
 
 type Trial {
@@ -5128,6 +5128,27 @@ input ObservationInput {
   value: String
 }
 
+input ObservationTreatmentInput {
+  """
+  The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
+  
+  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
+  """
+  factor: String
+  "The PUI of the factor which may link to an ontology."
+  factorPUI: String
+  """
+  The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc
+  
+  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. 
+  """
+  modality: String
+  "The PUI of the modality which may link to an ontology."
+  modalityPUI: String
+  "associated observation Unit"
+  observationUnit: ObservationUnitInput
+}
+
 """
 The exact level and level code of an observation unit. 
 
@@ -5207,7 +5228,7 @@ input ObservationUnitInput {
   
   MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.
   """
-  treatments: [TreatmentInput]
+  treatments: [ObservationTreatmentInput]
   "The ID which uniquely identifies a trial"
   trial: TrialInput
 }
@@ -6930,27 +6951,6 @@ input TraitsInput {
   programNames: [String]
   "The unique identifier for a trait."
   traitDbIds: [String]
-}
-
-input TreatmentInput {
-  """
-  The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
-  
-  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
-  """
-  factor: String
-  "The PUI of the factor which may link to an ontology."
-  factorPUI: String
-  """
-  The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc
-  
-  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. 
-  """
-  modality: String
-  "The PUI of the modality which may link to an ontology."
-  modalityPUI: String
-  "associated observation Unit"
-  observationUnit: ObservationUnitInput
 }
 
 input TrialInput {
