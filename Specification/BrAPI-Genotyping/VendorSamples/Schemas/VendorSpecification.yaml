@@ -22,4 +22,3 @@ components:
           nullable: true
         vendorContact:
           $ref: '#/components/schemas/VendorContact'
-          nullable: true

@@ -68,6 +68,5 @@ components:
           example: 'EU: FP7-244374'
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
           
 

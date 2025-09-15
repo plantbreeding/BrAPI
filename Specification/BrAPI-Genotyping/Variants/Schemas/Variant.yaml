@@ -40,7 +40,6 @@ components:
           nullable: true
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
         ciend:
           items:
             type: integer

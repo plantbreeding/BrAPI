@@ -26,7 +26,6 @@ components:
           example: A0000003
         geoCoordinates:
           $ref: '#/components/schemas/geoJSON'
-          nullable: true
         observationTimeStamp:
           description: The date and time when this observation was made
           format: date-time
@@ -59,7 +58,6 @@ components:
           example: 917d3ae0
         season:
           $ref: '#/components/schemas/SeasonObs'
-          nullable: true
         studyDbId:
           description: The ID which uniquely identifies a study within the given database server
           type: string
@@ -77,6 +75,5 @@ components:
           example: '2.3'
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
           
 

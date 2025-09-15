@@ -50,7 +50,6 @@ components:
           example: Aspergillus fructus
         taxonomyOntologyReference:
           $ref: '#/components/schemas/OntologyReference'
-          nullable: true
         tissueType:
           description: The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.
           type: string
@@ -58,10 +57,8 @@ components:
           example: Root
         tissueTypeOntologyReference:
           $ref: '#/components/schemas/OntologyReference'
-          nullable: true
         volume: 
           $ref: '#/components/schemas/Measurement'
-          nullable: true
         well:
           description: The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.
           type: string

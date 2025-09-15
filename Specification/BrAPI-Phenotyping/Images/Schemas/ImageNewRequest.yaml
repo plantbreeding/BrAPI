@@ -48,7 +48,6 @@ components:
           example: 550
         imageLocation:
           $ref: '#/components/schemas/geoJSON'
-          nullable: true
         imageName:
           description: The human readable name of an image. Might be the same as 'imageFileName', but could be different.
           type: string

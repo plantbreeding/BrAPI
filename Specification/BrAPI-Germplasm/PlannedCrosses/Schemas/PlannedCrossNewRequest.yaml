@@ -53,11 +53,8 @@ components:
           example: TODO
         parent1: 
           $ref: '#/components/schemas/CrossParent'
-          nullable: true
         parent2: 
           $ref: '#/components/schemas/CrossParent'
-          nullable: true
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
           

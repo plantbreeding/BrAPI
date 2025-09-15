@@ -122,5 +122,4 @@ components:
           example: https://doi.org/101093190
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
           

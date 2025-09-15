@@ -33,5 +33,4 @@ components:
           nullable: true
         coordinates:
           $ref: '#/components/schemas/geoJSON'
-          nullable: true
 

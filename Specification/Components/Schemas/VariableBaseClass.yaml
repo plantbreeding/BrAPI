@@ -67,7 +67,6 @@ components:
                 example: 0adb2764
         ontologyReference:
           $ref: '#/components/schemas/OntologyReference'
-          nullable: true
         scale:
           allOf:
           - $ref: '#/components/schemas/ScaleBaseClass'
@@ -112,5 +111,4 @@ components:
                 example: 9b2e34f5
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
 

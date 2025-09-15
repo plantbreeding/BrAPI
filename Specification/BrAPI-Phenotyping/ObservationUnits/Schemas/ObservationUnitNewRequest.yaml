@@ -69,10 +69,8 @@ components:
           example: http://pui.per/plot/1a9afc14
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
         observationUnitPosition:
           $ref: '#/components/schemas/ObservationUnitPosition'
-          nullable: true
         programDbId:
           description: The ID which uniquely identifies a program
           type: string

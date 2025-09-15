@@ -48,5 +48,4 @@ components:
           example: Present
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
 

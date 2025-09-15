@@ -21,7 +21,6 @@ components:
           nullable: true
         dataType:
           $ref: '#/components/schemas/TraitDataType'
-          nullable: true
         decimalPlaces:
           description: For numerical, number of decimal places to be reported
           type: integer
@@ -100,5 +99,4 @@ components:
               example: '2'
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
 

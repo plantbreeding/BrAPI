@@ -24,7 +24,6 @@ components:
           nullable: true
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
         germplasmName:
           description: A human readable name for a germplasm
           type: string

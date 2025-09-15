@@ -24,7 +24,6 @@ components:
           nullable: true
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
         referenceDbId:
           description: The unique identifier for a `Reference`
           type: string
@@ -99,5 +98,4 @@ components:
           example: Maize
         species:
           $ref: '#/components/schemas/OntologyTerm'
-          nullable: true
 

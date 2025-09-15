@@ -60,4 +60,3 @@ components:
           $ref: '#/components/schemas/ListTypes'
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          nullable: true

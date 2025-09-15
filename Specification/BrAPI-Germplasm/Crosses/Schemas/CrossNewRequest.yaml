@@ -54,10 +54,8 @@ components:
           example: BIPARENTAL
         parent1: 
           $ref: '#/components/schemas/CrossParent'
-          nullable: true
         parent2: 
           $ref: '#/components/schemas/CrossParent'
-          nullable: true
         pollinationTimeStamp: 
           description: |-
             **Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265 

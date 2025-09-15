@@ -56,5 +56,4 @@ components:
           example: bob-23
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
           

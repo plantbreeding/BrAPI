@@ -118,5 +118,4 @@ components:
           example: seeds
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
           

@@ -29,7 +29,6 @@ components:
           nullable: true
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
         description:
           description: Optional free text description of this reference set.
           type: string
@@ -93,5 +92,4 @@ components:
           example: Maize
         species:
           $ref: '#/components/schemas/OntologyTerm'
-          nullable: true
 

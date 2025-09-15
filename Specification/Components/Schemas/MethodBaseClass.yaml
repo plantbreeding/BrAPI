@@ -58,5 +58,4 @@ components:
           example: Smith, 1893, Really Cool Paper, Popular Journal
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
 

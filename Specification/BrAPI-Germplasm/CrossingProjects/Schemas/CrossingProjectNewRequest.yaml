@@ -50,6 +50,5 @@ components:
             $ref: '#/components/schemas/CrossParent'
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
           
         

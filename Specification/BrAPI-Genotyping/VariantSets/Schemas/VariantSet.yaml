@@ -23,7 +23,6 @@ components:
           nullable: true
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
         availableFormats:
           description: |-
             When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats. 

@@ -20,7 +20,6 @@ components:
           example: 0ad6c0ef
         sampleSubmissionFormat:
           $ref: '#/components/schemas/PlateFormat'
-          nullable: true
         samples:
           items:
             $ref: '#/components/schemas/VendorSample'

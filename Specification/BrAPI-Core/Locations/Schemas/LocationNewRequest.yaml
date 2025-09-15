@@ -120,9 +120,7 @@ components:
           example: Valley
         coordinates:
           $ref: '#/components/schemas/geoJSON'
-          nullable: true
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
           
 

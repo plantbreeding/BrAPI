@@ -208,6 +208,5 @@ components:
               example: CO_715:0000162
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
           
 

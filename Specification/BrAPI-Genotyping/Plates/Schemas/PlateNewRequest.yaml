@@ -24,7 +24,6 @@ components:
           description: A unique identifier physically attached to a `Plate`
           type: string
           example: '11223344'
-          nullable: true
         sampleType:
           description: The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc
           type: string
@@ -52,9 +51,7 @@ components:
           example: bd748e00
         plateFormat:
           $ref: '#/components/schemas/PlateFormat'
-          nullable: true
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
           
 
