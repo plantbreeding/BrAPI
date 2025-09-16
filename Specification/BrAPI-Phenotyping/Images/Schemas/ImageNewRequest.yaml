@@ -47,7 +47,9 @@ components:
           nullable: true
           example: 550
         imageLocation:
-          $ref: '#/components/schemas/geoJSON'
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/geoJSON'
         imageName:
           description: The human readable name of an image. Might be the same as 'imageFileName', but could be different.
           type: string

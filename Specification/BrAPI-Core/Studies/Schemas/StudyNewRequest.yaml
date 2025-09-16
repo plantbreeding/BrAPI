@@ -206,7 +206,9 @@ components:
               description: MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.
               type: string
               example: CO_715:0000162
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
+        externalReferences:
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/ExternalReferences'
           
 

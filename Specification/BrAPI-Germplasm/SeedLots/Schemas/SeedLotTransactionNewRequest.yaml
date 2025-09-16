@@ -44,7 +44,9 @@ components:
           type: string
           nullable: true
           example: seeds
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
+        externalReferences:
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/ExternalReferences'
           
 

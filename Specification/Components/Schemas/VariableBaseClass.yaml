@@ -66,7 +66,9 @@ components:
                 type: string
                 example: 0adb2764
         ontologyReference:
-          $ref: '#/components/schemas/OntologyReference'
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/OntologyReference'
         scale:
           allOf:
           - $ref: '#/components/schemas/ScaleBaseClass'
@@ -109,6 +111,7 @@ components:
                 description: The ID which uniquely identifies a trait
                 type: string
                 example: 9b2e34f5
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
-
+        externalReferences:
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/ExternalReferences'

@@ -27,8 +27,10 @@ components:
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
           type: object
           nullable: true
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
+        externalReferences:
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/ExternalReferences'
         description:
           description: Optional free text description of this reference set.
           type: string
@@ -91,5 +93,6 @@ components:
           nullable: true
           example: Maize
         species:
-          $ref: '#/components/schemas/OntologyTerm'
-
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/OntologyTerm'

@@ -50,8 +50,12 @@ components:
           nullable: true
           example: bd748e00
         plateFormat:
-          $ref: '#/components/schemas/PlateFormat'
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/PlateFormat'
+        externalReferences:
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/ExternalReferences'
           
 

@@ -54,6 +54,8 @@ components:
           type: string
           nullable: true
           example: bob-23
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
+        externalReferences:
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/ExternalReferences'
           

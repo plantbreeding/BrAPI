@@ -19,7 +19,9 @@ components:
           nullable: true
           example: 0ad6c0ef
         sampleSubmissionFormat:
-          $ref: '#/components/schemas/PlateFormat'
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/PlateFormat'
         samples:
           items:
             $ref: '#/components/schemas/VendorSample'

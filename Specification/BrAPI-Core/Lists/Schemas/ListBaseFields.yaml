@@ -58,5 +58,7 @@ components:
           example: GeneBank Repository 1.3
         listType:
           $ref: '#/components/schemas/ListTypes'
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
+        externalReferences:
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/ExternalReferences'

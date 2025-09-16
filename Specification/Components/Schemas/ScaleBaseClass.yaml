@@ -20,7 +20,9 @@ components:
           type: object
           nullable: true
         dataType:
-          $ref: '#/components/schemas/TraitDataType'
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/TraitDataType'
         decimalPlaces:
           description: For numerical, number of decimal places to be reported
           type: integer
@@ -97,6 +99,8 @@ components:
               type: string
               nullable: true
               example: '2'
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
+        externalReferences:
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/ExternalReferences'
 
