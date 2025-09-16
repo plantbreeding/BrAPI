@@ -43,7 +43,7 @@ def dereferenceAll(obj, parent):
                             comboObj['x-brapi-metadata'] = itemObj['x-brapi-metadata']
                         
                     obj = comboObj
-                else:
+                elif(fieldStr != 'nullable'):
                     obj[fieldStr] = dereferenceAll(obj[fieldStr], parent)
             if '$ref' in obj:
                 obj.pop('$ref')
