@@ -15,7 +15,6 @@ components:
       type: object
       properties:
         observationLevel:
-          nullable: true
           allOf:
           - $ref: '#/components/schemas/ObservationUnitLevel'
           - type: object
@@ -135,4 +134,6 @@ components:
           nullable: true
           example: GRID_ROW
         geoCoordinates:
-          $ref: '#/components/schemas/geoJSON'
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/geoJSON'
