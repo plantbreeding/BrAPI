@@ -11,14 +11,19 @@ mkdir -p ./build/results
 echo
 echo
 echo "Spell Check Run"
+echo "Spell checking BrAPI-Core"
 echo "BrAPI-Core" >> ./build/results/spellingResults.txt
 python3 ./Scripts/checkSpelling.py "./Specification/BrAPI-Core/" >> ./build/results/spellingResults.txt
+echo "Spell checking BrAPI-Germplasm"
 echo "BrAPI-Germplasm" >> ./build/results/spellingResults.txt
 python3 ./Scripts/checkSpelling.py "./Specification/BrAPI-Germplasm/" >> ./build/results/spellingResults.txt
+echo "Spell checking BrAPI-Phenotyping"
 echo "BrAPI-Phenotyping" >> ./build/results/spellingResults.txt
 python3 ./Scripts/checkSpelling.py "./Specification/BrAPI-Phenotyping/" >> ./build/results/spellingResults.txt
+echo "Spell checking BrAPI-Genotyping"
 echo "BrAPI-Genotyping" >> ./build/results/spellingResults.txt
 python3 ./Scripts/checkSpelling.py "./Specification/BrAPI-Genotyping/" >> ./build/results/spellingResults.txt
+echo "Spell checking Components"
 echo "Components" >> ./build/results/spellingResults.txt
 python3 ./Scripts/checkSpelling.py "./Specification/Components/" >> ./build/results/spellingResults.txt
 
@@ -26,33 +31,41 @@ python3 ./Scripts/checkSpelling.py "./Specification/Components/" >> ./build/resu
 echo
 echo
 echo "Build OpenAPI YAML files per domain: ./brapi_openapi.yaml"
-echo "Building  BrAPI-Core"
+echo "Building BrAPI-Core"
 python3 ./Scripts/buildOpenAPI.py "./Specification/BrAPI-Core/" "./Specification/Components/" "./Specification/BrAPI-Germplasm/" >> ./build/results/buildOpenAPIBrAPI-CoreResults.txt
-echo "Building  BrAPI-Germplasm"
+echo "Building BrAPI-Germplasm"
 python3 ./Scripts/buildOpenAPI.py "./Specification/BrAPI-Germplasm/" "./Specification/Components/" >> ./build/results/buildOpenAPIBrAPI-GermplasmResults.txt
-echo "Building  BrAPI-Phenotyping"
+echo "Building BrAPI-Phenotyping"
 python3 ./Scripts/buildOpenAPI.py "./Specification/BrAPI-Phenotyping/" "./Specification/Components/" >> ./build/results/buildOpenAPIBrAPI-PhenotypingResults.txt
-echo "Building  BrAPI-Genotyping"
+echo "Building BrAPI-Genotyping"
 python3 ./Scripts/buildOpenAPI.py "./Specification/BrAPI-Genotyping/" "./Specification/Components/" "./Specification/BrAPI-Germplasm/" >> ./build/results/buildOpenAPIBrAPI-GenotypingResults.txt
 
 echo
 echo
-echo "Build README files for Bitbucket"
+echo "Build README files"
+echo "Building BrAPI-Core README files"
 echo "BrAPI-Core" >> ./build/results/buildREADMEBrAPI-CoreResults.txt
 python3 ./Scripts/buildReadMes.py "./Specification/BrAPI-Core/" >> ./build/results/buildREADMEBrAPI-CoreResults.txt
+echo "Building BrAPI-Germplasm README files"
 echo "BrAPI-Germplasm" >> ./build/results/buildREADMEBrAPI-GermplasmResults.txt
 python3 ./Scripts/buildReadMes.py "./Specification/BrAPI-Germplasm/" >> ./build/results/buildREADMEBrAPI-GermplasmResults.txt
+echo "Building BrAPI-Phenotyping README files"
 echo "BrAPI-Phenotyping" >> ./build/results/buildREADMEBrAPI-PhenotypingResults.txt
 python3 ./Scripts/buildReadMes.py "./Specification/BrAPI-Phenotyping/" >> ./build/results/buildREADMEBrAPI-PhenotypingResults.txt
+echo "Building BrAPI-Genotyping README files"
 echo "BrAPI-Genotyping" >> ./build/results/buildREADMEBrAPI-GenotypingResults.txt
 python3 ./Scripts/buildReadMes.py "./Specification/BrAPI-Genotyping/" >> ./build/results/buildREADMEBrAPI-GenotypingResults.txt
 
 echo
 echo
 echo "Build BluePrint MD file: ./brapi_blueprint.apib ./brapi_blueprint.apib.json"
+echo "Build BluePrint MD for BrAPI-Core"
 python3 ./Scripts/buildBlueprint.py -out "./Specification/BrAPI-Core/" -header "./Specification/BrAPI-Core/swaggerMetaData.yaml" -source "./Specification/BrAPI-Core/" >> ./build/results/buildBlueprintResults.txt
+echo "Build BluePrint MD for BrAPI-Germplasm"
 python3 ./Scripts/buildBlueprint.py -out "./Specification/BrAPI-Germplasm/" -header "./Specification/BrAPI-Germplasm/swaggerMetaData.yaml" -source "./Specification/BrAPI-Germplasm/" >> ./build/results/buildBlueprintResults.txt
+echo "Build BluePrint MD for BrAPI-Phenotyping"
 python3 ./Scripts/buildBlueprint.py -out "./Specification/BrAPI-Phenotyping/" -header "./Specification/BrAPI-Phenotyping/swaggerMetaData.yaml" -source "./Specification/BrAPI-Phenotyping/" >> ./build/results/buildBlueprintResults.txt
+echo "Build BluePrint MD for BrAPI-Genotyping"
 python3 ./Scripts/buildBlueprint.py -out "./Specification/BrAPI-Genotyping/" -header "./Specification/BrAPI-Genotyping/swaggerMetaData.yaml" -source "./Specification/BrAPI-Genotyping/" >> ./build/results/buildBlueprintResults.txt
 
 echo
