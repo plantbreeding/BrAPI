@@ -30,6 +30,7 @@
                 }
             },
             "title": "OntologyTerm",
+            "description": "A pointer to an ontology used by a genomic reference",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

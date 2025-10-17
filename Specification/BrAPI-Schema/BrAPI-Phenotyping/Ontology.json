@@ -64,6 +64,7 @@
                 "ontologyDbId"
             ],
             "title": "Ontology",
+            "description": "The identifier and metadata needed to reference an external controlled vocabulary",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
