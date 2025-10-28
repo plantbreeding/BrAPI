@@ -1,6 +1,7 @@
 {
     "$defs": {
         "GermplasmAttribute": {
+            "description": "Germplasm \"attributes\" are simply-inherited characteristics (characterization descriptors) that are not environment-dependent but \ninherent in the germplasm line.  They include genes, QTLs, and genetic \"traits\" like wheat grain \nhardness.  They are often evaluated by genotyping for diagnostic markers.",
             "allOf": [
                 {
                     "$ref": "../BrAPI-Common/Attribute.json#/$defs/Attribute"

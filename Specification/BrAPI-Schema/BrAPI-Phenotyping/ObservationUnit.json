@@ -93,7 +93,7 @@
                     "relationshipType": "one-to-many",
                     "referencedAttribute": "observationUnit",
                     "items": {
-                        "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/Treatment",
+                        "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationTreatment",
                         "description": "Treatments"
                     },
                     "title": "Treatments",
@@ -227,22 +227,8 @@
                     ]
                 },
                 "positionCoordinateXType": {
-                    "description": "The type of positional coordinate used. Must be one of the following values \n\nLONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nLATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nPLANTED_ROW - The physical planted row number \n\nPLANTED_INDIVIDUAL - The physical counted number, could be independent or within a planted row \n\nGRID_ROW - The row index number of a square grid overlay \n\nGRID_COL - The column index number of a square grid overlay \n\nMEASURED_ROW - The distance in meters from a defined 0-th row \n\nMEASURED_COL - The distance in meters from a defined 0-th column ",
-                    "enum": [
-                        "LONGITUDE",
-                        "LATITUDE",
-                        "PLANTED_ROW",
-                        "PLANTED_INDIVIDUAL",
-                        "GRID_ROW",
-                        "GRID_COL",
-                        "MEASURED_ROW",
-                        "MEASURED_COL",
-                        null
-                    ],
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "description": "The type of positional coordinate used for the X coordinate of the position.",
+                    "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/PositionCoordinateType"
                 },
                 "positionCoordinateY": {
                     "description": "The Y position coordinate for an observation unit. Different systems may use different coordinate systems.",
@@ -252,22 +238,8 @@
                     ]
                 },
                 "positionCoordinateYType": {
-                    "description": "The type of positional coordinate used. Must be one of the following values \n\nLONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nLATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nPLANTED_ROW - The physical planted row number  \n\nPLANTED_INDIVIDUAL - The physical counted number, could be independent or within a planted row \n\nGRID_ROW - The row index number of a square grid overlay \n\nGRID_COL - The column index number of a square grid overlay \n\nMEASURED_ROW - The distance in meters from a defined 0-th row \n\nMEASURED_COL - The distance in meters from a defined 0-th column ",
-                    "enum": [
-                        "LONGITUDE",
-                        "LATITUDE",
-                        "PLANTED_ROW",
-                        "PLANTED_INDIVIDUAL",
-                        "GRID_ROW",
-                        "GRID_COL",
-                        "MEASURED_ROW",
-                        "MEASURED_COL",
-                        null
-                    ],
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "description": "The type of positional coordinate used for the Y coordinate of the position.",
+                    "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/PositionCoordinateType"
                 },
                 "observationUnit": {
                     "description": "associated observation Unit",
@@ -282,21 +254,24 @@
                 "primaryModel": false
             }
         },
-        "Treatment": {
+        "ObservationTreatment": {
+            "description": "A Treatment applied an Observation Unit at a given Modality/Level for a specific Factor.",
             "properties": {
                 "factor": {
                     "description": "The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc\n\nMIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "examples": ["test-factor:dia2020-2-nv.fertilizer"]
                 },
                 "modality": {
                     "description": "The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc\n\nMIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. ",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "examples": ["test-factor:dia2020-2-nv.lf"]
                 },
                 "observationUnit": {
                     "description": "associated observation Unit",
@@ -305,11 +280,29 @@
                     "referencedAttribute": "treatments"
                 }
             },
-            "title": "Treatment",
+            "title": "ObservationTreatment",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
             }
+        },
+        "PositionCoordinateType": {
+            "description": "The type of positional coordinate. Must be one of the following values \n\nLONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nLATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details \n\nPLANTED_ROW - The physical planted row number \n\nPLANTED_INDIVIDUAL - The physical counted number, could be independent or within a planted row \n\nGRID_ROW - The row index number of a square grid overlay \n\nGRID_COL - The column index number of a square grid overlay \n\nMEASURED_ROW - The distance in meters from a defined 0-th row \n\nMEASURED_COL - The distance in meters from a defined 0-th column ",
+            "enum": [
+                "LONGITUDE",
+                "LATITUDE",
+                "PLANTED_ROW",
+                "PLANTED_INDIVIDUAL",
+                "GRID_ROW",
+                "GRID_COL",
+                "MEASURED_ROW",
+                "MEASURED_COL",
+                null
+            ],
+            "type": [
+                "null",
+                "string"
+            ]
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/ObservationUnit.json",

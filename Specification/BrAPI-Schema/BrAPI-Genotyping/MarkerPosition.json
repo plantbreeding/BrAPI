@@ -1,6 +1,7 @@
 {
     "$defs": {
         "MarkerPosition": {
+            "description": "The position of a marker or variant within a `LinkageGroup`. A marker or variant may be positioned on more than one Linkage Group or Genome Map.",
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",

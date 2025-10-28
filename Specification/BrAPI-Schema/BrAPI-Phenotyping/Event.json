@@ -129,6 +129,7 @@
             }
         },
         "EventParameter": {
+            "description": "A parameter associated with an event.",
             "properties": {
                 "code": {
                     "description": "The shortened code name of an event parameter\n<br>ICASA \"Code_Display\"",

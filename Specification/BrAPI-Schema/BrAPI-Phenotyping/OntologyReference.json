@@ -1,6 +1,7 @@
 {
     "$defs": {
         "OntologyReference": {
+            "description": "A reference documentation in a ontology. For example., \n See MIAPPE V1.1\n        \n        (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology\n        \n        (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n        \n        (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n        \n        (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).",
             "properties": {
                 "documentationLinks": {
                     "description": "links to various ontology documentation",
@@ -46,8 +47,10 @@
             }
         },
         "DocumentationLink": {
+            "description": "A reference to documentation.",
             "properties": {
                 "URL": {
+                    "description": "The URL or URI to the documentation",
                     "format": "uri",
                     "type": [
                         "null",
@@ -55,6 +58,8 @@
                     ]
                 },
                 "type": {
+                    "description": "The type of documentation, which can be OBO Foundry, an RDF term or a webpage.",
+                    "title": "DocumentationLinkType",
                     "enum": [
                         "OBO",
                         "RDF",

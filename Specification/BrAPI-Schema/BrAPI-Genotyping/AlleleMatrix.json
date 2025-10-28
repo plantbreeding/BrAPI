@@ -155,6 +155,7 @@
             }
         },
         "Pagination": {
+            "description": "Allows for the pagination of large matrices.",
             "properties": {
                 "dimension": {
                     "description": "The dimension of the matrix being paginated",

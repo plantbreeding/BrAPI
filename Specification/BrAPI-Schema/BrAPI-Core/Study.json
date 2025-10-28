@@ -68,10 +68,8 @@
                 "environmentParameters": {
                     "description": "Environmental parameters that were kept constant throughout the study and did not change between observation units.\n\nMIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).",
                     "relationshipType": "one-to-many",
-                    "referencedAttribute": "study",
                     "items": {
-                        "$ref": "../BrAPI-Core/Study.json#/$defs/EnvironmentParameters",
-                        "description": "EnvironmentParameters"
+                        "$ref": "../BrAPI-Core/Study.json#/$defs/EnvironmentParameter"
                     },
                     "title": "EnvironmentParameters",
                     "type": [
@@ -321,7 +319,8 @@
                 "primaryModel": true
             }
         },
-        "EnvironmentParameters": {
+        "EnvironmentParameter": {
+            "description": "An environmental parameter that were kept constant throughout the study and did not change between observation units.\n\nMIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables.",
             "properties": {
                 "description": {
                     "description": "Human-readable value of the environment parameter (defined above) constant within the experiment",
@@ -453,6 +452,7 @@
                     "type": "string"
                 },
                 "timestamp": {
+                    "description": "The timestamp of the update.",
                     "format": "date-time",
                     "type": [
                         "null",
@@ -460,6 +460,7 @@
                     ]
                 },
                 "version": {
+                    "description": "The version of the update.",
                     "type": [
                         "null",
                         "string"

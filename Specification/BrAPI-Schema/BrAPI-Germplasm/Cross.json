@@ -65,12 +65,12 @@
                 },
                 "plannedCross": {
                     "$ref": "PlannedCross.json#/$defs/PlannedCross",
-                    "description": "the unique identifier for a planned cross",
+                    "description": "The Planned Cross that was using in the planning of this Cross.",
                     "referencedAttribute": "crosses",
                     "relationshipType": "many-to-one"
                 },
                 "pollinationEvents": {
-                    "description": "The list of pollination events that occurred for this cross",
+                    "description": "The list of pollination events that occurred for this cross.",
                     "relationshipType": "one-to-many",
                     "referencedAttribute": "cross",
                     "items": {
@@ -108,6 +108,7 @@
             }
         },
         "CrossAttribute": {
+            "description": "An attribute of a Cross.",
             "properties": {
                 "crossAttributeName": {
                     "description": "the human readable name of a cross attribute",
@@ -137,6 +138,7 @@
             }
         },
         "PollinationEvent": {
+            "description": "A Pollination Event that was used or attempted for a Cross.",
             "properties": {
                 "pollinationNumber": {
                     "description": "The unique identifier for this pollination event",
@@ -161,7 +163,7 @@
                     ]
                 },
                 "cross": {
-                    "description": "Pollination events associated with a cross",
+                    "description": "The Cross associated with this Pollination Event",
                     "$ref": "../BrAPI-Germplasm/Cross.json#/$defs/Cross",
                     "relationshipType": "many-to-one",
                     "referencedAttribute": "pollinationEvents"
