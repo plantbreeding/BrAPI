@@ -314,6 +314,7 @@
                 "studyDbId"
             ],
             "title": "Study",
+            "description": "A Study represents an experiment that has taken place at a single location. The Study contains metadata about the parameters and design of the experiment. It can also be used to group results and data sets generated from the experiment. A Trial can represent a collection of one or more Studies.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
@@ -382,6 +383,7 @@
                 "description"
             ],
             "title": "EnvironmentParameters",
+            "description": "Environmental parameters that were kept constant throughout the study and did not change between observation units. \n\nMIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
@@ -411,6 +413,7 @@
                 }
             },
             "title": "ExperimentalDesign",
+            "description": "The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
@@ -440,6 +443,7 @@
                 }
             },
             "title": "GrowthFacility",
+            "description": "Short description of the facility in which the study was carried out.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
@@ -477,6 +481,7 @@
                 "lastUpdateDbId"
             ],
             "title": "LastUpdate",
+            "description": "The date and time when this study was last modified",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

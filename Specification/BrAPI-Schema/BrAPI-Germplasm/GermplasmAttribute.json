@@ -1,7 +1,6 @@
 {
     "$defs": {
         "GermplasmAttribute": {
-            "description": "Germplasm \"attributes\" are simply-inherited characteristics (characterization descriptors) that are not environment-dependent but \ninherent in the germplasm line.  They include genes, QTLs, and genetic \"traits\" like wheat grain \nhardness.  They are often evaluated by genotyping for diagnostic markers.",
             "allOf": [
                 {
                     "$ref": "../BrAPI-Common/Attribute.json#/$defs/Attribute"
@@ -27,6 +26,7 @@
                 }
             ],
             "title": "GermplasmAttribute",
+            "description": "The Trait-Method-Scale definition for a variable, specifically variables related to Germplasm. Similar to an ObservationVariable, but related to a Germplasm instead of an ObservationUnit",
             "brapi-metadata": {
                 "primaryModel": true
             }

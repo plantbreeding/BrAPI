@@ -1,7 +1,6 @@
 {
     "$defs": {
         "OntologyReference": {
-            "description": "A reference documentation in a ontology. For example., \n See MIAPPE V1.1\n        \n        (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology\n        \n        (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n        \n        (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n        \n        (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).",
             "properties": {
                 "documentationLinks": {
                     "description": "links to various ontology documentation",
@@ -41,13 +40,13 @@
                 "ontology"
             ],
             "title": "OntologyReference",
+            "description": "MIAPPE V1.1 (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology \nMIAPPE V1.1 (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\nMIAPPE V1.1 (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\nMIAPPE V1.1 (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
             }
         },
         "DocumentationLink": {
-            "description": "A reference to documentation.",
             "properties": {
                 "URL": {
                     "description": "The URL or URI to the documentation",
@@ -79,6 +78,7 @@
                 }
             },
             "title": "DocumentationLink",
+            "description": "Links to various ontology documentation",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

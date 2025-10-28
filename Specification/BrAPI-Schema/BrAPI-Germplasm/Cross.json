@@ -102,13 +102,13 @@
                 "crossDbId"
             ],
             "title": "Cross",
+            "description": "The identifiers and metadata represent that specific organisms have mated to produce offspring with particular traits or genes. The offspring of a Cross might be developed into a Germplasm if the desired traits are present.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
             }
         },
         "CrossAttribute": {
-            "description": "An attribute of a Cross.",
             "properties": {
                 "crossAttributeName": {
                     "description": "the human readable name of a cross attribute",
@@ -132,13 +132,13 @@
                 }
             },
             "title": "CrossAttribute",
+            "description": "A custom attribute associated with a cross",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
             }
         },
         "PollinationEvent": {
-            "description": "A Pollination Event that was used or attempted for a Cross.",
             "properties": {
                 "pollinationNumber": {
                     "description": "The unique identifier for this pollination event",
@@ -170,6 +170,7 @@
                 }
             },
             "title": "PollinationEvent",
+            "description": "A pollination event that occurred for this cross",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

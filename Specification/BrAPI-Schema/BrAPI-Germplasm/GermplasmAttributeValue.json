@@ -1,7 +1,6 @@
 {
     "$defs": {
         "GermplasmAttributeValue": {
-            "description": "Germplasm \"attributes\" values are simply-inherited characteristics (characterization descriptors) that are not environment-dependent but \ninherent in the germplasm line.  They include genes, QTLs, and genetic \"traits\" like wheat grain \nhardness.  They are often evaluated by genotyping for diagnostic markers.",
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
@@ -57,6 +56,7 @@
                 "attribute"
             ],
             "title": "GermplasmAttributeValue",
+            "description": "The value recorded for a particular Trait/Attribute and a particular Germplasm. Similar to an Observation value, but more concrete, applying to the whole Germplasm instead of a single ObservationUnit.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true

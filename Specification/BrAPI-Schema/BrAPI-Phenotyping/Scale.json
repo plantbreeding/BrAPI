@@ -72,7 +72,6 @@
                     ]
                 },
                 "validValues": {
-                    "description": "Defines the valid values for a Scale, which be restricted to a list of categorical values, or a minimum and or maximum value.",
                     "relationshipType": "one-to-one",
                     "referencedAttribute": "scale",
                     "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/ValidValues",
@@ -88,6 +87,7 @@
                 "scaleName"
             ],
             "title": "Scale",
+            "description": "A Scale describes the units and acceptable values for an ObservationVariable. \n<br>For example, an ObservationVariable might be defined with a Trait of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\". This variable would be distinct from a variable with the Scale \"inches\" or \"pixels\".",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
@@ -132,13 +132,13 @@
                 }
             },
             "title": "ValidValues",
+            "description": "Metadata describing the acceptable values for this Scale",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
             }
         },
         "ValidValuesCategory": {
-            "description": "A categorical value for a Scale.",
             "properties": {
                 "label": {
                     "description": "A text label for a category",
@@ -162,6 +162,7 @@
                 }
             },
             "title": "ValidValuesCategory",
+            "description": "If the Scale is a categorical type, these objects define the valid options",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

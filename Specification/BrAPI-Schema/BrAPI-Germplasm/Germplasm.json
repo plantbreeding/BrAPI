@@ -383,13 +383,13 @@
                 "commonCropName"
             ],
             "title": "Germplasm",
+            "description": "The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
             }
         },
         "Donor": {
-            "description": "Information about the Germplasm from the donor, such as the donor institute and the accession number from the donor institute. ",
             "properties": {
                 "donorAccessionNumber": {
                     "description": "The accession number assigned by the donor\n\nMCPD (v2.1) (DONORNUMB) 23. Identifier assigned to an accession by the donor. Follows ACCENUMB standard.",
@@ -413,6 +413,7 @@
                 }
             },
             "title": "Donor",
+            "description": "Identifier assigned to an accession by the material donor.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
@@ -449,13 +450,13 @@
                 }
             },
             "title": "GermplasmOrigin",
+            "description": "Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
             }
         },
         "StorageType": {
-            "description": "The type of storage for a Germplasm in a genebank",
             "properties": {
                 "code": {
                     "description": "The 2 digit code representing the type of storage this germplasm is kept in at a genebank. \n\nMCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) \n\n10) Seed collection \n11) Short term \n12) Medium term \n13) Long term \n20) Field collection \n30) In vitro collection \n40) Cryo-preserved collection \n50) DNA collection \n99) Other (elaborate in REMARKS field)",
@@ -492,6 +493,7 @@
                 }
             },
             "title": "StorageType",
+            "description": "The type of storage this germplasm is kept in at a genebank.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
@@ -522,6 +524,7 @@
                 }
             },
             "title": "Synonym",
+            "description": "Alternative names or IDs used to reference this germplasm",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
@@ -550,6 +553,7 @@
                 "taxonId"
             ],
             "title": "TaxonId",
+            "description": "The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as \"ncbiTaxon\" preferably with a purl. The rank of this ID should be species. \n\nMIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
