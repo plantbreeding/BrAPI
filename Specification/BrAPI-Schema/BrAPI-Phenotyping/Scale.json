@@ -94,7 +94,7 @@
             }
         },
         "ValidValues": {
-            "description": "Defines the valid values for a Scale, which be restricted to a list of categorical values, or a minimum and or maximum value.",
+            "description": "Defines the valid values for a Scale, which can be restricted to a list of categorical values, or a minimum and/or a maximum value.",
             "properties": {
                 "categories": {
                     "description": "List of possible values with optional labels",
