@@ -257,6 +257,7 @@
             }
         },
         "ObservationTreatment": {
+            "description": "A Treatment applied an Observation Unit at a given Modality/Level for a specific Factor.",
             "properties": {
                 "factor": {
                     "description": "The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc\n\nMIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.",
@@ -282,7 +283,6 @@
                 }
             },
             "title": "ObservationTreatment",
-            "description": "The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc. MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

@@ -65,7 +65,7 @@
                 },
                 "plannedCross": {
                     "$ref": "PlannedCross.json#/$defs/PlannedCross",
-                    "description": "The Planned Cross that was using in the planning of this Cross.",
+                    "description": "The Cross that was used in the planning of this one.",
                     "referencedAttribute": "crosses",
                     "relationshipType": "many-to-one"
                 },
