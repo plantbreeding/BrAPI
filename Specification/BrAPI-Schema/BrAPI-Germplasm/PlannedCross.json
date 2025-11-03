@@ -1,7 +1,7 @@
 {
     "$defs": {
         "PlannedCross": {
-            "description": "A Planned Cross that was using in the planning of of Crosses before a Cross is actually made and recorded.",
+            "description": "A Cross that was used in the planning of another Cross before the other Cross was actually made and recorded.",
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
