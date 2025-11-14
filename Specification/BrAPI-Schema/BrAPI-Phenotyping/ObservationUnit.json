@@ -169,7 +169,6 @@
                 "observationUnitDbId"
             ],
             "title": "ObservationUnit",
-            "description": "A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
@@ -284,21 +283,23 @@
                 "primaryModel": false
             }
         },
-        "Treatment": {
+        "ObservationTreatment": {
             "properties": {
                 "factor": {
                     "description": "The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc\n\nMIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "examples": ["test-factor:dia2020-2-nv.fertilizer"]
                 },
                 "modality": {
                     "description": "The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc\n\nMIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. ",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "examples": ["test-factor:dia2020-2-nv.lf"]
                 },
                 "observationUnit": {
                     "description": "associated observation Unit",
@@ -307,7 +308,7 @@
                     "referencedAttribute": "treatments"
                 }
             },
-            "title": "Treatment",
+            "title": "ObservationTreatment",
             "description": "The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc. MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.",
             "type": "object",
             "brapi-metadata": {

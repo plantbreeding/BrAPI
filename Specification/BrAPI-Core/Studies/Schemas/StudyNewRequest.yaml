@@ -179,20 +179,8 @@ components:
           nullable: true
           example: Irrigation was applied according needs during summer to prevent water stress.
         experimentalDesign:
-          description: The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology
-          type: object
+          $ref: '#/components/schemas/ExperimentalDesign'
           nullable: true
-          properties:
-            description:
-              description: MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.
-              type: string
-              nullable: true
-              example: Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information.
-            PUI:
-              description: MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.
-              type: string
-              nullable: true
-              example: CO_715:0000145
         growthFacility:
           description: Short description of the facility in which the study was carried out.
           type: object

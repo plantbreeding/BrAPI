@@ -1201,6 +1201,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -1486,6 +1488,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -2409,6 +2413,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -2666,6 +2672,8 @@ New required properties:
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -2988,6 +2996,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -3104,6 +3114,8 @@ New required properties:
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -3274,6 +3286,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -3559,6 +3573,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -3619,6 +3635,8 @@ Changed content type : `application/json`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -4604,6 +4622,8 @@ Changed: `germplasmPUI` in `query`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -4688,6 +4708,8 @@ Changed content type : `application/json`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -4942,6 +4964,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -5034,6 +5058,8 @@ New required properties:
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -5310,6 +5336,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -5974,6 +6002,8 @@ New required properties:
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -6185,6 +6215,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -6398,6 +6430,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -6623,7 +6657,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -6838,7 +6876,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -7021,6 +7063,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -7197,6 +7241,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -7433,7 +7479,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -7680,6 +7730,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -7836,6 +7888,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -8022,7 +8076,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -8242,7 +8300,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -8424,6 +8486,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -8591,7 +8655,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -8771,7 +8839,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -8984,7 +9056,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -9240,7 +9316,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -9496,6 +9576,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -9703,6 +9785,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -10122,6 +10206,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -10254,6 +10340,8 @@ New required properties:
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -10514,6 +10602,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -10590,6 +10680,8 @@ Changed content type : `application/json`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -10997,6 +11089,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -11195,6 +11289,8 @@ New optional properties:
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -11489,6 +11585,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -11839,6 +11937,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -13247,6 +13347,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -13751,6 +13853,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -13844,6 +13948,8 @@ Changed content type : `application/json`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -14044,6 +14150,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -14235,6 +14343,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -14350,6 +14460,8 @@ Changed response : **200 OK**
 
             * Added property `environmentParameterDbIds` (array)
 
+            * Added property `experimentalDesignPUI` (string)
+
             * Added property `lastUpdateDbId` (string)
 
             * Added property `trialPUI` (string)
@@ -14367,6 +14479,8 @@ Changed response : **200 OK**
                 > 
                 > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
 
+
+            * Deleted property `experimentalDesign` (object)
 
             * Deleted property `externalReferences` (array)
                 > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -14429,18 +14543,6 @@ Changed response : **200 OK**
             * Changed property `trialDbId` (string)
 
             * Changed property `trialName` (string)
-
-            * Changed property `experimentalDesign` (object)
-
-                * Added property `studyDbId` (string)
-
-                * Added property `studyName` (string)
-
-                * Added property `studyPUI` (string)
-
-                * Changed property `PUI` (string)
-
-                * Changed property `description` (string)
 
             * Changed property `growthFacility` (object)
 
@@ -14488,7 +14590,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -14509,6 +14615,8 @@ Changed response : **200 OK**
 
             * Added property `environmentParameterDbIds` (array)
 
+            * Added property `experimentalDesignPUI` (string)
+
             * Added property `lastUpdateDbId` (string)
 
             * Added property `trialPUI` (string)
@@ -14526,6 +14634,8 @@ Changed response : **200 OK**
                 > 
                 > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
 
+
+            * Deleted property `experimentalDesign` (object)
 
             * Deleted property `externalReferences` (array)
                 > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -14588,18 +14698,6 @@ Changed response : **200 OK**
             * Changed property `trialDbId` (string)
 
             * Changed property `trialName` (string)
-
-            * Changed property `experimentalDesign` (object)
-
-                * Added property `studyDbId` (string)
-
-                * Added property `studyName` (string)
-
-                * Added property `studyPUI` (string)
-
-                * Changed property `PUI` (string)
-
-                * Changed property `description` (string)
 
             * Changed property `growthFacility` (object)
 
@@ -14754,7 +14852,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -14960,6 +15062,8 @@ Changed response : **200 OK**
 
             * Added property `environmentParameterDbIds` (array)
 
+            * Added property `experimentalDesignPUI` (string)
+
             * Added property `lastUpdateDbId` (string)
 
             * Added property `trialPUI` (string)
@@ -14977,6 +15081,8 @@ Changed response : **200 OK**
                 > 
                 > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
 
+
+            * Deleted property `experimentalDesign` (object)
 
             * Deleted property `externalReferences` (array)
                 > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -15039,18 +15145,6 @@ Changed response : **200 OK**
             * Changed property `trialDbId` (string)
 
             * Changed property `trialName` (string)
-
-            * Changed property `experimentalDesign` (object)
-
-                * Added property `studyDbId` (string)
-
-                * Added property `studyName` (string)
-
-                * Added property `studyPUI` (string)
-
-                * Changed property `PUI` (string)
-
-                * Changed property `description` (string)
 
             * Changed property `growthFacility` (object)
 
@@ -15095,6 +15189,8 @@ Changed response : **200 OK**
 
             * Added property `environmentParameterDbIds` (array)
 
+            * Added property `experimentalDesignPUI` (string)
+
             * Added property `lastUpdateDbId` (string)
 
             * Added property `trialPUI` (string)
@@ -15112,6 +15208,8 @@ Changed response : **200 OK**
                 > 
                 > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
 
+
+            * Deleted property `experimentalDesign` (object)
 
             * Deleted property `externalReferences` (array)
                 > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -15175,18 +15273,6 @@ Changed response : **200 OK**
 
             * Changed property `trialName` (string)
 
-            * Changed property `experimentalDesign` (object)
-
-                * Added property `studyDbId` (string)
-
-                * Added property `studyName` (string)
-
-                * Added property `studyPUI` (string)
-
-                * Changed property `PUI` (string)
-
-                * Changed property `description` (string)
-
             * Changed property `growthFacility` (object)
 
                 * Added property `studyDbId` (string)
@@ -15219,6 +15305,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -15234,6 +15322,8 @@ Changed response : **200 OK**
         * Added property `contactDbIds` (array)
 
         * Added property `environmentParameterDbIds` (array)
+
+        * Added property `experimentalDesignPUI` (string)
 
         * Added property `lastUpdateDbId` (string)
 
@@ -15252,6 +15342,8 @@ Changed response : **200 OK**
             > 
             > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
 
+
+        * Deleted property `experimentalDesign` (object)
 
         * Deleted property `externalReferences` (array)
             > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -15315,18 +15407,6 @@ Changed response : **200 OK**
 
         * Changed property `trialName` (string)
 
-        * Changed property `experimentalDesign` (object)
-
-            * Added property `studyDbId` (string)
-
-            * Added property `studyName` (string)
-
-            * Added property `studyPUI` (string)
-
-            * Changed property `PUI` (string)
-
-            * Changed property `description` (string)
-
         * Changed property `growthFacility` (object)
 
             * Added property `studyDbId` (string)
@@ -15362,6 +15442,8 @@ New required properties:
 
 * Added property `environmentParameterDbIds` (array)
 
+* Added property `experimentalDesignPUI` (string)
+
 * Added property `lastUpdateDbId` (string)
 
 * Added property `studyDbId` (string)
@@ -15381,6 +15463,8 @@ New required properties:
     > 
     > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
 
+
+* Deleted property `experimentalDesign` (object)
 
 * Deleted property `externalReferences` (array)
     > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -15438,18 +15522,6 @@ New required properties:
 
 * Changed property `trialName` (string)
 
-* Changed property `experimentalDesign` (object)
-
-    * Added property `studyDbId` (string)
-
-    * Added property `studyName` (string)
-
-    * Added property `studyPUI` (string)
-
-    * Changed property `PUI` (string)
-
-    * Changed property `description` (string)
-
 * Changed property `growthFacility` (object)
 
     * Added property `studyDbId` (string)
@@ -15465,6 +15537,8 @@ New required properties:
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -15480,6 +15554,8 @@ Changed response : **200 OK**
         * Added property `contactDbIds` (array)
 
         * Added property `environmentParameterDbIds` (array)
+
+        * Added property `experimentalDesignPUI` (string)
 
         * Added property `lastUpdateDbId` (string)
 
@@ -15498,6 +15574,8 @@ Changed response : **200 OK**
             > 
             > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
 
+
+        * Deleted property `experimentalDesign` (object)
 
         * Deleted property `externalReferences` (array)
             > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -15560,18 +15638,6 @@ Changed response : **200 OK**
         * Changed property `trialDbId` (string)
 
         * Changed property `trialName` (string)
-
-        * Changed property `experimentalDesign` (object)
-
-            * Added property `studyDbId` (string)
-
-            * Added property `studyName` (string)
-
-            * Added property `studyPUI` (string)
-
-            * Changed property `PUI` (string)
-
-            * Changed property `description` (string)
 
         * Changed property `growthFacility` (object)
 
@@ -15889,6 +15955,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -16043,6 +16111,8 @@ New required properties:
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -16391,6 +16461,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -16541,6 +16613,8 @@ New required properties:
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -16884,6 +16958,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -17054,6 +17130,8 @@ New required properties:
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -17447,6 +17525,8 @@ New required properties:
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -17540,6 +17620,8 @@ Changed content type : `application/json`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -17641,6 +17723,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -17856,7 +17940,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -18080,6 +18168,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -18313,6 +18403,8 @@ Deleted: `pageSize` in `query`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 

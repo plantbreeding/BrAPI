@@ -4,16 +4,17 @@ plugins {
 
 ext {
   javaMainClass = 'org.brapi.schematools.cli.BrAPICommand'
-  brapiSchemaToolsVersion = '0.31.0-SNAPSHOT'
+  brapiSchemaToolsVersion = '0.37.0'
 }
 
 repositories {
   mavenCentral()
+  maven {url 'https://central.sonatype.com/repository/maven-snapshots/'}
   maven {url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'}
 }
 
 dependencies {
-  implementation "org.brapi:brapi-schema-tools-cli:$brapiSchemaToolsVersion"
+  implementation "org.brapi.brapi-schema-tools:brapi-schema-tools-cli:$brapiSchemaToolsVersion"
 }
 
 tasks.register('copyOpenApi', Copy) {
@@ -46,23 +47,47 @@ tasks.register("generateGraphQL", JavaExec) {
           '-l', 'GRAPHQL',
           '-f', filename,
           '-x',
-          '-s']
+          '-t']
 }
 
 tasks.register("generateOpenAPI", JavaExec) {
   group = 'BrAPI'
-  description = 'Generate OpenAPI schema from the Json Schema'
+  description = 'Generate YAML OpenAPI schema per module from the Json Schema'
+  classpath = sourceSets.main.runtimeClasspath
+  mainClass = javaMainClass
+  workingDir = '../'
+  def filename = "Specification/Generated"
+  def optionfilename = "generator/openapi-options.yaml"
+  def metadatafilename = "generator/openapi-metadata.yaml"
+  args = ['generate', 'Specification/BrAPI-Schema',
+          '-l', 'OPEN_API',
+          '-f', filename,
+          '-o', optionfilename,
+          '-m', metadatafilename,
+          '-c', 'Specification/OpenAPI-Components',
+          '-x',
+          '-t']
+}
+
+tasks.register("generateOpenAPIJSON", JavaExec) {
+  group = 'BrAPI'
+  description = 'Generate Single JSON OpenAPI schema from the Json Schema'
   classpath = sourceSets.main.runtimeClasspath
   mainClass = javaMainClass
   workingDir = '../'
   def filename = "Specification/Generated/brapi_generated.json"
+  def optionfilename = "generator/openapi-single-file-options.yaml"
+  def metadatafilename = "generator/openapi-metadata.yaml"
   args = ['generate', 'Specification/BrAPI-Schema',
-          '-l', 'OPEN_API',
+          '-l', 'OPEN_API_JSON',
           '-f', filename,
+          '-o', optionfilename,
+          '-m', metadatafilename,
           '-c', 'Specification/OpenAPI-Components',
           '-x',
-          '-s']
+          '-t']
 }
+
 
 tasks.register("generateOWL", JavaExec) {
   group = 'BrAPI'
@@ -76,12 +101,13 @@ tasks.register("generateOWL", JavaExec) {
           '-f', filename,
           '-m', 'generator/ont-model-metadata.yaml',
           '-x',
-          '-s']
+          '-t']
 }
 
 tasks.register("generateAll") {
   dependsOn generateGraphQL
   dependsOn generateOpenAPI
+  dependsOn generateOpenAPIJSON
   dependsOn generateOWL
 }
 
@@ -99,7 +125,7 @@ tasks.register("compareOpenAPI", JavaExec) {
           '-f', filename,
           '-w', 'MARKDOWN',
           '-x',
-          '-s']
+          '-t']
 }
 
 tasks.register("compareAll") {
