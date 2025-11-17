@@ -178,7 +178,9 @@ Get a filtered set of Observation Units
 <tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study</td></tr>
 <tr><td><span style="font-weight:bold;">treatments</span></td><td>array[object]</td><td>List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.</td></tr>
 <tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
-<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. </td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modalityPUI</span></td><td>string</td><td>The PUI of the modality which may link to an ontology</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
 <tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial</td></tr>
 </table>
@@ -351,7 +353,9 @@ Get a filtered set of Observation Units
                 "treatments": [
                     {
                         "factor": "fertilizer",
-                        "modality": "low fertilizer"
+                        "factorPUI": "test-factor:dia2020-2-nv.fertilizer",
+                        "modality": "low fertilizer",
+                        "modalityPUI": "test-factor:dia2020-2-nv.lf"
                     }
                 ],
                 "trialDbId": "776a609c",
@@ -424,7 +428,9 @@ Add new Observation Units
 <tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study</td></tr>
 <tr><td><span style="font-weight:bold;">treatments</span></td><td>array[object]</td><td>List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.</td></tr>
 <tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
-<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. </td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modalityPUI</span></td><td>string</td><td>The PUI of the modality which may link to an ontology</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
 <tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial</td></tr>
 </table>
@@ -494,7 +500,9 @@ Add new Observation Units
 <tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study</td></tr>
 <tr><td><span style="font-weight:bold;">treatments</span></td><td>array[object]</td><td>List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.</td></tr>
 <tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
-<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. </td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modalityPUI</span></td><td>string</td><td>The PUI of the modality which may link to an ontology</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
 <tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial</td></tr>
 </table>
@@ -579,7 +587,9 @@ Add new Observation Units
         "treatments": [
             {
                 "factor": "fertilizer",
-                "modality": "low fertilizer"
+                "factorPUI": "test-factor:dia2020-2-nv.fertilizer",
+                "modality": "low fertilizer",
+                "modalityPUI": "test-factor:dia2020-2-nv.lf"
             }
         ],
         "trialDbId": "776a609c",
@@ -727,7 +737,9 @@ Add new Observation Units
                 "treatments": [
                     {
                         "factor": "fertilizer",
-                        "modality": "low fertilizer"
+                        "factorPUI": "test-factor:dia2020-2-nv.fertilizer",
+                        "modality": "low fertilizer",
+                        "modalityPUI": "test-factor:dia2020-2-nv.lf"
                     }
                 ],
                 "trialDbId": "776a609c",
@@ -833,7 +845,9 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 <tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study</td></tr>
 <tr><td><span style="font-weight:bold;">treatments</span></td><td>array[object]</td><td>List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.</td></tr>
 <tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
-<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. </td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modalityPUI</span></td><td>string</td><td>The PUI of the modality which may link to an ontology</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
 <tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial</td></tr>
 </table>
@@ -1127,7 +1141,9 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                 "treatments": [
                     {
                         "factor": "fertilizer",
-                        "modality": "low fertilizer"
+                        "factorPUI": "test-factor:dia2020-2-nv.fertilizer",
+                        "modality": "low fertilizer",
+                        "modalityPUI": "test-factor:dia2020-2-nv.lf"
                     }
                 ],
                 "trialDbId": "776a609c",
@@ -1485,7 +1501,9 @@ Get the details of a specific Observation Unit
 <tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study</td></tr>
 <tr><td><span style="font-weight:bold;">treatments</span></td><td>array[object]</td><td>List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.</td></tr>
 <tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
-<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. </td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modalityPUI</span></td><td>string</td><td>The PUI of the modality which may link to an ontology</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
 <tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial</td></tr>
 </table>
@@ -1635,7 +1653,9 @@ Get the details of a specific Observation Unit
         "treatments": [
             {
                 "factor": "fertilizer",
-                "modality": "low fertilizer"
+                "factorPUI": "test-factor:dia2020-2-nv.fertilizer",
+                "modality": "low fertilizer",
+                "modalityPUI": "test-factor:dia2020-2-nv.lf"
             }
         ],
         "trialDbId": "776a609c",
@@ -1706,7 +1726,9 @@ Update an existing Observation Units
 <tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study</td></tr>
 <tr><td><span style="font-weight:bold;">treatments</span></td><td>array[object]</td><td>List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.</td></tr>
 <tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
-<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. </td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modalityPUI</span></td><td>string</td><td>The PUI of the modality which may link to an ontology</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
 <tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial</td></tr>
 </table>
@@ -1776,7 +1798,9 @@ Update an existing Observation Units
 <tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study</td></tr>
 <tr><td><span style="font-weight:bold;">treatments</span></td><td>array[object]</td><td>List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.</td></tr>
 <tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
-<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. </td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modalityPUI</span></td><td>string</td><td>The PUI of the modality which may link to an ontology</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
 <tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial</td></tr>
 </table>
@@ -1861,7 +1885,9 @@ Update an existing Observation Units
     "treatments": [
         {
             "factor": "fertilizer",
-            "modality": "low fertilizer"
+            "factorPUI": "test-factor:dia2020-2-nv.fertilizer",
+            "modality": "low fertilizer",
+            "modalityPUI": "test-factor:dia2020-2-nv.lf"
         }
     ],
     "trialDbId": "776a609c",
@@ -2006,7 +2032,9 @@ Update an existing Observation Units
         "treatments": [
             {
                 "factor": "fertilizer",
-                "modality": "low fertilizer"
+                "factorPUI": "test-factor:dia2020-2-nv.fertilizer",
+                "modality": "low fertilizer",
+                "modalityPUI": "test-factor:dia2020-2-nv.lf"
             }
         ],
         "trialDbId": "776a609c",
@@ -2144,7 +2172,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study</td></tr>
 <tr><td><span style="font-weight:bold;">treatments</span></td><td>array[object]</td><td>List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.</td></tr>
 <tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
-<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. </td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modalityPUI</span></td><td>string</td><td>The PUI of the modality which may link to an ontology</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
 <tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial</td></tr>
 </table>
@@ -2405,7 +2435,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "treatments": [
                     {
                         "factor": "fertilizer",
-                        "modality": "low fertilizer"
+                        "factorPUI": "test-factor:dia2020-2-nv.fertilizer",
+                        "modality": "low fertilizer",
+                        "modalityPUI": "test-factor:dia2020-2-nv.lf"
                     }
                 ],
                 "trialDbId": "776a609c",
@@ -2536,7 +2568,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study</td></tr>
 <tr><td><span style="font-weight:bold;">treatments</span></td><td>array[object]</td><td>List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.</td></tr>
 <tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
-<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. </td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modalityPUI</span></td><td>string</td><td>The PUI of the modality which may link to an ontology</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
 <tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial</td></tr>
 </table>
@@ -2690,7 +2724,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "treatments": [
                     {
                         "factor": "fertilizer",
-                        "modality": "low fertilizer"
+                        "factorPUI": "test-factor:dia2020-2-nv.fertilizer",
+                        "modality": "low fertilizer",
+                        "modalityPUI": "test-factor:dia2020-2-nv.lf"
                     }
                 ],
                 "trialDbId": "776a609c",

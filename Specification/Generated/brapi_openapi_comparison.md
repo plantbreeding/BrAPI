@@ -31,6 +31,18 @@
 > Get the details of a specific Germplasm in MCPD format
 
 
+##### `GET` /germplasm/{germplasmDbId}/pedigree
+
+> **Deprecated in v2.1** Please use `GET /pedigree?germplasmDbId={germplasmDbId}`. Github issue number #481 
+> <br/> Get the pedigree details of a specific Germplasm
+
+
+##### `GET` /germplasm/{germplasmDbId}/progeny
+
+> **Deprecated in v2.1** Please use `GET /pedigree?germplasmDbId={germplasmDbId}`. Github issue number #481 
+> <br/> Get the progeny details of a specific Germplasm
+
+
 ##### `PUT` /images/{imageDbId}/imagecontent
 
 > Attach an image binary file to an existing image metadata record
@@ -39,6 +51,11 @@
 ##### `POST` /lists/{listDbId}/data
 
 > Add new data members to a specific List
+
+
+##### `POST` /lists/{listDbId}/items
+
+> Add Items to a specific List
 
 
 ##### `GET` /maps/{mapDbId}/linkagegroups
@@ -96,14 +113,49 @@
 > Create new `VariantSet` based on search results
 
 
+##### `GET` /vendor/orders
+
+> List current available orders
+
+
+##### `POST` /vendor/orders
+
+> Submit New Order
+
+
+##### `GET` /vendor/orders/{orderId}/plates
+
+> Get the Plates for a specific Order
+
+
+##### `GET` /vendor/orders/{orderId}/results
+
+> Get the results of a specific Order
+
+
+##### `GET` /vendor/orders/{orderId}/status
+
+> Get the status of a specific Order
+
+
+##### `POST` /vendor/plates
+
+> Submit a new set of Sample data
+
+
+##### `GET` /vendor/plates/{submissionId}
+
+> Get the data for a submitted set of plates
+
+
+##### `GET` /vendor/specifications
+
+> Get the Vendor Specifications
+
+
 ##### `PUT` /calls
 
 > Update existing `Calls` with new genotype value or metadata
-
-
-##### `PUT` /observations/{observationDbId}
-
-> Update an existing Observation
 
 
 ##### `PUT` /observationunits/{observationUnitDbId}
@@ -119,6 +171,16 @@
 ##### `PUT` /plates
 
 > Update the details of existing Plates
+
+
+##### `PUT` /samples/{sampleDbId}
+
+> Update the details of an existing Sample
+
+
+##### `PUT` /observations/{observationDbId}
+
+> Update an existing Observation
 
 
 #### What's Changed
@@ -193,13 +255,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > The Trait-Method-Scale definition for a variable, specifically variables related to Germplasm. Similar to an ObservationVariable, but related to a Germplasm instead of an ObservationUnit
-
 
             New required properties:
             - `methodName`
@@ -236,11 +300,17 @@ Changed response : **200 OK**
 
             * Added property `traitPUI` (string)
 
+            * Deleted property `attributeDbId` (string)
+                > The ID which uniquely identifies this attribute within the given database server
+
+
             * Deleted property `contextOfUse` (array)
                 > Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])
 
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `method` (object)
 
@@ -254,15 +324,19 @@ Changed response : **200 OK**
 
             * Deleted property `trait` (object)
 
-            * Deleted property `attributeDbId` (string)
-                > The ID which uniquely identifies this attribute within the given database server
-
-
             * Changed property `additionalInfo` (object)
                 > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
 
 
                 * Added property `additionalProperties` (string)
+
+            * Changed property `attributeCategory` (string)
+
+            * Changed property `attributeDescription` (string)
+
+            * Changed property `attributeName` (string)
+
+            * Changed property `attributePUI` (string)
 
             * Changed property `commonCropName` (string)
 
@@ -282,14 +356,6 @@ Changed response : **200 OK**
 
             * Changed property `submissionTimestamp` (string -> string)
 
-            * Changed property `attributeCategory` (string)
-
-            * Changed property `attributeDescription` (string)
-
-            * Changed property `attributeName` (string)
-
-            * Changed property `attributePUI` (string)
-
 ##### `POST` /attributes
 
 > Create new GermplasmAttribute
@@ -307,13 +373,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > The Trait-Method-Scale definition for a variable, specifically variables related to Germplasm. Similar to an ObservationVariable, but related to a Germplasm instead of an ObservationUnit
-
 
             New required properties:
             - `methodName`
@@ -348,11 +416,17 @@ Changed response : **200 OK**
 
             * Added property `traitPUI` (string)
 
+            * Deleted property `attributeDbId` (string)
+                > The ID which uniquely identifies this attribute within the given database server
+
+
             * Deleted property `contextOfUse` (array)
                 > Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])
 
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `method` (object)
 
@@ -366,15 +440,19 @@ Changed response : **200 OK**
 
             * Deleted property `trait` (object)
 
-            * Deleted property `attributeDbId` (string)
-                > The ID which uniquely identifies this attribute within the given database server
-
-
             * Changed property `additionalInfo` (object)
                 > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
 
 
                 * Added property `additionalProperties` (string)
+
+            * Changed property `attributeCategory` (string)
+
+            * Changed property `attributeDescription` (string)
+
+            * Changed property `attributeName` (string)
+
+            * Changed property `attributePUI` (string)
 
             * Changed property `commonCropName` (string)
 
@@ -393,14 +471,6 @@ Changed response : **200 OK**
             * Changed property `status` (string)
 
             * Changed property `submissionTimestamp` (string -> string)
-
-            * Changed property `attributeCategory` (string)
-
-            * Changed property `attributeDescription` (string)
-
-            * Changed property `attributeName` (string)
-
-            * Changed property `attributePUI` (string)
 
 ##### `GET` /attributes/{attributeDbId}
 
@@ -427,9 +497,11 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > The Trait-Method-Scale definition for a variable, specifically variables related to Germplasm. Similar to an ObservationVariable, but related to a Germplasm instead of an ObservationUnit
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         New required properties:
         - `methodName`
@@ -464,11 +536,17 @@ Changed response : **200 OK**
 
         * Added property `traitPUI` (string)
 
+        * Deleted property `attributeDbId` (string)
+            > The ID which uniquely identifies this attribute within the given database server
+
+
         * Deleted property `contextOfUse` (array)
             > Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])
 
 
-        * Deleted property `externalReferences` (object)
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
         * Deleted property `method` (object)
 
@@ -482,15 +560,19 @@ Changed response : **200 OK**
 
         * Deleted property `trait` (object)
 
-        * Deleted property `attributeDbId` (string)
-            > The ID which uniquely identifies this attribute within the given database server
-
-
         * Changed property `additionalInfo` (object)
             > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
 
 
             * Added property `additionalProperties` (string)
+
+        * Changed property `attributeCategory` (string)
+
+        * Changed property `attributeDescription` (string)
+
+        * Changed property `attributeName` (string)
+
+        * Changed property `attributePUI` (string)
 
         * Changed property `commonCropName` (string)
 
@@ -509,14 +591,6 @@ Changed response : **200 OK**
         * Changed property `status` (string)
 
         * Changed property `submissionTimestamp` (string -> string)
-
-        * Changed property `attributeCategory` (string)
-
-        * Changed property `attributeDescription` (string)
-
-        * Changed property `attributeName` (string)
-
-        * Changed property `attributePUI` (string)
 
 ##### `PUT` /attributes/{attributeDbId}
 
@@ -573,7 +647,9 @@ New optional properties:
     > Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])
 
 
-* Deleted property `externalReferences` (object)
+* Deleted property `externalReferences` (array)
+    > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
 * Deleted property `method` (object)
 
@@ -593,6 +669,14 @@ New optional properties:
 
     * Added property `additionalProperties` (string)
 
+* Changed property `attributeCategory` (string)
+
+* Changed property `attributeDescription` (string)
+
+* Changed property `attributeName` (string)
+
+* Changed property `attributePUI` (string)
+
 * Changed property `commonCropName` (string)
 
 * Changed property `defaultValue` (string)
@@ -611,14 +695,6 @@ New optional properties:
 
 * Changed property `submissionTimestamp` (string -> string)
 
-* Changed property `attributeCategory` (string)
-
-* Changed property `attributeDescription` (string)
-
-* Changed property `attributeName` (string)
-
-* Changed property `attributePUI` (string)
-
 ###### Return Type:
 
 Changed response : **200 OK**
@@ -627,9 +703,11 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > The Trait-Method-Scale definition for a variable, specifically variables related to Germplasm. Similar to an ObservationVariable, but related to a Germplasm instead of an ObservationUnit
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         New required properties:
         - `methodName`
@@ -664,11 +742,17 @@ Changed response : **200 OK**
 
         * Added property `traitPUI` (string)
 
+        * Deleted property `attributeDbId` (string)
+            > The ID which uniquely identifies this attribute within the given database server
+
+
         * Deleted property `contextOfUse` (array)
             > Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])
 
 
-        * Deleted property `externalReferences` (object)
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
         * Deleted property `method` (object)
 
@@ -682,15 +766,19 @@ Changed response : **200 OK**
 
         * Deleted property `trait` (object)
 
-        * Deleted property `attributeDbId` (string)
-            > The ID which uniquely identifies this attribute within the given database server
-
-
         * Changed property `additionalInfo` (object)
             > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
 
 
             * Added property `additionalProperties` (string)
+
+        * Changed property `attributeCategory` (string)
+
+        * Changed property `attributeDescription` (string)
+
+        * Changed property `attributeName` (string)
+
+        * Changed property `attributePUI` (string)
 
         * Changed property `commonCropName` (string)
 
@@ -709,14 +797,6 @@ Changed response : **200 OK**
         * Changed property `status` (string)
 
         * Changed property `submissionTimestamp` (string -> string)
-
-        * Changed property `attributeCategory` (string)
-
-        * Changed property `attributeDescription` (string)
-
-        * Changed property `attributeName` (string)
-
-        * Changed property `attributePUI` (string)
 
 ##### `GET` /attributevalues
 
@@ -799,22 +879,26 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > The value recorded for a particular Trait/Attribute and a particular Germplasm. Similar to an Observation value, but more concrete, applying to the whole Germplasm instead of a single ObservationUnit.
-
 
             * Added property `attributePUI` (string)
 
             * Added property `germplasmPUI` (string)
 
-            * Deleted property `externalReferences` (object)
-
             * Deleted property `attributeValueDbId` (string)
                 > The ID which uniquely identifies this attribute value within the given database server
+
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
             * Changed property `additionalInfo` (object)
@@ -852,22 +936,26 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > The value recorded for a particular Trait/Attribute and a particular Germplasm. Similar to an Observation value, but more concrete, applying to the whole Germplasm instead of a single ObservationUnit.
-
 
             * Added property `attributePUI` (string)
 
             * Added property `germplasmPUI` (string)
 
-            * Deleted property `externalReferences` (object)
-
             * Deleted property `attributeValueDbId` (string)
                 > The ID which uniquely identifies this attribute value within the given database server
+
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
             * Changed property `additionalInfo` (object)
@@ -913,18 +1001,22 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > The value recorded for a particular Trait/Attribute and a particular Germplasm. Similar to an Observation value, but more concrete, applying to the whole Germplasm instead of a single ObservationUnit.
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Added property `attributePUI` (string)
 
         * Added property `germplasmPUI` (string)
 
-        * Deleted property `externalReferences` (object)
-
         * Deleted property `attributeValueDbId` (string)
             > The ID which uniquely identifies this attribute value within the given database server
+
+
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
         * Changed property `additionalInfo` (object)
@@ -969,7 +1061,9 @@ New required properties:
 
 * Added property `germplasmPUI` (string)
 
-* Deleted property `externalReferences` (object)
+* Deleted property `externalReferences` (array)
+    > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
 * Changed property `additionalInfo` (object)
     > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
@@ -997,18 +1091,22 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > The value recorded for a particular Trait/Attribute and a particular Germplasm. Similar to an Observation value, but more concrete, applying to the whole Germplasm instead of a single ObservationUnit.
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Added property `attributePUI` (string)
 
         * Added property `germplasmPUI` (string)
 
-        * Deleted property `externalReferences` (object)
-
         * Deleted property `attributeValueDbId` (string)
             > The ID which uniquely identifies this attribute value within the given database server
+
+
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
         * Changed property `additionalInfo` (object)
@@ -1060,13 +1158,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > The techniques and protocol used to produce a Cross or Germplasm
-
 
             New required properties:
             - `abbreviation`
@@ -1109,9 +1209,11 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > The techniques and protocol used to produce a Cross or Germplasm
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         New required properties:
         - `abbreviation`
@@ -1179,6 +1281,10 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Deleted property `expandHomozygotes` (boolean)
@@ -1200,10 +1306,6 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
-                > A `Call` represents the determination of genotype with respect to a particular `Variant`. 
-                > 
-                > It may include associated information such as quality and phasing. For example, a call might assign a probability of 0.32 to the occurrence of a SNP named RS_1234 in a call set with the name NA_12345.
-
 
             * Deleted property `genotype` (object)
 
@@ -1239,33 +1341,6 @@ Changed response : **200 OK**
             * Changed property `variantSetDbId` (string)
 
             * Changed property `variantSetName` (string)
-
-    * Changed property `metadata` (object)
-        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
-
-
-        * Changed property `pagination` (object)
-            > The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. 
-            > <br> Pages are zero indexed, so the first page will be page 0 (zero).
-
-
-            New optional properties:
-            - `nextPageToken`
-
-            * Deleted property `currentPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the current page of data.
-
-
-            * Deleted property `nextPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the next page of data.
-
-
-            * Deleted property `prevPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the previous page of data.
-
 
 ##### `GET` /callsets
 
@@ -1353,13 +1428,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A CallSet is a collection of Calls that were generated by the same analysis of the same Sample
-
 
             * Added property `sampleName` (string)
 
@@ -1419,9 +1496,11 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > A CallSet is a collection of Calls that were generated by the same analysis of the same Sample
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Added property `sampleName` (string)
 
@@ -1510,6 +1589,10 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Deleted property `expandHomozygotes` (boolean)
@@ -1531,10 +1614,6 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
-                > A `Call` represents the determination of genotype with respect to a particular `Variant`. 
-                > 
-                > It may include associated information such as quality and phasing. For example, a call might assign a probability of 0.32 to the occurrence of a SNP named RS_1234 in a call set with the name NA_12345.
-
 
             * Deleted property `genotype` (object)
 
@@ -1570,584 +1649,6 @@ Changed response : **200 OK**
             * Changed property `variantSetDbId` (string)
 
             * Changed property `variantSetName` (string)
-
-    * Changed property `metadata` (object)
-        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
-
-
-        * Changed property `pagination` (object)
-            > The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. 
-            > <br> Pages are zero indexed, so the first page will be page 0 (zero).
-
-
-            New optional properties:
-            - `nextPageToken`
-
-            * Deleted property `currentPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the current page of data.
-
-
-            * Deleted property `nextPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the next page of data.
-
-
-            * Deleted property `prevPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the previous page of data.
-
-
-##### `GET` /crosses
-
-> Get a filtered list of Cross
-
-
-###### Parameters:
-
-Added: `programName` in `query`
-> Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
-> 
-> Use `GET /programs` to find the list of available programs on a server.
-
-
-Changed: `commonCropName` in `query`
-> The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.
-> 
-> Use this parameter to only return results associated with the given crops. 
-> 
-> Use `GET /commoncropnames` to find the list of available crops on a server.
-
-
-Changed: `programDbId` in `query`
-> A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
-> 
-> Use this parameter to only return results associated with the given programs. 
-> 
-> Use `GET /programs` to find the list of available programs on a server.
-
-
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > The identifiers and metadata represent that specific organisms have mated to produce offspring with particular traits or genes. The offspring of a Cross might be developed into a Germplasm if the desired traits are present.
-
-
-            * Deleted property `crossAttributes` (array)
-                > Set of custom attributes associated with a cross
-
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `pollinationEvents` (array)
-                > The list of pollination events that occurred for this cross
-
-
-            * Deleted property `pollinationTimeStamp` (string)
-                > **Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265 
-                > <br>The timestamp when the pollination took place
-
-
-            * Deleted property `crossDbId` (string)
-                > the unique identifier for a cross
-
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `crossName` (string)
-
-            * Changed property `crossType` (string)
-                > The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK',  'BULK_SELFED',  'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'.
-
-
-            * Changed property `crossingProjectDbId` (string)
-
-            * Changed property `crossingProjectName` (string)
-
-            * Changed property `parent1` (object)
-                > The identifying information gor the parent material of a cross.
-
-
-                * Added property `germplasm` (object)
-                    > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
-
-
-                    * Property `accessionNumber` (string)
-
-                    * Property `acquisitionDate` (string)
-
-                    * Property `additionalInfo` (object)
-                        > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                        * Property `additionalProperties` (string)
-
-                    * Property `biologicalStatusOfAccessionCode` (string)
-                        > MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. 
-                        > 
-                        > 100) Wild 
-                        > 110) Natural 
-                        > 120) Semi-natural/wild 
-                        > 130) Semi-natural/sown 
-                        > 200) Weedy 
-                        > 300) Traditional cultivar/landrace 
-                        > 400) Breeding/research material 
-                        > 410) Breeders line 
-                        > 411) Synthetic population 
-                        > 412) Hybrid 
-                        > 413) Founder stock/base population 
-                        > 414) Inbred line (parent of hybrid cultivar) 
-                        > 415) Segregating population 
-                        > 416) Clonal selection 
-                        > 420) Genetic stock 
-                        > 421) Mutant (e.g. induced/insertion mutants, tilling populations) 
-                        > 422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) 
-                        > 423) Other genetic stocks (e.g. mapping populations) 
-                        > 500) Advanced or improved cultivar (conventional breeding methods) 
-                        > 600) GMO (by genetic engineering) 
-                        > 999) Other (Elaborate in REMARKS field)
-
-
-                        Enum values:
-
-                        * `100`
-                        * `110`
-                        * `120`
-                        * `130`
-                        * `200`
-                        * `300`
-                        * `400`
-                        * `410`
-                        * `411`
-                        * `412`
-                        * `413`
-                        * `414`
-                        * `415`
-                        * `416`
-                        * `420`
-                        * `421`
-                        * `422`
-                        * `423`
-                        * `500`
-                        * `600`
-                        * `999`
-                    * Property `biologicalStatusOfAccessionDescription` (string)
-
-                    * Property `breedingMethodDbId` (string)
-
-                    * Property `breedingMethodName` (string)
-
-                    * Property `collection` (string)
-
-                    * Property `commonCropName` (string)
-
-                    * Property `countryOfOriginCode` (string)
-
-                    * Property `defaultDisplayName` (string)
-
-                    * Property `documentationURL` (string)
-
-                    * Property `genus` (string)
-
-                    * Property `germplasmName` (string)
-
-                    * Property `germplasmPUI` (string)
-
-                    * Property `germplasmPreprocessing` (string)
-
-                    * Property `instituteCode` (string)
-
-                    * Property `instituteName` (string)
-
-                    * Property `pedigree` (string)
-
-                    * Property `sampleDbIds` (array)
-
-                    * Property `seedSource` (string)
-
-                    * Property `seedSourceDescription` (string)
-
-                    * Property `species` (string)
-
-                    * Property `speciesAuthority` (string)
-
-                    * Property `subtaxa` (string)
-
-                    * Property `subtaxaAuthority` (string)
-
-                * Added property `observationUnitPUI` (string)
-
-                * Deleted property `germplasmDbId` (string)
-                    > the unique identifier for a germplasm
-
-
-                * Deleted property `germplasmName` (string)
-                    > the human readable name for a germplasm
-
-
-                * Changed property `observationUnitDbId` (string)
-
-                * Changed property `observationUnitName` (string)
-
-                * Changed property `parentType` (string)
-                    > The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C.
-
-
-                    Added enum value:
-
-                    * `CLONAL`
-            * Changed property `parent2` (object)
-                > The identifying information gor the parent material of a cross.
-
-
-                * Added property `germplasm` (object)
-                    > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
-
-
-                * Added property `observationUnitPUI` (string)
-
-                * Deleted property `germplasmDbId` (string)
-                    > the unique identifier for a germplasm
-
-
-                * Deleted property `germplasmName` (string)
-                    > the human readable name for a germplasm
-
-
-                * Changed property `observationUnitDbId` (string)
-
-                * Changed property `observationUnitName` (string)
-
-                * Changed property `parentType` (string)
-                    > The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C.
-
-
-                    Added enum value:
-
-                    * `CLONAL`
-            * Changed property `plannedCrossDbId` (string)
-
-            * Changed property `plannedCrossName` (string)
-
-##### `PUT` /crosses
-
-> Update the details for an existing Cross
-
-
-###### Request:
-
-Changed content type : `application/json`
-
-New required properties:
-- `crossDbId`
-- `crossDbId`
-
-* Added property `additionalInfo` (object)
-    > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-* Added property `crossDbId` (string)
-
-* Added property `crossName` (string)
-
-* Added property `crossType` (string)
-    > The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK',  'BULK_SELFED',  'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'.
-
-
-    Enum values:
-
-    * `BIPARENTAL`
-    * `SELF`
-    * `OPEN_POLLINATED`
-    * `BULK`
-    * `BULK_SELFED`
-    * `BULK_OPEN_POLLINATED`
-    * `DOUBLE_HAPLOID`
-* Added property `crossingProjectDbId` (string)
-
-* Added property `crossingProjectName` (string)
-
-* Added property `parent1` (object)
-    > The identifying information gor the parent material of a cross.
-
-
-    * Property `germplasm` (object)
-        > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
-
-
-    * Property `observationUnitDbId` (string)
-
-    * Property `observationUnitName` (string)
-
-    * Property `observationUnitPUI` (string)
-
-    * Property `parentType` (string)
-        > The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C.
-
-
-        Enum values:
-
-        * `MALE`
-        * `FEMALE`
-        * `SELF`
-        * `POPULATION`
-        * `CLONAL`
-* Added property `parent2` (object)
-    > The identifying information gor the parent material of a cross.
-
-
-* Added property `plannedCrossDbId` (string)
-
-* Added property `plannedCrossName` (string)
-
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > The identifiers and metadata represent that specific organisms have mated to produce offspring with particular traits or genes. The offspring of a Cross might be developed into a Germplasm if the desired traits are present.
-
-
-            * Deleted property `crossAttributes` (array)
-                > Set of custom attributes associated with a cross
-
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `pollinationEvents` (array)
-                > The list of pollination events that occurred for this cross
-
-
-            * Deleted property `pollinationTimeStamp` (string)
-                > **Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265 
-                > <br>The timestamp when the pollination took place
-
-
-            * Deleted property `crossDbId` (string)
-                > the unique identifier for a cross
-
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `crossName` (string)
-
-            * Changed property `crossType` (string)
-                > The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK',  'BULK_SELFED',  'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'.
-
-
-            * Changed property `crossingProjectDbId` (string)
-
-            * Changed property `crossingProjectName` (string)
-
-            * Changed property `parent1` (object)
-                > The identifying information gor the parent material of a cross.
-
-
-                * Added property `germplasm` (object)
-                    > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
-
-
-                * Added property `observationUnitPUI` (string)
-
-                * Deleted property `germplasmDbId` (string)
-                    > the unique identifier for a germplasm
-
-
-                * Deleted property `germplasmName` (string)
-                    > the human readable name for a germplasm
-
-
-                * Changed property `observationUnitDbId` (string)
-
-                * Changed property `observationUnitName` (string)
-
-                * Changed property `parentType` (string)
-                    > The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C.
-
-
-                    Added enum value:
-
-                    * `CLONAL`
-            * Changed property `parent2` (object)
-                > The identifying information gor the parent material of a cross.
-
-
-                * Added property `germplasm` (object)
-                    > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
-
-
-                * Added property `observationUnitPUI` (string)
-
-                * Deleted property `germplasmDbId` (string)
-                    > the unique identifier for a germplasm
-
-
-                * Deleted property `germplasmName` (string)
-                    > the human readable name for a germplasm
-
-
-                * Changed property `observationUnitDbId` (string)
-
-                * Changed property `observationUnitName` (string)
-
-                * Changed property `parentType` (string)
-                    > The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C.
-
-
-                    Added enum value:
-
-                    * `CLONAL`
-            * Changed property `plannedCrossDbId` (string)
-
-            * Changed property `plannedCrossName` (string)
-
-##### `POST` /crosses
-
-> Create new Cross
-
-
-###### Request:
-
-Changed content type : `application/json`
-
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > The identifiers and metadata represent that specific organisms have mated to produce offspring with particular traits or genes. The offspring of a Cross might be developed into a Germplasm if the desired traits are present.
-
-
-            * Deleted property `crossAttributes` (array)
-                > Set of custom attributes associated with a cross
-
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `pollinationEvents` (array)
-                > The list of pollination events that occurred for this cross
-
-
-            * Deleted property `pollinationTimeStamp` (string)
-                > **Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265 
-                > <br>The timestamp when the pollination took place
-
-
-            * Deleted property `crossDbId` (string)
-                > the unique identifier for a cross
-
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `crossName` (string)
-
-            * Changed property `crossType` (string)
-                > The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK',  'BULK_SELFED',  'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'.
-
-
-            * Changed property `crossingProjectDbId` (string)
-
-            * Changed property `crossingProjectName` (string)
-
-            * Changed property `parent1` (object)
-                > The identifying information gor the parent material of a cross.
-
-
-                * Added property `germplasm` (object)
-                    > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
-
-
-                * Added property `observationUnitPUI` (string)
-
-                * Deleted property `germplasmDbId` (string)
-                    > the unique identifier for a germplasm
-
-
-                * Deleted property `germplasmName` (string)
-                    > the human readable name for a germplasm
-
-
-                * Changed property `observationUnitDbId` (string)
-
-                * Changed property `observationUnitName` (string)
-
-                * Changed property `parentType` (string)
-                    > The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C.
-
-
-                    Added enum value:
-
-                    * `CLONAL`
-            * Changed property `parent2` (object)
-                > The identifying information gor the parent material of a cross.
-
-
-                * Added property `germplasm` (object)
-                    > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
-
-
-                * Added property `observationUnitPUI` (string)
-
-                * Deleted property `germplasmDbId` (string)
-                    > the unique identifier for a germplasm
-
-
-                * Deleted property `germplasmName` (string)
-                    > the human readable name for a germplasm
-
-
-                * Changed property `observationUnitDbId` (string)
-
-                * Changed property `observationUnitName` (string)
-
-                * Changed property `parentType` (string)
-                    > The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C.
-
-
-                    Added enum value:
-
-                    * `CLONAL`
-            * Changed property `plannedCrossDbId` (string)
-
-            * Changed property `plannedCrossName` (string)
 
 ##### `GET` /crossingprojects
 
@@ -2194,23 +1695,27 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A project structure where a list of PlannedCrosses is generated, the crossing events occur in the field, and the resulting actual Crosses can documented.
+
+            * Deleted property `crossingProjectDbId` (string)
+                > The unique identifier for a crossing project
 
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `potentialParents` (array)
                 > A list of all the potential parents in the crossing block, available in the crossing project
                 > <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.
-
-
-            * Deleted property `crossingProjectDbId` (string)
-                > The unique identifier for a crossing project
 
 
             * Changed property `additionalInfo` (object)
@@ -2246,23 +1751,27 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A project structure where a list of PlannedCrosses is generated, the crossing events occur in the field, and the resulting actual Crosses can documented.
+
+            * Deleted property `crossingProjectDbId` (string)
+                > The unique identifier for a crossing project
 
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `potentialParents` (array)
                 > A list of all the potential parents in the crossing block, available in the crossing project
                 > <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.
-
-
-            * Deleted property `crossingProjectDbId` (string)
-                > The unique identifier for a crossing project
 
 
             * Changed property `additionalInfo` (object)
@@ -2306,19 +1815,23 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
-        > A project structure where a list of PlannedCrosses is generated, the crossing events occur in the field, and the resulting actual Crosses can documented.
+
+        * Deleted property `crossingProjectDbId` (string)
+            > The unique identifier for a crossing project
 
 
-        * Deleted property `externalReferences` (object)
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
         * Deleted property `potentialParents` (array)
             > A list of all the potential parents in the crossing block, available in the crossing project
             > <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.
-
-
-        * Deleted property `crossingProjectDbId` (string)
-            > The unique identifier for a crossing project
 
 
         * Changed property `additionalInfo` (object)
@@ -2358,7 +1871,9 @@ New required properties:
 
 * Added property `crossingProjectDbId` (string)
 
-* Deleted property `externalReferences` (object)
+* Deleted property `externalReferences` (array)
+    > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
 * Deleted property `potentialParents` (array)
     > A list of all the potential parents in the crossing block, available in the crossing project
@@ -2389,19 +1904,23 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
-        > A project structure where a list of PlannedCrosses is generated, the crossing events occur in the field, and the resulting actual Crosses can documented.
+
+        * Deleted property `crossingProjectDbId` (string)
+            > The unique identifier for a crossing project
 
 
-        * Deleted property `externalReferences` (object)
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
         * Deleted property `potentialParents` (array)
             > A list of all the potential parents in the crossing block, available in the crossing project
             > <br/> If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.
-
-
-        * Deleted property `crossingProjectDbId` (string)
-            > The unique identifier for a crossing project
 
 
         * Changed property `additionalInfo` (object)
@@ -2459,14 +1978,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > An event is discrete occurrence at a particular time in the experiment. Events may be the realization of Treatments or parts of Treatments, or may be confounding to Treatments. 
-                > <br> ICASA Management Events allow for the following types -> planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other
-
 
             * Added property `studyPUI` (string)
 
@@ -2612,13 +2132,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
-
 
             * Added property `sampleDbIds` (array)
 
@@ -2626,7 +2148,14 @@ Changed response : **200 OK**
                 > List of donor institutes
 
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `germplasmDbId` (string)
+                > The ID which uniquely identifies a germplasm within the given database server 
+                > <br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
+
 
             * Deleted property `germplasmOrigin` (array)
                 > Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.
@@ -2646,11 +2175,6 @@ Changed response : **200 OK**
                 > The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.
                 > 
                 > MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.
-
-
-            * Deleted property `germplasmDbId` (string)
-                > The ID which uniquely identifies a germplasm within the given database server 
-                > <br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
 
 
             * Changed property `accessionNumber` (string)
@@ -2748,13 +2272,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
-
 
             * Added property `sampleDbIds` (array)
 
@@ -2762,7 +2288,14 @@ Changed response : **200 OK**
                 > List of donor institutes
 
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `germplasmDbId` (string)
+                > The ID which uniquely identifies a germplasm within the given database server 
+                > <br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
+
 
             * Deleted property `germplasmOrigin` (array)
                 > Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.
@@ -2782,11 +2315,6 @@ Changed response : **200 OK**
                 > The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.
                 > 
                 > MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.
-
-
-            * Deleted property `germplasmDbId` (string)
-                > The ID which uniquely identifies a germplasm within the given database server 
-                > <br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
 
 
             * Changed property `accessionNumber` (string)
@@ -2893,9 +2421,11 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Added property `sampleDbIds` (array)
 
@@ -2903,7 +2433,14 @@ Changed response : **200 OK**
             > List of donor institutes
 
 
-        * Deleted property `externalReferences` (object)
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+        * Deleted property `germplasmDbId` (string)
+            > The ID which uniquely identifies a germplasm within the given database server 
+            > <br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
+
 
         * Deleted property `germplasmOrigin` (array)
             > Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.
@@ -2923,11 +2460,6 @@ Changed response : **200 OK**
             > The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.
             > 
             > MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.
-
-
-        * Deleted property `germplasmDbId` (string)
-            > The ID which uniquely identifies a germplasm within the given database server 
-            > <br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
 
 
         * Changed property `accessionNumber` (string)
@@ -3035,7 +2567,9 @@ New required properties:
     > List of donor institutes
 
 
-* Deleted property `externalReferences` (object)
+* Deleted property `externalReferences` (array)
+    > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
 * Deleted property `germplasmOrigin` (array)
     > Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.
@@ -3146,9 +2680,11 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Added property `sampleDbIds` (array)
 
@@ -3156,7 +2692,14 @@ Changed response : **200 OK**
             > List of donor institutes
 
 
-        * Deleted property `externalReferences` (object)
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+        * Deleted property `germplasmDbId` (string)
+            > The ID which uniquely identifies a germplasm within the given database server 
+            > <br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
+
 
         * Deleted property `germplasmOrigin` (array)
             > Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.
@@ -3176,11 +2719,6 @@ Changed response : **200 OK**
             > The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.
             > 
             > MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.
-
-
-        * Deleted property `germplasmDbId` (string)
-            > The ID which uniquely identifies a germplasm within the given database server 
-            > <br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
 
 
         * Changed property `accessionNumber` (string)
@@ -3261,487 +2799,6 @@ Changed response : **200 OK**
 
         * Changed property `subtaxaAuthority` (string)
 
-##### `GET` /images
-
-> Get a filtered list of Image
-
-
-###### Parameters:
-
-Added: `programName` in `query`
-> Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
-> 
-> Use `GET /programs` to find the list of available programs on a server.
-
-
-Added: `imageFileName` in `query`
-> Image file names to search for.
-
-
-Added: `imageFileSizeMax` in `query`
-> A maximum image file size to search for.
-
-
-Added: `imageFileSizeMin` in `query`
-> A minimum image file size to search for.
-
-
-Added: `imageHeightMax` in `query`
-> A maximum image height to search for.
-
-
-Added: `imageHeightMin` in `query`
-> A minimum image height to search for.
-
-
-Added: `imageLocation` in `query`
-
-Added: `imageTimeStampRangeEnd` in `query`
-> The latest timestamp to search for.
-
-
-Added: `imageTimeStampRangeStart` in `query`
-> The earliest timestamp to search for.
-
-
-Added: `imageWidthMax` in `query`
-> A maximum image width to search for.
-
-
-Added: `imageWidthMin` in `query`
-> A minimum image width to search for.
-
-
-Added: `mimeType` in `query`
-> A set of image file types to search for.
-
-
-Changed: `imageDbId` in `query`
-> A list of image Ids to search for
-
-
-Changed: `imageName` in `query`
-> Human readable names to search for.
-
-
-Changed: `observationUnitDbId` in `query`
-> A set of observation unit identifiers to search for.
-
-
-Changed: `observationDbId` in `query`
-> A list of observation Ids this image is associated with to search for
-
-
-Changed: `descriptiveOntologyTerm` in `query`
-> A list of terms to formally describe the image to search for. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
-
-
-Changed: `commonCropName` in `query`
-> The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.
-> 
-> Use this parameter to only return results associated with the given crops. 
-> 
-> Use `GET /commoncropnames` to find the list of available crops on a server.
-
-
-Changed: `programDbId` in `query`
-> A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
-> 
-> Use this parameter to only return results associated with the given programs. 
-> 
-> Use `GET /programs` to find the list of available programs on a server.
-
-
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > The metadata for an image file that is connected to some phenotypic observation data.
-
-
-            * Added property `observationUnitName` (string)
-
-            * Added property `observationUnitPUI` (string)
-
-            * Deleted property `descriptiveOntologyTerms` (array)
-                > A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
-
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `imageDbId` (string)
-                > The unique identifier of an image
-
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `copyright` (string)
-
-            * Changed property `description` (string)
-
-            * Changed property `imageFileName` (string)
-
-            * Changed property `imageFileSize` (integer -> integer)
-
-            * Changed property `imageHeight` (integer -> integer)
-
-            * Changed property `imageName` (string)
-
-            * Changed property `imageTimeStamp` (string -> string)
-
-            * Changed property `imageURL` (string)
-
-            * Changed property `imageWidth` (integer -> integer)
-
-            * Changed property `mimeType` (string)
-
-            * Changed property `observationDbIds` (array)
-
-            * Changed property `observationUnitDbId` (string)
-
-            * Changed property `imageLocation` (object)
-                > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
-                > 
-                > Copied from RFC 7946 Section 3.1.1
-                > 
-                > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
-                > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
-
-
-                * Changed property `type` (string)
-
-                * Changed property `geometry` (object -> object)
-
-##### `POST` /images
-
-> Create new Image
-
-
-###### Request:
-
-Changed content type : `application/json`
-
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > The metadata for an image file that is connected to some phenotypic observation data.
-
-
-            * Added property `observationUnitName` (string)
-
-            * Added property `observationUnitPUI` (string)
-
-            * Deleted property `descriptiveOntologyTerms` (array)
-                > A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
-
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `imageDbId` (string)
-                > The unique identifier of an image
-
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `copyright` (string)
-
-            * Changed property `description` (string)
-
-            * Changed property `imageFileName` (string)
-
-            * Changed property `imageFileSize` (integer -> integer)
-
-            * Changed property `imageHeight` (integer -> integer)
-
-            * Changed property `imageName` (string)
-
-            * Changed property `imageTimeStamp` (string -> string)
-
-            * Changed property `imageURL` (string)
-
-            * Changed property `imageWidth` (integer -> integer)
-
-            * Changed property `mimeType` (string)
-
-            * Changed property `observationDbIds` (array)
-
-            * Changed property `observationUnitDbId` (string)
-
-            * Changed property `imageLocation` (object)
-                > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
-                > 
-                > Copied from RFC 7946 Section 3.1.1
-                > 
-                > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
-                > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
-
-
-                * Changed property `type` (string)
-
-                * Changed property `geometry` (object -> object)
-
-##### `GET` /images/{imageDbId}
-
-> Get the details of a specific Image
-
-
-###### Parameters:
-
-Deleted: `imageDbId` in `path`
-> The unique identifier for a image
-
-
-Deleted: `Authorization` in `header`
-> HTTP HEADER - Token used for Authorization 
-> 
-> <strong> Bearer {token_string} </strong>
-
-
-###### Return Type:
-
-Deleted response : **404 Not Found**
-> Not Found
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-        > The metadata for an image file that is connected to some phenotypic observation data.
-
-
-        * Added property `observationUnitName` (string)
-
-        * Added property `observationUnitPUI` (string)
-
-        * Deleted property `descriptiveOntologyTerms` (array)
-            > A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
-
-
-        * Deleted property `externalReferences` (object)
-
-        * Deleted property `imageDbId` (string)
-            > The unique identifier of an image
-
-
-        * Changed property `additionalInfo` (object)
-            > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-            * Added property `additionalProperties` (string)
-
-        * Changed property `copyright` (string)
-
-        * Changed property `description` (string)
-
-        * Changed property `imageFileName` (string)
-
-        * Changed property `imageFileSize` (integer -> integer)
-
-        * Changed property `imageHeight` (integer -> integer)
-
-        * Changed property `imageName` (string)
-
-        * Changed property `imageTimeStamp` (string -> string)
-
-        * Changed property `imageURL` (string)
-
-        * Changed property `imageWidth` (integer -> integer)
-
-        * Changed property `mimeType` (string)
-
-        * Changed property `observationDbIds` (array)
-
-        * Changed property `observationUnitDbId` (string)
-
-        * Changed property `imageLocation` (object)
-            > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
-            > 
-            > Copied from RFC 7946 Section 3.1.1
-            > 
-            > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
-            > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
-
-
-            * Changed property `type` (string)
-
-            * Changed property `geometry` (object -> object)
-
-##### `PUT` /images/{imageDbId}
-
-> Update the details for an existing Image
-
-
-###### Parameters:
-
-Deleted: `imageDbId` in `path`
-> The unique identifier for a image
-
-
-###### Request:
-
-Changed content type : `application/json`
-
-New required properties:
-- `imageDbId`
-- `imageDbId`
-
-* Added property `imageDbId` (string)
-
-* Added property `observationUnitName` (string)
-
-* Added property `observationUnitPUI` (string)
-
-* Deleted property `descriptiveOntologyTerms` (array)
-    > A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
-
-
-* Deleted property `externalReferences` (object)
-
-* Changed property `additionalInfo` (object)
-    > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-    * Added property `additionalProperties` (string)
-
-* Changed property `copyright` (string)
-
-* Changed property `description` (string)
-
-* Changed property `imageFileName` (string)
-
-* Changed property `imageFileSize` (integer -> integer)
-
-* Changed property `imageHeight` (integer -> integer)
-
-* Changed property `imageName` (string)
-
-* Changed property `imageTimeStamp` (string -> string)
-
-* Changed property `imageURL` (string)
-
-* Changed property `imageWidth` (integer -> integer)
-
-* Changed property `mimeType` (string)
-
-* Changed property `observationDbIds` (array)
-
-* Changed property `observationUnitDbId` (string)
-
-* Changed property `imageLocation` (object)
-    > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
-    > 
-    > Copied from RFC 7946 Section 3.1.1
-    > 
-    > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
-    > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
-
-
-    * Changed property `type` (string)
-
-    * Changed property `geometry` (object -> object)
-
-###### Return Type:
-
-Deleted response : **404 Not Found**
-> Not Found
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-        > The metadata for an image file that is connected to some phenotypic observation data.
-
-
-        * Added property `observationUnitName` (string)
-
-        * Added property `observationUnitPUI` (string)
-
-        * Deleted property `descriptiveOntologyTerms` (array)
-            > A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
-
-
-        * Deleted property `externalReferences` (object)
-
-        * Deleted property `imageDbId` (string)
-            > The unique identifier of an image
-
-
-        * Changed property `additionalInfo` (object)
-            > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-            * Added property `additionalProperties` (string)
-
-        * Changed property `copyright` (string)
-
-        * Changed property `description` (string)
-
-        * Changed property `imageFileName` (string)
-
-        * Changed property `imageFileSize` (integer -> integer)
-
-        * Changed property `imageHeight` (integer -> integer)
-
-        * Changed property `imageName` (string)
-
-        * Changed property `imageTimeStamp` (string -> string)
-
-        * Changed property `imageURL` (string)
-
-        * Changed property `imageWidth` (integer -> integer)
-
-        * Changed property `mimeType` (string)
-
-        * Changed property `observationDbIds` (array)
-
-        * Changed property `observationUnitDbId` (string)
-
-        * Changed property `imageLocation` (object)
-            > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
-            > 
-            > Copied from RFC 7946 Section 3.1.1
-            > 
-            > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
-            > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
-
-
-            * Changed property `type` (string)
-
-            * Changed property `geometry` (object -> object)
-
 ##### `GET` /lists
 
 > Get a filtered list of List
@@ -3773,6 +2830,19 @@ Added: `listOwnerPersonDbId` in `query`
 > An array of primary database identifiers to identify people or entities who are responsible for a set of Lists
 
 
+Deleted: `commonCropName` in `query`
+> The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.
+> 
+> Use this parameter to only return results associated with the given crop. 
+> 
+> Use `GET /commoncropnames` to find the list of available crops on a server.
+
+
+Deleted: `programDbId` in `query`
+> Use this parameter to only return results associated with the given `Program` unique identifier. 
+> <br/>Use `GET /programs` to find the list of available `Programs` on a server.
+
+
 Changed: `listName` in `query`
 > An array of human readable names to identify a set of Lists
 
@@ -3795,24 +2865,28 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A List represents a collection of other BrAPI data objects. Typically these are custom lists generated by a user to keep track of interesting data. For example, a user might build a List of Germplasm that they have manually marked for further study.
-
 
             * Added property `personDbId` (string)
 
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `listOwnerPersonDbId` (string)
-                > The unique identifier for a List Owner. (usually a user or person)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
             * Deleted property `listDbId` (string)
                 > The unique identifier for a List
+
+
+            * Deleted property `listOwnerPersonDbId` (string)
+                > The unique identifier for a List Owner. (usually a user or person)
 
 
             * Changed property `additionalInfo` (object)
@@ -3856,24 +2930,28 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A List represents a collection of other BrAPI data objects. Typically these are custom lists generated by a user to keep track of interesting data. For example, a user might build a List of Germplasm that they have manually marked for further study.
-
 
             * Added property `personDbId` (string)
 
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `listOwnerPersonDbId` (string)
-                > The unique identifier for a List Owner. (usually a user or person)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
             * Deleted property `listDbId` (string)
                 > The unique identifier for a List
+
+
+            * Deleted property `listOwnerPersonDbId` (string)
+                > The unique identifier for a List Owner. (usually a user or person)
 
 
             * Changed property `additionalInfo` (object)
@@ -3926,24 +3004,28 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > A List represents a collection of other BrAPI data objects. Typically these are custom lists generated by a user to keep track of interesting data. For example, a user might build a List of Germplasm that they have manually marked for further study.
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Added property `personDbId` (string)
 
-        * Deleted property `externalReferences` (object)
+        * Deleted property `data` (array)
+            > The array of DbIds of the BrAPI objects contained in a List
 
-        * Deleted property `listOwnerPersonDbId` (string)
-            > The unique identifier for a List Owner. (usually a user or person)
+
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
         * Deleted property `listDbId` (string)
             > The unique identifier for a List
 
 
-        * Deleted property `data` (array)
-            > The array of DbIds of the BrAPI objects contained in a List
+        * Deleted property `listOwnerPersonDbId` (string)
+            > The unique identifier for a List Owner. (usually a user or person)
 
 
         * Changed property `additionalInfo` (object)
@@ -3993,14 +3075,16 @@ New required properties:
 
 * Added property `personDbId` (string)
 
-* Deleted property `externalReferences` (object)
+* Deleted property `data` (array)
+    > The array of DbIds of the BrAPI objects contained in a List
+
+
+* Deleted property `externalReferences` (array)
+    > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
 * Deleted property `listOwnerPersonDbId` (string)
     > The unique identifier for a List Owner. (usually a user or person)
-
-
-* Deleted property `data` (array)
-    > The array of DbIds of the BrAPI objects contained in a List
 
 
 * Changed property `additionalInfo` (object)
@@ -4038,24 +3122,28 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > A List represents a collection of other BrAPI data objects. Typically these are custom lists generated by a user to keep track of interesting data. For example, a user might build a List of Germplasm that they have manually marked for further study.
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Added property `personDbId` (string)
 
-        * Deleted property `externalReferences` (object)
+        * Deleted property `data` (array)
+            > The array of DbIds of the BrAPI objects contained in a List
 
-        * Deleted property `listOwnerPersonDbId` (string)
-            > The unique identifier for a List Owner. (usually a user or person)
+
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
         * Deleted property `listDbId` (string)
             > The unique identifier for a List
 
 
-        * Deleted property `data` (array)
-            > The array of DbIds of the BrAPI objects contained in a List
+        * Deleted property `listOwnerPersonDbId` (string)
+            > The unique identifier for a List Owner. (usually a user or person)
 
 
         * Changed property `additionalInfo` (object)
@@ -4135,13 +3223,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > The GenomeMap represents the metadata associated with a reference map of a particular species genome. A GenomeMap can either represent a physical map or genetic map.
-
 
             New optional properties:
             - `mapName`
@@ -4204,9 +3294,11 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > The GenomeMap represents the metadata associated with a reference map of a particular species genome. A GenomeMap can either represent a physical map or genetic map.
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         New optional properties:
         - `mapName`
@@ -4276,13 +3368,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A MarkerPosition describes a particular genetic marker at a specific position on a GenomeMap. A collection of MarkerPositions make up the data to represent a full GenomeMap.
-
 
             * Added property `mapPUI` (string)
 
@@ -4362,29 +3456,27 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A description of the way an Observation should be collected. 
-                > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Method "estimation" or "drone image processing".
-
 
             * Added property `ontologyReferenceDbId` (string)
 
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `ontologyReference` (object)
-                > MIAPPE V1.1 (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology 
-                > MIAPPE V1.1 (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-                > MIAPPE V1.1 (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-                > MIAPPE V1.1 (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
             * Deleted property `methodDbId` (string)
                 > Method unique identifier
 
+
+            * Deleted property `ontologyReference` (object)
 
             * Changed property `additionalInfo` (object)
                 > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
@@ -4421,29 +3513,27 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A description of the way an Observation should be collected. 
-                > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Method "estimation" or "drone image processing".
-
 
             * Added property `ontologyReferenceDbId` (string)
 
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `ontologyReference` (object)
-                > MIAPPE V1.1 (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology 
-                > MIAPPE V1.1 (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-                > MIAPPE V1.1 (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-                > MIAPPE V1.1 (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
             * Deleted property `methodDbId` (string)
                 > Method unique identifier
 
+
+            * Deleted property `ontologyReference` (object)
 
             * Changed property `additionalInfo` (object)
                 > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
@@ -4491,25 +3581,23 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > A description of the way an Observation should be collected. 
-        > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Method "estimation" or "drone image processing".
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Added property `ontologyReferenceDbId` (string)
 
-        * Deleted property `externalReferences` (object)
-
-        * Deleted property `ontologyReference` (object)
-            > MIAPPE V1.1 (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology 
-            > MIAPPE V1.1 (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-            > MIAPPE V1.1 (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-            > MIAPPE V1.1 (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
         * Deleted property `methodDbId` (string)
             > Method unique identifier
 
+
+        * Deleted property `ontologyReference` (object)
 
         * Changed property `additionalInfo` (object)
             > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
@@ -4555,25 +3643,23 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > A description of the way an Observation should be collected. 
-        > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Method "estimation" or "drone image processing".
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Added property `ontologyReferenceDbId` (string)
 
-        * Deleted property `externalReferences` (object)
-
-        * Deleted property `ontologyReference` (object)
-            > MIAPPE V1.1 (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology 
-            > MIAPPE V1.1 (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-            > MIAPPE V1.1 (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-            > MIAPPE V1.1 (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
         * Deleted property `methodDbId` (string)
             > Method unique identifier
 
+
+        * Deleted property `ontologyReference` (object)
 
         * Changed property `additionalInfo` (object)
             > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
@@ -4592,579 +3678,6 @@ Changed response : **200 OK**
         * Changed property `methodName` (string)
 
         * Changed property `methodPUI` (string)
-
-##### `GET` /observations
-
-> Get a filtered list of Observation
-
-
-###### Parameters:
-
-Added: `germplasmName` in `query`
-> List of human readable names to identify germplasm to search for
-
-
-Added: `locationName` in `query`
-> A human readable names to search for
-
-
-Added: `observationVariableName` in `query`
-> The names of Variables to search for
-
-
-Added: `observationVariablePUI` in `query`
-> The Permanent Unique Identifier of an Observation Variable, usually in the form of a URI
-
-
-Added: `programName` in `query`
-> Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
-> 
-> Use `GET /programs` to find the list of available programs on a server.
-
-
-Added: `studyName` in `query`
-> List of study names to filter search results
-
-
-Added: `trialName` in `query`
-> The human readable name of a trial to search for
-
-
-Added: `observationLevel` in `query`
-> Searches for values in ObservationUnit->observationUnitPosition->observationLevel
-
-
-Added: `observationLevelRelationship` in `query`
-> Searches for values in ObservationUnit->observationUnitPosition->observationLevelRelationships
-
-
-Deleted: `observationUnitLevelName` in `query`
-> The Observation Unit Level. Returns only the observation unit of the specified Level. 
-> <br/>References ObservationUnit->observationUnitPosition->observationLevel->levelName 
-> <br/>**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** 
-> <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
-
-
-Deleted: `observationUnitLevelOrder` in `query`
-> The Observation Unit Level Order Number. Returns only the observation unit of the specified Level. 
-> References ObservationUnit->observationUnitPosition->observationLevel->levelOrder 
-> <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
-
-
-Deleted: `observationUnitLevelCode` in `query`
-> The Observation Unit Level Code. This parameter should be used together with `observationUnitLevelName` 
-> or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode 
-> <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
-
-
-Deleted: `observationUnitLevelRelationshipName` in `query`
-> The Observation Unit Level Relationship is a connection that this observation unit has to another level of the hierarchy. 
-> <br/>For example, if you have several observation units at a 'plot' level, they might all share a relationship to the same 'field' level.  
-> <br/>Use this parameter to identify groups of observation units that share a relationship level. 
-> <br/>**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** 
-> <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
-
-
-Deleted: `observationUnitLevelRelationshipOrder` in `query`
-> The Observation Unit Level Order Number. 
-> <br/>Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder 
-> <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
-
-
-Deleted: `observationUnitLevelRelationshipCode` in `query`
-> The Observation Unit Level Code. 
-> <br/>This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode 
-> <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
-
-
-Deleted: `observationUnitLevelRelationshipDbId` in `query`
-> The observationUnitDbId associated with a particular level and code.
-> <br/>This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->observationUnitDbId 
-> <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
-
-
-Changed: `observationDbId` in `query`
-> The unique id of an Observation
-
-
-Changed: `observationUnitDbId` in `query`
-> The unique id of an Observation Unit
-
-
-Changed: `observationVariableDbId` in `query`
-> The DbIds of Variables to search for
-
-
-Changed: `locationDbId` in `query`
-> The location ids to search for
-
-
-Changed: `observationTimeStampRangeStart` in `query`
-> Timestamp range start
-
-
-Changed: `observationTimeStampRangeEnd` in `query`
-> Timestamp range end
-
-
-Changed: `commonCropName` in `query`
-> The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.
-> 
-> Use this parameter to only return results associated with the given crops. 
-> 
-> Use `GET /commoncropnames` to find the list of available crops on a server.
-
-
-Changed: `programDbId` in `query`
-> A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
-> 
-> Use this parameter to only return results associated with the given programs. 
-> 
-> Use `GET /programs` to find the list of available programs on a server.
-
-
-Changed: `trialDbId` in `query`
-> The ID which uniquely identifies a trial to search for
-
-
-Changed: `studyDbId` in `query`
-> List of study identifiers to search for
-
-
-Changed: `germplasmDbId` in `query`
-> List of IDs which uniquely identify germplasm to search for
-
-
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > A value assigned for a specific ObservationVariable when observing a specific ObservationUnit.
-
-
-            * Added property `germplasmPUI` (string)
-
-            * Added property `observationUnitPUI` (string)
-
-            * Added property `observationVariablePUI` (string)
-
-            * Added property `seasonDbId` (string)
-
-            * Added property `seasonName` (string)
-
-            * Added property `studyName` (string)
-
-            * Added property `studyPUI` (string)
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `season` (object)
-
-            * Deleted property `observationDbId` (string)
-                > The ID which uniquely identifies an observation
-
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `collector` (string)
-
-            * Changed property `germplasmDbId` (string)
-
-            * Changed property `germplasmName` (string)
-
-            * Changed property `observationTimeStamp` (string -> string)
-
-            * Changed property `observationUnitDbId` (string)
-
-            * Changed property `observationUnitName` (string)
-
-            * Changed property `observationVariableDbId` (string)
-
-            * Changed property `observationVariableName` (string)
-
-            * Changed property `studyDbId` (string)
-
-            * Changed property `uploadedBy` (string)
-
-            * Changed property `value` (string)
-
-            * Changed property `geoCoordinates` (object)
-                > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
-                > 
-                > Copied from RFC 7946 Section 3.1.1
-                > 
-                > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
-                > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
-
-
-                * Changed property `type` (string)
-
-                * Changed property `geometry` (object -> object)
-
-##### `PUT` /observations
-
-> Update the details for an existing Observation
-
-
-###### Request:
-
-Changed content type : `application/json`
-
-New required properties:
-- `observationDbId`
-- `observationDbId`
-
-* Added property `additionalInfo` (object)
-    > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-* Added property `collector` (string)
-
-* Added property `geoCoordinates` (object)
-    > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
-    > 
-    > Copied from RFC 7946 Section 3.1.1
-    > 
-    > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
-    > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
-
-
-    * Property `geometry` (object)
-
-        One of:
-
-            * Property `coordinates` (array)
-
-                Items (number):
-
-            * Property `type` (string)
-
-            * Property `coordinates` (array)
-
-                Items (array):
-
-                Items (array):
-
-            * Property `type` (string)
-
-    * Property `type` (string)
-
-* Added property `germplasmDbId` (string)
-
-* Added property `germplasmName` (string)
-
-* Added property `germplasmPUI` (string)
-
-* Added property `observationDbId` (string)
-
-* Added property `observationTimeStamp` (string)
-
-* Added property `observationUnitDbId` (string)
-
-* Added property `observationUnitName` (string)
-
-* Added property `observationUnitPUI` (string)
-
-* Added property `observationVariableDbId` (string)
-
-* Added property `observationVariableName` (string)
-
-* Added property `observationVariablePUI` (string)
-
-* Added property `seasonDbId` (string)
-
-* Added property `seasonName` (string)
-
-* Added property `studyDbId` (string)
-
-* Added property `studyName` (string)
-
-* Added property `studyPUI` (string)
-
-* Added property `uploadedBy` (string)
-
-* Added property `value` (string)
-
-###### Return Type:
-
-Deleted response : **404 Not Found**
-> Not Found
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > A value assigned for a specific ObservationVariable when observing a specific ObservationUnit.
-
-
-            * Added property `germplasmPUI` (string)
-
-            * Added property `observationUnitPUI` (string)
-
-            * Added property `observationVariablePUI` (string)
-
-            * Added property `seasonDbId` (string)
-
-            * Added property `seasonName` (string)
-
-            * Added property `studyName` (string)
-
-            * Added property `studyPUI` (string)
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `season` (object)
-
-            * Deleted property `observationDbId` (string)
-                > The ID which uniquely identifies an observation
-
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `collector` (string)
-
-            * Changed property `germplasmDbId` (string)
-
-            * Changed property `germplasmName` (string)
-
-            * Changed property `observationTimeStamp` (string -> string)
-
-            * Changed property `observationUnitDbId` (string)
-
-            * Changed property `observationUnitName` (string)
-
-            * Changed property `observationVariableDbId` (string)
-
-            * Changed property `observationVariableName` (string)
-
-            * Changed property `studyDbId` (string)
-
-            * Changed property `uploadedBy` (string)
-
-            * Changed property `value` (string)
-
-            * Changed property `geoCoordinates` (object)
-                > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
-                > 
-                > Copied from RFC 7946 Section 3.1.1
-                > 
-                > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
-                > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
-
-
-                * Changed property `type` (string)
-
-                * Changed property `geometry` (object -> object)
-
-##### `POST` /observations
-
-> Create new Observation
-
-
-###### Request:
-
-Changed content type : `application/json`
-
-###### Return Type:
-
-Deleted response : **404 Not Found**
-> Not Found
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > A value assigned for a specific ObservationVariable when observing a specific ObservationUnit.
-
-
-            * Added property `germplasmPUI` (string)
-
-            * Added property `observationUnitPUI` (string)
-
-            * Added property `observationVariablePUI` (string)
-
-            * Added property `seasonDbId` (string)
-
-            * Added property `seasonName` (string)
-
-            * Added property `studyName` (string)
-
-            * Added property `studyPUI` (string)
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `season` (object)
-
-            * Deleted property `observationDbId` (string)
-                > The ID which uniquely identifies an observation
-
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `collector` (string)
-
-            * Changed property `germplasmDbId` (string)
-
-            * Changed property `germplasmName` (string)
-
-            * Changed property `observationTimeStamp` (string -> string)
-
-            * Changed property `observationUnitDbId` (string)
-
-            * Changed property `observationUnitName` (string)
-
-            * Changed property `observationVariableDbId` (string)
-
-            * Changed property `observationVariableName` (string)
-
-            * Changed property `studyDbId` (string)
-
-            * Changed property `uploadedBy` (string)
-
-            * Changed property `value` (string)
-
-            * Changed property `geoCoordinates` (object)
-                > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
-                > 
-                > Copied from RFC 7946 Section 3.1.1
-                > 
-                > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
-                > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
-
-
-                * Changed property `type` (string)
-
-                * Changed property `geometry` (object -> object)
-
-##### `GET` /observations/{observationDbId}
-
-> Get the details of a specific Observation
-
-
-###### Parameters:
-
-Deleted: `observationDbId` in `path`
-> The unique ID of an observation
-
-
-Deleted: `Authorization` in `header`
-> HTTP HEADER - Token used for Authorization 
-> 
-> <strong> Bearer {token_string} </strong>
-
-
-###### Return Type:
-
-Deleted response : **404 Not Found**
-> Not Found
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-        > A value assigned for a specific ObservationVariable when observing a specific ObservationUnit.
-
-
-        * Added property `germplasmPUI` (string)
-
-        * Added property `observationUnitPUI` (string)
-
-        * Added property `observationVariablePUI` (string)
-
-        * Added property `seasonDbId` (string)
-
-        * Added property `seasonName` (string)
-
-        * Added property `studyName` (string)
-
-        * Added property `studyPUI` (string)
-
-        * Deleted property `externalReferences` (object)
-
-        * Deleted property `season` (object)
-
-        * Deleted property `observationDbId` (string)
-            > The ID which uniquely identifies an observation
-
-
-        * Changed property `additionalInfo` (object)
-            > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-            * Added property `additionalProperties` (string)
-
-        * Changed property `collector` (string)
-
-        * Changed property `germplasmDbId` (string)
-
-        * Changed property `germplasmName` (string)
-
-        * Changed property `observationTimeStamp` (string -> string)
-
-        * Changed property `observationUnitDbId` (string)
-
-        * Changed property `observationUnitName` (string)
-
-        * Changed property `observationVariableDbId` (string)
-
-        * Changed property `observationVariableName` (string)
-
-        * Changed property `studyDbId` (string)
-
-        * Changed property `uploadedBy` (string)
-
-        * Changed property `value` (string)
-
-        * Changed property `geoCoordinates` (object)
-            > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
-            > 
-            > Copied from RFC 7946 Section 3.1.1
-            > 
-            > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
-            > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
-
-
-            * Changed property `type` (string)
-
-            * Changed property `geometry` (object -> object)
 
 ##### `GET` /observationunits
 
@@ -5316,13 +3829,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples.
-
 
             * Added property `germplasmPUI` (string)
 
@@ -5330,14 +3845,8 @@ Changed response : **200 OK**
 
             * Added property `trialPUI` (string)
 
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `observationUnitPosition` (object)
-
-            * Deleted property `treatments` (array)
-                > List of treatments applied to an observation unit.
-                > 
-                > MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
             * Deleted property `observationUnitDbId` (string)
@@ -5346,10 +3855,18 @@ Changed response : **200 OK**
                 > MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique.
 
 
+            * Deleted property `observationUnitPosition` (object)
+
             * Deleted property `observations` (array)
                 > All observations attached to this observation unit. 
                 > 
                 > Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.
+
+
+            * Deleted property `treatments` (array)
+                > List of treatments applied to an observation unit.
+                > 
+                > MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.
 
 
             * Changed property `additionalInfo` (object)
@@ -5407,6 +3924,8 @@ New required properties:
     > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
 
 
+    * Property `additionalProperties` (string)
+
 * Added property `crossDbId` (string)
 
 * Added property `crossName` (string)
@@ -5455,13 +3974,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples.
-
 
             * Added property `germplasmPUI` (string)
 
@@ -5469,14 +3990,8 @@ Changed response : **200 OK**
 
             * Added property `trialPUI` (string)
 
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `observationUnitPosition` (object)
-
-            * Deleted property `treatments` (array)
-                > List of treatments applied to an observation unit.
-                > 
-                > MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
             * Deleted property `observationUnitDbId` (string)
@@ -5485,10 +4000,18 @@ Changed response : **200 OK**
                 > MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique.
 
 
+            * Deleted property `observationUnitPosition` (object)
+
             * Deleted property `observations` (array)
                 > All observations attached to this observation unit. 
                 > 
                 > Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.
+
+
+            * Deleted property `treatments` (array)
+                > List of treatments applied to an observation unit.
+                > 
+                > MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.
 
 
             * Changed property `additionalInfo` (object)
@@ -5546,13 +4069,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples.
-
 
             * Added property `germplasmPUI` (string)
 
@@ -5560,14 +4085,8 @@ Changed response : **200 OK**
 
             * Added property `trialPUI` (string)
 
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `observationUnitPosition` (object)
-
-            * Deleted property `treatments` (array)
-                > List of treatments applied to an observation unit.
-                > 
-                > MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
             * Deleted property `observationUnitDbId` (string)
@@ -5576,10 +4095,18 @@ Changed response : **200 OK**
                 > MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique.
 
 
+            * Deleted property `observationUnitPosition` (object)
+
             * Deleted property `observations` (array)
                 > All observations attached to this observation unit. 
                 > 
                 > Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.
+
+
+            * Deleted property `treatments` (array)
+                > List of treatments applied to an observation unit.
+                > 
+                > MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.
 
 
             * Changed property `additionalInfo` (object)
@@ -5645,9 +4172,11 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples.
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Added property `germplasmPUI` (string)
 
@@ -5655,14 +4184,8 @@ Changed response : **200 OK**
 
         * Added property `trialPUI` (string)
 
-        * Deleted property `externalReferences` (object)
-
-        * Deleted property `observationUnitPosition` (object)
-
-        * Deleted property `treatments` (array)
-            > List of treatments applied to an observation unit.
-            > 
-            > MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
         * Deleted property `observationUnitDbId` (string)
@@ -5671,10 +4194,18 @@ Changed response : **200 OK**
             > MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique.
 
 
+        * Deleted property `observationUnitPosition` (object)
+
         * Deleted property `observations` (array)
             > All observations attached to this observation unit. 
             > 
             > Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.
+
+
+        * Deleted property `treatments` (array)
+            > List of treatments applied to an observation unit.
+            > 
+            > MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.
 
 
         * Changed property `additionalInfo` (object)
@@ -5740,13 +4271,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > The identifier and metadata needed to reference an external controlled vocabulary
-
 
             * Deleted property `ontologyDbId` (string)
                 > Ontology database unique identifier
@@ -5789,13 +4322,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > The identifier and metadata needed to reference an external controlled vocabulary
-
 
             * Deleted property `ontologyDbId` (string)
                 > Ontology database unique identifier
@@ -5848,9 +4383,11 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > The identifier and metadata needed to reference an external controlled vocabulary
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Deleted property `ontologyDbId` (string)
             > Ontology database unique identifier
@@ -5927,9 +4464,11 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > The identifier and metadata needed to reference an external controlled vocabulary
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Deleted property `ontologyDbId` (string)
             > Ontology database unique identifier
@@ -6091,13 +4630,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A representation of a particular Germplasm within a pedigree tree, and all the links to its parents, siblings, and children. From a list of PedigreeNode objects, a client application should have all the information it needs to draw a pedigree tree visualization, or calculate genetic distances.
-
 
             New required properties:
             - `germplasmPUI`
@@ -6175,13 +4716,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A representation of a particular Germplasm within a pedigree tree, and all the links to its parents, siblings, and children. From a list of PedigreeNode objects, a client application should have all the information it needs to draw a pedigree tree visualization, or calculate genetic distances.
-
 
             New required properties:
             - `germplasmPUI`
@@ -6304,15 +4847,19 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A generic object used to maintain the metadata needed to describe a human. The Person might be a software user, a field technician, or a primary contact for a Program.
 
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
-            * Deleted property `externalReferences` (object)
 
             * Deleted property `personDbId` (string)
                 > Unique ID for a person
@@ -6357,15 +4904,19 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A generic object used to maintain the metadata needed to describe a human. The Person might be a software user, a field technician, or a primary contact for a Program.
 
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
-            * Deleted property `externalReferences` (object)
 
             * Deleted property `personDbId` (string)
                 > Unique ID for a person
@@ -6421,11 +4972,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
-        > A generic object used to maintain the metadata needed to describe a human. The Person might be a software user, a field technician, or a primary contact for a Program.
 
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
-        * Deleted property `externalReferences` (object)
 
         * Deleted property `personDbId` (string)
             > Unique ID for a person
@@ -6474,7 +5029,9 @@ New required properties:
 
 * Added property `personDbId` (string)
 
-* Deleted property `externalReferences` (object)
+* Deleted property `externalReferences` (array)
+    > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
 * Changed property `additionalInfo` (object)
     > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
@@ -6509,11 +5066,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
-        > A generic object used to maintain the metadata needed to describe a human. The Person might be a software user, a field technician, or a primary contact for a Program.
 
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
-        * Deleted property `externalReferences` (object)
 
         * Deleted property `personDbId` (string)
             > Unique ID for a person
@@ -6540,383 +5101,6 @@ Changed response : **200 OK**
         * Changed property `phoneNumber` (string)
 
         * Changed property `userID` (string)
-
-##### `GET` /plannedcrosses
-
-> Get a filtered list of PlannedCross
-
-
-###### Parameters:
-
-Added: `programName` in `query`
-> Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
-> 
-> Use `GET /programs` to find the list of available programs on a server.
-
-
-Changed: `commonCropName` in `query`
-> The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.
-> 
-> Use this parameter to only return results associated with the given crops. 
-> 
-> Use `GET /commoncropnames` to find the list of available crops on a server.
-
-
-Changed: `programDbId` in `query`
-> A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
-> 
-> Use this parameter to only return results associated with the given programs. 
-> 
-> Use `GET /programs` to find the list of available programs on a server.
-
-
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > Information regarding the intention to mate specific organisms together to produce offspring with desired traits. A PlannedCross becomes an actual Cross when the desired mating event actually occurs in the field.
-
-
-            * Deleted property `externalReferences` (object)
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `crossType` (string)
-                > The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK',  'BULK_SELFED',  'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'.
-
-
-            * Changed property `crossingProjectDbId` (string)
-
-            * Changed property `crossingProjectName` (string)
-
-            * Changed property `parent1` (object)
-                > The identifying information gor the parent material of a cross.
-
-
-                * Added property `germplasm` (object)
-                    > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
-
-
-                * Added property `observationUnitPUI` (string)
-
-                * Deleted property `germplasmDbId` (string)
-                    > the unique identifier for a germplasm
-
-
-                * Deleted property `germplasmName` (string)
-                    > the human readable name for a germplasm
-
-
-                * Changed property `observationUnitDbId` (string)
-
-                * Changed property `observationUnitName` (string)
-
-                * Changed property `parentType` (string)
-                    > The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C.
-
-
-                    Added enum value:
-
-                    * `CLONAL`
-            * Changed property `parent2` (object)
-                > The identifying information gor the parent material of a cross.
-
-
-                * Added property `germplasm` (object)
-                    > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
-
-
-                * Added property `observationUnitPUI` (string)
-
-                * Deleted property `germplasmDbId` (string)
-                    > the unique identifier for a germplasm
-
-
-                * Deleted property `germplasmName` (string)
-                    > the human readable name for a germplasm
-
-
-                * Changed property `observationUnitDbId` (string)
-
-                * Changed property `observationUnitName` (string)
-
-                * Changed property `parentType` (string)
-                    > The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C.
-
-
-                    Added enum value:
-
-                    * `CLONAL`
-            * Changed property `plannedCrossName` (string)
-
-            * Changed property `status` (string)
-                > The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').
-
-
-            * Changed property `plannedCrossDbId` (string)
-
-##### `PUT` /plannedcrosses
-
-> Update the details for an existing PlannedCross
-
-
-###### Request:
-
-Changed content type : `application/json`
-
-New required properties:
-- `plannedCrossDbId`
-
-* Added property `additionalInfo` (object)
-    > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-* Added property `crossType` (string)
-    > The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK',  'BULK_SELFED',  'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'.
-
-
-* Added property `crossingProjectDbId` (string)
-
-* Added property `crossingProjectName` (string)
-
-* Added property `parent1` (object)
-    > The identifying information gor the parent material of a cross.
-
-
-* Added property `parent2` (object)
-    > The identifying information gor the parent material of a cross.
-
-
-* Added property `plannedCrossDbId` (string)
-
-* Added property `plannedCrossName` (string)
-
-* Added property `status` (string)
-    > The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').
-
-
-    Enum values:
-
-    * `TODO`
-    * `DONE`
-    * `SKIPPED`
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > Information regarding the intention to mate specific organisms together to produce offspring with desired traits. A PlannedCross becomes an actual Cross when the desired mating event actually occurs in the field.
-
-
-            * Deleted property `externalReferences` (object)
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `crossType` (string)
-                > The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK',  'BULK_SELFED',  'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'.
-
-
-            * Changed property `crossingProjectDbId` (string)
-
-            * Changed property `crossingProjectName` (string)
-
-            * Changed property `parent1` (object)
-                > The identifying information gor the parent material of a cross.
-
-
-                * Added property `germplasm` (object)
-                    > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
-
-
-                * Added property `observationUnitPUI` (string)
-
-                * Deleted property `germplasmDbId` (string)
-                    > the unique identifier for a germplasm
-
-
-                * Deleted property `germplasmName` (string)
-                    > the human readable name for a germplasm
-
-
-                * Changed property `observationUnitDbId` (string)
-
-                * Changed property `observationUnitName` (string)
-
-                * Changed property `parentType` (string)
-                    > The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C.
-
-
-                    Added enum value:
-
-                    * `CLONAL`
-            * Changed property `parent2` (object)
-                > The identifying information gor the parent material of a cross.
-
-
-                * Added property `germplasm` (object)
-                    > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
-
-
-                * Added property `observationUnitPUI` (string)
-
-                * Deleted property `germplasmDbId` (string)
-                    > the unique identifier for a germplasm
-
-
-                * Deleted property `germplasmName` (string)
-                    > the human readable name for a germplasm
-
-
-                * Changed property `observationUnitDbId` (string)
-
-                * Changed property `observationUnitName` (string)
-
-                * Changed property `parentType` (string)
-                    > The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C.
-
-
-                    Added enum value:
-
-                    * `CLONAL`
-            * Changed property `plannedCrossName` (string)
-
-            * Changed property `status` (string)
-                > The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').
-
-
-            * Changed property `plannedCrossDbId` (string)
-
-##### `POST` /plannedcrosses
-
-> Create new PlannedCross
-
-
-###### Request:
-
-Changed content type : `application/json`
-
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > Information regarding the intention to mate specific organisms together to produce offspring with desired traits. A PlannedCross becomes an actual Cross when the desired mating event actually occurs in the field.
-
-
-            * Deleted property `externalReferences` (object)
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `crossType` (string)
-                > The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK',  'BULK_SELFED',  'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'.
-
-
-            * Changed property `crossingProjectDbId` (string)
-
-            * Changed property `crossingProjectName` (string)
-
-            * Changed property `parent1` (object)
-                > The identifying information gor the parent material of a cross.
-
-
-                * Added property `germplasm` (object)
-                    > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
-
-
-                * Added property `observationUnitPUI` (string)
-
-                * Deleted property `germplasmDbId` (string)
-                    > the unique identifier for a germplasm
-
-
-                * Deleted property `germplasmName` (string)
-                    > the human readable name for a germplasm
-
-
-                * Changed property `observationUnitDbId` (string)
-
-                * Changed property `observationUnitName` (string)
-
-                * Changed property `parentType` (string)
-                    > The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C.
-
-
-                    Added enum value:
-
-                    * `CLONAL`
-            * Changed property `parent2` (object)
-                > The identifying information gor the parent material of a cross.
-
-
-                * Added property `germplasm` (object)
-                    > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
-
-
-                * Added property `observationUnitPUI` (string)
-
-                * Deleted property `germplasmDbId` (string)
-                    > the unique identifier for a germplasm
-
-
-                * Deleted property `germplasmName` (string)
-                    > the human readable name for a germplasm
-
-
-                * Changed property `observationUnitDbId` (string)
-
-                * Changed property `observationUnitName` (string)
-
-                * Changed property `parentType` (string)
-                    > The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C.
-
-
-                    Added enum value:
-
-                    * `CLONAL`
-            * Changed property `plannedCrossName` (string)
-
-            * Changed property `status` (string)
-                > The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').
-
-
-            * Changed property `plannedCrossDbId` (string)
 
 ##### `GET` /plates
 
@@ -7011,13 +5195,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A Plate represents the metadata for a collection of Samples. The physical Plate being represented might be a plastic tray full of Samples, or a group of Samples stored in individual containers ie bags, test tubes, etc. Whatever the container is, the Samples in a Plate should be related by the same physical space, though they may or may not be related as part of the same experiment or analysis.
-
 
             * Added property `programName` (string)
 
@@ -7029,7 +5215,9 @@ Changed response : **200 OK**
 
             * Added property `trialPUI` (string)
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `plateDbId` (string)
                 > The ID which uniquely identifies a `Plate`
@@ -7076,13 +5264,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A Plate represents the metadata for a collection of Samples. The physical Plate being represented might be a plastic tray full of Samples, or a group of Samples stored in individual containers ie bags, test tubes, etc. Whatever the container is, the Samples in a Plate should be related by the same physical space, though they may or may not be related as part of the same experiment or analysis.
-
 
             * Added property `programName` (string)
 
@@ -7094,7 +5284,9 @@ Changed response : **200 OK**
 
             * Added property `trialPUI` (string)
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `plateDbId` (string)
                 > The ID which uniquely identifies a `Plate`
@@ -7152,9 +5344,11 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > A Plate represents the metadata for a collection of Samples. The physical Plate being represented might be a plastic tray full of Samples, or a group of Samples stored in individual containers ie bags, test tubes, etc. Whatever the container is, the Samples in a Plate should be related by the same physical space, though they may or may not be related as part of the same experiment or analysis.
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Added property `programName` (string)
 
@@ -7166,7 +5360,9 @@ Changed response : **200 OK**
 
         * Added property `trialPUI` (string)
 
-        * Deleted property `externalReferences` (object)
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
         * Deleted property `plateDbId` (string)
             > The ID which uniquely identifies a `Plate`
@@ -7255,17 +5451,21 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. A Program can contain multiple Trials. A Trial can contain multiple Studies.
-
 
             * Added property `personDbId` (string)
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `leadPersonDbId` (string)
                 > The unique identifier of the program leader
@@ -7320,17 +5520,21 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. A Program can contain multiple Trials. A Trial can contain multiple Studies.
-
 
             * Added property `personDbId` (string)
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `leadPersonDbId` (string)
                 > The unique identifier of the program leader
@@ -7393,13 +5597,17 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. A Program can contain multiple Trials. A Trial can contain multiple Studies.
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Added property `personDbId` (string)
 
-        * Deleted property `externalReferences` (object)
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
         * Deleted property `leadPersonDbId` (string)
             > The unique identifier of the program leader
@@ -7460,7 +5668,9 @@ New required properties:
 
 * Added property `programDbId` (string)
 
-* Deleted property `externalReferences` (object)
+* Deleted property `externalReferences` (array)
+    > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
 * Deleted property `leadPersonDbId` (string)
     > The unique identifier of the program leader
@@ -7502,13 +5712,17 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. A Program can contain multiple Trials. A Trial can contain multiple Studies.
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Added property `personDbId` (string)
 
-        * Deleted property `externalReferences` (object)
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
         * Deleted property `leadPersonDbId` (string)
             > The unique identifier of the program leader
@@ -7545,446 +5759,6 @@ Changed response : **200 OK**
             > <br/> 'STANDARD' represents a standard, permanent breeding program
             > <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding
 
-
-##### `GET` /references
-
-> Get a filtered list of Reference
-
-
-###### Parameters:
-
-Added: `germplasmDbId` in `query`
-> List of IDs which uniquely identify germplasm to search for
-
-
-Added: `germplasmName` in `query`
-> List of human readable names to identify germplasm to search for
-
-
-Added: `programName` in `query`
-> Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
-> 
-> Use `GET /programs` to find the list of available programs on a server.
-
-
-Added: `studyName` in `query`
-> List of study names to filter search results
-
-
-Added: `trialName` in `query`
-> The human readable name of a trial to search for
-
-
-Added: `externalReferenceID` in `query`
-> **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 
-> <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-
-
-Changed: `referenceDbId` in `query`
-> A list of IDs which uniquely identify `References` within the given database server
-
-
-Changed: `referenceSetDbId` in `query`
-> A list of IDs which uniquely identify `ReferenceSets` within the given database server
-
-
-Changed: `accession` in `query`
-> If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).
-
-
-Changed: `isDerived` in `query`
-> A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.
-
-
-Changed: `minLength` in `query`
-> The minimum length of this `References` sequence.
-
-
-Changed: `maxLength` in `query`
-> The minimum length of this `References` sequence.
-
-
-Changed: `commonCropName` in `query`
-> The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.
-> 
-> Use this parameter to only return results associated with the given crops. 
-> 
-> Use `GET /commoncropnames` to find the list of available crops on a server.
-
-
-Changed: `programDbId` in `query`
-> A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
-> 
-> Use this parameter to only return results associated with the given programs. 
-> 
-> Use `GET /programs` to find the list of available programs on a server.
-
-
-Changed: `trialDbId` in `query`
-> The ID which uniquely identifies a trial to search for
-
-
-Changed: `studyDbId` in `query`
-> List of study identifiers to search for
-
-
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > A `Reference` is a canonical assembled contig, intended to act as a reference coordinate space for other genomic annotations. A single `Reference` might represent the human chromosome 1, for instance. `References` are designed to be immutable.
-
-
-            * Added property `sourceGermplasmDbIds` (array)
-
-            * Added property `variantDbIds` (array)
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `sourceAccessions` (array)
-                > All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.
-
-
-            * Deleted property `sourceGermplasm` (array)
-                > All known corresponding Germplasm
-
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `commonCropName` (string)
-
-            * Changed property `isDerived` (boolean -> boolean)
-
-            * Changed property `length` (integer -> integer)
-
-            * Changed property `md5checksum` (string)
-
-            * Changed property `referenceDbId` (string)
-
-            * Changed property `referenceName` (string)
-
-            * Changed property `referenceSetDbId` (string)
-
-            * Changed property `referenceSetName` (string)
-
-            * Changed property `sourceDivergence` (number -> number)
-
-            * Changed property `sourceURI` (string)
-
-            * Changed property `species` (object)
-                > A pointer to an ontology used by a genomic reference
-
-
-                * Changed property `term` (string)
-
-                * Changed property `termURI` (string)
-
-##### `GET` /references/{referenceDbId}
-
-> Get the details of a specific Reference
-
-
-###### Parameters:
-
-Deleted: `referenceDbId` in `path`
-> The ID of the `Reference` to be retrieved.
-
-
-Deleted: `Authorization` in `header`
-> HTTP HEADER - Token used for Authorization 
-> 
-> <strong> Bearer {token_string} </strong>
-
-
-###### Return Type:
-
-Deleted response : **404 Not Found**
-> Not Found
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-        > A `Reference` is a canonical assembled contig, intended to act as a reference coordinate space for other genomic annotations. A single `Reference` might represent the human chromosome 1, for instance. `References` are designed to be immutable.
-
-
-        * Added property `sourceGermplasmDbIds` (array)
-
-        * Added property `variantDbIds` (array)
-
-        * Deleted property `externalReferences` (object)
-
-        * Deleted property `sourceAccessions` (array)
-            > All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.
-
-
-        * Deleted property `sourceGermplasm` (array)
-            > All known corresponding Germplasm
-
-
-        * Changed property `additionalInfo` (object)
-            > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-            * Added property `additionalProperties` (string)
-
-        * Changed property `commonCropName` (string)
-
-        * Changed property `isDerived` (boolean -> boolean)
-
-        * Changed property `length` (integer -> integer)
-
-        * Changed property `md5checksum` (string)
-
-        * Changed property `referenceDbId` (string)
-
-        * Changed property `referenceName` (string)
-
-        * Changed property `referenceSetDbId` (string)
-
-        * Changed property `referenceSetName` (string)
-
-        * Changed property `sourceDivergence` (number -> number)
-
-        * Changed property `sourceURI` (string)
-
-        * Changed property `species` (object)
-            > A pointer to an ontology used by a genomic reference
-
-
-            * Changed property `term` (string)
-
-            * Changed property `termURI` (string)
-
-##### `GET` /referencesets
-
-> Get a filtered list of ReferenceSet
-
-
-###### Parameters:
-
-Added: `germplasmDbId` in `query`
-> List of IDs which uniquely identify germplasm to search for
-
-
-Added: `germplasmName` in `query`
-> List of human readable names to identify germplasm to search for
-
-
-Added: `programName` in `query`
-> Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
-> 
-> Use `GET /programs` to find the list of available programs on a server.
-
-
-Added: `studyName` in `query`
-> List of study names to filter search results
-
-
-Added: `trialName` in `query`
-> The human readable name of a trial to search for
-
-
-Added: `externalReferenceID` in `query`
-> **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 
-> <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
-
-
-Changed: `referenceSetDbId` in `query`
-> The `ReferenceSets` to search.
-
-
-Changed: `commonCropName` in `query`
-> The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.
-> 
-> Use this parameter to only return results associated with the given crops. 
-> 
-> Use `GET /commoncropnames` to find the list of available crops on a server.
-
-
-Changed: `programDbId` in `query`
-> A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
-> 
-> Use this parameter to only return results associated with the given programs. 
-> 
-> Use `GET /programs` to find the list of available programs on a server.
-
-
-Changed: `trialDbId` in `query`
-> The ID which uniquely identifies a trial to search for
-
-
-Changed: `studyDbId` in `query`
-> List of study identifiers to search for
-
-
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > A `ReferenceSet` is a set of `Reference` s which typically comprise a reference assembly, such as `GRCH_38`. A `ReferenceSet` defines a common coordinate space for comparing reference-aligned experimental data.
-
-
-            * Added property `referenceDbId` (string)
-
-            * Added property `referenceName` (string)
-
-            * Added property `sourceGermplasmDbIds` (array)
-
-            * Added property `variantDbIds` (array)
-
-            * Added property `variantSetDbIds` (array)
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `referenceSetDbId` (string)
-                > The unique identifier for a ReferenceSet
-
-
-            * Deleted property `sourceAccessions` (array)
-                > All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.
-
-
-            * Deleted property `sourceGermplasm` (array)
-                > All known corresponding Germplasm
-
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `assemblyPUI` (string)
-
-            * Changed property `commonCropName` (string)
-
-            * Changed property `description` (string)
-
-            * Changed property `isDerived` (boolean -> boolean)
-
-            * Changed property `md5checksum` (string)
-
-            * Changed property `referenceSetName` (string)
-
-            * Changed property `sourceURI` (string)
-
-            * Changed property `species` (object)
-                > A pointer to an ontology used by a genomic reference
-
-
-                * Changed property `term` (string)
-
-                * Changed property `termURI` (string)
-
-##### `GET` /referencesets/{referenceSetDbId}
-
-> Get the details of a specific ReferenceSet
-
-
-###### Parameters:
-
-Deleted: `referenceSetDbId` in `path`
-> The ID of the `ReferenceSet` to be retrieved.
-
-
-Deleted: `Authorization` in `header`
-> HTTP HEADER - Token used for Authorization 
-> 
-> <strong> Bearer {token_string} </strong>
-
-
-###### Return Type:
-
-New response : **400 Bad Request**
-New response : **401 Unauthorized**
-New response : **403 Forbidden**
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-        > A `ReferenceSet` is a set of `Reference` s which typically comprise a reference assembly, such as `GRCH_38`. A `ReferenceSet` defines a common coordinate space for comparing reference-aligned experimental data.
-
-
-        * Added property `referenceDbId` (string)
-
-        * Added property `referenceName` (string)
-
-        * Added property `sourceGermplasmDbIds` (array)
-
-        * Added property `variantDbIds` (array)
-
-        * Added property `variantSetDbIds` (array)
-
-        * Deleted property `externalReferences` (object)
-
-        * Deleted property `referenceSetDbId` (string)
-            > The unique identifier for a ReferenceSet
-
-
-        * Deleted property `sourceAccessions` (array)
-            > All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.
-
-
-        * Deleted property `sourceGermplasm` (array)
-            > All known corresponding Germplasm
-
-
-        * Changed property `additionalInfo` (object)
-            > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-            * Added property `additionalProperties` (string)
-
-        * Changed property `assemblyPUI` (string)
-
-        * Changed property `commonCropName` (string)
-
-        * Changed property `description` (string)
-
-        * Changed property `isDerived` (boolean -> boolean)
-
-        * Changed property `md5checksum` (string)
-
-        * Changed property `referenceSetName` (string)
-
-        * Changed property `sourceURI` (string)
-
-        * Changed property `species` (object)
-            > A pointer to an ontology used by a genomic reference
-
-
-            * Changed property `term` (string)
-
-            * Changed property `termURI` (string)
 
 ##### `GET` /samples
 
@@ -8063,13 +5837,18 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > The identifiers and metadata associated with a physical piece of biological material collected from the field for external analysis. A Sample can take many forms (leaf clipping, seed, DNA, etc) and might be used for a variety of analysis procedures (spectra, genotyping, etc).
 
+            New required properties:
+            - `sampleDbId`
 
             * Added property `callSetDbIds` (array)
 
@@ -8093,15 +5872,12 @@ Changed response : **200 OK**
 
             * Added property `trialPUI` (string)
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `sampleGroupDbId` (string)
                 > The ID which uniquely identifies a group of `Samples`
-
-
-            * Deleted property `sampleDbId` (string)
-                > The ID which uniquely identifies a `Sample`
-                > <br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.
 
 
             * Changed property `additionalInfo` (object)
@@ -8234,13 +6010,18 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > The identifiers and metadata associated with a physical piece of biological material collected from the field for external analysis. A Sample can take many forms (leaf clipping, seed, DNA, etc) and might be used for a variety of analysis procedures (spectra, genotyping, etc).
 
+            New required properties:
+            - `sampleDbId`
 
             * Added property `callSetDbIds` (array)
 
@@ -8264,15 +6045,12 @@ Changed response : **200 OK**
 
             * Added property `trialPUI` (string)
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `sampleGroupDbId` (string)
                 > The ID which uniquely identifies a group of `Samples`
-
-
-            * Deleted property `sampleDbId` (string)
-                > The ID which uniquely identifies a `Sample`
-                > <br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.
 
 
             * Changed property `additionalInfo` (object)
@@ -8334,13 +6112,18 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > The identifiers and metadata associated with a physical piece of biological material collected from the field for external analysis. A Sample can take many forms (leaf clipping, seed, DNA, etc) and might be used for a variety of analysis procedures (spectra, genotyping, etc).
 
+            New required properties:
+            - `sampleDbId`
 
             * Added property `callSetDbIds` (array)
 
@@ -8364,15 +6147,12 @@ Changed response : **200 OK**
 
             * Added property `trialPUI` (string)
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `sampleGroupDbId` (string)
                 > The ID which uniquely identifies a group of `Samples`
-
-
-            * Deleted property `sampleDbId` (string)
-                > The ID which uniquely identifies a `Sample`
-                > <br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.
 
 
             * Changed property `additionalInfo` (object)
@@ -8443,9 +6223,14 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > The identifiers and metadata associated with a physical piece of biological material collected from the field for external analysis. A Sample can take many forms (leaf clipping, seed, DNA, etc) and might be used for a variety of analysis procedures (spectra, genotyping, etc).
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
+
+        New required properties:
+        - `sampleDbId`
 
         * Added property `callSetDbIds` (array)
 
@@ -8469,15 +6254,12 @@ Changed response : **200 OK**
 
         * Added property `trialPUI` (string)
 
-        * Deleted property `externalReferences` (object)
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
         * Deleted property `sampleGroupDbId` (string)
             > The ID which uniquely identifies a group of `Samples`
-
-
-        * Deleted property `sampleDbId` (string)
-            > The ID which uniquely identifies a `Sample`
-            > <br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.
 
 
         * Changed property `additionalInfo` (object)
@@ -8522,426 +6304,6 @@ Changed response : **200 OK**
 
         * Changed property `well` (string)
 
-##### `GET` /scales
-
-> Get a filtered list of Scale
-
-
-###### Parameters:
-
-Added: `programName` in `query`
-> Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
-> 
-> Use `GET /programs` to find the list of available programs on a server.
-
-
-Changed: `scaleDbId` in `query`
-> The unique identifier for a scale.
-
-
-Changed: `observationVariableDbId` in `query`
-> The unique identifier for an observation variable.
-
-
-Changed: `ontologyDbId` in `query`
-> The unique identifier for an ontology definition. Use this parameter to filter results based on a specific ontology 
-> 
->   Use `GET /ontologies` to find the list of available ontologies on a server.
-
-
-Changed: `commonCropName` in `query`
-> The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.
-> 
-> Use this parameter to only return results associated with the given crops. 
-> 
-> Use `GET /commoncropnames` to find the list of available crops on a server.
-
-
-Changed: `programDbId` in `query`
-> A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
-> 
-> Use this parameter to only return results associated with the given programs. 
-> 
-> Use `GET /programs` to find the list of available programs on a server.
-
-
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > A Scale describes the units and acceptable values for an ObservationVariable. 
-                > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".
-
-
-            * Added property `ontologyReferenceDbId` (string)
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `ontologyReference` (object)
-                > MIAPPE V1.1 (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology 
-                > MIAPPE V1.1 (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-                > MIAPPE V1.1 (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-                > MIAPPE V1.1 (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).
-
-
-            * Deleted property `scaleDbId` (string)
-                > Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.
-
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `dataType` (string)
-                > <p>Class of the scale, entries can be</p>
-                > <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p>
-                > <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p>
-                > <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p>
-                > <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p>
-                > <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p>
-                > <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p>
-                > <p>"Text" - A free text is used to express the trait.</p>
-
-
-            * Changed property `decimalPlaces` (integer -> integer)
-
-            * Changed property `scaleName` (string)
-
-            * Changed property `scalePUI` (string)
-
-            * Changed property `units` (string)
-
-            * Changed property `validValues` (object)
-                > Metadata describing the acceptable values for this Scale
-
-
-                * Added property `scaleDbId` (string)
-
-                * Added property `scaleName` (string)
-
-                * Added property `scalePUI` (string)
-
-                * Deleted property `categories` (array)
-                    > List of possible values with optional labels
-
-
-                * Deleted property `max` (integer)
-                    > **Deprecated in v2.1** Please use `maximumValue`. Github issue number #450 
-                    > <br>Maximum value for numerical scales. Typically used for data capture control and QC.
-
-
-                * Deleted property `min` (integer)
-                    > **Deprecated in v2.1** Please use `minimumValue`. Github issue number #450 
-                    > <br>Minimum value for numerical scales. Typically used for data capture control and QC.
-
-
-                * Changed property `maximumValue` (string)
-
-                * Changed property `minimumValue` (string)
-
-##### `POST` /scales
-
-> Create new Scale
-
-
-###### Request:
-
-Changed content type : `application/json`
-
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > A Scale describes the units and acceptable values for an ObservationVariable. 
-                > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".
-
-
-            * Added property `ontologyReferenceDbId` (string)
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `ontologyReference` (object)
-                > MIAPPE V1.1 (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology 
-                > MIAPPE V1.1 (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-                > MIAPPE V1.1 (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-                > MIAPPE V1.1 (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).
-
-
-            * Deleted property `scaleDbId` (string)
-                > Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.
-
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `dataType` (string)
-                > <p>Class of the scale, entries can be</p>
-                > <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p>
-                > <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p>
-                > <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p>
-                > <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p>
-                > <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p>
-                > <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p>
-                > <p>"Text" - A free text is used to express the trait.</p>
-
-
-            * Changed property `decimalPlaces` (integer -> integer)
-
-            * Changed property `scaleName` (string)
-
-            * Changed property `scalePUI` (string)
-
-            * Changed property `units` (string)
-
-            * Changed property `validValues` (object)
-                > Metadata describing the acceptable values for this Scale
-
-
-                * Added property `scaleDbId` (string)
-
-                * Added property `scaleName` (string)
-
-                * Added property `scalePUI` (string)
-
-                * Deleted property `categories` (array)
-                    > List of possible values with optional labels
-
-
-                * Deleted property `max` (integer)
-                    > **Deprecated in v2.1** Please use `maximumValue`. Github issue number #450 
-                    > <br>Maximum value for numerical scales. Typically used for data capture control and QC.
-
-
-                * Deleted property `min` (integer)
-                    > **Deprecated in v2.1** Please use `minimumValue`. Github issue number #450 
-                    > <br>Minimum value for numerical scales. Typically used for data capture control and QC.
-
-
-                * Changed property `maximumValue` (string)
-
-                * Changed property `minimumValue` (string)
-
-##### `GET` /scales/{scaleDbId}
-
-
-###### Parameters:
-
-Deleted: `scaleDbId` in `path`
-> Id of the scale to retrieve details of.
-
-
-Deleted: `Authorization` in `header`
-> HTTP HEADER - Token used for Authorization 
-> 
-> <strong> Bearer {token_string} </strong>
-
-
-###### Return Type:
-
-Deleted response : **404 Not Found**
-> Not Found
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-        > A Scale describes the units and acceptable values for an ObservationVariable. 
-        > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".
-
-
-        * Added property `ontologyReferenceDbId` (string)
-
-        * Deleted property `externalReferences` (object)
-
-        * Deleted property `ontologyReference` (object)
-            > MIAPPE V1.1 (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology 
-            > MIAPPE V1.1 (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-            > MIAPPE V1.1 (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-            > MIAPPE V1.1 (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).
-
-
-        * Deleted property `scaleDbId` (string)
-            > Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.
-
-
-        * Changed property `additionalInfo` (object)
-            > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-            * Added property `additionalProperties` (string)
-
-        * Changed property `dataType` (string)
-            > <p>Class of the scale, entries can be</p>
-            > <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p>
-            > <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p>
-            > <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p>
-            > <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p>
-            > <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p>
-            > <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p>
-            > <p>"Text" - A free text is used to express the trait.</p>
-
-
-        * Changed property `decimalPlaces` (integer -> integer)
-
-        * Changed property `scaleName` (string)
-
-        * Changed property `scalePUI` (string)
-
-        * Changed property `units` (string)
-
-        * Changed property `validValues` (object)
-            > Metadata describing the acceptable values for this Scale
-
-
-            * Added property `scaleDbId` (string)
-
-            * Added property `scaleName` (string)
-
-            * Added property `scalePUI` (string)
-
-            * Deleted property `categories` (array)
-                > List of possible values with optional labels
-
-
-            * Deleted property `max` (integer)
-                > **Deprecated in v2.1** Please use `maximumValue`. Github issue number #450 
-                > <br>Maximum value for numerical scales. Typically used for data capture control and QC.
-
-
-            * Deleted property `min` (integer)
-                > **Deprecated in v2.1** Please use `minimumValue`. Github issue number #450 
-                > <br>Minimum value for numerical scales. Typically used for data capture control and QC.
-
-
-            * Changed property `maximumValue` (string)
-
-            * Changed property `minimumValue` (string)
-
-##### `PUT` /scales/{scaleDbId}
-
-> Update the details for an existing Scale
-
-
-###### Parameters:
-
-Deleted: `scaleDbId` in `path`
-> Id of the scale to retrieve details of.
-
-
-###### Request:
-
-Changed content type : `application/json`
-
-###### Return Type:
-
-Deleted response : **404 Not Found**
-> Not Found
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-        > A Scale describes the units and acceptable values for an ObservationVariable. 
-        > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".
-
-
-        * Added property `ontologyReferenceDbId` (string)
-
-        * Deleted property `externalReferences` (object)
-
-        * Deleted property `ontologyReference` (object)
-            > MIAPPE V1.1 (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology 
-            > MIAPPE V1.1 (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-            > MIAPPE V1.1 (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-            > MIAPPE V1.1 (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).
-
-
-        * Deleted property `scaleDbId` (string)
-            > Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.
-
-
-        * Changed property `additionalInfo` (object)
-            > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-            * Added property `additionalProperties` (string)
-
-        * Changed property `dataType` (string)
-            > <p>Class of the scale, entries can be</p>
-            > <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p>
-            > <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p>
-            > <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p>
-            > <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p>
-            > <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p>
-            > <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p>
-            > <p>"Text" - A free text is used to express the trait.</p>
-
-
-        * Changed property `decimalPlaces` (integer -> integer)
-
-        * Changed property `scaleName` (string)
-
-        * Changed property `scalePUI` (string)
-
-        * Changed property `units` (string)
-
-        * Changed property `validValues` (object)
-            > Metadata describing the acceptable values for this Scale
-
-
-            * Added property `scaleDbId` (string)
-
-            * Added property `scaleName` (string)
-
-            * Added property `scalePUI` (string)
-
-            * Deleted property `categories` (array)
-                > List of possible values with optional labels
-
-
-            * Deleted property `max` (integer)
-                > **Deprecated in v2.1** Please use `maximumValue`. Github issue number #450 
-                > <br>Maximum value for numerical scales. Typically used for data capture control and QC.
-
-
-            * Deleted property `min` (integer)
-                > **Deprecated in v2.1** Please use `minimumValue`. Github issue number #450 
-                > <br>Minimum value for numerical scales. Typically used for data capture control and QC.
-
-
-            * Changed property `maximumValue` (string)
-
-            * Changed property `minimumValue` (string)
-
 ##### `POST` /search/allelematrix
 
 > Submit a search request for `AlleleMatrix`
@@ -8979,8 +6341,6 @@ Changed response : **200 OK**
         * Added property `data` (array)
 
             Items (object):
-                > The AlleleMatrix object is used to describe a matrix of genotyping results. This 2d array of data reduces the overall size of the response for larger datasets, when compared to the Calls endpoints. This makes genotype data retrieval faster and easier.
-
 
             * Property `callSetDbIds` (array)
 
@@ -9030,6 +6390,20 @@ Changed response : **200 OK**
 
         * Deleted property `variantSetDbIds` (array)
             > A list of unique identifiers for the VariantSets contained in the matrix response. A VariantSet is a data set originating from a sequencing event. Often, users will only be interested in data from a single VariantSet, but in some cases a user might be interested in a matrix with data from multiple VariantSets.
+
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+Changed response : **202 Accepted**
+> Accepted
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
 
 ##### `GET` /search/allelematrix/{searchResultsDbId}
@@ -9111,6 +6485,10 @@ Changed response : **200 OK**
             > A list of unique identifiers for the VariantSets contained in the matrix response. A VariantSet is a data set originating from a sequencing event. Often, users will only be interested in data from a single VariantSet, but in some cases a user might be interested in a matrix with data from multiple VariantSets.
 
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
 ##### `POST` /search/attributes
 
 > Submit a search request for `GermplasmAttribute`
@@ -9136,13 +6514,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > The Trait-Method-Scale definition for a variable, specifically variables related to Germplasm. Similar to an ObservationVariable, but related to a Germplasm instead of an ObservationUnit
-
 
             New required properties:
             - `methodName`
@@ -9177,11 +6557,17 @@ Changed response : **200 OK**
 
             * Added property `traitPUI` (string)
 
+            * Deleted property `attributeDbId` (string)
+                > The ID which uniquely identifies this attribute within the given database server
+
+
             * Deleted property `contextOfUse` (array)
                 > Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])
 
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `method` (object)
 
@@ -9195,15 +6581,19 @@ Changed response : **200 OK**
 
             * Deleted property `trait` (object)
 
-            * Deleted property `attributeDbId` (string)
-                > The ID which uniquely identifies this attribute within the given database server
-
-
             * Changed property `additionalInfo` (object)
                 > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
 
 
                 * Added property `additionalProperties` (string)
+
+            * Changed property `attributeCategory` (string)
+
+            * Changed property `attributeDescription` (string)
+
+            * Changed property `attributeName` (string)
+
+            * Changed property `attributePUI` (string)
 
             * Changed property `commonCropName` (string)
 
@@ -9223,13 +6613,15 @@ Changed response : **200 OK**
 
             * Changed property `submissionTimestamp` (string -> string)
 
-            * Changed property `attributeCategory` (string)
+Changed response : **202 Accepted**
+> Accepted
 
-            * Changed property `attributeDescription` (string)
 
-            * Changed property `attributeName` (string)
+* Changed content type : `application/json`
 
-            * Changed property `attributePUI` (string)
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
 
 ##### `GET` /search/attributes/{searchResultsDbId}
 
@@ -9276,13 +6668,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > The Trait-Method-Scale definition for a variable, specifically variables related to Germplasm. Similar to an ObservationVariable, but related to a Germplasm instead of an ObservationUnit
-
 
             New required properties:
             - `methodName`
@@ -9317,11 +6711,17 @@ Changed response : **200 OK**
 
             * Added property `traitPUI` (string)
 
+            * Deleted property `attributeDbId` (string)
+                > The ID which uniquely identifies this attribute within the given database server
+
+
             * Deleted property `contextOfUse` (array)
                 > Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])
 
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `method` (object)
 
@@ -9335,15 +6735,19 @@ Changed response : **200 OK**
 
             * Deleted property `trait` (object)
 
-            * Deleted property `attributeDbId` (string)
-                > The ID which uniquely identifies this attribute within the given database server
-
-
             * Changed property `additionalInfo` (object)
                 > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
 
 
                 * Added property `additionalProperties` (string)
+
+            * Changed property `attributeCategory` (string)
+
+            * Changed property `attributeDescription` (string)
+
+            * Changed property `attributeName` (string)
+
+            * Changed property `attributePUI` (string)
 
             * Changed property `commonCropName` (string)
 
@@ -9362,14 +6766,6 @@ Changed response : **200 OK**
             * Changed property `status` (string)
 
             * Changed property `submissionTimestamp` (string -> string)
-
-            * Changed property `attributeCategory` (string)
-
-            * Changed property `attributeDescription` (string)
-
-            * Changed property `attributeName` (string)
-
-            * Changed property `attributePUI` (string)
 
 ##### `POST` /search/attributevalues
 
@@ -9396,22 +6792,26 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > The value recorded for a particular Trait/Attribute and a particular Germplasm. Similar to an Observation value, but more concrete, applying to the whole Germplasm instead of a single ObservationUnit.
-
 
             * Added property `attributePUI` (string)
 
             * Added property `germplasmPUI` (string)
 
-            * Deleted property `externalReferences` (object)
-
             * Deleted property `attributeValueDbId` (string)
                 > The ID which uniquely identifies this attribute value within the given database server
+
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
             * Changed property `additionalInfo` (object)
@@ -9431,6 +6831,16 @@ Changed response : **200 OK**
             * Changed property `germplasmName` (string)
 
             * Changed property `value` (string)
+
+Changed response : **202 Accepted**
+> Accepted
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
 
 ##### `GET` /search/attributevalues/{searchResultsDbId}
 
@@ -9477,22 +6887,26 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > The value recorded for a particular Trait/Attribute and a particular Germplasm. Similar to an Observation value, but more concrete, applying to the whole Germplasm instead of a single ObservationUnit.
-
 
             * Added property `attributePUI` (string)
 
             * Added property `germplasmPUI` (string)
 
-            * Deleted property `externalReferences` (object)
-
             * Deleted property `attributeValueDbId` (string)
                 > The ID which uniquely identifies this attribute value within the given database server
+
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
             * Changed property `additionalInfo` (object)
@@ -9538,6 +6952,10 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Deleted property `expandHomozygotes` (boolean)
@@ -9559,10 +6977,6 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
-                > A `Call` represents the determination of genotype with respect to a particular `Variant`. 
-                > 
-                > It may include associated information such as quality and phasing. For example, a call might assign a probability of 0.32 to the occurrence of a SNP named RS_1234 in a call set with the name NA_12345.
-
 
             * Deleted property `genotype` (object)
 
@@ -9599,31 +7013,14 @@ Changed response : **200 OK**
 
             * Changed property `variantSetName` (string)
 
-    * Changed property `metadata` (object)
+Changed response : **202 Accepted**
+> Accepted
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
         > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
-
-
-        * Changed property `pagination` (object)
-            > The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. 
-            > <br> Pages are zero indexed, so the first page will be page 0 (zero).
-
-
-            New optional properties:
-            - `nextPageToken`
-
-            * Deleted property `currentPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the current page of data.
-
-
-            * Deleted property `nextPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the next page of data.
-
-
-            * Deleted property `prevPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the previous page of data.
 
 
 ##### `GET` /search/calls/{searchResultsDbId}
@@ -9674,6 +7071,10 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Deleted property `expandHomozygotes` (boolean)
@@ -9695,10 +7096,6 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
-                > A `Call` represents the determination of genotype with respect to a particular `Variant`. 
-                > 
-                > It may include associated information such as quality and phasing. For example, a call might assign a probability of 0.32 to the occurrence of a SNP named RS_1234 in a call set with the name NA_12345.
-
 
             * Deleted property `genotype` (object)
 
@@ -9735,33 +7132,6 @@ Changed response : **200 OK**
 
             * Changed property `variantSetName` (string)
 
-    * Changed property `metadata` (object)
-        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
-
-
-        * Changed property `pagination` (object)
-            > The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. 
-            > <br> Pages are zero indexed, so the first page will be page 0 (zero).
-
-
-            New optional properties:
-            - `nextPageToken`
-
-            * Deleted property `currentPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the current page of data.
-
-
-            * Deleted property `nextPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the next page of data.
-
-
-            * Deleted property `prevPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the previous page of data.
-
-
 ##### `POST` /search/callsets
 
 > Submit a search request for `CallSet`
@@ -9787,13 +7157,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A CallSet is a collection of Calls that were generated by the same analysis of the same Sample
-
 
             * Added property `sampleName` (string)
 
@@ -9824,6 +7196,16 @@ Changed response : **200 OK**
             * Changed property `updated` (string -> string)
 
             * Changed property `variantSetDbIds` (array)
+
+Changed response : **202 Accepted**
+> Accepted
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
 
 ##### `GET` /search/callsets/{searchResultsDbId}
 
@@ -9867,13 +7249,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A CallSet is a collection of Calls that were generated by the same analysis of the same Sample
-
 
             * Added property `sampleName` (string)
 
@@ -9928,13 +7312,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
-
 
             * Added property `sampleDbIds` (array)
 
@@ -9942,7 +7328,14 @@ Changed response : **200 OK**
                 > List of donor institutes
 
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `germplasmDbId` (string)
+                > The ID which uniquely identifies a germplasm within the given database server 
+                > <br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
+
 
             * Deleted property `germplasmOrigin` (array)
                 > Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.
@@ -9962,11 +7355,6 @@ Changed response : **200 OK**
                 > The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.
                 > 
                 > MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.
-
-
-            * Deleted property `germplasmDbId` (string)
-                > The ID which uniquely identifies a germplasm within the given database server 
-                > <br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
 
 
             * Changed property `accessionNumber` (string)
@@ -10046,6 +7434,16 @@ Changed response : **200 OK**
             * Changed property `subtaxa` (string)
 
             * Changed property `subtaxaAuthority` (string)
+
+Changed response : **202 Accepted**
+> Accepted
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
 
 ##### `GET` /search/germplasm/{searchResultsDbId}
 
@@ -10092,13 +7490,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
-
 
             * Added property `sampleDbIds` (array)
 
@@ -10106,7 +7506,14 @@ Changed response : **200 OK**
                 > List of donor institutes
 
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `germplasmDbId` (string)
+                > The ID which uniquely identifies a germplasm within the given database server 
+                > <br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
+
 
             * Deleted property `germplasmOrigin` (array)
                 > Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.
@@ -10126,11 +7533,6 @@ Changed response : **200 OK**
                 > The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.
                 > 
                 > MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.
-
-
-            * Deleted property `germplasmDbId` (string)
-                > The ID which uniquely identifies a germplasm within the given database server 
-                > <br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
 
 
             * Changed property `accessionNumber` (string)
@@ -10211,206 +7613,6 @@ Changed response : **200 OK**
 
             * Changed property `subtaxaAuthority` (string)
 
-##### `POST` /search/images
-
-> Submit a search request for `Image`
-
-
-###### Parameters:
-
-Deleted: `Authorization` in `header`
-> HTTP HEADER - Token used for Authorization 
-> 
-> <strong> Bearer {token_string} </strong>
-
-
-###### Request:
-
-Deleted content type : `application/json`
-
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > The metadata for an image file that is connected to some phenotypic observation data.
-
-
-            * Added property `observationUnitName` (string)
-
-            * Added property `observationUnitPUI` (string)
-
-            * Deleted property `descriptiveOntologyTerms` (array)
-                > A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
-
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `imageDbId` (string)
-                > The unique identifier of an image
-
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `copyright` (string)
-
-            * Changed property `description` (string)
-
-            * Changed property `imageFileName` (string)
-
-            * Changed property `imageFileSize` (integer -> integer)
-
-            * Changed property `imageHeight` (integer -> integer)
-
-            * Changed property `imageName` (string)
-
-            * Changed property `imageTimeStamp` (string -> string)
-
-            * Changed property `imageURL` (string)
-
-            * Changed property `imageWidth` (integer -> integer)
-
-            * Changed property `mimeType` (string)
-
-            * Changed property `observationDbIds` (array)
-
-            * Changed property `observationUnitDbId` (string)
-
-            * Changed property `imageLocation` (object)
-                > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
-                > 
-                > Copied from RFC 7946 Section 3.1.1
-                > 
-                > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
-                > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
-
-
-                * Changed property `type` (string)
-
-                * Changed property `geometry` (object -> object)
-
-##### `GET` /search/images/{searchResultsDbId}
-
-> Submit a search request for `Image`<br/>
-> Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
-> If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
-> Use the corresponding `GET /search/image/{searchResultsDbId}` to retrieve the results of the search. <br/> 
-> Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
-
-
-###### Parameters:
-
-Deleted: `searchResultsDbId` in `path`
-> Unique identifier which references the search results
-
-
-Deleted: `page` in `query`
-> Used to request a specific page of data to be returned.
-> 
-> The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-
-
-Deleted: `pageSize` in `query`
-> The size of the pages to be returned. Default is `1000`.
-
-
-Deleted: `Authorization` in `header`
-> HTTP HEADER - Token used for Authorization 
-> 
-> <strong> Bearer {token_string} </strong>
-
-
-###### Return Type:
-
-Deleted response : **202 Accepted**
-> Accepted
-
-Deleted response : **404 Not Found**
-> Not Found
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > The metadata for an image file that is connected to some phenotypic observation data.
-
-
-            * Added property `observationUnitName` (string)
-
-            * Added property `observationUnitPUI` (string)
-
-            * Deleted property `descriptiveOntologyTerms` (array)
-                > A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
-
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `imageDbId` (string)
-                > The unique identifier of an image
-
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `copyright` (string)
-
-            * Changed property `description` (string)
-
-            * Changed property `imageFileName` (string)
-
-            * Changed property `imageFileSize` (integer -> integer)
-
-            * Changed property `imageHeight` (integer -> integer)
-
-            * Changed property `imageName` (string)
-
-            * Changed property `imageTimeStamp` (string -> string)
-
-            * Changed property `imageURL` (string)
-
-            * Changed property `imageWidth` (integer -> integer)
-
-            * Changed property `mimeType` (string)
-
-            * Changed property `observationDbIds` (array)
-
-            * Changed property `observationUnitDbId` (string)
-
-            * Changed property `imageLocation` (object)
-                > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
-                > 
-                > Copied from RFC 7946 Section 3.1.1
-                > 
-                > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
-                > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
-
-
-                * Changed property `type` (string)
-
-                * Changed property `geometry` (object -> object)
-
 ##### `POST` /search/lists
 
 > Submit a search request for `List`
@@ -10436,24 +7638,28 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A List represents a collection of other BrAPI data objects. Typically these are custom lists generated by a user to keep track of interesting data. For example, a user might build a List of Germplasm that they have manually marked for further study.
-
 
             * Added property `personDbId` (string)
 
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `listOwnerPersonDbId` (string)
-                > The unique identifier for a List Owner. (usually a user or person)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
             * Deleted property `listDbId` (string)
                 > The unique identifier for a List
+
+
+            * Deleted property `listOwnerPersonDbId` (string)
+                > The unique identifier for a List Owner. (usually a user or person)
 
 
             * Changed property `additionalInfo` (object)
@@ -10478,6 +7684,16 @@ Changed response : **200 OK**
 
             * Changed property `listType` (string)
                 > The type of objects that are referenced in a List
+
+
+Changed response : **202 Accepted**
+> Accepted
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
 
 ##### `GET` /search/lists/{searchResultsDbId}
@@ -10522,24 +7738,28 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A List represents a collection of other BrAPI data objects. Typically these are custom lists generated by a user to keep track of interesting data. For example, a user might build a List of Germplasm that they have manually marked for further study.
-
 
             * Added property `personDbId` (string)
 
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `listOwnerPersonDbId` (string)
-                > The unique identifier for a List Owner. (usually a user or person)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
             * Deleted property `listDbId` (string)
                 > The unique identifier for a List
+
+
+            * Deleted property `listOwnerPersonDbId` (string)
+                > The unique identifier for a List Owner. (usually a user or person)
 
 
             * Changed property `additionalInfo` (object)
@@ -10591,13 +7811,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A MarkerPosition describes a particular genetic marker at a specific position on a GenomeMap. A collection of MarkerPositions make up the data to represent a full GenomeMap.
-
 
             * Added property `mapPUI` (string)
 
@@ -10621,6 +7843,16 @@ Changed response : **200 OK**
             * Changed property `position` (integer -> integer)
 
             * Changed property `variantDbId` (string)
+
+Changed response : **202 Accepted**
+> Accepted
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
 
 ##### `GET` /search/markerpositions/{searchResultsDbId}
 
@@ -10664,13 +7896,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A MarkerPosition describes a particular genetic marker at a specific position on a GenomeMap. A collection of MarkerPositions make up the data to represent a full GenomeMap.
-
 
             * Added property `mapPUI` (string)
 
@@ -10694,219 +7928,6 @@ Changed response : **200 OK**
             * Changed property `position` (integer -> integer)
 
             * Changed property `variantDbId` (string)
-
-##### `POST` /search/observations
-
-> Submit a search request for `Observation`
-
-
-###### Parameters:
-
-Deleted: `Authorization` in `header`
-> HTTP HEADER - Token used for Authorization 
-> 
-> <strong> Bearer {token_string} </strong>
-
-
-###### Request:
-
-Deleted content type : `application/json`
-
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > A value assigned for a specific ObservationVariable when observing a specific ObservationUnit.
-
-
-            * Added property `germplasmPUI` (string)
-
-            * Added property `observationUnitPUI` (string)
-
-            * Added property `observationVariablePUI` (string)
-
-            * Added property `seasonDbId` (string)
-
-            * Added property `seasonName` (string)
-
-            * Added property `studyName` (string)
-
-            * Added property `studyPUI` (string)
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `season` (object)
-
-            * Deleted property `observationDbId` (string)
-                > The ID which uniquely identifies an observation
-
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `collector` (string)
-
-            * Changed property `germplasmDbId` (string)
-
-            * Changed property `germplasmName` (string)
-
-            * Changed property `observationTimeStamp` (string -> string)
-
-            * Changed property `observationUnitDbId` (string)
-
-            * Changed property `observationUnitName` (string)
-
-            * Changed property `observationVariableDbId` (string)
-
-            * Changed property `observationVariableName` (string)
-
-            * Changed property `studyDbId` (string)
-
-            * Changed property `uploadedBy` (string)
-
-            * Changed property `value` (string)
-
-            * Changed property `geoCoordinates` (object)
-                > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
-                > 
-                > Copied from RFC 7946 Section 3.1.1
-                > 
-                > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
-                > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
-
-
-                * Changed property `type` (string)
-
-                * Changed property `geometry` (object -> object)
-
-##### `GET` /search/observations/{searchResultsDbId}
-
-> Submit a search request for `Observation`<br/>
-> Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
-> If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
-> Use the corresponding `GET /search/observation/{searchResultsDbId}` to retrieve the results of the search. <br/> 
-> Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
-
-
-###### Parameters:
-
-Deleted: `Accept` in `header`
-> A standard HTTP request header that is used to request a specific content type (JSON, CSV, etc) which is "acceptable" to the client and should be returned by the server
-
-
-Deleted: `Authorization` in `header`
-> HTTP HEADER - Token used for Authorization 
-> 
-> <strong> Bearer {token_string} </strong>
-
-
-Deleted: `searchResultsDbId` in `path`
-> Unique identifier which references the search results
-
-
-Deleted: `page` in `query`
-> Used to request a specific page of data to be returned.
-> 
-> The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-
-
-Deleted: `pageSize` in `query`
-> The size of the pages to be returned. Default is `1000`.
-
-
-###### Return Type:
-
-Deleted response : **202 Accepted**
-> Accepted
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > A value assigned for a specific ObservationVariable when observing a specific ObservationUnit.
-
-
-            * Added property `germplasmPUI` (string)
-
-            * Added property `observationUnitPUI` (string)
-
-            * Added property `observationVariablePUI` (string)
-
-            * Added property `seasonDbId` (string)
-
-            * Added property `seasonName` (string)
-
-            * Added property `studyName` (string)
-
-            * Added property `studyPUI` (string)
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `season` (object)
-
-            * Deleted property `observationDbId` (string)
-                > The ID which uniquely identifies an observation
-
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `collector` (string)
-
-            * Changed property `germplasmDbId` (string)
-
-            * Changed property `germplasmName` (string)
-
-            * Changed property `observationTimeStamp` (string -> string)
-
-            * Changed property `observationUnitDbId` (string)
-
-            * Changed property `observationUnitName` (string)
-
-            * Changed property `observationVariableDbId` (string)
-
-            * Changed property `observationVariableName` (string)
-
-            * Changed property `studyDbId` (string)
-
-            * Changed property `uploadedBy` (string)
-
-            * Changed property `value` (string)
-
-            * Changed property `geoCoordinates` (object)
-                > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
-                > 
-                > Copied from RFC 7946 Section 3.1.1
-                > 
-                > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
-                > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
-
-
-                * Changed property `type` (string)
-
-                * Changed property `geometry` (object -> object)
 
 ##### `POST` /search/observationunits
 
@@ -10933,13 +7954,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples.
-
 
             * Added property `germplasmPUI` (string)
 
@@ -10947,14 +7970,8 @@ Changed response : **200 OK**
 
             * Added property `trialPUI` (string)
 
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `observationUnitPosition` (object)
-
-            * Deleted property `treatments` (array)
-                > List of treatments applied to an observation unit.
-                > 
-                > MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
             * Deleted property `observationUnitDbId` (string)
@@ -10963,10 +7980,18 @@ Changed response : **200 OK**
                 > MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique.
 
 
+            * Deleted property `observationUnitPosition` (object)
+
             * Deleted property `observations` (array)
                 > All observations attached to this observation unit. 
                 > 
                 > Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.
+
+
+            * Deleted property `treatments` (array)
+                > List of treatments applied to an observation unit.
+                > 
+                > MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.
 
 
             * Changed property `additionalInfo` (object)
@@ -11006,6 +8031,16 @@ Changed response : **200 OK**
             * Changed property `trialDbId` (string)
 
             * Changed property `trialName` (string)
+
+Changed response : **202 Accepted**
+> Accepted
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
 
 ##### `GET` /search/observationunits/{searchResultsDbId}
 
@@ -11052,13 +8087,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples.
-
 
             * Added property `germplasmPUI` (string)
 
@@ -11066,14 +8103,8 @@ Changed response : **200 OK**
 
             * Added property `trialPUI` (string)
 
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `observationUnitPosition` (object)
-
-            * Deleted property `treatments` (array)
-                > List of treatments applied to an observation unit.
-                > 
-                > MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
             * Deleted property `observationUnitDbId` (string)
@@ -11082,10 +8113,18 @@ Changed response : **200 OK**
                 > MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique.
 
 
+            * Deleted property `observationUnitPosition` (object)
+
             * Deleted property `observations` (array)
                 > All observations attached to this observation unit. 
                 > 
                 > Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.
+
+
+            * Deleted property `treatments` (array)
+                > List of treatments applied to an observation unit.
+                > 
+                > MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.
 
 
             * Changed property `additionalInfo` (object)
@@ -11151,13 +8190,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A representation of a particular Germplasm within a pedigree tree, and all the links to its parents, siblings, and children. From a list of PedigreeNode objects, a client application should have all the information it needs to draw a pedigree tree visualization, or calculate genetic distances.
-
 
             New required properties:
             - `germplasmPUI`
@@ -11215,6 +8256,16 @@ Changed response : **200 OK**
 
             * Changed property `pedigreeString` (string)
 
+Changed response : **202 Accepted**
+> Accepted
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
 ##### `GET` /search/pedigree/{searchResultsDbId}
 
 > Submit a search request for `PedigreeNode`<br/>
@@ -11260,13 +8311,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A representation of a particular Germplasm within a pedigree tree, and all the links to its parents, siblings, and children. From a list of PedigreeNode objects, a client application should have all the information it needs to draw a pedigree tree visualization, or calculate genetic distances.
-
 
             New required properties:
             - `germplasmPUI`
@@ -11349,15 +8402,19 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A generic object used to maintain the metadata needed to describe a human. The Person might be a software user, a field technician, or a primary contact for a Program.
 
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
-            * Deleted property `externalReferences` (object)
 
             * Deleted property `personDbId` (string)
                 > Unique ID for a person
@@ -11384,6 +8441,16 @@ Changed response : **200 OK**
             * Changed property `phoneNumber` (string)
 
             * Changed property `userID` (string)
+
+Changed response : **202 Accepted**
+> Accepted
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
 
 ##### `GET` /search/people/{searchResultsDbId}
 
@@ -11427,15 +8494,19 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A generic object used to maintain the metadata needed to describe a human. The Person might be a software user, a field technician, or a primary contact for a Program.
 
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
-            * Deleted property `externalReferences` (object)
 
             * Deleted property `personDbId` (string)
                 > Unique ID for a person
@@ -11488,13 +8559,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A Plate represents the metadata for a collection of Samples. The physical Plate being represented might be a plastic tray full of Samples, or a group of Samples stored in individual containers ie bags, test tubes, etc. Whatever the container is, the Samples in a Plate should be related by the same physical space, though they may or may not be related as part of the same experiment or analysis.
-
 
             * Added property `programName` (string)
 
@@ -11506,7 +8579,9 @@ Changed response : **200 OK**
 
             * Added property `trialPUI` (string)
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `plateDbId` (string)
                 > The ID which uniquely identifies a `Plate`
@@ -11535,6 +8610,16 @@ Changed response : **200 OK**
             * Changed property `studyDbId` (string)
 
             * Changed property `trialDbId` (string)
+
+Changed response : **202 Accepted**
+> Accepted
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
 
 ##### `GET` /search/plates/{searchResultsDbId}
 
@@ -11581,13 +8666,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A Plate represents the metadata for a collection of Samples. The physical Plate being represented might be a plastic tray full of Samples, or a group of Samples stored in individual containers ie bags, test tubes, etc. Whatever the container is, the Samples in a Plate should be related by the same physical space, though they may or may not be related as part of the same experiment or analysis.
-
 
             * Added property `programName` (string)
 
@@ -11599,7 +8686,9 @@ Changed response : **200 OK**
 
             * Added property `trialPUI` (string)
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `plateDbId` (string)
                 > The ID which uniquely identifies a `Plate`
@@ -11654,17 +8743,21 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. A Program can contain multiple Trials. A Trial can contain multiple Studies.
-
 
             * Added property `personDbId` (string)
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `leadPersonDbId` (string)
                 > The unique identifier of the program leader
@@ -11700,6 +8793,16 @@ Changed response : **200 OK**
                 > The type of program entity this object represents
                 > <br/> 'STANDARD' represents a standard, permanent breeding program
                 > <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding
+
+
+Changed response : **202 Accepted**
+> Accepted
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
 
 ##### `GET` /search/programs/{searchResultsDbId}
@@ -11747,17 +8850,21 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. A Program can contain multiple Trials. A Trial can contain multiple Studies.
-
 
             * Added property `personDbId` (string)
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `leadPersonDbId` (string)
                 > The unique identifier of the program leader
@@ -11795,372 +8902,6 @@ Changed response : **200 OK**
                 > <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding
 
 
-##### `POST` /search/references
-
-> Submit a search request for `Reference`
-
-
-###### Parameters:
-
-Deleted: `Authorization` in `header`
-> HTTP HEADER - Token used for Authorization 
-> 
-> <strong> Bearer {token_string} </strong>
-
-
-###### Request:
-
-Deleted content type : `application/json`
-
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > A `Reference` is a canonical assembled contig, intended to act as a reference coordinate space for other genomic annotations. A single `Reference` might represent the human chromosome 1, for instance. `References` are designed to be immutable.
-
-
-            * Added property `sourceGermplasmDbIds` (array)
-
-            * Added property `variantDbIds` (array)
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `sourceAccessions` (array)
-                > All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.
-
-
-            * Deleted property `sourceGermplasm` (array)
-                > All known corresponding Germplasm
-
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `commonCropName` (string)
-
-            * Changed property `isDerived` (boolean -> boolean)
-
-            * Changed property `length` (integer -> integer)
-
-            * Changed property `md5checksum` (string)
-
-            * Changed property `referenceDbId` (string)
-
-            * Changed property `referenceName` (string)
-
-            * Changed property `referenceSetDbId` (string)
-
-            * Changed property `referenceSetName` (string)
-
-            * Changed property `sourceDivergence` (number -> number)
-
-            * Changed property `sourceURI` (string)
-
-            * Changed property `species` (object)
-                > A pointer to an ontology used by a genomic reference
-
-
-                * Changed property `term` (string)
-
-                * Changed property `termURI` (string)
-
-##### `GET` /search/references/{searchResultsDbId}
-
-> Submit a search request for `Reference`<br/>
-> Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
-> If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
-> Use the corresponding `GET /search/reference/{searchResultsDbId}` to retrieve the results of the search. <br/> 
-> Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
-
-
-###### Parameters:
-
-Deleted: `searchResultsDbId` in `path`
-> Unique identifier which references the search results
-
-
-Deleted: `page` in `query`
-> Used to request a specific page of data to be returned.
-> 
-> The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-
-
-Deleted: `pageSize` in `query`
-> The size of the pages to be returned. Default is `1000`.
-
-
-Deleted: `Authorization` in `header`
-> HTTP HEADER - Token used for Authorization 
-> 
-> <strong> Bearer {token_string} </strong>
-
-
-###### Return Type:
-
-Deleted response : **202 Accepted**
-> Accepted
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > A `Reference` is a canonical assembled contig, intended to act as a reference coordinate space for other genomic annotations. A single `Reference` might represent the human chromosome 1, for instance. `References` are designed to be immutable.
-
-
-            * Added property `sourceGermplasmDbIds` (array)
-
-            * Added property `variantDbIds` (array)
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `sourceAccessions` (array)
-                > All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.
-
-
-            * Deleted property `sourceGermplasm` (array)
-                > All known corresponding Germplasm
-
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `commonCropName` (string)
-
-            * Changed property `isDerived` (boolean -> boolean)
-
-            * Changed property `length` (integer -> integer)
-
-            * Changed property `md5checksum` (string)
-
-            * Changed property `referenceDbId` (string)
-
-            * Changed property `referenceName` (string)
-
-            * Changed property `referenceSetDbId` (string)
-
-            * Changed property `referenceSetName` (string)
-
-            * Changed property `sourceDivergence` (number -> number)
-
-            * Changed property `sourceURI` (string)
-
-            * Changed property `species` (object)
-                > A pointer to an ontology used by a genomic reference
-
-
-                * Changed property `term` (string)
-
-                * Changed property `termURI` (string)
-
-##### `POST` /search/referencesets
-
-> Submit a search request for `ReferenceSet`
-
-
-###### Parameters:
-
-Deleted: `Authorization` in `header`
-> HTTP HEADER - Token used for Authorization 
-> 
-> <strong> Bearer {token_string} </strong>
-
-
-###### Request:
-
-Deleted content type : `application/json`
-
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > A `ReferenceSet` is a set of `Reference` s which typically comprise a reference assembly, such as `GRCH_38`. A `ReferenceSet` defines a common coordinate space for comparing reference-aligned experimental data.
-
-
-            * Added property `referenceDbId` (string)
-
-            * Added property `referenceName` (string)
-
-            * Added property `sourceGermplasmDbIds` (array)
-
-            * Added property `variantDbIds` (array)
-
-            * Added property `variantSetDbIds` (array)
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `referenceSetDbId` (string)
-                > The unique identifier for a ReferenceSet
-
-
-            * Deleted property `sourceAccessions` (array)
-                > All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.
-
-
-            * Deleted property `sourceGermplasm` (array)
-                > All known corresponding Germplasm
-
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `assemblyPUI` (string)
-
-            * Changed property `commonCropName` (string)
-
-            * Changed property `description` (string)
-
-            * Changed property `isDerived` (boolean -> boolean)
-
-            * Changed property `md5checksum` (string)
-
-            * Changed property `referenceSetName` (string)
-
-            * Changed property `sourceURI` (string)
-
-            * Changed property `species` (object)
-                > A pointer to an ontology used by a genomic reference
-
-
-                * Changed property `term` (string)
-
-                * Changed property `termURI` (string)
-
-##### `GET` /search/referencesets/{searchResultsDbId}
-
-> Submit a search request for `ReferenceSet`<br/>
-> Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
-> If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
-> Use the corresponding `GET /search/referenceSet/{searchResultsDbId}` to retrieve the results of the search. <br/> 
-> Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
-
-
-###### Parameters:
-
-Deleted: `searchResultsDbId` in `path`
-> Unique identifier which references the search results
-
-
-Deleted: `page` in `query`
-> Used to request a specific page of data to be returned.
-> 
-> The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-
-
-Deleted: `pageSize` in `query`
-> The size of the pages to be returned. Default is `1000`.
-
-
-Deleted: `Authorization` in `header`
-> HTTP HEADER - Token used for Authorization 
-> 
-> <strong> Bearer {token_string} </strong>
-
-
-###### Return Type:
-
-Deleted response : **202 Accepted**
-> Accepted
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > A `ReferenceSet` is a set of `Reference` s which typically comprise a reference assembly, such as `GRCH_38`. A `ReferenceSet` defines a common coordinate space for comparing reference-aligned experimental data.
-
-
-            * Added property `referenceDbId` (string)
-
-            * Added property `referenceName` (string)
-
-            * Added property `sourceGermplasmDbIds` (array)
-
-            * Added property `variantDbIds` (array)
-
-            * Added property `variantSetDbIds` (array)
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `referenceSetDbId` (string)
-                > The unique identifier for a ReferenceSet
-
-
-            * Deleted property `sourceAccessions` (array)
-                > All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.
-
-
-            * Deleted property `sourceGermplasm` (array)
-                > All known corresponding Germplasm
-
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `assemblyPUI` (string)
-
-            * Changed property `commonCropName` (string)
-
-            * Changed property `description` (string)
-
-            * Changed property `isDerived` (boolean -> boolean)
-
-            * Changed property `md5checksum` (string)
-
-            * Changed property `referenceSetName` (string)
-
-            * Changed property `sourceURI` (string)
-
-            * Changed property `species` (object)
-                > A pointer to an ontology used by a genomic reference
-
-
-                * Changed property `term` (string)
-
-                * Changed property `termURI` (string)
-
 ##### `POST` /search/samples
 
 > Submit a search request for `Sample`
@@ -12186,13 +8927,18 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > The identifiers and metadata associated with a physical piece of biological material collected from the field for external analysis. A Sample can take many forms (leaf clipping, seed, DNA, etc) and might be used for a variety of analysis procedures (spectra, genotyping, etc).
 
+            New required properties:
+            - `sampleDbId`
 
             * Added property `callSetDbIds` (array)
 
@@ -12216,15 +8962,12 @@ Changed response : **200 OK**
 
             * Added property `trialPUI` (string)
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `sampleGroupDbId` (string)
                 > The ID which uniquely identifies a group of `Samples`
-
-
-            * Deleted property `sampleDbId` (string)
-                > The ID which uniquely identifies a `Sample`
-                > <br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.
 
 
             * Changed property `additionalInfo` (object)
@@ -12268,6 +9011,16 @@ Changed response : **200 OK**
             * Changed property `trialDbId` (string)
 
             * Changed property `well` (string)
+
+Changed response : **202 Accepted**
+> Accepted
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
 
 ##### `GET` /search/samples/{searchResultsDbId}
 
@@ -12314,13 +9067,18 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > The identifiers and metadata associated with a physical piece of biological material collected from the field for external analysis. A Sample can take many forms (leaf clipping, seed, DNA, etc) and might be used for a variety of analysis procedures (spectra, genotyping, etc).
 
+            New required properties:
+            - `sampleDbId`
 
             * Added property `callSetDbIds` (array)
 
@@ -12344,15 +9102,12 @@ Changed response : **200 OK**
 
             * Added property `trialPUI` (string)
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `sampleGroupDbId` (string)
                 > The ID which uniquely identifies a group of `Samples`
-
-
-            * Deleted property `sampleDbId` (string)
-                > The ID which uniquely identifies a `Sample`
-                > <br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.
 
 
             * Changed property `additionalInfo` (object)
@@ -12397,526 +9152,6 @@ Changed response : **200 OK**
 
             * Changed property `well` (string)
 
-##### `POST` /search/studies
-
-> Submit a search request for `Study`
-
-
-###### Parameters:
-
-Deleted: `Authorization` in `header`
-> HTTP HEADER - Token used for Authorization 
-> 
-> <strong> Bearer {token_string} </strong>
-
-
-###### Request:
-
-Deleted content type : `application/json`
-
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > A Study represents an experiment that has taken place at a single location. The Study contains metadata about the parameters and design of the experiment. It can also be used to group results and data sets generated from the experiment. A Trial can represent a collection of one or more Studies.
-
-
-            * Added property `contactDbIds` (array)
-
-            * Added property `environmentParameterDbIds` (array)
-
-            * Added property `lastUpdateDbId` (string)
-
-            * Added property `observationLevelDbIds` (array)
-
-            * Added property `trialPUI` (string)
-
-            * Deleted property `contacts` (array)
-                > List of contact entities associated with this study
-
-
-            * Deleted property `dataLinks` (array)
-                > List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.
-
-
-            * Deleted property `environmentParameters` (array)
-                > Environmental parameters that were kept constant throughout the study and did not change between observation units.
-                > 
-                > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
-
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `lastUpdate` (object)
-
-            * Deleted property `observationLevels` (array)
-                > Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).
-
-
-            * Deleted property `seasons` (array)
-                > List of seasons over which this study was performed.
-
-
-            * Deleted property `studyDbId` (string)
-                > The ID which uniquely identifies a study within the given database server
-                > 
-                > MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.
-
-
-            * Changed property `active` (boolean)
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `commonCropName` (string)
-
-            * Changed property `culturalPractices` (string)
-
-            * Changed property `documentationURL` (string -> string)
-
-            * Changed property `endDate` (string -> string)
-
-            * Changed property `license` (string)
-
-            * Changed property `locationDbId` (string)
-
-            * Changed property `locationName` (string)
-
-            * Changed property `observationUnitsDescription` (string)
-
-            * Changed property `observationVariableDbIds` (array)
-
-            * Changed property `startDate` (string -> string)
-
-            * Changed property `studyCode` (string)
-
-            * Changed property `studyDescription` (string)
-
-            * Changed property `studyName` (string)
-
-            * Changed property `studyPUI` (string)
-
-            * Changed property `studyType` (string)
-
-            * Changed property `trialDbId` (string)
-
-            * Changed property `trialName` (string)
-
-            * Changed property `experimentalDesign` (object)
-                > The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology
-
-
-                * Added property `studyDbId` (string)
-
-                * Added property `studyName` (string)
-
-                * Added property `studyPUI` (string)
-
-                * Changed property `PUI` (string)
-
-                * Changed property `description` (string)
-
-            * Changed property `growthFacility` (object)
-                > Short description of the facility in which the study was carried out.
-
-
-                * Added property `studyDbId` (string)
-
-                * Added property `studyName` (string)
-
-                * Added property `studyPUI` (string)
-
-                * Changed property `PUI` (string)
-
-                * Changed property `description` (string)
-
-##### `GET` /search/studies/{searchResultsDbId}
-
-> Submit a search request for `Study`<br/>
-> Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
-> If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
-> Use the corresponding `GET /search/study/{searchResultsDbId}` to retrieve the results of the search. <br/> 
-> Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
-
-
-###### Parameters:
-
-Deleted: `searchResultsDbId` in `path`
-> Unique identifier which references the search results
-
-
-Deleted: `page` in `query`
-> Used to request a specific page of data to be returned.
-> 
-> The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-
-
-Deleted: `pageSize` in `query`
-> The size of the pages to be returned. Default is `1000`.
-
-
-Deleted: `Authorization` in `header`
-> HTTP HEADER - Token used for Authorization 
-> 
-> <strong> Bearer {token_string} </strong>
-
-
-###### Return Type:
-
-Deleted response : **202 Accepted**
-> Accepted
-
-Deleted response : **404 Not Found**
-> Not Found
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > A Study represents an experiment that has taken place at a single location. The Study contains metadata about the parameters and design of the experiment. It can also be used to group results and data sets generated from the experiment. A Trial can represent a collection of one or more Studies.
-
-
-            * Added property `contactDbIds` (array)
-
-            * Added property `environmentParameterDbIds` (array)
-
-            * Added property `lastUpdateDbId` (string)
-
-            * Added property `observationLevelDbIds` (array)
-
-            * Added property `trialPUI` (string)
-
-            * Deleted property `contacts` (array)
-                > List of contact entities associated with this study
-
-
-            * Deleted property `dataLinks` (array)
-                > List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.
-
-
-            * Deleted property `environmentParameters` (array)
-                > Environmental parameters that were kept constant throughout the study and did not change between observation units.
-                > 
-                > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
-
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `lastUpdate` (object)
-
-            * Deleted property `observationLevels` (array)
-                > Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).
-
-
-            * Deleted property `seasons` (array)
-                > List of seasons over which this study was performed.
-
-
-            * Deleted property `studyDbId` (string)
-                > The ID which uniquely identifies a study within the given database server
-                > 
-                > MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.
-
-
-            * Changed property `active` (boolean)
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `commonCropName` (string)
-
-            * Changed property `culturalPractices` (string)
-
-            * Changed property `documentationURL` (string -> string)
-
-            * Changed property `endDate` (string -> string)
-
-            * Changed property `license` (string)
-
-            * Changed property `locationDbId` (string)
-
-            * Changed property `locationName` (string)
-
-            * Changed property `observationUnitsDescription` (string)
-
-            * Changed property `observationVariableDbIds` (array)
-
-            * Changed property `startDate` (string -> string)
-
-            * Changed property `studyCode` (string)
-
-            * Changed property `studyDescription` (string)
-
-            * Changed property `studyName` (string)
-
-            * Changed property `studyPUI` (string)
-
-            * Changed property `studyType` (string)
-
-            * Changed property `trialDbId` (string)
-
-            * Changed property `trialName` (string)
-
-            * Changed property `experimentalDesign` (object)
-                > The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology
-
-
-                * Added property `studyDbId` (string)
-
-                * Added property `studyName` (string)
-
-                * Added property `studyPUI` (string)
-
-                * Changed property `PUI` (string)
-
-                * Changed property `description` (string)
-
-            * Changed property `growthFacility` (object)
-                > Short description of the facility in which the study was carried out.
-
-
-                * Added property `studyDbId` (string)
-
-                * Added property `studyName` (string)
-
-                * Added property `studyPUI` (string)
-
-                * Changed property `PUI` (string)
-
-                * Changed property `description` (string)
-
-##### `POST` /search/trials
-
-> Submit a search request for `Trial`
-
-
-###### Parameters:
-
-Deleted: `Authorization` in `header`
-> HTTP HEADER - Token used for Authorization 
-> 
-> <strong> Bearer {token_string} </strong>
-
-
-###### Request:
-
-Deleted content type : `application/json`
-
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > A Trial represents a collection of Study objects, and the metadata associated with that collection. A Trial could represent a multi-location experiment, and could contain information related to publications and data licensing.
-
-
-            * Added property `studyDbIds` (array)
-
-            * Deleted property `datasetAuthorships` (array)
-                > License and citation information for the data in this trial
-
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `publications` (array)
-                > MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.
-
-
-            * Deleted property `trialDbId` (string)
-                > The ID which uniquely identifies a trial
-                > 
-                > MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.
-
-
-            * Changed property `active` (boolean)
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `commonCropName` (string)
-
-            * Changed property `documentationURL` (string -> string)
-
-            * Changed property `endDate` (string -> string)
-
-            * Changed property `programDbId` (string)
-
-            * Changed property `programName` (string)
-
-            * Changed property `startDate` (string -> string)
-
-            * Changed property `trialDescription` (string)
-
-            * Changed property `trialName` (string)
-
-            * Changed property `trialPUI` (string)
-
-            * Changed property `contacts` (array)
-
-                Changed items (object):
-                    > A persons contact information
-
-
-                * Changed property `contactDbId` (string)
-
-                * Changed property `email` (string)
-
-                * Changed property `instituteName` (string)
-
-                * Changed property `name` (string)
-
-                * Changed property `orcid` (string)
-
-                * Changed property `type` (string)
-
-##### `GET` /search/trials/{searchResultsDbId}
-
-> Submit a search request for `Trial`<br/>
-> Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
-> If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
-> Use the corresponding `GET /search/trial/{searchResultsDbId}` to retrieve the results of the search. <br/> 
-> Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
-
-
-###### Parameters:
-
-Deleted: `searchResultsDbId` in `path`
-> Unique identifier which references the search results
-
-
-Deleted: `page` in `query`
-> Used to request a specific page of data to be returned.
-> 
-> The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-
-
-Deleted: `pageSize` in `query`
-> The size of the pages to be returned. Default is `1000`.
-
-
-Deleted: `Authorization` in `header`
-> HTTP HEADER - Token used for Authorization 
-> 
-> <strong> Bearer {token_string} </strong>
-
-
-###### Return Type:
-
-Deleted response : **202 Accepted**
-> Accepted
-
-Deleted response : **404 Not Found**
-> Not Found
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > A Trial represents a collection of Study objects, and the metadata associated with that collection. A Trial could represent a multi-location experiment, and could contain information related to publications and data licensing.
-
-
-            * Added property `studyDbIds` (array)
-
-            * Deleted property `datasetAuthorships` (array)
-                > License and citation information for the data in this trial
-
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `publications` (array)
-                > MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.
-
-
-            * Deleted property `trialDbId` (string)
-                > The ID which uniquely identifies a trial
-                > 
-                > MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.
-
-
-            * Changed property `active` (boolean)
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `commonCropName` (string)
-
-            * Changed property `documentationURL` (string -> string)
-
-            * Changed property `endDate` (string -> string)
-
-            * Changed property `programDbId` (string)
-
-            * Changed property `programName` (string)
-
-            * Changed property `startDate` (string -> string)
-
-            * Changed property `trialDescription` (string)
-
-            * Changed property `trialName` (string)
-
-            * Changed property `trialPUI` (string)
-
-            * Changed property `contacts` (array)
-
-                Changed items (object):
-                    > A persons contact information
-
-
-                * Changed property `contactDbId` (string)
-
-                * Changed property `email` (string)
-
-                * Changed property `instituteName` (string)
-
-                * Changed property `name` (string)
-
-                * Changed property `orcid` (string)
-
-                * Changed property `type` (string)
-
 ##### `POST` /search/variables
 
 > Submit a search request for `ObservationVariable`
@@ -12941,6 +9176,10 @@ Changed response : **200 OK**
 
 
 * Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
 
     * Changed property `result` (object)
 
@@ -12983,9 +9222,17 @@ Changed response : **200 OK**
                 > Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])
 
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `method` (object)
+
+            * Deleted property `observationVariableDbId` (string)
+                > Variable unique identifier
+                > 
+                > MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.
+
 
             * Deleted property `ontologyReference` (object)
 
@@ -12996,12 +9243,6 @@ Changed response : **200 OK**
 
 
             * Deleted property `trait` (object)
-
-            * Deleted property `observationVariableDbId` (string)
-                > Variable unique identifier
-                > 
-                > MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.
-
 
             * Changed property `additionalInfo` (object)
                 > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
@@ -13021,15 +9262,25 @@ Changed response : **200 OK**
 
             * Changed property `language` (string)
 
+            * Changed property `observationVariableName` (string)
+
+            * Changed property `observationVariablePUI` (string)
+
             * Changed property `scientist` (string)
 
             * Changed property `status` (string)
 
             * Changed property `submissionTimestamp` (string -> string)
 
-            * Changed property `observationVariableName` (string)
+Changed response : **202 Accepted**
+> Accepted
 
-            * Changed property `observationVariablePUI` (string)
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
 
 ##### `GET` /search/variables/{searchResultsDbId}
 
@@ -13076,6 +9327,10 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
@@ -13117,9 +9372,17 @@ Changed response : **200 OK**
                 > Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])
 
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `method` (object)
+
+            * Deleted property `observationVariableDbId` (string)
+                > Variable unique identifier
+                > 
+                > MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.
+
 
             * Deleted property `ontologyReference` (object)
 
@@ -13130,12 +9393,6 @@ Changed response : **200 OK**
 
 
             * Deleted property `trait` (object)
-
-            * Deleted property `observationVariableDbId` (string)
-                > Variable unique identifier
-                > 
-                > MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.
-
 
             * Changed property `additionalInfo` (object)
                 > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
@@ -13155,15 +9412,15 @@ Changed response : **200 OK**
 
             * Changed property `language` (string)
 
+            * Changed property `observationVariableName` (string)
+
+            * Changed property `observationVariablePUI` (string)
+
             * Changed property `scientist` (string)
 
             * Changed property `status` (string)
 
             * Changed property `submissionTimestamp` (string -> string)
-
-            * Changed property `observationVariableName` (string)
-
-            * Changed property `observationVariablePUI` (string)
 
 ##### `POST` /search/variants
 
@@ -13190,13 +9447,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A `Variant` represents a change in DNA sequence relative to some reference. For example, a variant could represent a classic marker, a SNP, or an insertion. This is equivalent to a row in VCF.
-
 
             * Added property `variantSetName` (string)
 
@@ -13267,31 +9526,14 @@ Changed response : **200 OK**
 
             * Changed property `variantType` (string)
 
-    * Changed property `metadata` (object)
+Changed response : **202 Accepted**
+> Accepted
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
         > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
-
-
-        * Changed property `pagination` (object)
-            > The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. 
-            > <br> Pages are zero indexed, so the first page will be page 0 (zero).
-
-
-            New optional properties:
-            - `nextPageToken`
-
-            * Deleted property `currentPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the current page of data.
-
-
-            * Deleted property `nextPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the next page of data.
-
-
-            * Deleted property `prevPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the previous page of data.
 
 
 ##### `GET` /search/variants/{searchResultsDbId}
@@ -13342,13 +9584,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A `Variant` represents a change in DNA sequence relative to some reference. For example, a variant could represent a classic marker, a SNP, or an insertion. This is equivalent to a row in VCF.
-
 
             * Added property `variantSetName` (string)
 
@@ -13419,33 +9663,6 @@ Changed response : **200 OK**
 
             * Changed property `variantType` (string)
 
-    * Changed property `metadata` (object)
-        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
-
-
-        * Changed property `pagination` (object)
-            > The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. 
-            > <br> Pages are zero indexed, so the first page will be page 0 (zero).
-
-
-            New optional properties:
-            - `nextPageToken`
-
-            * Deleted property `currentPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the current page of data.
-
-
-            * Deleted property `nextPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the next page of data.
-
-
-            * Deleted property `prevPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the previous page of data.
-
-
 ##### `POST` /search/variantsets
 
 > Submit a search request for `VariantSet`
@@ -13471,13 +9688,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A VariantSet is a collection of variants and variant calls intended to be analyzed together.
-
 
             * Added property `analysiDbIds` (array)
 
@@ -13522,6 +9741,16 @@ Changed response : **200 OK**
 
             * Changed property `variantSetName` (string)
 
+Changed response : **202 Accepted**
+> Accepted
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
 ##### `GET` /search/variantsets/{searchResultsDbId}
 
 > Submit a search request for `VariantSet`<br/>
@@ -13564,13 +9793,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A VariantSet is a collection of variants and variant calls intended to be analyzed together.
-
 
             * Added property `analysiDbIds` (array)
 
@@ -13646,13 +9877,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A Season defines a period in time. A Season is made of two parts; (1) the primary year and (2) a term which defines a segment of the year. This term could be a traditional season, like "Spring" or "Summer", or this term could be a month, like "May" or "June", or this could be an arbitrary season name which is meaningful to the breeding Program like "PlantingTime_3" or "Season E".
-
 
             * Changed property `seasonDbId` (string)
 
@@ -13677,13 +9910,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A Season defines a period in time. A Season is made of two parts; (1) the primary year and (2) a term which defines a segment of the year. This term could be a traditional season, like "Spring" or "Summer", or this term could be a month, like "May" or "June", or this could be an arbitrary season name which is meaningful to the breeding Program like "PlantingTime_3" or "Season E".
-
 
             * Changed property `seasonDbId` (string)
 
@@ -13716,9 +9951,11 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > A Season defines a period in time. A Season is made of two parts; (1) the primary year and (2) a term which defines a segment of the year. This term could be a traditional season, like "Spring" or "Summer", or this term could be a month, like "May" or "June", or this could be an arbitrary season name which is meaningful to the breeding Program like "PlantingTime_3" or "Season E".
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Changed property `seasonDbId` (string)
 
@@ -13755,9 +9992,11 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > A Season defines a period in time. A Season is made of two parts; (1) the primary year and (2) a term which defines a segment of the year. This term could be a traditional season, like "Spring" or "Summer", or this term could be a month, like "May" or "June", or this could be an arbitrary season name which is meaningful to the breeding Program like "PlantingTime_3" or "Season E".
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Changed property `seasonDbId` (string)
 
@@ -13810,13 +10049,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A SeedLot, also known as an InventoryLot, is a collection of starting material (seeds, bulbs, root-stock, etc) for a particular Germplasm. The amount of material available for each Germplasm can be increased by seed production and decreased by planting or trading with another breeding Program.
-
 
             * Deleted property `contentMixture` (array)
                 > The mixture of germplasm present in the seed lot.
@@ -13830,7 +10071,9 @@ Changed response : **200 OK**
                 > in this array should sum to equal 100.
 
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `seedLotDbId` (string)
                 > Unique DbId for the Seed Lot
@@ -13883,13 +10126,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A SeedLot, also known as an InventoryLot, is a collection of starting material (seeds, bulbs, root-stock, etc) for a particular Germplasm. The amount of material available for each Germplasm can be increased by seed production and decreased by planting or trading with another breeding Program.
-
 
             * Deleted property `contentMixture` (array)
                 > The mixture of germplasm present in the seed lot.
@@ -13903,7 +10148,9 @@ Changed response : **200 OK**
                 > in this array should sum to equal 100.
 
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `seedLotDbId` (string)
                 > Unique DbId for the Seed Lot
@@ -13967,9 +10214,11 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > A SeedLot, also known as an InventoryLot, is a collection of starting material (seeds, bulbs, root-stock, etc) for a particular Germplasm. The amount of material available for each Germplasm can be increased by seed production and decreased by planting or trading with another breeding Program.
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Deleted property `contentMixture` (array)
             > The mixture of germplasm present in the seed lot.
@@ -13983,7 +10232,9 @@ Changed response : **200 OK**
             > in this array should sum to equal 100.
 
 
-        * Deleted property `externalReferences` (object)
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
         * Deleted property `seedLotDbId` (string)
             > Unique DbId for the Seed Lot
@@ -14052,7 +10303,9 @@ New required properties:
     > in this array should sum to equal 100.
 
 
-* Deleted property `externalReferences` (object)
+* Deleted property `externalReferences` (array)
+    > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
 * Changed property `additionalInfo` (object)
     > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
@@ -14095,9 +10348,11 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > A SeedLot, also known as an InventoryLot, is a collection of starting material (seeds, bulbs, root-stock, etc) for a particular Germplasm. The amount of material available for each Germplasm can be increased by seed production and decreased by planting or trading with another breeding Program.
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Deleted property `contentMixture` (array)
             > The mixture of germplasm present in the seed lot.
@@ -14111,7 +10366,9 @@ Changed response : **200 OK**
             > in this array should sum to equal 100.
 
 
-        * Deleted property `externalReferences` (object)
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
         * Deleted property `seedLotDbId` (string)
             > Unique DbId for the Seed Lot
@@ -14146,774 +10403,6 @@ Changed response : **200 OK**
         * Changed property `storageLocation` (string)
 
         * Changed property `units` (string)
-
-##### `GET` /studies
-
-> Get a filtered list of Study
-
-
-###### Parameters:
-
-Added: `germplasmName` in `query`
-> List of human readable names to identify germplasm to search for
-
-
-Added: `locationName` in `query`
-> A human readable names to search for
-
-
-Added: `programName` in `query`
-> Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
-> 
-> Use `GET /programs` to find the list of available programs on a server.
-
-
-Added: `trialName` in `query`
-> The human readable name of a trial to search for
-
-
-Added: `observationVariableName` in `query`
-> The names of Variables to search for
-
-
-Added: `observationVariablePUI` in `query`
-> The Permanent Unique Identifier of an Observation Variable, usually in the form of a URI
-
-
-Added: `actife` in `query`
-> A flag to indicate if a Study is currently active and ongoing
-
-
-Deleted: `active` in `query`
-> A flag to indicate if a Study is currently active and ongoing
-
-
-Deleted: `sortBy` in `query`
-> Name of the field to sort by.
-
-
-Deleted: `sortOrder` in `query`
-> Sort order direction. Ascending/Descending.
-
-
-Changed: `studyType` in `query`
-> The type of study being performed. ex. "Yield Trial", etc
-
-
-Changed: `locationDbId` in `query`
-> The location ids to search for
-
-
-Changed: `seasonDbId` in `query`
-> The ID which uniquely identifies a season
-
-
-Changed: `studyCode` in `query`
-> A short human readable code for a study
-
-
-Changed: `studyPUI` in `query`
-> Permanent unique identifier associated with study data. For example, a URI or DOI
-
-
-Changed: `observationVariableDbId` in `query`
-> The DbIds of Variables to search for
-
-
-Changed: `commonCropName` in `query`
-> The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.
-> 
-> Use this parameter to only return results associated with the given crops. 
-> 
-> Use `GET /commoncropnames` to find the list of available crops on a server.
-
-
-Changed: `programDbId` in `query`
-> A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
-> 
-> Use this parameter to only return results associated with the given programs. 
-> 
-> Use `GET /programs` to find the list of available programs on a server.
-
-
-Changed: `trialDbId` in `query`
-> The ID which uniquely identifies a trial to search for
-
-
-Changed: `studyDbId` in `query`
-> List of study identifiers to search for
-
-
-Changed: `studyName` in `query`
-> List of study names to filter search results
-
-
-Changed: `germplasmDbId` in `query`
-> List of IDs which uniquely identify germplasm to search for
-
-
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > A Study represents an experiment that has taken place at a single location. The Study contains metadata about the parameters and design of the experiment. It can also be used to group results and data sets generated from the experiment. A Trial can represent a collection of one or more Studies.
-
-
-            * Added property `contactDbIds` (array)
-
-            * Added property `environmentParameterDbIds` (array)
-
-            * Added property `lastUpdateDbId` (string)
-
-            * Added property `observationLevelDbIds` (array)
-
-            * Added property `trialPUI` (string)
-
-            * Deleted property `contacts` (array)
-                > List of contact entities associated with this study
-
-
-            * Deleted property `dataLinks` (array)
-                > List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.
-
-
-            * Deleted property `environmentParameters` (array)
-                > Environmental parameters that were kept constant throughout the study and did not change between observation units.
-                > 
-                > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
-
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `lastUpdate` (object)
-
-            * Deleted property `observationLevels` (array)
-                > Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).
-
-
-            * Deleted property `seasons` (array)
-                > List of seasons over which this study was performed.
-
-
-            * Deleted property `studyDbId` (string)
-                > The ID which uniquely identifies a study within the given database server
-                > 
-                > MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.
-
-
-            * Changed property `active` (boolean)
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `commonCropName` (string)
-
-            * Changed property `culturalPractices` (string)
-
-            * Changed property `documentationURL` (string -> string)
-
-            * Changed property `endDate` (string -> string)
-
-            * Changed property `license` (string)
-
-            * Changed property `locationDbId` (string)
-
-            * Changed property `locationName` (string)
-
-            * Changed property `observationUnitsDescription` (string)
-
-            * Changed property `observationVariableDbIds` (array)
-
-            * Changed property `startDate` (string -> string)
-
-            * Changed property `studyCode` (string)
-
-            * Changed property `studyDescription` (string)
-
-            * Changed property `studyName` (string)
-
-            * Changed property `studyPUI` (string)
-
-            * Changed property `studyType` (string)
-
-            * Changed property `trialDbId` (string)
-
-            * Changed property `trialName` (string)
-
-            * Changed property `experimentalDesign` (object)
-                > The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology
-
-
-                * Added property `studyDbId` (string)
-
-                * Added property `studyName` (string)
-
-                * Added property `studyPUI` (string)
-
-                * Changed property `PUI` (string)
-
-                * Changed property `description` (string)
-
-            * Changed property `growthFacility` (object)
-                > Short description of the facility in which the study was carried out.
-
-
-                * Added property `studyDbId` (string)
-
-                * Added property `studyName` (string)
-
-                * Added property `studyPUI` (string)
-
-                * Changed property `PUI` (string)
-
-                * Changed property `description` (string)
-
-##### `POST` /studies
-
-> Create new Study
-
-
-###### Request:
-
-Changed content type : `application/json`
-
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > A Study represents an experiment that has taken place at a single location. The Study contains metadata about the parameters and design of the experiment. It can also be used to group results and data sets generated from the experiment. A Trial can represent a collection of one or more Studies.
-
-
-            * Added property `contactDbIds` (array)
-
-            * Added property `environmentParameterDbIds` (array)
-
-            * Added property `lastUpdateDbId` (string)
-
-            * Added property `observationLevelDbIds` (array)
-
-            * Added property `trialPUI` (string)
-
-            * Deleted property `contacts` (array)
-                > List of contact entities associated with this study
-
-
-            * Deleted property `dataLinks` (array)
-                > List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.
-
-
-            * Deleted property `environmentParameters` (array)
-                > Environmental parameters that were kept constant throughout the study and did not change between observation units.
-                > 
-                > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
-
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `lastUpdate` (object)
-
-            * Deleted property `observationLevels` (array)
-                > Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).
-
-
-            * Deleted property `seasons` (array)
-                > List of seasons over which this study was performed.
-
-
-            * Deleted property `studyDbId` (string)
-                > The ID which uniquely identifies a study within the given database server
-                > 
-                > MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.
-
-
-            * Changed property `active` (boolean)
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `commonCropName` (string)
-
-            * Changed property `culturalPractices` (string)
-
-            * Changed property `documentationURL` (string -> string)
-
-            * Changed property `endDate` (string -> string)
-
-            * Changed property `license` (string)
-
-            * Changed property `locationDbId` (string)
-
-            * Changed property `locationName` (string)
-
-            * Changed property `observationUnitsDescription` (string)
-
-            * Changed property `observationVariableDbIds` (array)
-
-            * Changed property `startDate` (string -> string)
-
-            * Changed property `studyCode` (string)
-
-            * Changed property `studyDescription` (string)
-
-            * Changed property `studyName` (string)
-
-            * Changed property `studyPUI` (string)
-
-            * Changed property `studyType` (string)
-
-            * Changed property `trialDbId` (string)
-
-            * Changed property `trialName` (string)
-
-            * Changed property `experimentalDesign` (object)
-                > The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology
-
-
-                * Added property `studyDbId` (string)
-
-                * Added property `studyName` (string)
-
-                * Added property `studyPUI` (string)
-
-                * Changed property `PUI` (string)
-
-                * Changed property `description` (string)
-
-            * Changed property `growthFacility` (object)
-                > Short description of the facility in which the study was carried out.
-
-
-                * Added property `studyDbId` (string)
-
-                * Added property `studyName` (string)
-
-                * Added property `studyPUI` (string)
-
-                * Changed property `PUI` (string)
-
-                * Changed property `description` (string)
-
-##### `GET` /studies/{studyDbId}
-
-> Get the details of a specific Study
-
-
-###### Parameters:
-
-Deleted: `studyDbId` in `path`
-> Identifier of the study. Usually a number, could be alphanumeric.
-
-
-Deleted: `Authorization` in `header`
-> HTTP HEADER - Token used for Authorization 
-> 
-> <strong> Bearer {token_string} </strong>
-
-
-###### Return Type:
-
-Deleted response : **404 Not Found**
-> Not Found
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-        > A Study represents an experiment that has taken place at a single location. The Study contains metadata about the parameters and design of the experiment. It can also be used to group results and data sets generated from the experiment. A Trial can represent a collection of one or more Studies.
-
-
-        * Added property `contactDbIds` (array)
-
-        * Added property `environmentParameterDbIds` (array)
-
-        * Added property `lastUpdateDbId` (string)
-
-        * Added property `observationLevelDbIds` (array)
-
-        * Added property `trialPUI` (string)
-
-        * Deleted property `contacts` (array)
-            > List of contact entities associated with this study
-
-
-        * Deleted property `dataLinks` (array)
-            > List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.
-
-
-        * Deleted property `environmentParameters` (array)
-            > Environmental parameters that were kept constant throughout the study and did not change between observation units.
-            > 
-            > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
-
-
-        * Deleted property `externalReferences` (object)
-
-        * Deleted property `lastUpdate` (object)
-
-        * Deleted property `observationLevels` (array)
-            > Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).
-
-
-        * Deleted property `seasons` (array)
-            > List of seasons over which this study was performed.
-
-
-        * Deleted property `studyDbId` (string)
-            > The ID which uniquely identifies a study within the given database server
-            > 
-            > MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.
-
-
-        * Changed property `active` (boolean)
-
-        * Changed property `additionalInfo` (object)
-            > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-            * Added property `additionalProperties` (string)
-
-        * Changed property `commonCropName` (string)
-
-        * Changed property `culturalPractices` (string)
-
-        * Changed property `documentationURL` (string -> string)
-
-        * Changed property `endDate` (string -> string)
-
-        * Changed property `license` (string)
-
-        * Changed property `locationDbId` (string)
-
-        * Changed property `locationName` (string)
-
-        * Changed property `observationUnitsDescription` (string)
-
-        * Changed property `observationVariableDbIds` (array)
-
-        * Changed property `startDate` (string -> string)
-
-        * Changed property `studyCode` (string)
-
-        * Changed property `studyDescription` (string)
-
-        * Changed property `studyName` (string)
-
-        * Changed property `studyPUI` (string)
-
-        * Changed property `studyType` (string)
-
-        * Changed property `trialDbId` (string)
-
-        * Changed property `trialName` (string)
-
-        * Changed property `experimentalDesign` (object)
-            > The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology
-
-
-            * Added property `studyDbId` (string)
-
-            * Added property `studyName` (string)
-
-            * Added property `studyPUI` (string)
-
-            * Changed property `PUI` (string)
-
-            * Changed property `description` (string)
-
-        * Changed property `growthFacility` (object)
-            > Short description of the facility in which the study was carried out.
-
-
-            * Added property `studyDbId` (string)
-
-            * Added property `studyName` (string)
-
-            * Added property `studyPUI` (string)
-
-            * Changed property `PUI` (string)
-
-            * Changed property `description` (string)
-
-##### `PUT` /studies/{studyDbId}
-
-> Update the details for an existing Study
-
-
-###### Parameters:
-
-Deleted: `studyDbId` in `path`
-> Identifier of the study. Usually a number, could be alphanumeric.
-
-
-###### Request:
-
-Changed content type : `application/json`
-
-New required properties:
-- `studyDbId`
-- `studyDbId`
-
-* Added property `contactDbIds` (array)
-
-* Added property `environmentParameterDbIds` (array)
-
-* Added property `lastUpdateDbId` (string)
-
-* Added property `observationLevelDbIds` (array)
-
-* Added property `studyDbId` (string)
-
-* Added property `trialPUI` (string)
-
-* Deleted property `contacts` (array)
-    > List of contact entities associated with this study
-
-
-* Deleted property `dataLinks` (array)
-    > List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.
-
-
-* Deleted property `environmentParameters` (array)
-    > Environmental parameters that were kept constant throughout the study and did not change between observation units.
-    > 
-    > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
-
-
-* Deleted property `externalReferences` (object)
-
-* Deleted property `lastUpdate` (object)
-
-* Deleted property `observationLevels` (array)
-    > Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).
-
-
-* Deleted property `seasons` (array)
-    > List of seasons over which this study was performed.
-
-
-* Changed property `active` (boolean)
-
-* Changed property `additionalInfo` (object)
-    > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-    * Added property `additionalProperties` (string)
-
-* Changed property `commonCropName` (string)
-
-* Changed property `culturalPractices` (string)
-
-* Changed property `documentationURL` (string -> string)
-
-* Changed property `endDate` (string -> string)
-
-* Changed property `license` (string)
-
-* Changed property `locationDbId` (string)
-
-* Changed property `locationName` (string)
-
-* Changed property `observationUnitsDescription` (string)
-
-* Changed property `observationVariableDbIds` (array)
-
-* Changed property `startDate` (string -> string)
-
-* Changed property `studyCode` (string)
-
-* Changed property `studyDescription` (string)
-
-* Changed property `studyName` (string)
-
-* Changed property `studyPUI` (string)
-
-* Changed property `studyType` (string)
-
-* Changed property `trialDbId` (string)
-
-* Changed property `trialName` (string)
-
-* Changed property `experimentalDesign` (object)
-    > The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology
-
-
-    * Added property `studyDbId` (string)
-
-    * Added property `studyName` (string)
-
-    * Added property `studyPUI` (string)
-
-    * Changed property `PUI` (string)
-
-    * Changed property `description` (string)
-
-* Changed property `growthFacility` (object)
-    > Short description of the facility in which the study was carried out.
-
-
-    * Added property `studyDbId` (string)
-
-    * Added property `studyName` (string)
-
-    * Added property `studyPUI` (string)
-
-    * Changed property `PUI` (string)
-
-    * Changed property `description` (string)
-
-###### Return Type:
-
-Deleted response : **404 Not Found**
-> Not Found
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-        > A Study represents an experiment that has taken place at a single location. The Study contains metadata about the parameters and design of the experiment. It can also be used to group results and data sets generated from the experiment. A Trial can represent a collection of one or more Studies.
-
-
-        * Added property `contactDbIds` (array)
-
-        * Added property `environmentParameterDbIds` (array)
-
-        * Added property `lastUpdateDbId` (string)
-
-        * Added property `observationLevelDbIds` (array)
-
-        * Added property `trialPUI` (string)
-
-        * Deleted property `contacts` (array)
-            > List of contact entities associated with this study
-
-
-        * Deleted property `dataLinks` (array)
-            > List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.
-
-
-        * Deleted property `environmentParameters` (array)
-            > Environmental parameters that were kept constant throughout the study and did not change between observation units.
-            > 
-            > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
-
-
-        * Deleted property `externalReferences` (object)
-
-        * Deleted property `lastUpdate` (object)
-
-        * Deleted property `observationLevels` (array)
-            > Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).
-
-
-        * Deleted property `seasons` (array)
-            > List of seasons over which this study was performed.
-
-
-        * Deleted property `studyDbId` (string)
-            > The ID which uniquely identifies a study within the given database server
-            > 
-            > MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.
-
-
-        * Changed property `active` (boolean)
-
-        * Changed property `additionalInfo` (object)
-            > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-            * Added property `additionalProperties` (string)
-
-        * Changed property `commonCropName` (string)
-
-        * Changed property `culturalPractices` (string)
-
-        * Changed property `documentationURL` (string -> string)
-
-        * Changed property `endDate` (string -> string)
-
-        * Changed property `license` (string)
-
-        * Changed property `locationDbId` (string)
-
-        * Changed property `locationName` (string)
-
-        * Changed property `observationUnitsDescription` (string)
-
-        * Changed property `observationVariableDbIds` (array)
-
-        * Changed property `startDate` (string -> string)
-
-        * Changed property `studyCode` (string)
-
-        * Changed property `studyDescription` (string)
-
-        * Changed property `studyName` (string)
-
-        * Changed property `studyPUI` (string)
-
-        * Changed property `studyType` (string)
-
-        * Changed property `trialDbId` (string)
-
-        * Changed property `trialName` (string)
-
-        * Changed property `experimentalDesign` (object)
-            > The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology
-
-
-            * Added property `studyDbId` (string)
-
-            * Added property `studyName` (string)
-
-            * Added property `studyPUI` (string)
-
-            * Changed property `PUI` (string)
-
-            * Changed property `description` (string)
-
-        * Changed property `growthFacility` (object)
-            > Short description of the facility in which the study was carried out.
-
-
-            * Added property `studyDbId` (string)
-
-            * Added property `studyName` (string)
-
-            * Added property `studyPUI` (string)
-
-            * Changed property `PUI` (string)
-
-            * Changed property `description` (string)
 
 ##### `GET` /traits
 
@@ -14966,14 +10455,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A Trait describes what property is being observed. 
-                > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height".
-
 
             * Added property `ontologyReferenceDbId` (string)
 
@@ -14981,14 +10471,11 @@ Changed response : **200 OK**
                 > A list of shortened, human readable, names for a Trait. These abbreviations are acceptable alternatives to the mainAbbreviation and do not need to follow any formatting convention.
 
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `ontologyReference` (object)
-                > MIAPPE V1.1 (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology 
-                > MIAPPE V1.1 (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-                > MIAPPE V1.1 (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-                > MIAPPE V1.1 (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).
-
 
             * Deleted property `synonyms` (array)
                 > Other trait names
@@ -15041,14 +10528,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A Trait describes what property is being observed. 
-                > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height".
-
 
             * Added property `ontologyReferenceDbId` (string)
 
@@ -15056,14 +10544,11 @@ Changed response : **200 OK**
                 > A list of shortened, human readable, names for a Trait. These abbreviations are acceptable alternatives to the mainAbbreviation and do not need to follow any formatting convention.
 
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `ontologyReference` (object)
-                > MIAPPE V1.1 (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology 
-                > MIAPPE V1.1 (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-                > MIAPPE V1.1 (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-                > MIAPPE V1.1 (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).
-
 
             * Deleted property `synonyms` (array)
                 > Other trait names
@@ -15125,10 +10610,11 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > A Trait describes what property is being observed. 
-        > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height".
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Added property `ontologyReferenceDbId` (string)
 
@@ -15136,14 +10622,11 @@ Changed response : **200 OK**
             > A list of shortened, human readable, names for a Trait. These abbreviations are acceptable alternatives to the mainAbbreviation and do not need to follow any formatting convention.
 
 
-        * Deleted property `externalReferences` (object)
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
         * Deleted property `ontologyReference` (object)
-            > MIAPPE V1.1 (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology 
-            > MIAPPE V1.1 (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-            > MIAPPE V1.1 (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-            > MIAPPE V1.1 (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).
-
 
         * Deleted property `synonyms` (array)
             > Other trait names
@@ -15205,10 +10688,11 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > A Trait describes what property is being observed. 
-        > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height".
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Added property `ontologyReferenceDbId` (string)
 
@@ -15216,14 +10700,11 @@ Changed response : **200 OK**
             > A list of shortened, human readable, names for a Trait. These abbreviations are acceptable alternatives to the mainAbbreviation and do not need to follow any formatting convention.
 
 
-        * Deleted property `externalReferences` (object)
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
         * Deleted property `ontologyReference` (object)
-            > MIAPPE V1.1 (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology 
-            > MIAPPE V1.1 (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-            > MIAPPE V1.1 (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-            > MIAPPE V1.1 (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).
-
 
         * Deleted property `synonyms` (array)
             > Other trait names
@@ -15258,534 +10739,6 @@ Changed response : **200 OK**
         * Changed property `traitName` (string)
 
         * Changed property `traitPUI` (string)
-
-##### `GET` /trials
-
-> Get a filtered list of Trial
-
-
-###### Parameters:
-
-Added: `locationName` in `query`
-> A human readable names to search for
-
-
-Added: `observationVariableDbId` in `query`
-> The DbIds of Variables to search for
-
-
-Added: `observationVariableName` in `query`
-> The names of Variables to search for
-
-
-Added: `observationVariablePUI` in `query`
-> The Permanent Unique Identifier of an Observation Variable, usually in the form of a URI
-
-
-Added: `programName` in `query`
-> Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
-> 
-> Use `GET /programs` to find the list of available programs on a server.
-
-
-Added: `studyName` in `query`
-> List of study names to filter search results
-
-
-Added: `actife` in `query`
-> A flag to indicate if a Trial is currently active and ongoing
-
-
-Deleted: `active` in `query`
-> A flag to indicate if a Trial is currently active and ongoing
-
-
-Deleted: `sortBy` in `query`
-> Sort order. Name of the field to sort by.
-
-
-Deleted: `sortOrder` in `query`
-> Sort order direction: asc/desc
-
-
-Changed: `contactDbId` in `query`
-> List of contact entities associated with this trial
-
-
-Changed: `locationDbId` in `query`
-> The location ids to search for
-
-
-Changed: `searchDateRangeStart` in `query`
-> The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.
-> 
-> Return a Trial entity if any of the following cases are true
-> 
-> - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null 
-> 
-> - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`
-> 
-> - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null
-> 
-> - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
-
-
-Changed: `searchDateRangeEnd` in `query`
-> The end of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.
-> 
-> Return a Trial entity if any of the following cases are true
-> 
-> - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null 
-> 
-> - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`
-> 
-> - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null
-> 
-> - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
-
-
-Changed: `trialPUI` in `query`
-> A permanent identifier for a trial. Could be DOI or other URI formatted identifier.
-
-
-Changed: `commonCropName` in `query`
-> The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.
-> 
-> Use this parameter to only return results associated with the given crops. 
-> 
-> Use `GET /commoncropnames` to find the list of available crops on a server.
-
-
-Changed: `programDbId` in `query`
-> A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
-> 
-> Use this parameter to only return results associated with the given programs. 
-> 
-> Use `GET /programs` to find the list of available programs on a server.
-
-
-Changed: `trialDbId` in `query`
-> The ID which uniquely identifies a trial to search for
-
-
-Changed: `trialName` in `query`
-> The human readable name of a trial to search for
-
-
-Changed: `studyDbId` in `query`
-> List of study identifiers to search for
-
-
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > A Trial represents a collection of Study objects, and the metadata associated with that collection. A Trial could represent a multi-location experiment, and could contain information related to publications and data licensing.
-
-
-            * Added property `studyDbIds` (array)
-
-            * Deleted property `datasetAuthorships` (array)
-                > License and citation information for the data in this trial
-
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `publications` (array)
-                > MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.
-
-
-            * Deleted property `trialDbId` (string)
-                > The ID which uniquely identifies a trial
-                > 
-                > MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.
-
-
-            * Changed property `active` (boolean)
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `commonCropName` (string)
-
-            * Changed property `documentationURL` (string -> string)
-
-            * Changed property `endDate` (string -> string)
-
-            * Changed property `programDbId` (string)
-
-            * Changed property `programName` (string)
-
-            * Changed property `startDate` (string -> string)
-
-            * Changed property `trialDescription` (string)
-
-            * Changed property `trialName` (string)
-
-            * Changed property `trialPUI` (string)
-
-            * Changed property `contacts` (array)
-
-                Changed items (object):
-                    > A persons contact information
-
-
-                * Changed property `contactDbId` (string)
-
-                * Changed property `email` (string)
-
-                * Changed property `instituteName` (string)
-
-                * Changed property `name` (string)
-
-                * Changed property `orcid` (string)
-
-                * Changed property `type` (string)
-
-##### `POST` /trials
-
-> Create new Trial
-
-
-###### Request:
-
-Changed content type : `application/json`
-
-###### Return Type:
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (object):
-                > A Trial represents a collection of Study objects, and the metadata associated with that collection. A Trial could represent a multi-location experiment, and could contain information related to publications and data licensing.
-
-
-            * Added property `studyDbIds` (array)
-
-            * Deleted property `datasetAuthorships` (array)
-                > License and citation information for the data in this trial
-
-
-            * Deleted property `externalReferences` (object)
-
-            * Deleted property `publications` (array)
-                > MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.
-
-
-            * Deleted property `trialDbId` (string)
-                > The ID which uniquely identifies a trial
-                > 
-                > MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.
-
-
-            * Changed property `active` (boolean)
-
-            * Changed property `additionalInfo` (object)
-                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-                * Added property `additionalProperties` (string)
-
-            * Changed property `commonCropName` (string)
-
-            * Changed property `documentationURL` (string -> string)
-
-            * Changed property `endDate` (string -> string)
-
-            * Changed property `programDbId` (string)
-
-            * Changed property `programName` (string)
-
-            * Changed property `startDate` (string -> string)
-
-            * Changed property `trialDescription` (string)
-
-            * Changed property `trialName` (string)
-
-            * Changed property `trialPUI` (string)
-
-            * Changed property `contacts` (array)
-
-                Changed items (object):
-                    > A persons contact information
-
-
-                * Changed property `contactDbId` (string)
-
-                * Changed property `email` (string)
-
-                * Changed property `instituteName` (string)
-
-                * Changed property `name` (string)
-
-                * Changed property `orcid` (string)
-
-                * Changed property `type` (string)
-
-##### `GET` /trials/{trialDbId}
-
-
-###### Parameters:
-
-Deleted: `trialDbId` in `path`
-> The internal trialDbId
-
-
-Deleted: `Authorization` in `header`
-> HTTP HEADER - Token used for Authorization 
-> 
-> <strong> Bearer {token_string} </strong>
-
-
-###### Return Type:
-
-Deleted response : **404 Not Found**
-> Not Found
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-        > A Trial represents a collection of Study objects, and the metadata associated with that collection. A Trial could represent a multi-location experiment, and could contain information related to publications and data licensing.
-
-
-        * Added property `studyDbIds` (array)
-
-        * Deleted property `datasetAuthorships` (array)
-            > License and citation information for the data in this trial
-
-
-        * Deleted property `externalReferences` (object)
-
-        * Deleted property `publications` (array)
-            > MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.
-
-
-        * Deleted property `trialDbId` (string)
-            > The ID which uniquely identifies a trial
-            > 
-            > MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.
-
-
-        * Changed property `active` (boolean)
-
-        * Changed property `additionalInfo` (object)
-            > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-            * Added property `additionalProperties` (string)
-
-        * Changed property `commonCropName` (string)
-
-        * Changed property `documentationURL` (string -> string)
-
-        * Changed property `endDate` (string -> string)
-
-        * Changed property `programDbId` (string)
-
-        * Changed property `programName` (string)
-
-        * Changed property `startDate` (string -> string)
-
-        * Changed property `trialDescription` (string)
-
-        * Changed property `trialName` (string)
-
-        * Changed property `trialPUI` (string)
-
-        * Changed property `contacts` (array)
-
-            Changed items (object):
-                > A persons contact information
-
-
-            * Changed property `contactDbId` (string)
-
-            * Changed property `email` (string)
-
-            * Changed property `instituteName` (string)
-
-            * Changed property `name` (string)
-
-            * Changed property `orcid` (string)
-
-            * Changed property `type` (string)
-
-##### `PUT` /trials/{trialDbId}
-
-> Update the details for an existing Trial
-
-
-###### Parameters:
-
-Deleted: `trialDbId` in `path`
-> The internal trialDbId
-
-
-###### Request:
-
-Changed content type : `application/json`
-
-New required properties:
-- `trialDbId`
-- `trialDbId`
-
-* Added property `studyDbIds` (array)
-
-* Added property `trialDbId` (string)
-
-* Deleted property `datasetAuthorships` (array)
-    > License and citation information for the data in this trial
-
-
-* Deleted property `externalReferences` (object)
-
-* Deleted property `publications` (array)
-    > MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.
-
-
-* Changed property `active` (boolean)
-
-* Changed property `additionalInfo` (object)
-    > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-    * Added property `additionalProperties` (string)
-
-* Changed property `commonCropName` (string)
-
-* Changed property `documentationURL` (string -> string)
-
-* Changed property `endDate` (string -> string)
-
-* Changed property `programDbId` (string)
-
-* Changed property `programName` (string)
-
-* Changed property `startDate` (string -> string)
-
-* Changed property `trialDescription` (string)
-
-* Changed property `trialName` (string)
-
-* Changed property `trialPUI` (string)
-
-* Changed property `contacts` (array)
-
-    Changed items (object):
-        > A persons contact information
-
-
-    * Changed property `contactDbId` (string)
-
-    * Changed property `email` (string)
-
-    * Changed property `instituteName` (string)
-
-    * Changed property `name` (string)
-
-    * Changed property `orcid` (string)
-
-    * Changed property `type` (string)
-
-###### Return Type:
-
-Deleted response : **404 Not Found**
-> Not Found
-
-Changed response : **200 OK**
-> OK
-
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-        > A Trial represents a collection of Study objects, and the metadata associated with that collection. A Trial could represent a multi-location experiment, and could contain information related to publications and data licensing.
-
-
-        * Added property `studyDbIds` (array)
-
-        * Deleted property `datasetAuthorships` (array)
-            > License and citation information for the data in this trial
-
-
-        * Deleted property `externalReferences` (object)
-
-        * Deleted property `publications` (array)
-            > MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.
-
-
-        * Deleted property `trialDbId` (string)
-            > The ID which uniquely identifies a trial
-            > 
-            > MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.
-
-
-        * Changed property `active` (boolean)
-
-        * Changed property `additionalInfo` (object)
-            > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-
-
-            * Added property `additionalProperties` (string)
-
-        * Changed property `commonCropName` (string)
-
-        * Changed property `documentationURL` (string -> string)
-
-        * Changed property `endDate` (string -> string)
-
-        * Changed property `programDbId` (string)
-
-        * Changed property `programName` (string)
-
-        * Changed property `startDate` (string -> string)
-
-        * Changed property `trialDescription` (string)
-
-        * Changed property `trialName` (string)
-
-        * Changed property `trialPUI` (string)
-
-        * Changed property `contacts` (array)
-
-            Changed items (object):
-                > A persons contact information
-
-
-            * Changed property `contactDbId` (string)
-
-            * Changed property `email` (string)
-
-            * Changed property `instituteName` (string)
-
-            * Changed property `name` (string)
-
-            * Changed property `orcid` (string)
-
-            * Changed property `type` (string)
 
 ##### `GET` /variables
 
@@ -15909,6 +10862,10 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
@@ -15950,9 +10907,17 @@ Changed response : **200 OK**
                 > Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])
 
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `method` (object)
+
+            * Deleted property `observationVariableDbId` (string)
+                > Variable unique identifier
+                > 
+                > MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.
+
 
             * Deleted property `ontologyReference` (object)
 
@@ -15963,12 +10928,6 @@ Changed response : **200 OK**
 
 
             * Deleted property `trait` (object)
-
-            * Deleted property `observationVariableDbId` (string)
-                > Variable unique identifier
-                > 
-                > MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.
-
 
             * Changed property `additionalInfo` (object)
                 > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
@@ -15988,15 +10947,15 @@ Changed response : **200 OK**
 
             * Changed property `language` (string)
 
+            * Changed property `observationVariableName` (string)
+
+            * Changed property `observationVariablePUI` (string)
+
             * Changed property `scientist` (string)
 
             * Changed property `status` (string)
 
             * Changed property `submissionTimestamp` (string -> string)
-
-            * Changed property `observationVariableName` (string)
-
-            * Changed property `observationVariablePUI` (string)
 
 ##### `POST` /variables
 
@@ -16015,6 +10974,10 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
@@ -16056,9 +11019,17 @@ Changed response : **200 OK**
                 > Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])
 
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `method` (object)
+
+            * Deleted property `observationVariableDbId` (string)
+                > Variable unique identifier
+                > 
+                > MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.
+
 
             * Deleted property `ontologyReference` (object)
 
@@ -16069,12 +11040,6 @@ Changed response : **200 OK**
 
 
             * Deleted property `trait` (object)
-
-            * Deleted property `observationVariableDbId` (string)
-                > Variable unique identifier
-                > 
-                > MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.
-
 
             * Changed property `additionalInfo` (object)
                 > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
@@ -16094,15 +11059,15 @@ Changed response : **200 OK**
 
             * Changed property `language` (string)
 
+            * Changed property `observationVariableName` (string)
+
+            * Changed property `observationVariablePUI` (string)
+
             * Changed property `scientist` (string)
 
             * Changed property `status` (string)
 
             * Changed property `submissionTimestamp` (string -> string)
-
-            * Changed property `observationVariableName` (string)
-
-            * Changed property `observationVariablePUI` (string)
 
 ##### `GET` /variables/{observationVariableDbId}
 
@@ -16131,6 +11096,10 @@ Changed response : **200 OK**
 
 
 * Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
 
     * Changed property `result` (object)
 
@@ -16169,9 +11138,17 @@ Changed response : **200 OK**
             > Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])
 
 
-        * Deleted property `externalReferences` (object)
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
         * Deleted property `method` (object)
+
+        * Deleted property `observationVariableDbId` (string)
+            > Variable unique identifier
+            > 
+            > MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.
+
 
         * Deleted property `ontologyReference` (object)
 
@@ -16182,12 +11159,6 @@ Changed response : **200 OK**
 
 
         * Deleted property `trait` (object)
-
-        * Deleted property `observationVariableDbId` (string)
-            > Variable unique identifier
-            > 
-            > MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.
-
 
         * Changed property `additionalInfo` (object)
             > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
@@ -16207,15 +11178,15 @@ Changed response : **200 OK**
 
         * Changed property `language` (string)
 
+        * Changed property `observationVariableName` (string)
+
+        * Changed property `observationVariablePUI` (string)
+
         * Changed property `scientist` (string)
 
         * Changed property `status` (string)
 
         * Changed property `submissionTimestamp` (string -> string)
-
-        * Changed property `observationVariableName` (string)
-
-        * Changed property `observationVariablePUI` (string)
 
 ##### `PUT` /variables/{observationVariableDbId}
 
@@ -16271,7 +11242,9 @@ New optional properties:
     > Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])
 
 
-* Deleted property `externalReferences` (object)
+* Deleted property `externalReferences` (array)
+    > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
 * Deleted property `method` (object)
 
@@ -16303,15 +11276,15 @@ New optional properties:
 
 * Changed property `language` (string)
 
+* Changed property `observationVariableName` (string)
+
+* Changed property `observationVariablePUI` (string)
+
 * Changed property `scientist` (string)
 
 * Changed property `status` (string)
 
 * Changed property `submissionTimestamp` (string -> string)
-
-* Changed property `observationVariableName` (string)
-
-* Changed property `observationVariablePUI` (string)
 
 ###### Return Type:
 
@@ -16323,6 +11296,10 @@ Changed response : **200 OK**
 
 
 * Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
 
     * Changed property `result` (object)
 
@@ -16361,9 +11338,17 @@ Changed response : **200 OK**
             > Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])
 
 
-        * Deleted property `externalReferences` (object)
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
         * Deleted property `method` (object)
+
+        * Deleted property `observationVariableDbId` (string)
+            > Variable unique identifier
+            > 
+            > MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.
+
 
         * Deleted property `ontologyReference` (object)
 
@@ -16374,12 +11359,6 @@ Changed response : **200 OK**
 
 
         * Deleted property `trait` (object)
-
-        * Deleted property `observationVariableDbId` (string)
-            > Variable unique identifier
-            > 
-            > MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.
-
 
         * Changed property `additionalInfo` (object)
             > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
@@ -16399,15 +11378,15 @@ Changed response : **200 OK**
 
         * Changed property `language` (string)
 
+        * Changed property `observationVariableName` (string)
+
+        * Changed property `observationVariablePUI` (string)
+
         * Changed property `scientist` (string)
 
         * Changed property `status` (string)
 
         * Changed property `submissionTimestamp` (string -> string)
-
-        * Changed property `observationVariableName` (string)
-
-        * Changed property `observationVariablePUI` (string)
 
 ##### `GET` /variants
 
@@ -16507,13 +11486,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A `Variant` represents a change in DNA sequence relative to some reference. For example, a variant could represent a classic marker, a SNP, or an insertion. This is equivalent to a row in VCF.
-
 
             * Added property `variantSetName` (string)
 
@@ -16584,33 +11565,6 @@ Changed response : **200 OK**
 
             * Changed property `variantType` (string)
 
-    * Changed property `metadata` (object)
-        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
-
-
-        * Changed property `pagination` (object)
-            > The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. 
-            > <br> Pages are zero indexed, so the first page will be page 0 (zero).
-
-
-            New optional properties:
-            - `nextPageToken`
-
-            * Deleted property `currentPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the current page of data.
-
-
-            * Deleted property `nextPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the next page of data.
-
-
-            * Deleted property `prevPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the previous page of data.
-
-
 ##### `GET` /variants/{variantDbId}
 
 > Get the details of a specific Variant
@@ -16639,9 +11593,11 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > A `Variant` represents a change in DNA sequence relative to some reference. For example, a variant could represent a classic marker, a SNP, or an insertion. This is equivalent to a row in VCF.
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Added property `variantSetName` (string)
 
@@ -16769,6 +11725,10 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Deleted property `expandHomozygotes` (boolean)
@@ -16790,10 +11750,6 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
-                > A `Call` represents the determination of genotype with respect to a particular `Variant`. 
-                > 
-                > It may include associated information such as quality and phasing. For example, a call might assign a probability of 0.32 to the occurrence of a SNP named RS_1234 in a call set with the name NA_12345.
-
 
             * Deleted property `genotype` (object)
 
@@ -16829,33 +11785,6 @@ Changed response : **200 OK**
             * Changed property `variantSetDbId` (string)
 
             * Changed property `variantSetName` (string)
-
-    * Changed property `metadata` (object)
-        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
-
-
-        * Changed property `pagination` (object)
-            > The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. 
-            > <br> Pages are zero indexed, so the first page will be page 0 (zero).
-
-
-            New optional properties:
-            - `nextPageToken`
-
-            * Deleted property `currentPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the current page of data.
-
-
-            * Deleted property `nextPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the next page of data.
-
-
-            * Deleted property `prevPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the previous page of data.
-
 
 ##### `GET` /variantsets
 
@@ -16935,13 +11864,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A VariantSet is a collection of variants and variant calls intended to be analyzed together.
-
 
             * Added property `analysiDbIds` (array)
 
@@ -17014,9 +11945,11 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > A VariantSet is a collection of variants and variant calls intended to be analyzed together.
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Added property `analysiDbIds` (array)
 
@@ -17118,6 +12051,10 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Deleted property `expandHomozygotes` (boolean)
@@ -17139,10 +12076,6 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
-                > A `Call` represents the determination of genotype with respect to a particular `Variant`. 
-                > 
-                > It may include associated information such as quality and phasing. For example, a call might assign a probability of 0.32 to the occurrence of a SNP named RS_1234 in a call set with the name NA_12345.
-
 
             * Deleted property `genotype` (object)
 
@@ -17178,33 +12111,6 @@ Changed response : **200 OK**
             * Changed property `variantSetDbId` (string)
 
             * Changed property `variantSetName` (string)
-
-    * Changed property `metadata` (object)
-        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
-
-
-        * Changed property `pagination` (object)
-            > The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. 
-            > <br> Pages are zero indexed, so the first page will be page 0 (zero).
-
-
-            New optional properties:
-            - `nextPageToken`
-
-            * Deleted property `currentPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the current page of data.
-
-
-            * Deleted property `nextPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the next page of data.
-
-
-            * Deleted property `prevPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the previous page of data.
-
 
 ##### `GET` /variantsets/{variantSetDbId}/callsets
 
@@ -17304,13 +12210,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A CallSet is a collection of Calls that were generated by the same analysis of the same Sample
-
 
             * Added property `sampleName` (string)
 
@@ -17452,13 +12360,15 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A `Variant` represents a change in DNA sequence relative to some reference. For example, a variant could represent a classic marker, a SNP, or an insertion. This is equivalent to a row in VCF.
-
 
             * Added property `variantSetName` (string)
 
@@ -17529,32 +12439,4252 @@ Changed response : **200 OK**
 
             * Changed property `variantType` (string)
 
-    * Changed property `metadata` (object)
+##### `GET` /crosses
+
+> Get a filtered list of Cross
+
+
+###### Parameters:
+
+Added: `programName` in `query`
+> Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+> 
+> Use `GET /programs` to find the list of available programs on a server.
+
+
+Changed: `commonCropName` in `query`
+> The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.
+> 
+> Use this parameter to only return results associated with the given crops. 
+> 
+> Use `GET /commoncropnames` to find the list of available crops on a server.
+
+
+Changed: `programDbId` in `query`
+> A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
+> 
+> Use this parameter to only return results associated with the given programs. 
+> 
+> Use `GET /programs` to find the list of available programs on a server.
+
+
+###### Return Type:
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
         > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
 
-        * Changed property `pagination` (object)
-            > The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. 
-            > <br> Pages are zero indexed, so the first page will be page 0 (zero).
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Deleted property `crossAttributes` (array)
+                > Set of custom attributes associated with a cross
 
 
-            New optional properties:
-            - `nextPageToken`
-
-            * Deleted property `currentPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the current page of data.
+            * Deleted property `crossDbId` (string)
+                > the unique identifier for a cross
 
 
-            * Deleted property `nextPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the next page of data.
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
 
 
-            * Deleted property `prevPageToken` (string)
-                > **Deprecated in v2.1** Please use `page`. Github issue number #451 
-                > <br>The string token used to query the previous page of data.
+            * Deleted property `pollinationEvents` (array)
+                > The list of pollination events that occurred for this cross
 
+
+            * Deleted property `pollinationTimeStamp` (string)
+                > **Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265 
+                > <br>The timestamp when the pollination took place
+
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `crossName` (string)
+
+            * Changed property `crossType` (string)
+                > The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK',  'BULK_SELFED',  'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'.
+
+
+            * Changed property `crossingProjectDbId` (string)
+
+            * Changed property `crossingProjectName` (string)
+
+            * Changed property `plannedCrossDbId` (string)
+
+            * Changed property `plannedCrossName` (string)
+
+            * Changed property `parent1` (object)
+
+                * Added property `germplasm` (object)
+
+                    * Property `accessionNumber` (string)
+
+                    * Property `acquisitionDate` (string)
+
+                    * Property `additionalInfo` (object)
+                        > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                    * Property `biologicalStatusOfAccessionCode` (string)
+                        > MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. 
+                        > 
+                        > 100) Wild 
+                        > 110) Natural 
+                        > 120) Semi-natural/wild 
+                        > 130) Semi-natural/sown 
+                        > 200) Weedy 
+                        > 300) Traditional cultivar/landrace 
+                        > 400) Breeding/research material 
+                        > 410) Breeders line 
+                        > 411) Synthetic population 
+                        > 412) Hybrid 
+                        > 413) Founder stock/base population 
+                        > 414) Inbred line (parent of hybrid cultivar) 
+                        > 415) Segregating population 
+                        > 416) Clonal selection 
+                        > 420) Genetic stock 
+                        > 421) Mutant (e.g. induced/insertion mutants, tilling populations) 
+                        > 422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) 
+                        > 423) Other genetic stocks (e.g. mapping populations) 
+                        > 500) Advanced or improved cultivar (conventional breeding methods) 
+                        > 600) GMO (by genetic engineering) 
+                        > 999) Other (Elaborate in REMARKS field)
+
+
+                        Enum values:
+
+                        * `100`
+                        * `110`
+                        * `120`
+                        * `130`
+                        * `200`
+                        * `300`
+                        * `400`
+                        * `410`
+                        * `411`
+                        * `412`
+                        * `413`
+                        * `414`
+                        * `415`
+                        * `416`
+                        * `420`
+                        * `421`
+                        * `422`
+                        * `423`
+                        * `500`
+                        * `600`
+                        * `999`
+                    * Property `biologicalStatusOfAccessionDescription` (string)
+
+                    * Property `breedingMethodDbId` (string)
+
+                    * Property `breedingMethodName` (string)
+
+                    * Property `collection` (string)
+
+                    * Property `commonCropName` (string)
+
+                    * Property `countryOfOriginCode` (string)
+
+                    * Property `defaultDisplayName` (string)
+
+                    * Property `documentationURL` (string)
+
+                    * Property `genus` (string)
+
+                    * Property `germplasmName` (string)
+
+                    * Property `germplasmPUI` (string)
+
+                    * Property `germplasmPreprocessing` (string)
+
+                    * Property `instituteCode` (string)
+
+                    * Property `instituteName` (string)
+
+                    * Property `pedigree` (string)
+
+                    * Property `sampleDbIds` (array)
+
+                    * Property `seedSource` (string)
+
+                    * Property `seedSourceDescription` (string)
+
+                    * Property `species` (string)
+
+                    * Property `speciesAuthority` (string)
+
+                    * Property `subtaxa` (string)
+
+                    * Property `subtaxaAuthority` (string)
+
+                * Added property `observationUnitPUI` (string)
+
+                * Deleted property `germplasmDbId` (string)
+                    > the unique identifier for a germplasm
+
+
+                * Deleted property `germplasmName` (string)
+                    > the human readable name for a germplasm
+
+
+                * Changed property `observationUnitDbId` (string)
+
+                * Changed property `observationUnitName` (string)
+
+                * Changed property `parentType` (string)
+                    > The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C.
+
+
+                    Added enum value:
+
+                    * `CLONAL`
+##### `PUT` /crosses
+
+> Update the details for an existing Cross
+
+
+###### Request:
+
+Changed content type : `application/json`
+
+New required properties:
+- `crossDbId`
+- `crossDbId`
+
+* Added property `additionalInfo` (object)
+    > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+* Added property `crossDbId` (string)
+
+* Added property `crossName` (string)
+
+* Added property `crossType` (string)
+    > The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK',  'BULK_SELFED',  'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'.
+
+
+    Enum values:
+
+    * `BIPARENTAL`
+    * `SELF`
+    * `OPEN_POLLINATED`
+    * `BULK`
+    * `BULK_SELFED`
+    * `BULK_OPEN_POLLINATED`
+    * `DOUBLE_HAPLOID`
+* Added property `crossingProjectDbId` (string)
+
+* Added property `crossingProjectName` (string)
+
+* Added property `parent1` (object)
+
+    * Property `germplasm` (object)
+
+    * Property `observationUnitDbId` (string)
+
+    * Property `observationUnitName` (string)
+
+    * Property `observationUnitPUI` (string)
+
+    * Property `parentType` (string)
+        > The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C.
+
+
+        Enum values:
+
+        * `MALE`
+        * `FEMALE`
+        * `SELF`
+        * `POPULATION`
+        * `CLONAL`
+* Added property `parent2` (object)
+
+* Added property `plannedCrossDbId` (string)
+
+* Added property `plannedCrossName` (string)
+
+###### Return Type:
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Deleted property `crossAttributes` (array)
+                > Set of custom attributes associated with a cross
+
+
+            * Deleted property `crossDbId` (string)
+                > the unique identifier for a cross
+
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `pollinationEvents` (array)
+                > The list of pollination events that occurred for this cross
+
+
+            * Deleted property `pollinationTimeStamp` (string)
+                > **Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265 
+                > <br>The timestamp when the pollination took place
+
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `crossName` (string)
+
+            * Changed property `crossType` (string)
+                > The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK',  'BULK_SELFED',  'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'.
+
+
+            * Changed property `crossingProjectDbId` (string)
+
+            * Changed property `crossingProjectName` (string)
+
+            * Changed property `plannedCrossDbId` (string)
+
+            * Changed property `plannedCrossName` (string)
+
+            * Changed property `parent1` (object)
+
+                * Added property `germplasm` (object)
+
+                * Added property `observationUnitPUI` (string)
+
+                * Deleted property `germplasmDbId` (string)
+                    > the unique identifier for a germplasm
+
+
+                * Deleted property `germplasmName` (string)
+                    > the human readable name for a germplasm
+
+
+                * Changed property `observationUnitDbId` (string)
+
+                * Changed property `observationUnitName` (string)
+
+                * Changed property `parentType` (string)
+                    > The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C.
+
+
+                    Added enum value:
+
+                    * `CLONAL`
+##### `POST` /crosses
+
+> Create new Cross
+
+
+###### Request:
+
+Changed content type : `application/json`
+
+###### Return Type:
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Deleted property `crossAttributes` (array)
+                > Set of custom attributes associated with a cross
+
+
+            * Deleted property `crossDbId` (string)
+                > the unique identifier for a cross
+
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `pollinationEvents` (array)
+                > The list of pollination events that occurred for this cross
+
+
+            * Deleted property `pollinationTimeStamp` (string)
+                > **Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265 
+                > <br>The timestamp when the pollination took place
+
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `crossName` (string)
+
+            * Changed property `crossType` (string)
+                > The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK',  'BULK_SELFED',  'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'.
+
+
+            * Changed property `crossingProjectDbId` (string)
+
+            * Changed property `crossingProjectName` (string)
+
+            * Changed property `plannedCrossDbId` (string)
+
+            * Changed property `plannedCrossName` (string)
+
+            * Changed property `parent1` (object)
+
+                * Added property `germplasm` (object)
+
+                * Added property `observationUnitPUI` (string)
+
+                * Deleted property `germplasmDbId` (string)
+                    > the unique identifier for a germplasm
+
+
+                * Deleted property `germplasmName` (string)
+                    > the human readable name for a germplasm
+
+
+                * Changed property `observationUnitDbId` (string)
+
+                * Changed property `observationUnitName` (string)
+
+                * Changed property `parentType` (string)
+                    > The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C.
+
+
+                    Added enum value:
+
+                    * `CLONAL`
+##### `GET` /plannedcrosses
+
+> Get a filtered list of PlannedCross
+
+
+###### Parameters:
+
+Added: `programName` in `query`
+> Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+> 
+> Use `GET /programs` to find the list of available programs on a server.
+
+
+Changed: `commonCropName` in `query`
+> The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.
+> 
+> Use this parameter to only return results associated with the given crops. 
+> 
+> Use `GET /commoncropnames` to find the list of available crops on a server.
+
+
+Changed: `programDbId` in `query`
+> A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
+> 
+> Use this parameter to only return results associated with the given programs. 
+> 
+> Use `GET /programs` to find the list of available programs on a server.
+
+
+###### Return Type:
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `crossType` (string)
+                > The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK',  'BULK_SELFED',  'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'.
+
+
+            * Changed property `crossingProjectDbId` (string)
+
+            * Changed property `crossingProjectName` (string)
+
+            * Changed property `plannedCrossDbId` (string)
+
+            * Changed property `plannedCrossName` (string)
+
+            * Changed property `status` (string)
+                > The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').
+
+
+            * Changed property `parent1` (object)
+
+                * Added property `germplasm` (object)
+
+                * Added property `observationUnitPUI` (string)
+
+                * Deleted property `germplasmDbId` (string)
+                    > the unique identifier for a germplasm
+
+
+                * Deleted property `germplasmName` (string)
+                    > the human readable name for a germplasm
+
+
+                * Changed property `observationUnitDbId` (string)
+
+                * Changed property `observationUnitName` (string)
+
+                * Changed property `parentType` (string)
+                    > The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C.
+
+
+                    Added enum value:
+
+                    * `CLONAL`
+##### `PUT` /plannedcrosses
+
+> Update the details for an existing PlannedCross
+
+
+###### Request:
+
+Changed content type : `application/json`
+
+New required properties:
+- `plannedCrossDbId`
+
+* Added property `additionalInfo` (object)
+    > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+* Added property `crossType` (string)
+    > The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK',  'BULK_SELFED',  'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'.
+
+
+* Added property `crossingProjectDbId` (string)
+
+* Added property `crossingProjectName` (string)
+
+* Added property `parent1` (object)
+
+* Added property `parent2` (object)
+
+* Added property `plannedCrossDbId` (string)
+
+* Added property `plannedCrossName` (string)
+
+* Added property `status` (string)
+    > The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').
+
+
+    Enum values:
+
+    * `TODO`
+    * `DONE`
+    * `SKIPPED`
+###### Return Type:
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `crossType` (string)
+                > The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK',  'BULK_SELFED',  'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'.
+
+
+            * Changed property `crossingProjectDbId` (string)
+
+            * Changed property `crossingProjectName` (string)
+
+            * Changed property `plannedCrossDbId` (string)
+
+            * Changed property `plannedCrossName` (string)
+
+            * Changed property `status` (string)
+                > The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').
+
+
+            * Changed property `parent1` (object)
+
+                * Added property `germplasm` (object)
+
+                * Added property `observationUnitPUI` (string)
+
+                * Deleted property `germplasmDbId` (string)
+                    > the unique identifier for a germplasm
+
+
+                * Deleted property `germplasmName` (string)
+                    > the human readable name for a germplasm
+
+
+                * Changed property `observationUnitDbId` (string)
+
+                * Changed property `observationUnitName` (string)
+
+                * Changed property `parentType` (string)
+                    > The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C.
+
+
+                    Added enum value:
+
+                    * `CLONAL`
+##### `POST` /plannedcrosses
+
+> Create new PlannedCross
+
+
+###### Request:
+
+Changed content type : `application/json`
+
+###### Return Type:
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `crossType` (string)
+                > The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK',  'BULK_SELFED',  'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'.
+
+
+            * Changed property `crossingProjectDbId` (string)
+
+            * Changed property `crossingProjectName` (string)
+
+            * Changed property `plannedCrossDbId` (string)
+
+            * Changed property `plannedCrossName` (string)
+
+            * Changed property `status` (string)
+                > The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').
+
+
+            * Changed property `parent1` (object)
+
+                * Added property `germplasm` (object)
+
+                * Added property `observationUnitPUI` (string)
+
+                * Deleted property `germplasmDbId` (string)
+                    > the unique identifier for a germplasm
+
+
+                * Deleted property `germplasmName` (string)
+                    > the human readable name for a germplasm
+
+
+                * Changed property `observationUnitDbId` (string)
+
+                * Changed property `observationUnitName` (string)
+
+                * Changed property `parentType` (string)
+                    > The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \n\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \n\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\nIn this way, A could be a male parent to B, but a female parent to C.
+
+
+                    Added enum value:
+
+                    * `CLONAL`
+##### `GET` /references
+
+> Get a filtered list of Reference
+
+
+###### Parameters:
+
+Added: `germplasmDbId` in `query`
+> List of IDs which uniquely identify germplasm to search for
+
+
+Added: `germplasmName` in `query`
+> List of human readable names to identify germplasm to search for
+
+
+Added: `programName` in `query`
+> Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+> 
+> Use `GET /programs` to find the list of available programs on a server.
+
+
+Added: `studyName` in `query`
+> List of study names to filter search results
+
+
+Added: `trialName` in `query`
+> The human readable name of a trial to search for
+
+
+Added: `externalReferenceID` in `query`
+> **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 
+> <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+
+
+Changed: `referenceDbId` in `query`
+> A list of IDs which uniquely identify `References` within the given database server
+
+
+Changed: `referenceSetDbId` in `query`
+> A list of IDs which uniquely identify `ReferenceSets` within the given database server
+
+
+Changed: `accession` in `query`
+> If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).
+
+
+Changed: `isDerived` in `query`
+> A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.
+
+
+Changed: `minLength` in `query`
+> The minimum length of this `References` sequence.
+
+
+Changed: `maxLength` in `query`
+> The minimum length of this `References` sequence.
+
+
+Changed: `commonCropName` in `query`
+> The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.
+> 
+> Use this parameter to only return results associated with the given crops. 
+> 
+> Use `GET /commoncropnames` to find the list of available crops on a server.
+
+
+Changed: `programDbId` in `query`
+> A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
+> 
+> Use this parameter to only return results associated with the given programs. 
+> 
+> Use `GET /programs` to find the list of available programs on a server.
+
+
+Changed: `trialDbId` in `query`
+> The ID which uniquely identifies a trial to search for
+
+
+Changed: `studyDbId` in `query`
+> List of study identifiers to search for
+
+
+###### Return Type:
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `sourceGermplasmDbIds` (array)
+
+            * Added property `variantDbIds` (array)
+
+            * Deleted property `externalReferences` (object)
+
+            * Deleted property `sourceAccessions` (array)
+                > All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.
+
+
+            * Deleted property `sourceGermplasm` (array)
+                > All known corresponding Germplasm
+
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `commonCropName` (string)
+
+            * Changed property `isDerived` (boolean -> boolean)
+
+            * Changed property `length` (integer -> integer)
+
+            * Changed property `md5checksum` (string)
+
+            * Changed property `referenceDbId` (string)
+
+            * Changed property `referenceName` (string)
+
+            * Changed property `referenceSetDbId` (string)
+
+            * Changed property `referenceSetName` (string)
+
+            * Changed property `sourceDivergence` (number -> number)
+
+            * Changed property `sourceURI` (string)
+
+            * Changed property `species` (object)
+
+                * Changed property `term` (string)
+
+                * Changed property `termURI` (string)
+
+##### `GET` /references/{referenceDbId}
+
+> Get the details of a specific Reference
+
+
+###### Parameters:
+
+Deleted: `referenceDbId` in `path`
+> The ID of the `Reference` to be retrieved.
+
+
+Deleted: `Authorization` in `header`
+> HTTP HEADER - Token used for Authorization 
+> 
+> <strong> Bearer {token_string} </strong>
+
+
+###### Return Type:
+
+Deleted response : **404 Not Found**
+> Not Found
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Added property `sourceGermplasmDbIds` (array)
+
+        * Added property `variantDbIds` (array)
+
+        * Deleted property `externalReferences` (object)
+
+        * Deleted property `sourceAccessions` (array)
+            > All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.
+
+
+        * Deleted property `sourceGermplasm` (array)
+            > All known corresponding Germplasm
+
+
+        * Changed property `additionalInfo` (object)
+            > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+            * Added property `additionalProperties` (string)
+
+        * Changed property `commonCropName` (string)
+
+        * Changed property `isDerived` (boolean -> boolean)
+
+        * Changed property `length` (integer -> integer)
+
+        * Changed property `md5checksum` (string)
+
+        * Changed property `referenceDbId` (string)
+
+        * Changed property `referenceName` (string)
+
+        * Changed property `referenceSetDbId` (string)
+
+        * Changed property `referenceSetName` (string)
+
+        * Changed property `sourceDivergence` (number -> number)
+
+        * Changed property `sourceURI` (string)
+
+        * Changed property `species` (object)
+
+            * Changed property `term` (string)
+
+            * Changed property `termURI` (string)
+
+##### `GET` /referencesets
+
+> Get a filtered list of ReferenceSet
+
+
+###### Parameters:
+
+Added: `germplasmDbId` in `query`
+> List of IDs which uniquely identify germplasm to search for
+
+
+Added: `germplasmName` in `query`
+> List of human readable names to identify germplasm to search for
+
+
+Added: `programName` in `query`
+> Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+> 
+> Use `GET /programs` to find the list of available programs on a server.
+
+
+Added: `studyName` in `query`
+> List of study names to filter search results
+
+
+Added: `trialName` in `query`
+> The human readable name of a trial to search for
+
+
+Added: `externalReferenceID` in `query`
+> **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 
+> <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+
+
+Changed: `referenceSetDbId` in `query`
+> The `ReferenceSets` to search.
+
+
+Changed: `commonCropName` in `query`
+> The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.
+> 
+> Use this parameter to only return results associated with the given crops. 
+> 
+> Use `GET /commoncropnames` to find the list of available crops on a server.
+
+
+Changed: `programDbId` in `query`
+> A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
+> 
+> Use this parameter to only return results associated with the given programs. 
+> 
+> Use `GET /programs` to find the list of available programs on a server.
+
+
+Changed: `trialDbId` in `query`
+> The ID which uniquely identifies a trial to search for
+
+
+Changed: `studyDbId` in `query`
+> List of study identifiers to search for
+
+
+###### Return Type:
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `referenceDbId` (string)
+
+            * Added property `referenceName` (string)
+
+            * Added property `sourceGermplasmDbIds` (array)
+
+            * Added property `variantDbIds` (array)
+
+            * Added property `variantSetDbIds` (array)
+
+            * Deleted property `externalReferences` (object)
+
+            * Deleted property `referenceSetDbId` (string)
+                > The unique identifier for a ReferenceSet
+
+
+            * Deleted property `sourceAccessions` (array)
+                > All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.
+
+
+            * Deleted property `sourceGermplasm` (array)
+                > All known corresponding Germplasm
+
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `assemblyPUI` (string)
+
+            * Changed property `commonCropName` (string)
+
+            * Changed property `description` (string)
+
+            * Changed property `isDerived` (boolean -> boolean)
+
+            * Changed property `md5checksum` (string)
+
+            * Changed property `referenceSetName` (string)
+
+            * Changed property `sourceURI` (string)
+
+            * Changed property `species` (object)
+
+                * Changed property `term` (string)
+
+                * Changed property `termURI` (string)
+
+##### `GET` /referencesets/{referenceSetDbId}
+
+> Get the details of a specific ReferenceSet
+
+
+###### Parameters:
+
+Deleted: `referenceSetDbId` in `path`
+> The ID of the `ReferenceSet` to be retrieved.
+
+
+Deleted: `Authorization` in `header`
+> HTTP HEADER - Token used for Authorization 
+> 
+> <strong> Bearer {token_string} </strong>
+
+
+###### Return Type:
+
+New response : **400 Bad Request**
+New response : **401 Unauthorized**
+New response : **403 Forbidden**
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Added property `referenceDbId` (string)
+
+        * Added property `referenceName` (string)
+
+        * Added property `sourceGermplasmDbIds` (array)
+
+        * Added property `variantDbIds` (array)
+
+        * Added property `variantSetDbIds` (array)
+
+        * Deleted property `externalReferences` (object)
+
+        * Deleted property `referenceSetDbId` (string)
+            > The unique identifier for a ReferenceSet
+
+
+        * Deleted property `sourceAccessions` (array)
+            > All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.
+
+
+        * Deleted property `sourceGermplasm` (array)
+            > All known corresponding Germplasm
+
+
+        * Changed property `additionalInfo` (object)
+            > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+            * Added property `additionalProperties` (string)
+
+        * Changed property `assemblyPUI` (string)
+
+        * Changed property `commonCropName` (string)
+
+        * Changed property `description` (string)
+
+        * Changed property `isDerived` (boolean -> boolean)
+
+        * Changed property `md5checksum` (string)
+
+        * Changed property `referenceSetName` (string)
+
+        * Changed property `sourceURI` (string)
+
+        * Changed property `species` (object)
+
+            * Changed property `term` (string)
+
+            * Changed property `termURI` (string)
+
+##### `GET` /scales
+
+> Get a filtered list of Scale
+
+
+###### Parameters:
+
+Added: `programName` in `query`
+> Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+> 
+> Use `GET /programs` to find the list of available programs on a server.
+
+
+Changed: `scaleDbId` in `query`
+> The unique identifier for a scale.
+
+
+Changed: `observationVariableDbId` in `query`
+> The unique identifier for an observation variable.
+
+
+Changed: `ontologyDbId` in `query`
+> The unique identifier for an ontology definition. Use this parameter to filter results based on a specific ontology 
+> 
+>   Use `GET /ontologies` to find the list of available ontologies on a server.
+
+
+Changed: `commonCropName` in `query`
+> The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.
+> 
+> Use this parameter to only return results associated with the given crops. 
+> 
+> Use `GET /commoncropnames` to find the list of available crops on a server.
+
+
+Changed: `programDbId` in `query`
+> A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
+> 
+> Use this parameter to only return results associated with the given programs. 
+> 
+> Use `GET /programs` to find the list of available programs on a server.
+
+
+###### Return Type:
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `ontologyReferenceDbId` (string)
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `ontologyReference` (object)
+
+            * Deleted property `scaleDbId` (string)
+                > Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.
+
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `dataType` (string)
+                > <p>Class of the scale, entries can be</p>
+                > <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p>
+                > <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p>
+                > <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p>
+                > <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p>
+                > <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p>
+                > <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p>
+                > <p>"Text" - A free text is used to express the trait.</p>
+
+
+            * Changed property `decimalPlaces` (integer -> integer)
+
+            * Changed property `scaleName` (string)
+
+            * Changed property `scalePUI` (string)
+
+            * Changed property `units` (string)
+
+            * Changed property `validValues` (object)
+
+                * Added property `scaleDbId` (string)
+
+                * Added property `scaleName` (string)
+
+                * Added property `scalePUI` (string)
+
+                * Deleted property `categories` (array)
+                    > List of possible values with optional labels
+
+
+                * Deleted property `max` (integer)
+                    > **Deprecated in v2.1** Please use `maximumValue`. Github issue number #450 
+                    > <br>Maximum value for numerical scales. Typically used for data capture control and QC.
+
+
+                * Deleted property `min` (integer)
+                    > **Deprecated in v2.1** Please use `minimumValue`. Github issue number #450 
+                    > <br>Minimum value for numerical scales. Typically used for data capture control and QC.
+
+
+                * Changed property `maximumValue` (string)
+
+                * Changed property `minimumValue` (string)
+
+##### `POST` /scales
+
+> Create new Scale
+
+
+###### Request:
+
+Changed content type : `application/json`
+
+###### Return Type:
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `ontologyReferenceDbId` (string)
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `ontologyReference` (object)
+
+            * Deleted property `scaleDbId` (string)
+                > Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.
+
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `dataType` (string)
+                > <p>Class of the scale, entries can be</p>
+                > <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p>
+                > <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p>
+                > <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p>
+                > <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p>
+                > <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p>
+                > <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p>
+                > <p>"Text" - A free text is used to express the trait.</p>
+
+
+            * Changed property `decimalPlaces` (integer -> integer)
+
+            * Changed property `scaleName` (string)
+
+            * Changed property `scalePUI` (string)
+
+            * Changed property `units` (string)
+
+            * Changed property `validValues` (object)
+
+                * Added property `scaleDbId` (string)
+
+                * Added property `scaleName` (string)
+
+                * Added property `scalePUI` (string)
+
+                * Deleted property `categories` (array)
+                    > List of possible values with optional labels
+
+
+                * Deleted property `max` (integer)
+                    > **Deprecated in v2.1** Please use `maximumValue`. Github issue number #450 
+                    > <br>Maximum value for numerical scales. Typically used for data capture control and QC.
+
+
+                * Deleted property `min` (integer)
+                    > **Deprecated in v2.1** Please use `minimumValue`. Github issue number #450 
+                    > <br>Minimum value for numerical scales. Typically used for data capture control and QC.
+
+
+                * Changed property `maximumValue` (string)
+
+                * Changed property `minimumValue` (string)
+
+##### `GET` /scales/{scaleDbId}
+
+
+###### Parameters:
+
+Deleted: `scaleDbId` in `path`
+> Id of the scale to retrieve details of.
+
+
+Deleted: `Authorization` in `header`
+> HTTP HEADER - Token used for Authorization 
+> 
+> <strong> Bearer {token_string} </strong>
+
+
+###### Return Type:
+
+Deleted response : **404 Not Found**
+> Not Found
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Added property `ontologyReferenceDbId` (string)
+
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+        * Deleted property `ontologyReference` (object)
+
+        * Deleted property `scaleDbId` (string)
+            > Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.
+
+
+        * Changed property `additionalInfo` (object)
+            > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+            * Added property `additionalProperties` (string)
+
+        * Changed property `dataType` (string)
+            > <p>Class of the scale, entries can be</p>
+            > <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p>
+            > <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p>
+            > <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p>
+            > <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p>
+            > <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p>
+            > <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p>
+            > <p>"Text" - A free text is used to express the trait.</p>
+
+
+        * Changed property `decimalPlaces` (integer -> integer)
+
+        * Changed property `scaleName` (string)
+
+        * Changed property `scalePUI` (string)
+
+        * Changed property `units` (string)
+
+        * Changed property `validValues` (object)
+
+            * Added property `scaleDbId` (string)
+
+            * Added property `scaleName` (string)
+
+            * Added property `scalePUI` (string)
+
+            * Deleted property `categories` (array)
+                > List of possible values with optional labels
+
+
+            * Deleted property `max` (integer)
+                > **Deprecated in v2.1** Please use `maximumValue`. Github issue number #450 
+                > <br>Maximum value for numerical scales. Typically used for data capture control and QC.
+
+
+            * Deleted property `min` (integer)
+                > **Deprecated in v2.1** Please use `minimumValue`. Github issue number #450 
+                > <br>Minimum value for numerical scales. Typically used for data capture control and QC.
+
+
+            * Changed property `maximumValue` (string)
+
+            * Changed property `minimumValue` (string)
+
+##### `PUT` /scales/{scaleDbId}
+
+> Update the details for an existing Scale
+
+
+###### Parameters:
+
+Deleted: `scaleDbId` in `path`
+> Id of the scale to retrieve details of.
+
+
+###### Request:
+
+Changed content type : `application/json`
+
+###### Return Type:
+
+Deleted response : **404 Not Found**
+> Not Found
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Added property `ontologyReferenceDbId` (string)
+
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+        * Deleted property `ontologyReference` (object)
+
+        * Deleted property `scaleDbId` (string)
+            > Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.
+
+
+        * Changed property `additionalInfo` (object)
+            > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+            * Added property `additionalProperties` (string)
+
+        * Changed property `dataType` (string)
+            > <p>Class of the scale, entries can be</p>
+            > <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p>
+            > <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p>
+            > <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p>
+            > <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p>
+            > <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p>
+            > <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p>
+            > <p>"Text" - A free text is used to express the trait.</p>
+
+
+        * Changed property `decimalPlaces` (integer -> integer)
+
+        * Changed property `scaleName` (string)
+
+        * Changed property `scalePUI` (string)
+
+        * Changed property `units` (string)
+
+        * Changed property `validValues` (object)
+
+            * Added property `scaleDbId` (string)
+
+            * Added property `scaleName` (string)
+
+            * Added property `scalePUI` (string)
+
+            * Deleted property `categories` (array)
+                > List of possible values with optional labels
+
+
+            * Deleted property `max` (integer)
+                > **Deprecated in v2.1** Please use `maximumValue`. Github issue number #450 
+                > <br>Maximum value for numerical scales. Typically used for data capture control and QC.
+
+
+            * Deleted property `min` (integer)
+                > **Deprecated in v2.1** Please use `minimumValue`. Github issue number #450 
+                > <br>Minimum value for numerical scales. Typically used for data capture control and QC.
+
+
+            * Changed property `maximumValue` (string)
+
+            * Changed property `minimumValue` (string)
+
+##### `POST` /search/references
+
+> Submit a search request for `Reference`
+
+
+###### Parameters:
+
+Deleted: `Authorization` in `header`
+> HTTP HEADER - Token used for Authorization 
+> 
+> <strong> Bearer {token_string} </strong>
+
+
+###### Request:
+
+Deleted content type : `application/json`
+
+###### Return Type:
+
+Changed response : **202 Accepted**
+> Accepted
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `sourceGermplasmDbIds` (array)
+
+            * Added property `variantDbIds` (array)
+
+            * Deleted property `externalReferences` (object)
+
+            * Deleted property `sourceAccessions` (array)
+                > All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.
+
+
+            * Deleted property `sourceGermplasm` (array)
+                > All known corresponding Germplasm
+
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `commonCropName` (string)
+
+            * Changed property `isDerived` (boolean -> boolean)
+
+            * Changed property `length` (integer -> integer)
+
+            * Changed property `md5checksum` (string)
+
+            * Changed property `referenceDbId` (string)
+
+            * Changed property `referenceName` (string)
+
+            * Changed property `referenceSetDbId` (string)
+
+            * Changed property `referenceSetName` (string)
+
+            * Changed property `sourceDivergence` (number -> number)
+
+            * Changed property `sourceURI` (string)
+
+            * Changed property `species` (object)
+
+                * Changed property `term` (string)
+
+                * Changed property `termURI` (string)
+
+##### `GET` /search/references/{searchResultsDbId}
+
+> Submit a search request for `Reference`<br/>
+> Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+> If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+> Use the corresponding `GET /search/reference/{searchResultsDbId}` to retrieve the results of the search. <br/> 
+> Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
+
+
+###### Parameters:
+
+Deleted: `searchResultsDbId` in `path`
+> Unique identifier which references the search results
+
+
+Deleted: `page` in `query`
+> Used to request a specific page of data to be returned.
+> 
+> The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+
+
+Deleted: `pageSize` in `query`
+> The size of the pages to be returned. Default is `1000`.
+
+
+Deleted: `Authorization` in `header`
+> HTTP HEADER - Token used for Authorization 
+> 
+> <strong> Bearer {token_string} </strong>
+
+
+###### Return Type:
+
+Deleted response : **202 Accepted**
+> Accepted
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `sourceGermplasmDbIds` (array)
+
+            * Added property `variantDbIds` (array)
+
+            * Deleted property `externalReferences` (object)
+
+            * Deleted property `sourceAccessions` (array)
+                > All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.
+
+
+            * Deleted property `sourceGermplasm` (array)
+                > All known corresponding Germplasm
+
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `commonCropName` (string)
+
+            * Changed property `isDerived` (boolean -> boolean)
+
+            * Changed property `length` (integer -> integer)
+
+            * Changed property `md5checksum` (string)
+
+            * Changed property `referenceDbId` (string)
+
+            * Changed property `referenceName` (string)
+
+            * Changed property `referenceSetDbId` (string)
+
+            * Changed property `referenceSetName` (string)
+
+            * Changed property `sourceDivergence` (number -> number)
+
+            * Changed property `sourceURI` (string)
+
+            * Changed property `species` (object)
+
+                * Changed property `term` (string)
+
+                * Changed property `termURI` (string)
+
+##### `POST` /search/referencesets
+
+> Submit a search request for `ReferenceSet`
+
+
+###### Parameters:
+
+Deleted: `Authorization` in `header`
+> HTTP HEADER - Token used for Authorization 
+> 
+> <strong> Bearer {token_string} </strong>
+
+
+###### Request:
+
+Deleted content type : `application/json`
+
+###### Return Type:
+
+Changed response : **202 Accepted**
+> Accepted
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `referenceDbId` (string)
+
+            * Added property `referenceName` (string)
+
+            * Added property `sourceGermplasmDbIds` (array)
+
+            * Added property `variantDbIds` (array)
+
+            * Added property `variantSetDbIds` (array)
+
+            * Deleted property `externalReferences` (object)
+
+            * Deleted property `referenceSetDbId` (string)
+                > The unique identifier for a ReferenceSet
+
+
+            * Deleted property `sourceAccessions` (array)
+                > All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.
+
+
+            * Deleted property `sourceGermplasm` (array)
+                > All known corresponding Germplasm
+
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `assemblyPUI` (string)
+
+            * Changed property `commonCropName` (string)
+
+            * Changed property `description` (string)
+
+            * Changed property `isDerived` (boolean -> boolean)
+
+            * Changed property `md5checksum` (string)
+
+            * Changed property `referenceSetName` (string)
+
+            * Changed property `sourceURI` (string)
+
+            * Changed property `species` (object)
+
+                * Changed property `term` (string)
+
+                * Changed property `termURI` (string)
+
+##### `GET` /search/referencesets/{searchResultsDbId}
+
+> Submit a search request for `ReferenceSet`<br/>
+> Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+> If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+> Use the corresponding `GET /search/referenceSet/{searchResultsDbId}` to retrieve the results of the search. <br/> 
+> Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
+
+
+###### Parameters:
+
+Deleted: `searchResultsDbId` in `path`
+> Unique identifier which references the search results
+
+
+Deleted: `page` in `query`
+> Used to request a specific page of data to be returned.
+> 
+> The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+
+
+Deleted: `pageSize` in `query`
+> The size of the pages to be returned. Default is `1000`.
+
+
+Deleted: `Authorization` in `header`
+> HTTP HEADER - Token used for Authorization 
+> 
+> <strong> Bearer {token_string} </strong>
+
+
+###### Return Type:
+
+Deleted response : **202 Accepted**
+> Accepted
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `referenceDbId` (string)
+
+            * Added property `referenceName` (string)
+
+            * Added property `sourceGermplasmDbIds` (array)
+
+            * Added property `variantDbIds` (array)
+
+            * Added property `variantSetDbIds` (array)
+
+            * Deleted property `externalReferences` (object)
+
+            * Deleted property `referenceSetDbId` (string)
+                > The unique identifier for a ReferenceSet
+
+
+            * Deleted property `sourceAccessions` (array)
+                > All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.
+
+
+            * Deleted property `sourceGermplasm` (array)
+                > All known corresponding Germplasm
+
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `assemblyPUI` (string)
+
+            * Changed property `commonCropName` (string)
+
+            * Changed property `description` (string)
+
+            * Changed property `isDerived` (boolean -> boolean)
+
+            * Changed property `md5checksum` (string)
+
+            * Changed property `referenceSetName` (string)
+
+            * Changed property `sourceURI` (string)
+
+            * Changed property `species` (object)
+
+                * Changed property `term` (string)
+
+                * Changed property `termURI` (string)
+
+##### `POST` /search/studies
+
+> Submit a search request for `Study`
+
+
+###### Parameters:
+
+Deleted: `Authorization` in `header`
+> HTTP HEADER - Token used for Authorization 
+> 
+> <strong> Bearer {token_string} </strong>
+
+
+###### Request:
+
+Deleted content type : `application/json`
+
+###### Return Type:
+
+Changed response : **202 Accepted**
+> Accepted
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `contactDbIds` (array)
+
+            * Added property `environmentParameterDbIds` (array)
+
+            * Added property `experimentalDesignPUI` (string)
+
+            * Added property `lastUpdateDbId` (string)
+
+            * Added property `trialPUI` (string)
+
+            * Deleted property `contacts` (array)
+                > List of contact entities associated with this study
+
+
+            * Deleted property `dataLinks` (array)
+                > List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.
+
+
+            * Deleted property `environmentParameters` (array)
+                > Environmental parameters that were kept constant throughout the study and did not change between observation units.
+                > 
+                > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
+
+
+            * Deleted property `experimentalDesign` (object)
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `lastUpdate` (object)
+
+            * Deleted property `observationLevels` (array)
+                > Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).
+
+
+            * Deleted property `seasons` (array)
+                > List of seasons over which this study was performed.
+
+
+            * Deleted property `studyDbId` (string)
+                > The ID which uniquely identifies a study within the given database server
+                > 
+                > MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.
+
+
+            * Changed property `active` (boolean)
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `commonCropName` (string)
+
+            * Changed property `culturalPractices` (string)
+
+            * Changed property `documentationURL` (string -> string)
+
+            * Changed property `endDate` (string -> string)
+
+            * Changed property `license` (string)
+
+            * Changed property `locationDbId` (string)
+
+            * Changed property `locationName` (string)
+
+            * Changed property `observationUnitsDescription` (string)
+
+            * Changed property `observationVariableDbIds` (array)
+
+            * Changed property `startDate` (string -> string)
+
+            * Changed property `studyCode` (string)
+
+            * Changed property `studyDescription` (string)
+
+            * Changed property `studyName` (string)
+
+            * Changed property `studyPUI` (string)
+
+            * Changed property `studyType` (string)
+
+            * Changed property `trialDbId` (string)
+
+            * Changed property `trialName` (string)
+
+            * Changed property `growthFacility` (object)
+
+                * Added property `studyDbId` (string)
+
+                * Added property `studyName` (string)
+
+                * Added property `studyPUI` (string)
+
+                * Changed property `PUI` (string)
+
+                * Changed property `description` (string)
+
+##### `GET` /search/studies/{searchResultsDbId}
+
+> Submit a search request for `Study`<br/>
+> Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+> If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+> Use the corresponding `GET /search/study/{searchResultsDbId}` to retrieve the results of the search. <br/> 
+> Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
+
+
+###### Parameters:
+
+Deleted: `searchResultsDbId` in `path`
+> Unique identifier which references the search results
+
+
+Deleted: `page` in `query`
+> Used to request a specific page of data to be returned.
+> 
+> The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+
+
+Deleted: `pageSize` in `query`
+> The size of the pages to be returned. Default is `1000`.
+
+
+Deleted: `Authorization` in `header`
+> HTTP HEADER - Token used for Authorization 
+> 
+> <strong> Bearer {token_string} </strong>
+
+
+###### Return Type:
+
+Deleted response : **202 Accepted**
+> Accepted
+
+Deleted response : **404 Not Found**
+> Not Found
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `contactDbIds` (array)
+
+            * Added property `environmentParameterDbIds` (array)
+
+            * Added property `experimentalDesignPUI` (string)
+
+            * Added property `lastUpdateDbId` (string)
+
+            * Added property `trialPUI` (string)
+
+            * Deleted property `contacts` (array)
+                > List of contact entities associated with this study
+
+
+            * Deleted property `dataLinks` (array)
+                > List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.
+
+
+            * Deleted property `environmentParameters` (array)
+                > Environmental parameters that were kept constant throughout the study and did not change between observation units.
+                > 
+                > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
+
+
+            * Deleted property `experimentalDesign` (object)
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `lastUpdate` (object)
+
+            * Deleted property `observationLevels` (array)
+                > Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).
+
+
+            * Deleted property `seasons` (array)
+                > List of seasons over which this study was performed.
+
+
+            * Deleted property `studyDbId` (string)
+                > The ID which uniquely identifies a study within the given database server
+                > 
+                > MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.
+
+
+            * Changed property `active` (boolean)
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `commonCropName` (string)
+
+            * Changed property `culturalPractices` (string)
+
+            * Changed property `documentationURL` (string -> string)
+
+            * Changed property `endDate` (string -> string)
+
+            * Changed property `license` (string)
+
+            * Changed property `locationDbId` (string)
+
+            * Changed property `locationName` (string)
+
+            * Changed property `observationUnitsDescription` (string)
+
+            * Changed property `observationVariableDbIds` (array)
+
+            * Changed property `startDate` (string -> string)
+
+            * Changed property `studyCode` (string)
+
+            * Changed property `studyDescription` (string)
+
+            * Changed property `studyName` (string)
+
+            * Changed property `studyPUI` (string)
+
+            * Changed property `studyType` (string)
+
+            * Changed property `trialDbId` (string)
+
+            * Changed property `trialName` (string)
+
+            * Changed property `growthFacility` (object)
+
+                * Added property `studyDbId` (string)
+
+                * Added property `studyName` (string)
+
+                * Added property `studyPUI` (string)
+
+                * Changed property `PUI` (string)
+
+                * Changed property `description` (string)
+
+##### `POST` /search/trials
+
+> Submit a search request for `Trial`
+
+
+###### Parameters:
+
+Deleted: `Authorization` in `header`
+> HTTP HEADER - Token used for Authorization 
+> 
+> <strong> Bearer {token_string} </strong>
+
+
+###### Request:
+
+Deleted content type : `application/json`
+
+###### Return Type:
+
+Changed response : **202 Accepted**
+> Accepted
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `studyDbIds` (array)
+
+            * Deleted property `datasetAuthorships` (array)
+                > License and citation information for the data in this trial
+
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `publications` (array)
+                > MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.
+
+
+            * Deleted property `trialDbId` (string)
+                > The ID which uniquely identifies a trial
+                > 
+                > MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.
+
+
+            * Changed property `active` (boolean)
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `commonCropName` (string)
+
+            * Changed property `documentationURL` (string -> string)
+
+            * Changed property `endDate` (string -> string)
+
+            * Changed property `programDbId` (string)
+
+            * Changed property `programName` (string)
+
+            * Changed property `startDate` (string -> string)
+
+            * Changed property `trialDescription` (string)
+
+            * Changed property `trialName` (string)
+
+            * Changed property `trialPUI` (string)
+
+            * Changed property `contacts` (array)
+
+                Changed items (object):
+
+                * Changed property `contactDbId` (string)
+
+                * Changed property `email` (string)
+
+                * Changed property `instituteName` (string)
+
+                * Changed property `name` (string)
+
+                * Changed property `orcid` (string)
+
+                * Changed property `type` (string)
+
+##### `GET` /search/trials/{searchResultsDbId}
+
+> Submit a search request for `Trial`<br/>
+> Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+> If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+> Use the corresponding `GET /search/trial/{searchResultsDbId}` to retrieve the results of the search. <br/> 
+> Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
+
+
+###### Parameters:
+
+Deleted: `searchResultsDbId` in `path`
+> Unique identifier which references the search results
+
+
+Deleted: `page` in `query`
+> Used to request a specific page of data to be returned.
+> 
+> The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+
+
+Deleted: `pageSize` in `query`
+> The size of the pages to be returned. Default is `1000`.
+
+
+Deleted: `Authorization` in `header`
+> HTTP HEADER - Token used for Authorization 
+> 
+> <strong> Bearer {token_string} </strong>
+
+
+###### Return Type:
+
+Deleted response : **202 Accepted**
+> Accepted
+
+Deleted response : **404 Not Found**
+> Not Found
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `studyDbIds` (array)
+
+            * Deleted property `datasetAuthorships` (array)
+                > License and citation information for the data in this trial
+
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `publications` (array)
+                > MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.
+
+
+            * Deleted property `trialDbId` (string)
+                > The ID which uniquely identifies a trial
+                > 
+                > MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.
+
+
+            * Changed property `active` (boolean)
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `commonCropName` (string)
+
+            * Changed property `documentationURL` (string -> string)
+
+            * Changed property `endDate` (string -> string)
+
+            * Changed property `programDbId` (string)
+
+            * Changed property `programName` (string)
+
+            * Changed property `startDate` (string -> string)
+
+            * Changed property `trialDescription` (string)
+
+            * Changed property `trialName` (string)
+
+            * Changed property `trialPUI` (string)
+
+            * Changed property `contacts` (array)
+
+                Changed items (object):
+
+                * Changed property `contactDbId` (string)
+
+                * Changed property `email` (string)
+
+                * Changed property `instituteName` (string)
+
+                * Changed property `name` (string)
+
+                * Changed property `orcid` (string)
+
+                * Changed property `type` (string)
+
+##### `GET` /studies
+
+> Get a filtered list of Study
+
+
+###### Parameters:
+
+Added: `germplasmName` in `query`
+> List of human readable names to identify germplasm to search for
+
+
+Added: `locationName` in `query`
+> A human readable names to search for
+
+
+Added: `programName` in `query`
+> Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+> 
+> Use `GET /programs` to find the list of available programs on a server.
+
+
+Added: `trialName` in `query`
+> The human readable name of a trial to search for
+
+
+Added: `observationVariableName` in `query`
+> The names of Variables to search for
+
+
+Added: `observationVariablePUI` in `query`
+> The Permanent Unique Identifier of an Observation Variable, usually in the form of a URI
+
+
+Added: `actife` in `query`
+> A flag to indicate if a Study is currently active and ongoing
+
+
+Deleted: `active` in `query`
+> A flag to indicate if a Study is currently active and ongoing
+
+
+Deleted: `sortBy` in `query`
+> Name of the field to sort by.
+
+
+Deleted: `sortOrder` in `query`
+> Sort order direction. Ascending/Descending.
+
+
+Changed: `studyType` in `query`
+> The type of study being performed. ex. "Yield Trial", etc
+
+
+Changed: `locationDbId` in `query`
+> The location ids to search for
+
+
+Changed: `seasonDbId` in `query`
+> The ID which uniquely identifies a season
+
+
+Changed: `studyCode` in `query`
+> A short human readable code for a study
+
+
+Changed: `studyPUI` in `query`
+> Permanent unique identifier associated with study data. For example, a URI or DOI
+
+
+Changed: `observationVariableDbId` in `query`
+> The DbIds of Variables to search for
+
+
+Changed: `commonCropName` in `query`
+> The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.
+> 
+> Use this parameter to only return results associated with the given crops. 
+> 
+> Use `GET /commoncropnames` to find the list of available crops on a server.
+
+
+Changed: `programDbId` in `query`
+> A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
+> 
+> Use this parameter to only return results associated with the given programs. 
+> 
+> Use `GET /programs` to find the list of available programs on a server.
+
+
+Changed: `trialDbId` in `query`
+> The ID which uniquely identifies a trial to search for
+
+
+Changed: `studyDbId` in `query`
+> List of study identifiers to search for
+
+
+Changed: `studyName` in `query`
+> List of study names to filter search results
+
+
+Changed: `germplasmDbId` in `query`
+> List of IDs which uniquely identify germplasm to search for
+
+
+###### Return Type:
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `contactDbIds` (array)
+
+            * Added property `environmentParameterDbIds` (array)
+
+            * Added property `experimentalDesignPUI` (string)
+
+            * Added property `lastUpdateDbId` (string)
+
+            * Added property `trialPUI` (string)
+
+            * Deleted property `contacts` (array)
+                > List of contact entities associated with this study
+
+
+            * Deleted property `dataLinks` (array)
+                > List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.
+
+
+            * Deleted property `environmentParameters` (array)
+                > Environmental parameters that were kept constant throughout the study and did not change between observation units.
+                > 
+                > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
+
+
+            * Deleted property `experimentalDesign` (object)
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `lastUpdate` (object)
+
+            * Deleted property `observationLevels` (array)
+                > Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).
+
+
+            * Deleted property `seasons` (array)
+                > List of seasons over which this study was performed.
+
+
+            * Deleted property `studyDbId` (string)
+                > The ID which uniquely identifies a study within the given database server
+                > 
+                > MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.
+
+
+            * Changed property `active` (boolean)
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `commonCropName` (string)
+
+            * Changed property `culturalPractices` (string)
+
+            * Changed property `documentationURL` (string -> string)
+
+            * Changed property `endDate` (string -> string)
+
+            * Changed property `license` (string)
+
+            * Changed property `locationDbId` (string)
+
+            * Changed property `locationName` (string)
+
+            * Changed property `observationUnitsDescription` (string)
+
+            * Changed property `observationVariableDbIds` (array)
+
+            * Changed property `startDate` (string -> string)
+
+            * Changed property `studyCode` (string)
+
+            * Changed property `studyDescription` (string)
+
+            * Changed property `studyName` (string)
+
+            * Changed property `studyPUI` (string)
+
+            * Changed property `studyType` (string)
+
+            * Changed property `trialDbId` (string)
+
+            * Changed property `trialName` (string)
+
+            * Changed property `growthFacility` (object)
+
+                * Added property `studyDbId` (string)
+
+                * Added property `studyName` (string)
+
+                * Added property `studyPUI` (string)
+
+                * Changed property `PUI` (string)
+
+                * Changed property `description` (string)
+
+##### `POST` /studies
+
+> Create new Study
+
+
+###### Request:
+
+Changed content type : `application/json`
+
+###### Return Type:
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `contactDbIds` (array)
+
+            * Added property `environmentParameterDbIds` (array)
+
+            * Added property `experimentalDesignPUI` (string)
+
+            * Added property `lastUpdateDbId` (string)
+
+            * Added property `trialPUI` (string)
+
+            * Deleted property `contacts` (array)
+                > List of contact entities associated with this study
+
+
+            * Deleted property `dataLinks` (array)
+                > List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.
+
+
+            * Deleted property `environmentParameters` (array)
+                > Environmental parameters that were kept constant throughout the study and did not change between observation units.
+                > 
+                > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
+
+
+            * Deleted property `experimentalDesign` (object)
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `lastUpdate` (object)
+
+            * Deleted property `observationLevels` (array)
+                > Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).
+
+
+            * Deleted property `seasons` (array)
+                > List of seasons over which this study was performed.
+
+
+            * Deleted property `studyDbId` (string)
+                > The ID which uniquely identifies a study within the given database server
+                > 
+                > MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.
+
+
+            * Changed property `active` (boolean)
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `commonCropName` (string)
+
+            * Changed property `culturalPractices` (string)
+
+            * Changed property `documentationURL` (string -> string)
+
+            * Changed property `endDate` (string -> string)
+
+            * Changed property `license` (string)
+
+            * Changed property `locationDbId` (string)
+
+            * Changed property `locationName` (string)
+
+            * Changed property `observationUnitsDescription` (string)
+
+            * Changed property `observationVariableDbIds` (array)
+
+            * Changed property `startDate` (string -> string)
+
+            * Changed property `studyCode` (string)
+
+            * Changed property `studyDescription` (string)
+
+            * Changed property `studyName` (string)
+
+            * Changed property `studyPUI` (string)
+
+            * Changed property `studyType` (string)
+
+            * Changed property `trialDbId` (string)
+
+            * Changed property `trialName` (string)
+
+            * Changed property `growthFacility` (object)
+
+                * Added property `studyDbId` (string)
+
+                * Added property `studyName` (string)
+
+                * Added property `studyPUI` (string)
+
+                * Changed property `PUI` (string)
+
+                * Changed property `description` (string)
+
+##### `GET` /studies/{studyDbId}
+
+> Get the details of a specific Study
+
+
+###### Parameters:
+
+Deleted: `studyDbId` in `path`
+> Identifier of the study. Usually a number, could be alphanumeric.
+
+
+Deleted: `Authorization` in `header`
+> HTTP HEADER - Token used for Authorization 
+> 
+> <strong> Bearer {token_string} </strong>
+
+
+###### Return Type:
+
+Deleted response : **404 Not Found**
+> Not Found
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Added property `contactDbIds` (array)
+
+        * Added property `environmentParameterDbIds` (array)
+
+        * Added property `experimentalDesignPUI` (string)
+
+        * Added property `lastUpdateDbId` (string)
+
+        * Added property `trialPUI` (string)
+
+        * Deleted property `contacts` (array)
+            > List of contact entities associated with this study
+
+
+        * Deleted property `dataLinks` (array)
+            > List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.
+
+
+        * Deleted property `environmentParameters` (array)
+            > Environmental parameters that were kept constant throughout the study and did not change between observation units.
+            > 
+            > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
+
+
+        * Deleted property `experimentalDesign` (object)
+
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+        * Deleted property `lastUpdate` (object)
+
+        * Deleted property `observationLevels` (array)
+            > Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).
+
+
+        * Deleted property `seasons` (array)
+            > List of seasons over which this study was performed.
+
+
+        * Deleted property `studyDbId` (string)
+            > The ID which uniquely identifies a study within the given database server
+            > 
+            > MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.
+
+
+        * Changed property `active` (boolean)
+
+        * Changed property `additionalInfo` (object)
+            > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+            * Added property `additionalProperties` (string)
+
+        * Changed property `commonCropName` (string)
+
+        * Changed property `culturalPractices` (string)
+
+        * Changed property `documentationURL` (string -> string)
+
+        * Changed property `endDate` (string -> string)
+
+        * Changed property `license` (string)
+
+        * Changed property `locationDbId` (string)
+
+        * Changed property `locationName` (string)
+
+        * Changed property `observationUnitsDescription` (string)
+
+        * Changed property `observationVariableDbIds` (array)
+
+        * Changed property `startDate` (string -> string)
+
+        * Changed property `studyCode` (string)
+
+        * Changed property `studyDescription` (string)
+
+        * Changed property `studyName` (string)
+
+        * Changed property `studyPUI` (string)
+
+        * Changed property `studyType` (string)
+
+        * Changed property `trialDbId` (string)
+
+        * Changed property `trialName` (string)
+
+        * Changed property `growthFacility` (object)
+
+            * Added property `studyDbId` (string)
+
+            * Added property `studyName` (string)
+
+            * Added property `studyPUI` (string)
+
+            * Changed property `PUI` (string)
+
+            * Changed property `description` (string)
+
+##### `PUT` /studies/{studyDbId}
+
+> Update the details for an existing Study
+
+
+###### Parameters:
+
+Deleted: `studyDbId` in `path`
+> Identifier of the study. Usually a number, could be alphanumeric.
+
+
+###### Request:
+
+Changed content type : `application/json`
+
+New required properties:
+- `studyDbId`
+- `studyDbId`
+
+* Added property `contactDbIds` (array)
+
+* Added property `environmentParameterDbIds` (array)
+
+* Added property `experimentalDesignPUI` (string)
+
+* Added property `lastUpdateDbId` (string)
+
+* Added property `studyDbId` (string)
+
+* Added property `trialPUI` (string)
+
+* Deleted property `contacts` (array)
+    > List of contact entities associated with this study
+
+
+* Deleted property `dataLinks` (array)
+    > List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.
+
+
+* Deleted property `environmentParameters` (array)
+    > Environmental parameters that were kept constant throughout the study and did not change between observation units.
+    > 
+    > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
+
+
+* Deleted property `experimentalDesign` (object)
+
+* Deleted property `externalReferences` (array)
+    > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+* Deleted property `lastUpdate` (object)
+
+* Deleted property `observationLevels` (array)
+    > Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).
+
+
+* Deleted property `seasons` (array)
+    > List of seasons over which this study was performed.
+
+
+* Changed property `active` (boolean)
+
+* Changed property `additionalInfo` (object)
+    > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+    * Added property `additionalProperties` (string)
+
+* Changed property `commonCropName` (string)
+
+* Changed property `culturalPractices` (string)
+
+* Changed property `documentationURL` (string -> string)
+
+* Changed property `endDate` (string -> string)
+
+* Changed property `license` (string)
+
+* Changed property `locationDbId` (string)
+
+* Changed property `locationName` (string)
+
+* Changed property `observationUnitsDescription` (string)
+
+* Changed property `observationVariableDbIds` (array)
+
+* Changed property `startDate` (string -> string)
+
+* Changed property `studyCode` (string)
+
+* Changed property `studyDescription` (string)
+
+* Changed property `studyName` (string)
+
+* Changed property `studyPUI` (string)
+
+* Changed property `studyType` (string)
+
+* Changed property `trialDbId` (string)
+
+* Changed property `trialName` (string)
+
+* Changed property `growthFacility` (object)
+
+    * Added property `studyDbId` (string)
+
+    * Added property `studyName` (string)
+
+    * Added property `studyPUI` (string)
+
+    * Changed property `PUI` (string)
+
+    * Changed property `description` (string)
+
+###### Return Type:
+
+Deleted response : **404 Not Found**
+> Not Found
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Added property `contactDbIds` (array)
+
+        * Added property `environmentParameterDbIds` (array)
+
+        * Added property `experimentalDesignPUI` (string)
+
+        * Added property `lastUpdateDbId` (string)
+
+        * Added property `trialPUI` (string)
+
+        * Deleted property `contacts` (array)
+            > List of contact entities associated with this study
+
+
+        * Deleted property `dataLinks` (array)
+            > List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.
+
+
+        * Deleted property `environmentParameters` (array)
+            > Environmental parameters that were kept constant throughout the study and did not change between observation units.
+            > 
+            > MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
+
+
+        * Deleted property `experimentalDesign` (object)
+
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+        * Deleted property `lastUpdate` (object)
+
+        * Deleted property `observationLevels` (array)
+            > Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).
+
+
+        * Deleted property `seasons` (array)
+            > List of seasons over which this study was performed.
+
+
+        * Deleted property `studyDbId` (string)
+            > The ID which uniquely identifies a study within the given database server
+            > 
+            > MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.
+
+
+        * Changed property `active` (boolean)
+
+        * Changed property `additionalInfo` (object)
+            > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+            * Added property `additionalProperties` (string)
+
+        * Changed property `commonCropName` (string)
+
+        * Changed property `culturalPractices` (string)
+
+        * Changed property `documentationURL` (string -> string)
+
+        * Changed property `endDate` (string -> string)
+
+        * Changed property `license` (string)
+
+        * Changed property `locationDbId` (string)
+
+        * Changed property `locationName` (string)
+
+        * Changed property `observationUnitsDescription` (string)
+
+        * Changed property `observationVariableDbIds` (array)
+
+        * Changed property `startDate` (string -> string)
+
+        * Changed property `studyCode` (string)
+
+        * Changed property `studyDescription` (string)
+
+        * Changed property `studyName` (string)
+
+        * Changed property `studyPUI` (string)
+
+        * Changed property `studyType` (string)
+
+        * Changed property `trialDbId` (string)
+
+        * Changed property `trialName` (string)
+
+        * Changed property `growthFacility` (object)
+
+            * Added property `studyDbId` (string)
+
+            * Added property `studyName` (string)
+
+            * Added property `studyPUI` (string)
+
+            * Changed property `PUI` (string)
+
+            * Changed property `description` (string)
+
+##### `GET` /trials
+
+> Get a filtered list of Trial
+
+
+###### Parameters:
+
+Added: `locationName` in `query`
+> A human readable names to search for
+
+
+Added: `observationVariableDbId` in `query`
+> The DbIds of Variables to search for
+
+
+Added: `observationVariableName` in `query`
+> The names of Variables to search for
+
+
+Added: `observationVariablePUI` in `query`
+> The Permanent Unique Identifier of an Observation Variable, usually in the form of a URI
+
+
+Added: `programName` in `query`
+> Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+> 
+> Use `GET /programs` to find the list of available programs on a server.
+
+
+Added: `studyName` in `query`
+> List of study names to filter search results
+
+
+Added: `actife` in `query`
+> A flag to indicate if a Trial is currently active and ongoing
+
+
+Deleted: `active` in `query`
+> A flag to indicate if a Trial is currently active and ongoing
+
+
+Deleted: `sortBy` in `query`
+> Sort order. Name of the field to sort by.
+
+
+Deleted: `sortOrder` in `query`
+> Sort order direction: asc/desc
+
+
+Changed: `contactDbId` in `query`
+> List of contact entities associated with this trial
+
+
+Changed: `locationDbId` in `query`
+> The location ids to search for
+
+
+Changed: `searchDateRangeStart` in `query`
+> The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.
+> 
+> Return a Trial entity if any of the following cases are true
+> 
+> - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null 
+> 
+> - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`
+> 
+> - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null
+> 
+> - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
+
+
+Changed: `searchDateRangeEnd` in `query`
+> The end of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.
+> 
+> Return a Trial entity if any of the following cases are true
+> 
+> - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null 
+> 
+> - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`
+> 
+> - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null
+> 
+> - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
+
+
+Changed: `trialPUI` in `query`
+> A permanent identifier for a trial. Could be DOI or other URI formatted identifier.
+
+
+Changed: `commonCropName` in `query`
+> The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.
+> 
+> Use this parameter to only return results associated with the given crops. 
+> 
+> Use `GET /commoncropnames` to find the list of available crops on a server.
+
+
+Changed: `programDbId` in `query`
+> A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
+> 
+> Use this parameter to only return results associated with the given programs. 
+> 
+> Use `GET /programs` to find the list of available programs on a server.
+
+
+Changed: `trialDbId` in `query`
+> The ID which uniquely identifies a trial to search for
+
+
+Changed: `trialName` in `query`
+> The human readable name of a trial to search for
+
+
+Changed: `studyDbId` in `query`
+> List of study identifiers to search for
+
+
+###### Return Type:
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `studyDbIds` (array)
+
+            * Deleted property `datasetAuthorships` (array)
+                > License and citation information for the data in this trial
+
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `publications` (array)
+                > MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.
+
+
+            * Deleted property `trialDbId` (string)
+                > The ID which uniquely identifies a trial
+                > 
+                > MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.
+
+
+            * Changed property `active` (boolean)
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `commonCropName` (string)
+
+            * Changed property `documentationURL` (string -> string)
+
+            * Changed property `endDate` (string -> string)
+
+            * Changed property `programDbId` (string)
+
+            * Changed property `programName` (string)
+
+            * Changed property `startDate` (string -> string)
+
+            * Changed property `trialDescription` (string)
+
+            * Changed property `trialName` (string)
+
+            * Changed property `trialPUI` (string)
+
+            * Changed property `contacts` (array)
+
+                Changed items (object):
+
+                * Changed property `contactDbId` (string)
+
+                * Changed property `email` (string)
+
+                * Changed property `instituteName` (string)
+
+                * Changed property `name` (string)
+
+                * Changed property `orcid` (string)
+
+                * Changed property `type` (string)
+
+##### `POST` /trials
+
+> Create new Trial
+
+
+###### Request:
+
+Changed content type : `application/json`
+
+###### Return Type:
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `studyDbIds` (array)
+
+            * Deleted property `datasetAuthorships` (array)
+                > License and citation information for the data in this trial
+
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `publications` (array)
+                > MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.
+
+
+            * Deleted property `trialDbId` (string)
+                > The ID which uniquely identifies a trial
+                > 
+                > MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.
+
+
+            * Changed property `active` (boolean)
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `commonCropName` (string)
+
+            * Changed property `documentationURL` (string -> string)
+
+            * Changed property `endDate` (string -> string)
+
+            * Changed property `programDbId` (string)
+
+            * Changed property `programName` (string)
+
+            * Changed property `startDate` (string -> string)
+
+            * Changed property `trialDescription` (string)
+
+            * Changed property `trialName` (string)
+
+            * Changed property `trialPUI` (string)
+
+            * Changed property `contacts` (array)
+
+                Changed items (object):
+
+                * Changed property `contactDbId` (string)
+
+                * Changed property `email` (string)
+
+                * Changed property `instituteName` (string)
+
+                * Changed property `name` (string)
+
+                * Changed property `orcid` (string)
+
+                * Changed property `type` (string)
+
+##### `GET` /trials/{trialDbId}
+
+
+###### Parameters:
+
+Deleted: `trialDbId` in `path`
+> The internal trialDbId
+
+
+Deleted: `Authorization` in `header`
+> HTTP HEADER - Token used for Authorization 
+> 
+> <strong> Bearer {token_string} </strong>
+
+
+###### Return Type:
+
+Deleted response : **404 Not Found**
+> Not Found
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Added property `studyDbIds` (array)
+
+        * Deleted property `datasetAuthorships` (array)
+            > License and citation information for the data in this trial
+
+
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+        * Deleted property `publications` (array)
+            > MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.
+
+
+        * Deleted property `trialDbId` (string)
+            > The ID which uniquely identifies a trial
+            > 
+            > MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.
+
+
+        * Changed property `active` (boolean)
+
+        * Changed property `additionalInfo` (object)
+            > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+            * Added property `additionalProperties` (string)
+
+        * Changed property `commonCropName` (string)
+
+        * Changed property `documentationURL` (string -> string)
+
+        * Changed property `endDate` (string -> string)
+
+        * Changed property `programDbId` (string)
+
+        * Changed property `programName` (string)
+
+        * Changed property `startDate` (string -> string)
+
+        * Changed property `trialDescription` (string)
+
+        * Changed property `trialName` (string)
+
+        * Changed property `trialPUI` (string)
+
+        * Changed property `contacts` (array)
+
+            Changed items (object):
+
+            * Changed property `contactDbId` (string)
+
+            * Changed property `email` (string)
+
+            * Changed property `instituteName` (string)
+
+            * Changed property `name` (string)
+
+            * Changed property `orcid` (string)
+
+            * Changed property `type` (string)
+
+##### `PUT` /trials/{trialDbId}
+
+> Update the details for an existing Trial
+
+
+###### Parameters:
+
+Deleted: `trialDbId` in `path`
+> The internal trialDbId
+
+
+###### Request:
+
+Changed content type : `application/json`
+
+New required properties:
+- `trialDbId`
+- `trialDbId`
+
+* Added property `studyDbIds` (array)
+
+* Added property `trialDbId` (string)
+
+* Deleted property `datasetAuthorships` (array)
+    > License and citation information for the data in this trial
+
+
+* Deleted property `externalReferences` (array)
+    > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+* Deleted property `publications` (array)
+    > MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.
+
+
+* Changed property `active` (boolean)
+
+* Changed property `additionalInfo` (object)
+    > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+    * Added property `additionalProperties` (string)
+
+* Changed property `commonCropName` (string)
+
+* Changed property `documentationURL` (string -> string)
+
+* Changed property `endDate` (string -> string)
+
+* Changed property `programDbId` (string)
+
+* Changed property `programName` (string)
+
+* Changed property `startDate` (string -> string)
+
+* Changed property `trialDescription` (string)
+
+* Changed property `trialName` (string)
+
+* Changed property `trialPUI` (string)
+
+* Changed property `contacts` (array)
+
+    Changed items (object):
+
+    * Changed property `contactDbId` (string)
+
+    * Changed property `email` (string)
+
+    * Changed property `instituteName` (string)
+
+    * Changed property `name` (string)
+
+    * Changed property `orcid` (string)
+
+    * Changed property `type` (string)
+
+###### Return Type:
+
+Deleted response : **404 Not Found**
+> Not Found
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Added property `studyDbIds` (array)
+
+        * Deleted property `datasetAuthorships` (array)
+            > License and citation information for the data in this trial
+
+
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+        * Deleted property `publications` (array)
+            > MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.
+
+
+        * Deleted property `trialDbId` (string)
+            > The ID which uniquely identifies a trial
+            > 
+            > MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.
+
+
+        * Changed property `active` (boolean)
+
+        * Changed property `additionalInfo` (object)
+            > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+            * Added property `additionalProperties` (string)
+
+        * Changed property `commonCropName` (string)
+
+        * Changed property `documentationURL` (string -> string)
+
+        * Changed property `endDate` (string -> string)
+
+        * Changed property `programDbId` (string)
+
+        * Changed property `programName` (string)
+
+        * Changed property `startDate` (string -> string)
+
+        * Changed property `trialDescription` (string)
+
+        * Changed property `trialName` (string)
+
+        * Changed property `trialPUI` (string)
+
+        * Changed property `contacts` (array)
+
+            Changed items (object):
+
+            * Changed property `contactDbId` (string)
+
+            * Changed property `email` (string)
+
+            * Changed property `instituteName` (string)
+
+            * Changed property `name` (string)
+
+            * Changed property `orcid` (string)
+
+            * Changed property `type` (string)
+
+##### `GET` /images
+
+> Get a filtered list of Image
+
+
+###### Parameters:
+
+Added: `programName` in `query`
+> Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+> 
+> Use `GET /programs` to find the list of available programs on a server.
+
+
+Added: `imageFileName` in `query`
+> Image file names to search for.
+
+
+Added: `imageFileSizeMax` in `query`
+> A maximum image file size to search for.
+
+
+Added: `imageFileSizeMin` in `query`
+> A minimum image file size to search for.
+
+
+Added: `imageHeightMax` in `query`
+> A maximum image height to search for.
+
+
+Added: `imageHeightMin` in `query`
+> A minimum image height to search for.
+
+
+Added: `imageLocation` in `query`
+
+Added: `imageTimeStampRangeEnd` in `query`
+> The latest timestamp to search for.
+
+
+Added: `imageTimeStampRangeStart` in `query`
+> The earliest timestamp to search for.
+
+
+Added: `imageWidthMax` in `query`
+> A maximum image width to search for.
+
+
+Added: `imageWidthMin` in `query`
+> A minimum image width to search for.
+
+
+Added: `mimeType` in `query`
+> A set of image file types to search for.
+
+
+Changed: `imageDbId` in `query`
+> A list of image Ids to search for
+
+
+Changed: `imageName` in `query`
+> Human readable names to search for.
+
+
+Changed: `observationUnitDbId` in `query`
+> A set of observation unit identifiers to search for.
+
+
+Changed: `observationDbId` in `query`
+> A list of observation Ids this image is associated with to search for
+
+
+Changed: `descriptiveOntologyTerm` in `query`
+> A list of terms to formally describe the image to search for. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
+
+
+Changed: `commonCropName` in `query`
+> The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.
+> 
+> Use this parameter to only return results associated with the given crops. 
+> 
+> Use `GET /commoncropnames` to find the list of available crops on a server.
+
+
+Changed: `programDbId` in `query`
+> A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
+> 
+> Use this parameter to only return results associated with the given programs. 
+> 
+> Use `GET /programs` to find the list of available programs on a server.
+
+
+###### Return Type:
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `observationUnitName` (string)
+
+            * Added property `observationUnitPUI` (string)
+
+            * Deleted property `descriptiveOntologyTerms` (array)
+                > A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
+
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `imageDbId` (string)
+                > The unique identifier of an image
+
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `copyright` (string)
+
+            * Changed property `description` (string)
+
+            * Changed property `imageFileName` (string)
+
+            * Changed property `imageFileSize` (integer -> integer)
+
+            * Changed property `imageHeight` (integer -> integer)
+
+            * Changed property `imageName` (string)
+
+            * Changed property `imageTimeStamp` (string -> string)
+
+            * Changed property `imageURL` (string)
+
+            * Changed property `imageWidth` (integer -> integer)
+
+            * Changed property `mimeType` (string)
+
+            * Changed property `observationDbIds` (array)
+
+            * Changed property `observationUnitDbId` (string)
+
+            * Changed property `imageLocation` (object)
+                > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
+                > 
+                > Copied from RFC 7946 Section 3.1.1
+                > 
+                > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
+                > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
+
+
+                * Changed property `type` (string)
+
+                * Changed property `geometry` (object -> object)
+
+##### `POST` /images
+
+> Create new Image
+
+
+###### Request:
+
+Changed content type : `application/json`
+
+###### Return Type:
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `observationUnitName` (string)
+
+            * Added property `observationUnitPUI` (string)
+
+            * Deleted property `descriptiveOntologyTerms` (array)
+                > A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
+
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `imageDbId` (string)
+                > The unique identifier of an image
+
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `copyright` (string)
+
+            * Changed property `description` (string)
+
+            * Changed property `imageFileName` (string)
+
+            * Changed property `imageFileSize` (integer -> integer)
+
+            * Changed property `imageHeight` (integer -> integer)
+
+            * Changed property `imageName` (string)
+
+            * Changed property `imageTimeStamp` (string -> string)
+
+            * Changed property `imageURL` (string)
+
+            * Changed property `imageWidth` (integer -> integer)
+
+            * Changed property `mimeType` (string)
+
+            * Changed property `observationDbIds` (array)
+
+            * Changed property `observationUnitDbId` (string)
+
+            * Changed property `imageLocation` (object)
+                > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
+                > 
+                > Copied from RFC 7946 Section 3.1.1
+                > 
+                > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
+                > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
+
+
+                * Changed property `type` (string)
+
+                * Changed property `geometry` (object -> object)
+
+##### `GET` /images/{imageDbId}
+
+> Get the details of a specific Image
+
+
+###### Parameters:
+
+Deleted: `imageDbId` in `path`
+> The unique identifier for a image
+
+
+Deleted: `Authorization` in `header`
+> HTTP HEADER - Token used for Authorization 
+> 
+> <strong> Bearer {token_string} </strong>
+
+
+###### Return Type:
+
+Deleted response : **404 Not Found**
+> Not Found
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Added property `observationUnitName` (string)
+
+        * Added property `observationUnitPUI` (string)
+
+        * Deleted property `descriptiveOntologyTerms` (array)
+            > A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
+
+
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+        * Deleted property `imageDbId` (string)
+            > The unique identifier of an image
+
+
+        * Changed property `additionalInfo` (object)
+            > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+            * Added property `additionalProperties` (string)
+
+        * Changed property `copyright` (string)
+
+        * Changed property `description` (string)
+
+        * Changed property `imageFileName` (string)
+
+        * Changed property `imageFileSize` (integer -> integer)
+
+        * Changed property `imageHeight` (integer -> integer)
+
+        * Changed property `imageName` (string)
+
+        * Changed property `imageTimeStamp` (string -> string)
+
+        * Changed property `imageURL` (string)
+
+        * Changed property `imageWidth` (integer -> integer)
+
+        * Changed property `mimeType` (string)
+
+        * Changed property `observationDbIds` (array)
+
+        * Changed property `observationUnitDbId` (string)
+
+        * Changed property `imageLocation` (object)
+            > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
+            > 
+            > Copied from RFC 7946 Section 3.1.1
+            > 
+            > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
+            > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
+
+
+            * Changed property `type` (string)
+
+            * Changed property `geometry` (object -> object)
+
+##### `PUT` /images/{imageDbId}
+
+> Update the details for an existing Image
+
+
+###### Parameters:
+
+Deleted: `imageDbId` in `path`
+> The unique identifier for a image
+
+
+###### Request:
+
+Changed content type : `application/json`
+
+New required properties:
+- `imageDbId`
+- `imageDbId`
+
+* Added property `imageDbId` (string)
+
+* Added property `observationUnitName` (string)
+
+* Added property `observationUnitPUI` (string)
+
+* Deleted property `descriptiveOntologyTerms` (array)
+    > A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
+
+
+* Deleted property `externalReferences` (array)
+    > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+* Changed property `additionalInfo` (object)
+    > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+    * Added property `additionalProperties` (string)
+
+* Changed property `copyright` (string)
+
+* Changed property `description` (string)
+
+* Changed property `imageFileName` (string)
+
+* Changed property `imageFileSize` (integer -> integer)
+
+* Changed property `imageHeight` (integer -> integer)
+
+* Changed property `imageName` (string)
+
+* Changed property `imageTimeStamp` (string -> string)
+
+* Changed property `imageURL` (string)
+
+* Changed property `imageWidth` (integer -> integer)
+
+* Changed property `mimeType` (string)
+
+* Changed property `observationDbIds` (array)
+
+* Changed property `observationUnitDbId` (string)
+
+* Changed property `imageLocation` (object)
+    > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
+    > 
+    > Copied from RFC 7946 Section 3.1.1
+    > 
+    > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
+    > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
+
+
+    * Changed property `type` (string)
+
+    * Changed property `geometry` (object -> object)
+
+###### Return Type:
+
+Deleted response : **404 Not Found**
+> Not Found
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Added property `observationUnitName` (string)
+
+        * Added property `observationUnitPUI` (string)
+
+        * Deleted property `descriptiveOntologyTerms` (array)
+            > A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
+
+
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+        * Deleted property `imageDbId` (string)
+            > The unique identifier of an image
+
+
+        * Changed property `additionalInfo` (object)
+            > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+            * Added property `additionalProperties` (string)
+
+        * Changed property `copyright` (string)
+
+        * Changed property `description` (string)
+
+        * Changed property `imageFileName` (string)
+
+        * Changed property `imageFileSize` (integer -> integer)
+
+        * Changed property `imageHeight` (integer -> integer)
+
+        * Changed property `imageName` (string)
+
+        * Changed property `imageTimeStamp` (string -> string)
+
+        * Changed property `imageURL` (string)
+
+        * Changed property `imageWidth` (integer -> integer)
+
+        * Changed property `mimeType` (string)
+
+        * Changed property `observationDbIds` (array)
+
+        * Changed property `observationUnitDbId` (string)
+
+        * Changed property `imageLocation` (object)
+            > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
+            > 
+            > Copied from RFC 7946 Section 3.1.1
+            > 
+            > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
+            > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
+
+
+            * Changed property `type` (string)
+
+            * Changed property `geometry` (object -> object)
 
 ##### `GET` /locations
 
@@ -17635,17 +16765,21 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A geographic Location on earth. This is usually used to describe the general area where an experiment took place. For example, a natural site, an experimental field, a greenhouse, a phenotyping facility, etc.
-
 
             * Added property `childLocationDbIds` (array)
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `parentLocationDbId` (string)
                 > The unique identifier for a Location
@@ -17685,6 +16819,8 @@ Changed response : **200 OK**
 
             * Changed property `instituteName` (string)
 
+            * Changed property `locationDbId` (string)
+
             * Changed property `locationName` (string)
 
             * Changed property `locationType` (string)
@@ -17694,8 +16830,6 @@ Changed response : **200 OK**
             * Changed property `slope` (string)
 
             * Changed property `topography` (string)
-
-            * Changed property `locationDbId` (string)
 
             * Changed property `coordinates` (object)
                 > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
@@ -17727,17 +16861,21 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A geographic Location on earth. This is usually used to describe the general area where an experiment took place. For example, a natural site, an experimental field, a greenhouse, a phenotyping facility, etc.
-
 
             * Added property `childLocationDbIds` (array)
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `parentLocationDbId` (string)
                 > The unique identifier for a Location
@@ -17777,6 +16915,8 @@ Changed response : **200 OK**
 
             * Changed property `instituteName` (string)
 
+            * Changed property `locationDbId` (string)
+
             * Changed property `locationName` (string)
 
             * Changed property `locationType` (string)
@@ -17786,8 +16926,6 @@ Changed response : **200 OK**
             * Changed property `slope` (string)
 
             * Changed property `topography` (string)
-
-            * Changed property `locationDbId` (string)
 
             * Changed property `coordinates` (object)
                 > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
@@ -17828,13 +16966,17 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > A geographic Location on earth. This is usually used to describe the general area where an experiment took place. For example, a natural site, an experimental field, a greenhouse, a phenotyping facility, etc.
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Added property `childLocationDbIds` (array)
 
-        * Deleted property `externalReferences` (object)
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
         * Deleted property `parentLocationDbId` (string)
             > The unique identifier for a Location
@@ -17874,6 +17016,8 @@ Changed response : **200 OK**
 
         * Changed property `instituteName` (string)
 
+        * Changed property `locationDbId` (string)
+
         * Changed property `locationName` (string)
 
         * Changed property `locationType` (string)
@@ -17883,8 +17027,6 @@ Changed response : **200 OK**
         * Changed property `slope` (string)
 
         * Changed property `topography` (string)
-
-        * Changed property `locationDbId` (string)
 
         * Changed property `coordinates` (object)
             > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
@@ -17920,7 +17062,9 @@ New required properties:
 
 * Added property `locationDbId` (string)
 
-* Deleted property `externalReferences` (object)
+* Deleted property `externalReferences` (array)
+    > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
 * Deleted property `parentLocationDbId` (string)
     > The unique identifier for a Location
@@ -17994,13 +17138,17 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
-    * Changed property `result` (object)
-        > A geographic Location on earth. This is usually used to describe the general area where an experiment took place. For example, a natural site, an experimental field, a greenhouse, a phenotyping facility, etc.
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
 
+
+    * Changed property `result` (object)
 
         * Added property `childLocationDbIds` (array)
 
-        * Deleted property `externalReferences` (object)
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
         * Deleted property `parentLocationDbId` (string)
             > The unique identifier for a Location
@@ -18040,6 +17188,8 @@ Changed response : **200 OK**
 
         * Changed property `instituteName` (string)
 
+        * Changed property `locationDbId` (string)
+
         * Changed property `locationName` (string)
 
         * Changed property `locationType` (string)
@@ -18049,8 +17199,6 @@ Changed response : **200 OK**
         * Changed property `slope` (string)
 
         * Changed property `topography` (string)
-
-        * Changed property `locationDbId` (string)
 
         * Changed property `coordinates` (object)
             > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
@@ -18064,6 +17212,813 @@ Changed response : **200 OK**
             * Changed property `type` (string)
 
             * Changed property `geometry` (object -> object)
+
+##### `GET` /observations
+
+> Get a filtered list of Observation
+
+
+###### Parameters:
+
+Added: `germplasmName` in `query`
+> List of human readable names to identify germplasm to search for
+
+
+Added: `locationName` in `query`
+> A human readable names to search for
+
+
+Added: `observationVariableName` in `query`
+> The names of Variables to search for
+
+
+Added: `observationVariablePUI` in `query`
+> The Permanent Unique Identifier of an Observation Variable, usually in the form of a URI
+
+
+Added: `programName` in `query`
+> Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+> 
+> Use `GET /programs` to find the list of available programs on a server.
+
+
+Added: `studyName` in `query`
+> List of study names to filter search results
+
+
+Added: `trialName` in `query`
+> The human readable name of a trial to search for
+
+
+Added: `observationLevel` in `query`
+> Searches for values in ObservationUnit->observationUnitPosition->observationLevel
+
+
+Added: `observationLevelRelationship` in `query`
+> Searches for values in ObservationUnit->observationUnitPosition->observationLevelRelationships
+
+
+Deleted: `observationUnitLevelName` in `query`
+> The Observation Unit Level. Returns only the observation unit of the specified Level. 
+> <br/>References ObservationUnit->observationUnitPosition->observationLevel->levelName 
+> <br/>**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** 
+> <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
+
+
+Deleted: `observationUnitLevelOrder` in `query`
+> The Observation Unit Level Order Number. Returns only the observation unit of the specified Level. 
+> References ObservationUnit->observationUnitPosition->observationLevel->levelOrder 
+> <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
+
+
+Deleted: `observationUnitLevelCode` in `query`
+> The Observation Unit Level Code. This parameter should be used together with `observationUnitLevelName` 
+> or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode 
+> <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
+
+
+Deleted: `observationUnitLevelRelationshipName` in `query`
+> The Observation Unit Level Relationship is a connection that this observation unit has to another level of the hierarchy. 
+> <br/>For example, if you have several observation units at a 'plot' level, they might all share a relationship to the same 'field' level.  
+> <br/>Use this parameter to identify groups of observation units that share a relationship level. 
+> <br/>**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** 
+> <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
+
+
+Deleted: `observationUnitLevelRelationshipOrder` in `query`
+> The Observation Unit Level Order Number. 
+> <br/>Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder 
+> <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
+
+
+Deleted: `observationUnitLevelRelationshipCode` in `query`
+> The Observation Unit Level Code. 
+> <br/>This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode 
+> <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
+
+
+Deleted: `observationUnitLevelRelationshipDbId` in `query`
+> The observationUnitDbId associated with a particular level and code.
+> <br/>This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->observationUnitDbId 
+> <br/>For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
+
+
+Changed: `observationDbId` in `query`
+> The unique id of an Observation
+
+
+Changed: `observationUnitDbId` in `query`
+> The unique id of an Observation Unit
+
+
+Changed: `observationVariableDbId` in `query`
+> The DbIds of Variables to search for
+
+
+Changed: `locationDbId` in `query`
+> The location ids to search for
+
+
+Changed: `observationTimeStampRangeStart` in `query`
+> Timestamp range start
+
+
+Changed: `observationTimeStampRangeEnd` in `query`
+> Timestamp range end
+
+
+Changed: `commonCropName` in `query`
+> The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.
+> 
+> Use this parameter to only return results associated with the given crops. 
+> 
+> Use `GET /commoncropnames` to find the list of available crops on a server.
+
+
+Changed: `programDbId` in `query`
+> A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
+> 
+> Use this parameter to only return results associated with the given programs. 
+> 
+> Use `GET /programs` to find the list of available programs on a server.
+
+
+Changed: `trialDbId` in `query`
+> The ID which uniquely identifies a trial to search for
+
+
+Changed: `studyDbId` in `query`
+> List of study identifiers to search for
+
+
+Changed: `germplasmDbId` in `query`
+> List of IDs which uniquely identify germplasm to search for
+
+
+###### Return Type:
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `germplasmPUI` (string)
+
+            * Added property `observationUnitPUI` (string)
+
+            * Added property `observationVariablePUI` (string)
+
+            * Added property `seasonDbId` (string)
+
+            * Added property `seasonName` (string)
+
+            * Added property `studyName` (string)
+
+            * Added property `studyPUI` (string)
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `observationDbId` (string)
+                > The ID which uniquely identifies an observation
+
+
+            * Deleted property `season` (object)
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `collector` (string)
+
+            * Changed property `germplasmDbId` (string)
+
+            * Changed property `germplasmName` (string)
+
+            * Changed property `observationTimeStamp` (string -> string)
+
+            * Changed property `observationUnitDbId` (string)
+
+            * Changed property `observationUnitName` (string)
+
+            * Changed property `observationVariableDbId` (string)
+
+            * Changed property `observationVariableName` (string)
+
+            * Changed property `studyDbId` (string)
+
+            * Changed property `uploadedBy` (string)
+
+            * Changed property `value` (string)
+
+            * Changed property `geoCoordinates` (object)
+                > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
+                > 
+                > Copied from RFC 7946 Section 3.1.1
+                > 
+                > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
+                > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
+
+
+                * Changed property `type` (string)
+
+                * Changed property `geometry` (object -> object)
+
+##### `PUT` /observations
+
+> Update the details for an existing Observation
+
+
+###### Request:
+
+Changed content type : `application/json`
+
+New required properties:
+- `observationDbId`
+- `observationDbId`
+
+* Added property `additionalInfo` (object)
+    > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+* Added property `collector` (string)
+
+* Added property `geoCoordinates` (object)
+    > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
+    > 
+    > Copied from RFC 7946 Section 3.1.1
+    > 
+    > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
+    > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
+
+
+    * Property `geometry` (object)
+
+        One of:
+
+            * Property `coordinates` (array)
+
+                Items (number):
+
+            * Property `type` (string)
+
+            * Property `coordinates` (array)
+
+                Items (array):
+
+                Items (array):
+
+            * Property `type` (string)
+
+    * Property `type` (string)
+
+* Added property `germplasmDbId` (string)
+
+* Added property `germplasmName` (string)
+
+* Added property `germplasmPUI` (string)
+
+* Added property `observationDbId` (string)
+
+* Added property `observationTimeStamp` (string)
+
+* Added property `observationUnitDbId` (string)
+
+* Added property `observationUnitName` (string)
+
+* Added property `observationUnitPUI` (string)
+
+* Added property `observationVariableDbId` (string)
+
+* Added property `observationVariableName` (string)
+
+* Added property `observationVariablePUI` (string)
+
+* Added property `seasonDbId` (string)
+
+* Added property `seasonName` (string)
+
+* Added property `studyDbId` (string)
+
+* Added property `studyName` (string)
+
+* Added property `studyPUI` (string)
+
+* Added property `uploadedBy` (string)
+
+* Added property `value` (string)
+
+###### Return Type:
+
+Deleted response : **404 Not Found**
+> Not Found
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `germplasmPUI` (string)
+
+            * Added property `observationUnitPUI` (string)
+
+            * Added property `observationVariablePUI` (string)
+
+            * Added property `seasonDbId` (string)
+
+            * Added property `seasonName` (string)
+
+            * Added property `studyName` (string)
+
+            * Added property `studyPUI` (string)
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `observationDbId` (string)
+                > The ID which uniquely identifies an observation
+
+
+            * Deleted property `season` (object)
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `collector` (string)
+
+            * Changed property `germplasmDbId` (string)
+
+            * Changed property `germplasmName` (string)
+
+            * Changed property `observationTimeStamp` (string -> string)
+
+            * Changed property `observationUnitDbId` (string)
+
+            * Changed property `observationUnitName` (string)
+
+            * Changed property `observationVariableDbId` (string)
+
+            * Changed property `observationVariableName` (string)
+
+            * Changed property `studyDbId` (string)
+
+            * Changed property `uploadedBy` (string)
+
+            * Changed property `value` (string)
+
+            * Changed property `geoCoordinates` (object)
+                > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
+                > 
+                > Copied from RFC 7946 Section 3.1.1
+                > 
+                > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
+                > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
+
+
+                * Changed property `type` (string)
+
+                * Changed property `geometry` (object -> object)
+
+##### `POST` /observations
+
+> Create new Observation
+
+
+###### Request:
+
+Changed content type : `application/json`
+
+###### Return Type:
+
+Deleted response : **404 Not Found**
+> Not Found
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `germplasmPUI` (string)
+
+            * Added property `observationUnitPUI` (string)
+
+            * Added property `observationVariablePUI` (string)
+
+            * Added property `seasonDbId` (string)
+
+            * Added property `seasonName` (string)
+
+            * Added property `studyName` (string)
+
+            * Added property `studyPUI` (string)
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `observationDbId` (string)
+                > The ID which uniquely identifies an observation
+
+
+            * Deleted property `season` (object)
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `collector` (string)
+
+            * Changed property `germplasmDbId` (string)
+
+            * Changed property `germplasmName` (string)
+
+            * Changed property `observationTimeStamp` (string -> string)
+
+            * Changed property `observationUnitDbId` (string)
+
+            * Changed property `observationUnitName` (string)
+
+            * Changed property `observationVariableDbId` (string)
+
+            * Changed property `observationVariableName` (string)
+
+            * Changed property `studyDbId` (string)
+
+            * Changed property `uploadedBy` (string)
+
+            * Changed property `value` (string)
+
+            * Changed property `geoCoordinates` (object)
+                > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
+                > 
+                > Copied from RFC 7946 Section 3.1.1
+                > 
+                > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
+                > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
+
+
+                * Changed property `type` (string)
+
+                * Changed property `geometry` (object -> object)
+
+##### `GET` /observations/{observationDbId}
+
+> Get the details of a specific Observation
+
+
+###### Parameters:
+
+Deleted: `observationDbId` in `path`
+> The unique ID of an observation
+
+
+Deleted: `Authorization` in `header`
+> HTTP HEADER - Token used for Authorization 
+> 
+> <strong> Bearer {token_string} </strong>
+
+
+###### Return Type:
+
+Deleted response : **404 Not Found**
+> Not Found
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Added property `germplasmPUI` (string)
+
+        * Added property `observationUnitPUI` (string)
+
+        * Added property `observationVariablePUI` (string)
+
+        * Added property `seasonDbId` (string)
+
+        * Added property `seasonName` (string)
+
+        * Added property `studyName` (string)
+
+        * Added property `studyPUI` (string)
+
+        * Deleted property `externalReferences` (array)
+            > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+        * Deleted property `observationDbId` (string)
+            > The ID which uniquely identifies an observation
+
+
+        * Deleted property `season` (object)
+
+        * Changed property `additionalInfo` (object)
+            > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+            * Added property `additionalProperties` (string)
+
+        * Changed property `collector` (string)
+
+        * Changed property `germplasmDbId` (string)
+
+        * Changed property `germplasmName` (string)
+
+        * Changed property `observationTimeStamp` (string -> string)
+
+        * Changed property `observationUnitDbId` (string)
+
+        * Changed property `observationUnitName` (string)
+
+        * Changed property `observationVariableDbId` (string)
+
+        * Changed property `observationVariableName` (string)
+
+        * Changed property `studyDbId` (string)
+
+        * Changed property `uploadedBy` (string)
+
+        * Changed property `value` (string)
+
+        * Changed property `geoCoordinates` (object)
+            > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
+            > 
+            > Copied from RFC 7946 Section 3.1.1
+            > 
+            > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
+            > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
+
+
+            * Changed property `type` (string)
+
+            * Changed property `geometry` (object -> object)
+
+##### `POST` /search/images
+
+> Submit a search request for `Image`
+
+
+###### Parameters:
+
+Deleted: `Authorization` in `header`
+> HTTP HEADER - Token used for Authorization 
+> 
+> <strong> Bearer {token_string} </strong>
+
+
+###### Request:
+
+Deleted content type : `application/json`
+
+###### Return Type:
+
+Changed response : **202 Accepted**
+> Accepted
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `observationUnitName` (string)
+
+            * Added property `observationUnitPUI` (string)
+
+            * Deleted property `descriptiveOntologyTerms` (array)
+                > A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
+
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `imageDbId` (string)
+                > The unique identifier of an image
+
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `copyright` (string)
+
+            * Changed property `description` (string)
+
+            * Changed property `imageFileName` (string)
+
+            * Changed property `imageFileSize` (integer -> integer)
+
+            * Changed property `imageHeight` (integer -> integer)
+
+            * Changed property `imageName` (string)
+
+            * Changed property `imageTimeStamp` (string -> string)
+
+            * Changed property `imageURL` (string)
+
+            * Changed property `imageWidth` (integer -> integer)
+
+            * Changed property `mimeType` (string)
+
+            * Changed property `observationDbIds` (array)
+
+            * Changed property `observationUnitDbId` (string)
+
+            * Changed property `imageLocation` (object)
+                > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
+                > 
+                > Copied from RFC 7946 Section 3.1.1
+                > 
+                > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
+                > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
+
+
+                * Changed property `type` (string)
+
+                * Changed property `geometry` (object -> object)
+
+##### `GET` /search/images/{searchResultsDbId}
+
+> Submit a search request for `Image`<br/>
+> Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+> If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+> Use the corresponding `GET /search/image/{searchResultsDbId}` to retrieve the results of the search. <br/> 
+> Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
+
+
+###### Parameters:
+
+Deleted: `searchResultsDbId` in `path`
+> Unique identifier which references the search results
+
+
+Deleted: `page` in `query`
+> Used to request a specific page of data to be returned.
+> 
+> The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+
+
+Deleted: `pageSize` in `query`
+> The size of the pages to be returned. Default is `1000`.
+
+
+Deleted: `Authorization` in `header`
+> HTTP HEADER - Token used for Authorization 
+> 
+> <strong> Bearer {token_string} </strong>
+
+
+###### Return Type:
+
+Deleted response : **202 Accepted**
+> Accepted
+
+Deleted response : **404 Not Found**
+> Not Found
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `observationUnitName` (string)
+
+            * Added property `observationUnitPUI` (string)
+
+            * Deleted property `descriptiveOntologyTerms` (array)
+                > A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
+
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `imageDbId` (string)
+                > The unique identifier of an image
+
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `copyright` (string)
+
+            * Changed property `description` (string)
+
+            * Changed property `imageFileName` (string)
+
+            * Changed property `imageFileSize` (integer -> integer)
+
+            * Changed property `imageHeight` (integer -> integer)
+
+            * Changed property `imageName` (string)
+
+            * Changed property `imageTimeStamp` (string -> string)
+
+            * Changed property `imageURL` (string)
+
+            * Changed property `imageWidth` (integer -> integer)
+
+            * Changed property `mimeType` (string)
+
+            * Changed property `observationDbIds` (array)
+
+            * Changed property `observationUnitDbId` (string)
+
+            * Changed property `imageLocation` (object)
+                > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
+                > 
+                > Copied from RFC 7946 Section 3.1.1
+                > 
+                > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
+                > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
+
+
+                * Changed property `type` (string)
+
+                * Changed property `geometry` (object -> object)
 
 ##### `POST` /search/locations
 
@@ -18084,23 +18039,37 @@ Deleted content type : `application/json`
 
 ###### Return Type:
 
+Changed response : **202 Accepted**
+> Accepted
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
 Changed response : **200 OK**
 > OK
 
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A geographic Location on earth. This is usually used to describe the general area where an experiment took place. For example, a natural site, an experimental field, a greenhouse, a phenotyping facility, etc.
-
 
             * Added property `childLocationDbIds` (array)
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `parentLocationDbId` (string)
                 > The unique identifier for a Location
@@ -18140,6 +18109,8 @@ Changed response : **200 OK**
 
             * Changed property `instituteName` (string)
 
+            * Changed property `locationDbId` (string)
+
             * Changed property `locationName` (string)
 
             * Changed property `locationType` (string)
@@ -18149,8 +18120,6 @@ Changed response : **200 OK**
             * Changed property `slope` (string)
 
             * Changed property `topography` (string)
-
-            * Changed property `locationDbId` (string)
 
             * Changed property `coordinates` (object)
                 > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
@@ -18207,17 +18176,21 @@ Changed response : **200 OK**
 
 * Changed content type : `application/json`
 
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
     * Changed property `result` (object)
 
         * Changed property `data` (array)
 
             Changed items (object):
-                > A geographic Location on earth. This is usually used to describe the general area where an experiment took place. For example, a natural site, an experimental field, a greenhouse, a phenotyping facility, etc.
-
 
             * Added property `childLocationDbIds` (array)
 
-            * Deleted property `externalReferences` (object)
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
 
             * Deleted property `parentLocationDbId` (string)
                 > The unique identifier for a Location
@@ -18257,6 +18230,8 @@ Changed response : **200 OK**
 
             * Changed property `instituteName` (string)
 
+            * Changed property `locationDbId` (string)
+
             * Changed property `locationName` (string)
 
             * Changed property `locationType` (string)
@@ -18267,9 +18242,238 @@ Changed response : **200 OK**
 
             * Changed property `topography` (string)
 
-            * Changed property `locationDbId` (string)
-
             * Changed property `coordinates` (object)
+                > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
+                > 
+                > Copied from RFC 7946 Section 3.1.1
+                > 
+                > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
+                > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
+
+
+                * Changed property `type` (string)
+
+                * Changed property `geometry` (object -> object)
+
+##### `POST` /search/observations
+
+> Submit a search request for `Observation`
+
+
+###### Parameters:
+
+Deleted: `Authorization` in `header`
+> HTTP HEADER - Token used for Authorization 
+> 
+> <strong> Bearer {token_string} </strong>
+
+
+###### Request:
+
+Deleted content type : `application/json`
+
+###### Return Type:
+
+Changed response : **202 Accepted**
+> Accepted
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `germplasmPUI` (string)
+
+            * Added property `observationUnitPUI` (string)
+
+            * Added property `observationVariablePUI` (string)
+
+            * Added property `seasonDbId` (string)
+
+            * Added property `seasonName` (string)
+
+            * Added property `studyName` (string)
+
+            * Added property `studyPUI` (string)
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `observationDbId` (string)
+                > The ID which uniquely identifies an observation
+
+
+            * Deleted property `season` (object)
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `collector` (string)
+
+            * Changed property `germplasmDbId` (string)
+
+            * Changed property `germplasmName` (string)
+
+            * Changed property `observationTimeStamp` (string -> string)
+
+            * Changed property `observationUnitDbId` (string)
+
+            * Changed property `observationUnitName` (string)
+
+            * Changed property `observationVariableDbId` (string)
+
+            * Changed property `observationVariableName` (string)
+
+            * Changed property `studyDbId` (string)
+
+            * Changed property `uploadedBy` (string)
+
+            * Changed property `value` (string)
+
+            * Changed property `geoCoordinates` (object)
+                > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
+                > 
+                > Copied from RFC 7946 Section 3.1.1
+                > 
+                > A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
+                > easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
+
+
+                * Changed property `type` (string)
+
+                * Changed property `geometry` (object -> object)
+
+##### `GET` /search/observations/{searchResultsDbId}
+
+> Submit a search request for `Observation`<br/>
+> Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+> If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+> Use the corresponding `GET /search/observation/{searchResultsDbId}` to retrieve the results of the search. <br/> 
+> Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
+
+
+###### Parameters:
+
+Deleted: `Accept` in `header`
+> A standard HTTP request header that is used to request a specific content type (JSON, CSV, etc) which is "acceptable" to the client and should be returned by the server
+
+
+Deleted: `Authorization` in `header`
+> HTTP HEADER - Token used for Authorization 
+> 
+> <strong> Bearer {token_string} </strong>
+
+
+Deleted: `searchResultsDbId` in `path`
+> Unique identifier which references the search results
+
+
+Deleted: `page` in `query`
+> Used to request a specific page of data to be returned.
+> 
+> The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+
+
+Deleted: `pageSize` in `query`
+> The size of the pages to be returned. Default is `1000`.
+
+
+###### Return Type:
+
+Deleted response : **202 Accepted**
+> Accepted
+
+Changed response : **200 OK**
+> OK
+
+
+* Changed content type : `application/json`
+
+    * Changed property `metadata` (object -> object)
+        > An object in the BrAPI standard response model that describes some information about the service call being performed. This includes supplementary data, status log messages, and pagination information.
+
+
+    * Changed property `result` (object)
+
+        * Changed property `data` (array)
+
+            Changed items (object):
+
+            * Added property `germplasmPUI` (string)
+
+            * Added property `observationUnitPUI` (string)
+
+            * Added property `observationVariablePUI` (string)
+
+            * Added property `seasonDbId` (string)
+
+            * Added property `seasonName` (string)
+
+            * Added property `studyName` (string)
+
+            * Added property `studyPUI` (string)
+
+            * Deleted property `externalReferences` (array)
+                > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+
+
+            * Deleted property `observationDbId` (string)
+                > The ID which uniquely identifies an observation
+
+
+            * Deleted property `season` (object)
+
+            * Changed property `additionalInfo` (object)
+                > A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
+
+
+                * Added property `additionalProperties` (string)
+
+            * Changed property `collector` (string)
+
+            * Changed property `germplasmDbId` (string)
+
+            * Changed property `germplasmName` (string)
+
+            * Changed property `observationTimeStamp` (string -> string)
+
+            * Changed property `observationUnitDbId` (string)
+
+            * Changed property `observationUnitName` (string)
+
+            * Changed property `observationVariableDbId` (string)
+
+            * Changed property `observationVariableName` (string)
+
+            * Changed property `studyDbId` (string)
+
+            * Changed property `uploadedBy` (string)
+
+            * Changed property `value` (string)
+
+            * Changed property `geoCoordinates` (object)
                 > One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
                 > 
                 > Copied from RFC 7946 Section 3.1.1

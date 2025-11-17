@@ -393,17 +393,76 @@
         "ExperimentalDesign": {
             "properties": {
                 "PUI": {
+                    "description": "MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology. **Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539",
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "deprecated": true
+                },
+                "experimentalDesignPUI": {
                     "description": "MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "examples": ["CO_715:0000145"]
                 },
                 "description": {
                     "description": "MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be \"unknown\"/\"NA\", \"aggregated/reduced data\", or simply 'none'.",
                     "type": [
                         "null",
                         "string"
+                    ]
+                },
+                "randomizationType": {
+                    "description": "The type of randomization use to create the experimental design.",
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "examples": ["RCB:Randomize Complete Block"]
+                },
+                "layoutPattern": {
+                    "description": "How the trial is layout in the field.",
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "examples": ["Serpentine"]
+                },
+                "setSize": {
+                    "description": "The size of the sets in the design.",
+                    "type": [
+                        "null",
+                        "number"
+                    ],
+                    "examples": [1]
+                },
+                "rowsPerPlot": {
+                    "description": "The number of rows in a plot.",
+                    "type": [
+                        "null",
+                        "number"
+                    ],
+                    "examples": [1]
+                },
+                "firstRepRand": {
+                    "description": "Is the first replication random.",
+                    "type": [
+                        "null",
+                        "boolean"
+                    ],
+                    "examples": [true]
+                },
+                "experimentFactors": {
+                    "description": "The factors used in the experimental design.",
+                    "items": {
+                        "$ref": "../BrAPI-Core/Study.json#/$defs/ExperimentFactor"
+                    },
+                    "type": [
+                        "null",
+                        "array"
                     ]
                 },
                 "study": {
@@ -415,6 +474,64 @@
             },
             "title": "ExperimentalDesign",
             "description": "The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+        },
+        "ExperimentFactor": {
+            "properties": {
+                "factor": {
+                    "description": "The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc\n\nMIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.",
+                    "type": "string",
+                    "examples": [
+                        "fertilizer"
+                    ]
+                },
+                "factorPUI": {
+                    "description": "The PUI of the factor which may link to an ontology.",
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "examples": [
+                        "test-factor:dia2020-2-nv.fertilizer"
+                    ]
+                },
+                "modalities": {
+                    "description": "The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc\n\nMIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "modality": {
+                                "description": "The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc\n\nMIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. ",
+                                "type": "string",
+                                "examples": [
+                                    "low fertilizer"
+                                ]
+                            },
+                            "modalityPUI": {
+                                "description": "The PUI of the modality which may link to an ontology.",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "examples": [
+                                    "test-factor:dia2020-2-nv.lf"
+                                ]
+                            }
+                        }
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ],
+                    "examples": [
+                        "fertilizer"
+                    ]
+                }
+            },
+            "title": "ExperimentFactor",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
