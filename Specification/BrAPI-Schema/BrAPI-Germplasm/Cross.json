@@ -170,7 +170,7 @@
                 }
             },
             "title": "PollinationEvent",
-            "description": "A pollination event that occurred for this cross",
+            "description": "A Pollination Event that was used or attempted for a Cross.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
