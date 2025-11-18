@@ -17,6 +17,7 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a `Sample` <br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of the `Sample`</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">column</span></td><td>integer</td><td>The Column identifier for this `Sample` location in the `Plate`</td></tr>
@@ -111,6 +112,7 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
                 "programDbId": "bd748e00",
                 "row": "B",
                 "sampleBarcode": "3a027b59",
+                "sampleDbId": "cd06a61d",
                 "sampleDescription": "This sample was taken from the root of a tree",
                 "sampleGroupDbId": "8524b436",
                 "sampleName": "Sample_alpha_20191022",
@@ -185,6 +187,7 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a `Sample` <br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of the `Sample`</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">column</span></td><td>integer</td><td>The Column identifier for this `Sample` location in the `Plate`</td></tr>
@@ -302,6 +305,7 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
                 "programDbId": "bd748e00",
                 "row": "B",
                 "sampleBarcode": "3a027b59",
+                "sampleDbId": "cd06a61d",
                 "sampleDescription": "This sample was taken from the root of a tree",
                 "sampleGroupDbId": "8524b436",
                 "sampleName": "Sample_alpha_20191022",
@@ -352,6 +356,7 @@ Update the details of existing Samples
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a `Sample` <br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of the `Sample`</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">column</span></td><td>integer</td><td>The Column identifier for this `Sample` location in the `Plate`</td></tr>
@@ -483,6 +488,7 @@ Update the details of existing Samples
                 "programDbId": "bd748e00",
                 "row": "B",
                 "sampleBarcode": "3a027b59",
+                "sampleDbId": "cd06a61d",
                 "sampleDescription": "This sample was taken from the root of a tree",
                 "sampleGroupDbId": "8524b436",
                 "sampleName": "Sample_alpha_20191022",
@@ -533,6 +539,7 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a `Sample` <br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of the `Sample`</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">column</span></td><td>integer</td><td>The Column identifier for this `Sample` location in the `Plate`</td></tr>
@@ -610,6 +617,7 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
         "programDbId": "bd748e00",
         "row": "B",
         "sampleBarcode": "3a027b59",
+        "sampleDbId": "cd06a61d",
         "sampleDescription": "This sample was taken from the root of a tree",
         "sampleGroupDbId": "8524b436",
         "sampleName": "Sample_alpha_20191022",
@@ -688,6 +696,7 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a `Sample` <br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of the `Sample`</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">column</span></td><td>integer</td><td>The Column identifier for this `Sample` location in the `Plate`</td></tr>
@@ -802,6 +811,7 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
         "programDbId": "bd748e00",
         "row": "B",
         "sampleBarcode": "3a027b59",
+        "sampleDbId": "cd06a61d",
         "sampleDescription": "This sample was taken from the root of a tree",
         "sampleGroupDbId": "8524b436",
         "sampleName": "Sample_alpha_20191022",
@@ -879,6 +889,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a `Sample` <br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of the `Sample`</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">column</span></td><td>integer</td><td>The Column identifier for this `Sample` location in the `Plate`</td></tr>
@@ -1038,6 +1049,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "programDbId": "bd748e00",
                 "row": "B",
                 "sampleBarcode": "3a027b59",
+                "sampleDbId": "cd06a61d",
                 "sampleDescription": "This sample was taken from the root of a tree",
                 "sampleGroupDbId": "8524b436",
                 "sampleName": "Sample_alpha_20191022",
@@ -1115,6 +1127,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
+<tr><td><span style="font-weight:bold;">sampleDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies a `Sample` <br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.</td></tr>
 <tr><td><span style="font-weight:bold;">sampleName</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The human readable name of the `Sample`</td></tr>
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">column</span></td><td>integer</td><td>The Column identifier for this `Sample` location in the `Plate`</td></tr>
@@ -1196,6 +1209,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "programDbId": "bd748e00",
                 "row": "B",
                 "sampleBarcode": "3a027b59",
+                "sampleDbId": "cd06a61d",
                 "sampleDescription": "This sample was taken from the root of a tree",
                 "sampleGroupDbId": "8524b436",
                 "sampleName": "Sample_alpha_20191022",

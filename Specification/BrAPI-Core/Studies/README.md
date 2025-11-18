@@ -89,12 +89,19 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>string</td><td>Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.valuePUI</span></td><td>string</td><td>URI pointing to an ontology class for the parameter value</td></tr>
 <tr><td><span style="font-weight:bold;">experimentalDesign</span></td><td>object</td><td>The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology</td></tr>
-<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.  **Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentFactors</span></td><td>array[object]</td><td>The factors used in the experimental design</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.modalities</span></td><td></td><td></td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentalDesignPUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.firstRepRand</span></td><td>boolean</td><td>Is the first replication random</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.layoutPattern</span></td><td>string</td><td>How the trial is layout in the field</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.randomizationType</span></td><td>string</td><td>The type of randomization use to create the experimental design</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.rowsPerPlot</span></td><td>number</td><td>The number of rows in a plot</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.setSize</span></td><td>number</td><td>The size of the sets in the design</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td><span style="font-weight:bold;">growthFacility</span></td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
 <tr><td>growthFacility<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.</td></tr>
 <tr><td>growthFacility<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.</td></tr>
@@ -304,7 +311,19 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 ],
                 "experimentalDesign": {
                     "PUI": "CO_715:0000145",
-                    "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
+                    "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information.",
+                    "experimentFactors": [
+                        {
+                            "factor": "fertilizer",
+                            "factorPUI": "test-factor:dia2020-2-nv.fertilizer"
+                        }
+                    ],
+                    "experimentalDesignPUI": "CO_715:0000145",
+                    "firstRepRand": true,
+                    "layoutPattern": "Serpentine",
+                    "randomizationType": "RCB:Randomize Complete Block",
+                    "rowsPerPlot": 1,
+                    "setSize": 1
                 },
                 "externalReferences": [
                     {
@@ -458,12 +477,19 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>string</td><td>Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.valuePUI</span></td><td>string</td><td>URI pointing to an ontology class for the parameter value</td></tr>
 <tr><td><span style="font-weight:bold;">experimentalDesign</span></td><td>object</td><td>The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology</td></tr>
-<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.  **Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentFactors</span></td><td>array[object]</td><td>The factors used in the experimental design</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.modalities</span></td><td></td><td></td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentalDesignPUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.firstRepRand</span></td><td>boolean</td><td>Is the first replication random</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.layoutPattern</span></td><td>string</td><td>How the trial is layout in the field</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.randomizationType</span></td><td>string</td><td>The type of randomization use to create the experimental design</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.rowsPerPlot</span></td><td>number</td><td>The number of rows in a plot</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.setSize</span></td><td>number</td><td>The size of the sets in the design</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td><span style="font-weight:bold;">growthFacility</span></td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
 <tr><td>growthFacility<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.</td></tr>
 <tr><td>growthFacility<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.</td></tr>
@@ -565,7 +591,19 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 ],
                 "experimentalDesign": {
                     "PUI": "CO_715:0000145",
-                    "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
+                    "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information.",
+                    "experimentFactors": [
+                        {
+                            "factor": "fertilizer",
+                            "factorPUI": "test-factor:dia2020-2-nv.fertilizer"
+                        }
+                    ],
+                    "experimentalDesignPUI": "CO_715:0000145",
+                    "firstRepRand": true,
+                    "layoutPattern": "Serpentine",
+                    "randomizationType": "RCB:Randomize Complete Block",
+                    "rowsPerPlot": 1,
+                    "setSize": 1
                 },
                 "externalReferences": [
                     {
@@ -721,12 +759,19 @@ StartDate and endDate should be ISO-8601 format for dates
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>string</td><td>Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.valuePUI</span></td><td>string</td><td>URI pointing to an ontology class for the parameter value</td></tr>
 <tr><td><span style="font-weight:bold;">experimentalDesign</span></td><td>object</td><td>The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology</td></tr>
-<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.  **Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentFactors</span></td><td>array[object]</td><td>The factors used in the experimental design</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.modalities</span></td><td></td><td></td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentalDesignPUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.firstRepRand</span></td><td>boolean</td><td>Is the first replication random</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.layoutPattern</span></td><td>string</td><td>How the trial is layout in the field</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.randomizationType</span></td><td>string</td><td>The type of randomization use to create the experimental design</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.rowsPerPlot</span></td><td>number</td><td>The number of rows in a plot</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.setSize</span></td><td>number</td><td>The size of the sets in the design</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td><span style="font-weight:bold;">growthFacility</span></td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
 <tr><td>growthFacility<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.</td></tr>
 <tr><td>growthFacility<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.</td></tr>
@@ -845,7 +890,19 @@ StartDate and endDate should be ISO-8601 format for dates
                 ],
                 "experimentalDesign": {
                     "PUI": "CO_715:0000145",
-                    "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
+                    "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information.",
+                    "experimentFactors": [
+                        {
+                            "factor": "fertilizer",
+                            "factorPUI": "test-factor:dia2020-2-nv.fertilizer"
+                        }
+                    ],
+                    "experimentalDesignPUI": "CO_715:0000145",
+                    "firstRepRand": true,
+                    "layoutPattern": "Serpentine",
+                    "randomizationType": "RCB:Randomize Complete Block",
+                    "rowsPerPlot": 1,
+                    "setSize": 1
                 },
                 "externalReferences": [
                     {
@@ -970,12 +1027,19 @@ StartDate and endDate should be ISO-8601 format for dates
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>string</td><td>Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.valuePUI</span></td><td>string</td><td>URI pointing to an ontology class for the parameter value</td></tr>
 <tr><td><span style="font-weight:bold;">experimentalDesign</span></td><td>object</td><td>The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology</td></tr>
-<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.  **Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentFactors</span></td><td>array[object]</td><td>The factors used in the experimental design</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.modalities</span></td><td></td><td></td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentalDesignPUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.firstRepRand</span></td><td>boolean</td><td>Is the first replication random</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.layoutPattern</span></td><td>string</td><td>How the trial is layout in the field</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.randomizationType</span></td><td>string</td><td>The type of randomization use to create the experimental design</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.rowsPerPlot</span></td><td>number</td><td>The number of rows in a plot</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.setSize</span></td><td>number</td><td>The size of the sets in the design</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td><span style="font-weight:bold;">growthFacility</span></td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
 <tr><td>growthFacility<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.</td></tr>
 <tr><td>growthFacility<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.</td></tr>
@@ -1038,12 +1102,19 @@ StartDate and endDate should be ISO-8601 format for dates
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>string</td><td>Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.valuePUI</span></td><td>string</td><td>URI pointing to an ontology class for the parameter value</td></tr>
 <tr><td><span style="font-weight:bold;">experimentalDesign</span></td><td>object</td><td>The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology</td></tr>
-<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.  **Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentFactors</span></td><td>array[object]</td><td>The factors used in the experimental design</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.modalities</span></td><td></td><td></td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentalDesignPUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.firstRepRand</span></td><td>boolean</td><td>Is the first replication random</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.layoutPattern</span></td><td>string</td><td>How the trial is layout in the field</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.randomizationType</span></td><td>string</td><td>The type of randomization use to create the experimental design</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.rowsPerPlot</span></td><td>number</td><td>The number of rows in a plot</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.setSize</span></td><td>number</td><td>The size of the sets in the design</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td><span style="font-weight:bold;">growthFacility</span></td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
 <tr><td>growthFacility<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.</td></tr>
 <tr><td>growthFacility<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.</td></tr>
@@ -1121,7 +1192,19 @@ StartDate and endDate should be ISO-8601 format for dates
         ],
         "experimentalDesign": {
             "PUI": "CO_715:0000145",
-            "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
+            "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information.",
+            "experimentFactors": [
+                {
+                    "factor": "fertilizer",
+                    "factorPUI": "test-factor:dia2020-2-nv.fertilizer"
+                }
+            ],
+            "experimentalDesignPUI": "CO_715:0000145",
+            "firstRepRand": true,
+            "layoutPattern": "Serpentine",
+            "randomizationType": "RCB:Randomize Complete Block",
+            "rowsPerPlot": 1,
+            "setSize": 1
         },
         "externalReferences": [
             {
@@ -1246,7 +1329,19 @@ StartDate and endDate should be ISO-8601 format for dates
                 ],
                 "experimentalDesign": {
                     "PUI": "CO_715:0000145",
-                    "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
+                    "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information.",
+                    "experimentFactors": [
+                        {
+                            "factor": "fertilizer",
+                            "factorPUI": "test-factor:dia2020-2-nv.fertilizer"
+                        }
+                    ],
+                    "experimentalDesignPUI": "CO_715:0000145",
+                    "firstRepRand": true,
+                    "layoutPattern": "Serpentine",
+                    "randomizationType": "RCB:Randomize Complete Block",
+                    "rowsPerPlot": 1,
+                    "setSize": 1
                 },
                 "externalReferences": [
                     {
@@ -1370,12 +1465,19 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>string</td><td>Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.valuePUI</span></td><td>string</td><td>URI pointing to an ontology class for the parameter value</td></tr>
 <tr><td><span style="font-weight:bold;">experimentalDesign</span></td><td>object</td><td>The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology</td></tr>
-<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.  **Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentFactors</span></td><td>array[object]</td><td>The factors used in the experimental design</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.modalities</span></td><td></td><td></td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentalDesignPUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.firstRepRand</span></td><td>boolean</td><td>Is the first replication random</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.layoutPattern</span></td><td>string</td><td>How the trial is layout in the field</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.randomizationType</span></td><td>string</td><td>The type of randomization use to create the experimental design</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.rowsPerPlot</span></td><td>number</td><td>The number of rows in a plot</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.setSize</span></td><td>number</td><td>The size of the sets in the design</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td><span style="font-weight:bold;">growthFacility</span></td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
 <tr><td>growthFacility<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.</td></tr>
 <tr><td>growthFacility<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.</td></tr>
@@ -1473,7 +1575,19 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
         ],
         "experimentalDesign": {
             "PUI": "CO_715:0000145",
-            "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
+            "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information.",
+            "experimentFactors": [
+                {
+                    "factor": "fertilizer",
+                    "factorPUI": "test-factor:dia2020-2-nv.fertilizer"
+                }
+            ],
+            "experimentalDesignPUI": "CO_715:0000145",
+            "firstRepRand": true,
+            "layoutPattern": "Serpentine",
+            "randomizationType": "RCB:Randomize Complete Block",
+            "rowsPerPlot": 1,
+            "setSize": 1
         },
         "externalReferences": [
             {
@@ -1595,12 +1709,19 @@ Update an existing Study with new data
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>string</td><td>Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.valuePUI</span></td><td>string</td><td>URI pointing to an ontology class for the parameter value</td></tr>
 <tr><td><span style="font-weight:bold;">experimentalDesign</span></td><td>object</td><td>The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology</td></tr>
-<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.  **Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentFactors</span></td><td>array[object]</td><td>The factors used in the experimental design</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.modalities</span></td><td></td><td></td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentalDesignPUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.firstRepRand</span></td><td>boolean</td><td>Is the first replication random</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.layoutPattern</span></td><td>string</td><td>How the trial is layout in the field</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.randomizationType</span></td><td>string</td><td>The type of randomization use to create the experimental design</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.rowsPerPlot</span></td><td>number</td><td>The number of rows in a plot</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.setSize</span></td><td>number</td><td>The size of the sets in the design</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td><span style="font-weight:bold;">growthFacility</span></td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
 <tr><td>growthFacility<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.</td></tr>
 <tr><td>growthFacility<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.</td></tr>
@@ -1663,12 +1784,19 @@ Update an existing Study with new data
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.value</span></td><td>string</td><td>Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.</td></tr>
 <tr><td>environmentParameters<br><span style="font-weight:bold;margin-left:5px">.valuePUI</span></td><td>string</td><td>URI pointing to an ontology class for the parameter value</td></tr>
 <tr><td><span style="font-weight:bold;">experimentalDesign</span></td><td>object</td><td>The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology</td></tr>
-<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.  **Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539</td></tr>
 <tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentFactors</span></td><td>array[object]</td><td>The factors used in the experimental design</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>experimentalDesign<br>.experimentFactors<br><span style="font-weight:bold;margin-left:5px">.modalities</span></td><td></td><td></td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.experimentalDesignPUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.firstRepRand</span></td><td>boolean</td><td>Is the first replication random</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.layoutPattern</span></td><td>string</td><td>How the trial is layout in the field</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.randomizationType</span></td><td>string</td><td>The type of randomization use to create the experimental design</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.rowsPerPlot</span></td><td>number</td><td>The number of rows in a plot</td></tr>
+<tr><td>experimentalDesign<br><span style="font-weight:bold;margin-left:5px">.setSize</span></td><td>number</td><td>The size of the sets in the design</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td><span style="font-weight:bold;">growthFacility</span></td><td>object</td><td>Short description of the facility in which the study was carried out.</td></tr>
 <tr><td>growthFacility<br><span style="font-weight:bold;margin-left:5px">.PUI</span></td><td>string</td><td>MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.</td></tr>
 <tr><td>growthFacility<br><span style="font-weight:bold;margin-left:5px">.description</span></td><td>string</td><td>MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.</td></tr>
@@ -1746,7 +1874,19 @@ Update an existing Study with new data
     ],
     "experimentalDesign": {
         "PUI": "CO_715:0000145",
-        "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
+        "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information.",
+        "experimentFactors": [
+            {
+                "factor": "fertilizer",
+                "factorPUI": "test-factor:dia2020-2-nv.fertilizer"
+            }
+        ],
+        "experimentalDesignPUI": "CO_715:0000145",
+        "firstRepRand": true,
+        "layoutPattern": "Serpentine",
+        "randomizationType": "RCB:Randomize Complete Block",
+        "rowsPerPlot": 1,
+        "setSize": 1
     },
     "externalReferences": [
         {
@@ -1868,7 +2008,19 @@ Update an existing Study with new data
         ],
         "experimentalDesign": {
             "PUI": "CO_715:0000145",
-            "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
+            "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information.",
+            "experimentFactors": [
+                {
+                    "factor": "fertilizer",
+                    "factorPUI": "test-factor:dia2020-2-nv.fertilizer"
+                }
+            ],
+            "experimentalDesignPUI": "CO_715:0000145",
+            "firstRepRand": true,
+            "layoutPattern": "Serpentine",
+            "randomizationType": "RCB:Randomize Complete Block",
+            "rowsPerPlot": 1,
+            "setSize": 1
         },
         "externalReferences": [
             {

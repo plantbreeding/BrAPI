@@ -316,6 +316,7 @@ components:
             $ref: '#/components/schemas/GermplasmOrigin'
           type: array
           nullable: true
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
+        externalReferences:
           nullable: true
+          allOf:
+            - $ref: '#/components/schemas/ExternalReferences'

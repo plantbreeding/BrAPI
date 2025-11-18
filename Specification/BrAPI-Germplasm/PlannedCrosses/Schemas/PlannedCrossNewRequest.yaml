@@ -51,13 +51,16 @@ components:
           - DONE
           - SKIPPED
           example: TODO
-        parent1: 
-          $ref: '#/components/schemas/CrossParent'
+        parent1:
           nullable: true
-        parent2: 
-          $ref: '#/components/schemas/CrossParent'
+          allOf:
+            - $ref: '#/components/schemas/CrossParent'
+        parent2:
           nullable: true
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
+          allOf:
+            - $ref: '#/components/schemas/CrossParent'
+        externalReferences:
           nullable: true
+          allOf:
+            - $ref: '#/components/schemas/ExternalReferences'
           

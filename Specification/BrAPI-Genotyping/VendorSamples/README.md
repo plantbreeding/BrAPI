@@ -306,7 +306,7 @@ Retrieve the plate and sample details of an order being processed
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">clientPlateBarcode</span></td><td>string</td><td>(Optional) The value of the bar code attached to this plate</td></tr>
 <tr><td><span style="font-weight:bold;">clientPlateId</span></td><td>string</td><td>The ID which uniquely identifies this plate to the client making the request</td></tr>
-<tr><td><span style="font-weight:bold;">sampleSubmissionFormat</span></td><td>string</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
+<tr><td><span style="font-weight:bold;">sampleSubmissionFormat</span></td><td>object</td><td>Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format</td></tr>
 <tr><td><span style="font-weight:bold;">samples</span></td><td>array[object]</td><td></td></tr>
 <tr><td>samples<br><span style="font-weight:bold;margin-left:5px">.clientSampleId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies this sample to the client making the request</td></tr>
 <tr><td>samples<br><span style="font-weight:bold;margin-left:5px">.clientSampleBarCode</span></td><td>string</td><td>(Optional) The value of the bar code attached to this sample</td></tr>

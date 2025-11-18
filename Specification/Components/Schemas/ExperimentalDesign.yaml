@@ -1,0 +1,96 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ExperimentalDesign:
+      title: ExperimentalDesign
+      type: object
+      description: |-
+        The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology
+      properties:
+        description:
+          description: MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.
+          type: string
+          nullable: true
+          example: Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information.
+        PUI:
+          description: |- 
+            MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.
+            
+            **Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539
+          type: string
+          deprecated: true
+          nullable: true
+          example: CO_715:0000145
+        experimentalDesignPUI:
+          description: MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.
+          type: string
+          nullable: true
+          example: CO_715:0000145
+        randomizationType:
+          description: The type of randomization use to create the experimental design
+          type: string
+          nullable: true
+          example: RCB:Randomize Complete Block
+        layoutPattern:
+          description: How the trial is layout in the field
+          type: string
+          nullable: true
+          example: Serpentine
+        setSize:
+          description: The size of the sets in the design
+          type: number
+          nullable: true
+          example: 1
+        rowsPerPlot:
+          description: The number of rows in a plot
+          type: number
+          nullable: true
+          example: 1
+        firstRepRand:
+          description: Is the first replication random
+          type: boolean
+          nullable: true
+          example: true
+        experimentFactors:
+            description: |-
+              The factors used in the experimental design
+            type: array
+            nullable: true
+            items:
+              type: object
+              title: "ExperimentFactor"
+              properties:
+                factor:
+                  description: |-
+                    The type of treatment/factor. For example 'fertilizer', 'inoculation', 'irrigation', etc
+                    
+                    MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
+                  type: string
+                  example:  fertilizer
+                factorPUI:
+                  description: |-
+                    The PUI of the factor which may link to an ontology
+                  type: string
+                  nullable: true
+                  example: test-factor:dia2020-2-nv.fertilizer
+                modalities:
+                  items:
+                    type: object
+                    properties:
+                      modality:
+                        description: |-
+                          The treatment/factor modality or level. For example 'low fertilizer', 'yellow rust inoculation', 'high water', etc
+
+                          MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.
+                        type: string
+                        example: low fertilizer
+                      modalityPUI:
+                        description: |-
+                          The PUI of the modality which may link to an ontology
+                        type: string
+                        nullable: true
+                        example: test-factor:dia2020-2-nv.lf

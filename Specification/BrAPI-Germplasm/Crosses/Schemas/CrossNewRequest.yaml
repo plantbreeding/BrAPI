@@ -52,12 +52,14 @@ components:
           - BULK_OPEN_POLLINATED
           - DOUBLE_HAPLOID
           example: BIPARENTAL
-        parent1: 
-          $ref: '#/components/schemas/CrossParent'
+        parent1:
           nullable: true
-        parent2: 
-          $ref: '#/components/schemas/CrossParent'
+          allOf:
+            - $ref: '#/components/schemas/CrossParent'
+        parent2:
           nullable: true
+          allOf:
+            - $ref: '#/components/schemas/CrossParent'
         pollinationTimeStamp: 
           description: |-
             **Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265 
@@ -104,6 +106,8 @@ components:
                 type: string
                 nullable: true
                 example: '45'
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
+        externalReferences:
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/ExternalReferences'
           

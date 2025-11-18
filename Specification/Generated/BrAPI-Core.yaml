@@ -1,11 +1,9 @@
 openapi: 3.0.0
 info:
   title: BrAPI-Core
-  version: 0.0.0
+  version: "2.1"
 servers:
 - url: /
-security:
-- AuthorizationToken: []
 paths:
   /serverinfo:
     get:
@@ -72,212 +70,6 @@ paths:
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
-  /commoncropnames:
-    get:
-      tags:
-      - Common Crop Names
-      summary: Get the Common Crop Names
-      description: "List the common crop names for the crops available in a database\
-        \ server. \n\nThis call is ** required ** for multi-crop systems where data\
-        \ from multiple \ncrops may be stored in the same database server. A distinct\
-        \ database server \nis defined by everything in the URL before \"/brapi/v2\"\
-        , including host \nname and base path.\n\nThis call is recommended for single\
-        \ crop systems to be compatible with \nmulti-crop clients. For a single crop\
-        \ system the response should contain \nan array with exactly 1 element. \n\
-        \nThe common crop name can be used as a search parameter for Programs, \n\
-        Studies, and Germplasm."
-      parameters:
-      - $ref: "#/components/parameters/page"
-      - $ref: "#/components/parameters/pageSize"
-      - $ref: "#/components/parameters/authorizationHeader"
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                title: commonCropNamesResponse
-                required:
-                - metadata
-                - result
-                type: object
-                properties:
-                  '@context':
-                    $ref: "#/components/schemas/Context"
-                  metadata:
-                    $ref: "#/components/schemas/metadata"
-                  result:
-                    required:
-                    - data
-                    type: object
-                    properties:
-                      data:
-                        type: array
-                        description: The array of crop names available on the server
-                        example:
-                        - Tomatillo
-                        - Paw Paw
-                        items:
-                          type: string
-                          description: supported crop name
-        "400":
-          $ref: "#/components/responses/400BadRequest"
-        "401":
-          $ref: "#/components/responses/401Unauthorized"
-        "403":
-          $ref: "#/components/responses/403Forbidden"
-  /lists/{listDbId}/data:
-    post:
-      tags:
-      - Lists
-      summary: Add new data members to a specific List
-      description: Add new data members to a specific List
-      parameters:
-      - name: listDbId
-        in: path
-        description: The unique identifier of a generic List
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - $ref: "#/components/parameters/authorizationHeader"
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: array
-              example:
-              - 758a78c0
-              - 2c78f9ee
-              items:
-                type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                title: listResponse
-                required:
-                - metadata
-                - result
-                type: object
-                properties:
-                  '@context':
-                    $ref: "#/components/schemas/Context"
-                  metadata:
-                    $ref: "#/components/schemas/metadata"
-                  result:
-                    $ref: "#/components/schemas/List"
-        "400":
-          $ref: "#/components/responses/400BadRequest"
-        "401":
-          $ref: "#/components/responses/401Unauthorized"
-        "403":
-          $ref: "#/components/responses/403Forbidden"
-        "404":
-          $ref: "#/components/responses/404NotFound"
-  /lists/{listDbId}/items:
-    post:
-      tags:
-      - Lists
-      summary: Add Items to a specific List
-      description: "**Deprecated in v2.1** Please use `POST /lists/{listDbId}/data`.\
-        \ Github issue number #444 \n<br/> Add new data to a specific generic lists"
-      parameters:
-      - name: listDbId
-        in: path
-        description: The unique identifier of a List
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - $ref: "#/components/parameters/authorizationHeader"
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: array
-              example:
-              - 758a78c0
-              - 2c78f9ee
-              items:
-                type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                title: listResponse
-                required:
-                - metadata
-                - result
-                type: object
-                properties:
-                  '@context':
-                    $ref: "#/components/schemas/Context"
-                  metadata:
-                    $ref: "#/components/schemas/metadata"
-                  result:
-                    $ref: "#/components/schemas/List"
-        "400":
-          $ref: "#/components/responses/400BadRequest"
-        "401":
-          $ref: "#/components/responses/401Unauthorized"
-        "403":
-          $ref: "#/components/responses/403Forbidden"
-        "404":
-          $ref: "#/components/responses/404NotFound"
-      deprecated: true
-  /studytypes:
-    get:
-      tags:
-      - Studies
-      summary: Get the Study Types
-      description: Call to retrieve the list of study types.
-      parameters:
-      - $ref: "#/components/parameters/page"
-      - $ref: "#/components/parameters/pageSize"
-      - $ref: "#/components/parameters/authorizationHeader"
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                title: studyTypesResponse
-                required:
-                - metadata
-                - result
-                type: object
-                properties:
-                  '@context':
-                    $ref: "#/components/schemas/Context"
-                  metadata:
-                    $ref: "#/components/schemas/metadata"
-                  result:
-                    required:
-                    - data
-                    type: object
-                    properties:
-                      data:
-                        type: array
-                        description: The list of all StudyTypes available on a given
-                          server.
-                        example:
-                        - Crossing Nursery
-                        - Yield study
-                        items:
-                          type: string
-        "400":
-          $ref: "#/components/responses/400BadRequest"
-        "401":
-          $ref: "#/components/responses/401Unauthorized"
-        "403":
-          $ref: "#/components/responses/403Forbidden"
   /lists:
     get:
       tags:
@@ -292,7 +84,6 @@ paths:
         required: false
         schema:
           type: string
-          format: date-time
       - name: dateCreatedRangeEnd
         in: query
         description: Define the end for an interval of time and only include Lists
@@ -300,7 +91,6 @@ paths:
         required: false
         schema:
           type: string
-          format: date-time
       - name: dateModifiedRangeStart
         in: query
         description: Define the beginning for an interval of time and only include
@@ -308,7 +98,6 @@ paths:
         required: false
         schema:
           type: string
-          format: date-time
       - name: dateModifiedRangeEnd
         in: query
         description: Define the end for an interval of time and only include Lists
@@ -316,7 +105,6 @@ paths:
         required: false
         schema:
           type: string
-          format: date-time
       - name: listDbId
         in: query
         description: An array of primary database identifiers to identify a set of
@@ -1928,7 +1716,6 @@ components:
           type: string
         submissionTimestamp:
           type: string
-          format: date-time
         synonyms:
           type: array
           items:
@@ -1952,6 +1739,7 @@ components:
           type: string
         type:
           type: string
+      description: A persons contact information
     ContentTypes:
       type: string
       enum:
@@ -1990,6 +1778,8 @@ components:
           type: string
         version:
           type: string
+      description: "A link to extra data files associated with this study. Extra data\
+        \ could include notes, images, and reference data."
     DatasetAuthorships:
       type: object
       properties:
@@ -2007,6 +1797,7 @@ components:
           type: string
         trialPUI:
           type: string
+      description: License and citation information for the data in this trial
     EnvironmentParameters:
       required:
       - description
@@ -2036,6 +1827,28 @@ components:
           type: string
         valuePUI:
           type: string
+      description: "Environmental parameters that were kept constant throughout the\
+        \ study and did not change between observation units. \n\nMIAPPE V1.1 (DM-57)\
+        \ Environment - Environmental parameters that were kept constant throughout\
+        \ the study and did not change between observation units or assays. Environment\
+        \ characteristics that vary over time, i.e. environmental variables, should\
+        \ be recorded as Observed Variables (see below)."
+    ExperimentFactor:
+      type: object
+      properties:
+        factor:
+          type: string
+        factorPUI:
+          type: string
+        modalities:
+          type: array
+          items:
+            type: object
+            properties:
+              modality:
+                type: string
+              modalityPUI:
+                type: string
     ExperimentalDesign:
       type: object
       properties:
@@ -2043,12 +1856,30 @@ components:
           type: string
         description:
           type: string
+        experimentFactors:
+          type: array
+          items:
+            $ref: "#/components/schemas/ExperimentFactor"
+        experimentalDesignPUI:
+          type: string
+        firstRepRand:
+          type: boolean
+        layoutPattern:
+          type: string
+        randomizationType:
+          type: string
+        rowsPerPlot:
+          type: number
+        setSize:
+          type: number
         studyDbId:
           type: string
         studyName:
           type: string
         studyPUI:
           type: string
+      description: The experimental and statistical design full description plus a
+        category PUI taken from crop research ontology or agronomy ontology
     ExternalReference:
       type: object
       properties:
@@ -2138,6 +1969,8 @@ components:
           type: string
         studyPUI:
           type: string
+      description: Short description of the facility in which the study was carried
+        out.
     LastUpdate:
       required:
       - lastUpdateDbId
@@ -2153,9 +1986,9 @@ components:
           type: string
         timestamp:
           type: string
-          format: date-time
         version:
           type: string
+      description: The date and time when this study was last modified
     List:
       required:
       - listDbId
@@ -2167,10 +2000,8 @@ components:
           $ref: "#/components/schemas/AdditionalInfo"
         dateCreated:
           type: string
-          format: date-time
         dateModified:
           type: string
-          format: date-time
         listDescription:
           type: string
         listName:
@@ -2202,10 +2033,8 @@ components:
           $ref: "#/components/schemas/AdditionalInfo"
         dateCreated:
           type: string
-          format: date-time
         dateModified:
           type: string
-          format: date-time
         listDbId:
           type: string
         listDescription:
@@ -2234,16 +2063,12 @@ components:
           type: string
         dateCreatedRangeEnd:
           type: string
-          format: date-time
         dateCreatedRangeStart:
           type: string
-          format: date-time
         dateModifiedRangeEnd:
           type: string
-          format: date-time
         dateModifiedRangeStart:
           type: string
-          format: date-time
         listType:
           $ref: "#/components/schemas/ListType"
         programDbId:
@@ -2312,6 +2137,9 @@ components:
           type: string
         topography:
           type: string
+      description: "A geographic Location on earth. This is usually used to describe\
+        \ the general area where an experiment took place. For example, a natural\
+        \ site, an experimental field, a greenhouse, a phenotyping facility, etc."
     LocationNewRequest:
       required:
       - locationDbId
@@ -2359,6 +2187,9 @@ components:
           type: string
         topography:
           type: string
+      description: "A geographic Location on earth. This is usually used to describe\
+        \ the general area where an experiment took place. For example, a natural\
+        \ site, an experimental field, a greenhouse, a phenotyping facility, etc."
     LocationSearchRequest:
       type: object
       properties:
@@ -2368,6 +2199,9 @@ components:
           type: number
         coordinates:
           $ref: "#/components/schemas/GeoJSONSearchArea"
+      description: "A geographic Location on earth. This is usually used to describe\
+        \ the general area where an experiment took place. For example, a natural\
+        \ site, an experimental field, a greenhouse, a phenotyping facility, etc."
     ObservationUnitHierarchyLevel:
       type: object
       properties:
@@ -2395,6 +2229,7 @@ components:
           type: string
         termURI:
           type: string
+      description: A pointer to an ontology used by a genomic reference
     Person:
       required:
       - personDbId
@@ -2418,6 +2253,9 @@ components:
           type: string
         userID:
           type: string
+      description: "A generic object used to maintain the metadata needed to describe\
+        \ a human. The Person might be a software user, a field technician, or a primary\
+        \ contact for a Program."
     PersonNewRequest:
       required:
       - personDbId
@@ -2444,9 +2282,15 @@ components:
           type: string
         userID:
           type: string
+      description: "A generic object used to maintain the metadata needed to describe\
+        \ a human. The Person might be a software user, a field technician, or a primary\
+        \ contact for a Program."
     PersonSearchRequest:
       type: object
       properties: {}
+      description: "A generic object used to maintain the metadata needed to describe\
+        \ a human. The Person might be a software user, a field technician, or a primary\
+        \ contact for a Program."
     Program:
       required:
       - programDbId
@@ -2478,6 +2322,10 @@ components:
           enum:
           - STANDARD
           - PROJECT
+      description: A BrAPI Program represents the high level organization or group
+        who is responsible for conducting trials and studies. Things like Breeding
+        Programs and Funded Projects are considered BrAPI Programs. A Program can
+        contain multiple Trials. A Trial can contain multiple Studies.
     ProgramNewRequest:
       required:
       - programDbId
@@ -2512,9 +2360,17 @@ components:
           enum:
           - STANDARD
           - PROJECT
+      description: A BrAPI Program represents the high level organization or group
+        who is responsible for conducting trials and studies. Things like Breeding
+        Programs and Funded Projects are considered BrAPI Programs. A Program can
+        contain multiple Trials. A Trial can contain multiple Studies.
     ProgramSearchRequest:
       type: object
       properties: {}
+      description: A BrAPI Program represents the high level organization or group
+        who is responsible for conducting trials and studies. Things like Breeding
+        Programs and Funded Projects are considered BrAPI Programs. A Program can
+        contain multiple Trials. A Trial can contain multiple Studies.
     Publication:
       type: object
       properties:
@@ -2528,6 +2384,9 @@ components:
           type: string
         trialPUI:
           type: string
+      description: MIAPPE V1.1 (DM-9) Associated publication - An identifier for a
+        literature publication where the investigation is described. Use of DOIs is
+        recommended.
     Season:
       required:
       - seasonDbId
@@ -2540,6 +2399,12 @@ components:
         year:
           type: integer
           format: int32
+      description: "A Season defines a period in time. A Season is made of two parts;\
+        \ (1) the primary year and (2) a term which defines a segment of the year.\
+        \ This term could be a traditional season, like \"Spring\" or \"Summer\",\
+        \ or this term could be a month, like \"May\" or \"June\", or this could be\
+        \ an arbitrary season name which is meaningful to the breeding Program like\
+        \ \"PlantingTime_3\" or \"Season E\"."
     Study:
       required:
       - studyDbId
@@ -2562,13 +2427,12 @@ components:
           type: string
         endDate:
           type: string
-          format: date-time
         environmentParameterDbIds:
           type: array
           items:
             type: string
-        experimentalDesign:
-          $ref: "#/components/schemas/ExperimentalDesign"
+        experimentalDesignPUI:
+          type: string
         growthFacility:
           $ref: "#/components/schemas/GrowthFacility"
         lastUpdateDbId:
@@ -2579,6 +2443,10 @@ components:
           type: string
         locationName:
           type: string
+        observationLevelDbIds:
+          type: array
+          items:
+            type: string
         observationUnitsDescription:
           type: string
         observationVariableDbIds:
@@ -2587,7 +2455,6 @@ components:
             type: string
         startDate:
           type: string
-          format: date-time
         studyCode:
           type: string
         studyDescription:
@@ -2604,6 +2471,10 @@ components:
           type: string
         trialPUI:
           type: string
+      description: A Study represents an experiment that has taken place at a single
+        location. The Study contains metadata about the parameters and design of the
+        experiment. It can also be used to group results and data sets generated from
+        the experiment. A Trial can represent a collection of one or more Studies.
     StudyNewRequest:
       required:
       - studyDbId
@@ -2627,13 +2498,12 @@ components:
           type: string
         endDate:
           type: string
-          format: date-time
         environmentParameterDbIds:
           type: array
           items:
             type: string
-        experimentalDesign:
-          $ref: "#/components/schemas/ExperimentalDesign"
+        experimentalDesignPUI:
+          type: string
         growthFacility:
           $ref: "#/components/schemas/GrowthFacility"
         lastUpdateDbId:
@@ -2644,6 +2514,10 @@ components:
           type: string
         locationName:
           type: string
+        observationLevelDbIds:
+          type: array
+          items:
+            type: string
         observationUnitsDescription:
           type: string
         observationVariableDbIds:
@@ -2652,7 +2526,6 @@ components:
             type: string
         startDate:
           type: string
-          format: date-time
         studyCode:
           type: string
         studyDbId:
@@ -2671,11 +2544,19 @@ components:
           type: string
         trialPUI:
           type: string
+      description: A Study represents an experiment that has taken place at a single
+        location. The Study contains metadata about the parameters and design of the
+        experiment. It can also be used to group results and data sets generated from
+        the experiment. A Trial can represent a collection of one or more Studies.
     StudySearchRequest:
       type: object
       properties:
         active:
           type: boolean
+      description: A Study represents an experiment that has taken place at a single
+        location. The Study contains metadata about the parameters and design of the
+        experiment. It can also be used to group results and data sets generated from
+        the experiment. A Trial can represent a collection of one or more Studies.
     TraitDataType:
       type: string
       description: |-
@@ -2731,6 +2612,10 @@ components:
           type: string
         trialPUI:
           type: string
+      description: "A Trial represents a collection of Study objects, and the metadata\
+        \ associated with that collection. A Trial could represent a multi-location\
+        \ experiment, and could contain information related to publications and data\
+        \ licensing."
     TrialNewRequest:
       required:
       - trialDbId
@@ -2770,6 +2655,10 @@ components:
           type: string
         trialPUI:
           type: string
+      description: "A Trial represents a collection of Study objects, and the metadata\
+        \ associated with that collection. A Trial could represent a multi-location\
+        \ experiment, and could contain information related to publications and data\
+        \ licensing."
     TrialSearchRequest:
       type: object
       properties:
@@ -2779,6 +2668,10 @@ components:
           type: string
         searchDateRangeStart:
           type: string
+      description: "A Trial represents a collection of Study objects, and the metadata\
+        \ associated with that collection. A Trial could represent a multi-location\
+        \ experiment, and could contain information related to publications and data\
+        \ licensing."
     Variable:
       required:
       - method
@@ -2816,13 +2709,14 @@ components:
           type: string
         submissionTimestamp:
           type: string
-          format: date-time
         synonyms:
           type: array
           items:
             type: string
         trait:
           $ref: "#/components/schemas/Trait"
+      description: "A unique combination of Trait, Method, and Scale to define a clear\
+        \ context for an Observation."
     basePagination:
       required:
       - currentPage
@@ -3393,18 +3287,6 @@ components:
       schema:
         type: integer
       example: 1000
-    authorizationHeader:
-      name: Authorization
-      in: header
-      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
-        \ {token_string} </strong>"
-      required: false
-      style: simple
-      explode: false
-      schema:
-        pattern: ^Bearer .*$
-        type: string
-      example: Bearer XXXX
     page:
       name: page
       in: query
@@ -3433,6 +3315,18 @@ components:
       schema:
         type: string
       example: 33c27874
+    authorizationHeader:
+      name: Authorization
+      in: header
+      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
+        \ {token_string} </strong>"
+      required: false
+      style: simple
+      explode: false
+      schema:
+        pattern: ^Bearer .*$
+        type: string
+      example: Bearer XXXX
   securitySchemes:
     AuthorizationToken:
       type: http

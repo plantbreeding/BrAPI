@@ -56,7 +56,8 @@ components:
           type: string
           nullable: true
           example: Smith, 1893, Really Cool Paper, Popular Journal
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
+        externalReferences:
           nullable: true
+          allOf:
+            - $ref: '#/components/schemas/ExternalReferences'
 

@@ -26,11 +26,13 @@ def dereferenceAll(obj, parent):
                     refObj = dereferenceAll(findRef(obj[fieldStr], parent), parent)
                     #refObj['title'] = refPath[-1]
                     obj = {**obj, **refObj}
+
                 elif(fieldStr == 'allOf'):
                     comboObj = {'properties': {}, 'type': 'object', 'required': []}
                     for item in obj[fieldStr]:
                         itemObj = dereferenceAll(item, parent)
-                        comboObj['properties'] = {**(comboObj['properties']), **(itemObj['properties'])}
+                        if 'properties' in itemObj:
+                            comboObj['properties'] = {**(comboObj['properties']), **(itemObj['properties'])}
                         if 'required' in itemObj:
                             comboObj['required'] = list(set(comboObj['required'] + itemObj['required']))
                         if 'title' in itemObj:
@@ -41,9 +43,10 @@ def dereferenceAll(obj, parent):
                             comboObj['example'] = itemObj['example']
                         if 'x-brapi-metadata' in itemObj:
                             comboObj['x-brapi-metadata'] = itemObj['x-brapi-metadata']
-                        
+                        if 'nullable' in itemObj:
+                            comboObj['nullable'] = itemObj['nullable']
                     obj = comboObj
-                else:
+                elif(fieldStr != 'nullable'):
                     obj[fieldStr] = dereferenceAll(obj[fieldStr], parent)
             if '$ref' in obj:
                 obj.pop('$ref')

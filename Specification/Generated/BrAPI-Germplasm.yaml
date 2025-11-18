@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: BrAPI-Germplasm
-  version: 0.0.0
+  version: "2.1"
 paths:
   /breedingmethods:
     get:
@@ -1640,7 +1640,6 @@ components:
           type: string
         submissionTimestamp:
           type: string
-          format: date-time
         synonyms:
           type: array
           items:
@@ -1663,6 +1662,7 @@ components:
           type: string
         description:
           type: string
+      description: The techniques and protocol used to produce a Cross or Germplasm
     Contact:
       required:
       - contactDbId
@@ -1680,6 +1680,7 @@ components:
           type: string
         type:
           type: string
+      description: A persons contact information
     ContentMixture:
       type: object
       properties:
@@ -1700,6 +1701,13 @@ components:
           type: string
         seedLotName:
           type: string
+      description: "The mixture of germplasm present in the seed lot. \n<br/>If this\
+        \ seed lot only contains a single germplasm, the response should contain the\
+        \ name and DbId of that germplasm with a mixturePercentage value of 100 \n\
+        <br/>If the seed lot contains a mixture of different germplasm, the response\
+        \ should contain the name and DbId every germplasm present. The mixturePercentage\
+        \ field should contain the ratio of each germplasm in the total mixture. All\
+        \ of the mixturePercentage values in this array should sum to equal 100."
     ContentTypes:
       type: string
       enum:
@@ -1742,6 +1750,9 @@ components:
           type: string
         plannedCrossName:
           type: string
+      description: The identifiers and metadata represent that specific organisms
+        have mated to produce offspring with particular traits or genes. The offspring
+        of a Cross might be developed into a Germplasm if the desired traits are present.
     CrossAttribute:
       type: object
       properties:
@@ -1753,6 +1764,7 @@ components:
           type: string
         crossName:
           type: string
+      description: A custom attributes associated with a cross
     CrossNewRequest:
       required:
       - crossDbId
@@ -1779,6 +1791,9 @@ components:
           type: string
         plannedCrossName:
           type: string
+      description: The identifiers and metadata represent that specific organisms
+        have mated to produce offspring with particular traits or genes. The offspring
+        of a Cross might be developed into a Germplasm if the desired traits are present.
     CrossParent:
       type: object
       properties:
@@ -1792,6 +1807,7 @@ components:
           type: string
         parentType:
           $ref: "#/components/schemas/ParentType"
+      description: The identifying information gor the parent material of a cross.
     CrossType:
       type: string
       description: "The type of cross make. Accepted values for this field are 'BIPARENTAL',\
@@ -1823,6 +1839,9 @@ components:
           type: string
         programName:
           type: string
+      description: "A project structure where a list of PlannedCrosses is generated,\
+        \ the crossing events occur in the field, and the resulting actual Crosses\
+        \ can documented."
     CrossingProjectNewRequest:
       required:
       - crossingProjectDbId
@@ -1844,6 +1863,9 @@ components:
           type: string
         programName:
           type: string
+      description: "A project structure where a list of PlannedCrosses is generated,\
+        \ the crossing events occur in the field, and the resulting actual Crosses\
+        \ can documented."
     Donor:
       type: object
       properties:
@@ -1857,19 +1879,23 @@ components:
           type: string
         germplasmPUI:
           type: string
-    ExperimentalDesign:
+      description: Identifier assigned to an accession by the material donor.
+    ExperimentFactor:
       type: object
       properties:
-        PUI:
+        factor:
           type: string
-        description:
+        factorPUI:
           type: string
-        studyDbId:
-          type: string
-        studyName:
-          type: string
-        studyPUI:
-          type: string
+        modalities:
+          type: array
+          items:
+            type: object
+            properties:
+              modality:
+                type: string
+              modalityPUI:
+                type: string
     ExternalReference:
       type: object
       properties:
@@ -2044,6 +2070,14 @@ components:
           type: string
         subtaxaAuthority:
           type: string
+      description: "The conceptual identifiers and metadata describing a genetically\
+        \ unique organism that is noteworthy in some way. Depending on context, a\
+        \ Germplasm might be synonymous with Accession, Line, or Genotype. Note that\
+        \ Germplasm is conceptual data, not necessarily associated to a real physical\
+        \ object, so Seed/Inventory Lots and Observation Units become physical instantiations\
+        \ of a particular Germplasm. Note a Germplasm is unique and noteworthy, so\
+        \ a Cross may or may not create a new Germplasm, since not every Cross is\
+        \ unique or noteworthy."
     GermplasmAttribute:
       required:
       - attributeDbId
@@ -2100,13 +2134,15 @@ components:
           type: string
         submissionTimestamp:
           type: string
-          format: date-time
         traitDbId:
           type: string
         traitName:
           type: string
         traitPUI:
           type: string
+      description: "The Trait-Method-Scale definition for a variable, specifically\
+        \ variables related to Germplasm. Similar to an ObservationVariable, but related\
+        \ to a Germplasm instead of an ObservationUnit"
     GermplasmAttributeNewRequest:
       required:
       - attributeDbId
@@ -2165,16 +2201,21 @@ components:
           type: string
         submissionTimestamp:
           type: string
-          format: date-time
         traitDbId:
           type: string
         traitName:
           type: string
         traitPUI:
           type: string
+      description: "The Trait-Method-Scale definition for a variable, specifically\
+        \ variables related to Germplasm. Similar to an ObservationVariable, but related\
+        \ to a Germplasm instead of an ObservationUnit"
     GermplasmAttributeSearchRequest:
       type: object
       properties: {}
+      description: "The Trait-Method-Scale definition for a variable, specifically\
+        \ variables related to Germplasm. Similar to an ObservationVariable, but related\
+        \ to a Germplasm instead of an ObservationUnit"
     GermplasmAttributeValue:
       required:
       - attributeName
@@ -2191,7 +2232,6 @@ components:
           type: string
         determinedDate:
           type: string
-          format: date-time
         germplasmDbId:
           type: string
         germplasmName:
@@ -2200,6 +2240,9 @@ components:
           type: string
         value:
           type: string
+      description: "The value recorded for a particular Trait/Attribute and a particular\
+        \ Germplasm. Similar to an Observation value, but more concrete, applying\
+        \ to the whole Germplasm instead of a single ObservationUnit."
     GermplasmAttributeValueNewRequest:
       required:
       - attributeName
@@ -2218,7 +2261,6 @@ components:
           type: string
         determinedDate:
           type: string
-          format: date-time
         germplasmDbId:
           type: string
         germplasmName:
@@ -2227,9 +2269,15 @@ components:
           type: string
         value:
           type: string
+      description: "The value recorded for a particular Trait/Attribute and a particular\
+        \ Germplasm. Similar to an Observation value, but more concrete, applying\
+        \ to the whole Germplasm instead of a single ObservationUnit."
     GermplasmAttributeValueSearchRequest:
       type: object
       properties: {}
+      description: "The value recorded for a particular Trait/Attribute and a particular\
+        \ Germplasm. Similar to an Observation value, but more concrete, applying\
+        \ to the whole Germplasm instead of a single ObservationUnit."
     GermplasmChild:
       required:
       - germplasmDbId
@@ -2248,6 +2296,8 @@ components:
           $ref: "#/components/schemas/ParentType"
         pedigreeNodeDbId:
           type: string
+      description: "A germplasm reference that is a direct child of this germplasm.\
+        \ These represent edges in the tree, connecting to other nodes."
     GermplasmNewRequest:
       required:
       - commonCropName
@@ -2349,6 +2399,14 @@ components:
           type: string
         subtaxaAuthority:
           type: string
+      description: "The conceptual identifiers and metadata describing a genetically\
+        \ unique organism that is noteworthy in some way. Depending on context, a\
+        \ Germplasm might be synonymous with Accession, Line, or Genotype. Note that\
+        \ Germplasm is conceptual data, not necessarily associated to a real physical\
+        \ object, so Seed/Inventory Lots and Observation Units become physical instantiations\
+        \ of a particular Germplasm. Note a Germplasm is unique and noteworthy, so\
+        \ a Cross may or may not create a new Germplasm, since not every Cross is\
+        \ unique or noteworthy."
     GermplasmOrigin:
       type: object
       properties:
@@ -2360,6 +2418,9 @@ components:
           type: string
         germplasmPUI:
           type: string
+      description: "Information for material (orchard, natural sites, ...). Geographic\
+        \ identification of the plants from which seeds or cutting have been taken\
+        \ to produce that germplasm."
     GermplasmParent:
       required:
       - germplasmDbId
@@ -2378,9 +2439,19 @@ components:
           $ref: "#/components/schemas/ParentType"
         pedigreeNodeDbId:
           type: string
+      description: "A germplasm reference that is a direct parent of this germplasm.\
+        \ These represent edges in the tree, connecting to other nodes."
     GermplasmSearchRequest:
       type: object
       properties: {}
+      description: "The conceptual identifiers and metadata describing a genetically\
+        \ unique organism that is noteworthy in some way. Depending on context, a\
+        \ Germplasm might be synonymous with Accession, Line, or Genotype. Note that\
+        \ Germplasm is conceptual data, not necessarily associated to a real physical\
+        \ object, so Seed/Inventory Lots and Observation Units become physical instantiations\
+        \ of a particular Germplasm. Note a Germplasm is unique and noteworthy, so\
+        \ a Cross may or may not create a new Germplasm, since not every Cross is\
+        \ unique or noteworthy."
     GrowthFacility:
       type: object
       properties:
@@ -2394,6 +2465,8 @@ components:
           type: string
         studyPUI:
           type: string
+      description: Short description of the facility in which the study was carried
+        out.
     ListType:
       type: string
       description: The type of objects that are referenced in a List
@@ -2431,6 +2504,11 @@ components:
           type: string
         ontologyReferenceDbId:
           type: string
+      description: "A description of the way an Observation should be collected. \n\
+        <br>For example, an ObservationVariable might be defined with a Trait of \"\
+        plant height\", a Scale of \"meters\", and a Method of \"tape measure\". This\
+        \ variable would be distinct from a variable with the Method \"estimation\"\
+        \ or \"drone image processing\". "
     ObservationUnitHierarchyLevel:
       type: object
       properties:
@@ -2516,6 +2594,8 @@ components:
           - GRID_COL
           - MEASURED_ROW
           - MEASURED_COL
+      description: All positional and layout information related to this Observation
+        Unit
     OntologyReference:
       required:
       - ontology
@@ -2527,6 +2607,14 @@ components:
           type: string
         version:
           type: string
+      description: "MIAPPE V1.1 (DM-85) Variable accession number - Accession number\
+        \ of the variable in the Crop Ontology \nMIAPPE V1.1 (DM-87) Trait accession\
+        \ number - Accession number of the trait in a suitable controlled vocabulary\
+        \ (Crop Ontology, Trait Ontology).\nMIAPPE V1.1 (DM-89) Method accession number\
+        \ - Accession number of the method in a suitable controlled vocabulary (Crop\
+        \ Ontology, Trait Ontology).\nMIAPPE V1.1 (DM-93) Scale accession number -\
+        \ Accession number of the scale in a suitable controlled vocabulary (Crop\
+        \ Ontology)."
     OntologyTerm:
       type: object
       properties:
@@ -2534,6 +2622,7 @@ components:
           type: string
         termURI:
           type: string
+      description: A pointer to an ontology used by a genomic reference
     ParentType:
       type: string
       description: "The type of parent used during crossing. Accepted values for this\
@@ -2590,6 +2679,10 @@ components:
           type: array
           items:
             type: string
+      description: "A representation of a particular Germplasm within a pedigree tree,\
+        \ and all the links to its parents, siblings, and children. From a list of\
+        \ PedigreeNode objects, a client application should have all the information\
+        \ it needs to draw a pedigree tree visualization, or calculate genetic distances."
     PedigreeNodeSearchRequest:
       type: object
       properties:
@@ -2607,6 +2700,10 @@ components:
         progenyDepth:
           type: integer
           format: int32
+      description: "A representation of a particular Germplasm within a pedigree tree,\
+        \ and all the links to its parents, siblings, and children. From a list of\
+        \ PedigreeNode objects, a client application should have all the information\
+        \ it needs to draw a pedigree tree visualization, or calculate genetic distances."
     PlannedCross:
       required:
       - plannedCrossDbId
@@ -2637,6 +2734,9 @@ components:
           - TODO
           - DONE
           - SKIPPED
+      description: Information regarding the intention to mate specific organisms
+        together to produce offspring with desired traits. A PlannedCross becomes
+        an actual Cross when the desired mating event actually occurs in the field.
     PollinationEvent:
       type: object
       properties:
@@ -2650,7 +2750,7 @@ components:
           type: boolean
         pollinationTimeStamp:
           type: string
-          format: date-time
+      description: A pollination event that occurred for this cross
     Scale:
       required:
       - scaleDbId
@@ -2693,6 +2793,11 @@ components:
           type: string
         validValues:
           $ref: "#/components/schemas/ValidValues"
+      description: "A Scale describes the units and acceptable values for an ObservationVariable.\
+        \ \n<br>For example, an ObservationVariable might be defined with a Trait\
+        \ of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\"\
+        . This variable would be distinct from a variable with the Scale \"inches\"\
+        \ or \"pixels\"."
     SeedLot:
       required:
       - seedLotDbId
@@ -2705,10 +2810,8 @@ components:
           type: number
         createdDate:
           type: string
-          format: date-time
         lastUpdated:
           type: string
-          format: date-time
         locationDbId:
           type: string
         locationName:
@@ -2727,6 +2830,10 @@ components:
           type: string
         units:
           type: string
+      description: "A SeedLot, also known as an InventoryLot, is a collection of starting\
+        \ material (seeds, bulbs, root-stock, etc) for a particular Germplasm. The\
+        \ amount of material available for each Germplasm can be increased by seed\
+        \ production and decreased by planting or trading with another breeding Program."
     SeedLotNewRequest:
       required:
       - seedLotDbId
@@ -2740,10 +2847,8 @@ components:
           type: number
         createdDate:
           type: string
-          format: date-time
         lastUpdated:
           type: string
-          format: date-time
         locationDbId:
           type: string
         locationName:
@@ -2764,6 +2869,10 @@ components:
           type: string
         units:
           type: string
+      description: "A SeedLot, also known as an InventoryLot, is a collection of starting\
+        \ material (seeds, bulbs, root-stock, etc) for a particular Germplasm. The\
+        \ amount of material available for each Germplasm can be increased by seed\
+        \ production and decreased by planting or trading with another breeding Program."
     SeedLotTransaction:
       required:
       - transactionDbId
@@ -2783,9 +2892,10 @@ components:
           type: string
         transactionTimestamp:
           type: string
-          format: date-time
         units:
           type: string
+      description: The record of an event where material was moved in or out of a
+        particular SeedLot
     StorageType:
       type: object
       properties:
@@ -2817,6 +2927,7 @@ components:
           type: string
         germplasmPUI:
           type: string
+      description: The type of storage this germplasm is kept in at a genebank.
     Synonym:
       type: object
       properties:
@@ -2830,6 +2941,7 @@ components:
           type: string
         type:
           type: string
+      description: Alternative names or IDs used to reference this germplasm
     TaxonId:
       required:
       - sourceName
@@ -2846,6 +2958,11 @@ components:
           type: string
         taxonId:
           type: string
+      description: "The list of IDs for this SPECIES from different sources. If present,\
+        \ NCBI Taxon should be always listed as \"ncbiTaxon\" preferably with a purl.\
+        \ The rank of this ID should be species. \n\nMIAPPE V1.1 (DM-42) Organism\
+        \ - An identifier for the organism at the species level. Use of the NCBI taxon\
+        \ ID is recommended."
     Trait:
       required:
       - traitName
@@ -2877,6 +2994,11 @@ components:
           type: string
         traitPUI:
           type: string
+      description: "A Trait describes what property is being observed. \n<br>For example,\
+        \ an ObservationVariable might be defined with a Trait of \"plant height\"\
+        , a Scale of \"meters\", and a Method of \"tape measure\". This variable would\
+        \ be distinct from a variable with the Trait \"Leaf length\" or \"Flower height\"\
+        . "
     TraitDataType:
       type: string
       description: |-
@@ -2933,13 +3055,14 @@ components:
           type: string
         submissionTimestamp:
           type: string
-          format: date-time
         synonyms:
           type: array
           items:
             type: string
         trait:
           $ref: "#/components/schemas/Trait"
+      description: "A unique combination of Trait, Method, and Scale to define a clear\
+        \ context for an Observation."
     basePagination:
       required:
       - currentPage
@@ -3828,18 +3951,6 @@ components:
       schema:
         type: integer
       example: 1000
-    authorizationHeader:
-      name: Authorization
-      in: header
-      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
-        \ {token_string} </strong>"
-      required: false
-      style: simple
-      explode: false
-      schema:
-        pattern: ^Bearer .*$
-        type: string
-      example: Bearer XXXX
     page:
       name: page
       in: query
@@ -3868,6 +3979,18 @@ components:
       schema:
         type: string
       example: 33c27874
+    authorizationHeader:
+      name: Authorization
+      in: header
+      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
+        \ {token_string} </strong>"
+      required: false
+      style: simple
+      explode: false
+      schema:
+        pattern: ^Bearer .*$
+        type: string
+      example: Bearer XXXX
   securitySchemes:
     AuthorizationToken:
       type: http

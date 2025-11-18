@@ -122,10 +122,7 @@ Get a filtered set of Observation Units
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string</td><td>the unique identifier for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossName</span></td><td>string</td><td>the human readable name for a cross</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmDbId</span></td><td>string</td><td>The ID which uniquely identifies a germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmName</span></td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
 <tr><td><span style="font-weight:bold;">locationDbId</span></td><td>string</td><td>The ID which uniquely identifies a location, associated with this study</td></tr>
@@ -154,10 +151,7 @@ Get a filtered set of Observation Units
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.observationDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies an observation</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
-<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.geoCoordinates</span></td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
 <tr><td>observations<br>.geoCoordinates<br><span style="font-weight:bold;margin-left:5px">.geometry</span></td><td>object</td><td>A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.</td></tr>
 <tr><td>observations<br>.geoCoordinates<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td>The literal string "Feature"</td></tr>
@@ -184,7 +178,9 @@ Get a filtered set of Observation Units
 <tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study</td></tr>
 <tr><td><span style="font-weight:bold;">treatments</span></td><td>array[object]</td><td>List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.</td></tr>
 <tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
-<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. </td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modalityPUI</span></td><td>string</td><td>The PUI of the modality which may link to an ontology</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
 <tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial</td></tr>
 </table>
@@ -357,7 +353,9 @@ Get a filtered set of Observation Units
                 "treatments": [
                     {
                         "factor": "fertilizer",
-                        "modality": "low fertilizer"
+                        "factorPUI": "test-factor:dia2020-2-nv.fertilizer",
+                        "modality": "low fertilizer",
+                        "modalityPUI": "test-factor:dia2020-2-nv.lf"
                     }
                 ],
                 "trialDbId": "776a609c",
@@ -397,10 +395,7 @@ Add new Observation Units
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string</td><td>the unique identifier for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossName</span></td><td>string</td><td>the human readable name for a cross</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmDbId</span></td><td>string</td><td>The ID which uniquely identifies a germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmName</span></td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
 <tr><td><span style="font-weight:bold;">locationDbId</span></td><td>string</td><td>The ID which uniquely identifies a location, associated with this study</td></tr>
@@ -433,7 +428,9 @@ Add new Observation Units
 <tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study</td></tr>
 <tr><td><span style="font-weight:bold;">treatments</span></td><td>array[object]</td><td>List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.</td></tr>
 <tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
-<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. </td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modalityPUI</span></td><td>string</td><td>The PUI of the modality which may link to an ontology</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
 <tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial</td></tr>
 </table>
@@ -447,10 +444,7 @@ Add new Observation Units
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string</td><td>the unique identifier for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossName</span></td><td>string</td><td>the human readable name for a cross</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmDbId</span></td><td>string</td><td>The ID which uniquely identifies a germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmName</span></td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
 <tr><td><span style="font-weight:bold;">locationDbId</span></td><td>string</td><td>The ID which uniquely identifies a location, associated with this study</td></tr>
@@ -479,10 +473,7 @@ Add new Observation Units
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.observationDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies an observation</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
-<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.geoCoordinates</span></td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
 <tr><td>observations<br>.geoCoordinates<br><span style="font-weight:bold;margin-left:5px">.geometry</span></td><td>object</td><td>A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.</td></tr>
 <tr><td>observations<br>.geoCoordinates<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td>The literal string "Feature"</td></tr>
@@ -509,7 +500,9 @@ Add new Observation Units
 <tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study</td></tr>
 <tr><td><span style="font-weight:bold;">treatments</span></td><td>array[object]</td><td>List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.</td></tr>
 <tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
-<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. </td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modalityPUI</span></td><td>string</td><td>The PUI of the modality which may link to an ontology</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
 <tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial</td></tr>
 </table>
@@ -594,7 +587,9 @@ Add new Observation Units
         "treatments": [
             {
                 "factor": "fertilizer",
-                "modality": "low fertilizer"
+                "factorPUI": "test-factor:dia2020-2-nv.fertilizer",
+                "modality": "low fertilizer",
+                "modalityPUI": "test-factor:dia2020-2-nv.lf"
             }
         ],
         "trialDbId": "776a609c",
@@ -742,7 +737,9 @@ Add new Observation Units
                 "treatments": [
                     {
                         "factor": "fertilizer",
-                        "modality": "low fertilizer"
+                        "factorPUI": "test-factor:dia2020-2-nv.fertilizer",
+                        "modality": "low fertilizer",
+                        "modalityPUI": "test-factor:dia2020-2-nv.lf"
                     }
                 ],
                 "trialDbId": "776a609c",
@@ -792,10 +789,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string</td><td>the unique identifier for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossName</span></td><td>string</td><td>the human readable name for a cross</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmDbId</span></td><td>string</td><td>The ID which uniquely identifies a germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmName</span></td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
 <tr><td><span style="font-weight:bold;">locationDbId</span></td><td>string</td><td>The ID which uniquely identifies a location, associated with this study</td></tr>
@@ -824,10 +818,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.observationDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies an observation</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
-<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.geoCoordinates</span></td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
 <tr><td>observations<br>.geoCoordinates<br><span style="font-weight:bold;margin-left:5px">.geometry</span></td><td>object</td><td>A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.</td></tr>
 <tr><td>observations<br>.geoCoordinates<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td>The literal string "Feature"</td></tr>
@@ -854,7 +845,9 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 <tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study</td></tr>
 <tr><td><span style="font-weight:bold;">treatments</span></td><td>array[object]</td><td>List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.</td></tr>
 <tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
-<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. </td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modalityPUI</span></td><td>string</td><td>The PUI of the modality which may link to an ontology</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
 <tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial</td></tr>
 </table>
@@ -1148,7 +1141,9 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                 "treatments": [
                     {
                         "factor": "fertilizer",
-                        "modality": "low fertilizer"
+                        "factorPUI": "test-factor:dia2020-2-nv.fertilizer",
+                        "modality": "low fertilizer",
+                        "modalityPUI": "test-factor:dia2020-2-nv.lf"
                     }
                 ],
                 "trialDbId": "776a609c",
@@ -1450,10 +1445,7 @@ Get the details of a specific Observation Unit
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string</td><td>the unique identifier for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossName</span></td><td>string</td><td>the human readable name for a cross</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmDbId</span></td><td>string</td><td>The ID which uniquely identifies a germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmName</span></td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
 <tr><td><span style="font-weight:bold;">locationDbId</span></td><td>string</td><td>The ID which uniquely identifies a location, associated with this study</td></tr>
@@ -1482,10 +1474,7 @@ Get the details of a specific Observation Unit
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.observationDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies an observation</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
-<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.geoCoordinates</span></td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
 <tr><td>observations<br>.geoCoordinates<br><span style="font-weight:bold;margin-left:5px">.geometry</span></td><td>object</td><td>A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.</td></tr>
 <tr><td>observations<br>.geoCoordinates<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td>The literal string "Feature"</td></tr>
@@ -1512,7 +1501,9 @@ Get the details of a specific Observation Unit
 <tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study</td></tr>
 <tr><td><span style="font-weight:bold;">treatments</span></td><td>array[object]</td><td>List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.</td></tr>
 <tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
-<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. </td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modalityPUI</span></td><td>string</td><td>The PUI of the modality which may link to an ontology</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
 <tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial</td></tr>
 </table>
@@ -1662,7 +1653,9 @@ Get the details of a specific Observation Unit
         "treatments": [
             {
                 "factor": "fertilizer",
-                "modality": "low fertilizer"
+                "factorPUI": "test-factor:dia2020-2-nv.fertilizer",
+                "modality": "low fertilizer",
+                "modalityPUI": "test-factor:dia2020-2-nv.lf"
             }
         ],
         "trialDbId": "776a609c",
@@ -1700,10 +1693,7 @@ Update an existing Observation Units
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string</td><td>the unique identifier for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossName</span></td><td>string</td><td>the human readable name for a cross</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmDbId</span></td><td>string</td><td>The ID which uniquely identifies a germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmName</span></td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
 <tr><td><span style="font-weight:bold;">locationDbId</span></td><td>string</td><td>The ID which uniquely identifies a location, associated with this study</td></tr>
@@ -1736,7 +1726,9 @@ Update an existing Observation Units
 <tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study</td></tr>
 <tr><td><span style="font-weight:bold;">treatments</span></td><td>array[object]</td><td>List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.</td></tr>
 <tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
-<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. </td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modalityPUI</span></td><td>string</td><td>The PUI of the modality which may link to an ontology</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
 <tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial</td></tr>
 </table>
@@ -1750,10 +1742,7 @@ Update an existing Observation Units
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string</td><td>the unique identifier for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossName</span></td><td>string</td><td>the human readable name for a cross</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmDbId</span></td><td>string</td><td>The ID which uniquely identifies a germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmName</span></td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
 <tr><td><span style="font-weight:bold;">locationDbId</span></td><td>string</td><td>The ID which uniquely identifies a location, associated with this study</td></tr>
@@ -1782,10 +1771,7 @@ Update an existing Observation Units
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.observationDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies an observation</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
-<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.geoCoordinates</span></td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
 <tr><td>observations<br>.geoCoordinates<br><span style="font-weight:bold;margin-left:5px">.geometry</span></td><td>object</td><td>A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.</td></tr>
 <tr><td>observations<br>.geoCoordinates<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td>The literal string "Feature"</td></tr>
@@ -1812,7 +1798,9 @@ Update an existing Observation Units
 <tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study</td></tr>
 <tr><td><span style="font-weight:bold;">treatments</span></td><td>array[object]</td><td>List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.</td></tr>
 <tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
-<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. </td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modalityPUI</span></td><td>string</td><td>The PUI of the modality which may link to an ontology</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
 <tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial</td></tr>
 </table>
@@ -1897,7 +1885,9 @@ Update an existing Observation Units
     "treatments": [
         {
             "factor": "fertilizer",
-            "modality": "low fertilizer"
+            "factorPUI": "test-factor:dia2020-2-nv.fertilizer",
+            "modality": "low fertilizer",
+            "modalityPUI": "test-factor:dia2020-2-nv.lf"
         }
     ],
     "trialDbId": "776a609c",
@@ -2042,7 +2032,9 @@ Update an existing Observation Units
         "treatments": [
             {
                 "factor": "fertilizer",
-                "modality": "low fertilizer"
+                "factorPUI": "test-factor:dia2020-2-nv.fertilizer",
+                "modality": "low fertilizer",
+                "modalityPUI": "test-factor:dia2020-2-nv.lf"
             }
         ],
         "trialDbId": "776a609c",
@@ -2124,10 +2116,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string</td><td>the unique identifier for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossName</span></td><td>string</td><td>the human readable name for a cross</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmDbId</span></td><td>string</td><td>The ID which uniquely identifies a germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmName</span></td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
 <tr><td><span style="font-weight:bold;">locationDbId</span></td><td>string</td><td>The ID which uniquely identifies a location, associated with this study</td></tr>
@@ -2156,10 +2145,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.observationDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies an observation</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
-<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.geoCoordinates</span></td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
 <tr><td>observations<br>.geoCoordinates<br><span style="font-weight:bold;margin-left:5px">.geometry</span></td><td>object</td><td>A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.</td></tr>
 <tr><td>observations<br>.geoCoordinates<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td>The literal string "Feature"</td></tr>
@@ -2186,7 +2172,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study</td></tr>
 <tr><td><span style="font-weight:bold;">treatments</span></td><td>array[object]</td><td>List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.</td></tr>
 <tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
-<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. </td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modalityPUI</span></td><td>string</td><td>The PUI of the modality which may link to an ontology</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
 <tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial</td></tr>
 </table>
@@ -2447,7 +2435,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "treatments": [
                     {
                         "factor": "fertilizer",
-                        "modality": "low fertilizer"
+                        "factorPUI": "test-factor:dia2020-2-nv.fertilizer",
+                        "modality": "low fertilizer",
+                        "modalityPUI": "test-factor:dia2020-2-nv.lf"
                     }
                 ],
                 "trialDbId": "776a609c",
@@ -2522,10 +2512,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td><span style="font-weight:bold;">crossDbId</span></td><td>string</td><td>the unique identifier for a cross</td></tr>
 <tr><td><span style="font-weight:bold;">crossName</span></td><td>string</td><td>the human readable name for a cross</td></tr>
-<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td><span style="font-weight:bold;">externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmDbId</span></td><td>string</td><td>The ID which uniquely identifies a germplasm</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmName</span></td><td>string</td><td>Name of the germplasm. It can be the preferred name and does not have to be unique.</td></tr>
 <tr><td><span style="font-weight:bold;">locationDbId</span></td><td>string</td><td>The ID which uniquely identifies a location, associated with this study</td></tr>
@@ -2554,10 +2541,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.observationDbId</span></td><td>string<br><span style="font-size: smaller; color: red;">(Required)</span></td><td>The ID which uniquely identifies an observation</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.additionalInfo</span></td><td>object</td><td>A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.collector</span></td><td>string</td><td>The name or identifier of the entity which collected the observation</td></tr>
-<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>array[object]</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
-<tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceID</span></td><td>string</td><td>**Deprecated in v2.1** Please use `referenceId`. Github issue number #460  <br>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceId</span></td><td>string</td><td>The external reference ID. Could be a simple string or a URI.</td></tr>
-<tr><td>observations<br>.externalReferences<br><span style="font-weight:bold;margin-left:5px">.referenceSource</span></td><td>string</td><td>An identifier for the source system or database of this reference</td></tr>
+<tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.externalReferences</span></td><td>object</td><td>An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.</td></tr>
 <tr><td>observations<br><span style="font-weight:bold;margin-left:5px">.geoCoordinates</span></td><td>object</td><td>One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.</td></tr>
 <tr><td>observations<br>.geoCoordinates<br><span style="font-weight:bold;margin-left:5px">.geometry</span></td><td>object</td><td>A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.</td></tr>
 <tr><td>observations<br>.geoCoordinates<br><span style="font-weight:bold;margin-left:5px">.type</span></td><td>string</td><td>The literal string "Feature"</td></tr>
@@ -2584,7 +2568,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">studyName</span></td><td>string</td><td>The human readable name for a study</td></tr>
 <tr><td><span style="font-weight:bold;">treatments</span></td><td>array[object]</td><td>List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.</td></tr>
 <tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factor</span></td><td>string</td><td>The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.</td></tr>
-<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. </td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.factorPUI</span></td><td>string</td><td>The PUI of the factor which may link to an ontology</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modality</span></td><td>string</td><td>The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor.</td></tr>
+<tr><td>treatments<br><span style="font-weight:bold;margin-left:5px">.modalityPUI</span></td><td>string</td><td>The PUI of the modality which may link to an ontology</td></tr>
 <tr><td><span style="font-weight:bold;">trialDbId</span></td><td>string</td><td>The ID which uniquely identifies a trial</td></tr>
 <tr><td><span style="font-weight:bold;">trialName</span></td><td>string</td><td>The human readable name of a trial</td></tr>
 </table>
@@ -2738,7 +2724,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                 "treatments": [
                     {
                         "factor": "fertilizer",
-                        "modality": "low fertilizer"
+                        "factorPUI": "test-factor:dia2020-2-nv.fertilizer",
+                        "modality": "low fertilizer",
+                        "modalityPUI": "test-factor:dia2020-2-nv.lf"
                     }
                 ],
                 "trialDbId": "776a609c",
