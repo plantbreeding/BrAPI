@@ -5321,6 +5321,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples.
+
 
             * Added property `germplasmPUI` (string)
 
@@ -5458,6 +5460,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples.
+
 
             * Added property `germplasmPUI` (string)
 
@@ -5547,6 +5551,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples.
+
 
             * Added property `germplasmPUI` (string)
 
@@ -5640,6 +5646,8 @@ Changed response : **200 OK**
 * Changed content type : `application/json`
 
     * Changed property `result` (object)
+        > A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples.
+
 
         * Added property `germplasmPUI` (string)
 
@@ -10930,6 +10938,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples.
+
 
             * Added property `germplasmPUI` (string)
 
@@ -11047,6 +11057,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples.
+
 
             * Added property `germplasmPUI` (string)
 

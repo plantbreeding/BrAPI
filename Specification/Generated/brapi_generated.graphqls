@@ -1676,6 +1676,7 @@ type ObservationTreatment {
   observationUnit: ObservationUnit
 }
 
+"A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples."
 type ObservationUnit {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfo
@@ -5348,6 +5349,7 @@ input ObservationUnitHierarchyLevelInput {
   levelOrder: Int
 }
 
+"A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples."
 input ObservationUnitInput {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfoInput

@@ -2538,6 +2538,9 @@ components:
           type: string
         trialPUI:
           type: string
+      description: "A representation of the physical entity being observed during\
+        \ a phenotype data collection process. Typically, this is a Plot or a Plant,\
+        \ but it could include things like Fields, Blocks, or Samples."
     ObservationUnitHierarchyLevel:
       type: object
       properties:
@@ -2650,6 +2653,9 @@ components:
           type: string
         trialPUI:
           type: string
+      description: "A representation of the physical entity being observed during\
+        \ a phenotype data collection process. Typically, this is a Plot or a Plant,\
+        \ but it could include things like Fields, Blocks, or Samples."
     ObservationUnitPosition:
       type: object
       properties:
@@ -2722,6 +2728,9 @@ components:
       properties:
         includeObservations:
           type: boolean
+      description: "A representation of the physical entity being observed during\
+        \ a phenotype data collection process. Typically, this is a Plot or a Plant,\
+        \ but it could include things like Fields, Blocks, or Samples."
     ObservationVariable:
       required:
       - methodName
