@@ -132,7 +132,7 @@
                 }
             },
             "title": "CrossAttribute",
-            "description": "A custom attribute associated with a cross",
+            "description": "A custom attribute associated with a cross. For example, if the crossing event occurred on a humid day, a user might record 'crossAttributeName':'Relative Humidity', 'crossAttributeValue':'80%'",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

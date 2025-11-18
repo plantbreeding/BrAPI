@@ -31,18 +31,6 @@
 > Get the details of a specific Germplasm in MCPD format
 
 
-##### `GET` /germplasm/{germplasmDbId}/pedigree
-
-> **Deprecated in v2.1** Please use `GET /pedigree?germplasmDbId={germplasmDbId}`. Github issue number #481 
-> <br/> Get the pedigree details of a specific Germplasm
-
-
-##### `GET` /germplasm/{germplasmDbId}/progeny
-
-> **Deprecated in v2.1** Please use `GET /pedigree?germplasmDbId={germplasmDbId}`. Github issue number #481 
-> <br/> Get the progeny details of a specific Germplasm
-
-
 ##### `PUT` /images/{imageDbId}/imagecontent
 
 > Attach an image binary file to an existing image metadata record
@@ -51,11 +39,6 @@
 ##### `POST` /lists/{listDbId}/data
 
 > Add new data members to a specific List
-
-
-##### `POST` /lists/{listDbId}/items
-
-> Add Items to a specific List
 
 
 ##### `GET` /maps/{mapDbId}/linkagegroups
@@ -113,46 +96,6 @@
 > Create new `VariantSet` based on search results
 
 
-##### `GET` /vendor/orders
-
-> List current available orders
-
-
-##### `POST` /vendor/orders
-
-> Submit New Order
-
-
-##### `GET` /vendor/orders/{orderId}/plates
-
-> Get the Plates for a specific Order
-
-
-##### `GET` /vendor/orders/{orderId}/results
-
-> Get the results of a specific Order
-
-
-##### `GET` /vendor/orders/{orderId}/status
-
-> Get the status of a specific Order
-
-
-##### `POST` /vendor/plates
-
-> Submit a new set of Sample data
-
-
-##### `GET` /vendor/plates/{submissionId}
-
-> Get the data for a submitted set of plates
-
-
-##### `GET` /vendor/specifications
-
-> Get the Vendor Specifications
-
-
 ##### `PUT` /calls
 
 > Update existing `Calls` with new genotype value or metadata
@@ -171,11 +114,6 @@
 ##### `PUT` /plates
 
 > Update the details of existing Plates
-
-
-##### `PUT` /samples/{sampleDbId}
-
-> Update the details of an existing Sample
 
 
 ##### `PUT` /observations/{observationDbId}
@@ -264,6 +202,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The Trait-Method-Scale definition for a variable, specifically variables related to Germplasm. Similar to an ObservationVariable, but related to a Germplasm instead of an ObservationUnit
+
 
             New required properties:
             - `methodName`
@@ -382,6 +322,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The Trait-Method-Scale definition for a variable, specifically variables related to Germplasm. Similar to an ObservationVariable, but related to a Germplasm instead of an ObservationUnit
+
 
             New required properties:
             - `methodName`
@@ -502,6 +444,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > The Trait-Method-Scale definition for a variable, specifically variables related to Germplasm. Similar to an ObservationVariable, but related to a Germplasm instead of an ObservationUnit
+
 
         New required properties:
         - `methodName`
@@ -708,6 +652,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > The Trait-Method-Scale definition for a variable, specifically variables related to Germplasm. Similar to an ObservationVariable, but related to a Germplasm instead of an ObservationUnit
+
 
         New required properties:
         - `methodName`
@@ -888,6 +834,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The value recorded for a particular Trait/Attribute and a particular Germplasm. Similar to an Observation value, but more concrete, applying to the whole Germplasm instead of a single ObservationUnit.
+
 
             * Added property `attributePUI` (string)
 
@@ -945,6 +893,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The value recorded for a particular Trait/Attribute and a particular Germplasm. Similar to an Observation value, but more concrete, applying to the whole Germplasm instead of a single ObservationUnit.
+
 
             * Added property `attributePUI` (string)
 
@@ -1006,6 +956,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > The value recorded for a particular Trait/Attribute and a particular Germplasm. Similar to an Observation value, but more concrete, applying to the whole Germplasm instead of a single ObservationUnit.
+
 
         * Added property `attributePUI` (string)
 
@@ -1096,6 +1048,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > The value recorded for a particular Trait/Attribute and a particular Germplasm. Similar to an Observation value, but more concrete, applying to the whole Germplasm instead of a single ObservationUnit.
+
 
         * Added property `attributePUI` (string)
 
@@ -1167,6 +1121,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The techniques and protocol used to produce a Cross or Germplasm
+
 
             New required properties:
             - `abbreviation`
@@ -1201,6 +1157,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -1212,6 +1170,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > The techniques and protocol used to produce a Cross or Germplasm
+
 
         New required properties:
         - `abbreviation`
@@ -1304,6 +1264,10 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A `Call` represents the determination of genotype with respect to a particular `Variant`. 
+                > 
+                > It may include associated information such as quality and phasing. For example, a call might assign a probability of 0.32 to the occurrence of a SNP named RS_1234 in a call set with the name NA_12345.
+
 
             * Deleted property `genotype` (object)
 
@@ -1435,6 +1399,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A CallSet is a collection of Calls that were generated by the same analysis of the same Sample
+
 
             * Added property `sampleName` (string)
 
@@ -1486,6 +1452,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -1497,6 +1465,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A CallSet is a collection of Calls that were generated by the same analysis of the same Sample
+
 
         * Added property `sampleName` (string)
 
@@ -1610,6 +1580,10 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A `Call` represents the determination of genotype with respect to a particular `Variant`. 
+                > 
+                > It may include associated information such as quality and phasing. For example, a call might assign a probability of 0.32 to the occurrence of a SNP named RS_1234 in a call set with the name NA_12345.
+
 
             * Deleted property `genotype` (object)
 
@@ -1700,6 +1674,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A project structure where a list of PlannedCrosses is generated, the crossing events occur in the field, and the resulting actual Crosses can documented.
+
 
             * Deleted property `crossingProjectDbId` (string)
                 > The unique identifier for a crossing project
@@ -1756,6 +1732,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A project structure where a list of PlannedCrosses is generated, the crossing events occur in the field, and the resulting actual Crosses can documented.
+
 
             * Deleted property `crossingProjectDbId` (string)
                 > The unique identifier for a crossing project
@@ -1816,6 +1794,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A project structure where a list of PlannedCrosses is generated, the crossing events occur in the field, and the resulting actual Crosses can documented.
+
 
         * Deleted property `crossingProjectDbId` (string)
             > The unique identifier for a crossing project
@@ -1905,6 +1885,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A project structure where a list of PlannedCrosses is generated, the crossing events occur in the field, and the resulting actual Crosses can documented.
+
 
         * Deleted property `crossingProjectDbId` (string)
             > The unique identifier for a crossing project
@@ -1983,6 +1965,9 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > An event is discrete occurrence at a particular time in the experiment. Events may be the realization of Treatments or parts of Treatments, or may be confounding to Treatments. 
+                > <br> ICASA Management Events allow for the following types -> planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other
+
 
             * Added property `studyPUI` (string)
 
@@ -2137,6 +2122,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
+
 
             * Added property `sampleDbIds` (array)
 
@@ -2277,6 +2264,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
+
 
             * Added property `sampleDbIds` (array)
 
@@ -2409,6 +2398,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -2420,6 +2411,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
+
 
         * Added property `sampleDbIds` (array)
 
@@ -2666,6 +2659,8 @@ New required properties:
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -2677,6 +2672,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
+
 
         * Added property `sampleDbIds` (array)
 
@@ -2866,6 +2863,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A List represents a collection of other BrAPI data objects. Typically these are custom lists generated by a user to keep track of interesting data. For example, a user might build a List of Germplasm that they have manually marked for further study.
+
 
             * Added property `personDbId` (string)
 
@@ -2931,6 +2930,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A List represents a collection of other BrAPI data objects. Typically these are custom lists generated by a user to keep track of interesting data. For example, a user might build a List of Germplasm that they have manually marked for further study.
+
 
             * Added property `personDbId` (string)
 
@@ -2988,6 +2989,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -2999,6 +3002,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A List represents a collection of other BrAPI data objects. Typically these are custom lists generated by a user to keep track of interesting data. For example, a user might build a List of Germplasm that they have manually marked for further study.
+
 
         * Added property `personDbId` (string)
 
@@ -3104,6 +3109,8 @@ New required properties:
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -3115,6 +3122,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A List represents a collection of other BrAPI data objects. Typically these are custom lists generated by a user to keep track of interesting data. For example, a user might build a List of Germplasm that they have manually marked for further study.
+
 
         * Added property `personDbId` (string)
 
@@ -3220,6 +3229,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The GenomeMap represents the metadata associated with a reference map of a particular species genome. A GenomeMap can either represent a physical map or genetic map.
+
 
             New optional properties:
             - `mapName`
@@ -3274,6 +3285,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -3285,6 +3298,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > The GenomeMap represents the metadata associated with a reference map of a particular species genome. A GenomeMap can either represent a physical map or genetic map.
+
 
         New optional properties:
         - `mapName`
@@ -3363,6 +3378,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A MarkerPosition describes a particular genetic marker at a specific position on a GenomeMap. A collection of MarkerPositions make up the data to represent a full GenomeMap.
+
 
             * Added property `mapPUI` (string)
 
@@ -3451,6 +3468,9 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A description of the way an Observation should be collected. 
+                > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Method "estimation" or "drone image processing".
+
 
             * Added property `ontologyReferenceDbId` (string)
 
@@ -3508,6 +3528,9 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A description of the way an Observation should be collected. 
+                > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Method "estimation" or "drone image processing".
+
 
             * Added property `ontologyReferenceDbId` (string)
 
@@ -3559,6 +3582,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -3570,6 +3595,9 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A description of the way an Observation should be collected. 
+        > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Method "estimation" or "drone image processing".
+
 
         * Added property `ontologyReferenceDbId` (string)
 
@@ -3619,6 +3647,8 @@ Changed content type : `application/json`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -3630,6 +3660,9 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A description of the way an Observation should be collected. 
+        > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Method "estimation" or "drone image processing".
+
 
         * Added property `ontologyReferenceDbId` (string)
 
@@ -3820,6 +3853,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples.
+
 
             * Added property `germplasmPUI` (string)
 
@@ -3965,6 +4000,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples.
+
 
             * Added property `germplasmPUI` (string)
 
@@ -4060,6 +4097,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples.
+
 
             * Added property `germplasmPUI` (string)
 
@@ -4159,6 +4198,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples.
+
 
         * Added property `germplasmPUI` (string)
 
@@ -4262,6 +4303,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The identifier and metadata needed to reference an external controlled vocabulary
+
 
             * Deleted property `ontologyDbId` (string)
                 > Ontology database unique identifier
@@ -4313,6 +4356,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The identifier and metadata needed to reference an external controlled vocabulary
+
 
             * Deleted property `ontologyDbId` (string)
                 > Ontology database unique identifier
@@ -4370,6 +4415,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > The identifier and metadata needed to reference an external controlled vocabulary
+
 
         * Deleted property `ontologyDbId` (string)
             > Ontology database unique identifier
@@ -4451,6 +4498,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > The identifier and metadata needed to reference an external controlled vocabulary
+
 
         * Deleted property `ontologyDbId` (string)
             > Ontology database unique identifier
@@ -4604,6 +4653,8 @@ Changed: `germplasmPUI` in `query`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -4619,6 +4670,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A representation of a particular Germplasm within a pedigree tree, and all the links to its parents, siblings, and children. From a list of PedigreeNode objects, a client application should have all the information it needs to draw a pedigree tree visualization, or calculate genetic distances.
+
 
             New required properties:
             - `germplasmPUI`
@@ -4688,6 +4741,8 @@ Changed content type : `application/json`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -4703,6 +4758,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A representation of a particular Germplasm within a pedigree tree, and all the links to its parents, siblings, and children. From a list of PedigreeNode objects, a client application should have all the information it needs to draw a pedigree tree visualization, or calculate genetic distances.
+
 
             New required properties:
             - `germplasmPUI`
@@ -4834,6 +4891,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A generic object used to maintain the metadata needed to describe a human. The Person might be a software user, a field technician, or a primary contact for a Program.
+
 
             * Deleted property `externalReferences` (array)
                 > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -4891,6 +4950,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A generic object used to maintain the metadata needed to describe a human. The Person might be a software user, a field technician, or a primary contact for a Program.
+
 
             * Deleted property `externalReferences` (array)
                 > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -4942,6 +5003,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -4953,6 +5016,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A generic object used to maintain the metadata needed to describe a human. The Person might be a software user, a field technician, or a primary contact for a Program.
+
 
         * Deleted property `externalReferences` (array)
             > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -5034,6 +5099,8 @@ New required properties:
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -5045,6 +5112,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A generic object used to maintain the metadata needed to describe a human. The Person might be a software user, a field technician, or a primary contact for a Program.
+
 
         * Deleted property `externalReferences` (array)
             > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -5178,6 +5247,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A Plate represents the metadata for a collection of Samples. The physical Plate being represented might be a plastic tray full of Samples, or a group of Samples stored in individual containers ie bags, test tubes, etc. Whatever the container is, the Samples in a Plate should be related by the same physical space, though they may or may not be related as part of the same experiment or analysis.
+
 
             * Added property `programName` (string)
 
@@ -5247,6 +5318,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A Plate represents the metadata for a collection of Samples. The physical Plate being represented might be a plastic tray full of Samples, or a group of Samples stored in individual containers ie bags, test tubes, etc. Whatever the container is, the Samples in a Plate should be related by the same physical space, though they may or may not be related as part of the same experiment or analysis.
+
 
             * Added property `programName` (string)
 
@@ -5310,6 +5383,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -5321,6 +5396,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A Plate represents the metadata for a collection of Samples. The physical Plate being represented might be a plastic tray full of Samples, or a group of Samples stored in individual containers ie bags, test tubes, etc. Whatever the container is, the Samples in a Plate should be related by the same physical space, though they may or may not be related as part of the same experiment or analysis.
+
 
         * Added property `programName` (string)
 
@@ -5432,6 +5509,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. A Program can contain multiple Trials. A Trial can contain multiple Studies.
+
 
             * Added property `personDbId` (string)
 
@@ -5501,6 +5580,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. A Program can contain multiple Trials. A Trial can contain multiple Studies.
+
 
             * Added property `personDbId` (string)
 
@@ -5574,6 +5655,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. A Program can contain multiple Trials. A Trial can contain multiple Studies.
+
 
         * Added property `personDbId` (string)
 
@@ -5689,6 +5772,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. A Program can contain multiple Trials. A Trial can contain multiple Studies.
+
 
         * Added property `personDbId` (string)
 
@@ -5818,6 +5903,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The identifiers and metadata associated with a physical piece of biological material collected from the field for external analysis. A Sample can take many forms (leaf clipping, seed, DNA, etc) and might be used for a variety of analysis procedures (spectra, genotyping, etc).
+
 
             New required properties:
             - `sampleDbId`
@@ -5974,6 +6061,8 @@ New required properties:
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -5989,6 +6078,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The identifiers and metadata associated with a physical piece of biological material collected from the field for external analysis. A Sample can take many forms (leaf clipping, seed, DNA, etc) and might be used for a variety of analysis procedures (spectra, genotyping, etc).
+
 
             New required properties:
             - `sampleDbId`
@@ -6091,6 +6182,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The identifiers and metadata associated with a physical piece of biological material collected from the field for external analysis. A Sample can take many forms (leaf clipping, seed, DNA, etc) and might be used for a variety of analysis procedures (spectra, genotyping, etc).
+
 
             New required properties:
             - `sampleDbId`
@@ -6185,6 +6278,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -6196,6 +6291,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > The identifiers and metadata associated with a physical piece of biological material collected from the field for external analysis. A Sample can take many forms (leaf clipping, seed, DNA, etc) and might be used for a variety of analysis procedures (spectra, genotyping, etc).
+
 
         New required properties:
         - `sampleDbId`
@@ -6309,6 +6406,8 @@ Changed response : **200 OK**
         * Added property `data` (array)
 
             Items (object):
+                > The AlleleMatrix object is used to describe a matrix of genotyping results. This 2d array of data reduces the overall size of the response for larger datasets, when compared to the Calls endpoints. This makes genotype data retrieval faster and easier.
+
 
             * Property `callSetDbIds` (array)
 
@@ -6398,6 +6497,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -6489,6 +6590,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The Trait-Method-Scale definition for a variable, specifically variables related to Germplasm. Similar to an ObservationVariable, but related to a Germplasm instead of an ObservationUnit
+
 
             New required properties:
             - `methodName`
@@ -6623,7 +6726,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -6639,6 +6746,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The Trait-Method-Scale definition for a variable, specifically variables related to Germplasm. Similar to an ObservationVariable, but related to a Germplasm instead of an ObservationUnit
+
 
             New required properties:
             - `methodName`
@@ -6763,6 +6872,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The value recorded for a particular Trait/Attribute and a particular Germplasm. Similar to an Observation value, but more concrete, applying to the whole Germplasm instead of a single ObservationUnit.
+
 
             * Added property `attributePUI` (string)
 
@@ -6838,7 +6949,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -6854,6 +6969,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The value recorded for a particular Trait/Attribute and a particular Germplasm. Similar to an Observation value, but more concrete, applying to the whole Germplasm instead of a single ObservationUnit.
+
 
             * Added property `attributePUI` (string)
 
@@ -6935,6 +7052,10 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A `Call` represents the determination of genotype with respect to a particular `Variant`. 
+                > 
+                > It may include associated information such as quality and phasing. For example, a call might assign a probability of 0.32 to the occurrence of a SNP named RS_1234 in a call set with the name NA_12345.
+
 
             * Deleted property `genotype` (object)
 
@@ -7021,6 +7142,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -7052,6 +7175,10 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A `Call` represents the determination of genotype with respect to a particular `Variant`. 
+                > 
+                > It may include associated information such as quality and phasing. For example, a call might assign a probability of 0.32 to the occurrence of a SNP named RS_1234 in a call set with the name NA_12345.
+
 
             * Deleted property `genotype` (object)
 
@@ -7122,6 +7249,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A CallSet is a collection of Calls that were generated by the same analysis of the same Sample
+
 
             * Added property `sampleName` (string)
 
@@ -7197,6 +7326,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -7212,6 +7343,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A CallSet is a collection of Calls that were generated by the same analysis of the same Sample
+
 
             * Added property `sampleName` (string)
 
@@ -7275,6 +7408,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
+
 
             * Added property `sampleDbIds` (array)
 
@@ -7433,7 +7568,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -7449,6 +7588,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
+
 
             * Added property `sampleDbIds` (array)
 
@@ -7597,6 +7738,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A List represents a collection of other BrAPI data objects. Typically these are custom lists generated by a user to keep track of interesting data. For example, a user might build a List of Germplasm that they have manually marked for further study.
+
 
             * Added property `personDbId` (string)
 
@@ -7680,6 +7823,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -7695,6 +7840,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A List represents a collection of other BrAPI data objects. Typically these are custom lists generated by a user to keep track of interesting data. For example, a user might build a List of Germplasm that they have manually marked for further study.
+
 
             * Added property `personDbId` (string)
 
@@ -7768,6 +7915,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A MarkerPosition describes a particular genetic marker at a specific position on a GenomeMap. A collection of MarkerPositions make up the data to represent a full GenomeMap.
+
 
             * Added property `mapPUI` (string)
 
@@ -7836,6 +7985,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -7851,6 +8002,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A MarkerPosition describes a particular genetic marker at a specific position on a GenomeMap. A collection of MarkerPositions make up the data to represent a full GenomeMap.
+
 
             * Added property `mapPUI` (string)
 
@@ -7909,6 +8062,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples.
+
 
             * Added property `germplasmPUI` (string)
 
@@ -8022,7 +8177,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -8038,6 +8197,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples.
+
 
             * Added property `germplasmPUI` (string)
 
@@ -8141,6 +8302,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A representation of a particular Germplasm within a pedigree tree, and all the links to its parents, siblings, and children. From a list of PedigreeNode objects, a client application should have all the information it needs to draw a pedigree tree visualization, or calculate genetic distances.
+
 
             New required properties:
             - `germplasmPUI`
@@ -8242,7 +8405,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -8258,6 +8425,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A representation of a particular Germplasm within a pedigree tree, and all the links to its parents, siblings, and children. From a list of PedigreeNode objects, a client application should have all the information it needs to draw a pedigree tree visualization, or calculate genetic distances.
+
 
             New required properties:
             - `germplasmPUI`
@@ -8349,6 +8518,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A generic object used to maintain the metadata needed to describe a human. The Person might be a software user, a field technician, or a primary contact for a Program.
+
 
             * Deleted property `externalReferences` (array)
                 > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -8424,6 +8595,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -8439,6 +8612,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A generic object used to maintain the metadata needed to describe a human. The Person might be a software user, a field technician, or a primary contact for a Program.
+
 
             * Deleted property `externalReferences` (array)
                 > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -8504,6 +8679,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A Plate represents the metadata for a collection of Samples. The physical Plate being represented might be a plastic tray full of Samples, or a group of Samples stored in individual containers ie bags, test tubes, etc. Whatever the container is, the Samples in a Plate should be related by the same physical space, though they may or may not be related as part of the same experiment or analysis.
+
 
             * Added property `programName` (string)
 
@@ -8591,7 +8768,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -8607,6 +8788,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A Plate represents the metadata for a collection of Samples. The physical Plate being represented might be a plastic tray full of Samples, or a group of Samples stored in individual containers ie bags, test tubes, etc. Whatever the container is, the Samples in a Plate should be related by the same physical space, though they may or may not be related as part of the same experiment or analysis.
+
 
             * Added property `programName` (string)
 
@@ -8684,6 +8867,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. A Program can contain multiple Trials. A Trial can contain multiple Studies.
+
 
             * Added property `personDbId` (string)
 
@@ -8771,7 +8956,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -8787,6 +8976,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. A Program can contain multiple Trials. A Trial can contain multiple Studies.
+
 
             * Added property `personDbId` (string)
 
@@ -8864,6 +9055,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The identifiers and metadata associated with a physical piece of biological material collected from the field for external analysis. A Sample can take many forms (leaf clipping, seed, DNA, etc) and might be used for a variety of analysis procedures (spectra, genotyping, etc).
+
 
             New required properties:
             - `sampleDbId`
@@ -8984,7 +9177,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -9000,6 +9197,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The identifiers and metadata associated with a physical piece of biological material collected from the field for external analysis. A Sample can take many forms (leaf clipping, seed, DNA, etc) and might be used for a variety of analysis procedures (spectra, genotyping, etc).
+
 
             New required properties:
             - `sampleDbId`
@@ -9240,7 +9439,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -9376,6 +9579,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A `Variant` represents a change in DNA sequence relative to some reference. For example, a variant could represent a classic marker, a SNP, or an insertion. This is equivalent to a row in VCF.
+
 
             * Added property `variantSetName` (string)
 
@@ -9496,6 +9701,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -9511,6 +9718,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A `Variant` represents a change in DNA sequence relative to some reference. For example, a variant could represent a classic marker, a SNP, or an insertion. This is equivalent to a row in VCF.
+
 
             * Added property `variantSetName` (string)
 
@@ -9615,6 +9824,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A VariantSet is a collection of variants and variant calls intended to be analyzed together.
+
 
             * Added property `analysiDbIds` (array)
 
@@ -9703,6 +9914,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -9718,6 +9931,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A VariantSet is a collection of variants and variant calls intended to be analyzed together.
+
 
             * Added property `analysiDbIds` (array)
 
@@ -9802,6 +10017,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A Season defines a period in time. A Season is made of two parts; (1) the primary year and (2) a term which defines a segment of the year. This term could be a traditional season, like "Spring" or "Summer", or this term could be a month, like "May" or "June", or this could be an arbitrary season name which is meaningful to the breeding Program like "PlantingTime_3" or "Season E".
+
 
             * Changed property `seasonDbId` (string)
 
@@ -9835,6 +10052,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A Season defines a period in time. A Season is made of two parts; (1) the primary year and (2) a term which defines a segment of the year. This term could be a traditional season, like "Spring" or "Summer", or this term could be a month, like "May" or "June", or this could be an arbitrary season name which is meaningful to the breeding Program like "PlantingTime_3" or "Season E".
+
 
             * Changed property `seasonDbId` (string)
 
@@ -9872,6 +10091,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A Season defines a period in time. A Season is made of two parts; (1) the primary year and (2) a term which defines a segment of the year. This term could be a traditional season, like "Spring" or "Summer", or this term could be a month, like "May" or "June", or this could be an arbitrary season name which is meaningful to the breeding Program like "PlantingTime_3" or "Season E".
+
 
         * Changed property `seasonDbId` (string)
 
@@ -9913,6 +10134,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A Season defines a period in time. A Season is made of two parts; (1) the primary year and (2) a term which defines a segment of the year. This term could be a traditional season, like "Spring" or "Summer", or this term could be a month, like "May" or "June", or this could be an arbitrary season name which is meaningful to the breeding Program like "PlantingTime_3" or "Season E".
+
 
         * Changed property `seasonDbId` (string)
 
@@ -9974,6 +10197,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A SeedLot, also known as an InventoryLot, is a collection of starting material (seeds, bulbs, root-stock, etc) for a particular Germplasm. The amount of material available for each Germplasm can be increased by seed production and decreased by planting or trading with another breeding Program.
+
 
             * Deleted property `contentMixture` (array)
                 > The mixture of germplasm present in the seed lot.
@@ -10051,6 +10276,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A SeedLot, also known as an InventoryLot, is a collection of starting material (seeds, bulbs, root-stock, etc) for a particular Germplasm. The amount of material available for each Germplasm can be increased by seed production and decreased by planting or trading with another breeding Program.
+
 
             * Deleted property `contentMixture` (array)
                 > The mixture of germplasm present in the seed lot.
@@ -10122,6 +10349,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -10133,6 +10362,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A SeedLot, also known as an InventoryLot, is a collection of starting material (seeds, bulbs, root-stock, etc) for a particular Germplasm. The amount of material available for each Germplasm can be increased by seed production and decreased by planting or trading with another breeding Program.
+
 
         * Deleted property `contentMixture` (array)
             > The mixture of germplasm present in the seed lot.
@@ -10254,6 +10485,8 @@ New required properties:
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -10265,6 +10498,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A SeedLot, also known as an InventoryLot, is a collection of starting material (seeds, bulbs, root-stock, etc) for a particular Germplasm. The amount of material available for each Germplasm can be increased by seed production and decreased by planting or trading with another breeding Program.
+
 
         * Deleted property `contentMixture` (array)
             > The mixture of germplasm present in the seed lot.
@@ -10376,6 +10611,9 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A Trait describes what property is being observed. 
+                > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height".
+
 
             * Added property `ontologyReferenceDbId` (string)
 
@@ -10449,6 +10687,9 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A Trait describes what property is being observed. 
+                > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height".
+
 
             * Added property `ontologyReferenceDbId` (string)
 
@@ -10514,6 +10755,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -10525,6 +10768,9 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A Trait describes what property is being observed. 
+        > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height".
+
 
         * Added property `ontologyReferenceDbId` (string)
 
@@ -10590,6 +10836,8 @@ Changed content type : `application/json`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -10601,6 +10849,9 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A Trait describes what property is being observed. 
+        > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height".
+
 
         * Added property `ontologyReferenceDbId` (string)
 
@@ -10997,6 +11248,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -11195,6 +11448,8 @@ New optional properties:
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -11399,6 +11654,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A `Variant` represents a change in DNA sequence relative to some reference. For example, a variant could represent a classic marker, a SNP, or an insertion. This is equivalent to a row in VCF.
+
 
             * Added property `variantSetName` (string)
 
@@ -11489,6 +11746,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -11500,6 +11759,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A `Variant` represents a change in DNA sequence relative to some reference. For example, a variant could represent a classic marker, a SNP, or an insertion. This is equivalent to a row in VCF.
+
 
         * Added property `variantSetName` (string)
 
@@ -11652,6 +11913,10 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A `Call` represents the determination of genotype with respect to a particular `Variant`. 
+                > 
+                > It may include associated information such as quality and phasing. For example, a call might assign a probability of 0.32 to the occurrence of a SNP named RS_1234 in a call set with the name NA_12345.
+
 
             * Deleted property `genotype` (object)
 
@@ -11775,6 +12040,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A VariantSet is a collection of variants and variant calls intended to be analyzed together.
+
 
             * Added property `analysiDbIds` (array)
 
@@ -11839,6 +12106,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -11850,6 +12119,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A VariantSet is a collection of variants and variant calls intended to be analyzed together.
+
 
         * Added property `analysiDbIds` (array)
 
@@ -11976,6 +12247,10 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A `Call` represents the determination of genotype with respect to a particular `Variant`. 
+                > 
+                > It may include associated information such as quality and phasing. For example, a call might assign a probability of 0.32 to the occurrence of a SNP named RS_1234 in a call set with the name NA_12345.
+
 
             * Deleted property `genotype` (object)
 
@@ -12119,6 +12394,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A CallSet is a collection of Calls that were generated by the same analysis of the same Sample
+
 
             * Added property `sampleName` (string)
 
@@ -12269,6 +12546,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A `Variant` represents a change in DNA sequence relative to some reference. For example, a variant could represent a classic marker, a SNP, or an insertion. This is equivalent to a row in VCF.
+
 
             * Added property `variantSetName` (string)
 
@@ -12385,6 +12664,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The identifiers and metadata represent that specific organisms have mated to produce offspring with particular traits or genes. The offspring of a Cross might be developed into a Germplasm if the desired traits are present.
+
 
             * Deleted property `crossAttributes` (array)
                 > Set of custom attributes associated with a cross
@@ -12428,8 +12709,12 @@ Changed response : **200 OK**
             * Changed property `plannedCrossName` (string)
 
             * Changed property `parent1` (object)
+                > The identifying information gor the parent material of a cross.
+
 
                 * Added property `germplasm` (object)
+                    > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
+
 
                     * Property `accessionNumber` (string)
 
@@ -12592,8 +12877,12 @@ New required properties:
 * Added property `crossingProjectName` (string)
 
 * Added property `parent1` (object)
+    > The identifying information gor the parent material of a cross.
+
 
     * Property `germplasm` (object)
+        > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
+
 
     * Property `observationUnitDbId` (string)
 
@@ -12613,6 +12902,8 @@ New required properties:
         * `POPULATION`
         * `CLONAL`
 * Added property `parent2` (object)
+    > The identifying information gor the parent material of a cross.
+
 
 * Added property `plannedCrossDbId` (string)
 
@@ -12635,6 +12926,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The identifiers and metadata represent that specific organisms have mated to produce offspring with particular traits or genes. The offspring of a Cross might be developed into a Germplasm if the desired traits are present.
+
 
             * Deleted property `crossAttributes` (array)
                 > Set of custom attributes associated with a cross
@@ -12678,8 +12971,12 @@ Changed response : **200 OK**
             * Changed property `plannedCrossName` (string)
 
             * Changed property `parent1` (object)
+                > The identifying information gor the parent material of a cross.
+
 
                 * Added property `germplasm` (object)
+                    > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
+
 
                 * Added property `observationUnitPUI` (string)
 
@@ -12728,6 +13025,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The identifiers and metadata represent that specific organisms have mated to produce offspring with particular traits or genes. The offspring of a Cross might be developed into a Germplasm if the desired traits are present.
+
 
             * Deleted property `crossAttributes` (array)
                 > Set of custom attributes associated with a cross
@@ -12771,8 +13070,12 @@ Changed response : **200 OK**
             * Changed property `plannedCrossName` (string)
 
             * Changed property `parent1` (object)
+                > The identifying information gor the parent material of a cross.
+
 
                 * Added property `germplasm` (object)
+                    > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
+
 
                 * Added property `observationUnitPUI` (string)
 
@@ -12841,6 +13144,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > Information regarding the intention to mate specific organisms together to produce offspring with desired traits. A PlannedCross becomes an actual Cross when the desired mating event actually occurs in the field.
+
 
             * Deleted property `externalReferences` (array)
                 > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -12869,8 +13174,12 @@ Changed response : **200 OK**
 
 
             * Changed property `parent1` (object)
+                > The identifying information gor the parent material of a cross.
+
 
                 * Added property `germplasm` (object)
+                    > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
+
 
                 * Added property `observationUnitPUI` (string)
 
@@ -12918,8 +13227,12 @@ New required properties:
 * Added property `crossingProjectName` (string)
 
 * Added property `parent1` (object)
+    > The identifying information gor the parent material of a cross.
+
 
 * Added property `parent2` (object)
+    > The identifying information gor the parent material of a cross.
+
 
 * Added property `plannedCrossDbId` (string)
 
@@ -12951,6 +13264,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > Information regarding the intention to mate specific organisms together to produce offspring with desired traits. A PlannedCross becomes an actual Cross when the desired mating event actually occurs in the field.
+
 
             * Deleted property `externalReferences` (array)
                 > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -12979,8 +13294,12 @@ Changed response : **200 OK**
 
 
             * Changed property `parent1` (object)
+                > The identifying information gor the parent material of a cross.
+
 
                 * Added property `germplasm` (object)
+                    > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
+
 
                 * Added property `observationUnitPUI` (string)
 
@@ -13029,6 +13348,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > Information regarding the intention to mate specific organisms together to produce offspring with desired traits. A PlannedCross becomes an actual Cross when the desired mating event actually occurs in the field.
+
 
             * Deleted property `externalReferences` (array)
                 > An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
@@ -13057,8 +13378,12 @@ Changed response : **200 OK**
 
 
             * Changed property `parent1` (object)
+                > The identifying information gor the parent material of a cross.
+
 
                 * Added property `germplasm` (object)
+                    > The conceptual identifiers and metadata describing a genetically unique organism that is noteworthy in some way. Depending on context, a Germplasm might be synonymous with Accession, Line, or Genotype. Note that Germplasm is conceptual data, not necessarily associated to a real physical object, so Seed/Inventory Lots and Observation Units become physical instantiations of a particular Germplasm. Note a Germplasm is unique and noteworthy, so a Cross may or may not create a new Germplasm, since not every Cross is unique or noteworthy.
+
 
                 * Added property `observationUnitPUI` (string)
 
@@ -13180,6 +13505,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A `Reference` is a canonical assembled contig, intended to act as a reference coordinate space for other genomic annotations. A single `Reference` might represent the human chromosome 1, for instance. `References` are designed to be immutable.
+
 
             * Added property `sourceGermplasmDbIds` (array)
 
@@ -13222,6 +13549,8 @@ Changed response : **200 OK**
             * Changed property `sourceURI` (string)
 
             * Changed property `species` (object)
+                > A pointer to an ontology used by a genomic reference
+
 
                 * Changed property `term` (string)
 
@@ -13247,6 +13576,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -13258,6 +13589,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A `Reference` is a canonical assembled contig, intended to act as a reference coordinate space for other genomic annotations. A single `Reference` might represent the human chromosome 1, for instance. `References` are designed to be immutable.
+
 
         * Added property `sourceGermplasmDbIds` (array)
 
@@ -13300,6 +13633,8 @@ Changed response : **200 OK**
         * Changed property `sourceURI` (string)
 
         * Changed property `species` (object)
+            > A pointer to an ontology used by a genomic reference
+
 
             * Changed property `term` (string)
 
@@ -13384,6 +13719,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A `ReferenceSet` is a set of `Reference` s which typically comprise a reference assembly, such as `GRCH_38`. A `ReferenceSet` defines a common coordinate space for comparing reference-aligned experimental data.
+
 
             * Added property `referenceDbId` (string)
 
@@ -13430,6 +13767,8 @@ Changed response : **200 OK**
             * Changed property `sourceURI` (string)
 
             * Changed property `species` (object)
+                > A pointer to an ontology used by a genomic reference
+
 
                 * Changed property `term` (string)
 
@@ -13468,6 +13807,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A `ReferenceSet` is a set of `Reference` s which typically comprise a reference assembly, such as `GRCH_38`. A `ReferenceSet` defines a common coordinate space for comparing reference-aligned experimental data.
+
 
         * Added property `referenceDbId` (string)
 
@@ -13514,6 +13855,8 @@ Changed response : **200 OK**
         * Changed property `sourceURI` (string)
 
         * Changed property `species` (object)
+            > A pointer to an ontology used by a genomic reference
+
 
             * Changed property `term` (string)
 
@@ -13579,6 +13922,9 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A Scale describes the units and acceptable values for an ObservationVariable. 
+                > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".
+
 
             * Added property `ontologyReferenceDbId` (string)
 
@@ -13618,6 +13964,8 @@ Changed response : **200 OK**
             * Changed property `units` (string)
 
             * Changed property `validValues` (object)
+                > Metadata describing the acceptable values for this Scale
+
 
                 * Added property `scaleDbId` (string)
 
@@ -13669,6 +14017,9 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A Scale describes the units and acceptable values for an ObservationVariable. 
+                > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".
+
 
             * Added property `ontologyReferenceDbId` (string)
 
@@ -13708,6 +14059,8 @@ Changed response : **200 OK**
             * Changed property `units` (string)
 
             * Changed property `validValues` (object)
+                > Metadata describing the acceptable values for this Scale
+
 
                 * Added property `scaleDbId` (string)
 
@@ -13751,6 +14104,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -13762,6 +14117,9 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A Scale describes the units and acceptable values for an ObservationVariable. 
+        > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".
+
 
         * Added property `ontologyReferenceDbId` (string)
 
@@ -13801,6 +14159,8 @@ Changed response : **200 OK**
         * Changed property `units` (string)
 
         * Changed property `validValues` (object)
+            > Metadata describing the acceptable values for this Scale
+
 
             * Added property `scaleDbId` (string)
 
@@ -13844,6 +14204,8 @@ Changed content type : `application/json`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -13855,6 +14217,9 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A Scale describes the units and acceptable values for an ObservationVariable. 
+        > <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".
+
 
         * Added property `ontologyReferenceDbId` (string)
 
@@ -13894,6 +14259,8 @@ Changed response : **200 OK**
         * Changed property `units` (string)
 
         * Changed property `validValues` (object)
+            > Metadata describing the acceptable values for this Scale
+
 
             * Added property `scaleDbId` (string)
 
@@ -13963,6 +14330,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A `Reference` is a canonical assembled contig, intended to act as a reference coordinate space for other genomic annotations. A single `Reference` might represent the human chromosome 1, for instance. `References` are designed to be immutable.
+
 
             * Added property `sourceGermplasmDbIds` (array)
 
@@ -14005,6 +14374,8 @@ Changed response : **200 OK**
             * Changed property `sourceURI` (string)
 
             * Changed property `species` (object)
+                > A pointer to an ontology used by a genomic reference
+
 
                 * Changed property `term` (string)
 
@@ -14044,6 +14415,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -14059,6 +14432,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A `Reference` is a canonical assembled contig, intended to act as a reference coordinate space for other genomic annotations. A single `Reference` might represent the human chromosome 1, for instance. `References` are designed to be immutable.
+
 
             * Added property `sourceGermplasmDbIds` (array)
 
@@ -14101,6 +14476,8 @@ Changed response : **200 OK**
             * Changed property `sourceURI` (string)
 
             * Changed property `species` (object)
+                > A pointer to an ontology used by a genomic reference
+
 
                 * Changed property `term` (string)
 
@@ -14150,6 +14527,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A `ReferenceSet` is a set of `Reference` s which typically comprise a reference assembly, such as `GRCH_38`. A `ReferenceSet` defines a common coordinate space for comparing reference-aligned experimental data.
+
 
             * Added property `referenceDbId` (string)
 
@@ -14196,6 +14575,8 @@ Changed response : **200 OK**
             * Changed property `sourceURI` (string)
 
             * Changed property `species` (object)
+                > A pointer to an ontology used by a genomic reference
+
 
                 * Changed property `term` (string)
 
@@ -14235,6 +14616,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -14250,6 +14633,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A `ReferenceSet` is a set of `Reference` s which typically comprise a reference assembly, such as `GRCH_38`. A `ReferenceSet` defines a common coordinate space for comparing reference-aligned experimental data.
+
 
             * Added property `referenceDbId` (string)
 
@@ -14296,6 +14681,8 @@ Changed response : **200 OK**
             * Changed property `sourceURI` (string)
 
             * Changed property `species` (object)
+                > A pointer to an ontology used by a genomic reference
+
 
                 * Changed property `term` (string)
 
@@ -14345,12 +14732,16 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A Study represents an experiment that has taken place at a single location. The Study contains metadata about the parameters and design of the experiment. It can also be used to group results and data sets generated from the experiment. A Trial can represent a collection of one or more Studies.
+
 
             * Added property `contactDbIds` (array)
 
             * Added property `environmentParameterDbIds` (array)
 
             * Added property `lastUpdateDbId` (string)
+
+            * Added property `observationLevelDbIds` (array)
 
             * Added property `trialPUI` (string)
 
@@ -14431,6 +14822,8 @@ Changed response : **200 OK**
             * Changed property `trialName` (string)
 
             * Changed property `experimentalDesign` (object)
+                > The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology
+
 
                 * Added property `studyDbId` (string)
 
@@ -14443,6 +14836,8 @@ Changed response : **200 OK**
                 * Changed property `description` (string)
 
             * Changed property `growthFacility` (object)
+                > Short description of the facility in which the study was carried out.
+
 
                 * Added property `studyDbId` (string)
 
@@ -14488,7 +14883,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -14504,12 +14903,16 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A Study represents an experiment that has taken place at a single location. The Study contains metadata about the parameters and design of the experiment. It can also be used to group results and data sets generated from the experiment. A Trial can represent a collection of one or more Studies.
+
 
             * Added property `contactDbIds` (array)
 
             * Added property `environmentParameterDbIds` (array)
 
             * Added property `lastUpdateDbId` (string)
+
+            * Added property `observationLevelDbIds` (array)
 
             * Added property `trialPUI` (string)
 
@@ -14590,6 +14993,8 @@ Changed response : **200 OK**
             * Changed property `trialName` (string)
 
             * Changed property `experimentalDesign` (object)
+                > The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology
+
 
                 * Added property `studyDbId` (string)
 
@@ -14602,6 +15007,8 @@ Changed response : **200 OK**
                 * Changed property `description` (string)
 
             * Changed property `growthFacility` (object)
+                > Short description of the facility in which the study was carried out.
+
 
                 * Added property `studyDbId` (string)
 
@@ -14657,6 +15064,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A Trial represents a collection of Study objects, and the metadata associated with that collection. A Trial could represent a multi-location experiment, and could contain information related to publications and data licensing.
+
 
             * Added property `studyDbIds` (array)
 
@@ -14707,6 +15116,8 @@ Changed response : **200 OK**
             * Changed property `contacts` (array)
 
                 Changed items (object):
+                    > A persons contact information
+
 
                 * Changed property `contactDbId` (string)
 
@@ -14754,7 +15165,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -14770,6 +15185,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A Trial represents a collection of Study objects, and the metadata associated with that collection. A Trial could represent a multi-location experiment, and could contain information related to publications and data licensing.
+
 
             * Added property `studyDbIds` (array)
 
@@ -14820,6 +15237,8 @@ Changed response : **200 OK**
             * Changed property `contacts` (array)
 
                 Changed items (object):
+                    > A persons contact information
+
 
                 * Changed property `contactDbId` (string)
 
@@ -14955,12 +15374,16 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A Study represents an experiment that has taken place at a single location. The Study contains metadata about the parameters and design of the experiment. It can also be used to group results and data sets generated from the experiment. A Trial can represent a collection of one or more Studies.
+
 
             * Added property `contactDbIds` (array)
 
             * Added property `environmentParameterDbIds` (array)
 
             * Added property `lastUpdateDbId` (string)
+
+            * Added property `observationLevelDbIds` (array)
 
             * Added property `trialPUI` (string)
 
@@ -15041,6 +15464,8 @@ Changed response : **200 OK**
             * Changed property `trialName` (string)
 
             * Changed property `experimentalDesign` (object)
+                > The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology
+
 
                 * Added property `studyDbId` (string)
 
@@ -15053,6 +15478,8 @@ Changed response : **200 OK**
                 * Changed property `description` (string)
 
             * Changed property `growthFacility` (object)
+                > Short description of the facility in which the study was carried out.
+
 
                 * Added property `studyDbId` (string)
 
@@ -15090,12 +15517,16 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A Study represents an experiment that has taken place at a single location. The Study contains metadata about the parameters and design of the experiment. It can also be used to group results and data sets generated from the experiment. A Trial can represent a collection of one or more Studies.
+
 
             * Added property `contactDbIds` (array)
 
             * Added property `environmentParameterDbIds` (array)
 
             * Added property `lastUpdateDbId` (string)
+
+            * Added property `observationLevelDbIds` (array)
 
             * Added property `trialPUI` (string)
 
@@ -15176,6 +15607,8 @@ Changed response : **200 OK**
             * Changed property `trialName` (string)
 
             * Changed property `experimentalDesign` (object)
+                > The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology
+
 
                 * Added property `studyDbId` (string)
 
@@ -15188,6 +15621,8 @@ Changed response : **200 OK**
                 * Changed property `description` (string)
 
             * Changed property `growthFacility` (object)
+                > Short description of the facility in which the study was carried out.
+
 
                 * Added property `studyDbId` (string)
 
@@ -15219,6 +15654,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -15230,12 +15667,16 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A Study represents an experiment that has taken place at a single location. The Study contains metadata about the parameters and design of the experiment. It can also be used to group results and data sets generated from the experiment. A Trial can represent a collection of one or more Studies.
+
 
         * Added property `contactDbIds` (array)
 
         * Added property `environmentParameterDbIds` (array)
 
         * Added property `lastUpdateDbId` (string)
+
+        * Added property `observationLevelDbIds` (array)
 
         * Added property `trialPUI` (string)
 
@@ -15316,6 +15757,8 @@ Changed response : **200 OK**
         * Changed property `trialName` (string)
 
         * Changed property `experimentalDesign` (object)
+            > The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology
+
 
             * Added property `studyDbId` (string)
 
@@ -15328,6 +15771,8 @@ Changed response : **200 OK**
             * Changed property `description` (string)
 
         * Changed property `growthFacility` (object)
+            > Short description of the facility in which the study was carried out.
+
 
             * Added property `studyDbId` (string)
 
@@ -15363,6 +15808,8 @@ New required properties:
 * Added property `environmentParameterDbIds` (array)
 
 * Added property `lastUpdateDbId` (string)
+
+* Added property `observationLevelDbIds` (array)
 
 * Added property `studyDbId` (string)
 
@@ -15439,6 +15886,8 @@ New required properties:
 * Changed property `trialName` (string)
 
 * Changed property `experimentalDesign` (object)
+    > The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology
+
 
     * Added property `studyDbId` (string)
 
@@ -15451,6 +15900,8 @@ New required properties:
     * Changed property `description` (string)
 
 * Changed property `growthFacility` (object)
+    > Short description of the facility in which the study was carried out.
+
 
     * Added property `studyDbId` (string)
 
@@ -15465,6 +15916,8 @@ New required properties:
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -15476,12 +15929,16 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A Study represents an experiment that has taken place at a single location. The Study contains metadata about the parameters and design of the experiment. It can also be used to group results and data sets generated from the experiment. A Trial can represent a collection of one or more Studies.
+
 
         * Added property `contactDbIds` (array)
 
         * Added property `environmentParameterDbIds` (array)
 
         * Added property `lastUpdateDbId` (string)
+
+        * Added property `observationLevelDbIds` (array)
 
         * Added property `trialPUI` (string)
 
@@ -15562,6 +16019,8 @@ Changed response : **200 OK**
         * Changed property `trialName` (string)
 
         * Changed property `experimentalDesign` (object)
+            > The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology
+
 
             * Added property `studyDbId` (string)
 
@@ -15574,6 +16033,8 @@ Changed response : **200 OK**
             * Changed property `description` (string)
 
         * Changed property `growthFacility` (object)
+            > Short description of the facility in which the study was carried out.
+
 
             * Added property `studyDbId` (string)
 
@@ -15719,6 +16180,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A Trial represents a collection of Study objects, and the metadata associated with that collection. A Trial could represent a multi-location experiment, and could contain information related to publications and data licensing.
+
 
             * Added property `studyDbIds` (array)
 
@@ -15769,6 +16232,8 @@ Changed response : **200 OK**
             * Changed property `contacts` (array)
 
                 Changed items (object):
+                    > A persons contact information
+
 
                 * Changed property `contactDbId` (string)
 
@@ -15808,6 +16273,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A Trial represents a collection of Study objects, and the metadata associated with that collection. A Trial could represent a multi-location experiment, and could contain information related to publications and data licensing.
+
 
             * Added property `studyDbIds` (array)
 
@@ -15858,6 +16325,8 @@ Changed response : **200 OK**
             * Changed property `contacts` (array)
 
                 Changed items (object):
+                    > A persons contact information
+
 
                 * Changed property `contactDbId` (string)
 
@@ -15889,6 +16358,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -15900,6 +16371,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A Trial represents a collection of Study objects, and the metadata associated with that collection. A Trial could represent a multi-location experiment, and could contain information related to publications and data licensing.
+
 
         * Added property `studyDbIds` (array)
 
@@ -15950,6 +16423,8 @@ Changed response : **200 OK**
         * Changed property `contacts` (array)
 
             Changed items (object):
+                > A persons contact information
+
 
             * Changed property `contactDbId` (string)
 
@@ -16027,6 +16502,8 @@ New required properties:
 * Changed property `contacts` (array)
 
     Changed items (object):
+        > A persons contact information
+
 
     * Changed property `contactDbId` (string)
 
@@ -16043,6 +16520,8 @@ New required properties:
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -16054,6 +16533,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A Trial represents a collection of Study objects, and the metadata associated with that collection. A Trial could represent a multi-location experiment, and could contain information related to publications and data licensing.
+
 
         * Added property `studyDbIds` (array)
 
@@ -16104,6 +16585,8 @@ Changed response : **200 OK**
         * Changed property `contacts` (array)
 
             Changed items (object):
+                > A persons contact information
+
 
             * Changed property `contactDbId` (string)
 
@@ -16225,6 +16708,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The metadata for an image file that is connected to some phenotypic observation data.
+
 
             * Added property `observationUnitName` (string)
 
@@ -16311,6 +16796,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The metadata for an image file that is connected to some phenotypic observation data.
+
 
             * Added property `observationUnitName` (string)
 
@@ -16391,6 +16878,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -16402,6 +16891,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > The metadata for an image file that is connected to some phenotypic observation data.
+
 
         * Added property `observationUnitName` (string)
 
@@ -16541,6 +17032,8 @@ New required properties:
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -16552,6 +17045,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > The metadata for an image file that is connected to some phenotypic observation data.
+
 
         * Added property `observationUnitName` (string)
 
@@ -16700,6 +17195,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A geographic Location on earth. This is usually used to describe the general area where an experiment took place. For example, a natural site, an experimental field, a greenhouse, a phenotyping facility, etc.
+
 
             * Added property `childLocationDbIds` (array)
 
@@ -16796,6 +17293,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A geographic Location on earth. This is usually used to describe the general area where an experiment took place. For example, a natural site, an experimental field, a greenhouse, a phenotyping facility, etc.
+
 
             * Added property `childLocationDbIds` (array)
 
@@ -16884,6 +17383,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -16895,6 +17396,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A geographic Location on earth. This is usually used to describe the general area where an experiment took place. For example, a natural site, an experimental field, a greenhouse, a phenotyping facility, etc.
+
 
         * Added property `childLocationDbIds` (array)
 
@@ -17054,6 +17557,8 @@ New required properties:
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -17065,6 +17570,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A geographic Location on earth. This is usually used to describe the general area where an experiment took place. For example, a natural site, an experimental field, a greenhouse, a phenotyping facility, etc.
+
 
         * Added property `childLocationDbIds` (array)
 
@@ -17294,6 +17801,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A value assigned for a specific ObservationVariable when observing a specific ObservationUnit.
+
 
             * Added property `germplasmPUI` (string)
 
@@ -17447,6 +17956,8 @@ New required properties:
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -17462,6 +17973,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A value assigned for a specific ObservationVariable when observing a specific ObservationUnit.
+
 
             * Added property `germplasmPUI` (string)
 
@@ -17540,6 +18053,8 @@ Changed content type : `application/json`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -17555,6 +18070,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A value assigned for a specific ObservationVariable when observing a specific ObservationUnit.
+
 
             * Added property `germplasmPUI` (string)
 
@@ -17641,6 +18158,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -17652,6 +18171,8 @@ Changed response : **200 OK**
 
 
     * Changed property `result` (object)
+        > A value assigned for a specific ObservationVariable when observing a specific ObservationUnit.
+
 
         * Added property `germplasmPUI` (string)
 
@@ -17762,6 +18283,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The metadata for an image file that is connected to some phenotypic observation data.
+
 
             * Added property `observationUnitName` (string)
 
@@ -17856,7 +18379,11 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Deleted response : **404 Not Found**
+> Not Found
+
 Changed response : **200 OK**
 > OK
 
@@ -17872,6 +18399,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > The metadata for an image file that is connected to some phenotypic observation data.
+
 
             * Added property `observationUnitName` (string)
 
@@ -17976,6 +18505,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A geographic Location on earth. This is usually used to describe the general area where an experiment took place. For example, a natural site, an experimental field, a greenhouse, a phenotyping facility, etc.
+
 
             * Added property `childLocationDbIds` (array)
 
@@ -18080,6 +18611,8 @@ Deleted: `Authorization` in `header`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -18095,6 +18628,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A geographic Location on earth. This is usually used to describe the general area where an experiment took place. For example, a natural site, an experimental field, a greenhouse, a phenotyping facility, etc.
+
 
             * Added property `childLocationDbIds` (array)
 
@@ -18209,6 +18744,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A value assigned for a specific ObservationVariable when observing a specific ObservationUnit.
+
 
             * Added property `germplasmPUI` (string)
 
@@ -18313,6 +18850,8 @@ Deleted: `pageSize` in `query`
 ###### Return Type:
 
 Deleted response : **202 Accepted**
+> Accepted
+
 Changed response : **200 OK**
 > OK
 
@@ -18328,6 +18867,8 @@ Changed response : **200 OK**
         * Changed property `data` (array)
 
             Changed items (object):
+                > A value assigned for a specific ObservationVariable when observing a specific ObservationUnit.
+
 
             * Added property `germplasmPUI` (string)
 

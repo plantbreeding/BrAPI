@@ -192,7 +192,7 @@
                 }
             },
             "title": "EventParameter",
-            "description": "An object describing additional event parameters. Each of the following accepts a human-readable value or URI",
+            "description": "Additional metadata to describe an event, based on the ICASA standard model. For example, 'Tillage Implement' (tiimp), 'Tillage Depth' (tidep), and 'Tillage Mix Effectiveness' (timix) might all be recorded parameters for a Tillage event.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

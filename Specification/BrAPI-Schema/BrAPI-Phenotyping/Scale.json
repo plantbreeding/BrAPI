@@ -132,6 +132,7 @@
                 }
             },
             "title": "ValidValues",
+            "description": "Metadata describing the acceptable values for this Scale",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
