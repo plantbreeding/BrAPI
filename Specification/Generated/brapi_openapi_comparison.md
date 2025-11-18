@@ -31,18 +31,6 @@
 > Get the details of a specific Germplasm in MCPD format
 
 
-##### `GET` /germplasm/{germplasmDbId}/pedigree
-
-> **Deprecated in v2.1** Please use `GET /pedigree?germplasmDbId={germplasmDbId}`. Github issue number #481 
-> <br/> Get the pedigree details of a specific Germplasm
-
-
-##### `GET` /germplasm/{germplasmDbId}/progeny
-
-> **Deprecated in v2.1** Please use `GET /pedigree?germplasmDbId={germplasmDbId}`. Github issue number #481 
-> <br/> Get the progeny details of a specific Germplasm
-
-
 ##### `PUT` /images/{imageDbId}/imagecontent
 
 > Attach an image binary file to an existing image metadata record
@@ -51,11 +39,6 @@
 ##### `POST` /lists/{listDbId}/data
 
 > Add new data members to a specific List
-
-
-##### `POST` /lists/{listDbId}/items
-
-> Add Items to a specific List
 
 
 ##### `GET` /maps/{mapDbId}/linkagegroups
@@ -113,46 +96,6 @@
 > Create new `VariantSet` based on search results
 
 
-##### `GET` /vendor/orders
-
-> List current available orders
-
-
-##### `POST` /vendor/orders
-
-> Submit New Order
-
-
-##### `GET` /vendor/orders/{orderId}/plates
-
-> Get the Plates for a specific Order
-
-
-##### `GET` /vendor/orders/{orderId}/results
-
-> Get the results of a specific Order
-
-
-##### `GET` /vendor/orders/{orderId}/status
-
-> Get the status of a specific Order
-
-
-##### `POST` /vendor/plates
-
-> Submit a new set of Sample data
-
-
-##### `GET` /vendor/plates/{submissionId}
-
-> Get the data for a submitted set of plates
-
-
-##### `GET` /vendor/specifications
-
-> Get the Vendor Specifications
-
-
 ##### `PUT` /calls
 
 > Update existing `Calls` with new genotype value or metadata
@@ -171,11 +114,6 @@
 ##### `PUT` /plates
 
 > Update the details of existing Plates
-
-
-##### `PUT` /samples/{sampleDbId}
-
-> Update the details of an existing Sample
 
 
 ##### `PUT` /observations/{observationDbId}
@@ -14803,6 +14741,8 @@ Changed response : **200 OK**
 
             * Added property `lastUpdateDbId` (string)
 
+            * Added property `observationLevelDbIds` (array)
+
             * Added property `trialPUI` (string)
 
             * Deleted property `contacts` (array)
@@ -14971,6 +14911,8 @@ Changed response : **200 OK**
             * Added property `environmentParameterDbIds` (array)
 
             * Added property `lastUpdateDbId` (string)
+
+            * Added property `observationLevelDbIds` (array)
 
             * Added property `trialPUI` (string)
 
@@ -15441,6 +15383,8 @@ Changed response : **200 OK**
 
             * Added property `lastUpdateDbId` (string)
 
+            * Added property `observationLevelDbIds` (array)
+
             * Added property `trialPUI` (string)
 
             * Deleted property `contacts` (array)
@@ -15581,6 +15525,8 @@ Changed response : **200 OK**
             * Added property `environmentParameterDbIds` (array)
 
             * Added property `lastUpdateDbId` (string)
+
+            * Added property `observationLevelDbIds` (array)
 
             * Added property `trialPUI` (string)
 
@@ -15730,6 +15676,8 @@ Changed response : **200 OK**
 
         * Added property `lastUpdateDbId` (string)
 
+        * Added property `observationLevelDbIds` (array)
+
         * Added property `trialPUI` (string)
 
         * Deleted property `contacts` (array)
@@ -15861,6 +15809,8 @@ New required properties:
 
 * Added property `lastUpdateDbId` (string)
 
+* Added property `observationLevelDbIds` (array)
+
 * Added property `studyDbId` (string)
 
 * Added property `trialPUI` (string)
@@ -15987,6 +15937,8 @@ Changed response : **200 OK**
         * Added property `environmentParameterDbIds` (array)
 
         * Added property `lastUpdateDbId` (string)
+
+        * Added property `observationLevelDbIds` (array)
 
         * Added property `trialPUI` (string)
 

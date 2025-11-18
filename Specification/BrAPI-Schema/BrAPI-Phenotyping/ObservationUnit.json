@@ -93,7 +93,7 @@
                     "relationshipType": "one-to-many",
                     "referencedAttribute": "observationUnit",
                     "items": {
-                        "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/Treatment",
+                        "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationTreatment",
                         "description": "Treatments"
                     },
                     "title": "Treatments",
@@ -284,7 +284,7 @@
                 "primaryModel": false
             }
         },
-        "Treatment": {
+        "ObservationTreatment": {
             "properties": {
                 "factor": {
                     "description": "The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc\n\nMIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.",
@@ -307,7 +307,7 @@
                     "referencedAttribute": "treatments"
                 }
             },
-            "title": "Treatment",
+            "title": "ObservationTreatment",
             "description": "The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc. MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.",
             "type": "object",
             "brapi-metadata": {
