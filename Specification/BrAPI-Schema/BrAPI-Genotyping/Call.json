@@ -60,6 +60,7 @@
                 "variantSet"
             ],
             "title": "Call",
+            "description": "A `Call` represents the determination of genotype with respect to a particular `Variant`. \n\nIt may include associated information such as quality and phasing. For example, a call might assign a probability of 0.32 to the occurrence of a SNP named RS_1234 in a call set with the name NA_12345.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
@@ -110,6 +111,7 @@
                 }
             },
             "title": "GenotypeMetadata",
+            "description": "Genotype Metadata are additional layers of metadata associated with each genotype.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

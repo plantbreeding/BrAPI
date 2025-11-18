@@ -169,6 +169,7 @@
                 "observationUnitDbId"
             ],
             "title": "ObservationUnit",
+            "description": "A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
@@ -277,6 +278,7 @@
                 }
             },
             "title": "ObservationUnitPosition",
+            "description": "All positional and layout information related to this Observation Unit",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
@@ -306,6 +308,7 @@
                 }
             },
             "title": "ObservationTreatment",
+            "description": "The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc. MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

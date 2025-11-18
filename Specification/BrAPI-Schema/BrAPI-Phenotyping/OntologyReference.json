@@ -40,6 +40,7 @@
                 "ontology"
             ],
             "title": "OntologyReference",
+            "description": "MIAPPE V1.1 (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology \nMIAPPE V1.1 (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\nMIAPPE V1.1 (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\nMIAPPE V1.1 (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
@@ -74,6 +75,7 @@
                 }
             },
             "title": "DocumentationLink",
+            "description": "Links to various ontology documentation",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

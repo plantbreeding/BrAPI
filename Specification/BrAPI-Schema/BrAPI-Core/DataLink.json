@@ -61,6 +61,7 @@
                 }
             },
             "title": "DataLink",
+            "description": "A link to extra data files associated with this study. Extra data could include notes, images, and reference data.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

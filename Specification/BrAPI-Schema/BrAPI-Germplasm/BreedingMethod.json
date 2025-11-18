@@ -63,6 +63,7 @@
                 "description"
             ],
             "title": "Breeding Method",
+            "description": "The techniques and protocol used to produce a Cross or Germplasm",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
