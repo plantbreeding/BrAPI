@@ -21,5 +21,6 @@ components:
           type: array
           nullable: true
         vendorContact:
-          $ref: '#/components/schemas/VendorContact'
           nullable: true
+          allOf:
+            - $ref: '#/components/schemas/VendorContact'

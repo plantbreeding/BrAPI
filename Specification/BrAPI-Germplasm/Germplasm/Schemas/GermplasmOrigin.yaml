@@ -32,6 +32,7 @@ components:
           example: '20'
           nullable: true
         coordinates:
-          $ref: '#/components/schemas/geoJSON'
           nullable: true
+          allOf:
+            - $ref: '#/components/schemas/geoJSON'
 
