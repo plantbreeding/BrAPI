@@ -67,6 +67,7 @@
             }
         },
         "GenotypeMetadata": {
+            "description": "An additional layer of metadata associated with a genotype",
             "properties": {
                 "dataType": {
                     "description": "The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.",

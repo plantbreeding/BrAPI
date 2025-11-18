@@ -64,6 +64,7 @@
                     "relationshipType": "many-to-one"
                 },
                 "season": {
+                    "description": "The season for this Observation",
                     "$ref": "../BrAPI-Core/Season.json#/$defs/Season",
                     "relationshipType": "many-to-one"
                 },

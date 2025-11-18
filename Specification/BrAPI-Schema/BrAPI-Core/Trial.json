@@ -238,12 +238,14 @@
         "Publication": {
             "properties": {
                 "publicationPUI": {
+                    "description": "The permanent unique identifier of the publication.",
                     "type": [
                         "null",
                         "string"
                     ]
                 },
                 "publicationReference": {
+                    "description": "The publication reference.",
                     "type": [
                         "null",
                         "string"

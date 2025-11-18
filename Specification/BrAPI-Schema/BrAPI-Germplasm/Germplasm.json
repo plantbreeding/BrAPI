@@ -133,7 +133,7 @@
                     ]
                 },
                 "germplasmDbId": {
-                    "description": "The ID which uniquely identifies a germplasm within the given database server \n<br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.",
+                    "description": "The ID which uniquely identifies a germplasm within the given database server \n<br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, inventory lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.",
                     "type": "string"
                 },
                 "germplasmName": {
@@ -155,7 +155,7 @@
                     ]
                 },
                 "germplasmPUI": {
-                    "description": "The Permanent Unique Identifier which represents a germplasm\n\nMIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.\n\nMIAPPE V1.1 (DM-51) Material source DOI - Digital Object Identifier (DOI) of the material source\n\nMCPD (v2.1) (PUID) 0. Any persistent, unique identifier assigned to the accession so it can be unambiguously referenced at the global level and the information associated with it harvested through automated means. Report one PUID for each accession. The Secretariat of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) is facilitating the assignment of a persistent unique identifier (PUID), in the form of a DOI, to PGRFA at the accession level. Genebanks not applying a true PUID to their accessions should use, and request recipients to use, the concatenation of INSTCODE, ACCENUMB, and GENUS as a globally unique identifier similar in most respects to the PUID whenever they exchange information on accessions with third parties.",
+                    "description": "The Permanent Unique Identifier which represents a germplasm\n\nMIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, inventory lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.\n\nMIAPPE V1.1 (DM-51) Material source DOI - Digital Object Identifier (DOI) of the material source\n\nMCPD (v2.1) (PUID) 0. Any persistent, unique identifier assigned to the accession so it can be unambiguously referenced at the global level and the information associated with it harvested through automated means. Report one PUID for each accession. The Secretariat of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) is facilitating the assignment of a persistent unique identifier (PUID), in the form of a DOI, to PGRFA at the accession level. Genebanks not applying a true PUID to their accessions should use, and request recipients to use, the concatenation of INSTCODE, ACCENUMB, and GENUS as a globally unique identifier similar in most respects to the PUID whenever they exchange information on accessions with third parties.",
                     "type": "string"
                 },
                 "germplasmPreprocessing": {
@@ -245,7 +245,6 @@
                 "synonyms": {
                     "description": "List of alternative names or IDs used to reference this germplasm\n\nMCPD (v2.1) (OTHERNUMB) 24. Any other identifiers known to exist in other collections for this accession. Use the following format: INSTCODE:ACCENUMB;INSTCODE:identifier;INSTCODE and identifier are separated by a colon without space. Pairs of INSTCODE and identifier are separated by a semicolon without space. When the institute is not known, the identifier should be preceded by a colon.",
                     "relationshipType": "one-to-many",
-                    "referencedAttribute": "germplasm",
                     "items": {
                         "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Synonym",
                         "description": "Synonyms"
@@ -264,7 +263,6 @@
                         "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/TaxonId",
                         "description": "TaxonIds"
                     },
-                    "title": "TaxonIds",
                     "type": [
                         "null",
                         "array"
@@ -408,7 +406,7 @@
                     ]
                 },
                 "germplasm": {
-                    "description": "donoers associated with a germplasm",
+                    "description": "donors associated with a germplasm",
                     "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm",
                     "relationshipType": "many-to-one",
                     "referencedAttribute": "donors"
@@ -502,6 +500,7 @@
             }
         },
         "Synonym": {
+            "description": "Alternative way to refer to a Germplasm, Cultivar of Variety",
             "properties": {
                 "synonym": {
                     "description": "Alternative name or ID used to reference this germplasm",
@@ -532,6 +531,7 @@
             }
         },
         "TaxonId": {
+            "description": "The Taxon of the Germplasm",
             "properties": {
                 "taxonId": {
                     "description": "The identifier (name, ID, URI) of a particular taxonomy within the source provider",

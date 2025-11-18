@@ -73,6 +73,7 @@
                 }
             },
             "required": [
+                "methodDbId",
                 "methodName"
             ],
             "title": "Method",
