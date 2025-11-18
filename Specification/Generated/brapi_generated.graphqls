@@ -1616,9 +1616,7 @@ type ObservationListResponse {
   page: PageInfo
 }
 
-<<<<<<< HEAD
-"A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples."
-=======
+"The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc. MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor."
 type ObservationTreatment {
   """
   The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
@@ -1636,7 +1634,7 @@ type ObservationTreatment {
   observationUnit: ObservationUnit
 }
 
->>>>>>> brapi-V2.1
+"A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples."
 type ObservationUnit {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfo
@@ -2963,28 +2961,7 @@ type TraitListResponse {
   page: PageInfo
 }
 
-<<<<<<< HEAD
-"The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc. MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor."
-type Treatment {
-  """
-  The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
-  
-  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
-  """
-  factor: String
-  """
-  The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc
-  
-  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. 
-  """
-  modality: String
-  "associated observation Unit"
-  observationUnit: ObservationUnit
-}
-
 "A Trial represents a collection of Study objects, and the metadata associated with that collection. A Trial could represent a multi-location experiment, and could contain information related to publications and data licensing."
-=======
->>>>>>> brapi-V2.1
 type Trial {
   "A flag to indicate if a Trial is currently active and ongoing"
   active: Boolean
@@ -5230,6 +5207,7 @@ input ObservationInput {
   value: String
 }
 
+"The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc. MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor."
 input ObservationTreatmentInput {
   """
   The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
@@ -7089,24 +7067,6 @@ input TraitsInput {
   programNames: [String]
   "The unique identifier for a trait."
   traitDbIds: [String]
-}
-
-"The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc. MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor."
-input TreatmentInput {
-  """
-  The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
-  
-  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
-  """
-  factor: String
-  """
-  The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc
-  
-  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. 
-  """
-  modality: String
-  "associated observation Unit"
-  observationUnit: ObservationUnitInput
 }
 
 "A Trial represents a collection of Study objects, and the metadata associated with that collection. A Trial could represent a multi-location experiment, and could contain information related to publications and data licensing."

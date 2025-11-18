@@ -1716,6 +1716,10 @@ components:
           type: array
           items:
             type: string
+      description: "The AlleleMatrix object is used to describe a matrix of genotyping\
+        \ results. This 2d array of data reduces the overall size of the response\
+        \ for larger datasets, when compared to the Calls endpoints. This makes genotype\
+        \ data retrieval faster and easier."
     Attribute:
       required:
       - attributeName
@@ -1793,6 +1797,11 @@ components:
           type: string
         variantSetName:
           type: string
+      description: "A `Call` represents the determination of genotype with respect\
+        \ to a particular `Variant`. \n\nIt may include associated information such\
+        \ as quality and phasing. For example, a call might assign a probability of\
+        \ 0.32 to the occurrence of a SNP named RS_1234 in a call set with the name\
+        \ NA_12345."
     Contact:
       required:
       - contactDbId
@@ -1810,6 +1819,7 @@ components:
           type: string
         type:
           type: string
+      description: A persons contact information
     ContentTypes:
       type: string
       enum:
@@ -1842,6 +1852,7 @@ components:
           type: string
         parentType:
           $ref: "#/components/schemas/ParentType"
+      description: The identifying information gor the parent material of a cross.
     CrossType:
       type: string
       description: "The type of cross make. Accepted values for this field are 'BIPARENTAL',\
@@ -1868,6 +1879,7 @@ components:
           - OBO
           - RDF
           - WEBPAGE
+      description: Links to various ontology documentation
     Event:
       required:
       - eventDbId
@@ -1894,6 +1906,12 @@ components:
           type: string
         studyPUI:
           type: string
+      description: "An event is discrete occurrence at a particular time in the experiment.\
+        \ Events may be the realization of Treatments or parts of Treatments, or may\
+        \ be confounding to Treatments. \n<br> ICASA Management Events allow for the\
+        \ following types -> planting, fertilizer, irrigation, tillage, organic_material,\
+        \ harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation,\
+        \ weeding, puddling, flood_level, other"
     EventDateRange:
       type: object
       properties:
@@ -1907,6 +1925,10 @@ components:
           type: string
         startDate:
           type: string
+      description: "An object describing when a particular Event has taken place.\
+        \ An Event can occur at one or more discrete time points (`discreteDates`)\
+        \ or an event can happen continuously over a longer period of time (`startDate`,\
+        \ `endDate`)"
     EventParameter:
       type: object
       properties:
@@ -1928,6 +1950,8 @@ components:
           type: array
           items:
             type: string
+      description: An object describing additional event parameters. Each of the following
+        accepts a human-readable value or URI
     ExperimentalDesign:
       type: object
       properties:
@@ -1941,6 +1965,8 @@ components:
           type: string
         studyPUI:
           type: string
+      description: The experimental and statistical design full description plus a
+        category PUI taken from crop research ontology or agronomy ontology
     ExternalReference:
       type: object
       properties:
@@ -2117,6 +2143,14 @@ components:
           type: string
         subtaxaAuthority:
           type: string
+      description: "The conceptual identifiers and metadata describing a genetically\
+        \ unique organism that is noteworthy in some way. Depending on context, a\
+        \ Germplasm might be synonymous with Accession, Line, or Genotype. Note that\
+        \ Germplasm is conceptual data, not necessarily associated to a real physical\
+        \ object, so Seed/Inventory Lots and Observation Units become physical instantiations\
+        \ of a particular Germplasm. Note a Germplasm is unique and noteworthy, so\
+        \ a Cross may or may not create a new Germplasm, since not every Cross is\
+        \ unique or noteworthy."
     GermplasmOrigin:
       type: object
       properties:
@@ -2128,6 +2162,9 @@ components:
           type: string
         germplasmPUI:
           type: string
+      description: "Information for material (orchard, natural sites, ...). Geographic\
+        \ identification of the plants from which seeds or cutting have been taken\
+        \ to produce that germplasm."
     GrowthFacility:
       type: object
       properties:
@@ -2141,6 +2178,8 @@ components:
           type: string
         studyPUI:
           type: string
+      description: Short description of the facility in which the study was carried
+        out.
     Image:
       required:
       - imageDbId
@@ -2183,6 +2222,8 @@ components:
           type: string
         observationUnitPUI:
           type: string
+      description: The metadata for an image file that is connected to some phenotypic
+        observation data.
     ImageNewRequest:
       required:
       - imageDbId
@@ -2228,6 +2269,8 @@ components:
           type: string
         observationUnitPUI:
           type: string
+      description: The metadata for an image file that is connected to some phenotypic
+        observation data.
     ImageSearchRequest:
       type: object
       properties:
@@ -2255,6 +2298,8 @@ components:
         imageWidthMin:
           type: integer
           format: int32
+      description: The metadata for an image file that is connected to some phenotypic
+        observation data.
     ListType:
       type: string
       description: The type of objects that are referenced in a List
@@ -2291,6 +2336,11 @@ components:
           type: string
         ontologyReferenceDbId:
           type: string
+      description: "A description of the way an Observation should be collected. \n\
+        <br>For example, an ObservationVariable might be defined with a Trait of \"\
+        plant height\", a Scale of \"meters\", and a Method of \"tape measure\". This\
+        \ variable would be distinct from a variable with the Method \"estimation\"\
+        \ or \"drone image processing\". "
     MethodNewRequest:
       required:
       - methodDbId
@@ -2315,6 +2365,11 @@ components:
           type: string
         ontologyReferenceDbId:
           type: string
+      description: "A description of the way an Observation should be collected. \n\
+        <br>For example, an ObservationVariable might be defined with a Trait of \"\
+        plant height\", a Scale of \"meters\", and a Method of \"tape measure\". This\
+        \ variable would be distinct from a variable with the Method \"estimation\"\
+        \ or \"drone image processing\". "
     Observation:
       required:
       - observationDbId
@@ -2360,6 +2415,8 @@ components:
           type: string
         value:
           type: string
+      description: A value assigned for a specific ObservationVariable when observing
+        a specific ObservationUnit.
     ObservationNewRequest:
       required:
       - observationDbId
@@ -2408,6 +2465,8 @@ components:
           type: string
         value:
           type: string
+      description: A value assigned for a specific ObservationVariable when observing
+        a specific ObservationUnit.
     ObservationSearchRequest:
       type: object
       properties:
@@ -2415,6 +2474,8 @@ components:
           type: string
         observationTimeStampRangeStart:
           type: string
+      description: A value assigned for a specific ObservationVariable when observing
+        a specific ObservationUnit.
     ObservationTreatment:
       type: object
       properties:
@@ -2428,6 +2489,9 @@ components:
           type: string
         observationUnitPUI:
           type: string
+      description: "The type of treatment/factor. ex. 'fertilizer', 'inoculation',\
+        \ 'irrigation', etc. MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym\
+        \ of the experimental factor."
     ObservationUnit:
       required:
       - observationUnitDbId
@@ -2473,6 +2537,9 @@ components:
           type: string
         trialPUI:
           type: string
+      description: "A representation of the physical entity being observed during\
+        \ a phenotype data collection process. Typically, this is a Plot or a Plant,\
+        \ but it could include things like Fields, Blocks, or Samples."
     ObservationUnitHierarchyLevel:
       type: object
       properties:
@@ -2585,6 +2652,9 @@ components:
           type: string
         trialPUI:
           type: string
+      description: "A representation of the physical entity being observed during\
+        \ a phenotype data collection process. Typically, this is a Plot or a Plant,\
+        \ but it could include things like Fields, Blocks, or Samples."
     ObservationUnitPosition:
       type: object
       properties:
@@ -2650,11 +2720,16 @@ components:
           - GRID_COL
           - MEASURED_ROW
           - MEASURED_COL
+      description: All positional and layout information related to this Observation
+        Unit
     ObservationUnitSearchRequest:
       type: object
       properties:
         includeObservations:
           type: boolean
+      description: "A representation of the physical entity being observed during\
+        \ a phenotype data collection process. Typically, this is a Plot or a Plant,\
+        \ but it could include things like Fields, Blocks, or Samples."
     ObservationVariable:
       required:
       - methodName
@@ -2791,6 +2866,8 @@ components:
           type: string
         version:
           type: string
+      description: The identifier and metadata needed to reference an external controlled
+        vocabulary
     OntologyNewRequest:
       required:
       - ontologyDbId
@@ -2816,6 +2893,8 @@ components:
           type: string
         version:
           type: string
+      description: The identifier and metadata needed to reference an external controlled
+        vocabulary
     OntologyReference:
       required:
       - ontology
@@ -2827,6 +2906,14 @@ components:
           type: string
         version:
           type: string
+      description: "MIAPPE V1.1 (DM-85) Variable accession number - Accession number\
+        \ of the variable in the Crop Ontology \nMIAPPE V1.1 (DM-87) Trait accession\
+        \ number - Accession number of the trait in a suitable controlled vocabulary\
+        \ (Crop Ontology, Trait Ontology).\nMIAPPE V1.1 (DM-89) Method accession number\
+        \ - Accession number of the method in a suitable controlled vocabulary (Crop\
+        \ Ontology, Trait Ontology).\nMIAPPE V1.1 (DM-93) Scale accession number -\
+        \ Accession number of the scale in a suitable controlled vocabulary (Crop\
+        \ Ontology)."
     OntologyTerm:
       type: object
       properties:
@@ -2834,6 +2921,7 @@ components:
           type: string
         termURI:
           type: string
+      description: A pointer to an ontology used by a genomic reference
     ParentType:
       type: string
       description: "The type of parent used during crossing. Accepted values for this\
@@ -2892,6 +2980,11 @@ components:
           type: string
         validValues:
           $ref: "#/components/schemas/ValidValues"
+      description: "A Scale describes the units and acceptable values for an ObservationVariable.\
+        \ \n<br>For example, an ObservationVariable might be defined with a Trait\
+        \ of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\"\
+        . This variable would be distinct from a variable with the Scale \"inches\"\
+        \ or \"pixels\"."
     ScaleNewRequest:
       required:
       - scaleDbId
@@ -2935,6 +3028,11 @@ components:
           type: string
         validValues:
           $ref: "#/components/schemas/ValidValues"
+      description: "A Scale describes the units and acceptable values for an ObservationVariable.\
+        \ \n<br>For example, an ObservationVariable might be defined with a Trait\
+        \ of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\"\
+        . This variable would be distinct from a variable with the Scale \"inches\"\
+        \ or \"pixels\"."
     Trait:
       required:
       - traitDbId
@@ -2965,6 +3063,11 @@ components:
           type: string
         traitPUI:
           type: string
+      description: "A Trait describes what property is being observed. \n<br>For example,\
+        \ an ObservationVariable might be defined with a Trait of \"plant height\"\
+        , a Scale of \"meters\", and a Method of \"tape measure\". This variable would\
+        \ be distinct from a variable with the Trait \"Leaf length\" or \"Flower height\"\
+        . "
     TraitDataType:
       type: string
       description: |-
@@ -3016,6 +3119,11 @@ components:
           type: string
         traitPUI:
           type: string
+      description: "A Trait describes what property is being observed. \n<br>For example,\
+        \ an ObservationVariable might be defined with a Trait of \"plant height\"\
+        , a Scale of \"meters\", and a Method of \"tape measure\". This variable would\
+        \ be distinct from a variable with the Trait \"Leaf length\" or \"Flower height\"\
+        . "
     ValidValues:
       type: object
       properties:
@@ -3029,6 +3137,7 @@ components:
           type: string
         scalePUI:
           type: string
+      description: Metadata describing the acceptable values for this Scale
     ValidValuesCategory:
       type: object
       properties:
@@ -3038,6 +3147,8 @@ components:
           $ref: "#/components/schemas/ValidValues"
         value:
           type: string
+      description: "If the Scale is a categorical type, these objects define the valid\
+        \ options"
     Variable:
       required:
       - method
@@ -3081,6 +3192,8 @@ components:
             type: string
         trait:
           $ref: "#/components/schemas/Trait"
+      description: "A unique combination of Trait, Method, and Scale to define a clear\
+        \ context for an Observation."
     basePagination:
       required:
       - currentPage
