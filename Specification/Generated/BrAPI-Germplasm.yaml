@@ -1764,7 +1764,9 @@ components:
           type: string
         crossName:
           type: string
-      description: A custom attributes associated with a cross
+      description: "A custom attribute associated with a cross. For example, if the\
+        \ crossing event occurred on a humid day, a user might record 'crossAttributeName':'Relative\
+        \ Humidity', 'crossAttributeValue':'80%'"
     CrossNewRequest:
       required:
       - crossDbId
@@ -2081,6 +2083,7 @@ components:
       required:
       - attributeDbId
       - attributeName
+      - methodDbId
       - methodName
       - scaleDbId
       - scaleName
@@ -2146,6 +2149,7 @@ components:
       required:
       - attributeDbId
       - attributeName
+      - methodDbId
       - methodName
       - scaleDbId
       - scaleName
@@ -2482,6 +2486,7 @@ components:
       - samples
     Method:
       required:
+      - methodDbId
       - methodName
       type: object
       properties:
@@ -2550,49 +2555,11 @@ components:
         positionCoordinateX:
           type: string
         positionCoordinateXType:
-          type: string
-          description: "The type of positional coordinate used. Must be one of the\
-            \ following values \n\nLONGITUDE - ISO 6709 standard, WGS84 geodetic datum.\
-            \ See 'Location Coordinate Encoding' for details \n\nLATITUDE - ISO 6709\
-            \ standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for\
-            \ details \n\nPLANTED_ROW - The physical planted row number \n\nPLANTED_INDIVIDUAL\
-            \ - The physical counted number, could be independent or within a planted\
-            \ row \n\nGRID_ROW - The row index number of a square grid overlay \n\n\
-            GRID_COL - The column index number of a square grid overlay \n\nMEASURED_ROW\
-            \ - The distance in meters from a defined 0-th row \n\nMEASURED_COL -\
-            \ The distance in meters from a defined 0-th column "
-          enum:
-          - LONGITUDE
-          - LATITUDE
-          - PLANTED_ROW
-          - PLANTED_INDIVIDUAL
-          - GRID_ROW
-          - GRID_COL
-          - MEASURED_ROW
-          - MEASURED_COL
+          $ref: "#/components/schemas/PositionCoordinateType"
         positionCoordinateY:
           type: string
         positionCoordinateYType:
-          type: string
-          description: "The type of positional coordinate used. Must be one of the\
-            \ following values \n\nLONGITUDE - ISO 6709 standard, WGS84 geodetic datum.\
-            \ See 'Location Coordinate Encoding' for details \n\nLATITUDE - ISO 6709\
-            \ standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for\
-            \ details \n\nPLANTED_ROW - The physical planted row number  \n\nPLANTED_INDIVIDUAL\
-            \ - The physical counted number, could be independent or within a planted\
-            \ row \n\nGRID_ROW - The row index number of a square grid overlay \n\n\
-            GRID_COL - The column index number of a square grid overlay \n\nMEASURED_ROW\
-            \ - The distance in meters from a defined 0-th row \n\nMEASURED_COL -\
-            \ The distance in meters from a defined 0-th column "
-          enum:
-          - LONGITUDE
-          - LATITUDE
-          - PLANTED_ROW
-          - PLANTED_INDIVIDUAL
-          - GRID_ROW
-          - GRID_COL
-          - MEASURED_ROW
-          - MEASURED_COL
+          $ref: "#/components/schemas/PositionCoordinateType"
       description: All positional and layout information related to this Observation
         Unit
     OntologyReference:
@@ -2749,7 +2716,7 @@ components:
           type: boolean
         pollinationTimeStamp:
           type: string
-      description: A pollination event that occurred for this cross
+      description: A Pollination Event that was used or attempted for a Cross.
     Scale:
       required:
       - scaleDbId

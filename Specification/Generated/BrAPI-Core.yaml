@@ -1778,7 +1778,7 @@ components:
         trialPUI:
           type: string
       description: License and citation information for the data in this trial
-    EnvironmentParameters:
+    EnvironmentParameter:
       required:
       - description
       - environmentParametersDbId
@@ -2371,10 +2371,6 @@ components:
           type: string
         endDate:
           type: string
-        environmentParameterDbIds:
-          type: array
-          items:
-            type: string
         experimentalDesign:
           $ref: "#/components/schemas/ExperimentalDesign"
         growthFacility:
@@ -2442,10 +2438,6 @@ components:
           type: string
         endDate:
           type: string
-        environmentParameterDbIds:
-          type: array
-          items:
-            type: string
         experimentalDesign:
           $ref: "#/components/schemas/ExperimentalDesign"
         growthFacility:

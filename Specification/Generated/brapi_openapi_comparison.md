@@ -206,6 +206,7 @@ Changed response : **200 OK**
 
 
             New required properties:
+            - `methodDbId`
             - `methodName`
             - `scaleDbId`
             - `scaleName`
@@ -326,6 +327,7 @@ Changed response : **200 OK**
 
 
             New required properties:
+            - `methodDbId`
             - `methodName`
             - `scaleDbId`
             - `scaleName`
@@ -448,6 +450,7 @@ Changed response : **200 OK**
 
 
         New required properties:
+        - `methodDbId`
         - `methodName`
         - `scaleDbId`
         - `scaleName`
@@ -553,6 +556,7 @@ Changed content type : `application/json`
 
 New required properties:
 - `attributeDbId`
+- `methodDbId`
 - `methodName`
 - `scaleDbId`
 - `scaleName`
@@ -656,6 +660,7 @@ Changed response : **200 OK**
 
 
         New required properties:
+        - `methodDbId`
         - `methodName`
         - `scaleDbId`
         - `scaleName`
@@ -6594,6 +6599,7 @@ Changed response : **200 OK**
 
 
             New required properties:
+            - `methodDbId`
             - `methodName`
             - `scaleDbId`
             - `scaleName`
@@ -6750,6 +6756,7 @@ Changed response : **200 OK**
 
 
             New required properties:
+            - `methodDbId`
             - `methodName`
             - `scaleDbId`
             - `scaleName`
@@ -9311,6 +9318,7 @@ Changed response : **200 OK**
             Changed items (object):
 
             New required properties:
+            - `methodDbId`
             - `methodName`
             - `scaleDbId`
             - `scaleName`
@@ -9461,6 +9469,7 @@ Changed response : **200 OK**
             Changed items (object):
 
             New required properties:
+            - `methodDbId`
             - `methodName`
             - `scaleDbId`
             - `scaleName`
@@ -11032,6 +11041,7 @@ Changed response : **200 OK**
             Changed items (object):
 
             New required properties:
+            - `methodDbId`
             - `methodName`
             - `scaleDbId`
             - `scaleName`
@@ -11144,6 +11154,7 @@ Changed response : **200 OK**
             Changed items (object):
 
             New required properties:
+            - `methodDbId`
             - `methodName`
             - `scaleDbId`
             - `scaleName`
@@ -11263,6 +11274,7 @@ Changed response : **200 OK**
     * Changed property `result` (object)
 
         New required properties:
+        - `methodDbId`
         - `methodName`
         - `scaleDbId`
         - `scaleName`
@@ -11363,6 +11375,7 @@ Deleted: `observationVariableDbId` in `path`
 Changed content type : `application/json`
 
 New required properties:
+- `methodDbId`
 - `methodName`
 - `observationVariableDbId`
 - `observationVariableDbId`
@@ -11463,6 +11476,7 @@ Changed response : **200 OK**
     * Changed property `result` (object)
 
         New required properties:
+        - `methodDbId`
         - `methodName`
         - `scaleDbId`
         - `scaleName`
@@ -14737,8 +14751,6 @@ Changed response : **200 OK**
 
             * Added property `contactDbIds` (array)
 
-            * Added property `environmentParameterDbIds` (array)
-
             * Added property `lastUpdateDbId` (string)
 
             * Added property `observationLevelDbIds` (array)
@@ -14907,8 +14919,6 @@ Changed response : **200 OK**
 
 
             * Added property `contactDbIds` (array)
-
-            * Added property `environmentParameterDbIds` (array)
 
             * Added property `lastUpdateDbId` (string)
 
@@ -15379,8 +15389,6 @@ Changed response : **200 OK**
 
             * Added property `contactDbIds` (array)
 
-            * Added property `environmentParameterDbIds` (array)
-
             * Added property `lastUpdateDbId` (string)
 
             * Added property `observationLevelDbIds` (array)
@@ -15521,8 +15529,6 @@ Changed response : **200 OK**
 
 
             * Added property `contactDbIds` (array)
-
-            * Added property `environmentParameterDbIds` (array)
 
             * Added property `lastUpdateDbId` (string)
 
@@ -15672,8 +15678,6 @@ Changed response : **200 OK**
 
         * Added property `contactDbIds` (array)
 
-        * Added property `environmentParameterDbIds` (array)
-
         * Added property `lastUpdateDbId` (string)
 
         * Added property `observationLevelDbIds` (array)
@@ -15805,8 +15809,6 @@ New required properties:
 
 * Added property `contactDbIds` (array)
 
-* Added property `environmentParameterDbIds` (array)
-
 * Added property `lastUpdateDbId` (string)
 
 * Added property `observationLevelDbIds` (array)
@@ -15933,8 +15935,6 @@ Changed response : **200 OK**
 
 
         * Added property `contactDbIds` (array)
-
-        * Added property `environmentParameterDbIds` (array)
 
         * Added property `lastUpdateDbId` (string)
 

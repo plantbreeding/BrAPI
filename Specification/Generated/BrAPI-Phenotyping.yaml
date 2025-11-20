@@ -1875,6 +1875,8 @@ components:
           type: string
         type:
           type: string
+          description: "The type of documentation, which can be OBO Foundry, an RDF\
+            \ term or a webpage."
           enum:
           - OBO
           - RDF
@@ -1950,8 +1952,10 @@ components:
           type: array
           items:
             type: string
-      description: An object describing additional event parameters. Each of the following
-        accepts a human-readable value or URI
+      description: "Additional metadata to describe an event, based on the ICASA standard\
+        \ model. For example, 'Tillage Implement' (tiimp), 'Tillage Depth' (tidep),\
+        \ and 'Tillage Mix Effectiveness' (timix) might all be recorded parameters\
+        \ for a Tillage event."
     ExperimentalDesign:
       type: object
       properties:
@@ -2344,6 +2348,7 @@ components:
     MethodNewRequest:
       required:
       - methodDbId
+      - methodDbId
       - methodName
       type: object
       properties:
@@ -2489,9 +2494,8 @@ components:
           type: string
         observationUnitPUI:
           type: string
-      description: "The type of treatment/factor. ex. 'fertilizer', 'inoculation',\
-        \ 'irrigation', etc. MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym\
-        \ of the experimental factor."
+      description: A Treatment applied an Observation Unit at a given Modality/Level
+        for a specific Factor.
     ObservationUnit:
       required:
       - observationUnitDbId
@@ -2677,49 +2681,11 @@ components:
         positionCoordinateX:
           type: string
         positionCoordinateXType:
-          type: string
-          description: "The type of positional coordinate used. Must be one of the\
-            \ following values \n\nLONGITUDE - ISO 6709 standard, WGS84 geodetic datum.\
-            \ See 'Location Coordinate Encoding' for details \n\nLATITUDE - ISO 6709\
-            \ standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for\
-            \ details \n\nPLANTED_ROW - The physical planted row number \n\nPLANTED_INDIVIDUAL\
-            \ - The physical counted number, could be independent or within a planted\
-            \ row \n\nGRID_ROW - The row index number of a square grid overlay \n\n\
-            GRID_COL - The column index number of a square grid overlay \n\nMEASURED_ROW\
-            \ - The distance in meters from a defined 0-th row \n\nMEASURED_COL -\
-            \ The distance in meters from a defined 0-th column "
-          enum:
-          - LONGITUDE
-          - LATITUDE
-          - PLANTED_ROW
-          - PLANTED_INDIVIDUAL
-          - GRID_ROW
-          - GRID_COL
-          - MEASURED_ROW
-          - MEASURED_COL
+          $ref: "#/components/schemas/PositionCoordinateType"
         positionCoordinateY:
           type: string
         positionCoordinateYType:
-          type: string
-          description: "The type of positional coordinate used. Must be one of the\
-            \ following values \n\nLONGITUDE - ISO 6709 standard, WGS84 geodetic datum.\
-            \ See 'Location Coordinate Encoding' for details \n\nLATITUDE - ISO 6709\
-            \ standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for\
-            \ details \n\nPLANTED_ROW - The physical planted row number  \n\nPLANTED_INDIVIDUAL\
-            \ - The physical counted number, could be independent or within a planted\
-            \ row \n\nGRID_ROW - The row index number of a square grid overlay \n\n\
-            GRID_COL - The column index number of a square grid overlay \n\nMEASURED_ROW\
-            \ - The distance in meters from a defined 0-th row \n\nMEASURED_COL -\
-            \ The distance in meters from a defined 0-th column "
-          enum:
-          - LONGITUDE
-          - LATITUDE
-          - PLANTED_ROW
-          - PLANTED_INDIVIDUAL
-          - GRID_ROW
-          - GRID_COL
-          - MEASURED_ROW
-          - MEASURED_COL
+          $ref: "#/components/schemas/PositionCoordinateType"
       description: All positional and layout information related to this Observation
         Unit
     ObservationUnitSearchRequest:
@@ -2732,6 +2698,7 @@ components:
         \ but it could include things like Fields, Blocks, or Samples."
     ObservationVariable:
       required:
+      - methodDbId
       - methodName
       - observationVariableDbId
       - observationVariableName
@@ -2786,6 +2753,7 @@ components:
           type: string
     ObservationVariableNewRequest:
       required:
+      - methodDbId
       - methodName
       - observationVariableDbId
       - observationVariableDbId
@@ -2940,6 +2908,27 @@ components:
       - SELF
       - POPULATION
       - CLONAL
+    PositionCoordinateType:
+      type: string
+      description: "The type of positional coordinate. Must be one of the following\
+        \ values \n\nLONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location\
+        \ Coordinate Encoding' for details \n\nLATITUDE - ISO 6709 standard, WGS84\
+        \ geodetic datum. See 'Location Coordinate Encoding' for details \n\nPLANTED_ROW\
+        \ - The physical planted row number \n\nPLANTED_INDIVIDUAL - The physical\
+        \ counted number, could be independent or within a planted row \n\nGRID_ROW\
+        \ - The row index number of a square grid overlay \n\nGRID_COL - The column\
+        \ index number of a square grid overlay \n\nMEASURED_ROW - The distance in\
+        \ meters from a defined 0-th row \n\nMEASURED_COL - The distance in meters\
+        \ from a defined 0-th column "
+      enum:
+      - LONGITUDE
+      - LATITUDE
+      - PLANTED_ROW
+      - PLANTED_INDIVIDUAL
+      - GRID_ROW
+      - GRID_COL
+      - MEASURED_ROW
+      - MEASURED_COL
     Scale:
       required:
       - scaleDbId
