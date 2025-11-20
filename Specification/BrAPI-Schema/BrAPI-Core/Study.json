@@ -383,7 +383,7 @@
                 "parameterName",
                 "description"
             ],
-            "title": "EnvironmentParameters",
+            "title": "EnvironmentParameter",
             "description": "Environmental parameters that were kept constant throughout the study and did not change between observation units. \n\nMIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).",
             "type": "object",
             "brapi-metadata": {
