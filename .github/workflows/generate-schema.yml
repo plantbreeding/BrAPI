@@ -22,6 +22,14 @@ jobs:
         run: |
           echo "Automated commit detected - skipping job"
           echo "skip_job=true" >> "$GITHUB_OUTPUT"
+      - name: Check Branch with Regex
+        id: check-tag
+        run: |
+          if [[ "${{ github.ref }}" =~ ^refs/heads/brapi-V[0-9]+\.[0-9]+$ ]]; then
+            echo "commit=true" >> $GITHUB_ENV
+          else
+            echo "commit=false" >> $GITHUB_ENV
+          fi      
           
   generate:
     runs-on: ubuntu-latest
@@ -63,4 +71,5 @@ jobs:
       - name: Compare OpenAPI
         working-directory: ./generator
         run: ./gradlew compareAll
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - if: env.commit == 'true'
+        uses: stefanzweifel/git-auto-commit-action@v5
