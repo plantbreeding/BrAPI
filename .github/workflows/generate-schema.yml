@@ -28,9 +28,11 @@ jobs:
         run: |
           regex="^refs/heads/brapi-V[0-9]+\.[0-9]+$"
           if [[ "${{ github.ref }}" =~ $regex ]]; then
-            echo "skip_commit=false" >> $GITHUB_ENV
+            echo "skip_commit=false" >> "$GITHUB_OUTPUT"
+            echo "skip_commit=false"
           else
-            echo "skip_commit=true" >> $GITHUB_ENV
+            echo "skip_commit=true" >> "$GITHUB_OUTPUT"
+            echo "skip_commit=true"
           fi
           echo "Release branch check - Will skip commit of generated files? $skip_commit"
   generate:
