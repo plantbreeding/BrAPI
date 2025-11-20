@@ -30,12 +30,8 @@ jobs:
             echo "commit=true" >> $GITHUB_ENV
           else
             echo "commit=false" >> $GITHUB_ENV
-          fi      
-          if [[ "$commit" == 'true']]; then
-            echo "Release branch - will commit generated files"
-          else
-            echo "Feature branch - will NOT commit generated files"
           fi
+          echo "Release branch check - Will commit generated files? $commit"
   generate:
     runs-on: ubuntu-latest
     needs: check
