@@ -309,4 +309,4 @@
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/ObservationUnit.json",
     "$schema": "http://json-schema.org/draft/2020-12/schema"
-}
+} 
