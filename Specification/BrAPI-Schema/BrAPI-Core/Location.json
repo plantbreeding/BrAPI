@@ -7,7 +7,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "L1"
                 },
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
@@ -19,14 +20,16 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "North East corner of greenhouse"
                 },
                 "coordinateUncertainty": {
                     "description": "Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "20"
                 },
                 "coordinates": {
                     "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
@@ -38,14 +41,16 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "PER"
                 },
                 "countryName": {
                     "description": "The full name of the country where a Location is located\n<br/> MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Peru"
                 },
                 "documentationURL": {
                     "description": "A URL to the human readable documentation of an object",
@@ -53,21 +58,24 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "https://brapi.org"
                 },
                 "environmentType": {
                     "description": "Describes the general type of environment of a Location. (ex. forest, field, nursery, etc)",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Nursery"
                 },
                 "exposure": {
                     "description": "Describes the level of protection/exposure for things like sun light and wind at a particular Location",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Structure, no exposure"
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
@@ -87,14 +95,16 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "71 Pilgrim Avenue Chevy Chase MD 20815"
                 },
                 "instituteName": {
                     "description": "The full name of the institute at a particular Location\n<br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Plant Science Institute"
                 },
                 "locationDbId": {
                     "description": "The unique identifier for a Location",
@@ -102,14 +112,16 @@
                 },
                 "locationName": {
                     "description": "A human readable name for a Location\n<br/> MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.",
-                    "type": "string"
+                    "type": "string",
+                    "example": "Location 1"
                 },
                 "locationType": {
                     "description": "A short description of a type of Location (ex. Field Station, Breeding Location, Storage Location, etc)",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Field Station"
                 },
                 "parentLocation": {
                     "$ref": "Location.json#/$defs/Location",
@@ -150,21 +162,24 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Private"
                 },
                 "slope": {
                     "description": "Describes the approximate slope (height/distance) of a Location.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "0"
                 },
                 "topography": {
                     "description": "Describes the topography of the land at a Location. (ex. Plateau, Cirque, Hill, Valley, etc)",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Valley"
                 },
                 "seedLots": {
                     "title": "SeedLots",

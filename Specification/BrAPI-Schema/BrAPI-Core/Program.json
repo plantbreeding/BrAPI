@@ -7,7 +7,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "P1"
                 },
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
@@ -19,7 +20,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Tomatillo"
                 },
                 "documentationURL": {
                     "description": "A URL to the human readable documentation of an object",
@@ -27,7 +29,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "https://wiki.brapi.org"
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
@@ -47,7 +50,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "EU: FP7-244374"
                 },
                 "leadPerson": {
                     "$ref": "Person.json#/$defs/Person",
@@ -60,7 +64,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Make a better tomatillo"
                 },
                 "programDbId": {
                     "description": "The ID which uniquely identifies the program",
@@ -68,7 +73,8 @@
                 },
                 "programName": {
                     "description": "Human readable name of the program",
-                    "type": "string"
+                    "type": "string",
+                    "example": "Tomatillo_Breeding_Program"
                 },
                 "programType": {
                     "description": "The type of program entity this object represents\n<br/> 'STANDARD' represents a standard, permanent breeding program\n<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   ",
@@ -80,7 +86,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "STANDARD"
                 },
                 "trials": {
                     "title": "Trials",

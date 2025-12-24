@@ -25,7 +25,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "11223344"
                 },
                 "plateDbId": {
                     "description": "The ID which uniquely identifies a `Plate`",
@@ -45,7 +46,8 @@
                 },
                 "plateName": {
                     "description": "A human readable name for a `Plate`",
-                    "type": "string"
+                    "type": "string",
+                    "example": "Plate_123_XYZ"
                 },
                 "program": {
                     "$ref": "../BrAPI-Core/Program.json#/$defs/Program",
@@ -65,7 +67,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "TISSUE"
                 },
                 "study": {
                     "$ref": "../BrAPI-Core/Study.json#/$defs/Study",

@@ -7,7 +7,8 @@
                     "type": [
                         "null",
                         "boolean"
-                    ]
+                    ],
+                    "example": true
                 },
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
@@ -19,7 +20,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Grape"
                 },
                 "contacts": {
                     "description": "List of contact entities associated with this study",
@@ -37,7 +39,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Irrigation was applied according needs during summer to prevent water stress."
                 },
                 "dataLinks": {
                     "description": "List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.",
@@ -55,7 +58,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "https://wiki.brapi.org"
                 },
                 "endDate": {
                     "description": "The date the study ends\n\nMIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended",
@@ -113,7 +117,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "MIT License"
                 },
                 "location": {
                     "$ref": "Location.json#/$defs/Location",
@@ -132,6 +137,11 @@
                     "type": [
                         "null",
                         "array"
+                    ],
+                    "example": [
+                        {"levelName": "field", "levelOrder": 0},
+                        {"levelName": "block", "levelOrder": 1},
+                        {"levelName": "plot", "levelOrder": 2}
                     ]
                 },
                 "observationUnitsDescription": {
@@ -139,7 +149,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter."
                 },
                 "observationVariables": {
                     "description": "The list of Observation Variables being used in this study. \n\nThis list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. ",
@@ -158,7 +169,8 @@
                     "type": [
                         "null",
                         "array"
-                    ]
+                    ],
+                    "example": ["Spring_2018"]
                 },
                 "startDate": {
                     "description": "The date this study started\n\nMIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started",
@@ -173,36 +185,42 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Grape_Yield_Spring_2018"
                 },
                 "studyDbId": {
                     "description": "The ID which uniquely identifies a study within the given database server\n\nMIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.",
-                    "type": "string"
+                    "type": "string",
+                    "example": "175ac75a"
                 },
                 "studyDescription": {
                     "description": "The description of this study\n\nMIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "This is a yield study for Spring 2018"
                 },
                 "studyName": {
                     "description": "The human readable name for a study\n\nMIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study",
-                    "type": "string"
+                    "type": "string",
+                    "example": "INRA's Walnut Genetic Resources Observation at Kenya"
                 },
                 "studyPUI": {
                     "description": "A permanent unique identifier associated with this study data. For example, a URI or DOI",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "doi:10.155454/12349537312"
                 },
                 "studyType": {
                     "description": "The type of study being performed. ex. \"Yield Trial\", etc",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Phenotyping"
                 },
                 "trial": {
                     "$ref": "Trial.json#/$defs/Trial",
@@ -396,14 +414,16 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "CO_715:0000145"
                 },
                 "description": {
                     "description": "MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be \"unknown\"/\"NA\", \"aggregated/reduced data\", or simply 'none'.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
                 },
                 "study": {
                     "description": "Experimental design associated with a study",
@@ -426,14 +446,16 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "CO_715:0000162"
                 },
                 "description": {
                     "description": "MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "field environment condition, greenhouse"
                 },
                 "study": {
                     "description": "Growth facility associated with a study",
@@ -468,7 +490,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "1.2.3"
                 },
                 "study": {
                     "description": "Last update associated with a study",

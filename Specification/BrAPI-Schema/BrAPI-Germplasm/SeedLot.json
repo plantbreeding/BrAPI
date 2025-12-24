@@ -12,7 +12,8 @@
                     "type": [
                         "null",
                         "number"
-                    ]
+                    ],
+                    "example": 561
                 },
                 "contentMixture": {
                     "description": "The mixture of germplasm present in the seed lot.\n<br/>\nIf this seed lot only contains a single germplasm, the response should contain the name \nand DbId of that germplasm with a mixturePercentage value of 100\n<br/>\nIf the seed lot contains a mixture of different germplasm, the response should contain \nthe name and DbId every germplasm present. The mixturePercentage field should contain \nthe ratio of each germplasm in the total mixture. All of the mixturePercentage values \nin this array should sum to equal 100.",
@@ -78,32 +79,37 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "This is a description of a seed lot"
                 },
                 "seedLotName": {
                     "description": "A human readable name for this Seed Lot",
-                    "type": "string"
+                    "type": "string",
+                    "example": "Seed Lot Alpha"
                 },
                 "sourceCollection": {
                     "description": "The description of the source where this material was originally collected (wild, nursery, etc)",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "nursery"
                 },
                 "storageLocation": {
                     "description": "Description the storage location",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "The storage location is an massive, underground, bunker."
                 },
                 "units": {
                     "description": "A description of the things being counted in a SeedLot (seeds, bulbs, kg, tree, etc)",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "seeds"
                 },
                 "fromSeedLotTransactions": {
                     "title": "fromSeedLotTransactions",

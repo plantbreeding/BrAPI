@@ -15,35 +15,40 @@
                     "type": [
                         "null",
                         "array"
-                    ]
+                    ],
+                    "example": ["H", "PH", "H1"]
                 },
                 "attribute": {
                     "description": "A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the attribute is the observed feature (or characteristic) of the entity e.g., for \"grain colour\", attribute = \"colour\"",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "height"
                 },
                 "attributePUI": {
                     "description": "The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI\n<br/>A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the attribute is the observed feature (or characteristic) of the entity e.g., for \"grain colour\", attribute = \"colour\"",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "http://my-traits.com/trait/PO:00012345"
                 },
                 "entity": {
                     "description": "A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the entity is the part of the plant that the trait refers to e.g., for \"grain colour\", entity = \"grain\"",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Stalk"
                 },
                 "entityPUI": {
                     "description": "The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI\n<br/>A Trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the Entity is the part of the plant that the trait refers to e.g., for \"grain colour\", entity = \"grain\" ",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "http://my-traits.com/trait/PATO:00098765"
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
@@ -63,7 +68,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "PH"
                 },
                 "ontologyReference": {
                     "description": "MIAPPE V1.1\n\n(DM-85) Variable accession number - Accession number of the variable in the Crop Ontology\n\n(DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).\n\n(DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).",
@@ -75,7 +81,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "recommended"
                 },
                 "synonyms": {
                     "description": "Other trait names",
@@ -85,14 +92,16 @@
                     "type": [
                         "null",
                         "array"
-                    ]
+                    ],
+                    "example": ["Height", "Plant Height", "Stalk Height", "Canopy Height"]
                 },
                 "traitClass": {
                     "description": "A classification to describe the type of trait and the context it should be considered in.\n<br/> examples- \"morphological\", \"phenological\", \"agronomical\", \"physiological\", \"abiotic stress\", \"biotic stress\", \"biochemical\", \"quality traits\", \"fertility\", etc.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "phenological"
                 },
                 "traitDbId": {
                     "description": "The ID which uniquely identifies a trait",
@@ -106,18 +115,21 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "The height of the plant"
                 },
                 "traitName": {
                     "description": "The human readable name of a trait\n<br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation",
-                    "type": "string"
+                    "type": "string",
+                    "example": "Height"
                 },
                 "traitPUI": {
                     "description": "The Permanent Unique Identifier of a Trait, usually in the form of a URI",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "http://my-traits.com/trait/CO_123:0000012"
                 }
             },
             "required": [

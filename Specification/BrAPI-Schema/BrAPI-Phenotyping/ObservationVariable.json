@@ -16,14 +16,16 @@
                         },
                         "observationVariableName": {
                             "description": "Variable name (usually a short name)\n\nMIAPPE V1.1 (DM-84) Variable name - Name of the variable.",
-                            "type": "string"
+                            "type": "string",
+                            "example": "Variable Name"
                         },
                         "observationVariablePUI": {
                             "description": "The Permanent Unique Identifier of a Observation Variable, usually in the form of a URI",
                             "type": [
                                 "null",
                                 "string"
-                            ]
+                            ],
+                            "example": "http://my-traits.com/trait/CO_123:0009012"
                         },
                         "studies": {
                             "title": "Studies",

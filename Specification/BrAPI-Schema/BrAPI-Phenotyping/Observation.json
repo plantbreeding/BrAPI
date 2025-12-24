@@ -86,7 +86,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "2.3"
                 },
                 "images": {
                     "title": "images",

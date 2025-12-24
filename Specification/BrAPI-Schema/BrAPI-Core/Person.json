@@ -12,14 +12,16 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Bob likes pina coladas and getting caught in the rain."
                 },
                 "emailAddress": {
                     "description": "email address for this person",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "bob@bob.com"
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
@@ -39,28 +41,32 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Bob"
                 },
                 "lastName": {
                     "description": "Persons last name",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Robertson"
                 },
                 "mailingAddress": {
                     "description": "physical address of this person",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "123 Street Ave, City, State, Country"
                 },
                 "middleName": {
                     "description": "Persons middle name",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Danger"
                 },
                 "personDbId": {
                     "description": "Unique ID for a person",
@@ -71,14 +77,16 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "+1-555-555-5555"
                 },
                 "userID": {
                     "description": "A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "bob-23"
                 },
                 "lists": {
                     "title": "Lists",

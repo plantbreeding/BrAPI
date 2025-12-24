@@ -47,14 +47,16 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Plot 1"
                 },
                 "observationUnitPUI": {
                     "description": "A Permanent Unique Identifier for an observation unit\n\nMIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "http://pui.per/plot/1a9afc14"
                 },
                 "observationUnitPosition": {
                     "description": "All positional and layout information related to this Observation Unit \n\nMIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) \nor level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. \nLevels of observation must be consistent with those listed in the Study section.",

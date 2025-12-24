@@ -12,21 +12,24 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Bob Robertson, Rob Robertson"
                 },
                 "copyright": {
                     "description": "Ontology copyright",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Copyright 1987, Bob Robertson"
                 },
                 "description": {
                     "description": "Human readable description of Ontology",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "This is an example ontology that does not exist"
                 },
                 "documentationURL": {
                     "description": "A URL to the human readable documentation of an object",
@@ -34,14 +37,16 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "https://wiki.brapi.org/ontology"
                 },
                 "licence": {
                     "description": "Ontology licence",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "MIT Open source licence"
                 },
                 "ontologyDbId": {
                     "description": "Ontology database unique identifier",
@@ -49,14 +54,16 @@
                 },
                 "ontologyName": {
                     "description": "Ontology name",
-                    "type": "string"
+                    "type": "string",
+                    "example": "The Official Ontology"
                 },
                 "version": {
                     "description": "Ontology version (no specific format)",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "V1.3.2"
                 }
             },
             "required": [

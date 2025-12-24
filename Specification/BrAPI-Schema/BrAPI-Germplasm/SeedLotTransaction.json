@@ -12,7 +12,8 @@
                     "type": [
                         "null",
                         "number"
-                    ]
+                    ],
+                    "example": 45
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
@@ -48,7 +49,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "f9cd88d2"
                 },
                 "transactionTimestamp": {
                     "description": "The time stamp for when the transaction occurred",
@@ -63,7 +65,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "seeds"
                 }
             },
             "required": [

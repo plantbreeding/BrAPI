@@ -12,7 +12,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Maize"
                 },
                 "contextOfUse": {
                     "description": "Indication of how trait is routinely used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])",
@@ -22,14 +23,16 @@
                     "type": [
                         "null",
                         "array"
-                    ]
+                    ],
+                    "example": ["Trial evaluation", "Nursery evaluation"]
                 },
                 "defaultValue": {
                     "description": "Variable default value. (examples: \"red\", \"2.3\", etc.)",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "2.0"
                 },
                 "documentationURL": {
                     "description": "A URL to the human readable documentation of an object",
@@ -37,7 +40,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "https://wiki.brapi.org/documentation.html"
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
@@ -57,21 +61,24 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "flowering"
                 },
                 "institution": {
                     "description": "Name of institution submitting the variable",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "The BrAPI Institute"
                 },
                 "language": {
                     "description": "2 letter ISO 639-1 code for the language of submission of the variable.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "en"
                 },
                 "method": {
                     "description": "A description of the way an Observation should be collected. \n<br>For example, an ObservationVariable might be defined with a Trait of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\". This variable would be distinct from a variable with the Method \"estimation\" or \"drone image processing\". ",
@@ -93,14 +100,16 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Dr. Bob Robertson"
                 },
                 "status": {
                     "description": "Variable status. (examples: \"recommended\", \"obsolete\", \"legacy\", etc.)",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "recommended"
                 },
                 "submissionTimestamp": {
                     "description": "Timestamp when the Variable was added (ISO 8601)",
@@ -118,7 +127,8 @@
                     "type": [
                         "null",
                         "array"
-                    ]
+                    ],
+                    "example": ["Maize Height", "Stalk Height", "Corn Height"]
                 },
                 "trait": {
                     "description": "A Trait describes what property is being observed. \n<br>For example, an ObservationVariable might be defined with a Trait of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\". This variable would be distinct from a variable with the Trait \"Leaf length\" or \"Flower height\". ",

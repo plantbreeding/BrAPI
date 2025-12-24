@@ -28,7 +28,8 @@
                     "type": [
                         "null",
                         "integer"
-                    ]
+                    ],
+                    "example": 6
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
@@ -72,21 +73,24 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "B"
                 },
                 "sampleBarcode": {
                     "description": "A unique identifier physically attached to the `Sample`",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "3a027b59"
                 },
                 "sampleDescription": {
                     "description": "Description of a `Sample`\n<br>MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "This sample was taken from the root of a tree"
                 },
                 "sampleDbId": {
                     "description": "The ID which uniquely identifies a `Sample`\n<br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.",
@@ -104,14 +108,16 @@
                 },
                 "sampleName": {
                     "description": "The human readable name of the `Sample`",
-                    "type": "string"
+                    "type": "string",
+                    "example": "Sample_alpha_20191022"
                 },
                 "samplePUI": {
                     "description": "A permanent unique identifier for the `Sample` (DOI, URL, UUID, etc)\n<br> MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. ",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "doi:10.15454/312953986E3"
                 },
                 "sampleTimestamp": {
                     "description": "The date and time a `Sample` was collected from the field\n<br> MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested",
@@ -126,7 +132,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Tissue"
                 },
                 "study": {
                     "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
@@ -139,14 +146,16 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Bob"
                 },
                 "tissueType": {
                     "description": "The type of tissue sampled. ex. 'Leaf', 'Root', etc.\n<br> MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Root"
                 },
                 "trial": {
                     "$ref": "../BrAPI-Core/Trial.json#/$defs/Trial",
@@ -159,7 +168,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "B6"
                 }
             },
             "required": [

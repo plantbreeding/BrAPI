@@ -30,7 +30,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "my_Crosses_2018_01"
                 },
                 "crossType": {
                     "description": "the type of cross",

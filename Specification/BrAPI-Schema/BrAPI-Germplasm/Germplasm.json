@@ -7,7 +7,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "A0000003"
                 },
                 "acquisitionDate": {
                     "description": "The date a material or germplasm was acquired by the genebank \n\nMCPD (v2.1) (ACQDATE) 12. Date on which the accession entered the collection [YYYYMMDD] where YYYY is the year, MM is the month and DD is the day. Missing data (MM or DD) should be indicated with hyphens or \"00\" [double zero].",
@@ -50,14 +51,16 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "420"
                 },
                 "biologicalStatusOfAccessionDescription": {
                     "description": "Supplemental text description for 'biologicalStatusOfAccessionCode'",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Genetic stock"
                 },
                 "breedingMethod": {
                     "$ref": "BreedingMethod.json#/$defs/BreedingMethod",
@@ -70,25 +73,29 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Rice Diversity Panel 1 (RDP1)"
                 },
                 "commonCropName": {
                     "description": "Common name for the crop \n\nMCPD (v2.1) (CROPNAME) 10. Common name of the crop. Example: \"malting barley\", \"mas\".",
-                    "type": "string"
+                    "type": "string",
+                    "example": "Maize"
                 },
                 "countryOfOriginCode": {
                     "description": "3-letter ISO 3166-1 code of the country in which the sample was originally collected \n\nMCPD (v2.1) (ORIGCTY) 13. 3-letter ISO 3166-1 code of the country in which the sample was originally collected (e.g. landrace, crop wild relative, farmers variety), bred or selected (breeding lines, GMOs, segregating populations, hybrids, modern cultivars, etc.). Note- Descriptors 14 to 16 below should be completed accordingly only if it was \"collected\".",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "BES"
                 },
                 "defaultDisplayName": {
                     "description": "Human readable name used for display purposes",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "A0000003"
                 },
                 "documentationURL": {
                     "description": "A URL to the human readable documentation of an object",
@@ -96,7 +103,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "https://wiki.brapi.org"
                 },
                 "donors": {
                     "description": "List of donor institutes",
@@ -130,7 +138,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Aspergillus"
                 },
                 "germplasmDbId": {
                     "description": "The ID which uniquely identifies a germplasm within the given database server \n<br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, inventory lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.",
@@ -138,7 +147,8 @@
                 },
                 "germplasmName": {
                     "description": "Name of the germplasm. It can be the preferred name and does not have to be unique.\n\nMCPD (v2.1) (ACCENAME) 11. Either a registered or other designation given to the material received, other than the donors accession number (23) or collecting number (3). First letter uppercase. Multiple names are separated by a semicolon without space.",
-                    "type": "string"
+                    "type": "string",
+                    "example": "A0000003"
                 },
                 "germplasmOrigin": {
                     "description": "Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.",
@@ -156,63 +166,72 @@
                 },
                 "germplasmPUI": {
                     "description": "The Permanent Unique Identifier which represents a germplasm\n\nMIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, inventory lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.\n\nMIAPPE V1.1 (DM-51) Material source DOI - Digital Object Identifier (DOI) of the material source\n\nMCPD (v2.1) (PUID) 0. Any persistent, unique identifier assigned to the accession so it can be unambiguously referenced at the global level and the information associated with it harvested through automated means. Report one PUID for each accession. The Secretariat of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) is facilitating the assignment of a persistent unique identifier (PUID), in the form of a DOI, to PGRFA at the accession level. Genebanks not applying a true PUID to their accessions should use, and request recipients to use, the concatenation of INSTCODE, ACCENUMB, and GENUS as a globally unique identifier similar in most respects to the PUID whenever they exchange information on accessions with third parties.",
-                    "type": "string"
+                    "type": "string",
+                    "example": "http://pui.per/accession/A0000003"
                 },
                 "germplasmPreprocessing": {
                     "description": "Description of any process or treatment applied uniformly to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "EO:0007210; transplanted from study 2351 observation unit ID: pot:894"
                 },
                 "instituteCode": {
                     "description": "The code for the institute that maintains the material. \n\nMCPD (v2.1) (INSTCODE) 1. FAO WIEWS code of the institute where the accession is maintained. The codes consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. PER001). The current set of institute codes is available from http://www.fao.org/wiews. For those institutes not yet having an FAO Code, or for those with \"obsolete\" codes, see \"Common formatting rules (v)\".",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "PER001"
                 },
                 "instituteName": {
                     "description": "The name of the institute that maintains the material",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "The BrAPI Institute"
                 },
                 "pedigree": {
                     "description": "The cross name and optional selection history.\n\nMCPD (v2.1) (ANCEST) 20. Information about either pedigree or other description of ancestral information (e.g. parent variety in case of mutant or selection). For example a pedigree 'Hanna/7*Atlas//Turk/8*Atlas' or a description 'mutation found in Hanna', 'selection from Irene' or 'cross involving amongst others Hanna and Irene'.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "A0000001/A0000002"
                 },
                 "seedSource": {
                     "description": "An identifier for the source of the biological material\n<br/>MIAPPE V1.1 (DM-50) Material source ID (Holding institute/stock centre, accession) - An identifier for the source of the biological material, in the form of a key-value pair comprising the name/identifier of the repository from which the material was sourced plus the accession number of the repository for that material. Where an accession number has not been assigned, but the material has been derived from the crossing of known accessions, the material can be defined as follows: \"mother_accession X father_accession\", or, if father is unknown, as \"mother_accession X UNKNOWN\". For in situ material, the region of provenance may be used when an accession is not available.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "INRA:095115_inra"
                 },
                 "seedSourceDescription": {
                     "description": "Description of the material source\n\nMIAPPE V1.1 (DM-56) Material source description - Description of the material source",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Branches were collected from a 10-year-old tree growing in a progeny trial established in a loamy brown earth soil."
                 },
                 "species": {
                     "description": "Specific epithet portion of the scientific name in lowercase letters.\n\nMCPD (v2.1) (SPECIES) 6. Specific epithet portion of the scientific name in lowercase letters. Only the following abbreviation is allowed: \"sp.\" \n\nMIAPPE V1.1 (DM-44) Species - Species name (formally: specific epithet) for the organism under study, according to standard scientific nomenclature.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "fructus"
                 },
                 "speciesAuthority": {
                     "description": "The authority organization responsible for tracking and maintaining the species name \n\nMCPD (v2.1) (SPAUTHOR) 7. Provide the authority for the species name.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Smith, 1822"
                 },
                 "storageTypes": {
                     "description": "The type of storage this germplasm is kept in at a genebank.",
@@ -233,14 +252,16 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Aspergillus fructus A"
                 },
                 "subtaxaAuthority": {
                     "description": "The authority organization responsible for tracking and maintaining the subtaxon information\n\nMCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Smith, 1822"
                 },
                 "synonyms": {
                     "description": "List of alternative names or IDs used to reference this germplasm\n\nMCPD (v2.1) (OTHERNUMB) 24. Any other identifiers known to exist in other collections for this accession. Use the following format: INSTCODE:ACCENUMB;INSTCODE:identifier;INSTCODE and identifier are separated by a colon without space. Pairs of INSTCODE and identifier are separated by a semicolon without space. When the institute is not known, the identifier should be preceded by a colon.",
