@@ -72,7 +72,8 @@
                 },
                 "seedLotDbId": {
                     "description": "Unique DbId for the Seed Lot",
-                    "type": "string"
+                    "type": "string",
+                    "example": "261ecb09"
                 },
                 "seedLotDescription": {
                     "description": "A general description of this Seed Lot",

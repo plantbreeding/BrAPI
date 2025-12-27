@@ -23,7 +23,8 @@
                 },
                 "crossDbId": {
                     "description": "the unique identifier for a cross",
-                    "type": "string"
+                    "type": "string",
+                    "example": "d105fd6f"
                 },
                 "crossName": {
                     "description": "the human readable name for a cross",

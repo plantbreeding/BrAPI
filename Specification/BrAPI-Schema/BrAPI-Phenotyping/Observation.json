@@ -12,7 +12,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "917d3ae0"
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
@@ -41,7 +42,8 @@
                 },
                 "observationDbId": {
                     "description": "The ID which uniquely identifies an observation",
-                    "type": "string"
+                    "type": "string",
+                    "example": "ef24b615"
                 },
                 "observationTimeStamp": {
                     "description": "The date and time when this observation was made",
@@ -79,7 +81,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "a2f7f60b"
                 },
                 "value": {
                     "description": "The value of the data collected as an observation",

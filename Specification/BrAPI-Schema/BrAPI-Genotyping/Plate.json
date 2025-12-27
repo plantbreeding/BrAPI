@@ -30,7 +30,8 @@
                 },
                 "plateDbId": {
                     "description": "The ID which uniquely identifies a `Plate`",
-                    "type": "string"
+                    "type": "string",
+                    "example": "a106467f"
                 },
                 "plateFormat": {
                     "description": "Enum for plate formats, usually \"PLATE_96\" for a 96 well plate or \"TUBES\" for plateless format",

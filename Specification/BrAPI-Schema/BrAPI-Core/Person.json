@@ -70,7 +70,8 @@
                 },
                 "personDbId": {
                     "description": "Unique ID for a person",
-                    "type": "string"
+                    "type": "string",
+                    "example": "14340a54"
                 },
                 "phoneNumber": {
                     "description": "phone number of this person",

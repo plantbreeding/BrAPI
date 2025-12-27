@@ -143,7 +143,8 @@
                 },
                 "germplasmDbId": {
                     "description": "The ID which uniquely identifies a germplasm within the given database server \n<br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, inventory lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.",
-                    "type": "string"
+                    "type": "string",
+                    "example": "d4076594"
                 },
                 "germplasmName": {
                     "description": "Name of the germplasm. It can be the preferred name and does not have to be unique.\n\nMCPD (v2.1) (ACCENAME) 11. Either a registered or other designation given to the material received, other than the donors accession number (23) or collecting number (3). First letter uppercase. Multiple names are separated by a semicolon without space.",

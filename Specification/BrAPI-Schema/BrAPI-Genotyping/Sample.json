@@ -94,17 +94,16 @@
                 },
                 "sampleDbId": {
                     "description": "The ID which uniquely identifies a `Sample`\n<br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type": "string",
+                    "example": "cd06a61d"
                 },
                 "sampleGroupId": {
                     "description": "The ID which uniquely identifies a group of `Samples`",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "8524b436"
                 },
                 "sampleName": {
                     "description": "The human readable name of the `Sample`",

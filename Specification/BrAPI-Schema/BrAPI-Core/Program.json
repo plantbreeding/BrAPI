@@ -69,7 +69,8 @@
                 },
                 "programDbId": {
                     "description": "The ID which uniquely identifies the program",
-                    "type": "string"
+                    "type": "string",
+                    "example": "f60f15b2"
                 },
                 "programName": {
                     "description": "Human readable name of the program",
