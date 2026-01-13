@@ -24,7 +24,7 @@
                         "null",
                         "array"
                     ],
-                    "example": ["Trial evaluation", "Nursery evaluation"]
+                    "examples": ["Trial evaluation", "Nursery evaluation"]
                 },
                 "defaultValue": {
                     "description": "Variable default value. (examples: \"red\", \"2.3\", etc.)",
@@ -128,7 +128,7 @@
                         "null",
                         "array"
                     ],
-                    "example": ["Maize Height", "Stalk Height", "Corn Height"]
+                    "examples": ["Maize Height", "Stalk Height", "Corn Height"]
                 },
                 "trait": {
                     "description": "A Trait describes what property is being observed. \n<br>For example, an ObservationVariable might be defined with a Trait of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\". This variable would be distinct from a variable with the Trait \"Leaf length\" or \"Flower height\". ",

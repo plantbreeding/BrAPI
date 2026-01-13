@@ -31,7 +31,7 @@
                         "null",
                         "array"
                     ],
-                    "example": ["doi:10.1002/0470841559", "Red", "ncbi:0300294"]
+                    "examples": ["doi:10.1002/0470841559", "Red", "ncbi:0300294"]
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",

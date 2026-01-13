@@ -17,7 +17,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "P1",
                                 "P2"
                             ]
@@ -28,7 +28,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "d8bd96c7",
                                 "a2b9c8e7"
                             ]
@@ -39,7 +39,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "Bob Robertson",
                                 "Rob Robertson"
                             ]
@@ -50,7 +50,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "Objective Code One",
                                 "This is a longer objective search query"
                             ]
@@ -65,7 +65,7 @@
                                 ]
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "STANDARD",
                                 "PROJECT"
                             ]

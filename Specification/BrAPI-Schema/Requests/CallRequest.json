@@ -9,7 +9,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "example": [
+                    "examples": [
                         "a03202ec",
                         "274e4f63"
                     ]
@@ -20,7 +20,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "example": [
+                    "examples": [
                         "bba0b258",
                         "ff97d4f0"
                     ]
@@ -31,7 +31,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "example": [
+                    "examples": [
                         "407c0508",
                         "49e24dfc"
                     ]

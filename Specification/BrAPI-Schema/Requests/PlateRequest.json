@@ -26,7 +26,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "3cd0ca36",
                                 "983f3b14"
                             ]
@@ -37,7 +37,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "0cac98b8",
                                 "b96125fb"
                             ]
@@ -48,7 +48,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "0cac98b8",
                                 "b96125fb"
                             ]
@@ -59,7 +59,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "11223344",
                                 "55667788"
                             ]
@@ -70,7 +70,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "3bece2ca",
                                 "dd286cc6"
                             ]
@@ -81,7 +81,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "SA_111",
                                 "SA_222"
                             ]
@@ -92,7 +92,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "45e1e2d7",
                                 "6cc6dd28"
                             ]
@@ -103,7 +103,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "d745e1e2",
                                 "6dd28d74"
                             ]

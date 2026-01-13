@@ -32,7 +32,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "66bab7e3",
                                 "0e5e7f99"
                             ]
@@ -43,7 +43,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "FieldA_PlotB",
                                 "SpecialPlantName"
                             ]
@@ -54,7 +54,7 @@
                             "items": {
                                 "$ref": "../BrAPI-Phenotyping/ObservationUnitLevel.json#/$defs/ObservationUnitLevel"
                             },
-                            "example": [
+                            "examples": [
                                 {
                                     "levelName": "plot",
                                     "levelCode": "Plot_123"
@@ -75,7 +75,7 @@
                             "items": {
                                 "$ref": "../BrAPI-Phenotyping/ObservationUnitLevelRelationship.json#/$defs/ObservationUnitLevelRelationship"
                             },
-                            "example": [
+                            "examples": [
                                 {
                                     "levelName": "field",
                                     "levelCode": "Field_1"
@@ -93,7 +93,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "Spring 2018",
                                 "Season A"
                             ]

@@ -24,7 +24,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "5bcac0ae",
                                 "7f48e22d"
                             ]
@@ -35,7 +35,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "f44f7b23",
                                 "a26b576e"
                             ]
@@ -46,7 +46,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "07e34f83",
                                 "d3d5517a"
                             ]
@@ -57,7 +57,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "Measuring Tape",
                                 "Spectrometer"
                             ]
@@ -68,7 +68,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "http://my-traits.com/trait/CO_123:0000212",
                                 "http://my-traits.com/trait/CO_123:0003557"
                             ]
@@ -79,7 +79,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "a13ecffa",
                                 "7e1afe4f"
                             ]
@@ -90,7 +90,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "Meters",
                                 "Liters"
                             ]
@@ -101,7 +101,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "http://my-traits.com/trait/CO_123:0000336",
                                 "http://my-traits.com/trait/CO_123:0000560"
                             ]
@@ -112,7 +112,7 @@
                                 "$ref": "../../BrAPI-Common/TraitDataType.json#/$defs/TraitDataType"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "Numerical",
                                 "Ordinal",
                                 "Text"
@@ -124,7 +124,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "morphological",
                                 "phenological",
                                 "agronomical"
@@ -136,7 +136,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "ef81147b",
                                 "78d82fad"
                             ]
@@ -147,7 +147,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "Stalk Height",
                                 "Root Color"
                             ]
@@ -158,7 +158,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "http://my-traits.com/trait/CO_123:0000456",
                                 "http://my-traits.com/trait/CO_123:0000820"
                             ]
@@ -169,7 +169,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "Height",
                                 "Color"
                             ]
@@ -180,7 +180,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "http://my-traits.com/trait/CO_123:0008336",
                                 "http://my-traits.com/trait/CO_123:0001092"
                             ]
@@ -191,7 +191,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "Stalk",
                                 "Root"
                             ]
@@ -202,7 +202,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "http://my-traits.com/trait/CO_123:0004098",
                                 "http://my-traits.com/trait/CO_123:0002366"
                             ]

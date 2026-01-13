@@ -138,7 +138,7 @@
                         "null",
                         "array"
                     ],
-                    "example": [
+                    "examples": [
                         {"levelName": "field", "levelOrder": 0},
                         {"levelName": "block", "levelOrder": 1},
                         {"levelName": "plot", "levelOrder": 2}
@@ -170,7 +170,7 @@
                         "null",
                         "array"
                     ],
-                    "example": ["Spring_2018"]
+                    "examples": ["Spring_2018"]
                 },
                 "startDate": {
                     "description": "The date this study started\n\nMIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started",
@@ -335,7 +335,10 @@
             "description": "A Study represents an experiment that has taken place at a single location. The Study contains metadata about the parameters and design of the experiment. It can also be used to group results and data sets generated from the experiment. A Trial can represent a collection of one or more Studies.",
             "type": "object",
             "brapi-metadata": {
-                "primaryModel": true
+                "primaryModel": true,
+                "controlledVocabularyProperties": [
+                    "studyType"
+                ]
             }
         },
         "EnvironmentParameter": {

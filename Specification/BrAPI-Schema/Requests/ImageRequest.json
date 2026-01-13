@@ -17,7 +17,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "doi:10.1002/0470841559",
                                 "Red",
                                 "ncbi:0300294"
@@ -29,7 +29,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "image_01032019.jpg",
                                 "picture_field_1234.jpg"
                             ]
@@ -63,7 +63,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "Image 43",
                                 "Tractor in field"
                             ]
@@ -95,7 +95,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "image/jpg",
                                 "image/jpeg",
                                 "image/gif"
@@ -107,7 +107,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "47326456",
                                 "fc9823ac"
                             ]
@@ -118,7 +118,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "564b64a6",
                                 "0d122d1d"
                             ]
@@ -129,7 +129,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "f5e4b273",
                                 "328c9424"
                             ]

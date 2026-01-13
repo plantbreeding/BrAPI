@@ -11,7 +11,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "7e6fa8aa",
                                 "bedc418c"
                             ]
@@ -22,7 +22,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "Chromosome 2",
                                 "Chromosome 3"
                             ]
@@ -33,7 +33,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "a0caa928",
                                 "f8894a26"
                             ]

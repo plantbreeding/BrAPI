@@ -9,7 +9,7 @@
                         "type": "string"
                     },
                     "type": "array",
-                    "example": [
+                    "examples": [
                         "a646187d",
                         "6d23513b"
                     ]
@@ -20,7 +20,7 @@
                         "type": "string"
                     },
                     "type": "array",
-                    "example": [
+                    "examples": [
                         "Plant Height in meters",
                         "Wheat rust score 1-5"
                     ]
@@ -31,7 +31,7 @@
                         "type": "string"
                     },
                     "type": "array",
-                    "example": [
+                    "examples": [
                         "http://my-traits.com/trait/CO_123:0008012",
                         "http://my-traits.com/trait/CO_123:0007261"
                     ]

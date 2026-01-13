@@ -9,7 +9,7 @@
                         "type": "string"
                     },
                     "type": "array",
-                    "example": [
+                    "examples": [
                         "8f5de35b",
                         "0e2d4a13"
                     ]
@@ -20,7 +20,7 @@
                         "type": "string"
                     },
                     "type": "array",
-                    "example": [
+                    "examples": [
                         "Better Breeding Program",
                         "Best Breeding Program"
                     ]

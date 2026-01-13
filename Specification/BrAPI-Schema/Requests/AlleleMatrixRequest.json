@@ -31,7 +31,7 @@
                             }
                         }
                     },
-                    "example": [
+                    "examples": [
                         {
                             "dimension": "variants",
                             "pageSize": 500,
@@ -56,7 +56,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "example": [
+                    "examples": [
                         "Genotype",
                         "Read Depth"
                     ]
@@ -67,7 +67,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "example": [
+                    "examples": [
                         "GT",
                         "RD"
                     ]
@@ -78,7 +78,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "example": [
+                    "examples": [
                         "20:1000-35000",
                         "20:87000-125000"
                     ]
@@ -89,7 +89,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "example": [
+                    "examples": [
                         "a03202ec",
                         "274e4f63"
                     ]
@@ -100,7 +100,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "example": [
+                    "examples": [
                         "a03202ec",
                         "274e4f63"
                     ]
@@ -111,7 +111,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "example": [
+                    "examples": [
                         "a03202ec",
                         "274e4f63"
                     ]
@@ -122,7 +122,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "example": [
+                    "examples": [
                         "a03202ec",
                         "274e4f63"
                     ]
@@ -133,7 +133,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "example": [
+                    "examples": [
                         "a03202ec",
                         "274e4f63"
                     ]
@@ -144,7 +144,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "example": [
+                    "examples": [
                         "bba0b258",
                         "ff97d4f0"
                     ]
@@ -155,7 +155,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "example": [
+                    "examples": [
                         "407c0508",
                         "49e24dfc"
                     ]

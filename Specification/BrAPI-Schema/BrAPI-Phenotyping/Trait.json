@@ -16,7 +16,7 @@
                         "null",
                         "array"
                     ],
-                    "example": ["H", "PH", "H1"]
+                    "examples": ["H", "PH", "H1"]
                 },
                 "attribute": {
                     "description": "A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the attribute is the observed feature (or characteristic) of the entity e.g., for \"grain colour\", attribute = \"colour\"",
@@ -93,7 +93,7 @@
                         "null",
                         "array"
                     ],
-                    "example": ["Height", "Plant Height", "Stalk Height", "Canopy Height"]
+                    "examples": ["Height", "Plant Height", "Stalk Height", "Canopy Height"]
                 },
                 "traitClass": {
                     "description": "A classification to describe the type of trait and the context it should be considered in.\n<br/> examples- \"morphological\", \"phenological\", \"agronomical\", \"physiological\", \"abiotic stress\", \"biotic stress\", \"biochemical\", \"quality traits\", \"fertility\", etc.",

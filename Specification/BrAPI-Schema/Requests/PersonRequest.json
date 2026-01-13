@@ -17,7 +17,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "bob@bob.com",
                                 "rob@bob.com"
                             ]
@@ -28,7 +28,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "Bob",
                                 "Rob"
                             ]
@@ -39,7 +39,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "Robertson",
                                 "Smith"
                             ]
@@ -50,7 +50,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "123 Main Street",
                                 "456 Side Street"
                             ]
@@ -61,7 +61,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "Danger",
                                 "Fight"
                             ]
@@ -72,7 +72,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "1e7731ab",
                                 "bc28cff8"
                             ]
@@ -83,7 +83,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "9995555555",
                                 "8884444444"
                             ]
@@ -94,7 +94,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "bob",
                                 "rob"
                             ]

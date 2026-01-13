@@ -34,7 +34,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "e0f70c2a",
                                 "b82f0967"
                             ]
@@ -55,7 +55,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "https://doi.org/01093190",
                                 "https://doi.org/11192409"
                             ]

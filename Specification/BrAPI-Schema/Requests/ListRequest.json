@@ -29,7 +29,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "example": [
+                    "examples": [
                         "55f20cf6",
                         "3193ca3d"
                     ]
@@ -40,7 +40,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "example": [
+                    "examples": [
                         "Planing List 1",
                         "Bobs List"
                     ]
@@ -51,7 +51,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "example": [
+                    "examples": [
                         "Bob Robertson",
                         "Rob Robertson"
                     ]
@@ -62,7 +62,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "example": [
+                    "examples": [
                         "bob@bob.com",
                         "rob@bob.com"
                     ]
@@ -73,7 +73,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "example": [
+                    "examples": [
                         "USER",
                         "SYSTEM",
                         "EXTERNAL"

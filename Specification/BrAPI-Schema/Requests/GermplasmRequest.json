@@ -26,7 +26,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "http://pui.per/accession/A0000003",
                                 "http://pui.per/accession/A0000477"
                             ]
@@ -37,7 +37,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "A0000003",
                                 "A0000477"
                             ]
@@ -48,7 +48,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "RDP1",
                                 "MDP1"
                             ]
@@ -59,7 +59,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "fa000203",
                                 "fa009965"
                             ]
@@ -70,7 +70,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "PER001",
                                 "NOR001"
                             ]
@@ -81,7 +81,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "Aspergillus fructus",
                                 "Zea mays"
                             ]
@@ -92,7 +92,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "Aspergillus",
                                 "Zea"
                             ]
@@ -103,7 +103,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "fructus",
                                 "mays"
                             ]
@@ -114,7 +114,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "variety_1",
                                 "2c38f9b6"
                             ]
@@ -125,7 +125,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "72c1001f",
                                 "7346c553"
                             ]
@@ -136,7 +136,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "16e16a7e",
                                 "ce06cf9e"
                             ]

@@ -14,7 +14,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "3cd0ca36",
                                 "983f3b14"
                             ]
@@ -25,7 +25,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "bba0b258",
                                 "ff97d4f0"
                             ]

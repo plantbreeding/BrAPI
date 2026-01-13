@@ -9,7 +9,7 @@
                         "type": "string"
                     },
                     "type": "array",
-                    "example": [
+                    "examples": [
                         "e9c6edd7",
                         "1b1df4a6"
                     ]
@@ -20,7 +20,7 @@
                         "type": "string"
                     },
                     "type": "array",
-                    "example": [
+                    "examples": [
                         "A0000003",
                         "A0000477"
                     ]

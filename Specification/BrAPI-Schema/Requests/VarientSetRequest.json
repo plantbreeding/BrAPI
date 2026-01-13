@@ -23,7 +23,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "9569cfc4",
                                 "da1e888c"
                             ]
@@ -34,7 +34,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "c80f068b",
                                 "eb7c5f50"
                             ]
@@ -45,7 +45,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "b2903842",
                                 "dcbb8558"
                             ]
@@ -56,7 +56,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "89ab4d17",
                                 "74d3b63d"
                             ]
@@ -67,7 +67,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "d3b63d4d",
                                 "3b63d74b"
                             ]

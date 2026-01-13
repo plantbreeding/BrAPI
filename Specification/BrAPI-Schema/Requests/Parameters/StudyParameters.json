@@ -9,7 +9,7 @@
                         "type": "string"
                     },
                     "type": "array",
-                    "example": [
+                    "examples": [
                         "cf6c4bd4",
                         "691e69d6"
                     ]
@@ -20,7 +20,7 @@
                         "type": "string"
                     },
                     "type": "array",
-                    "example": [
+                    "examples": [
                         "The First Bob Study 2017",
                         "Wheat Yield Trial 246"
                     ]

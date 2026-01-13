@@ -26,7 +26,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "A0009283",
                                 "A0006657"
                             ]
@@ -37,7 +37,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "doi:10.15454/312953986E3",
                                 "doi:10.15454/312953986E3"
                             ]
@@ -48,7 +48,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "c2365e900c81a89cf74d83dab60df146"
                             ]
                         },
@@ -58,7 +58,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "32a19dd7",
                                 "2c182c18"
                             ]

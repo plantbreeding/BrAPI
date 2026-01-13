@@ -17,7 +17,7 @@
                         "null",
                         "array"
                     ],
-                    "example": ["758a78c0", "2c78f9ee"]
+                    "examples": ["758a78c0", "2c78f9ee"]
                 },
                 "dateCreated": {
                     "description": "Timestamp when the entity was first created",

@@ -9,7 +9,7 @@
                         "type": "string"
                     },
                     "type": "array",
-                    "example": [
+                    "examples": [
                         "2012",
                         "1957-2004"
                     ]
@@ -20,7 +20,7 @@
                         "type": "string"
                     },
                     "type": "array",
-                    "example": [
+                    "examples": [
                         "Spring",
                         "Planting_Time_7"
                     ]
@@ -31,7 +31,7 @@
                         "type": "string"
                     },
                     "type": "array",
-                    "example": [
+                    "examples": [
                         "Objective Code One",
                         "This is a longer objective search query"
                     ]
@@ -42,7 +42,7 @@
                         "type": "string"
                     },
                     "type": "array",
-                    "example": [
+                    "examples": [
                         "2017"
                     ]
                 }

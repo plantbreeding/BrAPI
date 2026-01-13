@@ -37,7 +37,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "Harvest Two 2017",
                                 "Summer 2018"
                             ]
@@ -48,7 +48,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "Yield Trial",
                                 "Disease Resistance Trial"
                             ]
@@ -59,7 +59,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "Grape_Yield_Spring_2018",
                                 "Walnut_Kenya"
                             ]
@@ -70,7 +70,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "example": [
+                            "examples": [
                                 "doi:10.155454/12349537312",
                                 "https://pui.per/d8dd35e1"
                             ]

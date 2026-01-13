@@ -20,7 +20,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "ca4636d0",
                                 "c8a92409"
                             ]
@@ -31,7 +31,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "2ef15c9f",
                                 "318e7f7d"
                             ]
@@ -42,7 +42,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "Plant Height 1",
                                 "Root Color"
                             ]
@@ -53,7 +53,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "f44f7b23",
                                 "a26b576e"
                             ]
@@ -64,7 +64,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "07e34f83",
                                 "d3d5517a"
                             ]
@@ -75,7 +75,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "a13ecffa",
                                 "7e1afe4f"
                             ]
@@ -86,7 +86,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "ef81147b",
                                 "78d82fad"
                             ]
@@ -97,7 +97,7 @@
                                 "type": "string"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "morphological",
                                 "phenological",
                                 "agronomical"
@@ -109,7 +109,7 @@
                                 "$ref": "../BrAPI-Common/TraitDataType.json#/$defs/TraitDataType"
                             },
                             "type": "array",
-                            "example": [
+                            "examples": [
                                 "Numerical",
                                 "Ordinal",
                                 "Text"
