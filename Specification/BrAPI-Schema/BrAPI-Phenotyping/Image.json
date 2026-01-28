@@ -43,6 +43,11 @@
                         "array"
                     ]
                 },
+                "imageContent": {
+                    "description": "The content of the image",
+                    "type": "string",
+                    "format": "binary"
+                },
                 "imageDbId": {
                     "description": "The unique identifier of an image",
                     "type": "string"
@@ -134,7 +139,10 @@
             "description": "The metadata for an image file that is connected to some phenotypic observation data.",
             "type": "object",
             "brapi-metadata": {
-                "primaryModel": true
+                "primaryModel": true,
+                "writableProperties": [
+                    "imageContent"
+                ]
             }
         }
     },

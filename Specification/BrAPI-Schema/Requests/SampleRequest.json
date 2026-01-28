@@ -85,17 +85,6 @@
                                 "45e1e2d7",
                                 "6cc6dd28"
                             ]
-                        },
-                        "germplasmDbIds": {
-                            "description": "The ID which uniquely identifies a `Germplasm`",
-                            "items": {
-                                "type": "string"
-                            },
-                            "type": "array",
-                            "example": [
-                                "d745e1e2",
-                                "6dd28d74"
-                            ]
                         }
                     }
                 }

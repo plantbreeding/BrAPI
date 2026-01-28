@@ -58,7 +58,13 @@
                 }
             },
             "brapi-metadata": {
-                "request": true
+                "request": true,
+                "subQueryProperties" : [
+                    "expandHomozygotes",
+                    "unknownString",
+                    "sepPhased",
+                    "sepUnphased"
+                ]
             }
         }
     },

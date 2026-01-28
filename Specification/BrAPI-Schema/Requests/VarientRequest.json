@@ -93,7 +93,10 @@
                 }
             ],
             "brapi-metadata": {
-                "request": true
+                "request": true,
+                "subQueryProperties" : [
+                    "variantDbIds"
+                ]
             }
         }
     },

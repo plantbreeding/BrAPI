@@ -14,6 +14,11 @@
                         "string"
                     ]
                 },
+                "bases": {
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "relationshipType": "one-to-one",
+                    "$ref": "Reference.json#/$defs/ReferenceBases"
+                },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
                     "relationshipType": "one-to-many",
@@ -130,6 +135,40 @@
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
+            }
+        },
+        "ReferenceBases": {
+            "properties": {
+                "nextPageToken": {
+                    "description": "The continuation token, which is used to page through large result sets. Provide this value in a subsequent request to return the next page of results. This field will be empty if there are not any additional results.",
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "example": "3a3d658a"
+                },
+                "offset": {
+                    "description": "The offset position (0-based) of the given sequence from the start of this `Reference`. This value will differ for each page in a request.",
+                    "type": [
+                        "null",
+                        "integer"
+                    ],
+                    "example": 20000
+                },
+                "sequence": {
+                    "description": "A sub-string of the bases that make up this reference. Bases are represented as IUPAC-IUB codes; this string matches the regular expression `[ACGTMRWSYKVHDBN]*`.",
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "example": "TAGGATTGAGCTCTATATTAGGATTGAGCTCTATATTAGGATTGAGCTCTATATTAGGATTGAGCTCTATATTAGGATTGAGCTCTATATTAGGATTGAGCTCTATATTAGGATTGAGCTCTATATTAGGATTGAGCTCTATATTAGGATTGAGCTCTATAT"
+                }
+            },
+            "title": "ReferenceBases",
+            "description": "A string representation of the `Reference` base alleles.",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
             }
         }
     },

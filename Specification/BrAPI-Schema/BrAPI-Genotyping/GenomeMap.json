@@ -40,6 +40,20 @@
                         "string"
                     ]
                 },
+                "linkageGroups": {
+                    "title": "observationUnits",
+                    "description": "The linkage groups present in a `GenomeMap`",
+                    "referencedAttribute": "genomeMap",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "GenomeMap.json#/$defs/LinkageGroup",
+                        "description": "The `GenomeMap` to which this `LinkageGroup` belongs "
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
                 "linkageGroupCount": {
                     "description": "The number of linkage groups present in a `GenomeMap`",
                     "type": [
@@ -112,6 +126,51 @@
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
+            }
+        },
+        "LinkageGroup": {
+            "properties": {
+                "additionalInfo": {
+                    "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "relationshipType": "one-to-one",
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
+                },
+                "linkageGroupName": {
+                    "description": "The Uniquely Identifiable name of a `LinkageGroup` <br> This might be a chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.",
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "example": "Chromosome 3"
+                },
+                "markerCount": {
+                    "description": "The number of markers associated with a `LinkageGroup`.",
+                    "type": [
+                        "null",
+                        "integer"
+                    ],
+                    "example": 150
+                },
+                "maxPosition": {
+                    "description": "The maximum position of a marker within a `LinkageGroup`.",
+                    "type": [
+                        "null",
+                        "integer"
+                    ],
+                    "example": 2500
+                },
+                "genomeMap": {
+                    "description": "The `GenomeMap` to which this `LinkageGroup` belongs ",
+                    "$ref": "GenomeMap.json#/$defs/GenomeMap",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "linkageGroups"
+                }
+            },
+            "title": "LinkageGroup",
+            "description": "a `LinkageGroup` is the generic term for a named section of a `GenomeMap`. A `LinkageGroup` can represent a Chromosome, Scaffold, or Linkage Group.",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
             }
         }
     },
