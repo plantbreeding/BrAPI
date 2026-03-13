@@ -18,7 +18,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/AlleleMatrixSearchRequest'
-        description: Study Search request
+        description: AlleleMatrix Search request
       responses:
         '200':
           $ref: '#/components/responses/AlleleMatrixResponse'

@@ -23,7 +23,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/CallsSearchRequest'
-        description: Study Search request
+        description: Calls Search request
       responses:
         '200':
           $ref: '#/components/responses/CallsListResponse'

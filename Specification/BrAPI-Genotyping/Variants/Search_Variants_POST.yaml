@@ -22,8 +22,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/variantsSearchRequest'
-        description: Study Search request
+              $ref: '#/components/schemas/VariantsSearchRequest'
+        description: Variant Search request
       responses:
         '200':
           $ref: '#/components/responses/VariantsListResponse'
