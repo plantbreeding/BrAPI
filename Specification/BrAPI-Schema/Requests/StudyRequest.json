@@ -74,6 +74,31 @@
                                 "doi:10.155454/12349537312",
                                 "https://pui.per/d8dd35e1"
                             ]
+                        },
+                        "sortBy": {
+                            "description": "Name of the field to sort by.",
+                                "enum": [
+                                    "studyDbId",
+                                    "trialDbId",
+                                    "programDbId",
+                                    "locationDbId",
+                                    "seasonDbId",
+                                    "studyType",
+                                    "studyName",
+                                    "studyLocation",
+                                    "programName"
+                                ],
+                                "type": "string"
+                        },
+                        "sortOrder": {
+                            "description": "Sort order direction. Ascending/Descending.",
+                                "enum": [
+                                    "asc",
+                                    "ASC",
+                                    "desc",
+                                    "DESC"
+                                ],
+                                "type": "string"
                         }
                     }
                 }

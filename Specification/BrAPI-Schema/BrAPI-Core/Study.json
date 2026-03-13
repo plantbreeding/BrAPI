@@ -317,7 +317,10 @@
             "description": "A Study represents an experiment that has taken place at a single location. The Study contains metadata about the parameters and design of the experiment. It can also be used to group results and data sets generated from the experiment. A Trial can represent a collection of one or more Studies.",
             "type": "object",
             "brapi-metadata": {
-                "primaryModel": true
+                "primaryModel": true,
+                "controlledVocabularyProperties": [
+                    "studyType"
+                ]
             }
         },
         "EnvironmentParameter": {
@@ -386,10 +389,7 @@
             "description": "Environmental parameters that were kept constant throughout the study and did not change between observation units. \n\nMIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).",
             "type": "object",
             "brapi-metadata": {
-                "primaryModel": true,
-                "controlledVocabularyProperties": [
-                    "studyType"
-                ]
+                "primaryModel": false
             }
         },
         "ExperimentalDesign": {

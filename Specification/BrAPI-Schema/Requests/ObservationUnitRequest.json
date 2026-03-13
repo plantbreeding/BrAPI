@@ -82,6 +82,55 @@
                                 }
                             ]
                         },
+                        "observationUnitLevelNames": {
+                            "description": "The Observation Unit Level. Returns only the observation unit of the specified Level. \n<br/>References ObservationUnit->observationUnitPosition->observationLevel->levelName \n<br/>**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** \n<br/>For more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "observationUnitLevelOrders": {
+                            "description": "The Observation Unit Level Order Number. Returns only the observation unit of the specified Level. \nReferences ObservationUnit->observationUnitPosition->observationLevel->levelOrder \n<br/>For more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "observationUnitLevelCodes": {
+                            "description": "The Observation Unit Level Code. This parameter should be used together with `observationUnitLevelName` \nor `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode \n<br/>For more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "observationUnitLevelRelationshipNames": {
+                            "description": "The Observation Unit Level Relationship is a connection that this observation unit has to another level of the hierarchy. \n<br/>For example, if you have several observation units at a 'plot' level, they might all share a relationship to the same 'field' level.  \n<br/>Use this parameter to identify groups of observation units that share a relationship level. \n<br/>**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** \n<br/>For more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "observationUnitLevelRelationshipOrders": {
+                            "description": "The Observation Unit Level Order Number. \n<br/>Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder \n<br/>For more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "observationUnitLevelRelationshipCodes": {
+                            "description": "The Observation Unit Level Code. \n<br/>This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode \n<br/>For more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "observationUnitLevelRelationshipDbIds": {
+                            "description": "The observationUnitDbId associated with a particular level and code.\n<br/>This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->observationUnitDbId \n<br/>For more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
                         "includeObservations": {
                             "description": "Use this parameter to include a list of observations embedded in each ObservationUnit object. \n\nCAUTION - Use this parameter at your own risk. It may return large, unpaginated lists of observation data. Only set this value to True if you are sure you need to.",
                             "type": "boolean",

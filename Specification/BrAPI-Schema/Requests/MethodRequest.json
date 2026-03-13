@@ -14,7 +14,7 @@
                 {
                     "type": "object",
                     "properties": {
-                        "scaleDbIds": {
+                        "methodDbIds": {
                             "description": "The unique identifier for a method.",
                             "items": {
                                 "type": "string"

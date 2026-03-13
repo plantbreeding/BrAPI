@@ -4,11 +4,11 @@
             "type": "object",
             "properties": {
                 "pagination": {
-                    "title": "AlleleMatrixPagination",
                     "description": "Pagination for the matrix",
                     "type": "array",
                     "items": {
                         "type": "object",
+                        "title": "AlleleMatrixPagination",
                         "properties": {
                             "dimension": {
                                 "description": "the dimension of the matrix being paginated",
