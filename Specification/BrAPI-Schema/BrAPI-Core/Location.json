@@ -119,7 +119,7 @@
                 },
                 "childLocations": {
                     "title": "ChildLocations",
-                    "description": "",
+                    "description": "The child locations that belong to this Location. \nFor example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.",
                     "referencedAttribute": "parentLocation",
                     "relationshipType": "one-to-many",
                     "items": {

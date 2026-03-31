@@ -180,6 +180,7 @@
           ]
         },
         "mcpd": {
+          "deprecated": true,
           "$ref": "Germplasm.json#/$defs/GermplasmMCPD",
           "description": "The mulit-crop passport descriptors (MCPD) for this germplasm",
           "referencedAttribute": "germplasm",
@@ -396,6 +397,7 @@
       }
     },
     "GermplasmMCPD": {
+      "deprecated": true,
       "properties": {
         "accessionNames": {
           "description": "MCPD (v2.1) (ACCENAME) 11. A collection of either a registered names or other designations given to the material received, other than the donors accession number (23) or collecting number (3). First letter uppercase.",

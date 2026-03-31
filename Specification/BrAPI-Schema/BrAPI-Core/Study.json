@@ -455,7 +455,7 @@
         "LastUpdate": {
             "properties": {
                 "lastUpdateDbId": {
-                    "description": "The date and time when this study was last modified",
+                    "description": "The ID which uniquely identifies a LastUpdate within the given database server",
                     "type": "string"
                 },
                 "timestamp": {

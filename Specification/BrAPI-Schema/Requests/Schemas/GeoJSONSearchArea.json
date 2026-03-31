@@ -40,7 +40,8 @@
             ],
             "brapi-metadata": {
                 "request": true
-            }
+            },
+            "description": "The GeoJSONSearchArea provides a way to search by position.\nIt is used in coordinates in LocationRequest\nand imageLocation in ImageRequest\n\n### Implementation\n\nGeoJSONSearchArea is not currently implemented in BrAPI+."
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/Schemas/GeoJSONSearchArea.json",
