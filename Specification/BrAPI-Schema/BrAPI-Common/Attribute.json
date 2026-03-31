@@ -43,8 +43,7 @@
                 "controlledVocabularyProperties": [
                     "attributeCategory"
                 ]
-            },
-            "description": "An Attribute is a Variable that is associated with certain entities which may have a\nAttribute Value for instances of that entity and\nis not an ObservationVariable that was record during the execution of a Study.\n\nAttributes are available for the following entities:\n* Cultivar see Cultivar Attribute\n* Locale see LocaleAttribute\n* Germplasm see GermplasmAttribute\n* Observation Unit see ObservationUnitAttribute\n* Inventory Lot see InventoryLotAttribute\n\n### Phenome Implementation\n\nIn phenome attributes are variables associated with a specific entity.\n\n### PRISM Implementation\n\nIn PRISM attributes are columns associated with a specific entity."
+            }
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/Attribute.json",

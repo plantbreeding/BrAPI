@@ -62,8 +62,7 @@
             ],
             "brapi-metadata": {
                 "primaryModel": true
-            },
-            "description": "An **Observation Variable** is a parameter of the observation unit that is assessed in the context of a study. An ObservationVariable is defined at **crop**-level.\n\nSeveral Observation Variables can be related to the same phenotypic characteristic\n(e.g. height) but will be considered as different observation variables\nif they are measured at a different scale.\nFor example, the Observation Variable 'height in centimeters' differs from the \nObservation Variable 'height in inches'.\n\nAn Observation Variable is typically used to capture phenotypic measurements such as \nheight, yield, weight, etc. However, it can also capture genotypic or other characteristics. \n\n### Phenome Implementation\n\nObservation Variables are Variables with the Variable type 'Variate'\nthat have been assigned to the Germplasm entity.\n\n### PRISM Implementation\n\n> TODO Breeding Services please check\n\nIn Field Crops and Vegetable Observation Variables are held different workbooks depending\non the type of Study and are columns in the corresponding field book table."
+            }
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Phenotyping/ObservationVariable.json",

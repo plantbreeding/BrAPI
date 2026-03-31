@@ -59,8 +59,7 @@
                     ],
                     "type": "object"
                 }
-            ],
-            "description": "GeoJSONGeometry can either be a GeoJSONPoint \nor a GeoJSONPolygon.\n\nIt is used by geometry in GeoJSON\n\n### Implementation\n\nSee the fields in which GeoJSON is used."
+            ]
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/Components/Common/AdditionalInfo.json",
