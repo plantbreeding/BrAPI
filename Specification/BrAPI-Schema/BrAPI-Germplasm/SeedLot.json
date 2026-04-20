@@ -105,24 +105,9 @@
                         "string"
                     ]
                 },
-                "fromSeedLotTransactions": {
-                    "title": "fromSeedLotTransactions",
-                    "description": "fromSeedLotTransactions",
-                    "referencedAttribute": "fromSeedLot",
-                    "relationshipType": "one-to-many",
-                    "items": {
-                        "$ref": "SeedLotTransaction.json#/$defs/SeedLotTransaction",
-                        "description": "SeedLotTransaction"
-                    },
-                    "type": [
-                        "null",
-                        "array"
-                    ]
-                },
-                "toSeedLotTransactions": {
-                    "title": "toSeedLotTransactions",
-                    "description": "toSeedLotTransactions",
-                    "referencedAttribute": "toSeedLot",
+                "transactions": {
+                    "title": "transactions",
+                    "description": "The complete history of transactions for this seed lot. This includes seed increases, seed usage (planting), and trading with other breeding programs.",
                     "relationshipType": "one-to-many",
                     "items": {
                         "$ref": "SeedLotTransaction.json#/$defs/SeedLotTransaction",

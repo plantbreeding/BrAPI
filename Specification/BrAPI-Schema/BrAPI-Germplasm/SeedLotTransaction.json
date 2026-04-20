@@ -30,13 +30,11 @@
                 "fromSeedLot": {
                     "$ref": "SeedLot.json#/$defs/SeedLot",
                     "description": "The identifier for the Seed Lot being transferred out of",
-                    "referencedAttribute": "fromSeedLotTransactions",
                     "relationshipType": "many-to-one"
                 },
                 "toSeedLot": {
                     "$ref": "SeedLot.json#/$defs/SeedLot",
                     "description": "The identifier for the Seed Lot being transferred into",
-                    "referencedAttribute": "toSeedLotTransactions",
                     "relationshipType": "many-to-one"
                 },
                 "transactionDbId": {
