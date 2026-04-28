@@ -102,7 +102,7 @@ tasks.register("generateOWL", JavaExec) {
   args = ['generate', 'Specification/BrAPI-Schema',
           '-l', 'OWL',
           '-f', filename,
-          '-m', 'generator/ont-model-metadata.yaml'
+          '-m', 'generator/ont-model-metadata.yaml',
           '-x',
           '-t',
           '-r']
