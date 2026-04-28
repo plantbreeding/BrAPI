@@ -102,8 +102,7 @@ tasks.register("generateOWL", JavaExec) {
   args = ['generate', 'Specification/BrAPI-Schema',
           '-l', 'OWL',
           '-f', filename,
-          '-m', 'generator/ont-model-metadata.yaml',
-          '-c', 'Specification/Components',
+          '-m', 'generator/ont-model-metadata.yaml'
           '-x',
           '-t',
           '-r']
@@ -129,6 +128,7 @@ tasks.register("compareOpenAPI", JavaExec) {
           '-l', 'OPEN_API',
           '-f', filename,
           '-w', 'MARKDOWN',
+          '-c', 'Specification/Components',
           '-x',
           '-t',
           '-r']
