@@ -103,6 +103,7 @@ tasks.register("generateOWL", JavaExec) {
           '-l', 'OWL',
           '-f', filename,
           '-m', 'generator/ont-model-metadata.yaml',
+          '-c', 'Specification/Components',
           '-x',
           '-t',
           '-r']
@@ -129,7 +130,8 @@ tasks.register("compareOpenAPI", JavaExec) {
           '-f', filename,
           '-w', 'MARKDOWN',
           '-x',
-          '-t']
+          '-t',
+          '-r']
 }
 
 tasks.register("compareAll") {
