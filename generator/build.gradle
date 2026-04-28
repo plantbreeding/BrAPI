@@ -101,7 +101,8 @@ tasks.register("generateOWL", JavaExec) {
           '-f', filename,
           '-m', 'generator/ont-model-metadata.yaml',
           '-x',
-          '-t']
+          '-t',
+          '-r']
 }
 
 tasks.register("generateAll") {
