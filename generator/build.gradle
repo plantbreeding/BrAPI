@@ -47,7 +47,8 @@ tasks.register("generateGraphQL", JavaExec) {
           '-l', 'GRAPHQL',
           '-f', filename,
           '-x',
-          '-t']
+          '-t',
+          '-r']
 }
 
 tasks.register("generateOpenAPI", JavaExec) {
@@ -66,7 +67,8 @@ tasks.register("generateOpenAPI", JavaExec) {
           '-m', metadatafilename,
           '-c', 'Specification/OpenAPI-Components',
           '-x',
-          '-t']
+          '-t',
+          '-r']
 }
 
 tasks.register("generateOpenAPIJSON", JavaExec) {
@@ -85,7 +87,8 @@ tasks.register("generateOpenAPIJSON", JavaExec) {
           '-m', metadatafilename,
           '-c', 'Specification/OpenAPI-Components',
           '-x',
-          '-t']
+          '-t',
+          '-r']
 }
 
 
