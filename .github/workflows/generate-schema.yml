@@ -3,6 +3,10 @@ name: Build specifications, schemas and comparisions
 on:
   push:
   workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   check:
     runs-on: ubuntu-latest
