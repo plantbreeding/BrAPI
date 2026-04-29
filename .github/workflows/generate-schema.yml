@@ -13,6 +13,7 @@ jobs:
     outputs:
       skip_job: ${{ steps.skip.outputs.skip_job }}
       skip_commit: ${{ steps.check-tag.outputs.skip_commit }}
+      commit_message: ${{ steps.check-tag.outputs.commit_message }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4      
@@ -29,13 +30,23 @@ jobs:
       - name: Check Branch with Regex
         id: check-tag
         run: |
-          regex="^refs/heads/brapi-V[0-9]+\.[0-9]+$"
-          if [[ "${{ github.ref }}" =~ $regex ]]; then
+          # Always commit if manually triggered
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             echo "skip_commit=false" >> "$GITHUB_OUTPUT"
-            echo "Release branch - WILL commit of generated files"
+            echo "commit_message=Generate specifications (manually triggered)" >> "$GITHUB_OUTPUT"
+            echo "Manual trigger - WILL commit generated files"
           else
-            echo "skip_commit=true" >> "$GITHUB_OUTPUT"
-            echo "Normal branch - Will NOT commit of generated files"
+            # Otherwise, only commit on release branches
+            regex="^refs/heads/brapi-V[0-9]+\.[0-9]+$"
+            if [[ "${{ github.ref }}" =~ $regex ]]; then
+              echo "skip_commit=false" >> "$GITHUB_OUTPUT"
+              echo "commit_message=Apply automatic changes" >> "$GITHUB_OUTPUT"
+              echo "Release branch - WILL commit of generated files"
+            else
+              echo "skip_commit=true" >> "$GITHUB_OUTPUT"
+              echo "commit_message=" >> "$GITHUB_OUTPUT"
+              echo "Normal branch - Will NOT commit of generated files"
+            fi
           fi
   generate:
     runs-on: ubuntu-latest
@@ -83,7 +94,7 @@ jobs:
         if: needs.check.outputs.skip_commit == 'false'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Apply automatic changes"
+          commit_message: "${{ needs.check.outputs.commit_message }}"
           file_pattern: "Specification/Generated/*"
           commit_user_name: "github-actions[bot]"
           commit_user_email: "github-actions[bot]@users.noreply.github.com"
