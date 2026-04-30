@@ -128,7 +128,7 @@ tasks.register("compareOpenAPI", JavaExec) {
           '-l', 'OPEN_API',
           '-f', filename,
           '-w', 'MARKDOWN',
-          '-c', 'Specification/Components',
+          '-c', 'Specification/OpenAPI-Components',
           '-x',
           '-t',
           '-r']
