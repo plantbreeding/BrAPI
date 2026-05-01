@@ -49,7 +49,10 @@
                 },
                 "ontologyName": {
                     "description": "Ontology name",
-                    "type": "string"
+                    "type": [
+                        "null",
+                        "string"
+                    ]
                 },
                 "version": {
                     "description": "Ontology version (no specific format)",

@@ -15,7 +15,10 @@
                     ]
                 },
                 "map": {
-                    "$ref": "GenomeMap.json#/$defs/GenomeMap",
+                    "anyOf": [
+                        {"$ref": "GenomeMap.json#/$defs/GenomeMap"},
+                        {"type": "null"}
+                    ],
                     "description": "The ID which uniquely identifies a `GenomeMap`",
                     "referencedAttribute": "markerPositions",
                     "relationshipType": "many-to-one"

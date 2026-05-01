@@ -4,7 +4,7 @@ plugins {
 
 ext {
   javaMainClass = 'org.brapi.schematools.cli.BrAPICommand'
-  brapiSchemaToolsVersion = '0.64.0'
+  brapiSchemaToolsVersion = '0.65.0'
 }
 
 repositories {
@@ -118,6 +118,8 @@ tasks.register("generateAll") {
 tasks.register("compareOpenAPI", JavaExec) {
   group = 'BrAPI'
   description = 'Compare the compiled OpenAPI schema from the YAML files with the one generated from the Json Schema'
+  dependsOn copyOpenApi
+  dependsOn generateOpenAPIJSON
   classpath = sourceSets.main.runtimeClasspath
   mainClass = javaMainClass
   workingDir = '../'
@@ -136,4 +138,10 @@ tasks.register("compareOpenAPI", JavaExec) {
 
 tasks.register("compareAll") {
   dependsOn compareOpenAPI
+  mustRunAfter generateAll
+}
+
+tasks.register("runAll") {
+  dependsOn generateAll
+  dependsOn compareAll
 }
