@@ -41,7 +41,7 @@
                     ]
                 },
                 "linkageGroups": {
-                    "title": "observationUnits",
+                    "title": "linkageGroups",
                     "description": "The linkage groups present in a `GenomeMap`",
                     "referencedAttribute": "genomeMap",
                     "relationshipType": "one-to-many",
