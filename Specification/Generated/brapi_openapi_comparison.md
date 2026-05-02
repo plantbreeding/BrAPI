@@ -70,61 +70,14 @@ Changed response : **200**
 
             Changed items (array):
 
-                New properties: `mapPUI`
-
                 Deleted properties: `variantName`
 
-                * Changed property `mapDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `mapName` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `variantDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-##### `GET` /methods
+##### `GET` /referencesets
 
 
 ###### Parameters:
 
-Deleted: `externalReferenceID` in `query`
-
-##### `GET` /observationunits/{observationUnitDbId}
-
-
-###### Return Type:
-
-New response : **404**
-
-##### `POST` /ontologies
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    Changed items (array):
-
-        * Changed property `ontologyName` (string):
-          - Nullable changed: `true` -> `null`
-
-##### `PUT` /ontologies/{ontologyDbId}
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    * Changed property `ontologyName` (string):
-      - Nullable changed: `true` -> `null`
-
-##### `GET` /scales
-
-
-###### Parameters:
-
-Deleted: `externalReferenceID` in `query`
+Added: `externalReferenceID` in `query`
 
 ##### `POST` /search/allelematrix
 
@@ -442,18 +395,7 @@ Changed response : **200**
 
             Changed items (array):
 
-                New properties: `mapPUI`
-
                 Deleted properties: `variantName`
-
-                * Changed property `mapDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `mapName` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `variantDbId` (string):
-                  - Nullable changed: `true` -> `null`
 
 ##### `GET` /search/markerpositions/{searchResultsDbId}
 
@@ -472,18 +414,7 @@ Changed response : **200**
 
             Changed items (array):
 
-                New properties: `mapPUI`
-
                 Deleted properties: `variantName`
-
-                * Changed property `mapDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `mapName` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `variantDbId` (string):
-                  - Nullable changed: `true` -> `null`
 
 ##### `GET` /search/observations/{searchResultsDbId}
 
@@ -777,20 +708,6 @@ Deleted response : **404**
 Changed: `year` in `query`:
   - Type changed: `integer` -> `string`
 
-##### `GET` /traits
-
-
-###### Parameters:
-
-Deleted: `externalReferenceID` in `query`
-
-##### `GET` /attributevalues
-
-
-###### Parameters:
-
-Deleted: `externalReferenceID` in `query`
-
 ##### `POST` /attributevalues
 
 
@@ -904,6 +821,10 @@ Changed response : **200**
 ##### `GET` /callsets
 
 
+###### Parameters:
+
+Added: `externalReferenceID` in `query`
+
 ###### Return Type:
 
 Changed response : **200**
@@ -1015,13 +936,6 @@ Changed response : **200**
                         * Changed property `fieldValue` (string):
                           - Nullable changed: `null` -> `true`
 
-##### `GET` /crosses
-
-
-###### Parameters:
-
-Deleted: `externalReferenceID` in `query`
-
 ##### `POST` /crosses
 
 
@@ -1072,18 +986,6 @@ Deleted: `externalReferenceID` in `query`
 
             New properties: `germplasmPUI`, `observationUnitPUI`
 
-            * Changed property `germplasmDbId` (string):
-              - Nullable changed: `true` -> `null`
-
-            * Changed property `germplasmName` (string):
-              - Nullable changed: `true` -> `null`
-
-            * Changed property `observationUnitDbId` (string):
-              - Nullable changed: `true` -> `null`
-
-            * Changed property `observationUnitName` (string):
-              - Nullable changed: `true` -> `null`
-
             * Changed property `parentType` (string):
               - Added enum values: [CLONAL]
 
@@ -1092,13 +994,6 @@ Deleted: `externalReferenceID` in `query`
             Changed items (array):
 
                 New properties: `crossDbId`, `crossName`
-
-##### `GET` /crossingprojects
-
-
-###### Parameters:
-
-Deleted: `externalReferenceID` in `query`
 
 ##### `POST` /crossingprojects
 
@@ -1133,18 +1028,6 @@ Deleted: `externalReferenceID` in `query`
 
                 New properties: `germplasmPUI`, `observationUnitPUI`
 
-                * Changed property `germplasmDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `germplasmName` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `observationUnitDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `observationUnitName` (string):
-                  - Nullable changed: `true` -> `null`
-
                 * Changed property `parentType` (string):
                   - Added enum values: [CLONAL]
 
@@ -1178,18 +1061,6 @@ Deleted: `externalReferenceID` in `query`
         Changed items (array):
 
             New properties: `germplasmPUI`, `observationUnitPUI`
-
-            * Changed property `germplasmDbId` (string):
-              - Nullable changed: `true` -> `null`
-
-            * Changed property `germplasmName` (string):
-              - Nullable changed: `true` -> `null`
-
-            * Changed property `observationUnitDbId` (string):
-              - Nullable changed: `true` -> `null`
-
-            * Changed property `observationUnitName` (string):
-              - Nullable changed: `true` -> `null`
 
             * Changed property `parentType` (string):
               - Added enum values: [CLONAL]
@@ -1232,13 +1103,6 @@ Changed response : **200**
                         New properties: `eventDbId`
 
                         Deleted properties: `key`, `rdfValue`
-
-##### `GET` /germplasm
-
-
-###### Parameters:
-
-Deleted: `externalReferenceID` in `query`
 
 ##### `POST` /germplasm
 
@@ -1390,13 +1254,6 @@ Changed response : **200**
 
                 New properties: `instituteAddress`
 
-##### `GET` /lists
-
-
-###### Parameters:
-
-Deleted: `externalReferenceID` in `query`
-
 ##### `POST` /lists
 
 
@@ -1444,13 +1301,6 @@ Deleted: `externalReferenceID` in `query`
 
             * Changed property `referenceSource` (string):
               - Nullable changed: `null` -> `true`
-
-##### `GET` /observationunits
-
-
-###### Parameters:
-
-Deleted: `externalReferenceID` in `query`
 
 ##### `POST` /observationunits
 
@@ -1526,13 +1376,6 @@ Deleted: `externalReferenceID` in `query`
 
                 New properties: `observationUnitDbId`, `observationUnitName`, `observationUnitPUI`
 
-##### `GET` /people
-
-
-###### Parameters:
-
-Deleted: `externalReferenceID` in `query`
-
 ##### `POST` /people
 
 
@@ -1576,10 +1419,6 @@ Deleted: `externalReferenceID` in `query`
 ##### `GET` /plannedcrosses
 
 
-###### Parameters:
-
-Deleted: `externalReferenceID` in `query`
-
 ###### Return Type:
 
 Changed response : **200**
@@ -1617,18 +1456,6 @@ Changed response : **200**
                   - Nullable changed: `true` -> `null`
 
                     New properties: `germplasmPUI`, `observationUnitPUI`
-
-                    * Changed property `germplasmDbId` (string):
-                      - Nullable changed: `true` -> `null`
-
-                    * Changed property `germplasmName` (string):
-                      - Nullable changed: `true` -> `null`
-
-                    * Changed property `observationUnitDbId` (string):
-                      - Nullable changed: `true` -> `null`
-
-                    * Changed property `observationUnitName` (string):
-                      - Nullable changed: `true` -> `null`
 
                     * Changed property `parentType` (string):
                       - Added enum values: [CLONAL]
@@ -1674,18 +1501,6 @@ Changed response : **200**
 
                     New properties: `germplasmPUI`, `observationUnitPUI`
 
-                    * Changed property `germplasmDbId` (string):
-                      - Nullable changed: `true` -> `null`
-
-                    * Changed property `germplasmName` (string):
-                      - Nullable changed: `true` -> `null`
-
-                    * Changed property `observationUnitDbId` (string):
-                      - Nullable changed: `true` -> `null`
-
-                    * Changed property `observationUnitName` (string):
-                      - Nullable changed: `true` -> `null`
-
                     * Changed property `parentType` (string):
                       - Added enum values: [CLONAL]
 
@@ -1729,18 +1544,6 @@ Changed response : **200**
 
             New properties: `germplasmPUI`, `observationUnitPUI`
 
-            * Changed property `germplasmDbId` (string):
-              - Nullable changed: `true` -> `null`
-
-            * Changed property `germplasmName` (string):
-              - Nullable changed: `true` -> `null`
-
-            * Changed property `observationUnitDbId` (string):
-              - Nullable changed: `true` -> `null`
-
-            * Changed property `observationUnitName` (string):
-              - Nullable changed: `true` -> `null`
-
             * Changed property `parentType` (string):
               - Added enum values: [CLONAL]
 
@@ -1782,27 +1585,8 @@ Changed response : **200**
 
                     New properties: `germplasmPUI`, `observationUnitPUI`
 
-                    * Changed property `germplasmDbId` (string):
-                      - Nullable changed: `true` -> `null`
-
-                    * Changed property `germplasmName` (string):
-                      - Nullable changed: `true` -> `null`
-
-                    * Changed property `observationUnitDbId` (string):
-                      - Nullable changed: `true` -> `null`
-
-                    * Changed property `observationUnitName` (string):
-                      - Nullable changed: `true` -> `null`
-
                     * Changed property `parentType` (string):
                       - Added enum values: [CLONAL]
-
-##### `GET` /plates
-
-
-###### Parameters:
-
-Deleted: `externalReferenceID` in `query`
 
 ##### `POST` /plates
 
@@ -1840,8 +1624,6 @@ Deleted: `externalReferenceID` in `query`
 
 
 ###### Parameters:
-
-Deleted: `externalReferenceID` in `query`
 
 Changed: `programType` in `query`:
   - Added enum values: [STANDARD]
@@ -1903,6 +1685,10 @@ Changed: `programType` in `query`:
 
 ##### `GET` /references
 
+
+###### Parameters:
+
+Added: `externalReferenceID` in `query`
 
 ###### Return Type:
 
@@ -1972,13 +1758,6 @@ Changed response : **200**
 
                 * Changed property `referenceSource` (string):
                   - Nullable changed: `null` -> `true`
-
-##### `GET` /samples
-
-
-###### Parameters:
-
-Deleted: `externalReferenceID` in `query`
 
 ##### `PUT` /samples
 
@@ -2684,13 +2463,6 @@ Changed response : **200**
                         * Changed property `fieldName` (string):
                           - Nullable changed: `null` -> `true`
 
-##### `GET` /seedlots
-
-
-###### Parameters:
-
-Deleted: `externalReferenceID` in `query`
-
 ##### `POST` /seedlots
 
 
@@ -2794,13 +2566,6 @@ Deleted: `externalReferenceID` in `query`
 
             * Changed property `referenceSource` (string):
               - Nullable changed: `null` -> `true`
-
-##### `GET` /studies
-
-
-###### Parameters:
-
-Deleted: `externalReferenceID` in `query`
 
 ##### `POST` /studies
 
@@ -2930,13 +2695,6 @@ Deleted: `externalReferenceID` in `query`
         New required properties:
         - `lastUpdateDbId`
 
-##### `GET` /trials
-
-
-###### Parameters:
-
-Deleted: `externalReferenceID` in `query`
-
 ##### `POST` /trials
 
 
@@ -3019,6 +2777,10 @@ Deleted: `externalReferenceID` in `query`
 
 ##### `GET` /variants
 
+
+###### Parameters:
+
+Added: `externalReferenceID` in `query`
 
 ###### Return Type:
 
@@ -3157,6 +2919,10 @@ Changed response : **200**
 
 ##### `GET` /variantsets
 
+
+###### Parameters:
+
+Added: `externalReferenceID` in `query`
 
 ###### Return Type:
 
@@ -3409,13 +3175,6 @@ Changed response : **200**
                         * Changed property `referenceSource` (string):
                           - Nullable changed: `null` -> `true`
 
-##### `GET` /attributes
-
-
-###### Parameters:
-
-Deleted: `externalReferenceID` in `query`
-
 ##### `POST` /attributes
 
 
@@ -3518,13 +3277,6 @@ Deleted: `externalReferenceID` in `query`
                 * Changed property `type` (string):
                   - Nullable changed: `null` -> `true`
 
-##### `GET` /images
-
-
-###### Parameters:
-
-Deleted: `externalReferenceID` in `query`
-
 ##### `POST` /images
 
 
@@ -3605,13 +3357,6 @@ Deleted: `externalReferenceID` in `query`
         * Changed property `geometry` (object -> null):
           - Type changed: `object` -> `null`
 
-##### `GET` /locations
-
-
-###### Parameters:
-
-Deleted: `externalReferenceID` in `query`
-
 ##### `POST` /locations
 
 
@@ -3677,13 +3422,6 @@ Deleted: `externalReferenceID` in `query`
 
         * Changed property `geometry` (object -> null):
           - Type changed: `object` -> `null`
-
-##### `GET` /observations
-
-
-###### Parameters:
-
-Deleted: `externalReferenceID` in `query`
 
 ##### `PUT` /observations
 
@@ -3753,6 +3491,10 @@ Deleted response : **404**
 
 ##### `GET` /pedigree
 
+
+###### Parameters:
+
+Added: `externalReferenceID` in `query`
 
 ###### Return Type:
 
@@ -4168,13 +3910,6 @@ Changed response : **200**
 
                         * Changed property `germplasmName` (string):
                           - Nullable changed: `true` -> `null`
-
-##### `GET` /variables
-
-
-###### Parameters:
-
-Deleted: `externalReferenceID` in `query`
 
 ##### `POST` /variables
 

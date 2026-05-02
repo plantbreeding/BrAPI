@@ -196,6 +196,9 @@
                         "$ref" : "#/components/parameters/externalReferenceId"
                     },
                     {
+                        "$ref" : "#/components/parameters/externalReferenceID"
+                    },
+                    {
                         "$ref" : "#/components/parameters/externalReferenceSource"
                     },
                     {
@@ -288,6 +291,9 @@
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceId"
+                    },
+                    {
+                        "$ref" : "#/components/parameters/externalReferenceID"
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceSource"
@@ -450,6 +456,9 @@
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceId"
+                    },
+                    {
+                        "$ref" : "#/components/parameters/externalReferenceID"
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceSource"
@@ -861,6 +870,9 @@
                         "$ref" : "#/components/parameters/externalReferenceId"
                     },
                     {
+                        "$ref" : "#/components/parameters/externalReferenceID"
+                    },
+                    {
                         "$ref" : "#/components/parameters/externalReferenceSource"
                     },
                     {
@@ -1083,6 +1095,9 @@
                         "$ref" : "#/components/parameters/externalReferenceId"
                     },
                     {
+                        "$ref" : "#/components/parameters/externalReferenceID"
+                    },
+                    {
                         "$ref" : "#/components/parameters/externalReferenceSource"
                     },
                     {
@@ -1213,6 +1228,9 @@
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceId"
+                    },
+                    {
+                        "$ref" : "#/components/parameters/externalReferenceID"
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceSource"
@@ -1356,6 +1374,9 @@
                         "$ref" : "#/components/parameters/externalReferenceId"
                     },
                     {
+                        "$ref" : "#/components/parameters/externalReferenceID"
+                    },
+                    {
                         "$ref" : "#/components/parameters/externalReferenceSource"
                     },
                     {
@@ -1485,6 +1506,9 @@
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceId"
+                    },
+                    {
+                        "$ref" : "#/components/parameters/externalReferenceID"
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceSource"
@@ -1626,6 +1650,9 @@
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceId"
+                    },
+                    {
+                        "$ref" : "#/components/parameters/externalReferenceID"
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceSource"
@@ -1830,6 +1857,9 @@
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceId"
+                    },
+                    {
+                        "$ref" : "#/components/parameters/externalReferenceID"
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceSource"
@@ -2081,6 +2111,9 @@
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceId"
+                    },
+                    {
+                        "$ref" : "#/components/parameters/externalReferenceID"
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceSource"
@@ -2351,6 +2384,9 @@
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceId"
+                    },
+                    {
+                        "$ref" : "#/components/parameters/externalReferenceID"
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceSource"
@@ -2630,6 +2666,9 @@
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceId"
+                    },
+                    {
+                        "$ref" : "#/components/parameters/externalReferenceID"
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceSource"
@@ -2982,6 +3021,9 @@
                         "$ref" : "#/components/parameters/externalReferenceId"
                     },
                     {
+                        "$ref" : "#/components/parameters/externalReferenceID"
+                    },
+                    {
                         "$ref" : "#/components/parameters/externalReferenceSource"
                     },
                     {
@@ -3112,6 +3154,9 @@
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceId"
+                    },
+                    {
+                        "$ref" : "#/components/parameters/externalReferenceID"
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceSource"
@@ -3258,6 +3303,9 @@
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceId"
+                    },
+                    {
+                        "$ref" : "#/components/parameters/externalReferenceID"
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceSource"
@@ -3476,6 +3524,9 @@
                         "$ref" : "#/components/parameters/externalReferenceId"
                     },
                     {
+                        "$ref" : "#/components/parameters/externalReferenceID"
+                    },
+                    {
                         "$ref" : "#/components/parameters/externalReferenceSource"
                     },
                     {
@@ -3602,6 +3653,9 @@
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceId"
+                    },
+                    {
+                        "$ref" : "#/components/parameters/externalReferenceID"
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceSource"
@@ -3784,6 +3838,9 @@
                         "$ref" : "#/components/parameters/externalReferenceId"
                     },
                     {
+                        "$ref" : "#/components/parameters/externalReferenceID"
+                    },
+                    {
                         "$ref" : "#/components/parameters/externalReferenceSource"
                     },
                     {
@@ -3894,6 +3951,9 @@
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceId"
+                    },
+                    {
+                        "$ref" : "#/components/parameters/externalReferenceID"
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceSource"
@@ -4033,6 +4093,9 @@
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceId"
+                    },
+                    {
+                        "$ref" : "#/components/parameters/externalReferenceID"
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceSource"
@@ -4195,6 +4258,9 @@
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceId"
+                    },
+                    {
+                        "$ref" : "#/components/parameters/externalReferenceID"
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceSource"
@@ -4446,6 +4512,9 @@
                         "$ref" : "#/components/parameters/externalReferenceId"
                     },
                     {
+                        "$ref" : "#/components/parameters/externalReferenceID"
+                    },
+                    {
                         "$ref" : "#/components/parameters/externalReferenceSource"
                     },
                     {
@@ -4678,6 +4747,9 @@
                         "$ref" : "#/components/parameters/externalReferenceId"
                     },
                     {
+                        "$ref" : "#/components/parameters/externalReferenceID"
+                    },
+                    {
                         "$ref" : "#/components/parameters/externalReferenceSource"
                     },
                     {
@@ -4799,6 +4871,9 @@
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceId"
+                    },
+                    {
+                        "$ref" : "#/components/parameters/externalReferenceID"
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceSource"
@@ -5015,6 +5090,9 @@
                         "$ref" : "#/components/parameters/externalReferenceId"
                     },
                     {
+                        "$ref" : "#/components/parameters/externalReferenceID"
+                    },
+                    {
                         "$ref" : "#/components/parameters/externalReferenceSource"
                     },
                     {
@@ -5127,6 +5205,9 @@
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceId"
+                    },
+                    {
+                        "$ref" : "#/components/parameters/externalReferenceID"
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceSource"
@@ -5242,6 +5323,9 @@
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceId"
+                    },
+                    {
+                        "$ref" : "#/components/parameters/externalReferenceID"
                     },
                     {
                         "$ref" : "#/components/parameters/externalReferenceSource"
@@ -11412,22 +11496,28 @@
                 "type" : "object",
                 "properties" : {
                     "germplasmDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "germplasmName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "germplasmPUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "observationUnitDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "observationUnitName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "observationUnitPUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "parentType" : {
                         "$ref" : "#/components/schemas/ParentType"
@@ -15417,13 +15507,12 @@
                         "nullable" : true
                     },
                     "mapDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "mapName" : {
-                        "type" : "string"
-                    },
-                    "mapPUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "position" : {
                         "type" : "integer",
@@ -15432,7 +15521,8 @@
                         "nullable" : true
                     },
                     "variantDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     }
                 },
                 "description" : "A MarkerPosition describes a particular genetic marker at a specific position on a GenomeMap. A collection of MarkerPositions make up the data to represent a full GenomeMap."
@@ -17349,7 +17439,8 @@
                     },
                     "ontologyName" : {
                         "type" : "string",
-                        "description" : "Ontology name"
+                        "description" : "Ontology name",
+                        "nullable" : true
                     },
                     "version" : {
                         "type" : "string",

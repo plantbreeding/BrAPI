@@ -76,6 +76,7 @@ paths:
         schema:
           type: string
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -192,6 +193,7 @@ paths:
         schema:
           type: boolean
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -342,6 +344,7 @@ paths:
         schema:
           type: string
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -502,6 +505,7 @@ paths:
         schema:
           type: string
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -592,6 +596,7 @@ paths:
         schema:
           type: string
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -780,6 +785,7 @@ paths:
           type: integer
           format: int32
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -882,6 +888,7 @@ paths:
           - DONE
           - SKIPPED
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -1008,6 +1015,7 @@ paths:
         schema:
           type: string
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -2486,16 +2494,22 @@ components:
       properties:
         germplasmDbId:
           type: string
+          nullable: true
         germplasmName:
           type: string
+          nullable: true
         germplasmPUI:
           type: string
+          nullable: true
         observationUnitDbId:
           type: string
+          nullable: true
         observationUnitName:
           type: string
+          nullable: true
         observationUnitPUI:
           type: string
+          nullable: true
         parentType:
           $ref: "#/components/schemas/ParentType"
       description: The identifying information gor the parent material of a cross.

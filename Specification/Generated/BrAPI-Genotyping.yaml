@@ -110,6 +110,7 @@ paths:
         schema:
           type: string
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -338,6 +339,7 @@ paths:
         schema:
           type: string
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -469,6 +471,7 @@ paths:
           type: integer
           format: int32
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -551,6 +554,7 @@ paths:
         schema:
           type: string
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -648,6 +652,7 @@ paths:
         schema:
           type: string
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -753,6 +758,7 @@ paths:
         schema:
           type: string
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/pageToken"
       - $ref: "#/components/parameters/page"
@@ -833,6 +839,7 @@ paths:
         schema:
           type: string
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -4240,10 +4247,10 @@ components:
           nullable: true
         mapDbId:
           type: string
+          nullable: true
         mapName:
           type: string
-        mapPUI:
-          type: string
+          nullable: true
         position:
           type: integer
           description: The position of a marker or variant within a `LinkageGroup`
@@ -4251,6 +4258,7 @@ components:
           nullable: true
         variantDbId:
           type: string
+          nullable: true
       description: A MarkerPosition describes a particular genetic marker at a specific
         position on a GenomeMap. A collection of MarkerPositions make up the data
         to represent a full GenomeMap.

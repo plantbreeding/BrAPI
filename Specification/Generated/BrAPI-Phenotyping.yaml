@@ -123,6 +123,7 @@ paths:
         schema:
           type: string
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -209,6 +210,7 @@ paths:
         schema:
           type: string
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -417,6 +419,7 @@ paths:
         schema:
           type: string
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -646,6 +649,7 @@ paths:
         schema:
           type: string
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -851,6 +855,7 @@ paths:
         schema:
           type: string
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -993,6 +998,7 @@ paths:
         schema:
           type: string
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -1079,6 +1085,7 @@ paths:
         schema:
           type: string
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -5394,6 +5401,7 @@ components:
         ontologyName:
           type: string
           description: Ontology name
+          nullable: true
         version:
           type: string
           description: Ontology version (no specific format)

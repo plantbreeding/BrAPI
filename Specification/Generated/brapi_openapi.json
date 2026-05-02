@@ -8866,6 +8866,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the details of a specific Observation Unit",
@@ -8948,6 +8959,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Update an existing Observation Units",

@@ -125,6 +125,7 @@ paths:
         schema:
           $ref: "#/components/schemas/ListType"
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -228,6 +229,7 @@ paths:
         schema:
           type: string
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -319,6 +321,7 @@ paths:
         schema:
           type: string
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -415,6 +418,7 @@ paths:
           - STANDARD
           - PROJECT
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -646,6 +650,7 @@ paths:
           - desc
           - DESC
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
@@ -810,6 +815,7 @@ paths:
           - desc
           - DESC
       - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
