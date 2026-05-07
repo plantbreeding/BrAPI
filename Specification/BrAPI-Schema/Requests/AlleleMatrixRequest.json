@@ -5,7 +5,7 @@
             "properties": {
                 "pagination": {
                     "description": "Pagination for the matrix",
-                    "type": "array",
+                    "type": ["null", "array"],
                     "items": {
                         "type": "object",
                         "title": "AlleleMatrixPagination",
@@ -52,7 +52,7 @@
                 },
                 "dataMatrixNames": {
                     "description": "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read Depth' etc). This list controls which data matrices are returned in the response.",
-                    "type": "array",
+                    "type": ["null", "array"],
                     "items": {
                         "type": "string"
                     },
@@ -63,7 +63,7 @@
                 },
                 "dataMatrixAbbreviations": {
                     "description": "`dataMatrixAbbreviations` is a comma seperated list of abbreviations (ie 'GT', 'RD' etc). This list controls which data matrices are returned in the response.",
-                    "type": "array",
+                    "type": ["null", "array"],
                     "items": {
                         "type": "string"
                     },
@@ -74,7 +74,7 @@
                 },
                 "positionRanges": {
                     "description": "The postion range to search\n<br/>\nUses the format \"<chrom>:<start>-<end>\" where <chrom> is the chromosome name, <start> is \nthe starting position of the range, and <end> is the ending position of the range",
-                    "type": "array",
+                    "type": ["null", "array"],
                     "items": {
                         "type": "string"
                     },
@@ -85,7 +85,7 @@
                 },
                 "germplasmNames": {
                     "description": "A list of human readable `Germplasm` names",
-                    "type": "array",
+                    "type": ["null", "array"],
                     "items": {
                         "type": "string"
                     },
@@ -96,7 +96,7 @@
                 },
                 "germplasmPUIs": {
                     "description": "A list of permanent unique identifiers associated with `Germplasm`",
-                    "type": "array",
+                    "type": ["null", "array"],
                     "items": {
                         "type": "string"
                     },
@@ -107,7 +107,7 @@
                 },
                 "germplasmDbIds": {
                     "description": "A list of IDs which uniquely identify `Germplasm` within the given database server",
-                    "type": "array",
+                    "type": ["null", "array"],
                     "items": {
                         "type": "string"
                     },
@@ -118,7 +118,7 @@
                 },
                 "sampleDbIds": {
                     "description": "A list of IDs which uniquely identify `Samples` within the given database server",
-                    "type": "array",
+                    "type": ["null", "array"],
                     "items": {
                         "type": "string"
                     },
@@ -140,7 +140,7 @@
                 },
                 "variantDbIds": {
                     "description": "A list of IDs which uniquely identify `Variants` within the given database server",
-                    "type": "array",
+                    "type": ["null", "array"],
                     "items": {
                         "type": "string"
                     },
@@ -151,7 +151,7 @@
                 },
                 "variantSetDbIds": {
                     "description": "A list of IDs which uniquely identify `VariantSets` within the given database server",
-                    "type": "array",
+                    "type": ["null", "array"],
                     "items": {
                         "type": "string"
                     },
@@ -162,22 +162,22 @@
                 },
                 "expandHomozygotes": {
                     "description": "Should homozygotes be expanded (true) or collapsed into a single occurrence (false)",
-                    "type": "boolean",
+                    "type": ["null", "boolean"],
                     "example": true
                 },
                 "sepPhased": {
                     "description": "The string used as a separator for phased allele calls.",
-                    "type": "string",
+                    "type": ["null", "string"],
                     "example": "|"
                 },
                 "sepUnphased": {
                     "description": "The string used as a separator for unphased allele calls.",
-                    "type": "string",
+                    "type": ["null", "string"],
                     "example": "/"
                 },
                 "unknownString": {
                     "description": "The string used as a representation for missing data.",
-                    "type": "string",
+                    "type": ["null", "string"],
                     "example": "."
                 }
             },
