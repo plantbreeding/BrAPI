@@ -21,7 +21,7 @@
                     "type": "object",
                     "properties": {
                         "accessions": {
-                            "type": "array",
+                            "type": ["null", "array"],
                             "description": "If set, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).",
                             "items": {
                                 "type": "string"
@@ -32,7 +32,7 @@
                             ]
                         },
                         "assemblyPUIs": {
-                            "type": "array",
+                            "type": ["null", "array"],
                             "description": "If set, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).",
                             "items": {
                                 "type": "string"
@@ -43,7 +43,7 @@
                             ]
                         },
                         "md5checksums": {
-                            "type": "array",
+                            "type": ["null", "array"],
                             "description": "If set, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match).",
                             "items": {
                                 "type": "string"
@@ -53,7 +53,7 @@
                             ]
                         },
                         "referenceSetDbIds": {
-                            "type": "array",
+                            "type": ["null", "array"],
                             "description": "The `ReferenceSets` to search.",
                             "items": {
                                 "type": "string"

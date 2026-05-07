@@ -13,7 +13,7 @@
                     "properties": {
                         "emailAddresses": {
                             "description": "email address for this person",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },
@@ -24,7 +24,7 @@
                         },
                         "firstNames": {
                             "description": "Persons first name",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },
@@ -35,7 +35,7 @@
                         },
                         "lastNames": {
                             "description": "Persons last name",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },
@@ -46,7 +46,7 @@
                         },
                         "mailingAddresses": {
                             "description": "physical address of this person",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },
@@ -57,7 +57,7 @@
                         },
                         "middleNames": {
                             "description": "Persons middle name",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },
@@ -68,7 +68,7 @@
                         },
                         "personDbIds": {
                             "description": "Unique ID for this person",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },
@@ -79,7 +79,7 @@
                         },
                         "phoneNumbers": {
                             "description": "phone number of this person",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },
@@ -90,7 +90,7 @@
                         },
                         "userIDs": {
                             "description": "A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },

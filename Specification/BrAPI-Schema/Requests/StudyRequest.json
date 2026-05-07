@@ -28,7 +28,7 @@
                     "properties": {
                         "active": {
                             "description": "A flag to indicate if a Study is currently active and ongoing",
-                            "type": "boolean",
+                            "type": ["null", "boolean"],
                             "example": true
                         },
                         "seasonDbIds": {
@@ -36,7 +36,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "Harvest Two 2017",
                                 "Summer 2018"
@@ -47,7 +47,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "Yield Trial",
                                 "Disease Resistance Trial"
@@ -58,7 +58,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "Grape_Yield_Spring_2018",
                                 "Walnut_Kenya"
@@ -66,7 +66,7 @@
                         },
                         "studyPUIs": {
                             "description": "Permanent unique identifier associated with study data. For example, a URI or DOI",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },
@@ -88,7 +88,7 @@
                                     "studyLocation",
                                     "programName"
                                 ],
-                                "type": "string"
+                                "type": ["null", "string"]
                         },
                         "sortOrder": {
                             "description": "Sort order direction. Ascending/Descending.",
@@ -98,7 +98,7 @@
                                     "desc",
                                     "DESC"
                                 ],
-                                "type": "string"
+                                "type": ["null", "string"]
                         }
                     }
                 }

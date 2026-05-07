@@ -16,7 +16,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "P1",
                                 "P2"
@@ -27,7 +27,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "d8bd96c7",
                                 "a2b9c8e7"
@@ -38,7 +38,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "Bob Robertson",
                                 "Rob Robertson"
@@ -49,7 +49,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "Objective Code One",
                                 "This is a longer objective search query"
@@ -65,7 +65,7 @@
                                     "PROJECT"
                                 ]
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "STANDARD",
                                 "PROJECT"
