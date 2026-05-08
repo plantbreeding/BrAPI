@@ -15,26 +15,26 @@
                         "dateCreatedRangeStart": {
                             "description": "Define the beginning for an interval of time and only include Lists that are created within this interval.",
                             "format": "date-time",
-                            "type": "string"
+                            "type": ["null", "string"]
                         },
                         "dateCreatedRangeEnd": {
                             "description": "Define the end for an interval of time and only include Lists that are created within this interval.",
                             "format": "date-time",
-                            "type": "string"
+                            "type": ["null", "string"]
                         },
                         "dateModifiedRangeStart": {
                             "description": "Define the beginning for an interval of time and only include Lists that are modified within this interval.",
                             "format": "date-time",
-                            "type": "string"
+                            "type": ["null", "string"]
                         },
                         "dateModifiedRangeEnd": {
                             "description": "Define the end for an interval of time and only include Lists that are modified within this interval.",
                             "format": "date-time",
-                            "type": "string"
+                            "type": ["null", "string"]
                         },
                         "listDbIds": {
                             "description": "An array of primary database identifiers to identify a set of Lists",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },
@@ -45,7 +45,7 @@
                         },
                         "listNames": {
                             "description": "An array of human readable names to identify a set of Lists",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },
@@ -56,7 +56,7 @@
                         },
                         "listOwnerNames": {
                             "description": "An array of names for the people or entities who are responsible for a set of Lists",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },
@@ -67,7 +67,7 @@
                         },
                         "listOwnerPersonDbIds": {
                             "description": "An array of primary database identifiers to identify people or entities who are responsible for a set of Lists",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },
@@ -78,7 +78,7 @@
                         },
                         "listSources": {
                             "description": "An array of terms identifying lists from different sources (ie 'USER', 'SYSTEM', etc)",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },

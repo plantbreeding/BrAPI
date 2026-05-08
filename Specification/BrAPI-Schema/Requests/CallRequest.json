@@ -5,7 +5,7 @@
             "properties": {
                 "callSetDbIds": {
                     "description": "A list of IDs which uniquely identify `CallSets` within the given database server",
-                    "type": "array",
+                    "type": ["null", "array"],
                     "items": {
                         "type": "string"
                     },
@@ -16,7 +16,7 @@
                 },
                 "variantDbIds": {
                     "description": "A list of IDs which uniquely identify `Variant` within the given database server",
-                    "type": "array",
+                    "type": ["null", "array"],
                     "items": {
                         "type": "string"
                     },
@@ -27,7 +27,7 @@
                 },
                 "variantSetDbIds": {
                     "description": "A list of IDs which uniquely identify `VariantSets` within the given database server",
-                    "type": "array",
+                    "type": ["null", "array"],
                     "items": {
                         "type": "string"
                     },
@@ -38,22 +38,22 @@
                 },
                 "expandHomozygotes": {
                     "description": "Should homozygotes be expanded (true) or collapsed into a single occurrence (false)",
-                    "type": "boolean",
+                    "type": ["null", "boolean"],
                     "example": true
                 },
                 "sepPhased": {
                     "description": "The string used as a separator for phased allele calls.",
-                    "type": "string",
+                    "type": ["null", "string"],
                     "example": "|"
                 },
                 "sepUnphased": {
                     "description": "The string used as a separator for unphased allele calls.",
-                    "type": "string",
+                    "type": ["null", "string"],
                     "example": "/"
                 },
                 "unknownString": {
                     "description": "The string used as a representation for missing data.",
-                    "type": "string",
+                    "type": ["null", "string"],
                     "example": "."
                 }
             },

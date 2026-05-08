@@ -22,7 +22,7 @@
                     "properties": {
                         "sampleDbIds": {
                             "description": "A list of IDs which uniquely identify `Samples` within the given database server",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },
@@ -33,7 +33,7 @@
                         },
                         "sampleNames": {
                             "description": "A list of human readable names associated with `Samples`",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },
@@ -44,7 +44,7 @@
                         },
                         "callSetDbIds": {
                             "description": "A list of IDs which uniquely identify `CallSets` within the given database server",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },
@@ -55,7 +55,7 @@
                         },
                         "callSetNames": {
                             "description": "A list of human readable names associated with `CallSets`",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },
@@ -66,7 +66,7 @@
                         },
                         "variantSetDbIds": {
                             "description": "A list of IDs which uniquely identify `VariantSets` within the given database server",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },
