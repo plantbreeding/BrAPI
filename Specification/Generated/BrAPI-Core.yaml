@@ -1842,6 +1842,7 @@ components:
           description: "`dataMatrixAbbreviations` is a comma seperated list of abbreviations\
             \ (ie 'GT', 'RD' etc). This list controls which data matrices are returned\
             \ in the response."
+          nullable: true
           items:
             type: string
         dataMatrixNames:
@@ -1849,32 +1850,38 @@ components:
           description: "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read\
             \ Depth' etc). This list controls which data matrices are returned in\
             \ the response."
+          nullable: true
           items:
             type: string
         expandHomozygotes:
           type: boolean
           description: Should homozygotes be expanded (true) or collapsed into a single
             occurrence (false)
+          nullable: true
           example: true
         germplasmDbIds:
           type: array
           description: A list of IDs which uniquely identify `Germplasm` within the
             given database server
+          nullable: true
           items:
             type: string
         germplasmNames:
           type: array
           description: A list of human readable `Germplasm` names
+          nullable: true
           items:
             type: string
         germplasmPUIs:
           type: array
           description: A list of permanent unique identifiers associated with `Germplasm`
+          nullable: true
           items:
             type: string
         pagination:
           type: array
           description: Pagination for the matrix
+          nullable: true
           items:
             type: object
             properties:
@@ -1901,6 +1908,7 @@ components:
           description: "The postion range to search\n<br/>\nUses the format \"<chrom>:<start>-<end>\"\
             \ where <chrom> is the chromosome name, <start> is \nthe starting position\
             \ of the range, and <end> is the ending position of the range"
+          nullable: true
           items:
             type: string
         preview:
@@ -1917,30 +1925,36 @@ components:
           type: array
           description: A list of IDs which uniquely identify `Samples` within the
             given database server
+          nullable: true
           items:
             type: string
         sepPhased:
           type: string
           description: The string used as a separator for phased allele calls.
+          nullable: true
           example: '|'
         sepUnphased:
           type: string
           description: The string used as a separator for unphased allele calls.
+          nullable: true
           example: /
         unknownString:
           type: string
           description: The string used as a representation for missing data.
+          nullable: true
           example: "."
         variantDbIds:
           type: array
           description: A list of IDs which uniquely identify `Variants` within the
             given database server
+          nullable: true
           items:
             type: string
         variantSetDbIds:
           type: array
           description: A list of IDs which uniquely identify `VariantSets` within
             the given database server
+          nullable: true
           items:
             type: string
     Attribute:
@@ -2065,35 +2079,42 @@ components:
           type: array
           description: A list of IDs which uniquely identify `CallSets` within the
             given database server
+          nullable: true
           items:
             type: string
         expandHomozygotes:
           type: boolean
           description: Should homozygotes be expanded (true) or collapsed into a single
             occurrence (false)
+          nullable: true
           example: true
         sepPhased:
           type: string
           description: The string used as a separator for phased allele calls.
+          nullable: true
           example: '|'
         sepUnphased:
           type: string
           description: The string used as a separator for unphased allele calls.
+          nullable: true
           example: /
         unknownString:
           type: string
           description: The string used as a representation for missing data.
+          nullable: true
           example: "."
         variantDbIds:
           type: array
           description: A list of IDs which uniquely identify `Variant` within the
             given database server
+          nullable: true
           items:
             type: string
         variantSetDbIds:
           type: array
           description: A list of IDs which uniquely identify `VariantSets` within
             the given database server
+          nullable: true
           items:
             type: string
     CallSetRequest:
@@ -2103,11 +2124,13 @@ components:
           type: array
           description: A list of IDs which uniquely identify `CallSets` within the
             given database server
+          nullable: true
           items:
             type: string
         callSetNames:
           type: array
           description: A list of human readable names associated with `CallSets`
+          nullable: true
           items:
             type: string
         commonCropNames:
@@ -2124,12 +2147,14 @@ components:
         germplasmDbIds:
           type: array
           description: List of IDs which uniquely identify germplasm to search for
+          nullable: true
           items:
             type: string
         germplasmNames:
           type: array
           description: List of human readable names to identify germplasm to search
             for
+          nullable: true
           items:
             type: string
         programDbIds:
@@ -2154,11 +2179,13 @@ components:
           type: array
           description: A list of IDs which uniquely identify `Samples` within the
             given database server
+          nullable: true
           items:
             type: string
         sampleNames:
           type: array
           description: A list of human readable names associated with `Samples`
+          nullable: true
           items:
             type: string
         studyDbIds:
@@ -2185,6 +2212,7 @@ components:
           type: array
           description: A list of IDs which uniquely identify `VariantSets` within
             the given database server
+          nullable: true
           items:
             type: string
     CommonCropNamesParameters:
@@ -2784,23 +2812,27 @@ components:
         attributeCategories:
           type: array
           description: General category for the attribute. very similar to Trait class.
+          nullable: true
           items:
             type: string
         attributeDbIds:
           type: array
           description: List of Germplasm Attribute IDs to search for
+          nullable: true
           items:
             type: string
         attributeNames:
           type: array
           description: List of human readable Germplasm Attribute names to search
             for
+          nullable: true
           items:
             type: string
         attributePUIs:
           type: array
           description: "The Permanent Unique Identifier of an Attribute, usually in\
             \ the form of a URI"
+          nullable: true
           items:
             type: string
         commonCropNames:
@@ -2822,12 +2854,14 @@ components:
         germplasmDbIds:
           type: array
           description: List of IDs which uniquely identify germplasm to search for
+          nullable: true
           items:
             type: string
         germplasmNames:
           type: array
           description: List of human readable names to identify germplasm to search
             for
+          nullable: true
           items:
             type: string
         methodDbIds:
@@ -2973,17 +3007,20 @@ components:
         attributeDbIds:
           type: array
           description: List of Germplasm Attribute IDs to search for
+          nullable: true
           items:
             type: string
         attributeNames:
           type: array
           description: List of human readable Germplasm Attribute names to search
             for
+          nullable: true
           items:
             type: string
         attributeValueDbIds:
           type: array
           description: List of Germplasm Attribute Value IDs to search for
+          nullable: true
           items:
             type: string
         commonCropNames:
@@ -3000,27 +3037,32 @@ components:
         dataTypes:
           type: array
           description: List of scale data types to filter search results
+          nullable: true
           items:
             $ref: "#/components/schemas/TraitDataType"
         germplasmDbIds:
           type: array
           description: List of IDs which uniquely identify germplasm to search for
+          nullable: true
           items:
             type: string
         germplasmNames:
           type: array
           description: List of human readable names to identify germplasm to search
             for
+          nullable: true
           items:
             type: string
         methodDbIds:
           type: array
           description: List of methods to filter search results
+          nullable: true
           items:
             type: string
         ontologyDbIds:
           type: array
           description: List of ontology IDs to search for
+          nullable: true
           items:
             type: string
         programDbIds:
@@ -3044,16 +3086,19 @@ components:
         scaleDbIds:
           type: array
           description: List of scales to filter search results
+          nullable: true
           items:
             type: string
         traitClasses:
           type: array
           description: List of trait classes to filter search results
+          nullable: true
           items:
             type: string
         traitDbIds:
           type: array
           description: List of trait unique ID to filter search results
+          nullable: true
           items:
             type: string
     GermplasmParameters:
@@ -3062,12 +3107,14 @@ components:
         germplasmDbIds:
           type: array
           description: List of IDs which uniquely identify germplasm to search for
+          nullable: true
           items:
             type: string
         germplasmNames:
           type: array
           description: List of human readable names to identify germplasm to search
             for
+          nullable: true
           items:
             type: string
     GermplasmRequest:
@@ -3079,18 +3126,21 @@ components:
             A collection of unique identifiers for materials or germplasm within a genebank
 
             MCPD (v2.1) (ACCENUMB) 2. This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection (e.g. "PI 113869").
+          nullable: true
           items:
             type: string
         binomialNames:
           type: array
           description: List of the full binomial name (scientific name) to identify
             a germplasm
+          nullable: true
           items:
             type: string
         collections:
           type: array
           description: A specific panel/collection/population name this germplasm
             belongs to.
+          nullable: true
           items:
             type: string
         commonCropNames:
@@ -3108,27 +3158,32 @@ components:
           type: array
           description: A familyCode representing the family this germplasm belongs
             to.
+          nullable: true
           items:
             type: string
         genus:
           type: array
           description: List of Genus names to identify germplasm
+          nullable: true
           items:
             type: string
         germplasmDbIds:
           type: array
           description: List of IDs which uniquely identify germplasm to search for
+          nullable: true
           items:
             type: string
         germplasmNames:
           type: array
           description: List of human readable names to identify germplasm to search
             for
+          nullable: true
           items:
             type: string
         germplasmPUIs:
           type: array
           description: List of Permanent Unique Identifiers to identify germplasm
+          nullable: true
           items:
             type: string
         instituteCodes:
@@ -3141,16 +3196,19 @@ components:
             \ http://www.fao.org/wiews. For those institutes not yet having an FAO\
             \ Code, or for those with \"obsolete\" codes, see \"Common formatting\
             \ rules (v)\"."
+          nullable: true
           items:
             type: string
         parentDbIds:
           type: array
           description: Search for Germplasm with these parents
+          nullable: true
           items:
             type: string
         progenyDbIds:
           type: array
           description: Search for Germplasm with these children
+          nullable: true
           items:
             type: string
         programDbIds:
@@ -3174,6 +3232,7 @@ components:
         species:
           type: array
           description: List of Species names to identify germplasm
+          nullable: true
           items:
             type: string
         studyDbIds:
@@ -3189,6 +3248,7 @@ components:
         synonyms:
           type: array
           description: List of alternative names or IDs used to reference this germplasm
+          nullable: true
           items:
             type: string
         trialDbIds:
@@ -3445,48 +3505,57 @@ components:
           description: Define the end for an interval of time and only include Lists
             that are created within this interval.
           format: date-time
+          nullable: true
         dateCreatedRangeStart:
           type: string
           description: Define the beginning for an interval of time and only include
             Lists that are created within this interval.
           format: date-time
+          nullable: true
         dateModifiedRangeEnd:
           type: string
           description: Define the end for an interval of time and only include Lists
             that are modified within this interval.
           format: date-time
+          nullable: true
         dateModifiedRangeStart:
           type: string
           description: Define the beginning for an interval of time and only include
             Lists that are modified within this interval.
           format: date-time
+          nullable: true
         listDbIds:
           type: array
           description: An array of primary database identifiers to identify a set
             of Lists
+          nullable: true
           items:
             type: string
         listNames:
           type: array
           description: An array of human readable names to identify a set of Lists
+          nullable: true
           items:
             type: string
         listOwnerNames:
           type: array
           description: An array of names for the people or entities who are responsible
             for a set of Lists
+          nullable: true
           items:
             type: string
         listOwnerPersonDbIds:
           type: array
           description: An array of primary database identifiers to identify people
             or entities who are responsible for a set of Lists
+          nullable: true
           items:
             type: string
         listSources:
           type: array
           description: "An array of terms identifying lists from different sources\
             \ (ie 'USER', 'SYSTEM', etc)"
+          nullable: true
           items:
             type: string
         listType:
@@ -3517,6 +3586,7 @@ components:
           description: Define the beginning for an interval of time and only include
             Lists that are created within this interval.
           format: date-time
+          nullable: true
         programNames:
           type: array
           description: |-
@@ -3551,10 +3621,12 @@ components:
           description: Define the end for an interval of time and only include Lists
             that are modified within this interval.
           format: date-time
+          nullable: true
         listSources:
           type: array
           description: "An array of terms identifying lists from different sources\
             \ (ie 'USER', 'SYSTEM', etc)"
+          nullable: true
           items:
             type: string
         listType:
@@ -3564,21 +3636,25 @@ components:
           description: Define the end for an interval of time and only include Lists
             that are created within this interval.
           format: date-time
+          nullable: true
         listDbIds:
           type: array
           description: An array of primary database identifiers to identify a set
             of Lists
+          nullable: true
           items:
             type: string
         listNames:
           type: array
           description: An array of human readable names to identify a set of Lists
+          nullable: true
           items:
             type: string
         listOwnerPersonDbIds:
           type: array
           description: An array of primary database identifiers to identify people
             or entities who are responsible for a set of Lists
+          nullable: true
           items:
             type: string
         dateModifiedRangeStart:
@@ -3586,10 +3662,12 @@ components:
           description: Define the beginning for an interval of time and only include
             Lists that are modified within this interval.
           format: date-time
+          nullable: true
         listOwnerNames:
           type: array
           description: An array of names for the people or entities who are responsible
             for a set of Lists
+          nullable: true
           items:
             type: string
       description: "A List represents a collection of other BrAPI data objects. Typically\
@@ -3950,28 +4028,33 @@ components:
         linkageGroupNames:
           type: array
           description: A list of Uniquely Identifiable linkage group names
+          nullable: true
           items:
             type: string
         mapDbIds:
           type: array
           description: A list of IDs which uniquely identify `GenomeMaps` within the
             given database server
+          nullable: true
           items:
             type: string
         maxPosition:
           type: integer
           description: The maximum position of markers in a given map
           format: int32
+          nullable: true
           example: 4000
         minPosition:
           type: integer
           description: The minimum position of markers in a given map
           format: int32
+          nullable: true
           example: 250
         variantDbIds:
           type: array
           description: A list of IDs which uniquely identify `Variants` within the
             given database server
+          nullable: true
           items:
             type: string
     MethodRequest:
@@ -4040,12 +4123,14 @@ components:
         germplasmDbIds:
           type: array
           description: List of IDs which uniquely identify germplasm to search for
+          nullable: true
           items:
             type: string
         germplasmNames:
           type: array
           description: List of human readable names to identify germplasm to search
             for
+          nullable: true
           items:
             type: string
         locationDbIds:
@@ -4268,12 +4353,14 @@ components:
         germplasmDbIds:
           type: array
           description: List of IDs which uniquely identify germplasm to search for
+          nullable: true
           items:
             type: string
         germplasmNames:
           type: array
           description: List of human readable names to identify germplasm to search
             for
+          nullable: true
           items:
             type: string
         includeObservations:
@@ -4725,12 +4812,14 @@ components:
         germplasmDbIds:
           type: array
           description: List of IDs which uniquely identify germplasm to search for
+          nullable: true
           items:
             type: string
         germplasmNames:
           type: array
           description: List of human readable names to identify germplasm to search
             for
+          nullable: true
           items:
             type: string
         germplasmPUIs:
@@ -4909,36 +4998,43 @@ components:
         emailAddresses:
           type: array
           description: email address for this person
+          nullable: true
           items:
             type: string
         firstNames:
           type: array
           description: Persons first name
+          nullable: true
           items:
             type: string
         lastNames:
           type: array
           description: Persons last name
+          nullable: true
           items:
             type: string
         mailingAddresses:
           type: array
           description: physical address of this person
+          nullable: true
           items:
             type: string
         middleNames:
           type: array
           description: Persons middle name
+          nullable: true
           items:
             type: string
         personDbIds:
           type: array
           description: Unique ID for this person
+          nullable: true
           items:
             type: string
         phoneNumbers:
           type: array
           description: phone number of this person
+          nullable: true
           items:
             type: string
         programDbIds:
@@ -4963,6 +5059,7 @@ components:
           type: array
           description: A systems user ID associated with this person. Different from
             personDbId because you could have a person who is not a user of the system.
+          nullable: true
           items:
             type: string
     PersonSearchRequest:
@@ -4971,22 +5068,26 @@ components:
         middleNames:
           type: array
           description: Persons middle name
+          nullable: true
           items:
             type: string
         emailAddresses:
           type: array
           description: email address for this person
+          nullable: true
           items:
             type: string
         userIDs:
           type: array
           description: A systems user ID associated with this person. Different from
             personDbId because you could have a person who is not a user of the system.
+          nullable: true
           items:
             type: string
         personDbIds:
           type: array
           description: Unique ID for this person
+          nullable: true
           items:
             type: string
         programNames:
@@ -5021,21 +5122,25 @@ components:
         firstNames:
           type: array
           description: Persons first name
+          nullable: true
           items:
             type: string
         lastNames:
           type: array
           description: Persons last name
+          nullable: true
           items:
             type: string
         mailingAddresses:
           type: array
           description: physical address of this person
+          nullable: true
           items:
             type: string
         phoneNumbers:
           type: array
           description: phone number of this person
+          nullable: true
           items:
             type: string
       description: "A generic object used to maintain the metadata needed to describe\
@@ -5121,32 +5226,38 @@ components:
         germplasmDbIds:
           type: array
           description: List of IDs which uniquely identify germplasm to search for
+          nullable: true
           items:
             type: string
         germplasmNames:
           type: array
           description: List of human readable names to identify germplasm to search
             for
+          nullable: true
           items:
             type: string
         observationUnitDbIds:
           type: array
           description: The ID which uniquely identifies an observation unit
+          nullable: true
           items:
             type: string
         plateBarcodes:
           type: array
           description: A unique identifier physically attached to the plate
+          nullable: true
           items:
             type: string
         plateDbIds:
           type: array
           description: The ID which uniquely identifies a plate of samples
+          nullable: true
           items:
             type: string
         plateNames:
           type: array
           description: The human readable name of a plate of samples
+          nullable: true
           items:
             type: string
         programDbIds:
@@ -5170,16 +5281,19 @@ components:
         sampleDbIds:
           type: array
           description: The ID which uniquely identifies a sample
+          nullable: true
           items:
             type: string
         sampleGroupDbIds:
           type: array
           description: The unique identifier for a group of related Samples
+          nullable: true
           items:
             type: string
         sampleNames:
           type: array
           description: The human readable name of the sample
+          nullable: true
           items:
             type: string
         studyDbIds:
@@ -5299,6 +5413,7 @@ components:
         abbreviations:
           type: array
           description: A list of shortened human readable names for a set of Programs
+          nullable: true
           items:
             type: string
         commonCropNames:
@@ -5315,16 +5430,19 @@ components:
         leadPersonDbIds:
           type: array
           description: The person DbIds of the program leader to search for
+          nullable: true
           items:
             type: string
         leadPersonNames:
           type: array
           description: The names of the program leader to search for
+          nullable: true
           items:
             type: string
         objectives:
           type: array
           description: A program objective to search for
+          nullable: true
           items:
             type: string
         programDbIds:
@@ -5350,6 +5468,7 @@ components:
           description: "The type of program entity this object represents\n<br/> 'STANDARD'\
             \ represents a standard, permanent breeding program\n<br/> 'PROJECT' represents\
             \ a short term project, usually with a set time limit based on funding "
+          nullable: true
           items:
             type: string
             description: |-
@@ -5365,6 +5484,7 @@ components:
         leadPersonNames:
           type: array
           description: The names of the program leader to search for
+          nullable: true
           items:
             type: string
         programNames:
@@ -5399,11 +5519,13 @@ components:
         objectives:
           type: array
           description: A program objective to search for
+          nullable: true
           items:
             type: string
         leadPersonDbIds:
           type: array
           description: The person DbIds of the program leader to search for
+          nullable: true
           items:
             type: string
         programTypes:
@@ -5411,6 +5533,7 @@ components:
           description: "The type of program entity this object represents\n<br/> 'STANDARD'\
             \ represents a standard, permanent breeding program\n<br/> 'PROJECT' represents\
             \ a short term project, usually with a set time limit based on funding "
+          nullable: true
           items:
             type: string
             description: |-
@@ -5423,6 +5546,7 @@ components:
         abbreviations:
           type: array
           description: A list of shortened human readable names for a set of Programs
+          nullable: true
           items:
             type: string
       description: A BrAPI Program represents the high level organization or group
@@ -5502,12 +5626,14 @@ components:
         germplasmDbIds:
           type: array
           description: List of IDs which uniquely identify germplasm to search for
+          nullable: true
           items:
             type: string
         germplasmNames:
           type: array
           description: List of human readable names to identify germplasm to search
             for
+          nullable: true
           items:
             type: string
         isDerived:
@@ -5591,12 +5717,14 @@ components:
           type: array
           description: "If set, return the reference sets for which the `accession`\
             \ matches this string (case-sensitive, exact match)."
+          nullable: true
           items:
             type: string
         assemblyPUIs:
           type: array
           description: "If set, return the reference sets for which the `assemblyId`\
             \ matches this string (case-sensitive, exact match)."
+          nullable: true
           items:
             type: string
         commonCropNames:
@@ -5613,18 +5741,21 @@ components:
         germplasmDbIds:
           type: array
           description: List of IDs which uniquely identify germplasm to search for
+          nullable: true
           items:
             type: string
         germplasmNames:
           type: array
           description: List of human readable names to identify germplasm to search
             for
+          nullable: true
           items:
             type: string
         md5checksums:
           type: array
           description: "If set, return the reference sets for which the `md5checksum`\
             \ matches this string (case-sensitive, exact match)."
+          nullable: true
           items:
             type: string
         programDbIds:
@@ -5648,6 +5779,7 @@ components:
         referenceSetDbIds:
           type: array
           description: The `ReferenceSets` to search.
+          nullable: true
           items:
             type: string
         studyDbIds:
@@ -5687,27 +5819,32 @@ components:
         germplasmDbIds:
           type: array
           description: List of IDs which uniquely identify germplasm to search for
+          nullable: true
           items:
             type: string
         germplasmNames:
           type: array
           description: List of human readable names to identify germplasm to search
             for
+          nullable: true
           items:
             type: string
         observationUnitDbIds:
           type: array
           description: The ID which uniquely identifies an `ObservationUnit`
+          nullable: true
           items:
             type: string
         plateDbIds:
           type: array
           description: The ID which uniquely identifies a `Plate` of `Samples`
+          nullable: true
           items:
             type: string
         plateNames:
           type: array
           description: The human readable name of a `Plate` of `Samples`
+          nullable: true
           items:
             type: string
         programDbIds:
@@ -5731,16 +5868,19 @@ components:
         sampleDbIds:
           type: array
           description: The ID which uniquely identifies a `Sample`
+          nullable: true
           items:
             type: string
         sampleGroupDbIds:
           type: array
           description: The unique identifier for a group of related `Samples`
+          nullable: true
           items:
             type: string
         sampleNames:
           type: array
           description: The human readable name of the `Sample`
+          nullable: true
           items:
             type: string
         studyDbIds:
@@ -5889,12 +6029,14 @@ components:
         germplasmDbIds:
           type: array
           description: List of IDs which uniquely identify germplasm to search for
+          nullable: true
           items:
             type: string
         germplasmNames:
           type: array
           description: List of human readable names to identify germplasm to search
             for
+          nullable: true
           items:
             type: string
         programDbIds:
@@ -6117,6 +6259,7 @@ components:
         active:
           type: boolean
           description: A flag to indicate if a Study is currently active and ongoing
+          nullable: true
           example: true
         commonCropNames:
           type: array
@@ -6132,12 +6275,14 @@ components:
         germplasmDbIds:
           type: array
           description: List of IDs which uniquely identify germplasm to search for
+          nullable: true
           items:
             type: string
         germplasmNames:
           type: array
           description: List of human readable names to identify germplasm to search
             for
+          nullable: true
           items:
             type: string
         locationDbIds:
@@ -6187,11 +6332,13 @@ components:
         seasonDbIds:
           type: array
           description: The ID which uniquely identifies a season
+          nullable: true
           items:
             type: string
         sortBy:
           type: string
           description: Name of the field to sort by.
+          nullable: true
           enum:
           - studyDbId
           - trialDbId
@@ -6205,6 +6352,7 @@ components:
         sortOrder:
           type: string
           description: Sort order direction. Ascending/Descending.
+          nullable: true
           enum:
           - asc
           - ASC
@@ -6213,6 +6361,7 @@ components:
         studyCodes:
           type: array
           description: A short human readable code for a study
+          nullable: true
           items:
             type: string
         studyDbIds:
@@ -6229,11 +6378,13 @@ components:
           type: array
           description: "Permanent unique identifier associated with study data. For\
             \ example, a URI or DOI"
+          nullable: true
           items:
             type: string
         studyTypes:
           type: array
           description: "The type of study being performed. ex. \"Yield Trial\", etc"
+          nullable: true
           items:
             type: string
         trialDbIds:
@@ -6252,6 +6403,7 @@ components:
         germplasmDbIds:
           type: array
           description: List of IDs which uniquely identify germplasm to search for
+          nullable: true
           items:
             type: string
         locationDbIds:
@@ -6268,6 +6420,7 @@ components:
           type: array
           description: List of human readable names to identify germplasm to search
             for
+          nullable: true
           items:
             type: string
         programNames:
@@ -6281,11 +6434,13 @@ components:
         seasonDbIds:
           type: array
           description: The ID which uniquely identifies a season
+          nullable: true
           items:
             type: string
         active:
           type: boolean
           description: A flag to indicate if a Study is currently active and ongoing
+          nullable: true
           example: true
         commonCropNames:
           type: array
@@ -6311,12 +6466,14 @@ components:
         studyCodes:
           type: array
           description: A short human readable code for a study
+          nullable: true
           items:
             type: string
         studyPUIs:
           type: array
           description: "Permanent unique identifier associated with study data. For\
             \ example, a URI or DOI"
+          nullable: true
           items:
             type: string
         observationVariablePUIs:
@@ -6358,6 +6515,7 @@ components:
         sortOrder:
           type: string
           description: Sort order direction. Ascending/Descending.
+          nullable: true
           enum:
           - asc
           - ASC
@@ -6366,6 +6524,7 @@ components:
         sortBy:
           type: string
           description: Name of the field to sort by.
+          nullable: true
           enum:
           - studyDbId
           - trialDbId
@@ -6379,6 +6538,7 @@ components:
         studyTypes:
           type: array
           description: "The type of study being performed. ex. \"Yield Trial\", etc"
+          nullable: true
           items:
             type: string
       description: A Study represents an experiment that has taken place at a single

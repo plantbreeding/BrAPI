@@ -86,50 +86,8 @@ Added: `externalReferenceID` in `query`
 
 * Changed content type : `application/json`
 
-    * Changed property `dataMatrixAbbreviations` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `dataMatrixNames` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `expandHomozygotes` (boolean):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `germplasmDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `germplasmNames` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `germplasmPUIs` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `pagination` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `positionRanges` (array):
-      - Nullable changed: `true` -> `null`
-
     * Changed property `preview` (boolean):
       - Default changed: `false` -> `none`
-
-    * Changed property `sampleDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `sepPhased` (string):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `sepUnphased` (string):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `unknownString` (string):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `variantDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `variantSetDbIds` (array):
-      - Nullable changed: `true` -> `null`
 
 ###### Return Type:
 
@@ -183,18 +141,6 @@ Changed response : **200**
 
     Deleted properties: `externalReferenceIDs`, `externalReferenceIds`, `externalReferenceSources`, `page`, `pageSize`
 
-    * Changed property `attributeCategories` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `attributeDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `attributeNames` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `attributePUIs` (array):
-      - Nullable changed: `true` -> `null`
-
     * Changed property `studyDbId` (array):
       - Deprecated status changed
 
@@ -216,33 +162,6 @@ Deleted response : **404**
 
     Deleted properties: `externalReferenceIDs`, `externalReferenceIds`, `externalReferenceSources`, `page`, `pageSize`
 
-    * Changed property `attributeDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `attributeNames` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `attributeValueDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `dataTypes` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `methodDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `ontologyDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `scaleDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `traitClasses` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `traitDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
 ##### `GET` /search/attributevalues/{searchResultsDbId}
 
 
@@ -260,39 +179,6 @@ Deleted response : **404**
 * Changed content type : `application/json`
 
     Deleted properties: `externalReferenceIDs`, `externalReferenceIds`, `externalReferenceSources`, `page`, `pageSize`
-
-    * Changed property `accessionNumbers` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `binomialNames` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `collections` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `familyCodes` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `genus` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `germplasmPUIs` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `instituteCodes` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `parentDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `progenyDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `species` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `synonyms` (array):
-      - Nullable changed: `true` -> `null`
 
 ##### `GET` /search/germplasm/{searchResultsDbId}
 
@@ -321,33 +207,6 @@ Deleted response : **404**
 
     Deleted properties: `externalReferenceIDs`, `externalReferenceIds`, `externalReferenceSources`, `page`, `pageSize`
 
-    * Changed property `dateCreatedRangeEnd` (string):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `dateCreatedRangeStart` (string):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `dateModifiedRangeEnd` (string):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `dateModifiedRangeStart` (string):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `listDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `listNames` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `listOwnerNames` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `listOwnerPersonDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `listSources` (array):
-      - Nullable changed: `true` -> `null`
-
     * Changed property `listType` (string):
       - Nullable changed: `true` -> `null`
 
@@ -373,15 +232,6 @@ Deleted response : **202**
 * Changed content type : `application/json`
 
     Deleted properties: `page`, `pageSize`
-
-    * Changed property `linkageGroupNames` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `mapDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `variantDbIds` (array):
-      - Nullable changed: `true` -> `null`
 
 ###### Return Type:
 
@@ -445,30 +295,6 @@ Deleted response : **404**
 
     Deleted properties: `externalReferenceIDs`, `externalReferenceIds`, `externalReferenceSources`, `page`, `pageSize`
 
-    * Changed property `emailAddresses` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `firstNames` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `lastNames` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `mailingAddresses` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `middleNames` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `personDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `phoneNumbers` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `userIDs` (array):
-      - Nullable changed: `true` -> `null`
-
 ##### `GET` /search/people/{searchResultsDbId}
 
 
@@ -484,30 +310,6 @@ Deleted response : **202**
 * Changed content type : `application/json`
 
     Deleted properties: `externalReferenceIDs`, `externalReferenceIds`, `externalReferenceSources`, `page`, `pageSize`
-
-    * Changed property `germplasmDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `observationUnitDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `plateBarcodes` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `plateDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `plateNames` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `sampleDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `sampleGroupDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `sampleNames` (array):
-      - Nullable changed: `true` -> `null`
 
 ##### `GET` /search/plates/{searchResultsDbId}
 
@@ -527,21 +329,6 @@ Deleted response : **404**
 
     Deleted properties: `externalReferenceIDs`, `externalReferenceIds`, `externalReferenceSources`, `page`, `pageSize`
 
-    * Changed property `abbreviations` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `leadPersonDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `leadPersonNames` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `objectives` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `programTypes` (array):
-      - Nullable changed: `true` -> `null`
-
 ##### `GET` /search/programs/{searchResultsDbId}
 
 
@@ -560,18 +347,6 @@ Deleted response : **404**
 
     Deleted properties: `externalReferenceIDs`, `externalReferenceIds`, `externalReferenceSources`, `page`, `pageSize`
 
-    * Changed property `accessions` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `assemblyPUIs` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `md5checksums` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `referenceSetDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
 ##### `GET` /search/referencesets/{searchResultsDbId}
 
 
@@ -587,27 +362,6 @@ Deleted response : **202**
 * Changed content type : `application/json`
 
     Deleted properties: `externalReferenceIDs`, `externalReferenceIds`, `externalReferenceSources`, `page`, `pageSize`
-
-    * Changed property `germplasmDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `observationUnitDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `plateDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `plateNames` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `sampleDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `sampleGroupDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `sampleNames` (array):
-      - Nullable changed: `true` -> `null`
 
 ##### `GET` /search/samples/{searchResultsDbId}
 
@@ -627,28 +381,11 @@ Deleted response : **404**
 
     Deleted properties: `externalReferenceIDs`, `externalReferenceIds`, `externalReferenceSources`, `page`, `pageSize`
 
-    * Changed property `active` (boolean):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `seasonDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
     * Changed property `sortBy` (string):
-      - Nullable changed: `true` -> `null`
       - Removed enum values: [germplasmDbId, observationVariableDbId]
 
     * Changed property `sortOrder` (string):
-      - Nullable changed: `true` -> `null`
       - Added enum values: [asc, desc]
-
-    * Changed property `studyCodes` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `studyPUIs` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `studyTypes` (array):
-      - Nullable changed: `true` -> `null`
 
 ##### `GET` /search/studies/{searchResultsDbId}
 
@@ -1822,27 +1559,6 @@ Deleted response : **404**
 
     Deleted properties: `page`, `pageSize`, `pageToken`
 
-    * Changed property `callSetDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `expandHomozygotes` (boolean):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `sepPhased` (string):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `sepUnphased` (string):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `unknownString` (string):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `variantDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `variantSetDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
 ###### Return Type:
 
 Changed response : **200**
@@ -1938,21 +1654,6 @@ Changed response : **200**
 * Changed content type : `application/json`
 
     Deleted properties: `externalReferenceIDs`, `externalReferenceIds`, `externalReferenceSources`, `page`, `pageSize`
-
-    * Changed property `callSetDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `callSetNames` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `sampleDbIds` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `sampleNames` (array):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `variantSetDbIds` (array):
-      - Nullable changed: `true` -> `null`
 
 ###### Return Type:
 
