@@ -13543,6 +13543,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a Allele Matrix search request",
@@ -14151,6 +14162,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a `Calls` search request",
@@ -14343,6 +14365,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a `CallSets` search request",
@@ -14938,6 +14971,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a `List` search request",
@@ -15129,6 +15173,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a `Locations` search request",
@@ -15320,6 +15375,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a `MarkerPositions` search request",
@@ -16117,6 +16183,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a `People` search request",
@@ -16713,6 +16790,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a `References` search request",
@@ -16905,6 +16993,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a `ReferenceSets` search request",
@@ -17918,6 +18017,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a `Variants` search request",
@@ -18110,6 +18220,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a `VariantSets` search request",
@@ -22559,6 +22680,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Gets a list of `CallSets` associated with a `VariantSet`.",
@@ -22678,6 +22810,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Gets a `Variants` for a given `VariantSet`.",

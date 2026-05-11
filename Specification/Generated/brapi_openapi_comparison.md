@@ -115,6 +115,8 @@ Changed response : **200**
 
 Deleted response : **202**
 
+Deleted response : **404**
+
 Changed response : **200**
 
 * Changed content type : `application/json`
@@ -217,12 +219,16 @@ Deleted response : **404**
 
 Deleted response : **202**
 
+Deleted response : **404**
+
 ##### `GET` /search/locations/{searchResultsDbId}
 
 
 ###### Return Type:
 
 Deleted response : **202**
+
+Deleted response : **404**
 
 ##### `POST` /search/markerpositions
 
@@ -253,6 +259,8 @@ Changed response : **200**
 ###### Return Type:
 
 Deleted response : **202**
+
+Deleted response : **404**
 
 Changed response : **200**
 
@@ -301,6 +309,8 @@ Deleted response : **404**
 ###### Return Type:
 
 Deleted response : **202**
+
+Deleted response : **404**
 
 ##### `POST` /search/plates
 
@@ -353,6 +363,8 @@ Deleted response : **404**
 ###### Return Type:
 
 Deleted response : **202**
+
+Deleted response : **404**
 
 ##### `POST` /search/samples
 
@@ -1609,6 +1621,8 @@ Deleted: `pageToken` in `query`
 
 Deleted response : **202**
 
+Deleted response : **404**
+
 Changed response : **200**
 
 * Changed content type : `application/json`
@@ -1696,6 +1710,8 @@ Changed response : **200**
 ###### Return Type:
 
 Deleted response : **202**
+
+Deleted response : **404**
 
 Changed response : **200**
 
@@ -1867,6 +1883,8 @@ Changed response : **200**
 
 Deleted response : **202**
 
+Deleted response : **404**
+
 Changed response : **200**
 
 * Changed content type : `application/json`
@@ -1987,6 +2005,8 @@ Deleted: `pageToken` in `query`
 
 Deleted response : **202**
 
+Deleted response : **404**
+
 Changed response : **200**
 
 * Changed content type : `application/json`
@@ -2106,6 +2126,8 @@ Changed response : **200**
 ###### Return Type:
 
 Deleted response : **202**
+
+Deleted response : **404**
 
 Changed response : **200**
 
@@ -2789,8 +2811,6 @@ Changed response : **200**
 
 ###### Return Type:
 
-New response : **404**
-
 Changed response : **200**
 
 * Changed content type : `application/json`
@@ -2828,8 +2848,6 @@ Changed response : **200**
 
 
 ###### Return Type:
-
-New response : **404**
 
 Changed response : **200**
 
