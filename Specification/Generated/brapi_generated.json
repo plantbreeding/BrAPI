@@ -16863,6 +16863,19 @@
                 },
                 "example" : 1000
             },
+            "authorizationHeader" : {
+                "name" : "Authorization",
+                "in" : "header",
+                "description" : "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer {token_string} </strong>",
+                "required" : false,
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                    "pattern" : "^Bearer .*$",
+                    "type" : "string"
+                },
+                "example" : "Bearer XXXX"
+            },
             "page" : {
                 "name" : "page",
                 "in" : "query",
@@ -16887,19 +16900,6 @@
                     "type" : "string"
                 },
                 "example" : "33c27874"
-            },
-            "authorizationHeader" : {
-                "name" : "Authorization",
-                "in" : "header",
-                "description" : "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer {token_string} </strong>",
-                "required" : false,
-                "style" : "simple",
-                "explode" : false,
-                "schema" : {
-                    "pattern" : "^Bearer .*$",
-                    "type" : "string"
-                },
-                "example" : "Bearer XXXX"
             }
         },
         "securitySchemes" : {
