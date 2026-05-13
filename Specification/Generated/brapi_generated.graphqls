@@ -179,6 +179,7 @@ union GeoJSONGeometry = GeoJSONPoint | GeoJSONPolygon
 
 "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
 type AdditionalInfo {
+  "A free space containing any additional information related to a particular object."
   additionalProperties: String
 }
 
@@ -414,13 +415,13 @@ type Cross {
   parent1: CrossParent
   "the second parent used in the cross"
   parent2: CrossParent
-  "the unique identifier for a planned cross"
+  "The Cross that was used in the planning of this one."
   plannedCross: PlannedCross
-  "The list of pollination events that occurred for this cross"
+  "The list of pollination events that occurred for this cross."
   pollinationEvents: [PollinationEvent]
 }
 
-"A custom attributes associated with a cross"
+"A custom attribute associated with a cross. For example, if the crossing event occurred on a humid day, a user might record 'crossAttributeName':'Relative Humidity', 'crossAttributeValue':'80%'"
 type CrossAttribute {
   "a custom attributes associated with a cross"
   cross: Cross
@@ -558,10 +559,12 @@ type DatasetAuthorships {
 
 "Links to various ontology documentation"
 type DocumentationLink {
+  "The URL or URI to the documentation"
   URL: String
   "associated ontology reference"
   ontologyReference: OntologyReference
-  type: Type
+  "The type of documentation, which can be OBO Foundry, an RDF term or a webpage."
+  type: DocumentationLinkType
 }
 
 "Identifier assigned to an accession by the material donor."
@@ -577,7 +580,7 @@ type Donor {
   <br/>MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.
   """
   donorInstituteCode: String
-  "donoers associated with a germplasm"
+  "donors associated with a germplasm"
   germplasm: Germplasm
 }
 
@@ -586,7 +589,7 @@ Environmental parameters that were kept constant throughout the study and did no
 
 MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
 """
-type EnvironmentParameters {
+type EnvironmentParameter {
   "Human-readable value of the environment parameter (defined above) constant within the experiment"
   description: String
   "Human-readable value of the environment parameter (defined above) constant within the experiment"
@@ -677,7 +680,7 @@ type EventListResponse {
   page: PageInfo
 }
 
-"An object describing additional event parameters. Each of the following accepts a human-readable value or URI"
+"Additional metadata to describe an event, based on the ICASA standard model. For example, 'Tillage Implement' (tiimp), 'Tillage Depth' (tidep), and 'Tillage Mix Effectiveness' (timix) might all be recorded parameters for a Tillage event."
 type EventParameter {
   """
   The shortened code name of an event parameter
@@ -712,23 +715,6 @@ type EventParameter {
 type EventsSearchResponse {
   data: [Event]
   searchResultsDbId: String
-}
-
-type ExperimentFactor {
-  """
-  The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
-  
-  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
-  """
-  factor: String
-  "The PUI of the factor which may link to an ontology."
-  factorPUI: String
-  """
-  The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
-  
-  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
-  """
-  modalities: [Modality]
 }
 
 "The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology"
@@ -943,7 +929,7 @@ type Germplasm {
   genus: String
   """
   The ID which uniquely identifies a germplasm within the given database server 
-  <br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
+  <br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, inventory lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
   """
   germplasmDbId: String
   """
@@ -957,7 +943,7 @@ type Germplasm {
   """
   The Permanent Unique Identifier which represents a germplasm
   
-  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
+  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, inventory lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
   
   MIAPPE V1.1 (DM-51) Material source DOI - Digital Object Identifier (DOI) of the material source
   
@@ -1278,7 +1264,9 @@ type LastUpdate {
   lastUpdateDbId: String
   "Last update associated with a study"
   study: Study
+  "The timestamp of the update."
   timestamp: String
+  "The version of the update."
   version: String
 }
 
@@ -1644,6 +1632,7 @@ type Observation {
   observationUnit: ObservationUnit
   "The ID which uniquely identifies an observation variable"
   observationVariable: ObservationVariable
+  "The season for this Observation"
   season: Season
   "The ID which uniquely identifies a study within the given database server"
   study: Study
@@ -1658,7 +1647,7 @@ type ObservationListResponse {
   page: PageInfo
 }
 
-"The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc. MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor."
+"A Treatment applied an Observation Unit at a given Modality/Level for a specific Factor."
 type ObservationTreatment {
   """
   The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
@@ -1676,6 +1665,7 @@ type ObservationTreatment {
   observationUnit: ObservationUnit
 }
 
+"A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples."
 type ObservationUnit {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfo
@@ -1843,48 +1833,12 @@ type ObservationUnitPosition {
   observationUnit: ObservationUnit
   "The X position coordinate for an observation unit. Different systems may use different coordinate systems."
   positionCoordinateX: String
-  """
-  The type of positional coordinate used. Must be one of the following values 
-  
-  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details 
-  
-  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details 
-  
-  PLANTED_ROW - The physical planted row number 
-  
-  PLANTED_INDIVIDUAL - The physical counted number, could be independent or within a planted row 
-  
-  GRID_ROW - The row index number of a square grid overlay 
-  
-  GRID_COL - The column index number of a square grid overlay 
-  
-  MEASURED_ROW - The distance in meters from a defined 0-th row 
-  
-  MEASURED_COL - The distance in meters from a defined 0-th column 
-  """
-  positionCoordinateXType: PositionCoordinateXType
+  "The type of positional coordinate used for the X coordinate of the position."
+  positionCoordinateXType: PositionCoordinateType
   "The Y position coordinate for an observation unit. Different systems may use different coordinate systems."
   positionCoordinateY: String
-  """
-  The type of positional coordinate used. Must be one of the following values 
-  
-  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details 
-  
-  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details 
-  
-  PLANTED_ROW - The physical planted row number  
-  
-  PLANTED_INDIVIDUAL - The physical counted number, could be independent or within a planted row 
-  
-  GRID_ROW - The row index number of a square grid overlay 
-  
-  GRID_COL - The column index number of a square grid overlay 
-  
-  MEASURED_ROW - The distance in meters from a defined 0-th row 
-  
-  MEASURED_COL - The distance in meters from a defined 0-th column 
-  """
-  positionCoordinateYType: PositionCoordinateYType
+  "The type of positional coordinate used for the Y coordinate of the position."
+  positionCoordinateYType: PositionCoordinateType
 }
 
 type ObservationUnitsSearchResponse {
@@ -2210,9 +2164,9 @@ type PlatesSearchResponse {
   searchResultsDbId: String
 }
 
-"A pollination event that occurred for this cross"
+"A Pollination Event that was used or attempted for a Cross."
 type PollinationEvent {
-  "Pollination events associated with a cross"
+  "The Cross associated with this Pollination Event"
   cross: Cross
   "The unique identifier for this pollination event"
   pollinationNumber: String
@@ -2264,7 +2218,9 @@ type ProgramsSearchResponse {
 
 "MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended."
 type Publication {
+  "The permanent unique identifier of the publication."
   publicationPUI: String
+  "The publication reference."
   publicationReference: String
   "Publications associated with a trial"
   trial: Trial
@@ -2839,7 +2795,7 @@ type Study {
   
   MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
   """
-  environmentParameters: [EnvironmentParameters]
+  environmentParameters: [EnvironmentParameter]
   "The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology"
   experimentalDesign: ExperimentalDesign
   "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI."
@@ -3296,6 +3252,13 @@ enum Dimension {
   VARIANTS
 }
 
+"The type of documentation, which can be OBO Foundry, an RDF term or a webpage."
+enum DocumentationLinkType {
+  OBO
+  RDF
+  WEBPAGE
+}
+
 "The type of entry for this observation unit. ex. \"CHECK\", \"TEST\", \"FILLER\""
 enum EntryType {
   CHECK
@@ -3349,7 +3312,7 @@ enum PlateFormat {
 }
 
 """
-The type of positional coordinate used. Must be one of the following values 
+The type of positional coordinate. Must be one of the following values 
 
 LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details 
 
@@ -3367,37 +3330,7 @@ MEASURED_ROW - The distance in meters from a defined 0-th row
 
 MEASURED_COL - The distance in meters from a defined 0-th column 
 """
-enum PositionCoordinateXType {
-  GRID_COL
-  GRID_ROW
-  LATITUDE
-  LONGITUDE
-  MEASURED_COL
-  MEASURED_ROW
-  PLANTED_INDIVIDUAL
-  PLANTED_ROW
-}
-
-"""
-The type of positional coordinate used. Must be one of the following values 
-
-LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details 
-
-LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details 
-
-PLANTED_ROW - The physical planted row number  
-
-PLANTED_INDIVIDUAL - The physical counted number, could be independent or within a planted row 
-
-GRID_ROW - The row index number of a square grid overlay 
-
-GRID_COL - The column index number of a square grid overlay 
-
-MEASURED_ROW - The distance in meters from a defined 0-th row 
-
-MEASURED_COL - The distance in meters from a defined 0-th column 
-"""
-enum PositionCoordinateYType {
+enum PositionCoordinateType {
   GRID_COL
   GRID_ROW
   LATITUDE
@@ -3473,14 +3406,9 @@ enum TraitDataType {
   Text
 }
 
-enum Type {
-  OBO
-  RDF
-  WEBPAGE
-}
-
 "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
 input AdditionalInfoInput {
+  "A free space containing any additional information related to a particular object."
   additionalProperties: String
 }
 
@@ -3735,7 +3663,7 @@ input ContentMixtureInput {
   seedLot: SeedLotInput
 }
 
-"A custom attributes associated with a cross"
+"A custom attribute associated with a cross. For example, if the crossing event occurred on a humid day, a user might record 'crossAttributeName':'Relative Humidity', 'crossAttributeValue':'80%'"
 input CrossAttributeInput {
   "a custom attributes associated with a cross"
   cross: CrossInput
@@ -3767,9 +3695,9 @@ input CrossInput {
   parent1: CrossParentInput
   "the second parent used in the cross"
   parent2: CrossParentInput
-  "the unique identifier for a planned cross"
+  "The Cross that was used in the planning of this one."
   plannedCross: PlannedCrossInput
-  "The list of pollination events that occurred for this cross"
+  "The list of pollination events that occurred for this cross."
   pollinationEvents: [PollinationEventInput]
 }
 
@@ -3956,10 +3884,12 @@ input DatasetAuthorshipsInput {
 
 "Links to various ontology documentation"
 input DocumentationLinkInput {
+  "The URL or URI to the documentation"
   URL: String
   "associated ontology reference"
   ontologyReference: OntologyReferenceInput
-  type: Type
+  "The type of documentation, which can be OBO Foundry, an RDF term or a webpage."
+  type: DocumentationLinkType
 }
 
 "Identifier assigned to an accession by the material donor."
@@ -3975,7 +3905,7 @@ input DonorInput {
   <br/>MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.
   """
   donorInstituteCode: String
-  "donoers associated with a germplasm"
+  "donors associated with a germplasm"
   germplasm: GermplasmInput
 }
 
@@ -3984,7 +3914,7 @@ Environmental parameters that were kept constant throughout the study and did no
 
 MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
 """
-input EnvironmentParametersInput {
+input EnvironmentParameterInput {
   "Human-readable value of the environment parameter (defined above) constant within the experiment"
   description: String
   "Human-readable value of the environment parameter (defined above) constant within the experiment"
@@ -4070,7 +4000,7 @@ input EventInput {
   study: StudyInput
 }
 
-"An object describing additional event parameters. Each of the following accepts a human-readable value or URI"
+"Additional metadata to describe an event, based on the ICASA standard model. For example, 'Tillage Implement' (tiimp), 'Tillage Depth' (tidep), and 'Tillage Mix Effectiveness' (timix) might all be recorded parameters for a Tillage event."
 input EventParameterInput {
   """
   The shortened code name of an event parameter
@@ -4117,23 +4047,6 @@ input EventsInput {
   studyDbIds: [String]
   "List of study names to filter search results"
   studyNames: [String]
-}
-
-input ExperimentFactorInput {
-  """
-  The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
-  
-  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
-  """
-  factor: String
-  "The PUI of the factor which may link to an ontology."
-  factorPUI: String
-  """
-  The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
-  
-  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
-  """
-  modalities: [ModalityInput]
 }
 
 "The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology"
@@ -4661,7 +4574,7 @@ input GermplasmInput {
   genus: String
   """
   The ID which uniquely identifies a germplasm within the given database server 
-  <br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
+  <br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, inventory lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
   """
   germplasmDbId: String
   """
@@ -4675,7 +4588,7 @@ input GermplasmInput {
   """
   The Permanent Unique Identifier which represents a germplasm
   
-  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
+  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, inventory lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
   
   MIAPPE V1.1 (DM-51) Material source DOI - Digital Object Identifier (DOI) of the material source
   
@@ -4922,7 +4835,9 @@ input LastUpdateInput {
   lastUpdateDbId: String
   "Last update associated with a study"
   study: StudyInput
+  "The timestamp of the update."
   timestamp: String
+  "The version of the update."
   version: String
 }
 
@@ -5254,17 +5169,6 @@ input MethodsInput {
   scaleDbIds: [String]
 }
 
-input ModalityInput {
-  """
-  The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc
-  
-  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. 
-  """
-  modality: String
-  "The PUI of the modality which may link to an ontology."
-  modalityPUI: String
-}
-
 "A value assigned for a specific ObservationVariable when observing a specific ObservationUnit."
 input ObservationInput {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
@@ -5294,6 +5198,7 @@ input ObservationInput {
   observationUnit: ObservationUnitInput
   "The ID which uniquely identifies an observation variable"
   observationVariable: ObservationVariableInput
+  "The season for this Observation"
   season: SeasonInput
   "The ID which uniquely identifies a study within the given database server"
   study: StudyInput
@@ -5303,7 +5208,7 @@ input ObservationInput {
   value: String
 }
 
-"The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc. MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor."
+"A Treatment applied an Observation Unit at a given Modality/Level for a specific Factor."
 input ObservationTreatmentInput {
   """
   The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
@@ -5348,6 +5253,7 @@ input ObservationUnitHierarchyLevelInput {
   levelOrder: Int
 }
 
+"A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples."
 input ObservationUnitInput {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfoInput
@@ -5518,48 +5424,12 @@ input ObservationUnitPositionInput {
   observationUnit: ObservationUnitInput
   "The X position coordinate for an observation unit. Different systems may use different coordinate systems."
   positionCoordinateX: String
-  """
-  The type of positional coordinate used. Must be one of the following values 
-  
-  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details 
-  
-  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details 
-  
-  PLANTED_ROW - The physical planted row number 
-  
-  PLANTED_INDIVIDUAL - The physical counted number, could be independent or within a planted row 
-  
-  GRID_ROW - The row index number of a square grid overlay 
-  
-  GRID_COL - The column index number of a square grid overlay 
-  
-  MEASURED_ROW - The distance in meters from a defined 0-th row 
-  
-  MEASURED_COL - The distance in meters from a defined 0-th column 
-  """
-  positionCoordinateXType: PositionCoordinateXType
+  "The type of positional coordinate used for the X coordinate of the position."
+  positionCoordinateXType: PositionCoordinateType
   "The Y position coordinate for an observation unit. Different systems may use different coordinate systems."
   positionCoordinateY: String
-  """
-  The type of positional coordinate used. Must be one of the following values 
-  
-  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details 
-  
-  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details 
-  
-  PLANTED_ROW - The physical planted row number  
-  
-  PLANTED_INDIVIDUAL - The physical counted number, could be independent or within a planted row 
-  
-  GRID_ROW - The row index number of a square grid overlay 
-  
-  GRID_COL - The column index number of a square grid overlay 
-  
-  MEASURED_ROW - The distance in meters from a defined 0-th row 
-  
-  MEASURED_COL - The distance in meters from a defined 0-th column 
-  """
-  positionCoordinateYType: PositionCoordinateYType
+  "The type of positional coordinate used for the Y coordinate of the position."
+  positionCoordinateYType: PositionCoordinateType
 }
 
 input ObservationUnitsInput {
@@ -6258,9 +6128,9 @@ input PlatesInput {
   trialNames: [String]
 }
 
-"A pollination event that occurred for this cross"
+"A Pollination Event that was used or attempted for a Cross."
 input PollinationEventInput {
-  "Pollination events associated with a cross"
+  "The Cross associated with this Pollination Event"
   cross: CrossInput
   "The unique identifier for this pollination event"
   pollinationNumber: String
@@ -6352,7 +6222,9 @@ input ProgramsInput {
 
 "MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended."
 input PublicationInput {
+  "The permanent unique identifier of the publication."
   publicationPUI: String
+  "The publication reference."
   publicationReference: String
   "Publications associated with a trial"
   trial: TrialInput
@@ -6964,7 +6836,7 @@ input StudyInput {
   
   MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).
   """
-  environmentParameters: [EnvironmentParametersInput]
+  environmentParameters: [EnvironmentParameterInput]
   "events"
   events: [EventInput]
   "The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology"

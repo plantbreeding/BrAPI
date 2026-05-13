@@ -8,14 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       skip_job: ${{ steps.skip.outputs.skip_job }}
+      skip_commit: ${{ steps.check-tag.outputs.skip_commit }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4      
       - name: Check last commit message
         id: commit-message
         run: |
           echo "COMMIT_MESSAGE=$(git log -1 --pretty=format:'%s')" >> "$GITHUB_ENV"
-          echo "skip_job=false" >> "$GITHUB_OUTPUT"
       - id: skip
         name: Skip if automated push
         if: contains(env.COMMIT_MESSAGE, 'Apply automatic changes')
@@ -25,15 +25,13 @@ jobs:
       - name: Check Branch with Regex
         id: check-tag
         run: |
-          if [ "${{ github.ref }}" =~ ^refs/heads/brapi-V[0-9]+\.[0-9]+$ ]; then
-            echo "commit=true" >> $GITHUB_ENV
+          regex="^refs/heads/brapi-V[0-9]+\.[0-9]+$"
+          if [[ "${{ github.ref }}" =~ $regex ]]; then
+            echo "skip_commit=false" >> "$GITHUB_OUTPUT"
+            echo "Release branch - WILL commit of generated files"
           else
-            echo "commit=false" >> $GITHUB_ENV
-          fi      
-          if [[env.commit == 'true']]; then
-            echo "Release branch - will commit generated files"
-          else
-            echo "Feature branch - will NOT commit generated files"
+            echo "skip_commit=true" >> "$GITHUB_OUTPUT"
+            echo "Normal branch - Will NOT commit of generated files"
           fi
   generate:
     runs-on: ubuntu-latest
@@ -41,7 +39,9 @@ jobs:
     if: needs.check.outputs.skip_job != 'true'
     steps:
       - name: debug
-        run: echo ${{ needs.check.outputs.skip_job }}
+        run: |
+          echo ${{ needs.check.outputs.skip_job }} 
+          echo ${{ needs.check.outputs.skip_commit }} 
       - name: Checkout code
         uses: actions/checkout@v4
         with:
@@ -75,5 +75,5 @@ jobs:
       - name: Compare OpenAPI
         working-directory: ./generator
         run: ./gradlew compareAll
-      - if: env.commit == 'true'
+      - if: needs.check.outputs.skip_commit == 'false'
         uses: stefanzweifel/git-auto-commit-action@v5

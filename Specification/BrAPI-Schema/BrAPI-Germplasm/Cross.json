@@ -65,12 +65,12 @@
                 },
                 "plannedCross": {
                     "$ref": "PlannedCross.json#/$defs/PlannedCross",
-                    "description": "the unique identifier for a planned cross",
+                    "description": "The Cross that was used in the planning of this one.",
                     "referencedAttribute": "crosses",
                     "relationshipType": "many-to-one"
                 },
                 "pollinationEvents": {
-                    "description": "The list of pollination events that occurred for this cross",
+                    "description": "The list of pollination events that occurred for this cross.",
                     "relationshipType": "one-to-many",
                     "referencedAttribute": "cross",
                     "items": {
@@ -132,7 +132,7 @@
                 }
             },
             "title": "CrossAttribute",
-            "description": "A custom attributes associated with a cross",
+            "description": "A custom attribute associated with a cross. For example, if the crossing event occurred on a humid day, a user might record 'crossAttributeName':'Relative Humidity', 'crossAttributeValue':'80%'",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
@@ -163,14 +163,14 @@
                     ]
                 },
                 "cross": {
-                    "description": "Pollination events associated with a cross",
+                    "description": "The Cross associated with this Pollination Event",
                     "$ref": "../BrAPI-Germplasm/Cross.json#/$defs/Cross",
                     "relationshipType": "many-to-one",
                     "referencedAttribute": "pollinationEvents"
                 }
             },
             "title": "PollinationEvent",
-            "description": "A pollination event that occurred for this cross",
+            "description": "A Pollination Event that was used or attempted for a Cross.",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
