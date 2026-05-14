@@ -23,8 +23,6 @@
                 },
                 "column": {
                     "description": "The Column identifier for this `Sample` location in the `Plate`",
-                    "maximum": 12,
-                    "minimum": 1,
                     "type": [
                         "null",
                         "integer"

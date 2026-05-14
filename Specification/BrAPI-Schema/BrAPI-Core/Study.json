@@ -204,6 +204,12 @@
                         "string"
                     ]
                 },
+                "program": {
+                    "$ref": "Program.json#/$defs/Program",
+                    "description": "A program identifier to search for",
+                    "referencedAttribute": "trials",
+                    "relationshipType": "many-to-one"
+                },
                 "trial": {
                     "$ref": "Trial.json#/$defs/Trial",
                     "description": "The ID which uniquely identifies a trial",
