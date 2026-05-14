@@ -185,6 +185,8 @@ type AdditionalInfo {
 
 "The AlleleMatrix object is used to describe a matrix of genotyping results. This 2d array of data reduces the overall size of the response for larger datasets, when compared to the Calls endpoints. This makes genotype data retrieval faster and easier."
 type AlleleMatrix {
+  "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
+  additionalInfo: AdditionalInfo
   "A list of unique identifiers for the CallSets contained in the matrix response. This array should match the ordering for columns in the matrix. A CallSet is a unique combination of a Sample and a sequencing event. CallSets often have a 1-to-1 relationship with Samples, but this is not always the case."
   callSets(callSetsInput: CallSetsInput, paging: PageInput): CallSetListResponse
   "The 'dataMatrices' are an array of matrix objects that hold the allele data and associated metadata. Each matrix should be the same size and orientation, aligned with the \"callSetDbIds\" as columns and the \"variantDbIds\" as rows."
@@ -715,6 +717,23 @@ type EventParameter {
 type EventsSearchResponse {
   data: [Event]
   searchResultsDbId: String
+}
+
+type ExperimentFactor {
+  """
+  The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
+  
+  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
+  """
+  factor: String
+  "The PUI of the factor which may link to an ontology."
+  factorPUI: String
+  """
+  The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
+  
+  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
+  """
+  modalities: [Modality]
 }
 
 "The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology"
@@ -2827,6 +2846,8 @@ type Study {
   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. 
   """
   observationVariables(observationVariablesInput: ObservationVariablesInput, paging: PageInput): ObservationVariableListResponse
+  "A program identifier to search for"
+  program: Program
   "List of seasons over which this study was performed."
   seasons: [String]
   """
@@ -3414,6 +3435,8 @@ input AdditionalInfoInput {
 
 "The AlleleMatrix object is used to describe a matrix of genotyping results. This 2d array of data reduces the overall size of the response for larger datasets, when compared to the Calls endpoints. This makes genotype data retrieval faster and easier."
 input AlleleMatrixInput {
+  "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
+  additionalInfo: AdditionalInfoInput
   "A list of unique identifiers for the CallSets contained in the matrix response. This array should match the ordering for columns in the matrix. A CallSet is a unique combination of a Sample and a sequencing event. CallSets often have a 1-to-1 relationship with Samples, but this is not always the case."
   callSets: [CallSetInput]
   "The 'dataMatrices' are an array of matrix objects that hold the allele data and associated metadata. Each matrix should be the same size and orientation, aligned with the \"callSetDbIds\" as columns and the \"variantDbIds\" as rows."
@@ -4047,6 +4070,23 @@ input EventsInput {
   studyDbIds: [String]
   "List of study names to filter search results"
   studyNames: [String]
+}
+
+input ExperimentFactorInput {
+  """
+  The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
+  
+  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
+  """
+  factor: String
+  "The PUI of the factor which may link to an ontology."
+  factorPUI: String
+  """
+  The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
+  
+  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
+  """
+  modalities: [ModalityInput]
 }
 
 "The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology"
@@ -5169,6 +5209,17 @@ input MethodsInput {
   scaleDbIds: [String]
 }
 
+input ModalityInput {
+  """
+  The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc
+  
+  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. 
+  """
+  modality: String
+  "The PUI of the modality which may link to an ontology."
+  modalityPUI: String
+}
+
 "A value assigned for a specific ObservationVariable when observing a specific ObservationUnit."
 input ObservationInput {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
@@ -6086,7 +6137,7 @@ input PlatesInput {
   Use `GET /commoncropnames` to find the list of available crops on a server.
   """
   commonCropNames: [String]
-  "The ID which uniquely identifies a germplasm"
+  "List of IDs which uniquely identify germplasm to search for"
   germplasmDbIds: [String]
   "List of human readable names to identify germplasm to search for"
   germplasmNames: [String]
@@ -6474,7 +6525,7 @@ input SamplesInput {
   Use `GET /commoncropnames` to find the list of available crops on a server.
   """
   commonCropNames: [String]
-  "The ID which uniquely identifies a `Germplasm`"
+  "List of IDs which uniquely identify germplasm to search for"
   germplasmDbIds: [String]
   "List of human readable names to identify germplasm to search for"
   germplasmNames: [String]
@@ -6876,6 +6927,8 @@ input StudyInput {
   observations: [ObservationInput]
   "plates"
   plates: [PlateInput]
+  "A program identifier to search for"
+  program: ProgramInput
   "samples"
   samples: [SampleInput]
   "List of seasons over which this study was performed."

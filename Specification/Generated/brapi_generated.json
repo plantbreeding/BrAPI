@@ -1869,6 +1869,24 @@
                         }
                     },
                     {
+                        "name" : "commonCropName",
+                        "in" : "query",
+                        "description" : "The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.\n\nUse this parameter to only return results associated with the given crop. \n\nUse `GET /commoncropnames` to find the list of available crops on a server.",
+                        "required" : false,
+                        "schema" : {
+                            "type" : "string"
+                        }
+                    },
+                    {
+                        "name" : "programDbId",
+                        "in" : "query",
+                        "description" : "Use this parameter to only return results associated with the given `Program` unique identifier. \n<br/>Use `GET /programs` to find the list of available `Programs` on a server.",
+                        "required" : false,
+                        "schema" : {
+                            "type" : "string"
+                        }
+                    },
+                    {
                         "$ref" : "#/components/parameters/externalReferenceID"
                     },
                     {
@@ -4191,15 +4209,6 @@
                         }
                     },
                     {
-                        "name" : "germplasmDbId",
-                        "in" : "query",
-                        "description" : "The ID which uniquely identifies a germplasm",
-                        "required" : false,
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    {
                         "$ref" : "#/components/parameters/externalReferenceID"
                     },
                     {
@@ -4910,15 +4919,6 @@
                         "name" : "sampleGroupDbId",
                         "in" : "query",
                         "description" : "The unique identifier for a group of related `Samples`",
-                        "required" : false,
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    {
-                        "name" : "germplasmDbId",
-                        "in" : "query",
-                        "description" : "The ID which uniquely identifies a `Germplasm`",
                         "required" : false,
                         "schema" : {
                             "type" : "string"
@@ -9491,6 +9491,9 @@
                 ],
                 "type" : "object",
                 "properties" : {
+                    "additionalInfo" : {
+                        "$ref" : "#/components/schemas/AdditionalInfo"
+                    },
                     "callSetDbIds" : {
                         "type" : "array",
                         "items" : {
@@ -10381,6 +10384,31 @@
                 },
                 "description" : "Additional metadata to describe an event, based on the ICASA standard model. For example, 'Tillage Implement' (tiimp), 'Tillage Depth' (tidep), and 'Tillage Mix Effectiveness' (timix) might all be recorded parameters for a Tillage event."
             },
+            "ExperimentFactor" : {
+                "type" : "object",
+                "properties" : {
+                    "factor" : {
+                        "type" : "string"
+                    },
+                    "factorPUI" : {
+                        "type" : "string"
+                    },
+                    "modalities" : {
+                        "type" : "array",
+                        "items" : {
+                            "type" : "object",
+                            "properties" : {
+                                "modality" : {
+                                    "type" : "string"
+                                },
+                                "modalityPUI" : {
+                                    "type" : "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "ExperimentalDesign" : {
                 "type" : "object",
                 "properties" : {
@@ -10389,6 +10417,30 @@
                     },
                     "description" : {
                         "type" : "string"
+                    },
+                    "experimentFactors" : {
+                        "type" : "array",
+                        "items" : {
+                            "$ref" : "#/components/schemas/ExperimentFactor"
+                        }
+                    },
+                    "experimentalDesignPUI" : {
+                        "type" : "string"
+                    },
+                    "firstRepRand" : {
+                        "type" : "boolean"
+                    },
+                    "layoutPattern" : {
+                        "type" : "string"
+                    },
+                    "randomizationType" : {
+                        "type" : "string"
+                    },
+                    "rowsPerPlot" : {
+                        "type" : "number"
+                    },
+                    "setSize" : {
+                        "type" : "number"
                     },
                     "studyDbId" : {
                         "type" : "string"
@@ -11478,6 +11530,9 @@
             "ListSearchRequest" : {
                 "type" : "object",
                 "properties" : {
+                    "commonCropName" : {
+                        "type" : "string"
+                    },
                     "dateCreatedRangeEnd" : {
                         "type" : "string"
                     },
@@ -11492,6 +11547,9 @@
                     },
                     "listType" : {
                         "$ref" : "#/components/schemas/ListType"
+                    },
+                    "programDbId" : {
+                        "type" : "string"
                     }
                 },
                 "description" : "A List represents a collection of other BrAPI data objects. Typically these are custom lists generated by a user to keep track of interesting data. For example, a user might build a List of Germplasm that they have manually marked for further study."
@@ -13757,8 +13815,8 @@
                     "endDate" : {
                         "type" : "string"
                     },
-                    "experimentalDesign" : {
-                        "$ref" : "#/components/schemas/ExperimentalDesign"
+                    "experimentalDesignPUI" : {
+                        "type" : "string"
                     },
                     "growthFacility" : {
                         "$ref" : "#/components/schemas/GrowthFacility"
@@ -13789,6 +13847,12 @@
                         "items" : {
                             "type" : "string"
                         }
+                    },
+                    "programDbId" : {
+                        "type" : "string"
+                    },
+                    "programName" : {
+                        "type" : "string"
                     },
                     "startDate" : {
                         "type" : "string"
@@ -13852,8 +13916,8 @@
                     "endDate" : {
                         "type" : "string"
                     },
-                    "experimentalDesign" : {
-                        "$ref" : "#/components/schemas/ExperimentalDesign"
+                    "experimentalDesignPUI" : {
+                        "type" : "string"
                     },
                     "growthFacility" : {
                         "$ref" : "#/components/schemas/GrowthFacility"
@@ -13884,6 +13948,12 @@
                         "items" : {
                             "type" : "string"
                         }
+                    },
+                    "programDbId" : {
+                        "type" : "string"
+                    },
+                    "programName" : {
+                        "type" : "string"
                     },
                     "startDate" : {
                         "type" : "string"
@@ -16863,6 +16933,19 @@
                 },
                 "example" : 1000
             },
+            "authorizationHeader" : {
+                "name" : "Authorization",
+                "in" : "header",
+                "description" : "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer {token_string} </strong>",
+                "required" : false,
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                    "pattern" : "^Bearer .*$",
+                    "type" : "string"
+                },
+                "example" : "Bearer XXXX"
+            },
             "page" : {
                 "name" : "page",
                 "in" : "query",
@@ -16887,19 +16970,6 @@
                     "type" : "string"
                 },
                 "example" : "33c27874"
-            },
-            "authorizationHeader" : {
-                "name" : "Authorization",
-                "in" : "header",
-                "description" : "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer {token_string} </strong>",
-                "required" : false,
-                "style" : "simple",
-                "explode" : false,
-                "schema" : {
-                    "pattern" : "^Bearer .*$",
-                    "type" : "string"
-                },
-                "example" : "Bearer XXXX"
             }
         },
         "securitySchemes" : {

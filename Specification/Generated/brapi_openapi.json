@@ -32593,43 +32593,6 @@
               "$ref" : "#/components/schemas/GermplasmAttribute"
             },
             "type" : "array"
-          },
-          "variantSetDbIds" : {
-            "description" : "A list of IDs which uniquely identify `VariantSets`",
-            "example" : [ "ba63d810", "434d1760" ],
-            "items" : {
-              "type" : "string"
-            },
-            "nullable" : true,
-            "type" : "array"
-          }
-        },
-        "type" : "object"
-      },
-      "AlleleMatrixResponse" : {
-        "properties" : {
-          "@context" : {
-            "$ref" : "#/components/schemas/Context"
-          },
-          "metadata" : {
-            "$ref" : "#/components/schemas/metadata"
-          },
-          "result" : {
-            "$ref" : "#/components/schemas/AlleleMatrix"
-          }
-        },
-        "required" : [ "metadata", "result" ],
-        "title" : "AlleleMatrixResponse",
-        "type" : "object"
-      },
-      "GermplasmAttributeListResponse_result" : {
-        "properties" : {
-          "data" : {
-            "description" : "The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.",
-            "items" : {
-              "$ref" : "#/components/schemas/GermplasmAttribute"
-            },
-            "type" : "array"
           }
         },
         "required" : [ "data" ],
@@ -33256,7 +33219,7 @@
             "$ref" : "#/components/schemas/metadata"
           },
           "result" : {
-            "$ref" : "#/components/schemas/ListDetails"
+            "$ref" : "#/components/schemas/List"
           }
         },
         "required" : [ "metadata", "result" ],
@@ -33916,14 +33879,14 @@
             "$ref" : "#/components/schemas/metadata"
           },
           "result" : {
-            "$ref" : "#/components/schemas/ObservationListResponse_result"
+            "$ref" : "#/components/schemas/Reference"
           }
         },
         "required" : [ "metadata", "result" ],
-        "title" : "ObservationListResponse",
+        "title" : "ReferenceSingleResponse",
         "type" : "object"
       },
-      "ObservationTableResponse" : {
+      "ReferenceBasesResponse" : {
         "properties" : {
           "@context" : {
             "$ref" : "#/components/schemas/Context"
@@ -33932,11 +33895,11 @@
             "$ref" : "#/components/schemas/metadata"
           },
           "result" : {
-            "$ref" : "#/components/schemas/ObservationTable"
+            "$ref" : "#/components/schemas/ReferenceBases"
           }
         },
         "required" : [ "metadata", "result" ],
-        "title" : "ObservationTableResponse",
+        "title" : "ReferenceBasesResponse",
         "type" : "object"
       },
       "ReferenceSetsListResponseResult" : {
@@ -33978,11 +33941,11 @@
             "$ref" : "#/components/schemas/metadata"
           },
           "result" : {
-            "$ref" : "#/components/schemas/Observation"
+            "$ref" : "#/components/schemas/ReferenceSet"
           }
         },
         "required" : [ "metadata", "result" ],
-        "title" : "ObservationSingleResponse",
+        "title" : "ReferenceSetsSingleResponse",
         "type" : "object"
       },
       "SampleListResponse_result" : {
@@ -34099,654 +34062,19 @@
         "title" : "202AcceptedSearchResponse",
         "type" : "object"
       },
-      "GeoJSON_Geometry_oneOf" : {
-        "description" : "Copied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-        "properties" : {
-          "data" : {
-            "description" : "The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.",
-            "items" : {
-              "$ref" : "#/components/schemas/ObservationUnit"
-            },
-            "type" : "array"
-          },
-          "type" : {
-            "default" : "Point",
-            "description" : "The literal string \"Point\"",
-            "example" : "Point",
-            "type" : "string"
-          }
-        },
-        "required" : [ "coordinates", "type" ],
-        "type" : "object"
-      },
-      "GeoJSON_Geometry_oneOf_1" : {
-        "description" : "An array of Linear Rings. Each Linear Ring is an array of Points. \n\nA Point is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-        "properties" : {
-          "coordinates" : {
-            "description" : "An array of linear rings",
-            "example" : [ [ [ -77.456654, 42.241133, 494 ], [ -75.414133, 41.508282, 571 ], [ -76.506042, 42.417373, 123 ], [ -77.456654, 42.241133, 346 ] ] ],
-            "items" : {
-              "description" : "An array of at least four positions where the first equals the last",
-              "example" : [ [ -77.456654, 42.241133, 494 ], [ -75.414133, 41.508282, 571 ], [ -76.506042, 42.417373, 123 ], [ -77.456654, 42.241133, 346 ] ],
-              "items" : {
-                "description" : "A single position",
-                "example" : [ -76.506042, 42.417373, 123 ],
-                "items" : {
-                  "type" : "number"
-                },
-                "minItems" : 2,
-                "type" : "array"
-              },
-              "minItems" : 4,
-              "type" : "array"
-            },
-            "type" : "array"
-          },
-          "type" : {
-            "default" : "Polygon",
-            "description" : "The literal string \"Polygon\"",
-            "example" : "Polygon",
-            "type" : "string"
-          }
-        },
-        "required" : [ "coordinates", "type" ],
-        "type" : "object"
-      },
-      "GeoJSON_Geometry" : {
-        "description" : "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.",
-        "discriminator" : {
-          "mapping" : {
-            "Point" : "#/components/schemas/pointGeometry",
-            "Polygon" : "#/components/schemas/polygonGeometry"
-          },
-          "propertyName" : "type"
-        },
-        "example" : {
-          "coordinates" : [ -76.506042, 42.417373, 123 ],
-          "type" : "Point"
-        },
-        "oneOf" : [ {
-          "$ref" : "#/components/schemas/GeoJSON_Geometry_oneOf"
-        }, {
-          "$ref" : "#/components/schemas/GeoJSON_Geometry_oneOf_1"
-        } ],
-        "title" : "GeoJSON Geometry",
-        "type" : "object"
-      },
-      "GeoJSONSearchArea" : {
-        "description" : "A GeoJSON Polygon which describes an area to search for other GeoJSON objects. All contained Points and intersecting Polygons should be returned as search results. \n\nAll coordinates are decimal values on the WGS84 geographic coordinate reference system.",
-        "example" : {
-          "geometry" : {
-            "coordinates" : [ [ [ -77.456654, 42.241133 ], [ -75.414133, 41.508282 ], [ -76.506042, 42.417373 ], [ -77.456654, 42.241133 ] ] ],
-            "type" : "Polygon"
-          },
-          "type" : "Feature"
-        },
-        "properties" : {
-          "@context" : {
-            "$ref" : "#/components/schemas/Context"
-          },
-          "type" : {
-            "default" : "Feature",
-            "description" : "The literal string \"Feature\"",
-            "example" : "Feature",
-            "type" : "string"
-          }
-        },
-        "title" : "GeoJSONSearchArea",
-        "type" : "object"
-      },
       "_search_images_post_request" : {
-        "properties" : {
-          "commonCropNames" : {
-            "description" : "The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.\n\nUse this parameter to only return results associated with the given crops. \n\nUse `GET /commoncropnames` to find the list of available crops on a server.",
-            "example" : [ "Tomatillo", "Paw Paw" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "descriptiveOntologyTerms" : {
-            "description" : "A list of terms to formally describe the image to search for. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.",
-            "example" : [ "doi:10.1002/0470841559", "Red", "ncbi:0300294" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "externalReferenceIDs" : {
-            "deprecated" : true,
-            "description" : "**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460 \n<br>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)",
-            "example" : [ "doi:10.155454/12341234", "14a19841" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "externalReferenceIds" : {
-            "description" : "List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)",
-            "example" : [ "doi:10.155454/12341234", "14a19841" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "externalReferenceSources" : {
-            "description" : "List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)",
-            "example" : [ "DOI", "Field App Name" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "imageDbIds" : {
-            "description" : "A list of image Ids to search for",
-            "example" : [ "564b64a6", "0d122d1d" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "imageFileNames" : {
-            "description" : "Image file names to search for.",
-            "example" : [ "image_01032019.jpg", "picture_field_1234.jpg" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "imageFileSizeMax" : {
-            "description" : "A maximum image file size to search for.",
-            "example" : 20000000,
-            "type" : "integer"
-          },
-          "imageFileSizeMin" : {
-            "description" : "A minimum image file size to search for.",
-            "example" : 1000,
-            "type" : "integer"
-          },
-          "imageHeightMax" : {
-            "description" : "A maximum image height to search for.",
-            "example" : 1080,
-            "type" : "integer"
-          },
-          "imageHeightMin" : {
-            "description" : "A minimum image height to search for.",
-            "example" : 720,
-            "type" : "integer"
-          },
-          "imageLocation" : {
-            "$ref" : "#/components/schemas/GeoJSONSearchArea"
-          },
-          "imageNames" : {
-            "description" : "Human readable names to search for.",
-            "example" : [ "Image 43", "Tractor in field" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "imageTimeStampRangeEnd" : {
-            "description" : "The latest timestamp to search for.",
-            "format" : "date-time",
-            "type" : "string"
-          },
-          "imageTimeStampRangeStart" : {
-            "description" : "The earliest timestamp to search for.",
-            "format" : "date-time",
-            "type" : "string"
-          },
-          "imageWidthMax" : {
-            "description" : "A maximum image width to search for.",
-            "example" : 1920,
-            "type" : "integer"
-          },
-          "imageWidthMin" : {
-            "description" : "A minimum image width to search for.",
-            "example" : 1280,
-            "type" : "integer"
-          },
-          "mimeTypes" : {
-            "description" : "A set of image file types to search for.",
-            "example" : [ "image/jpg", "image/jpeg", "image/gif" ],
-            "items" : {
-              "pattern" : "image/.*",
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "observationDbIds" : {
-            "description" : "A list of observation Ids this image is associated with to search for",
-            "example" : [ "47326456", "fc9823ac" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "observationUnitDbIds" : {
-            "description" : "A set of observation unit identifiers to search for.",
-            "example" : [ "f5e4b273", "328c9424" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "page" : {
-            "description" : "Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.",
-            "example" : 0,
-            "type" : "integer"
-          },
-          "pageSize" : {
-            "description" : "The size of the pages to be returned. Default is `1000`.",
-            "example" : 1000,
-            "type" : "integer"
-          },
-          "programDbIds" : {
-            "description" : "A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. \n\nUse this parameter to only return results associated with the given programs. \n\nUse `GET /programs` to find the list of available programs on a server.",
-            "example" : [ "8f5de35b", "0e2d4a13" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "programNames" : {
-            "description" : "Use this parameter to only return results associated with the given program names. Program names are not required to be unique.\n\nUse `GET /programs` to find the list of available programs on a server.",
-            "example" : [ "Better Breeding Program", "Best Breeding Program" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          }
-        },
-        "type" : "object"
-      },
-      "ObservationUnitLevelRelationship_1" : {
-        "description" : "Observation levels indicate the granularity level at which the measurements are taken. `levelName` \ndefines the level, `levelOrder` defines where that level exists in the hierarchy of levels. \n`levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are \nat the bottom of the hierarchy (ie plant > 6). `levelCode` is an ID code for this level tag. Identify \nthis observation unit by each level of the hierarchy where it exists. \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** ",
-        "properties" : {
-          "levelCode" : {
-            "description" : "An ID code or number to represent a real thing that may or may not be an an observation unit.\n<br/>For example, if the 'levelName' is 'plot', then the 'levelCode' would be the plot number or plot barcode. If this plot is also considered an ObservationUnit, then the appropriate observationUnitDbId should also be recorded.\n<br/>If the 'levelName' is 'field', then the 'levelCode' might be something like '3' or 'F3' to indicate the third field at a research station. ",
-            "example" : "Plot_123",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "levelName" : {
-            "description" : "A name for this level \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
-            "example" : "plot",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "levelOrder" : {
-            "description" : "`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers \nare at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9). \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
-            "example" : 2,
-            "nullable" : true,
-            "type" : "integer"
-          },
-          "observationUnitDbId" : {
-            "description" : "The ID which uniquely identifies an observation unit\n<br/>If this level has on ObservationUnit associated with it, record the observationUnitDbId here. This is intended to construct a strict hierarchy of observationUnits. \n<br/>If there is no ObservationUnit associated with this level, this field can set to NULL or omitted from the response.",
-            "example" : "5ab883e9",
-            "nullable" : true,
-            "type" : "string"
-          }
-        },
-        "title" : "ObservationUnitLevelRelationship",
-        "type" : "object"
-      },
-      "ObservationUnitLevel_1" : {
-        "description" : "Observation levels indicate the granularity level at which the measurements are taken. `levelName` \ndefines the level, `levelOrder` defines where that level exists in the hierarchy of levels. \n`levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are \nat the bottom of the hierarchy (ie plant > 6). `levelCode` is an ID code for this level tag. Identify \nthis observation unit by each level of the hierarchy where it exists. \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** ",
-        "properties" : {
-          "levelCode" : {
-            "description" : "An ID code or number to represent a real thing that may or may not be an an observation unit.\n<br/>For example, if the 'levelName' is 'plot', then the 'levelCode' would be the plot number or plot barcode. If this plot is also considered an ObservationUnit, then the appropriate observationUnitDbId should also be recorded.\n<br/>If the 'levelName' is 'field', then the 'levelCode' might be something like '3' or 'F3' to indicate the third field at a research station. ",
-            "example" : "Plot_123",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "levelName" : {
-            "description" : "A name for this level \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
-            "example" : "plot",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "levelOrder" : {
-            "description" : "`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers \nare at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9). \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
-            "example" : 2,
-            "nullable" : true,
-            "type" : "integer"
-          }
-        },
-        "title" : "ObservationUnitLevel",
-        "type" : "object"
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SearchRequestParametersPaging"
+        }, {
+          "$ref" : "#/components/schemas/ImageSearchRequest"
+        } ]
       },
       "_search_observations_post_request" : {
-        "properties" : {
-          "data" : {
-            "description" : "The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.",
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "externalReferenceIDs" : {
-            "deprecated" : true,
-            "description" : "**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460 \n<br>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)",
-            "example" : [ "doi:10.155454/12341234", "14a19841" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "externalReferenceIds" : {
-            "description" : "List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)",
-            "example" : [ "doi:10.155454/12341234", "14a19841" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "externalReferenceSources" : {
-            "description" : "List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)",
-            "example" : [ "DOI", "Field App Name" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "germplasmDbIds" : {
-            "description" : "List of IDs which uniquely identify germplasm to search for",
-            "example" : [ "e9c6edd7", "1b1df4a6" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "germplasmNames" : {
-            "description" : "List of human readable names to identify germplasm to search for",
-            "example" : [ "A0000003", "A0000477" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "locationDbIds" : {
-            "description" : "The location ids to search for",
-            "example" : [ "b28911cf", "5071d1e4" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "locationNames" : {
-            "description" : "A human readable names to search for",
-            "example" : [ "Location Alpha", "The Large Hadron Collider" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "observationDbIds" : {
-            "description" : "The unique id of an Observation",
-            "example" : [ "6a4a59d8", "3ff067e0" ],
-            "items" : {
-              "type" : "string"
-            },
-            "nullable" : true,
-            "type" : "array"
-          },
-          "observationLevelRelationships" : {
-            "description" : "Searches for values in ObservationUnit->observationUnitPosition->observationLevelRelationships",
-            "example" : [ {
-              "levelCode" : "Field_1",
-              "levelName" : "field"
-            } ],
-            "items" : {
-              "$ref" : "#/components/schemas/ObservationUnitLevelRelationship_1"
-            },
-            "nullable" : true,
-            "type" : "array"
-          },
-          "observationLevels" : {
-            "description" : "Searches for values in ObservationUnit->observationUnitPosition->observationLevel",
-            "example" : [ {
-              "levelCode" : "Plot_123",
-              "levelName" : "plot"
-            }, {
-              "levelCode" : "Plot_456",
-              "levelName" : "plot"
-            }, {
-              "levelCode" : "Plot_789",
-              "levelName" : "plot"
-            } ],
-            "items" : {
-              "$ref" : "#/components/schemas/ObservationUnitLevel_1"
-            },
-            "type" : "array"
-          },
-          "observationTimeStampRangeEnd" : {
-            "description" : "Timestamp range end",
-            "format" : "date-time",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "observationTimeStampRangeStart" : {
-            "description" : "Timestamp range start",
-            "format" : "date-time",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "observationUnitDbIds" : {
-            "description" : "The unique id of an Observation Unit",
-            "example" : [ "76f559b5", "066bc5d3" ],
-            "items" : {
-              "type" : "string"
-            },
-            "nullable" : true,
-            "type" : "array"
-          },
-          "observationVariableDbIds" : {
-            "description" : "The DbIds of Variables to search for",
-            "example" : [ "a646187d", "6d23513b" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "observationVariableNames" : {
-            "description" : "The names of Variables to search for",
-            "example" : [ "Plant Height in meters", "Wheat rust score 1-5" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "observationVariablePUIs" : {
-            "description" : "The Permanent Unique Identifier of an Observation Variable, usually in the form of a URI",
-            "example" : [ "http://my-traits.com/trait/CO_123:0008012", "http://my-traits.com/trait/CO_123:0007261" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "page" : {
-            "description" : "Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.",
-            "example" : 0,
-            "type" : "integer"
-          },
-          "pageSize" : {
-            "description" : "The size of the pages to be returned. Default is `1000`.",
-            "example" : 1000,
-            "type" : "integer"
-          },
-          "programDbIds" : {
-            "description" : "A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. \n\nUse this parameter to only return results associated with the given programs. \n\nUse `GET /programs` to find the list of available programs on a server.",
-            "example" : [ "8f5de35b", "0e2d4a13" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "programNames" : {
-            "description" : "Use this parameter to only return results associated with the given program names. Program names are not required to be unique.\n\nUse `GET /programs` to find the list of available programs on a server.",
-            "example" : [ "Better Breeding Program", "Best Breeding Program" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "seasonDbIds" : {
-            "description" : "The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)",
-            "example" : [ "Spring 2018", "Season A" ],
-            "items" : {
-              "type" : "string"
-            },
-            "nullable" : true,
-            "type" : "array"
-          },
-          "studyDbIds" : {
-            "description" : "List of study identifiers to search for",
-            "example" : [ "cf6c4bd4", "691e69d6" ],
-            "items" : {
-              "$ref" : "#/components/schemas/VariantSet"
-            },
-            "type" : "array"
-          }
-        },
-        "required" : [ "data" ],
-        "title" : "VariantSetsListResponseResult",
-        "type" : "object"
-      },
-      "VariantSetsListResponse" : {
-        "properties" : {
-          "@context" : {
-            "$ref" : "#/components/schemas/Context"
-          },
-          "metadata" : {
-            "$ref" : "#/components/schemas/metadata"
-          },
-          "result" : {
-            "$ref" : "#/components/schemas/VariantSetsListResponseResult"
-          }
-        },
-        "required" : [ "metadata", "result" ],
-        "title" : "VariantSetsListResponse",
-        "type" : "object"
-      },
-      "SeasonListResponse_result" : {
-        "properties" : {
-          "data" : {
-            "description" : "The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.",
-            "items" : {
-              "$ref" : "#/components/schemas/Season"
-            },
-            "type" : "array"
-          }
-        },
-        "required" : [ "data" ],
-        "type" : "object"
-      },
-      "SeasonListResponse" : {
-        "properties" : {
-          "@context" : {
-            "$ref" : "#/components/schemas/Context"
-          },
-          "metadata" : {
-            "$ref" : "#/components/schemas/metadata"
-          },
-          "result" : {
-            "$ref" : "#/components/schemas/SeasonListResponse_result"
-          }
-        },
-        "required" : [ "metadata", "result" ],
-        "title" : "SeasonListResponse",
-        "type" : "object"
-      },
-      "SeasonSingleResponse" : {
-        "properties" : {
-          "@context" : {
-            "$ref" : "#/components/schemas/Context"
-          },
-          "metadata" : {
-            "$ref" : "#/components/schemas/metadata"
-          },
-          "result" : {
-            "$ref" : "#/components/schemas/Season"
-          }
-        },
-        "required" : [ "metadata", "result" ],
-        "title" : "SeasonSingleResponse",
-        "type" : "object"
-      },
-      "SeedLotListResponse_result" : {
-        "properties" : {
-          "data" : {
-            "description" : "The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.",
-            "items" : {
-              "$ref" : "#/components/schemas/SeedLot"
-            },
-            "type" : "array"
-          }
-        },
-        "required" : [ "data" ],
-        "type" : "object"
-      },
-      "SeedLotListResponse" : {
-        "properties" : {
-          "@context" : {
-            "$ref" : "#/components/schemas/Context"
-          },
-          "metadata" : {
-            "$ref" : "#/components/schemas/metadata"
-          },
-          "result" : {
-            "$ref" : "#/components/schemas/SeedLotListResponse_result"
-          }
-        },
-        "required" : [ "metadata", "result" ],
-        "title" : "SeedLotListResponse",
-        "type" : "object"
-      },
-      "SeedLotTransactionListResponse_result" : {
-        "properties" : {
-          "data" : {
-            "description" : "The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.",
-            "items" : {
-              "$ref" : "#/components/schemas/SeedLotTransaction"
-            },
-            "type" : "array"
-          }
-        },
-        "required" : [ "data" ],
-        "type" : "object"
-      },
-      "SeedLotTransactionListResponse" : {
-        "properties" : {
-          "@context" : {
-            "$ref" : "#/components/schemas/Context"
-          },
-          "metadata" : {
-            "$ref" : "#/components/schemas/metadata"
-          },
-          "result" : {
-            "$ref" : "#/components/schemas/SeedLotTransactionListResponse_result"
-          }
-        },
-        "required" : [ "metadata", "result" ],
-        "title" : "SeedLotTransactionListResponse",
-        "type" : "object"
-      },
-      "SeedLotSingleResponse" : {
-        "properties" : {
-          "@context" : {
-            "$ref" : "#/components/schemas/Context"
-          },
-          "metadata" : {
-            "$ref" : "#/components/schemas/metadata"
-          },
-          "result" : {
-            "$ref" : "#/components/schemas/SeedLot"
-          }
-        },
-        "required" : [ "metadata", "result" ],
-        "title" : "SeedLotSingleResponse",
-        "type" : "object"
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SearchRequestParametersPaging"
+        }, {
+          "$ref" : "#/components/schemas/ObservationSearchRequest"
+        } ]
       },
       "StudyListResponse_result" : {
         "properties" : {
@@ -36431,54 +35759,15 @@
           "propertyName" : "type"
         },
         "example" : {
-          "currentPage" : 0,
-          "pageSize" : 1000,
-          "totalCount" : 10,
-          "totalPages" : 1
+          "coordinates" : [ -76.506042, 42.417373, 123 ],
+          "type" : "Point"
         },
-        "properties" : {
-          "currentPage" : {
-            "default" : 0,
-            "description" : "The index number for the returned page of data. This should always match the requested page number or the default page (0).",
-            "example" : 0,
-            "type" : "integer"
-          },
-          "currentPageToken" : {
-            "deprecated" : true,
-            "description" : "**Deprecated in v2.1** Please use `page`. Github issue number #451 \n<br>The string token used to query the current page of data.",
-            "example" : "48bc6ac1",
-            "type" : "string"
-          },
-          "nextPageToken" : {
-            "deprecated" : true,
-            "description" : "**Deprecated in v2.1** Please use `page`. Github issue number #451 \n<br>The string token used to query the next page of data.",
-            "example" : "cb668f63",
-            "type" : "string"
-          },
-          "pageSize" : {
-            "default" : 1000,
-            "description" : "The number of data elements returned, aka the size of the current page. If the requested page does not have enough elements to fill a page at the requested page size, this field should indicate the actual number of elements returned.",
-            "example" : 1000,
-            "type" : "integer"
-          },
-          "prevPageToken" : {
-            "deprecated" : true,
-            "description" : "**Deprecated in v2.1** Please use `page`. Github issue number #451 \n<br>The string token used to query the previous page of data.",
-            "example" : "9659857e",
-            "type" : "string"
-          },
-          "totalCount" : {
-            "description" : "The total number of elements that are available on the server and match the requested query parameters.",
-            "example" : 10,
-            "type" : "integer"
-          },
-          "totalPages" : {
-            "description" : "The total number of pages of elements available on the server. This should be calculated with the following formula. \n<br> totalPages = CEILING( totalCount / requested_page_size)",
-            "example" : 1,
-            "type" : "integer"
-          }
-        },
-        "required" : [ "currentPage", "nextPageToken", "pageSize" ],
+        "oneOf" : [ {
+          "$ref" : "#/components/schemas/pointGeometry"
+        }, {
+          "$ref" : "#/components/schemas/polygonGeometry"
+        } ],
+        "title" : "GeoJSON Geometry",
         "type" : "object"
       }
     },
