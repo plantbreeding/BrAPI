@@ -2435,7 +2435,7 @@
                                 "additionalProperties" : {
                                     "$ref" : "#/components/schemas/ObservationUnitNewRequest"
                                 },
-                                "example" : "{<observationUnitDbId>_1={additionalInfo={}, cross={}, externalReferences=[{}], germplasm={}, location={}, observationUnitDbId=59ce1af8, observationUnitName=5a5b18e6, observationUnitPUI=491c6d6d, observationUnitPosition=[{}], program={}, seedLot={}, study={}, treatments=[{}], trial={}, samples=[{}], events=[{}], images=[{}], observations=[{}]}, <observationUnitDbId>_2={additionalInfo={}, cross={}, externalReferences=[{}], germplasm={}, location={}, observationUnitDbId=59ce1af9, observationUnitName=5a5b18e7, observationUnitPUI=491c6d6e, observationUnitPosition=[{}], program={}, seedLot={}, study={}, treatments=[{}], trial={}, samples=[{}], events=[{}], images=[{}], observations=[{}]}}"
+                                "example" : "{<observationUnitDbId>_1={additionalInfo={}, cross={}, externalReferences=[{}], germplasm={}, location={}, observationUnitDbId=59ce1af8, observationUnitName=5a5b18e6, observationUnitPUI=491c6d6d, observationUnitPosition={}, program={}, seedLot={}, study={}, treatments=[{}], trial={}, samples=[{}], events=[{}], images=[{}], observations=[{}]}, <observationUnitDbId>_2={additionalInfo={}, cross={}, externalReferences=[{}], germplasm={}, location={}, observationUnitDbId=59ce1af9, observationUnitName=5a5b18e7, observationUnitPUI=491c6d6e, observationUnitPosition={}, program={}, seedLot={}, study={}, treatments=[{}], trial={}, samples=[{}], events=[{}], images=[{}], observations=[{}]}}"
                             }
                         }
                     }
@@ -4367,10 +4367,11 @@
                     {
                         "name" : "year",
                         "in" : "query",
-                        "description" : "The 4 digit year of a season. Example \"2017\"",
+                        "description" : "The 4 digit year of a season. Example 2017",
                         "required" : false,
                         "schema" : {
-                            "type" : "string"
+                            "type" : "integer",
+                            "format" : "int32"
                         }
                     },
                     {
@@ -5049,41 +5050,6 @@
                         "required" : false,
                         "schema" : {
                             "type" : "string"
-                        }
-                    },
-                    {
-                        "name" : "sortBy",
-                        "in" : "query",
-                        "description" : "Name of the field to sort by.",
-                        "required" : false,
-                        "schema" : {
-                            "type" : "string",
-                            "description" : "Name of the field to sort by.",
-                            "enum" : [
-                                "trialDbId",
-                                "trialName",
-                                "programDbId",
-                                "programName",
-                                "locationDbId",
-                                "startDate",
-                                "endDate"
-                            ]
-                        }
-                    },
-                    {
-                        "name" : "sortOrder",
-                        "in" : "query",
-                        "description" : "Sort order direction. Ascending/Descending.",
-                        "required" : false,
-                        "schema" : {
-                            "type" : "string",
-                            "description" : "Sort order direction. Ascending/Descending.",
-                            "enum" : [
-                                "asc",
-                                "ASC",
-                                "desc",
-                                "DESC"
-                            ]
                         }
                     },
                     {
@@ -10776,20 +10742,17 @@
                     "genotypeMetadata" : {
                         "type" : "array",
                         "description" : "Genotype Metadata are additional layers of metadata associated with each genotype.",
-                        "nullable" : true,
                         "items" : {
                             "$ref" : "#/components/schemas/GenotypeMetadata"
                         }
                     },
                     "genotypeValue" : {
                         "type" : "string",
-                        "description" : "The value of this genotype call",
-                        "nullable" : true
+                        "description" : "The value of this genotype call"
                     },
                     "phaseSet" : {
                         "type" : "string",
-                        "description" : "If this field is populated, this variant call's genotype ordering implies the phase of the bases and \nis consistent with any other variant calls on the same contig which have the same phase set string.",
-                        "nullable" : true
+                        "description" : "If this field is populated, this variant call's genotype ordering implies the phase of the bases and \nis consistent with any other variant calls on the same contig which have the same phase set string."
                     },
                     "variantDbId" : {
                         "type" : "string"
@@ -10943,22 +10906,28 @@
                         }
                     },
                     "sampleDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "sampleName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "samplePUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "studyDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "studyName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "studyPUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "updated" : {
                         "type" : "string",
@@ -11397,19 +11366,24 @@
                 "type" : "object",
                 "properties" : {
                     "crossDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "crossName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "germplasmDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "germplasmName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "germplasmPUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "mixturePercentage" : {
                         "type" : "integer",
@@ -11512,10 +11486,12 @@
                         "$ref" : "#/components/schemas/CrossType"
                     },
                     "crossingProjectDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "crossingProjectName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "externalReferences" : {
                         "type" : "array",
@@ -11532,10 +11508,12 @@
                         "$ref" : "#/components/schemas/CrossParent"
                     },
                     "plannedCrossDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "plannedCrossName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "pollinationEvents" : {
                         "type" : "array",
@@ -11716,10 +11694,12 @@
                         }
                     },
                     "programDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "programName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     }
                 },
                 "description" : "A project structure where a list of PlannedCrosses is generated, the crossing events occur in the field, and the resulting actual Crosses can documented."
@@ -12071,12 +12051,7 @@
                         "$ref" : "#/components/schemas/AdditionalInfo"
                     },
                     "eventDateRange" : {
-                        "type" : "array",
-                        "description" : "An object describing when a particular Event has taken place. An Event can occur at one or more discrete time points (`discreteDates`) or an event can happen continuously over a longer period of time (`startDate`, `endDate`)",
-                        "nullable" : true,
-                        "items" : {
-                            "$ref" : "#/components/schemas/EventDateRange"
-                        }
+                        "$ref" : "#/components/schemas/EventDateRange"
                     },
                     "eventDbId" : {
                         "type" : "string",
@@ -12097,8 +12072,7 @@
                     },
                     "eventType" : {
                         "type" : "string",
-                        "description" : "An identifier for this event type, in the form of an ontology class reference\n<br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other\n<br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).",
-                        "nullable" : true
+                        "description" : "An identifier for this event type, in the form of an ontology class reference\n<br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other\n<br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology)."
                     },
                     "eventTypeDbId" : {
                         "type" : "string",
@@ -12163,10 +12137,20 @@
                     "eventDbId" : {
                         "type" : "string"
                     },
+                    "key" : {
+                        "type" : "string",
+                        "description" : "**Deprecated in v2.1** Please use `name`. Github issue number #440             \n<br>Specifies the relationship between the event and the given property. E.g. fertilizer, operator",
+                        "example" : "operator"
+                    },
                     "name" : {
                         "type" : "string",
                         "description" : "The full name of an event parameter\n<br>ICASA \"Variable_Name\"",
                         "nullable" : true
+                    },
+                    "rdfValue" : {
+                        "type" : "string",
+                        "description" : "**Deprecated in v2.1** Please use `code`. Github issue number #440             \n<brThe type of the value given above, e.g. http://xmlns.com/foaf/0.1/Agent",
+                        "example" : "http://xmlns.com/foaf/0.1/Agent"
                     },
                     "units" : {
                         "type" : "string",
@@ -12272,15 +12256,44 @@
             "ExternalReference" : {
                 "type" : "object",
                 "properties" : {
+                    "referenceID" : {
+                        "type" : "string",
+                        "description" : "**Deprecated in v2.1** Please use `referenceId`. Github issue number #460 <br>The external reference ID. Could be a simple string or a URI.",
+                        "nullable" : true
+                    },
                     "referenceId" : {
                         "type" : "string",
-                        "description" : "The external reference ID. Could be a simple string or a URI.",
-                        "nullable" : true
+                        "description" : "The external reference ID. Could be a simple string or a URI."
                     },
                     "referenceSource" : {
                         "type" : "string",
-                        "description" : "An identifier for the source system or database of this reference",
-                        "nullable" : true
+                        "description" : "An identifier for the source system or database of this reference"
+                    }
+                }
+            },
+            "ExternalReferencesParameters" : {
+                "type" : "object",
+                "properties" : {
+                    "externalReferenceIDs" : {
+                        "type" : "array",
+                        "description" : "**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460 \n<br>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)",
+                        "items" : {
+                            "type" : "string"
+                        }
+                    },
+                    "externalReferenceIds" : {
+                        "type" : "array",
+                        "description" : "List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)",
+                        "items" : {
+                            "type" : "string"
+                        }
+                    },
+                    "externalReferenceSources" : {
+                        "type" : "array",
+                        "description" : "List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)",
+                        "items" : {
+                            "type" : "string"
+                        }
                     }
                 }
             },
@@ -12458,7 +12471,6 @@
                     "dataType" : {
                         "type" : "string",
                         "description" : "The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.",
-                        "nullable" : true,
                         "enum" : [
                             "string",
                             "integer",
@@ -12468,18 +12480,15 @@
                     },
                     "fieldAbbreviation" : {
                         "type" : "string",
-                        "description" : "The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: \"GQ\", \"RD\", and \"HQ\"\n<br> This maps to a FORMAT field in the VCF file standard.",
-                        "nullable" : true
+                        "description" : "The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: \"GQ\", \"RD\", and \"HQ\"\n<br> This maps to a FORMAT field in the VCF file standard."
                     },
                     "fieldName" : {
                         "type" : "string",
-                        "description" : "The name of the field represented in this Genotype Field. Examples include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype Quality\"\n<br> This maps to a FORMAT field in the VCF file standard.",
-                        "nullable" : true
+                        "description" : "The name of the field represented in this Genotype Field. Examples include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype Quality\"\n<br> This maps to a FORMAT field in the VCF file standard."
                     },
                     "fieldValue" : {
                         "type" : "string",
-                        "description" : "The additional metadata value associated with this genotype call",
-                        "nullable" : true
+                        "description" : "The additional metadata value associated with this genotype call"
                     }
                 },
                 "description" : "Genotype Metadata are additional layers of metadata associated with each genotype."
@@ -13279,13 +13288,16 @@
                         "$ref" : "#/components/schemas/AdditionalInfo"
                     },
                     "attributeDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "attributeName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "attributePUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "determinedDate" : {
                         "type" : "string",
@@ -13302,13 +13314,16 @@
                         }
                     },
                     "germplasmDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "germplasmName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "germplasmPUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "value" : {
                         "type" : "string",
@@ -13575,12 +13590,6 @@
                 "description" : "A germplasm reference that is a direct child of this germplasm. These represent edges in the tree, connecting to other nodes."
             },
             "GermplasmMCPD" : {
-                "required" : [
-                    "commonCropName",
-                    "germplasmDbId",
-                    "germplasmName",
-                    "germplasmPUI"
-                ],
                 "type" : "object",
                 "properties" : {
                     "accessionNames" : {
@@ -13958,10 +13967,12 @@
                         "nullable" : true
                     },
                     "breedingMethodDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "breedingMethodName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "collection" : {
                         "type" : "string",
@@ -14119,12 +14130,7 @@
                         "nullable" : true
                     },
                     "coordinates" : {
-                        "type" : "array",
-                        "description" : "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                        "nullable" : true,
-                        "items" : {
-                            "$ref" : "#/components/schemas/GeoJSON"
-                        }
+                        "$ref" : "#/components/schemas/GeoJSON"
                     },
                     "germplasmDbId" : {
                         "type" : "string"
@@ -14624,13 +14630,16 @@
                         "nullable" : true
                     },
                     "observationUnitDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "observationUnitName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "observationUnitPUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     }
                 },
                 "description" : "The metadata for an image file that is connected to some phenotypic observation data."
@@ -15365,10 +15374,12 @@
                         "nullable" : true
                     },
                     "locationDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "locationName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "locationType" : {
                         "type" : "string",
@@ -15956,13 +15967,16 @@
                         "$ref" : "#/components/schemas/GeoJSON"
                     },
                     "germplasmDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "germplasmName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "germplasmPUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "observationTimeStamp" : {
                         "type" : "string",
@@ -15971,37 +15985,48 @@
                         "nullable" : true
                     },
                     "observationUnitDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "observationUnitName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "observationUnitPUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "observationVariableDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "observationVariableName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "observationVariablePUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "seasonDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "seasonName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "studyDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "studyName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "studyPUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "uploadedBy" : {
                         "type" : "string",
@@ -16490,10 +16515,12 @@
                         "$ref" : "#/components/schemas/AdditionalInfo"
                     },
                     "crossDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "crossName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "externalReferences" : {
                         "type" : "array",
@@ -16504,19 +16531,24 @@
                         }
                     },
                     "germplasmDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "germplasmName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "germplasmPUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "locationDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "locationName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "observationUnitName" : {
                         "type" : "string",
@@ -16529,33 +16561,35 @@
                         "nullable" : true
                     },
                     "observationUnitPosition" : {
-                        "type" : "array",
-                        "description" : "All positional and layout information related to this Observation Unit \n\nMIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) \nor level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. \nLevels of observation must be consistent with those listed in the Study section.",
-                        "nullable" : true,
-                        "items" : {
-                            "$ref" : "#/components/schemas/ObservationUnitPosition"
-                        }
+                        "$ref" : "#/components/schemas/ObservationUnitPosition"
                     },
                     "programDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "programName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "seedLotDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "seedLotName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "studyDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "studyName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "studyPUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "treatments" : {
                         "type" : "array",
@@ -16566,13 +16600,16 @@
                         }
                     },
                     "trialDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "trialName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "trialPUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     }
                 },
                 "description" : "A representation of the physical entity being observed during a phenotype data collection process. Typically, this is a Plot or a Plant, but it could include things like Fields, Blocks, or Samples."
@@ -17724,6 +17761,23 @@
                 },
                 "description" : "Pagination info for the matrix"
             },
+            "PagingParameters" : {
+                "type" : "object",
+                "properties" : {
+                    "page" : {
+                        "type" : "integer",
+                        "description" : "Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.",
+                        "format" : "int32",
+                        "example" : 0
+                    },
+                    "pageSize" : {
+                        "type" : "integer",
+                        "description" : "The size of the pages to be returned. Default is `1000`.",
+                        "format" : "int32",
+                        "example" : 1000
+                    }
+                }
+            },
             "ParentType" : {
                 "type" : "string",
                 "description" : "The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \\n\\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \\n\\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \\nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \\nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\\nIn this way, A could be a male parent to B, but a female parent to C. ",
@@ -17731,8 +17785,7 @@
                     "MALE",
                     "FEMALE",
                     "SELF",
-                    "POPULATION",
-                    "CLONAL"
+                    "POPULATION"
                 ]
             },
             "PedigreeNode" : {
@@ -18431,10 +18484,12 @@
                         "$ref" : "#/components/schemas/CrossType"
                     },
                     "crossingProjectDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "crossingProjectName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "externalReferences" : {
                         "type" : "array",
@@ -18608,10 +18663,12 @@
                         "description" : "A human readable name for a `Plate`"
                     },
                     "programDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "programName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "sampleType" : {
                         "type" : "string",
@@ -18625,22 +18682,28 @@
                         ]
                     },
                     "studyDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "studyName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "studyPUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "trialDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "trialName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "trialPUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     }
                 },
                 "description" : "A Plate represents the metadata for a collection of Samples. The physical Plate being represented might be a plastic tray full of Samples, or a group of Samples stored in individual containers ie bags, test tubes, etc. Whatever the container is, the Samples in a Plate should be related by the same physical space, though they may or may not be related as part of the same experiment or analysis."
@@ -19004,7 +19067,8 @@
                         "nullable" : true
                     },
                     "personDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "programName" : {
                         "type" : "string",
@@ -19955,34 +20019,44 @@
                         }
                     },
                     "germplasmDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "germplasmName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "germplasmPUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "observationUnitDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "observationUnitName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "observationUnitPUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "plateDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "plateName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "programDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "programName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "row" : {
                         "type" : "string",
@@ -20025,13 +20099,16 @@
                         "nullable" : true
                     },
                     "studyDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "studyName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "studyPUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "takenBy" : {
                         "type" : "string",
@@ -20044,13 +20121,16 @@
                         "nullable" : true
                     },
                     "trialDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "trialName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "trialPUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "well" : {
                         "type" : "string",
@@ -20484,9 +20564,10 @@
                     },
                     "years" : {
                         "type" : "array",
-                        "description" : "The 4 digit year of a season. Example \"2017\"",
+                        "description" : "The 4 digit year of a season. Example 2017",
                         "items" : {
-                            "type" : "string"
+                            "type" : "integer",
+                            "format" : "int32"
                         }
                     }
                 }
@@ -20554,16 +20635,20 @@
                         "nullable" : true
                     },
                     "locationDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "locationName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "programDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "programName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "seedLotDescription" : {
                         "type" : "string",
@@ -20686,10 +20771,12 @@
                         }
                     },
                     "seedLotDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "seedLotName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "transactionDbId" : {
                         "type" : "string",
@@ -20885,10 +20972,12 @@
                         "nullable" : true
                     },
                     "locationDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "locationName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "observationLevels" : {
                         "type" : "array",
@@ -20929,7 +21018,8 @@
                     },
                     "studyName" : {
                         "type" : "string",
-                        "description" : "The human readable name for a study\n\nMIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study"
+                        "description" : "The human readable name for a study\n\nMIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study",
+                        "nullable" : true
                     },
                     "studyPUI" : {
                         "type" : "string",
@@ -21365,6 +21455,28 @@
                 },
                 "description" : "The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as \"ncbiTaxon\" preferably with a purl. The rank of this ID should be species. \n\nMIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended."
             },
+            "TokenPagingParameters" : {
+                "type" : "object",
+                "properties" : {
+                    "page" : {
+                        "type" : "integer",
+                        "description" : "Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.",
+                        "format" : "int32",
+                        "example" : 0
+                    },
+                    "pageSize" : {
+                        "type" : "integer",
+                        "description" : "The size of the pages to be returned. Default is `1000`.",
+                        "format" : "int32",
+                        "example" : 1000
+                    },
+                    "pageToken" : {
+                        "type" : "string",
+                        "description" : "**Deprecated in v2.1** Please use `page`. Github issue number #451 \n<br>Used to request a specific page of data to be returned.\n<br>Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. ",
+                        "example" : "33c27874"
+                    }
+                }
+            },
             "Trait" : {
                 "allOf" : [
                     {
@@ -21606,10 +21718,12 @@
                         }
                     },
                     "programDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "programName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "publications" : {
                         "type" : "array",
@@ -21704,27 +21818,6 @@
                             "type" : "string"
                         }
                     },
-                    "observationVariableDbIds" : {
-                        "type" : "array",
-                        "description" : "The DbIds of Variables to search for",
-                        "items" : {
-                            "type" : "string"
-                        }
-                    },
-                    "observationVariableNames" : {
-                        "type" : "array",
-                        "description" : "The names of Variables to search for",
-                        "items" : {
-                            "type" : "string"
-                        }
-                    },
-                    "observationVariablePUIs" : {
-                        "type" : "array",
-                        "description" : "The Permanent Unique Identifier of an Observation Variable, usually in the form of a URI",
-                        "items" : {
-                            "type" : "string"
-                        }
-                    },
                     "programDbIds" : {
                         "type" : "array",
                         "description" : "A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. \n\nUse this parameter to only return results associated with the given programs. \n\nUse `GET /programs` to find the list of available programs on a server.",
@@ -21748,29 +21841,6 @@
                         "type" : "string",
                         "description" : "The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.\n\nReturn a Trial entity if any of the following cases are true\n\n- `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null \n\n- `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`\n\n- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null\n\n- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`",
                         "format" : "date"
-                    },
-                    "sortBy" : {
-                        "type" : "string",
-                        "description" : "Name of the field to sort by.",
-                        "enum" : [
-                            "trialDbId",
-                            "trialName",
-                            "programDbId",
-                            "programName",
-                            "locationDbId",
-                            "startDate",
-                            "endDate"
-                        ]
-                    },
-                    "sortOrder" : {
-                        "type" : "string",
-                        "description" : "Sort order direction. Ascending/Descending.",
-                        "enum" : [
-                            "asc",
-                            "ASC",
-                            "desc",
-                            "DESC"
-                        ]
                     },
                     "studyDbIds" : {
                         "type" : "array",
@@ -21857,13 +21927,6 @@
                             "type" : "string"
                         }
                     },
-                    "observationVariablePUIs" : {
-                        "type" : "array",
-                        "description" : "The Permanent Unique Identifier of an Observation Variable, usually in the form of a URI",
-                        "items" : {
-                            "type" : "string"
-                        }
-                    },
                     "trialDbIds" : {
                         "type" : "array",
                         "description" : "The ID which uniquely identifies a trial to search for",
@@ -21892,49 +21955,12 @@
                             "type" : "string"
                         }
                     },
-                    "observationVariableNames" : {
-                        "type" : "array",
-                        "description" : "The names of Variables to search for",
-                        "items" : {
-                            "type" : "string"
-                        }
-                    },
                     "studyNames" : {
                         "type" : "array",
                         "description" : "List of study names to filter search results",
                         "items" : {
                             "type" : "string"
                         }
-                    },
-                    "observationVariableDbIds" : {
-                        "type" : "array",
-                        "description" : "The DbIds of Variables to search for",
-                        "items" : {
-                            "type" : "string"
-                        }
-                    },
-                    "sortOrder" : {
-                        "type" : "string",
-                        "description" : "Sort order direction. Ascending/Descending.",
-                        "enum" : [
-                            "asc",
-                            "ASC",
-                            "desc",
-                            "DESC"
-                        ]
-                    },
-                    "sortBy" : {
-                        "type" : "string",
-                        "description" : "Name of the field to sort by.",
-                        "enum" : [
-                            "trialDbId",
-                            "trialName",
-                            "programDbId",
-                            "programName",
-                            "locationDbId",
-                            "startDate",
-                            "endDate"
-                        ]
                     },
                     "contactDbIds" : {
                         "type" : "array",
@@ -22369,16 +22395,20 @@
                         "nullable" : true
                     },
                     "referenceDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "referenceName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "referenceSetDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "referenceSetName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "start" : {
                         "type" : "integer",
@@ -22400,7 +22430,8 @@
                     },
                     "variantDbId" : {
                         "type" : "string",
-                        "description" : "The ID which uniquely identifies a `Variant`"
+                        "description" : "The ID which uniquely identifies a `Variant`",
+                        "nullable" : true
                     },
                     "variantNames" : {
                         "type" : "array",
@@ -22409,12 +22440,6 @@
                         "items" : {
                             "type" : "string"
                         }
-                    },
-                    "variantSetDbId" : {
-                        "type" : "string"
-                    },
-                    "variantSetName" : {
-                        "type" : "string"
                     },
                     "variantType" : {
                         "type" : "string",
@@ -22677,19 +22702,24 @@
                         }
                     },
                     "referenceSetDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "referenceSetName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "studyDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "studyName" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "studyPUI" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "variantCount" : {
                         "type" : "integer",

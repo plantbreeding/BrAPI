@@ -2396,14 +2396,19 @@ components:
       properties:
         crossDbId:
           type: string
+          nullable: true
         crossName:
           type: string
+          nullable: true
         germplasmDbId:
           type: string
+          nullable: true
         germplasmName:
           type: string
+          nullable: true
         germplasmPUI:
           type: string
+          nullable: true
         mixturePercentage:
           type: integer
           description: The percentage of the given germplasm in the seed lot mixture.
@@ -2490,8 +2495,10 @@ components:
           $ref: "#/components/schemas/CrossType"
         crossingProjectDbId:
           type: string
+          nullable: true
         crossingProjectName:
           type: string
+          nullable: true
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -2506,8 +2513,10 @@ components:
           $ref: "#/components/schemas/CrossParent"
         plannedCrossDbId:
           type: string
+          nullable: true
         plannedCrossName:
           type: string
+          nullable: true
         pollinationEvents:
           type: array
           description: The list of pollination events that occurred for this cross.
@@ -2661,8 +2670,10 @@ components:
             $ref: "#/components/schemas/CrossParent"
         programDbId:
           type: string
+          nullable: true
         programName:
           type: string
+          nullable: true
       description: "A project structure where a list of PlannedCrosses is generated,\
         \ the crossing events occur in the field, and the resulting actual Crosses\
         \ can documented."
@@ -2792,14 +2803,41 @@ components:
     ExternalReference:
       type: object
       properties:
+        referenceID:
+          type: string
+          description: "**Deprecated in v2.1** Please use `referenceId`. Github issue\
+            \ number #460 <br>The external reference ID. Could be a simple string\
+            \ or a URI."
+          nullable: true
         referenceId:
           type: string
           description: The external reference ID. Could be a simple string or a URI.
-          nullable: true
         referenceSource:
           type: string
           description: An identifier for the source system or database of this reference
-          nullable: true
+    ExternalReferencesParameters:
+      type: object
+      properties:
+        externalReferenceIDs:
+          type: array
+          description: "**Deprecated in v2.1** Please use `externalReferenceIds`.\
+            \ Github issue number #460 \n<br>List of external reference IDs. Could\
+            \ be a simple strings or a URIs. (use with `externalReferenceSources`\
+            \ parameter)"
+          items:
+            type: string
+        externalReferenceIds:
+          type: array
+          description: List of external reference IDs. Could be a simple strings or
+            a URIs. (use with `externalReferenceSources` parameter)
+          items:
+            type: string
+        externalReferenceSources:
+          type: array
+          description: List of identifiers for the source system or database of an
+            external reference (use with `externalReferenceIDs` parameter)
+          items:
+            type: string
     GenomeMapRequest:
       type: object
       properties:
@@ -3562,10 +3600,13 @@ components:
           $ref: "#/components/schemas/AdditionalInfo"
         attributeDbId:
           type: string
+          nullable: true
         attributeName:
           type: string
+          nullable: true
         attributePUI:
           type: string
+          nullable: true
         determinedDate:
           type: string
           description: The date the value of this attribute was determined for a given
@@ -3582,10 +3623,13 @@ components:
             $ref: "#/components/schemas/ExternalReference"
         germplasmDbId:
           type: string
+          nullable: true
         germplasmName:
           type: string
+          nullable: true
         germplasmPUI:
           type: string
+          nullable: true
         value:
           type: string
           description: The value of this attribute for a given germplasm
@@ -3817,11 +3861,6 @@ components:
       description: "A germplasm reference that is a direct child of this germplasm.\
         \ These represent edges in the tree, connecting to other nodes."
     GermplasmMCPD:
-      required:
-      - commonCropName
-      - germplasmDbId
-      - germplasmName
-      - germplasmPUI
       type: object
       properties:
         accessionNames:
@@ -4282,8 +4321,10 @@ components:
           nullable: true
         breedingMethodDbId:
           type: string
+          nullable: true
         breedingMethodName:
           type: string
+          nullable: true
         collection:
           type: string
           description: A specific panel/collection/population name this germplasm
@@ -4478,17 +4519,7 @@ components:
             the value empty if the uncertainty is unknown.
           nullable: true
         coordinates:
-          type: array
-          description: |-
-            One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
-
-            Copied from RFC 7946 Section 3.1.1
-
-            A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
-            easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
-          nullable: true
-          items:
-            $ref: "#/components/schemas/GeoJSON"
+          $ref: "#/components/schemas/GeoJSON"
         germplasmDbId:
           type: string
         germplasmName:
@@ -5928,6 +5959,20 @@ components:
             schema or its resource implementation.
           nullable: true
       description: A pointer to an ontology used by a genomic reference
+    PagingParameters:
+      type: object
+      properties:
+        page:
+          type: integer
+          description: Which result page is requested. The page indexing starts at
+            0 (the first page is 'page'= 0). Default is `0`.
+          format: int32
+          example: 0
+        pageSize:
+          type: integer
+          description: The size of the pages to be returned. Default is `1000`.
+          format: int32
+          example: 1000
     ParentType:
       type: string
       description: "The type of parent used during crossing. Accepted values for this\
@@ -5945,7 +5990,6 @@ components:
       - FEMALE
       - SELF
       - POPULATION
-      - CLONAL
     PedigreeNode:
       required:
       - germplasmDbId
@@ -6444,8 +6488,10 @@ components:
           $ref: "#/components/schemas/CrossType"
         crossingProjectDbId:
           type: string
+          nullable: true
         crossingProjectName:
           type: string
+          nullable: true
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -7164,9 +7210,10 @@ components:
             type: string
         years:
           type: array
-          description: The 4 digit year of a season. Example "2017"
+          description: The 4 digit year of a season. Example 2017
           items:
-            type: string
+            type: integer
+            format: int32
     SeedLot:
       allOf:
       - $ref: "#/components/schemas/SeedLotNewRequest"
@@ -7228,12 +7275,16 @@ components:
           nullable: true
         locationDbId:
           type: string
+          nullable: true
         locationName:
           type: string
+          nullable: true
         programDbId:
           type: string
+          nullable: true
         programName:
           type: string
+          nullable: true
         seedLotDescription:
           type: string
           description: A general description of this Seed Lot
@@ -7349,8 +7400,10 @@ components:
             $ref: "#/components/schemas/ExternalReference"
         seedLotDbId:
           type: string
+          nullable: true
         seedLotName:
           type: string
+          nullable: true
         transactionDbId:
           type: string
           description: Unique DbId for the Seed Lot Transaction
@@ -7645,6 +7698,29 @@ components:
         \ The rank of this ID should be species. \n\nMIAPPE V1.1 (DM-42) Organism\
         \ - An identifier for the organism at the species level. Use of the NCBI taxon\
         \ ID is recommended."
+    TokenPagingParameters:
+      type: object
+      properties:
+        page:
+          type: integer
+          description: Which result page is requested. The page indexing starts at
+            0 (the first page is 'page'= 0). Default is `0`.
+          format: int32
+          example: 0
+        pageSize:
+          type: integer
+          description: The size of the pages to be returned. Default is `1000`.
+          format: int32
+          example: 1000
+        pageToken:
+          type: string
+          description: "**Deprecated in v2.1** Please use `page`. Github issue number\
+            \ #451 \n<br>Used to request a specific page of data to be returned.\n\
+            <br>Tokenized pages are for large data sets which can not be efficiently\
+            \ broken into indexed pages. Use the nextPageToken and prevPageToken from\
+            \ a prior response to construct a query and move to the next or previous\
+            \ page respectively. "
+          example: 33c27874
     TraitDataType:
       type: string
       description: |-
@@ -7759,22 +7835,6 @@ components:
           description: A human readable names to search for
           items:
             type: string
-        observationVariableDbIds:
-          type: array
-          description: The DbIds of Variables to search for
-          items:
-            type: string
-        observationVariableNames:
-          type: array
-          description: The names of Variables to search for
-          items:
-            type: string
-        observationVariablePUIs:
-          type: array
-          description: "The Permanent Unique Identifier of an Observation Variable,\
-            \ usually in the form of a URI"
-          items:
-            type: string
         programDbIds:
           type: array
           description: "A BrAPI Program represents the high level organization or\
@@ -7815,25 +7875,6 @@ components:
             \ is null\n\n- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart`\
             \ is before `trial.endDate`"
           format: date
-        sortBy:
-          type: string
-          description: Name of the field to sort by.
-          enum:
-          - trialDbId
-          - trialName
-          - programDbId
-          - programName
-          - locationDbId
-          - startDate
-          - endDate
-        sortOrder:
-          type: string
-          description: Sort order direction. Ascending/Descending.
-          enum:
-          - asc
-          - ASC
-          - desc
-          - DESC
         studyDbIds:
           type: array
           description: List of study identifiers to search for

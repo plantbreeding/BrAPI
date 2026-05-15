@@ -760,7 +760,7 @@ type Event {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfo
   "An object describing when a particular Event has taken place. An Event can occur at one or more discrete time points (`discreteDates`) or an event can happen continuously over a longer period of time (`startDate`, `endDate`)"
-  eventDateRange: [EventDateRange]
+  eventDateRange: EventDateRange
   "Internal database identifier"
   eventDbId: String
   """
@@ -826,10 +826,20 @@ type EventParameter {
   "associated event"
   eventDbIds: ID
   """
+  **Deprecated in v2.1** Please use `name`. Github issue number #440             
+  <br>Specifies the relationship between the event and the given property. E.g. fertilizer, operator
+  """
+  key: String
+  """
   The full name of an event parameter
   <br>ICASA "Variable_Name"
   """
   name: String
+  """
+  **Deprecated in v2.1** Please use `code`. Github issue number #440             
+  <brThe type of the value given above, e.g. http://xmlns.com/foaf/0.1/Agent
+  """
+  rdfValue: String
   """
   The units or data type of the 'value'. 
   <br>If the 'value' comes from a standardized vocabulary or an encoded list of values, then 'unit' should be 'code'. 
@@ -862,6 +872,8 @@ type ExperimentalDesign {
 }
 
 type ExternalReference {
+  "**Deprecated in v2.1** Please use `referenceId`. Github issue number #460 <br>The external reference ID. Could be a simple string or a URI."
+  referenceID: String
   "The external reference ID. Could be a simple string or a URI."
   referenceId: String
   "An identifier for the source system or database of this reference"
@@ -1398,7 +1410,7 @@ type GermplasmOrigin {
   A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
   easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
   """
-  coordinates: [GeoJSON]
+  coordinates: GeoJSON
   "associated germplasm"
   germplasmDbIds: ID
 }
@@ -1955,7 +1967,7 @@ type ObservationUnit {
   or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. 
   Levels of observation must be consistent with those listed in the Study section.
   """
-  observationUnitPosition: [ObservationUnitPosition]
+  observationUnitPosition: ObservationUnitPosition
   "The ID which uniquely identifies a program"
   programDbIds: ID
   "The unique identifier for the originating Seed Lot"
@@ -3288,7 +3300,7 @@ type Variant {
   "A human readable name associated with a `Variant`"
   variantNames: [String]
   "An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted."
-  variantSetDbIds: ID
+  variantSet(paging: PageInput, variantSetsInput: VariantSetsInput): VariantSetListResponse
   """
   The "variant_type" is used to denote e.g. structural variants.
   Examples:
@@ -3543,7 +3555,6 @@ enum MlsStatus {
 
 "The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \\n\\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \\n\\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \\nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \\nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\\nIn this way, A could be a male parent to B, but a female parent to C. "
 enum ParentType {
-  CLONAL
   FEMALE
   MALE
   POPULATION
@@ -4277,7 +4288,7 @@ input EventInput {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfoInput
   "An object describing when a particular Event has taken place. An Event can occur at one or more discrete time points (`discreteDates`) or an event can happen continuously over a longer period of time (`startDate`, `endDate`)"
-  eventDateRange: [EventDateRangeInput]
+  eventDateRange: EventDateRangeInput
   "Internal database identifier"
   eventDbId: String
   """
@@ -4317,10 +4328,20 @@ input EventParameterInput {
   "associated event"
   event: EventInput
   """
+  **Deprecated in v2.1** Please use `name`. Github issue number #440             
+  <br>Specifies the relationship between the event and the given property. E.g. fertilizer, operator
+  """
+  key: String
+  """
   The full name of an event parameter
   <br>ICASA "Variable_Name"
   """
   name: String
+  """
+  **Deprecated in v2.1** Please use `code`. Github issue number #440             
+  <brThe type of the value given above, e.g. http://xmlns.com/foaf/0.1/Agent
+  """
+  rdfValue: String
   """
   The units or data type of the 'value'. 
   <br>If the 'value' comes from a standardized vocabulary or an encoded list of values, then 'unit' should be 'code'. 
@@ -4365,6 +4386,8 @@ input ExperimentalDesignInput {
 }
 
 input ExternalReferenceInput {
+  "**Deprecated in v2.1** Please use `referenceId`. Github issue number #460 <br>The external reference ID. Could be a simple string or a URI."
+  referenceID: String
   "The external reference ID. Could be a simple string or a URI."
   referenceId: String
   "An identifier for the source system or database of this reference"
@@ -5099,7 +5122,7 @@ input GermplasmOriginInput {
   A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
   easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
   """
-  coordinates: [GeoJSONInput]
+  coordinates: GeoJSONInput
   "associated germplasm"
   germplasm: GermplasmInput
 }
@@ -5734,7 +5757,7 @@ input ObservationUnitInput {
   or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. 
   Levels of observation must be consistent with those listed in the Study section.
   """
-  observationUnitPosition: [ObservationUnitPositionInput]
+  observationUnitPosition: ObservationUnitPositionInput
   "observations"
   observations: [ObservationInput]
   "The ID which uniquely identifies a program"
@@ -7164,8 +7187,8 @@ input SeasonsInput {
   seasonNames: [String]
   "The term to describe a given season. Example \"Spring\" OR \"May\" OR \"Planting_Time_7\"."
   seasons: [String]
-  "The 4 digit year of a season. Example \"2017\""
-  years: [String]
+  "The 4 digit year of a season. Example 2017"
+  years: [Int]
 }
 
 "A SeedLot, also known as an InventoryLot, is a collection of starting material (seeds, bulbs, root-stock, etc) for a particular Germplasm. The amount of material available for each Germplasm can be increased by seed production and decreased by planting or trading with another breeding Program."
@@ -7654,12 +7677,6 @@ input TrialsInput {
   locationDbIds: [String]
   "A human readable names to search for"
   locationNames: [String]
-  "The DbIds of Variables to search for"
-  observationVariableDbIds: [String]
-  "The names of Variables to search for"
-  observationVariableNames: [String]
-  "The Permanent Unique Identifier of an Observation Variable, usually in the form of a URI"
-  observationVariablePUIs: [String]
   """
   A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
   
@@ -7702,10 +7719,6 @@ input TrialsInput {
   - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
   """
   searchDateRangeStart: String
-  "Name of the field to sort by."
-  sortBy: SortBy
-  "Sort order direction. Ascending/Descending."
-  sortOrder: SortOrder
   "List of study identifiers to search for"
   studyDbIds: [String]
   "List of study names to filter search results"
@@ -7798,7 +7811,7 @@ input VariantInput {
   "A human readable name associated with a `Variant`"
   variantNames: [String]
   "An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted."
-  variantSet: VariantSetInput
+  variantSet: [VariantSetInput]
   """
   The "variant_type" is used to denote e.g. structural variants.
   Examples:

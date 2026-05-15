@@ -2040,6 +2040,17 @@
           },
           "style" : "form"
         }, {
+          "deprecated" : true,
+          "description" : "**Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 \n<br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)",
+          "explode" : true,
+          "in" : "query",
+          "name" : "externalReferenceID",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "style" : "form"
+        }, {
           "description" : "An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)",
           "explode" : true,
           "in" : "query",
@@ -9541,6 +9552,17 @@
           },
           "style" : "form"
         }, {
+          "deprecated" : true,
+          "description" : "**Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 \n<br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)",
+          "explode" : true,
+          "in" : "query",
+          "name" : "externalReferenceID",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "style" : "form"
+        }, {
           "description" : "An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)",
           "explode" : true,
           "in" : "query",
@@ -11762,6 +11784,17 @@
           },
           "style" : "form"
         }, {
+          "deprecated" : true,
+          "description" : "**Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 \n<br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)",
+          "explode" : true,
+          "in" : "query",
+          "name" : "externalReferenceID",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "style" : "form"
+        }, {
           "description" : "An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)",
           "explode" : true,
           "in" : "query",
@@ -12145,6 +12178,17 @@
           "explode" : true,
           "in" : "query",
           "name" : "studyDbId",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "style" : "form"
+        }, {
+          "deprecated" : true,
+          "description" : "**Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 \n<br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)",
+          "explode" : true,
+          "in" : "query",
+          "name" : "externalReferenceID",
           "required" : false,
           "schema" : {
             "type" : "string"
@@ -15588,6 +15632,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a `Observations` search request",
@@ -21720,6 +21775,17 @@
           "required" : false,
           "schema" : {
             "type" : "integer"
+          },
+          "style" : "form"
+        }, {
+          "deprecated" : true,
+          "description" : "**Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 \n<br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)",
+          "explode" : true,
+          "in" : "query",
+          "name" : "externalReferenceID",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
           },
           "style" : "form"
         }, {
@@ -36722,7 +36788,7 @@
             "nullable" : true,
             "type" : "array"
           },
-          "variantSetDbId" : {
+          "variantSetDbIds" : {
             "description" : "An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.",
             "example" : [ "c8ae400b", "ef2c204b" ],
             "items" : {
@@ -41505,6 +41571,12 @@
       },
       "GermplasmMCPD_breedingInstitutes_inner" : {
         "properties" : {
+          "instituteAddress" : {
+            "description" : "MCPD (v2.1) (COLLINSTADDRESS) 4.1.1  Address of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled since the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.",
+            "example" : "123 Main Street, Lima, Peru, 5555",
+            "nullable" : true,
+            "type" : "string"
+          },
           "instituteCode" : {
             "description" : "MCPD (v2.1) (BREDCODE) 18. FAO WIEWS code of the institute that has bred the material. If the holding institute has bred the material, the breeding institute code (BREDCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard.",
             "example" : "PER001",
@@ -41642,6 +41714,12 @@
       "GermplasmMCPD_donorInfo_donorInstitute" : {
         "description" : "The identifying information for the entity acting as an accession donor\n<br> MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.\n<br> MCPD (v2.1) (DONORNAME) 22.1  Name of the donor institute (or person). This descriptor should be used only if DONORCODE can not be filled because the FAO WIEWS code for this institute is not available.",
         "properties" : {
+          "instituteAddress" : {
+            "description" : "MCPD (v2.1) (COLLINSTADDRESS) 4.1.1  Address of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled since the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.",
+            "example" : "123 Main Street, Lima, Peru, 5555",
+            "nullable" : true,
+            "type" : "string"
+          },
           "instituteCode" : {
             "description" : "MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.",
             "example" : "PER001",
@@ -41680,6 +41758,12 @@
       },
       "GermplasmMCPD_safetyDuplicateInstitutes_inner" : {
         "properties" : {
+          "instituteAddress" : {
+            "description" : "MCPD (v2.1) (COLLINSTADDRESS) 4.1.1  Address of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled since the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.",
+            "example" : "123 Main Street, Lima, Peru, 5555",
+            "nullable" : true,
+            "type" : "string"
+          },
           "instituteCode" : {
             "description" : "MCPD (v2.1) (DUPLSITE) 25. FAO WIEWS code of the institute(s) where a safety duplicate of the accession is maintained. Follows INSTCODE standard.",
             "example" : "PER001",

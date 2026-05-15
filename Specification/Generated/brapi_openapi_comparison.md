@@ -72,13 +72,6 @@ Changed response : **200**
 
                 Deleted properties: `variantName`
 
-##### `GET` /referencesets
-
-
-###### Parameters:
-
-Added: `externalReferenceID` in `query`
-
 ##### `POST` /search/allelematrix
 
 
@@ -285,6 +278,8 @@ Deleted: `Accept` in `header`
 
 Deleted response : **202**
 
+Deleted response : **404**
+
 ##### `GET` /search/observationunits/{searchResultsDbId}
 
 
@@ -415,8 +410,6 @@ Deleted response : **404**
 
 * Changed content type : `application/json`
 
-    New properties: `observationVariablePUIs`, `observationVariableNames`, `observationVariableDbIds`, `sortOrder`, `sortBy`
-
     Deleted properties: `externalReferenceIDs`, `externalReferenceIds`, `externalReferenceSources`, `page`, `pageSize`
 
 ##### `GET` /search/trials/{searchResultsDbId}
@@ -449,14 +442,6 @@ Deleted response : **202**
 
 Deleted response : **404**
 
-##### `GET` /seasons
-
-
-###### Parameters:
-
-Changed: `year` in `query`:
-  - Type changed: `integer` -> `string`
-
 ##### `POST` /attributevalues
 
 
@@ -468,29 +453,12 @@ Changed: `year` in `query`:
 
         New properties: `attributePUI`, `germplasmPUI`
 
-        * Changed property `attributeDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `attributeName` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `germplasmDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `germplasmName` (string):
-          - Nullable changed: `true` -> `null`
-
         * Changed property `externalReferences` (array)
 
             Changed items (array):
 
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
 
 ##### `PUT` /attributevalues/{attributeValueDbId}
 
@@ -501,29 +469,12 @@ Changed: `year` in `query`:
 
     New properties: `attributePUI`, `germplasmPUI`
 
-    * Changed property `attributeDbId` (string):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `attributeName` (string):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `germplasmDbId` (string):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `germplasmName` (string):
-      - Nullable changed: `true` -> `null`
-
     * Changed property `externalReferences` (array)
 
         Changed items (array):
 
-            Deleted properties: `referenceID`
-
-            * Changed property `referenceId` (string):
-              - Nullable changed: `null` -> `true`
-
-            * Changed property `referenceSource` (string):
-              - Nullable changed: `null` -> `true`
+            * Changed property `referenceID` (string):
+              - Deprecated status changed
 
 ##### `GET` /calls
 
@@ -544,35 +495,8 @@ Changed response : **200**
 
                 Deleted properties: `genotype`, `genotype_likelihood`, `variantName`
 
-                * Changed property `genotypeValue` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `phaseSet` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `genotypeMetadata` (array):
-                  - Nullable changed: `null` -> `true`
-
-                    Changed items (array):
-
-                        * Changed property `dataType` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `fieldAbbreviation` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `fieldName` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `fieldValue` (string):
-                          - Nullable changed: `null` -> `true`
-
 ##### `GET` /callsets
 
-
-###### Parameters:
-
-Added: `externalReferenceID` in `query`
 
 ###### Return Type:
 
@@ -590,24 +514,13 @@ Changed response : **200**
 
                 Deleted properties: `variantSetDbIds`
 
-                * Changed property `sampleDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `studyDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
                 * Changed property `externalReferences` (array):
                   - Nullable changed: `null` -> `true`
 
                     Changed items (array):
 
-                        Deleted properties: `referenceID`
-
-                        * Changed property `referenceId` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `referenceSource` (string):
-                          - Nullable changed: `null` -> `true`
+                        * Changed property `referenceID` (string):
+                          - Deprecated status changed
 
 ##### `GET` /callsets/{callSetDbId}
 
@@ -624,24 +537,13 @@ Changed response : **200**
 
         Deleted properties: `variantSetDbIds`
 
-        * Changed property `sampleDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `studyDbId` (string):
-          - Nullable changed: `true` -> `null`
-
         * Changed property `externalReferences` (array):
           - Nullable changed: `null` -> `true`
 
             Changed items (array):
 
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
 
 ##### `GET` /callsets/{callSetDbId}/calls
 
@@ -662,29 +564,6 @@ Changed response : **200**
 
                 Deleted properties: `genotype`, `genotype_likelihood`, `variantName`
 
-                * Changed property `genotypeValue` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `phaseSet` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `genotypeMetadata` (array):
-                  - Nullable changed: `null` -> `true`
-
-                    Changed items (array):
-
-                        * Changed property `dataType` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `fieldAbbreviation` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `fieldName` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `fieldValue` (string):
-                          - Nullable changed: `null` -> `true`
-
 ##### `POST` /crosses
 
 
@@ -699,18 +578,6 @@ Changed response : **200**
         * Changed property `crossType` (string):
           - Nullable changed: `true` -> `null`
 
-        * Changed property `crossingProjectDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `crossingProjectName` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `plannedCrossDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `plannedCrossName` (string):
-          - Nullable changed: `true` -> `null`
-
         * Changed property `crossAttributes` (array)
 
             Changed items (array):
@@ -722,21 +589,13 @@ Changed response : **200**
 
             Changed items (array):
 
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
 
         * Changed property `parent1` (object):
           - Nullable changed: `true` -> `null`
 
             New properties: `germplasmPUI`, `observationUnitPUI`
-
-            * Changed property `parentType` (string):
-              - Added enum values: [CLONAL]
 
         * Changed property `pollinationEvents` (array)
 
@@ -753,32 +612,18 @@ Changed response : **200**
 
     Changed items (array):
 
-        * Changed property `programDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `programName` (string):
-          - Nullable changed: `true` -> `null`
-
         * Changed property `externalReferences` (array)
 
             Changed items (array):
 
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
 
         * Changed property `potentialParents` (array)
 
             Changed items (array):
 
                 New properties: `germplasmPUI`, `observationUnitPUI`
-
-                * Changed property `parentType` (string):
-                  - Added enum values: [CLONAL]
 
 ##### `PUT` /crossingprojects/{crossingProjectDbId}
 
@@ -787,32 +632,18 @@ Changed response : **200**
 
 * Changed content type : `application/json`
 
-    * Changed property `programDbId` (string):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `programName` (string):
-      - Nullable changed: `true` -> `null`
-
     * Changed property `externalReferences` (array)
 
         Changed items (array):
 
-            Deleted properties: `referenceID`
-
-            * Changed property `referenceId` (string):
-              - Nullable changed: `null` -> `true`
-
-            * Changed property `referenceSource` (string):
-              - Nullable changed: `null` -> `true`
+            * Changed property `referenceID` (string):
+              - Deprecated status changed
 
     * Changed property `potentialParents` (array)
 
         Changed items (array):
 
             New properties: `germplasmPUI`, `observationUnitPUI`
-
-            * Changed property `parentType` (string):
-              - Added enum values: [CLONAL]
 
 ##### `GET` /events
 
@@ -833,17 +664,16 @@ Changed response : **200**
 
                 Deleted properties: `date`, `observationUnitDbIds`
 
-                * Changed property `eventDateRange` (object -> array):
-                  - Type changed: `object` -> `array`
-
-                * Changed property `eventType` (string):
-                  - Nullable changed: `null` -> `true`
-
                 * Changed property `studyDbId` (string):
                   - Nullable changed: `true` -> `null`
 
                 * Changed property `studyName` (string):
                   - Nullable changed: `true` -> `null`
+
+                * Changed property `eventDateRange` (object):
+                  - Nullable changed: `true` -> `null`
+
+                    New properties: `eventDbId`
 
                 * Changed property `eventParameters` (array)
 
@@ -851,129 +681,13 @@ Changed response : **200**
 
                         New properties: `eventDbId`
 
-                        Deleted properties: `key`, `rdfValue`
+                        * Changed property `key` (string):
+                          - Nullable changed: `true` -> `null`
+                          - Deprecated status changed
 
-##### `POST` /germplasm
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    Changed items (array):
-
-        New properties: `sampleDbIds`
-
-        * Changed property `breedingMethodDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `breedingMethodName` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `donors` (array)
-
-            Changed items (array):
-
-                New properties: `germplasmDbId`, `germplasmName`, `germplasmPUI`
-
-        * Changed property `externalReferences` (array)
-
-            Changed items (array):
-
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
-
-        * Changed property `germplasmOrigin` (array)
-
-            Changed items (array):
-
-                New properties: `germplasmDbId`, `germplasmName`, `germplasmPUI`
-
-                * Changed property `coordinates` (object -> array):
-                  - Type changed: `object` -> `array`
-
-        * Changed property `storageTypes` (array)
-
-            Changed items (array):
-
-                New properties: `germplasmDbId`, `germplasmName`, `germplasmPUI`
-
-        * Changed property `synonyms` (array)
-
-            Changed items (array):
-
-                New properties: `germplasmDbId`, `germplasmName`, `germplasmPUI`
-
-        * Changed property `taxonIds` (array)
-
-            Changed items (array):
-
-                New properties: `germplasmDbId`, `germplasmName`, `germplasmPUI`
-
-##### `PUT` /germplasm/{germplasmDbId}
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    New properties: `sampleDbIds`
-
-    * Changed property `breedingMethodDbId` (string):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `breedingMethodName` (string):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `donors` (array)
-
-        Changed items (array):
-
-            New properties: `germplasmDbId`, `germplasmName`, `germplasmPUI`
-
-    * Changed property `externalReferences` (array)
-
-        Changed items (array):
-
-            Deleted properties: `referenceID`
-
-            * Changed property `referenceId` (string):
-              - Nullable changed: `null` -> `true`
-
-            * Changed property `referenceSource` (string):
-              - Nullable changed: `null` -> `true`
-
-    * Changed property `germplasmOrigin` (array)
-
-        Changed items (array):
-
-            New properties: `germplasmDbId`, `germplasmName`, `germplasmPUI`
-
-            * Changed property `coordinates` (object -> array):
-              - Type changed: `object` -> `array`
-
-    * Changed property `storageTypes` (array)
-
-        Changed items (array):
-
-            New properties: `germplasmDbId`, `germplasmName`, `germplasmPUI`
-
-    * Changed property `synonyms` (array)
-
-        Changed items (array):
-
-            New properties: `germplasmDbId`, `germplasmName`, `germplasmPUI`
-
-    * Changed property `taxonIds` (array)
-
-        Changed items (array):
-
-            New properties: `germplasmDbId`, `germplasmName`, `germplasmPUI`
+                        * Changed property `rdfValue` (string):
+                          - Nullable changed: `true` -> `null`
+                          - Deprecated status changed
 
 ##### `GET` /germplasm/{germplasmDbId}/mcpd
 
@@ -988,20 +702,8 @@ Changed response : **200**
 
         New properties: `germplasmName`
 
-        New required properties:
-        - `commonCropName`
-        - `germplasmDbId`
-        - `germplasmName`
-        - `germplasmPUI`
-
         * Changed property `germplasmPUI` (string):
           - Nullable changed: `true` -> `null`
-
-        * Changed property `breedingInstitutes` (array)
-
-            Changed items (array):
-
-                New properties: `instituteAddress`
 
 ##### `POST` /lists
 
@@ -1020,13 +722,8 @@ Changed response : **200**
 
             Changed items (array):
 
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
 
 ##### `PUT` /lists/{listDbId}
 
@@ -1043,87 +740,8 @@ Changed response : **200**
 
         Changed items (array):
 
-            Deleted properties: `referenceID`
-
-            * Changed property `referenceId` (string):
-              - Nullable changed: `null` -> `true`
-
-            * Changed property `referenceSource` (string):
-              - Nullable changed: `null` -> `true`
-
-##### `POST` /observationunits
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    Changed items (array):
-
-        New properties: `germplasmPUI`, `studyPUI`, `trialPUI`
-
-        * Changed property `crossDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `crossName` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `germplasmDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `germplasmName` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `locationDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `locationName` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `observationUnitPosition` (object -> array):
-          - Type changed: `object` -> `array`
-
-        * Changed property `programDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `programName` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `seedLotDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `seedLotName` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `studyDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `studyName` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `trialDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `trialName` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `externalReferences` (array)
-
-            Changed items (array):
-
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
-
-        * Changed property `treatments` (array)
-
-            Changed items (array):
-
-                New properties: `observationUnitDbId`, `observationUnitName`, `observationUnitPUI`
+            * Changed property `referenceID` (string):
+              - Deprecated status changed
 
 ##### `POST` /people
 
@@ -1138,13 +756,8 @@ Changed response : **200**
 
             Changed items (array):
 
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
 
 ##### `PUT` /people/{personDbId}
 
@@ -1157,13 +770,8 @@ Changed response : **200**
 
         Changed items (array):
 
-            Deleted properties: `referenceID`
-
-            * Changed property `referenceId` (string):
-              - Nullable changed: `null` -> `true`
-
-            * Changed property `referenceSource` (string):
-              - Nullable changed: `null` -> `true`
+            * Changed property `referenceID` (string):
+              - Deprecated status changed
 
 ##### `GET` /plannedcrosses
 
@@ -1183,31 +791,17 @@ Changed response : **200**
                 * Changed property `crossType` (string):
                   - Nullable changed: `true` -> `null`
 
-                * Changed property `crossingProjectDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `crossingProjectName` (string):
-                  - Nullable changed: `true` -> `null`
-
                 * Changed property `externalReferences` (array)
 
                     Changed items (array):
 
-                        Deleted properties: `referenceID`
-
-                        * Changed property `referenceId` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `referenceSource` (string):
-                          - Nullable changed: `null` -> `true`
+                        * Changed property `referenceID` (string):
+                          - Deprecated status changed
 
                 * Changed property `parent1` (object):
                   - Nullable changed: `true` -> `null`
 
                     New properties: `germplasmPUI`, `observationUnitPUI`
-
-                    * Changed property `parentType` (string):
-                      - Added enum values: [CLONAL]
 
 ##### `PUT` /plannedcrosses
 
@@ -1227,31 +821,17 @@ Changed response : **200**
                 * Changed property `crossType` (string):
                   - Nullable changed: `true` -> `null`
 
-                * Changed property `crossingProjectDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `crossingProjectName` (string):
-                  - Nullable changed: `true` -> `null`
-
                 * Changed property `externalReferences` (array)
 
                     Changed items (array):
 
-                        Deleted properties: `referenceID`
-
-                        * Changed property `referenceId` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `referenceSource` (string):
-                          - Nullable changed: `null` -> `true`
+                        * Changed property `referenceID` (string):
+                          - Deprecated status changed
 
                 * Changed property `parent1` (object):
                   - Nullable changed: `true` -> `null`
 
                     New properties: `germplasmPUI`, `observationUnitPUI`
-
-                    * Changed property `parentType` (string):
-                      - Added enum values: [CLONAL]
 
 ##### `POST` /plannedcrosses
 
@@ -1270,31 +850,17 @@ Changed response : **200**
         * Changed property `crossType` (string):
           - Nullable changed: `true` -> `null`
 
-        * Changed property `crossingProjectDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `crossingProjectName` (string):
-          - Nullable changed: `true` -> `null`
-
         * Changed property `externalReferences` (array)
 
             Changed items (array):
 
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
 
         * Changed property `parent1` (object):
           - Nullable changed: `true` -> `null`
 
             New properties: `germplasmPUI`, `observationUnitPUI`
-
-            * Changed property `parentType` (string):
-              - Added enum values: [CLONAL]
 
 ###### Return Type:
 
@@ -1311,31 +877,17 @@ Changed response : **200**
                 * Changed property `crossType` (string):
                   - Nullable changed: `true` -> `null`
 
-                * Changed property `crossingProjectDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `crossingProjectName` (string):
-                  - Nullable changed: `true` -> `null`
-
                 * Changed property `externalReferences` (array)
 
                     Changed items (array):
 
-                        Deleted properties: `referenceID`
-
-                        * Changed property `referenceId` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `referenceSource` (string):
-                          - Nullable changed: `null` -> `true`
+                        * Changed property `referenceID` (string):
+                          - Deprecated status changed
 
                 * Changed property `parent1` (object):
                   - Nullable changed: `true` -> `null`
 
                     New properties: `germplasmPUI`, `observationUnitPUI`
-
-                    * Changed property `parentType` (string):
-                      - Added enum values: [CLONAL]
 
 ##### `POST` /plates
 
@@ -1348,26 +900,12 @@ Changed response : **200**
 
         New properties: `programName`, `studyName`, `studyPUI`, `trialName`, `trialPUI`
 
-        * Changed property `programDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `studyDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `trialDbId` (string):
-          - Nullable changed: `true` -> `null`
-
         * Changed property `externalReferences` (array)
 
             Changed items (array):
 
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
 
 ##### `GET` /programs
 
@@ -1398,13 +936,8 @@ Changed: `programType` in `query`:
 
             Changed items (array):
 
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
 
 ##### `PUT` /programs/{programDbId}
 
@@ -1424,20 +957,11 @@ Changed: `programType` in `query`:
 
         Changed items (array):
 
-            Deleted properties: `referenceID`
-
-            * Changed property `referenceId` (string):
-              - Nullable changed: `null` -> `true`
-
-            * Changed property `referenceSource` (string):
-              - Nullable changed: `null` -> `true`
+            * Changed property `referenceID` (string):
+              - Deprecated status changed
 
 ##### `GET` /references
 
-
-###### Parameters:
-
-Added: `externalReferenceID` in `query`
 
 ###### Return Type:
 
@@ -1466,13 +990,8 @@ Changed response : **200**
 
                     Changed items (array):
 
-                        Deleted properties: `referenceID`
-
-                        * Changed property `referenceId` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `referenceSource` (string):
-                          - Nullable changed: `null` -> `true`
+                        * Changed property `referenceID` (string):
+                          - Deprecated status changed
 
 ##### `GET` /references/{referenceDbId}
 
@@ -1500,13 +1019,8 @@ Changed response : **200**
 
             Changed items (array):
 
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
 
 ##### `PUT` /samples
 
@@ -1528,39 +1042,13 @@ Deleted response : **404**
 
         Deleted properties: `sampleGroupDbId`
 
-        * Changed property `germplasmDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `observationUnitDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `plateDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `plateName` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `programDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `studyDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `trialDbId` (string):
-          - Nullable changed: `true` -> `null`
-
         * Changed property `externalReferences` (array):
           - Nullable changed: `null` -> `true`
 
             Changed items (array):
 
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
 
 ##### `POST` /search/calls
 
@@ -1586,29 +1074,6 @@ Changed response : **200**
             Changed items (array):
 
                 Deleted properties: `genotype`, `genotype_likelihood`, `variantName`
-
-                * Changed property `genotypeValue` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `phaseSet` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `genotypeMetadata` (array):
-                  - Nullable changed: `null` -> `true`
-
-                    Changed items (array):
-
-                        * Changed property `dataType` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `fieldAbbreviation` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `fieldName` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `fieldValue` (string):
-                          - Nullable changed: `null` -> `true`
 
 ##### `GET` /search/calls/{searchResultsDbId}
 
@@ -1637,29 +1102,6 @@ Changed response : **200**
 
                 Deleted properties: `genotype`, `genotype_likelihood`, `variantName`
 
-                * Changed property `genotypeValue` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `phaseSet` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `genotypeMetadata` (array):
-                  - Nullable changed: `null` -> `true`
-
-                    Changed items (array):
-
-                        * Changed property `dataType` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `fieldAbbreviation` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `fieldName` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `fieldValue` (string):
-                          - Nullable changed: `null` -> `true`
-
 ##### `POST` /search/callsets
 
 
@@ -1685,24 +1127,13 @@ Changed response : **200**
 
                 Deleted properties: `variantSetDbIds`
 
-                * Changed property `sampleDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `studyDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
                 * Changed property `externalReferences` (array):
                   - Nullable changed: `null` -> `true`
 
                     Changed items (array):
 
-                        Deleted properties: `referenceID`
-
-                        * Changed property `referenceId` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `referenceSource` (string):
-                          - Nullable changed: `null` -> `true`
+                        * Changed property `referenceID` (string):
+                          - Deprecated status changed
 
 ##### `GET` /search/callsets/{searchResultsDbId}
 
@@ -1727,24 +1158,13 @@ Changed response : **200**
 
                 Deleted properties: `variantSetDbIds`
 
-                * Changed property `sampleDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `studyDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
                 * Changed property `externalReferences` (array):
                   - Nullable changed: `null` -> `true`
 
                     Changed items (array):
 
-                        Deleted properties: `referenceID`
-
-                        * Changed property `referenceId` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `referenceSource` (string):
-                          - Nullable changed: `null` -> `true`
+                        * Changed property `referenceID` (string):
+                          - Deprecated status changed
 
 ##### `POST` /search/observations
 
@@ -1868,13 +1288,8 @@ Changed response : **200**
 
                     Changed items (array):
 
-                        Deleted properties: `referenceID`
-
-                        * Changed property `referenceId` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `referenceSource` (string):
-                          - Nullable changed: `null` -> `true`
+                        * Changed property `referenceID` (string):
+                          - Deprecated status changed
 
 ##### `GET` /search/references/{searchResultsDbId}
 
@@ -1910,13 +1325,8 @@ Changed response : **200**
 
                     Changed items (array):
 
-                        Deleted properties: `referenceID`
-
-                        * Changed property `referenceId` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `referenceSource` (string):
-                          - Nullable changed: `null` -> `true`
+                        * Changed property `referenceID` (string):
+                          - Deprecated status changed
 
 ##### `POST` /search/variants
 
@@ -1959,40 +1369,17 @@ Changed response : **200**
 
             Changed items (array):
 
-                New properties: `analysis`, `variantSetName`
+                New properties: `analysis`
 
-                Deleted properties: `alternateBases`, `alternate_bases`
-
-                * Changed property `referenceDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `referenceName` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `referenceSetDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `referenceSetName` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `variantDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `variantSetDbId` (array -> string):
-                  - Type changed: `array` -> `string`
+                Deleted properties: `alternateBases`, `alternate_bases`, `variantSetDbIds`
 
                 * Changed property `externalReferences` (array):
                   - Nullable changed: `null` -> `true`
 
                     Changed items (array):
 
-                        Deleted properties: `referenceID`
-
-                        * Changed property `referenceId` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `referenceSource` (string):
-                          - Nullable changed: `null` -> `true`
+                        * Changed property `referenceID` (string):
+                          - Deprecated status changed
 
 ##### `GET` /search/variants/{searchResultsDbId}
 
@@ -2017,40 +1404,17 @@ Changed response : **200**
 
             Changed items (array):
 
-                New properties: `analysis`, `variantSetName`
+                New properties: `analysis`
 
-                Deleted properties: `alternateBases`, `alternate_bases`
-
-                * Changed property `referenceDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `referenceName` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `referenceSetDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `referenceSetName` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `variantDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `variantSetDbId` (array -> string):
-                  - Type changed: `array` -> `string`
+                Deleted properties: `alternateBases`, `alternate_bases`, `variantSetDbIds`
 
                 * Changed property `externalReferences` (array):
                   - Nullable changed: `null` -> `true`
 
                     Changed items (array):
 
-                        Deleted properties: `referenceID`
-
-                        * Changed property `referenceId` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `referenceSource` (string):
-                          - Nullable changed: `null` -> `true`
+                        * Changed property `referenceID` (string):
+                          - Deprecated status changed
 
 ##### `POST` /search/variantsets
 
@@ -2078,10 +1442,7 @@ Changed response : **200**
                 Deleted properties: `availableFormats`
 
                 * Changed property `referenceSetDbId` (string):
-                  - Nullable changed: `false` -> `null`
-
-                * Changed property `studyDbId` (string):
-                  - Nullable changed: `true` -> `null`
+                  - Nullable changed: `false` -> `true`
 
                 * Changed property `analysis` (array)
 
@@ -2097,13 +1458,8 @@ Changed response : **200**
 
                     Changed items (array):
 
-                        Deleted properties: `referenceID`
-
-                        * Changed property `referenceId` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `referenceSource` (string):
-                          - Nullable changed: `null` -> `true`
+                        * Changed property `referenceID` (string):
+                          - Deprecated status changed
 
                 * Changed property `metadataFields` (array)
 
@@ -2144,10 +1500,7 @@ Changed response : **200**
                 Deleted properties: `availableFormats`
 
                 * Changed property `referenceSetDbId` (string):
-                  - Nullable changed: `false` -> `null`
-
-                * Changed property `studyDbId` (string):
-                  - Nullable changed: `true` -> `null`
+                  - Nullable changed: `false` -> `true`
 
                 * Changed property `analysis` (array)
 
@@ -2163,13 +1516,8 @@ Changed response : **200**
 
                     Changed items (array):
 
-                        Deleted properties: `referenceID`
-
-                        * Changed property `referenceId` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `referenceSource` (string):
-                          - Nullable changed: `null` -> `true`
+                        * Changed property `referenceID` (string):
+                          - Deprecated status changed
 
                 * Changed property `metadataFields` (array)
 
@@ -2197,47 +1545,18 @@ Changed response : **200**
 
         New properties: `transactions`
 
-        * Changed property `locationDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `locationName` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `programDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `programName` (string):
-          - Nullable changed: `true` -> `null`
-
         * Changed property `contentMixture` (array)
 
             Changed items (array):
 
                 New properties: `germplasmPUI`, `seedLotDbId`, `seedLotName`
 
-                * Changed property `crossDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `crossName` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `germplasmDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `germplasmName` (string):
-                  - Nullable changed: `true` -> `null`
-
         * Changed property `externalReferences` (array)
 
             Changed items (array):
 
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
 
 ##### `PUT` /seedlots/{seedLotDbId}
 
@@ -2248,47 +1567,18 @@ Changed response : **200**
 
     New properties: `transactions`
 
-    * Changed property `locationDbId` (string):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `locationName` (string):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `programDbId` (string):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `programName` (string):
-      - Nullable changed: `true` -> `null`
-
     * Changed property `contentMixture` (array)
 
         Changed items (array):
 
             New properties: `germplasmPUI`, `seedLotDbId`, `seedLotName`
 
-            * Changed property `crossDbId` (string):
-              - Nullable changed: `true` -> `null`
-
-            * Changed property `crossName` (string):
-              - Nullable changed: `true` -> `null`
-
-            * Changed property `germplasmDbId` (string):
-              - Nullable changed: `true` -> `null`
-
-            * Changed property `germplasmName` (string):
-              - Nullable changed: `true` -> `null`
-
     * Changed property `externalReferences` (array)
 
         Changed items (array):
 
-            Deleted properties: `referenceID`
-
-            * Changed property `referenceId` (string):
-              - Nullable changed: `null` -> `true`
-
-            * Changed property `referenceSource` (string):
-              - Nullable changed: `null` -> `true`
+            * Changed property `referenceID` (string):
+              - Deprecated status changed
 
 ##### `POST` /studies
 
@@ -2303,17 +1593,8 @@ Changed response : **200**
 
         Deleted properties: `contacts`, `observationVariableDbIds`
 
-        * Changed property `locationDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `locationName` (string):
-          - Nullable changed: `true` -> `null`
-
         * Changed property `studyDescription` (string):
           - Nullable changed: `null` -> `true`
-
-        * Changed property `studyName` (string):
-          - Nullable changed: `true` -> `null`
 
         * Changed property `environmentParameters` (array)
 
@@ -2333,13 +1614,8 @@ Changed response : **200**
 
             Changed items (array):
 
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
 
         * Changed property `growthFacility` (object):
           - Nullable changed: `true` -> `null`
@@ -2366,17 +1642,8 @@ Changed response : **200**
 
     Deleted properties: `contacts`, `observationVariableDbIds`
 
-    * Changed property `locationDbId` (string):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `locationName` (string):
-      - Nullable changed: `true` -> `null`
-
     * Changed property `studyDescription` (string):
       - Nullable changed: `null` -> `true`
-
-    * Changed property `studyName` (string):
-      - Nullable changed: `true` -> `null`
 
     * Changed property `environmentParameters` (array)
 
@@ -2396,13 +1663,8 @@ Changed response : **200**
 
         Changed items (array):
 
-            Deleted properties: `referenceID`
-
-            * Changed property `referenceId` (string):
-              - Nullable changed: `null` -> `true`
-
-            * Changed property `referenceSource` (string):
-              - Nullable changed: `null` -> `true`
+            * Changed property `referenceID` (string):
+              - Deprecated status changed
 
     * Changed property `growthFacility` (object):
       - Nullable changed: `true` -> `null`
@@ -2418,6 +1680,15 @@ Changed response : **200**
         New required properties:
         - `lastUpdateDbId`
 
+##### `GET` /trials
+
+
+###### Parameters:
+
+Deleted: `sortBy` in `query`
+
+Deleted: `sortOrder` in `query`
+
 ##### `POST` /trials
 
 
@@ -2429,12 +1700,6 @@ Changed response : **200**
 
         New properties: `studyDbIds`
 
-        * Changed property `programDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `programName` (string):
-          - Nullable changed: `true` -> `null`
-
         * Changed property `datasetAuthorships` (array)
 
             Changed items (array):
@@ -2445,13 +1710,8 @@ Changed response : **200**
 
             Changed items (array):
 
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
 
         * Changed property `publications` (array)
 
@@ -2468,12 +1728,6 @@ Changed response : **200**
 
     New properties: `studyDbIds`
 
-    * Changed property `programDbId` (string):
-      - Nullable changed: `true` -> `null`
-
-    * Changed property `programName` (string):
-      - Nullable changed: `true` -> `null`
-
     * Changed property `datasetAuthorships` (array)
 
         Changed items (array):
@@ -2484,13 +1738,8 @@ Changed response : **200**
 
         Changed items (array):
 
-            Deleted properties: `referenceID`
-
-            * Changed property `referenceId` (string):
-              - Nullable changed: `null` -> `true`
-
-            * Changed property `referenceSource` (string):
-              - Nullable changed: `null` -> `true`
+            * Changed property `referenceID` (string):
+              - Deprecated status changed
 
     * Changed property `publications` (array)
 
@@ -2500,10 +1749,6 @@ Changed response : **200**
 
 ##### `GET` /variants
 
-
-###### Parameters:
-
-Added: `externalReferenceID` in `query`
 
 ###### Return Type:
 
@@ -2517,40 +1762,17 @@ Changed response : **200**
 
             Changed items (array):
 
-                New properties: `analysis`, `variantSetName`
+                New properties: `analysis`
 
-                Deleted properties: `alternateBases`, `alternate_bases`
-
-                * Changed property `referenceDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `referenceName` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `referenceSetDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `referenceSetName` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `variantDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `variantSetDbId` (array -> string):
-                  - Type changed: `array` -> `string`
+                Deleted properties: `alternateBases`, `alternate_bases`, `variantSetDbIds`
 
                 * Changed property `externalReferences` (array):
                   - Nullable changed: `null` -> `true`
 
                     Changed items (array):
 
-                        Deleted properties: `referenceID`
-
-                        * Changed property `referenceId` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `referenceSource` (string):
-                          - Nullable changed: `null` -> `true`
+                        * Changed property `referenceID` (string):
+                          - Deprecated status changed
 
 ##### `GET` /variants/{variantDbId}
 
@@ -2563,40 +1785,17 @@ Changed response : **200**
 
     * Changed property `result` (object)
 
-        New properties: `analysis`, `variantSetName`
+        New properties: `analysis`
 
-        Deleted properties: `alternateBases`, `alternate_bases`
-
-        * Changed property `referenceDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `referenceName` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `referenceSetDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `referenceSetName` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `variantDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `variantSetDbId` (array -> string):
-          - Type changed: `array` -> `string`
+        Deleted properties: `alternateBases`, `alternate_bases`, `variantSetDbIds`
 
         * Changed property `externalReferences` (array):
           - Nullable changed: `null` -> `true`
 
             Changed items (array):
 
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
 
 ##### `GET` /variants/{variantDbId}/calls
 
@@ -2616,29 +1815,6 @@ Changed response : **200**
             Changed items (array):
 
                 Deleted properties: `genotype`, `genotype_likelihood`, `variantName`
-
-                * Changed property `genotypeValue` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `phaseSet` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `genotypeMetadata` (array):
-                  - Nullable changed: `null` -> `true`
-
-                    Changed items (array):
-
-                        * Changed property `dataType` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `fieldAbbreviation` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `fieldName` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `fieldValue` (string):
-                          - Nullable changed: `null` -> `true`
 
 ##### `GET` /variantsets
 
@@ -2664,10 +1840,7 @@ Changed response : **200**
                 Deleted properties: `availableFormats`
 
                 * Changed property `referenceSetDbId` (string):
-                  - Nullable changed: `false` -> `null`
-
-                * Changed property `studyDbId` (string):
-                  - Nullable changed: `true` -> `null`
+                  - Nullable changed: `false` -> `true`
 
                 * Changed property `analysis` (array)
 
@@ -2683,13 +1856,8 @@ Changed response : **200**
 
                     Changed items (array):
 
-                        Deleted properties: `referenceID`
-
-                        * Changed property `referenceId` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `referenceSource` (string):
-                          - Nullable changed: `null` -> `true`
+                        * Changed property `referenceID` (string):
+                          - Deprecated status changed
 
                 * Changed property `metadataFields` (array)
 
@@ -2722,10 +1890,7 @@ Changed response : **200**
         Deleted properties: `availableFormats`
 
         * Changed property `referenceSetDbId` (string):
-          - Nullable changed: `false` -> `null`
-
-        * Changed property `studyDbId` (string):
-          - Nullable changed: `true` -> `null`
+          - Nullable changed: `false` -> `true`
 
         * Changed property `analysis` (array)
 
@@ -2741,13 +1906,8 @@ Changed response : **200**
 
             Changed items (array):
 
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
 
         * Changed property `metadataFields` (array)
 
@@ -2783,29 +1943,6 @@ Changed response : **200**
 
                 Deleted properties: `genotype`, `genotype_likelihood`, `variantName`
 
-                * Changed property `genotypeValue` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `phaseSet` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `genotypeMetadata` (array):
-                  - Nullable changed: `null` -> `true`
-
-                    Changed items (array):
-
-                        * Changed property `dataType` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `fieldAbbreviation` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `fieldName` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `fieldValue` (string):
-                          - Nullable changed: `null` -> `true`
-
 ##### `GET` /variantsets/{variantSetDbId}/callsets
 
 
@@ -2825,24 +1962,13 @@ Changed response : **200**
 
                 Deleted properties: `variantSetDbIds`
 
-                * Changed property `sampleDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `studyDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
                 * Changed property `externalReferences` (array):
                   - Nullable changed: `null` -> `true`
 
                     Changed items (array):
 
-                        Deleted properties: `referenceID`
-
-                        * Changed property `referenceId` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `referenceSource` (string):
-                          - Nullable changed: `null` -> `true`
+                        * Changed property `referenceID` (string):
+                          - Deprecated status changed
 
 ##### `GET` /variantsets/{variantSetDbId}/variants
 
@@ -2859,40 +1985,17 @@ Changed response : **200**
 
             Changed items (array):
 
-                New properties: `analysis`, `variantSetName`
+                New properties: `analysis`
 
-                Deleted properties: `alternateBases`, `alternate_bases`
-
-                * Changed property `referenceDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `referenceName` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `referenceSetDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `referenceSetName` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `variantDbId` (string):
-                  - Nullable changed: `true` -> `null`
-
-                * Changed property `variantSetDbId` (array -> string):
-                  - Type changed: `array` -> `string`
+                Deleted properties: `alternateBases`, `alternate_bases`, `variantSetDbIds`
 
                 * Changed property `externalReferences` (array):
                   - Nullable changed: `null` -> `true`
 
                     Changed items (array):
 
-                        Deleted properties: `referenceID`
-
-                        * Changed property `referenceId` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `referenceSource` (string):
-                          - Nullable changed: `null` -> `true`
+                        * Changed property `referenceID` (string):
+                          - Deprecated status changed
 
 ##### `POST` /attributes
 
@@ -2923,13 +2026,8 @@ Changed response : **200**
 
             Changed items (array):
 
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
 
         * Changed property `ontologyReference` (object):
           - Nullable changed: `true` -> `null`
@@ -2973,13 +2071,8 @@ Changed response : **200**
 
         Changed items (array):
 
-            Deleted properties: `referenceID`
-
-            * Changed property `referenceId` (string):
-              - Nullable changed: `null` -> `true`
-
-            * Changed property `referenceSource` (string):
-              - Nullable changed: `null` -> `true`
+            * Changed property `referenceID` (string):
+              - Deprecated status changed
 
     * Changed property `ontologyReference` (object):
       - Nullable changed: `true` -> `null`
@@ -3012,21 +2105,13 @@ Changed response : **200**
         * Changed property `mimeType` (string):
           - Pattern changed: `image/.*` -> `null`
 
-        * Changed property `observationUnitDbId` (string):
-          - Nullable changed: `true` -> `null`
-
         * Changed property `externalReferences` (array):
           - Nullable changed: `null` -> `true`
 
             Changed items (array):
 
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
 
         * Changed property `imageLocation` (object):
           - Nullable changed: `true` -> `null`
@@ -3051,21 +2136,13 @@ Changed response : **200**
     * Changed property `mimeType` (string):
       - Pattern changed: `image/.*` -> `null`
 
-    * Changed property `observationUnitDbId` (string):
-      - Nullable changed: `true` -> `null`
-
     * Changed property `externalReferences` (array):
       - Nullable changed: `null` -> `true`
 
         Changed items (array):
 
-            Deleted properties: `referenceID`
-
-            * Changed property `referenceId` (string):
-              - Nullable changed: `null` -> `true`
-
-            * Changed property `referenceSource` (string):
-              - Nullable changed: `null` -> `true`
+            * Changed property `referenceID` (string):
+              - Deprecated status changed
 
     * Changed property `imageLocation` (object):
       - Nullable changed: `true` -> `null`
@@ -3089,17 +2166,15 @@ Changed response : **200**
 
         Deleted properties: `parentLocationDbId`, `parentLocationName`
 
+        * Changed property `locationName` (string):
+          - Nullable changed: `null` -> `true`
+
         * Changed property `externalReferences` (array)
 
             Changed items (array):
 
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
 
         * Changed property `coordinates` (object):
           - Nullable changed: `true` -> `null`
@@ -3121,17 +2196,15 @@ Changed response : **200**
 
     Deleted properties: `parentLocationDbId`, `parentLocationName`
 
+    * Changed property `locationName` (string):
+      - Nullable changed: `null` -> `true`
+
     * Changed property `externalReferences` (array)
 
         Changed items (array):
 
-            Deleted properties: `referenceID`
-
-            * Changed property `referenceId` (string):
-              - Nullable changed: `null` -> `true`
-
-            * Changed property `referenceSource` (string):
-              - Nullable changed: `null` -> `true`
+            * Changed property `referenceID` (string):
+              - Deprecated status changed
 
     * Changed property `coordinates` (object):
       - Nullable changed: `true` -> `null`
@@ -3162,38 +2235,12 @@ Deleted response : **404**
 
         Deleted properties: `season`
 
-        * Changed property `germplasmDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `germplasmName` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `observationUnitDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `observationUnitName` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `observationVariableDbId` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `observationVariableName` (string):
-          - Nullable changed: `true` -> `null`
-
-        * Changed property `studyDbId` (string):
-          - Nullable changed: `true` -> `null`
-
         * Changed property `externalReferences` (array)
 
             Changed items (array):
 
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
 
         * Changed property `geoCoordinates` (object):
           - Nullable changed: `true` -> `null`
@@ -3208,12 +2255,55 @@ Deleted response : **404**
 
 Deleted response : **404**
 
+##### `POST` /observationunits
+
+
+###### Request:
+
+* Changed content type : `application/json`
+
+    Changed items (array):
+
+        New properties: `germplasmPUI`, `studyPUI`, `trialPUI`
+
+        * Changed property `externalReferences` (array)
+
+            Changed items (array):
+
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
+
+        * Changed property `treatments` (array)
+
+            Changed items (array):
+
+                New properties: `observationUnitDbId`, `observationUnitName`, `observationUnitPUI`
+
+        * Changed property `observationUnitPosition` (object):
+          - Nullable changed: `true` -> `null`
+
+            New properties: `observationUnitDbId`, `observationUnitName`, `observationUnitPUI`
+
+            * Changed property `geoCoordinates` (object -> array):
+              - Type changed: `object` -> `array`
+
+            * Changed property `positionCoordinateXType` (string):
+              - Nullable changed: `true` -> `null`
+
+            * Changed property `positionCoordinateYType` (string):
+              - Nullable changed: `true` -> `null`
+
+            * Changed property `observationLevelRelationships` (array)
+
+                Changed items (array):
+
+                    New properties: `observationUnitName`, `observationUnitPUI`
+
+                    * Changed property `observationUnitDbId` (string):
+                      - Nullable changed: `true` -> `null`
+
 ##### `GET` /pedigree
 
-
-###### Parameters:
-
-Added: `externalReferenceID` in `query`
 
 ###### Return Type:
 
@@ -3254,13 +2344,8 @@ Changed response : **200**
 
                     Changed items (array):
 
-                        Deleted properties: `referenceID`
-
-                        * Changed property `referenceId` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `referenceSource` (string):
-                          - Nullable changed: `null` -> `true`
+                        * Changed property `referenceID` (string):
+                          - Deprecated status changed
 
                 * Changed property `parents` (array)
 
@@ -3274,6 +2359,9 @@ Changed response : **200**
 
                         * Changed property `germplasmName` (string):
                           - Nullable changed: `true` -> `null`
+
+                        * Changed property `parentType` (string):
+                          - Removed enum values: [CLONAL]
 
 ##### `POST` /pedigree
 
@@ -3309,13 +2397,8 @@ Changed response : **200**
 
             Changed items (array):
 
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
 
         * Changed property `parents` (array)
 
@@ -3329,6 +2412,9 @@ Changed response : **200**
 
                 * Changed property `germplasmName` (string):
                   - Nullable changed: `true` -> `null`
+
+                * Changed property `parentType` (string):
+                  - Removed enum values: [CLONAL]
 
 ###### Return Type:
 
@@ -3369,13 +2455,8 @@ Changed response : **200**
 
                     Changed items (array):
 
-                        Deleted properties: `referenceID`
-
-                        * Changed property `referenceId` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `referenceSource` (string):
-                          - Nullable changed: `null` -> `true`
+                        * Changed property `referenceID` (string):
+                          - Deprecated status changed
 
                 * Changed property `parents` (array)
 
@@ -3389,6 +2470,9 @@ Changed response : **200**
 
                         * Changed property `germplasmName` (string):
                           - Nullable changed: `true` -> `null`
+
+                        * Changed property `parentType` (string):
+                          - Removed enum values: [CLONAL]
 
 ##### `POST` /search/images
 
@@ -3544,13 +2628,8 @@ Changed response : **200**
 
                     Changed items (array):
 
-                        Deleted properties: `referenceID`
-
-                        * Changed property `referenceId` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `referenceSource` (string):
-                          - Nullable changed: `null` -> `true`
+                        * Changed property `referenceID` (string):
+                          - Deprecated status changed
 
                 * Changed property `parents` (array)
 
@@ -3564,6 +2643,9 @@ Changed response : **200**
 
                         * Changed property `germplasmName` (string):
                           - Nullable changed: `true` -> `null`
+
+                        * Changed property `parentType` (string):
+                          - Removed enum values: [CLONAL]
 
 ##### `GET` /search/pedigree/{searchResultsDbId}
 
@@ -3609,13 +2691,8 @@ Changed response : **200**
 
                     Changed items (array):
 
-                        Deleted properties: `referenceID`
-
-                        * Changed property `referenceId` (string):
-                          - Nullable changed: `null` -> `true`
-
-                        * Changed property `referenceSource` (string):
-                          - Nullable changed: `null` -> `true`
+                        * Changed property `referenceID` (string):
+                          - Deprecated status changed
 
                 * Changed property `parents` (array)
 
@@ -3629,6 +2706,9 @@ Changed response : **200**
 
                         * Changed property `germplasmName` (string):
                           - Nullable changed: `true` -> `null`
+
+                        * Changed property `parentType` (string):
+                          - Removed enum values: [CLONAL]
 
 ##### `POST` /variables
 
@@ -3659,13 +2739,8 @@ Changed response : **200**
 
             Changed items (array):
 
-                Deleted properties: `referenceID`
-
-                * Changed property `referenceId` (string):
-                  - Nullable changed: `null` -> `true`
-
-                * Changed property `referenceSource` (string):
-                  - Nullable changed: `null` -> `true`
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
 
         * Changed property `ontologyReference` (object):
           - Nullable changed: `true` -> `null`
@@ -3709,13 +2784,8 @@ Changed response : **200**
 
         Changed items (array):
 
-            Deleted properties: `referenceID`
-
-            * Changed property `referenceId` (string):
-              - Nullable changed: `null` -> `true`
-
-            * Changed property `referenceSource` (string):
-              - Nullable changed: `null` -> `true`
+            * Changed property `referenceID` (string):
+              - Deprecated status changed
 
     * Changed property `ontologyReference` (object):
       - Nullable changed: `true` -> `null`
@@ -3731,4 +2801,116 @@ Changed response : **200**
 
                 * Changed property `type` (string):
                   - Nullable changed: `null` -> `true`
+
+##### `POST` /germplasm
+
+
+###### Request:
+
+* Changed content type : `application/json`
+
+    Changed items (array):
+
+        New properties: `sampleDbIds`
+
+        * Changed property `donors` (array)
+
+            Changed items (array):
+
+                New properties: `germplasmDbId`, `germplasmName`, `germplasmPUI`
+
+        * Changed property `externalReferences` (array)
+
+            Changed items (array):
+
+                * Changed property `referenceID` (string):
+                  - Deprecated status changed
+
+        * Changed property `storageTypes` (array)
+
+            Changed items (array):
+
+                New properties: `germplasmDbId`, `germplasmName`, `germplasmPUI`
+
+        * Changed property `synonyms` (array)
+
+            Changed items (array):
+
+                New properties: `germplasmDbId`, `germplasmName`, `germplasmPUI`
+
+        * Changed property `taxonIds` (array)
+
+            Changed items (array):
+
+                New properties: `germplasmDbId`, `germplasmName`, `germplasmPUI`
+
+        * Changed property `germplasmOrigin` (array)
+
+            Changed items (array):
+
+                New properties: `germplasmDbId`, `germplasmName`, `germplasmPUI`
+
+                * Changed property `coordinates` (object):
+                  - Nullable changed: `true` -> `null`
+
+                    * Changed property `type` (string):
+                      - Default changed: `Feature` -> `none`
+
+                    * Changed property `geometry` (object -> null):
+                      - Type changed: `object` -> `null`
+
+##### `PUT` /germplasm/{germplasmDbId}
+
+
+###### Request:
+
+* Changed content type : `application/json`
+
+    New properties: `sampleDbIds`
+
+    * Changed property `donors` (array)
+
+        Changed items (array):
+
+            New properties: `germplasmDbId`, `germplasmName`, `germplasmPUI`
+
+    * Changed property `externalReferences` (array)
+
+        Changed items (array):
+
+            * Changed property `referenceID` (string):
+              - Deprecated status changed
+
+    * Changed property `storageTypes` (array)
+
+        Changed items (array):
+
+            New properties: `germplasmDbId`, `germplasmName`, `germplasmPUI`
+
+    * Changed property `synonyms` (array)
+
+        Changed items (array):
+
+            New properties: `germplasmDbId`, `germplasmName`, `germplasmPUI`
+
+    * Changed property `taxonIds` (array)
+
+        Changed items (array):
+
+            New properties: `germplasmDbId`, `germplasmName`, `germplasmPUI`
+
+    * Changed property `germplasmOrigin` (array)
+
+        Changed items (array):
+
+            New properties: `germplasmDbId`, `germplasmName`, `germplasmPUI`
+
+            * Changed property `coordinates` (object):
+              - Nullable changed: `true` -> `null`
+
+                * Changed property `type` (string):
+                  - Default changed: `Feature` -> `none`
+
+                * Changed property `geometry` (object -> null):
+                  - Type changed: `object` -> `null`
 
