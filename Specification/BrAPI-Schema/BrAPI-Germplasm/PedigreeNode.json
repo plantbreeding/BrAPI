@@ -41,10 +41,7 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "type": "array"
                 },
                 "familyCode": {
                     "description": "The code representing the family of this germplasm",
@@ -72,7 +69,7 @@
                         "array"
                     ]
                 },
-				"pedigreeNodeDbId": {
+                "pedigreeNodeDbId": {
                     "description": "The ID which uniquely identifies a pedigree node",
                     "type": [
                         "null",

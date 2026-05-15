@@ -5,7 +5,7 @@
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
                     "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
-					"relationshipType": "one-to-one"
+                    "relationshipType": "one-to-one"
                 },
                 "alleleMatrices": {
                     "title": "AlleleMatrices",
@@ -90,10 +90,7 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "type": "array"
                 },
                 "metadataFields": {
                     "description": "The 'metadataField' indicates which types of genotyping data and metadata are available in the VariantSet. \n<br> When possible, these field names and abbreviations should follow the VCF standard ",

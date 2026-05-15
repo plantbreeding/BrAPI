@@ -51,10 +51,7 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "type": "array"
                 },
                 "lastUpdated": {
                     "description": "The timestamp for the last update to this Seed Lot (including transactions)",

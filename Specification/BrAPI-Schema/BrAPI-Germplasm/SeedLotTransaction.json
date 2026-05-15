@@ -29,10 +29,7 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "type": "array"
                 },
                 "fromSeedLot": {
                     "description": "The identifier for the Seed Lot being transferred out of",

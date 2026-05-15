@@ -44,10 +44,7 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "type": "array"
                 },
                 "fundingInformation": {
                     "description": "Information describing the grant or funding source for this program",

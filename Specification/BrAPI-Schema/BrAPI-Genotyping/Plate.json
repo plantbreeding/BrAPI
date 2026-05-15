@@ -22,10 +22,7 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "type": "array"
                 },
                 "plateBarcode": {
                     "description": "A unique identifier physically attached to a `Plate`",

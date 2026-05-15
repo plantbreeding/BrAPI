@@ -45,10 +45,7 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "type": "array"
                 },
                 "germplasm": {
                     "description": "The ID which uniquely identifies a `Germplasm`",

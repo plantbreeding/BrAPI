@@ -47,10 +47,7 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "type": "array"
                 },
                 "germplasm": {
                     "description": "The ID which uniquely identifies a germplasm within the given database server",
