@@ -31,7 +31,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["array", "null"],
                             "example": [
                                 "6a4a59d8",
                                 "3ff067e0"
@@ -42,7 +42,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["array", "null"],
                             "example": [
                                 "76f559b5",
                                 "066bc5d3"
@@ -50,7 +50,7 @@
                         },
                         "observationLevels": {
                             "description": "Searches for values in ObservationUnit->observationUnitPosition->observationLevel",
-                            "type": "array",
+                            "type": ["array", "null"],
                             "items": {
                                 "$ref": "../BrAPI-Phenotyping/ObservationUnitLevel.json#/$defs/ObservationUnitLevel"
                             },
@@ -71,7 +71,7 @@
                         },
                         "observationLevelRelationships": {
                             "description": "Searches for values in ObservationUnit->observationUnitPosition->observationLevelRelationships",
-                            "type": "array",
+                            "type": ["array", "null"],
                             "items": {
                                 "$ref": "../BrAPI-Phenotyping/ObservationUnitLevelRelationship.json#/$defs/ObservationUnitLevelRelationship"
                             },
@@ -134,19 +134,19 @@
                         "observationTimeStampRangeEnd": {
                             "description": "Timestamp range end",
                             "format": "date-time",
-                            "type": "string"
+                            "type": ["string", "null"]
                         },
                         "observationTimeStampRangeStart": {
                             "description": "Timestamp range start",
                             "format": "date-time",
-                            "type": "string"
+                            "type": ["string", "null"]
                         },
                         "seasonDbIds": {
                             "description": "The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)",
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["array", "null"],
                             "example": [
                                 "Spring 2018",
                                 "Season A"

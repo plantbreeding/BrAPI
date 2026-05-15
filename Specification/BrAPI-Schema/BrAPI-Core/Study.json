@@ -209,10 +209,7 @@
                 },
                 "studyDescription": {
                     "description": "The description of this study\n\nMIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type": "string"
                 },
                 "studyName": {
                     "description": "The human readable name for a study\n\nMIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study",

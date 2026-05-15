@@ -89,14 +89,7 @@
                             ]
                         },
                         "listType": {
-                            "anyOf": [
-                                {
-                                    "$ref": "../BrAPI-Core/ListType.json#/$defs/ListType"
-                                },
-                                {
-                                    "type": "null"
-                                }
-                            ]
+                            "$ref": "../BrAPI-Core/ListType.json#/$defs/ListType"
                         }
                     }
                 }

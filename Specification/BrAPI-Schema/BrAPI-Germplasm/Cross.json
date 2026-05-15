@@ -57,10 +57,7 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "type": "array"
                 },
                 "parent1": {
                     "$ref": "CrossParent.json#/$defs/CrossParent",

@@ -27,10 +27,7 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "type": "array"
                 },
                 "isDerived": {
                     "description": "A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.",
@@ -62,7 +59,14 @@
                     "type": "string"
                 },
                 "referenceSet": {
-                    "$ref": "ReferenceSet.json#/$defs/ReferenceSet",
+                    "anyOf": [
+                        {
+                            "$ref": "ReferenceSet.json#/$defs/ReferenceSet"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The unique identifier for a `ReferenceSet`",
                     "referencedAttribute": "references",
                     "relationshipType": "many-to-one"

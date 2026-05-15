@@ -41,10 +41,7 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "type": "array"
                 },
                 "familyCode": {
                     "description": "The code representing the family of this germplasm",

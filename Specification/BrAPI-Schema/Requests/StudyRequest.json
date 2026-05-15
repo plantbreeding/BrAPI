@@ -86,16 +86,16 @@
                                     "studyType",
                                     "studyName",
                                     "studyLocation",
-                                    "programName"
+                                    "programName",
+                                    "germplasmDbId",
+                                    "observationVariableDbId"
                                 ],
                                 "type": ["null", "string"]
                         },
                         "sortOrder": {
                             "description": "Sort order direction. Ascending/Descending.",
                                 "enum": [
-                                    "asc",
                                     "ASC",
-                                    "desc",
                                     "DESC"
                                 ],
                                 "type": ["null", "string"]

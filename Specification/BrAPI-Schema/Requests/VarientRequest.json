@@ -23,7 +23,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["array", "null"],
                             "example": [
                                 "4639fe3e",
                                 "b60d900b"
@@ -37,7 +37,7 @@
                         "referenceDbId": {
                             "deprecated": true,
                             "description": "**Deprecated in v2.1** Please use `referenceDbIds`. Github issue number #472\n<br/>Only return variants on this reference.",
-                            "type": "string",
+                            "type": ["string", "null"],
                             "example": "120a2d5c"
                         },
                         "referenceDbIds": {
@@ -45,7 +45,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["array", "null"],
                             "example": [
                                 "89ab4d17",
                                 "74d3b63d"
@@ -56,7 +56,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["array", "null"],
                             "example": [
                                 "d3b63d4d",
                                 "3b63d74b"
@@ -72,7 +72,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["array", "null"],
                             "example": [
                                 "3b63d889",
                                 "ab4d174d"
@@ -83,7 +83,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["array", "null"],
                             "example": [
                                 "ba63d810",
                                 "434d1760"

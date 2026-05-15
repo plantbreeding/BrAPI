@@ -90,10 +90,7 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "type": "array"
                 },
                 "metadataFields": {
                     "description": "The 'metadataField' indicates which types of genotyping data and metadata are available in the VariantSet. \n<br> When possible, these field names and abbreviations should follow the VCF standard ",
