@@ -96,6 +96,7 @@ paths:
       - $ref: '#/components/parameters/germplasmDbId'
       - $ref: '#/components/parameters/germplasmName'
       - $ref: '#/components/parameters/germplasmPUI'
+      - $ref: '#/components/parameters/externalReferenceID'
       - $ref: '#/components/parameters/externalReferenceId'
       - $ref: '#/components/parameters/externalReferenceSource'
       - $ref: '#/components/parameters/page'

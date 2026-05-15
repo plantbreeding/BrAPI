@@ -11,8 +11,15 @@
                 },
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
-					"relationshipType": "one-to-one"
+                    "relationshipType": "one-to-one",
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "coordinateDescription": {
                     "description": "Describes the precision and landmarks of the coordinate values used for a Location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)",
@@ -31,7 +38,14 @@
                 "coordinates": {
                     "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
                     "relationshipType": "one-to-one",
-                    "$ref": "../BrAPI-Common/GeoJSON.json#/$defs/GeoJSON"
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Common/GeoJSON.json#/$defs/GeoJSON"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "countryCode": {
                     "description": "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec\n<br/> MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.'",
@@ -112,10 +126,17 @@
                     ]
                 },
                 "parentLocation": {
-                    "$ref": "Location.json#/$defs/Location",
                     "description": "The unique identifier for a Location\n<br/> The Parent Location defines the encompassing Location that a smaller Location belongs to. \nFor example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.",
                     "referencedAttribute": "childLocations",
-                    "relationshipType": "many-to-one"
+                    "relationshipType": "many-to-one",
+                    "anyOf": [
+                        {
+                            "$ref": "Location.json#/$defs/Location"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "childLocations": {
                     "title": "ChildLocations",

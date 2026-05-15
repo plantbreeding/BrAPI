@@ -9,9 +9,6 @@
                     "$ref": "Parameters/LocationParameters.json#/$defs/LocationParameters"
                 },
                 {
-                    "$ref": "Parameters/ObservationVariableParameters.json#/$defs/ObservationVariableParameters"
-                },
-                {
                     "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
                 },
                 {
@@ -59,29 +56,6 @@
                                 "https://doi.org/01093190",
                                 "https://doi.org/11192409"
                             ]
-                        },
-                        "sortBy": {
-                            "description": "Name of the field to sort by.",
-                            "enum": [
-                                "trialDbId",
-                                "trialName",
-                                "programDbId",
-                                "programName",
-                                "locationDbId",
-                                "startDate",
-                                "endDate"
-                            ],
-                            "type": "string"
-                        },
-                        "sortOrder": {
-                            "description": "Sort order direction. Ascending/Descending.",
-                            "enum": [
-                                "asc",
-                                "ASC",
-                                "desc",
-                                "DESC"
-                            ],
-                            "type": "string"
                         }
                     }
                 }

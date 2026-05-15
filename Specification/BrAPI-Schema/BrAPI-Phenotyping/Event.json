@@ -9,16 +9,13 @@
                 },
                 "eventDateRange": {
                     "description": "An object describing when a particular Event has taken place. An Event can occur at one or more discrete time points (`discreteDates`) or an event can happen continuously over a longer period of time (`startDate`, `endDate`)",
-                    "relationshipType": "one-to-many",
-                    "referencedAttribute": "event",
-                    "items": {
-                        "$ref": "../BrAPI-Phenotyping/Event.json#/$defs/EventDateRange",
-                        "description": "EventDateRange"
-                    },
-                    "title": "EventDateRange",
-                    "type": [
-                        "null",
-                        "array"
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Phenotyping/Event.json#/$defs/EventDateRange"
+                        },
+                        {
+                            "type": "null"
+                        }
                     ]
                 },
                 "eventDbId": {
@@ -48,10 +45,7 @@
                 },
                 "eventType": {
                     "description": "An identifier for this event type, in the form of an ontology class reference\n<br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other\n<br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type": "string"
                 },
                 "eventTypeDbId": {
                     "description": "An identifier for this event type, in the form of an ontology class reference\n<br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other\n<br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).",
@@ -173,6 +167,20 @@
                         "null",
                         "string"
                     ]
+                },
+                "key": {
+                    "deprecated": true,
+                    "description": "**Deprecated in v2.1** Please use `name`. Github issue number #440             \n<br>Specifies the relationship between the event and the given property. E.g. fertilizer, operator",
+                    "type": "string",
+                    "nullable": true,
+                    "example": "operator"
+                },
+                "rdfValue": {
+                    "deprecated": true,
+                    "description": "**Deprecated in v2.1** Please use `code`. Github issue number #440             \n<brThe type of the value given above, e.g. http://xmlns.com/foaf/0.1/Agent",
+                    "type": "string",
+                    "nullable": true,
+                    "example": "http://xmlns.com/foaf/0.1/Agent"
                 },
                 "valuesByDate": {
                     "description": "An array of values corresponding to each timestamp in the 'discreteDates' array of this event. The 'valuesByDate' array should exactly match the size of the 'discreteDates' array. If 'valuesByDate' is populated then 'value' should NOT be populated.",

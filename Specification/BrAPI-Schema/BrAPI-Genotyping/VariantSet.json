@@ -108,13 +108,27 @@
                     ]
                 },
                 "referenceSet": {
-                    "$ref": "ReferenceSet.json#/$defs/ReferenceSet",
+                    "anyOf": [
+                        {
+                            "$ref": "ReferenceSet.json#/$defs/ReferenceSet"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The ID of the reference set that describes the sequences used by the variants in this set.",
                     "referencedAttribute": "variantSets",
                     "relationshipType": "many-to-one"
                 },
                 "study": {
-                    "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Core/Study.json#/$defs/Study"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The ID of the dataset this variant set belongs to.",
                     "referencedAttribute": "variantSets",
                     "relationshipType": "many-to-one"

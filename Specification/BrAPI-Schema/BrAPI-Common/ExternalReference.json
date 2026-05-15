@@ -5,14 +5,20 @@
                 "referenceId": {
                     "description": "The external reference ID. Could be a simple string or a URI.",
                     "type": [
-                        "null",
                         "string"
                     ]
+                },
+                "referenceID": {
+                    "description": "**Deprecated in v2.1** Please use `referenceId`. Github issue number #460 <br>The external reference ID. Could be a simple string or a URI.",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "deprecated": true
                 },
                 "referenceSource": {
                     "description": "An identifier for the source system or database of this reference",
                     "type": [
-                        "null",
                         "string"
                     ]
                 }

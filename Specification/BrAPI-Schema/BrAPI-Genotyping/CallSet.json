@@ -68,13 +68,27 @@
                     ]
                 },
                 "sample": {
-                    "$ref": "Sample.json#/$defs/Sample",
+                    "anyOf": [
+                        {
+                            "$ref": "Sample.json#/$defs/Sample"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The Biosample entity the call set data was generated from.",
                     "referencedAttribute": "callSets",
                     "relationshipType": "many-to-one"
                 },
                 "study": {
-                    "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Core/Study.json#/$defs/Study"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The ID which uniquely identifies a study within the given database server",
                     "referencedAttribute": "callSets",
                     "relationshipType": "many-to-one"

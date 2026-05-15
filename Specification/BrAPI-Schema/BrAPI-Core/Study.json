@@ -1,4 +1,4 @@
-    {
+{
     "$defs": {
         "Study": {
             "properties": {
@@ -11,8 +11,15 @@
                 },
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
-					"relationshipType": "one-to-one"
+                    "relationshipType": "one-to-one",
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "commonCropName": {
                     "description": "Common name for the crop associated with this study",
@@ -81,7 +88,14 @@
                     "description": "The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology",
                     "relationshipType": "one-to-one",
                     "referencedAttribute": "study",
-                    "$ref": "../BrAPI-Core/Study.json#/$defs/ExperimentalDesign"
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Core/Study.json#/$defs/ExperimentalDesign"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
@@ -100,13 +114,27 @@
                     "description": "Short description of the facility in which the study was carried out.",
                     "relationshipType": "many-to-one",
                     "referencedAttribute": "study",
-					"$ref": "../BrAPI-Core/Study.json#/$defs/GrowthFacility"
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Core/Study.json#/$defs/GrowthFacility"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "lastUpdate": {
                     "description": "The date and time when this study was last modified",
                     "relationshipType": "one-to-one",
                     "referencedAttribute": "study",
-                    "$ref": "../BrAPI-Core/Study.json#/$defs/LastUpdate"
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Core/Study.json#/$defs/LastUpdate"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "license": {
                     "description": "The usage license associated with the study data",
@@ -116,10 +144,17 @@
                     ]
                 },
                 "location": {
-                    "$ref": "Location.json#/$defs/Location",
                     "description": "The unique identifier for a Location",
                     "referencedAttribute": "studies",
-                    "relationshipType": "many-to-one"
+                    "relationshipType": "many-to-one",
+                    "anyOf": [
+                        {
+                            "$ref": "Location.json#/$defs/Location"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "observationLevels": {
                     "description": "Observation levels indicate the granularity level at which the measurements are taken. `levelName` \ndefines the level, `levelOrder` defines where that level exists in the hierarchy of levels. \n`levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are \nat the bottom of the hierarchy (ie plant > 6). \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
@@ -188,7 +223,10 @@
                 },
                 "studyName": {
                     "description": "The human readable name for a study\n\nMIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study",
-                    "type": "string"
+                    "type": [
+                        "null",
+                        "string"
+                    ]
                 },
                 "studyPUI": {
                     "description": "A permanent unique identifier associated with this study data. For example, a URI or DOI",
@@ -324,7 +362,7 @@
             }
         },
         "EnvironmentParameter": {
-            "description": "An environmental parameter that was kept constant throughout the study and did not change between observation units.\n\nMIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables.",
+            "description": "Environmental parameters that were kept constant throughout the study and did not change between observation units. \n\nMIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).",
             "properties": {
                 "description": {
                     "description": "Human-readable value of the environment parameter (defined above) constant within the experiment",
@@ -386,7 +424,6 @@
                 "description"
             ],
             "title": "EnvironmentParameter",
-            "description": "Environmental parameters that were kept constant throughout the study and did not change between observation units. \n\nMIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

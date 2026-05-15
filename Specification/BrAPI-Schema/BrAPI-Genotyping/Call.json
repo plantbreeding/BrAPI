@@ -23,23 +23,16 @@
                     },
                     "title": "GenotypeMetadata",
                     "type": [
-                        "null",
                         "array"
                     ]
                 },
                 "genotypeValue": {
                     "description": "The value of this genotype call",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type": "string"
                 },
                 "phaseSet": {
                     "description": "If this field is populated, this variant call's genotype ordering implies the phase of the bases and \nis consistent with any other variant calls on the same contig which have the same phase set string.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type": "string"
                 },
                 "variant": {
                     "$ref": "Variant.json#/$defs/Variant",
@@ -78,31 +71,19 @@
                         "boolean",
                         null
                     ],
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type": "string"
                 },
                 "fieldAbbreviation": {
                     "description": "The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: \"GQ\", \"RD\", and \"HQ\"\n<br> This maps to a FORMAT field in the VCF file standard.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type": "string"
                 },
                 "fieldName": {
                     "description": "The name of the field represented in this Genotype Field. Examples include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype Quality\"\n<br> This maps to a FORMAT field in the VCF file standard.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type": "string"
                 },
                 "fieldValue": {
                     "description": "The additional metadata value associated with this genotype call",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type": "string"
                 },
                 "call": {
                     "description": "Genotype metadata associated with a call",

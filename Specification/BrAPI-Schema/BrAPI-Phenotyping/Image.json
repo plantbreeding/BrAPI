@@ -4,7 +4,14 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "copyright": {
                     "description": "The copyright information of this image. Example 'Copyright 2018 Bob Robertson'",
@@ -77,7 +84,14 @@
                     "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
                     "relationshipType": "one-to-one",
                     "referencedAttribute": "image",
-					"$ref": "../BrAPI-Common/GeoJSON.json#/$defs/GeoJSON"
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Common/GeoJSON.json#/$defs/GeoJSON"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "imageName": {
                     "description": "The human readable name of an image. Might be the same as 'imageFileName', but could be different.",
@@ -117,10 +131,17 @@
                     ]
                 },
                 "observationUnit": {
-                    "$ref": "ObservationUnit.json#/$defs/ObservationUnit",
                     "description": "The related observation unit identifier, if relevant.",
                     "referencedAttribute": "images",
-                    "relationshipType": "many-to-one"
+                    "relationshipType": "many-to-one",
+                    "anyOf": [
+                        {
+                            "$ref": "ObservationUnit.json#/$defs/ObservationUnit"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "observations": {
                     "description": "A list of observation Ids this image is associated with, if applicable.",

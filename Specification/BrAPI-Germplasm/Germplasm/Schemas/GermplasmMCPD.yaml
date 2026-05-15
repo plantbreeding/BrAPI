@@ -111,6 +111,11 @@ components:
           items:
             type: object
             properties:
+              instituteAddress:
+                description: MCPD (v2.1) (COLLINSTADDRESS) 4.1.1  Address of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled since the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.
+                type: string
+                nullable: true
+                example: 123 Main Street, Lima, Peru, 5555
               instituteCode:
                 description: MCPD (v2.1) (BREDCODE) 18. FAO WIEWS code of the institute that has bred the material. If the holding institute has bred the material, the breeding institute code (BREDCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard.
                 type: string
@@ -243,6 +248,11 @@ components:
                 <br> MCPD (v2.1) (DONORNAME) 22.1  Name of the donor institute (or person). This descriptor should be used only if DONORCODE can not be filled because the FAO WIEWS code for this institute is not available.
               type: object
               properties:
+                instituteAddress:
+                  description: MCPD (v2.1) (COLLINSTADDRESS) 4.1.1  Address of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled since the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.
+                  type: string
+                  nullable: true
+                  example: 123 Main Street, Lima, Peru, 5555
                 instituteCode:
                   description: MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.
                   type: string
@@ -290,6 +300,11 @@ components:
         safetyDuplicateInstitutes:
           items:
             properties:
+              instituteAddress:
+                description: MCPD (v2.1) (COLLINSTADDRESS) 4.1.1  Address of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled since the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.
+                type: string
+                nullable: true
+                example: 123 Main Street, Lima, Peru, 5555
               instituteCode:
                 description: MCPD (v2.1) (DUPLSITE) 25. FAO WIEWS code of the institute(s) where a safety duplicate of the accession is maintained. Follows INSTCODE standard.
                 type: string

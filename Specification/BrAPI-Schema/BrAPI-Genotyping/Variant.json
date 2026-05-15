@@ -132,7 +132,14 @@
                     ]
                 },
                 "reference": {
-                    "$ref": "Reference.json#/$defs/Reference",
+                    "anyOf": [
+                        {
+                            "$ref": "Reference.json#/$defs/Reference"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The unique identifier for a Reference",
                     "referencedAttribute": "variants",
                     "relationshipType": "many-to-one"
@@ -145,7 +152,14 @@
                     ]
                 },
                 "referenceSet": {
-                    "$ref": "ReferenceSet.json#/$defs/ReferenceSet",
+                    "anyOf": [
+                        {
+                            "$ref": "ReferenceSet.json#/$defs/ReferenceSet"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The unique identifier for a ReferenceSet",
                     "referencedAttribute": "variants",
                     "relationshipType": "many-to-one"
@@ -174,7 +188,10 @@
                 },
                 "variantDbId": {
                     "description": "The ID which uniquely identifies a `Variant`",
-                    "type": "string"
+                    "type": [
+                        "null",
+                        "string"
+                    ]
                 },
                 "variantNames": {
                     "description": "A human readable name associated with a `Variant`",
@@ -187,10 +204,16 @@
                     ]
                 },
                 "variantSet": {
-                    "$ref": "VariantSet.json#/$defs/VariantSet",
+                    "items": {
+                        "$ref": "VariantSet.json#/$defs/VariantSet"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ],
                     "description": "An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.",
                     "referencedAttribute": "variants",
-                    "relationshipType": "many-to-one"
+                    "relationshipType": "many-to-many"
                 },
                 "variantType": {
                     "description": "The \"variant_type\" is used to denote e.g. structural variants.\nExamples:\n  DUP  : duplication of sequence following \"start\"\n  DEL  : deletion of sequence following \"start\"",

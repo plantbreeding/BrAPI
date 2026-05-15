@@ -148,7 +148,7 @@ components:
           type: string
           nullable: true
           format: date-time
-        variantSetDbId: 
+        variantSetDbIds:
           description: An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.
           type: array
           nullable: true
