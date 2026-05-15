@@ -53,7 +53,10 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": "array"
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "mainAbbreviation": {
                     "description": "A shortened version of the human readable name for a Trait",

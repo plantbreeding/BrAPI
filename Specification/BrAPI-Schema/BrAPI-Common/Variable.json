@@ -47,7 +47,10 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": "array"
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "growthStage": {
                     "description": "Growth stage at which measurement is made (examples: \"flowering\")",

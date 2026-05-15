@@ -102,7 +102,10 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": "array"
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "filtersApplied": {
                     "description": "True if filters were applied for this variant. VCF column 7 \"FILTER\" any value other than the missing value.",

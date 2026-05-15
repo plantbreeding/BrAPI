@@ -29,7 +29,10 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": "array"
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "formula": {
                     "description": "For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation",

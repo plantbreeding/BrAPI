@@ -4,15 +4,8 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "relationshipType": "one-to-one",
-                    "anyOf": [
-                        {
-                            "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+                    "relationshipType": "one-to-one"
                 },
                 "amount": {
                     "description": "The current balance of the amount of material in a SeedLot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).",
@@ -51,7 +44,10 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": "array"
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "lastUpdated": {
                     "description": "The timestamp for the last update to this Seed Lot (including transactions)",

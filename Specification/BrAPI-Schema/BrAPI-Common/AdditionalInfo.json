@@ -1,6 +1,7 @@
 {
     "$defs": {
         "AdditionalInfo": {
+            "nullable": true,
             "additionalProperties": {
                 "description": "A free space containing any additional information related to a particular object.",
                 "type": [

@@ -4,15 +4,8 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "relationshipType": "one-to-one",
-                    "anyOf": [
-                        {
-                            "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+                    "relationshipType": "one-to-one"
                 },
                 "cross": {
                     "description": "the unique identifier for a cross",
@@ -35,7 +28,10 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": "array"
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "germplasm": {
                     "description": "The ID which uniquely identifies a germplasm",

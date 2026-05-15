@@ -6,8 +6,7 @@
                 "MALE",
                 "FEMALE",
                 "SELF",
-                "POPULATION",
-                "CLONAL"
+                "POPULATION"
             ],
             "type": "string"
         }

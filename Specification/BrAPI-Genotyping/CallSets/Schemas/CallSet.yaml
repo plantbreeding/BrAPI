@@ -23,7 +23,6 @@ components:
           nullable: true
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
         sampleDbId:
           description: The Biosample entity the call set data was generated from.
           type: string

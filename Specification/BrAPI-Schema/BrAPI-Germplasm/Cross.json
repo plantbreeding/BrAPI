@@ -4,15 +4,8 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "relationshipType": "one-to-one",
-                    "anyOf": [
-                        {
-                            "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+					"relationshipType": "one-to-one"
                 },
                 "crossAttributes": {
                     "description": "Set of custom attributes associated with a cross",
@@ -41,14 +34,7 @@
                 },
                 "crossType": {
                     "description": "the type of cross",
-                    "anyOf": [
-                        {
-                            "$ref": "CrossType.json#/$defs/CrossType"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
+                    "$ref": "CrossType.json#/$defs/CrossType"
                 },
                 "crossingProject": {
                     "description": "the unique identifier for a crossing project",
@@ -71,29 +57,18 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": "array"
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "parent1": {
-                    "description": "the first parent used in the cross",
-                    "anyOf": [
-                        {
-                            "$ref": "CrossParent.json#/$defs/CrossParent"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
+                    "$ref": "CrossParent.json#/$defs/CrossParent",
+                    "description": "the first parent used in the cross"
                 },
                 "parent2": {
-                    "description": "the second parent used in the cross",
-                    "anyOf": [
-                        {
-                            "$ref": "CrossParent.json#/$defs/CrossParent"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
+                    "$ref": "CrossParent.json#/$defs/CrossParent",
+                    "description": "the second parent used in the cross"
                 },
                 "plannedCross": {
                     "description": "The Cross that was used in the planning of this one.",

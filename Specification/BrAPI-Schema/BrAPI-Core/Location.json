@@ -11,15 +11,8 @@
                 },
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "relationshipType": "one-to-one",
-                    "anyOf": [
-                        {
-                            "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+                    "relationshipType": "one-to-one"
                 },
                 "coordinateDescription": {
                     "description": "Describes the precision and landmarks of the coordinate values used for a Location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)",
@@ -91,7 +84,10 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": "array"
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "instituteAddress": {
                     "description": "The street address of the institute at a particular Location\n<br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.",
