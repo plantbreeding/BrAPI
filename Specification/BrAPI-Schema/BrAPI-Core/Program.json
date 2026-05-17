@@ -84,10 +84,7 @@
                         "PROJECT",
                         null
                     ],
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type":  "string"
                 },
                 "trials": {
                     "title": "Trials",

@@ -35,6 +35,7 @@
                     "type": "string"
                 },
                 "genotype": {
+                    "deprecated": true,
                     "$ref": "../BrAPI-Genotyping/Call.json#/$defs/ListValue"
                 },
                 "genotype_likelihood": {

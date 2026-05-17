@@ -17,14 +17,14 @@ paths:
       - name: programType
         description: |-
             The type of program entity this object represents
-            <br/> 'STANARD' represents a standard, permenant breeding program
+            <br/> 'STANDARD' represents a standard, permenant breeding program
             <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding 
         in: query
         required: false
         schema:
           type: string
           enum:
-          - STANARD
+          - STANDARD
           - PROJECT
       - $ref: '#/components/parameters/commonCropName'
       - $ref: '#/components/parameters/programDbId'

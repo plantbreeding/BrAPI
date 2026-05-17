@@ -627,7 +627,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "Best Breeding Program"
     ],
     "programTypes": [
-        "STANARD",
+        "STANDARD",
         "PROJECT"
     ]
 }

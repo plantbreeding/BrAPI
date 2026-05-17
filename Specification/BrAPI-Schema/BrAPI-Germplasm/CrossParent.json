@@ -1,6 +1,7 @@
 {
     "$defs": {
         "CrossParent": {
+            "nullable" : true,
             "properties": {
                 "germplasm": {
                     "description": "the germplasm of the cross parent",

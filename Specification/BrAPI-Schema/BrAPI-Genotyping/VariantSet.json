@@ -151,8 +151,8 @@
                 "variants": {
                     "title": "variants",
                     "description": "variants",
-                    "referencedAttribute": "variantSet",
-                    "relationshipType": "one-to-many",
+                    "referencedAttribute": "variantSets",
+                    "relationshipType": "many-to-many",
                     "items": {
                         "$ref": "Variant.json#/$defs/Variant",
                         "description": "Variant"

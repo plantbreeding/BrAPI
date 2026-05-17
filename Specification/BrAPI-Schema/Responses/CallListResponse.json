@@ -1,0 +1,62 @@
+{
+    "$defs": {
+        "CallListResponse": {
+            "title": "CallListResponse",
+            "type": "object",
+            "required": [
+                "data"
+            ],
+            "properties": {
+                "data": {
+                    "description": "The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "../BrAPI-Genotyping/Call.json#/$defs/Call"
+                    }
+                },
+                "expandHomozygotes": {
+                    "description": "Should homozygotes be expanded (true) or collapsed into a single occurrence (false)",
+                    "type": [
+                        "null",
+                        "boolean"
+                    ],
+                    "nullable": true,
+                    "example": true
+                },
+                "sepPhased": {
+                    "description": "The string used as a separator for phased allele calls.",
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "nullable": true,
+                    "example": "|"
+                },
+                "sepUnphased": {
+                    "description": "The string used as a separator for unphased allele calls.",
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "nullable": true,
+                    "example": "/"
+                },
+                "unknownString": {
+                    "description": "The string used as a representation for missing data.",
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "nullable": true,
+                    "example": "."
+                }
+            },
+            "brapi-metadata": {
+                "response": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Responses/CallListResponse.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}
+

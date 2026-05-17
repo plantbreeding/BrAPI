@@ -7,16 +7,22 @@
                     "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
 					"relationshipType": "one-to-one"
                 },
+                "date": {
+                    "description": "**Deprecated in v2.1** Please use `eventDateRange.discreteDates`. Github issue number #440\n<br>A list of dates when the event occurred\n<br>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
+                    "deprecated": true,
+                    "items": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ],
+                    "examples" : ["2018-10-08T18:15:11Z", "2018-11-09T18:16:12Z"]
+                },
                 "eventDateRange": {
                     "description": "An object describing when a particular Event has taken place. An Event can occur at one or more discrete time points (`discreteDates`) or an event can happen continuously over a longer period of time (`startDate`, `endDate`)",
-                    "anyOf": [
-                        {
-                            "$ref": "../BrAPI-Phenotyping/Event.json#/$defs/EventDateRange"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
+                    "$ref": "../BrAPI-Phenotyping/Event.json#/$defs/EventDateRange"
                 },
                 "eventDbId": {
                     "description": "Internal database identifier",
@@ -61,10 +67,20 @@
                     },
                     "referencedAttribute": "events",
                     "relationshipType": "many-to-many",
-                    "type": "array"
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "study": {
-                    "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Core/Study.json#/$defs/Study"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The study in which the event occurred",
                     "referencedAttribute": "events",
                     "relationshipType": "many-to-one"
@@ -82,6 +98,7 @@
             }
         },
         "EventDateRange": {
+            "nullable": true,
             "properties": {
 				"discreteDates": {
                     "description": "A list of dates when the event occurred\n<br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
@@ -171,15 +188,19 @@
                 "key": {
                     "deprecated": true,
                     "description": "**Deprecated in v2.1** Please use `name`. Github issue number #440             \n<br>Specifies the relationship between the event and the given property. E.g. fertilizer, operator",
-                    "type": "string",
-                    "nullable": true,
+                    "type": [
+                        "null",
+                        "string"
+                    ],
                     "example": "operator"
                 },
                 "rdfValue": {
                     "deprecated": true,
                     "description": "**Deprecated in v2.1** Please use `code`. Github issue number #440             \n<brThe type of the value given above, e.g. http://xmlns.com/foaf/0.1/Agent",
-                    "type": "string",
-                    "nullable": true,
+                    "type": [
+                        "null",
+                        "string"
+                    ],
                     "example": "http://xmlns.com/foaf/0.1/Agent"
                 },
                 "valuesByDate": {

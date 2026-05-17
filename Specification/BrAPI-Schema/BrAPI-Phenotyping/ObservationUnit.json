@@ -1,6 +1,7 @@
 {
     "$defs": {
         "ObservationUnit": {
+            "nullable": true,
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
@@ -80,14 +81,7 @@
                 "observationUnitPosition": {
                     "description": "All positional and layout information related to this Observation Unit \n\nMIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) \nor level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. \nLevels of observation must be consistent with those listed in the Study section.",
                     "referencedAttribute": "observationUnit",
-                    "anyOf": [
-                        {
-                            "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnitPosition"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnitPosition",
                     "title": "ObservationUnitPosition"
                 },
                 "program": {
@@ -224,6 +218,7 @@
             }
         },
         "ObservationUnitPosition": {
+            "nullable": true,
             "properties": {
                 "entryType": {
                     "description": "The type of entry for this observation unit. ex. \"CHECK\", \"TEST\", \"FILLER\"",

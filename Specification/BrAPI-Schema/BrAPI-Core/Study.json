@@ -358,10 +358,6 @@
                     "description": "Human-readable value of the environment parameter (defined above) constant within the experiment",
                     "type": "string"
                 },
-                "environmentParametersDbId": {
-                    "description": "Human-readable value of the environment parameter (defined above) constant within the experiment",
-                    "type": "string"
-                },
                 "parameterName": {
                     "description": "Name of the environment parameter constant within the experiment\n\nMIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. ",
                     "type": "string"
@@ -420,6 +416,7 @@
             }
         },
         "ExperimentalDesign": {
+            "nullable": true,
             "properties": {
                 "PUI": {
                     "description": "MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.",
@@ -450,13 +447,11 @@
             }
         },
         "GrowthFacility": {
+            "nullable": true,
             "properties": {
                 "PUI": {
                     "description": "MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type": "string"
                 },
                 "description": {
                     "description": "MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.",
@@ -480,11 +475,8 @@
             }
         },
         "LastUpdate": {
+            "nullable": true,
             "properties": {
-                "lastUpdateDbId": {
-                    "description": "The ID which uniquely identifies a LastUpdate within the given database server",
-                    "type": "string"
-                },
                 "timestamp": {
                     "description": "The timestamp of the update.",
                     "format": "date-time",

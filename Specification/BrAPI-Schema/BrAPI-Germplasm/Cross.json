@@ -80,6 +80,15 @@
                         }
                     ]
                 },
+                "pollinationTimeStamp": {
+                    "description": "**Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265\n<br>The timestamp when the pollination took place",
+                    "deprecated": true,
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "format": "date-time"
+                },
                 "pollinationEvents": {
                     "description": "The list of pollination events that occurred for this cross.",
                     "relationshipType": "one-to-many",
