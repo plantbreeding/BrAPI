@@ -638,6 +638,8 @@ paths:
           - studyName
           - studyLocation
           - programName
+          - germplasmDbId
+          - observationVariableDbId
       - name: sortOrder
         in: query
         description: Sort order direction. Ascending/Descending.
@@ -646,10 +648,10 @@ paths:
           type: string
           description: Sort order direction. Ascending/Descending.
           enum:
-          - asc
           - ASC
-          - desc
           - DESC
+          - asc
+          - desc
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -1479,6 +1481,10 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/ListListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "404":
+          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
@@ -1517,6 +1523,10 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/LocationListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "404":
+          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
@@ -1555,6 +1565,10 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/PersonListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "404":
+          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
@@ -1593,6 +1607,10 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/ProgramListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "404":
+          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
@@ -1631,6 +1649,10 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/StudyListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "404":
+          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
@@ -1669,6 +1691,10 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/TrialListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "404":
+          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
@@ -1812,21 +1838,41 @@ components:
           items:
             type: string
         dataMatrixAbbreviations:
-          type: array
-          description: "`dataMatrixAbbreviations` is a comma seperated list of abbreviations\
+          type: string
+          description: "`dataMatrixAbbreviations` is a comma separated list of abbreviations\
             \ (ie 'GT', 'RD' etc). This list controls which data matrices are returned\
             \ in the response."
           nullable: true
-          items:
-            type: string
+          example: "GT,RD"
         dataMatrixNames:
-          type: array
-          description: "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read\
-            \ Depth' etc). This list controls which data matrices are returned in\
-            \ the response."
+          type: string
+          description: "`dataMatrixNames` is a comma separated list of names (ie 'Genotype',\
+            \ 'Read Depth' etc). This list controls which data matrices are returned\
+            \ in the response."
           nullable: true
-          items:
-            type: string
+          example: "Genotype,Read Depth"
+        dimensionCallSetPage:
+          type: integer
+          description: The requested page number for the CallSet dimension of the
+            matrix
+          format: int32
+          nullable: true
+        dimensionCallSetPageSize:
+          type: integer
+          description: The requested page size for the CallSet dimension of the matrix
+          format: int32
+          nullable: true
+        dimensionVariantPage:
+          type: integer
+          description: The requested page number for the Variant dimension of the
+            matrix
+          format: int32
+          nullable: true
+        dimensionVariantPageSize:
+          type: integer
+          description: The requested page size for the Variant dimension of the matrix
+          format: int32
+          nullable: true
         expandHomozygotes:
           type: boolean
           description: Should homozygotes be expanded (true) or collapsed into a single
@@ -1895,6 +1941,7 @@ components:
             \ or not set (default), then the server should return all the matrix\n\
             data as requested."
           example: true
+          default: false
         sampleDbIds:
           type: array
           description: A list of IDs which uniquely identify `Samples` within the
@@ -1934,11 +1981,9 @@ components:
     Attribute:
       required:
       - attributeName
-      - methodDbId
-      - methodName
-      - scaleDbId
-      - scaleName
-      - traitName
+      - method
+      - scale
+      - trait
       type: object
       properties:
         additionalInfo:
@@ -2006,20 +2051,12 @@ components:
           description: 2 letter ISO 639-1 code for the language of submission of the
             variable.
           nullable: true
-        methodDbId:
-          type: string
-        methodName:
-          type: string
-        methodPUI:
-          type: string
+        method:
+          $ref: "#/components/schemas/Method"
         ontologyReference:
           $ref: "#/components/schemas/OntologyReference"
-        scaleDbId:
-          type: string
-        scaleName:
-          type: string
-        scalePUI:
-          type: string
+        scale:
+          $ref: "#/components/schemas/Scale"
         scientist:
           type: string
           description: Name of scientist submitting the variable.
@@ -2040,12 +2077,8 @@ components:
           nullable: true
           items:
             type: string
-        traitDbId:
-          type: string
-        traitName:
-          type: string
-        traitPUI:
-          type: string
+        trait:
+          $ref: "#/components/schemas/Trait"
     CallRequest:
       type: object
       properties:
@@ -2062,6 +2095,12 @@ components:
             occurrence (false)
           nullable: true
           example: true
+        pageToken:
+          type: string
+          description: |-
+            The continuation token, which is used to page through large result sets.
+            To get the next page of results, set this parameter to the value of
+            `next_page_token` from the previous response.
         sepPhased:
           type: string
           description: The string used as a separator for phased allele calls.
@@ -2454,25 +2493,14 @@ components:
           description: MIAPPE V1.1 (DM-5) Submission date - Date of submission of
             the dataset presently being described to a host repository.
           nullable: true
-        trialDbId:
-          type: string
-        trialName:
-          type: string
-        trialPUI:
-          type: string
       description: License and citation information for the data in this trial
     EnvironmentParameter:
       required:
       - description
-      - environmentParametersDbId
       - parameterName
       type: object
       properties:
         description:
-          type: string
-          description: Human-readable value of the environment parameter (defined
-            above) constant within the experiment
-        environmentParametersDbId:
           type: string
           description: Human-readable value of the environment parameter (defined
             above) constant within the experiment
@@ -2485,12 +2513,6 @@ components:
           type: string
           description: URI pointing to an ontology class for the parameter
           nullable: true
-        studyDbId:
-          type: string
-        studyName:
-          type: string
-        studyPUI:
-          type: string
         unit:
           type: string
           description: Unit of the value for this parameter
@@ -2569,14 +2591,9 @@ components:
             \ several studies, the experimental design can be \"unknown\"/\"NA\",\
             \ \"aggregated/reduced data\", or simply 'none'."
           nullable: true
-        studyDbId:
-          type: string
-        studyName:
-          type: string
-        studyPUI:
-          type: string
       description: The experimental and statistical design full description plus a
         category PUI taken from crop research ontology or agronomy ontology
+      nullable: true
     ExternalReference:
       type: object
       properties:
@@ -2586,6 +2603,7 @@ components:
             \ number #460 <br>The external reference ID. Could be a simple string\
             \ or a URI."
           nullable: true
+          deprecated: true
         referenceId:
           type: string
           description: The external reference ID. Could be a simple string or a URI.
@@ -2601,6 +2619,7 @@ components:
             \ Github issue number #460 \n<br>List of external reference IDs. Could\
             \ be a simple strings or a URIs. (use with `externalReferenceSources`\
             \ parameter)"
+          deprecated: true
           items:
             type: string
         externalReferenceIds:
@@ -2697,6 +2716,7 @@ components:
           type: string
           description: The literal string "Feature"
           example: Feature
+          default: Feature
       description: |-
         One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
 
@@ -2704,10 +2724,12 @@ components:
 
         A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
         easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
+      nullable: true
     GeoJSONGeometry:
+      nullable: true
       oneOf:
       - required:
-        - coordinateDbIds
+        - coordinates
         - type
         type: object
         properties:
@@ -2719,13 +2741,14 @@ components:
           type:
             type: string
             description: The literal string "Point"
+            default: Point
         description: |-
           Copied from RFC 7946 Section 3.1.1
 
           A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
           easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
       - required:
-        - coordinateDbIds
+        - coordinates
         - type
         type: object
         properties:
@@ -2741,6 +2764,7 @@ components:
           type:
             type: string
             description: The literal string "Polygon"
+            default: Polygon
         description: "An array of Linear Rings. Each Linear Ring is an array of Points.\
           \ \n\nA Point is an array of numbers. There MUST be two or more elements.\
           \ The first two elements are longitude and latitude, or\neasting and northing,\
@@ -2748,7 +2772,7 @@ components:
           \ MAY be included as an optional third element."
     GeoJSONPoint:
       required:
-      - coordinateDbIds
+      - coordinates
       - type
       type: object
       properties:
@@ -2760,6 +2784,7 @@ components:
         type:
           type: string
           description: The literal string "Point"
+          default: Point
       description: |-
         Copied from RFC 7946 Section 3.1.1
 
@@ -2767,7 +2792,7 @@ components:
         easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
     GeoJSONPolygon:
       required:
-      - coordinateDbIds
+      - coordinates
       - type
       type: object
       properties:
@@ -2783,6 +2808,7 @@ components:
         type:
           type: string
           description: The literal string "Polygon"
+          default: Polygon
       description: "An array of Linear Rings. Each Linear Ring is an array of Points.\
         \ \n\nA Point is an array of numbers. There MUST be two or more elements.\
         \ The first two elements are longitude and latitude, or\neasting and northing,\
@@ -2799,7 +2825,13 @@ components:
           type: string
         imageName:
           type: string
+        imagePUI:
+          type: string
         observationDbId:
+          type: string
+        observationName:
+          type: string
+        observationPUI:
           type: string
         observationUnit:
           $ref: "#/components/schemas/ObservationUnitPosition"
@@ -2807,6 +2839,7 @@ components:
           type: string
           description: The literal string "Feature"
           example: Feature
+          default: Feature
     GermplasmAttributeRequest:
       type: object
       properties:
@@ -2928,6 +2961,7 @@ components:
           type: array
           description: "**Deprecated in v2.1** Please use `studyDbIds`. Github issue\
             \ number #483 \n<br>The unique ID of a studies to filter on"
+          deprecated: true
           items:
             type: string
         studyDbIds:
@@ -3270,7 +3304,6 @@ components:
           description: "MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth\
             \ facility in which the study was carried out, in the form of an accession\
             \ number from the Crop Ontology."
-          nullable: true
         description:
           type: string
           description: MIAPPE V1.1 (DM-26) Description of growth facility - Short
@@ -3278,6 +3311,7 @@ components:
           nullable: true
       description: Short description of the facility in which the study was carried
         out.
+      nullable: true
     ImageRequest:
       type: object
       properties:
@@ -3389,20 +3423,8 @@ components:
           items:
             type: string
     LastUpdate:
-      required:
-      - lastUpdateDbId
       type: object
       properties:
-        lastUpdateDbId:
-          type: string
-          description: The ID which uniquely identifies a LastUpdate within the given
-            database server
-        studyDbId:
-          type: string
-        studyName:
-          type: string
-        studyPUI:
-          type: string
         timestamp:
           type: string
           description: The timestamp of the update.
@@ -3413,6 +3435,7 @@ components:
           description: The version of the update.
           nullable: true
       description: The date and time when this study was last modified
+      nullable: true
     List:
       allOf:
       - $ref: "#/components/schemas/ListNewRequest"
@@ -3470,6 +3493,8 @@ components:
           type: string
           description: Human readable name of a List Owner. (usually a user or person)
           nullable: true
+        listOwnerPersonDbId:
+          type: string
         listSize:
           type: integer
           description: The number of elements in a List
@@ -3481,8 +3506,6 @@ components:
           nullable: true
         listType:
           $ref: "#/components/schemas/ListType"
-        personDbId:
-          type: string
       description: "A List represents a collection of other BrAPI data objects. Typically\
         \ these are custom lists generated by a user to keep track of interesting\
         \ data. For example, a user might build a List of Germplasm that they have\
@@ -3582,20 +3605,6 @@ components:
     ListSearchRequest:
       type: object
       properties:
-        dateCreatedRangeStart:
-          type: string
-          description: Define the beginning for an interval of time and only include
-            Lists that are created within this interval.
-          format: date-time
-          nullable: true
-        programNames:
-          type: array
-          description: |-
-            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
-
-            Use `GET /programs` to find the list of available programs on a server.
-          items:
-            type: string
         commonCropNames:
           type: array
           description: "The BrAPI Common Crop Name is the simple, generalized, widely\
@@ -3607,37 +3616,51 @@ components:
             \ of available crops on a server."
           items:
             type: string
-        programDbIds:
-          type: array
-          description: "A BrAPI Program represents the high level organization or\
-            \ group who is responsible for conducting trials and studies. Things like\
-            \ Breeding Programs and Funded Projects are considered BrAPI Programs.\
-            \ \n\nUse this parameter to only return results associated with the given\
-            \ programs. \n\nUse `GET /programs` to find the list of available programs\
-            \ on a server."
-          items:
-            type: string
-        dateModifiedRangeEnd:
-          type: string
-          description: Define the end for an interval of time and only include Lists
-            that are modified within this interval.
-          format: date-time
-          nullable: true
-        listSources:
-          type: array
-          description: "An array of terms identifying lists from different sources\
-            \ (ie 'USER', 'SYSTEM', etc)"
-          nullable: true
-          items:
-            type: string
-        listType:
-          $ref: "#/components/schemas/ListType"
         dateCreatedRangeEnd:
           type: string
           description: Define the end for an interval of time and only include Lists
             that are created within this interval.
           format: date-time
           nullable: true
+        dateCreatedRangeStart:
+          type: string
+          description: Define the beginning for an interval of time and only include
+            Lists that are created within this interval.
+          format: date-time
+          nullable: true
+        dateModifiedRangeEnd:
+          type: string
+          description: Define the end for an interval of time and only include Lists
+            that are modified within this interval.
+          format: date-time
+          nullable: true
+        dateModifiedRangeStart:
+          type: string
+          description: Define the beginning for an interval of time and only include
+            Lists that are modified within this interval.
+          format: date-time
+          nullable: true
+        externalReferenceIDs:
+          type: array
+          description: "**Deprecated in v2.1** Please use `externalReferenceIds`.\
+            \ Github issue number #460 \n<br>List of external reference IDs. Could\
+            \ be a simple strings or a URIs. (use with `externalReferenceSources`\
+            \ parameter)"
+          deprecated: true
+          items:
+            type: string
+        externalReferenceIds:
+          type: array
+          description: List of external reference IDs. Could be a simple strings or
+            a URIs. (use with `externalReferenceSources` parameter)
+          items:
+            type: string
+        externalReferenceSources:
+          type: array
+          description: List of identifiers for the source system or database of an
+            external reference (use with `externalReferenceIDs` parameter)
+          items:
+            type: string
         listDbIds:
           type: array
           description: An array of primary database identifiers to identify a set
@@ -3651,6 +3674,13 @@ components:
           nullable: true
           items:
             type: string
+        listOwnerNames:
+          type: array
+          description: An array of names for the people or entities who are responsible
+            for a set of Lists
+          nullable: true
+          items:
+            type: string
         listOwnerPersonDbIds:
           type: array
           description: An array of primary database identifiers to identify people
@@ -3658,17 +3688,42 @@ components:
           nullable: true
           items:
             type: string
-        dateModifiedRangeStart:
-          type: string
-          description: Define the beginning for an interval of time and only include
-            Lists that are modified within this interval.
-          format: date-time
-          nullable: true
-        listOwnerNames:
+        listSources:
           type: array
-          description: An array of names for the people or entities who are responsible
-            for a set of Lists
+          description: "An array of terms identifying lists from different sources\
+            \ (ie 'USER', 'SYSTEM', etc)"
           nullable: true
+          items:
+            type: string
+        listType:
+          $ref: "#/components/schemas/ListType"
+        page:
+          type: integer
+          description: Which result page is requested. The page indexing starts at
+            0 (the first page is 'page'= 0). Default is `0`.
+          format: int32
+          example: 0
+        pageSize:
+          type: integer
+          description: The size of the pages to be returned. Default is `1000`.
+          format: int32
+          example: 1000
+        programDbIds:
+          type: array
+          description: "A BrAPI Program represents the high level organization or\
+            \ group who is responsible for conducting trials and studies. Things like\
+            \ Breeding Programs and Funded Projects are considered BrAPI Programs.\
+            \ \n\nUse this parameter to only return results associated with the given\
+            \ programs. \n\nUse `GET /programs` to find the list of available programs\
+            \ on a server."
+          items:
+            type: string
+        programNames:
+          type: array
+          description: |-
+            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+
+            Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
       description: "A List represents a collection of other BrAPI data objects. Typically\
@@ -3781,16 +3836,24 @@ components:
             The full name of the institute at a particular Location
             <br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.
           nullable: true
-        locationDbId:
-          type: string
-          nullable: true
         locationName:
           type: string
-          nullable: true
+          description: |-
+            A human readable name for a Location
+            <br/> MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.
         locationType:
           type: string
           description: "A short description of a type of Location (ex. Field Station,\
             \ Breeding Location, Storage Location, etc)"
+          nullable: true
+        parentLocationDbId:
+          type: string
+          nullable: true
+        parentLocationName:
+          type: string
+          nullable: true
+        parentLocationPUI:
+          type: string
           nullable: true
         siteStatus:
           type: string
@@ -3828,15 +3891,18 @@ components:
         abbreviations:
           type: array
           description: A list of shortened human readable names for a set of Locations
+          nullable: true
           items:
             type: string
         altitudeMax:
           type: number
           description: The maximum altitude to search for
+          nullable: true
           example: 200
         altitudeMin:
           type: number
           description: The minimum altitude to search for
+          nullable: true
           example: 20
         commonCropNames:
           type: array
@@ -3855,21 +3921,25 @@ components:
           type: array
           description: "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)\
             \ spec"
+          nullable: true
           items:
             type: string
         countryNames:
           type: array
           description: The full name of the country to search for
+          nullable: true
           items:
             type: string
         instituteAddresses:
           type: array
           description: The street address of the institute to search for
+          nullable: true
           items:
             type: string
         instituteNames:
           type: array
           description: The name of the institute to search for
+          nullable: true
           items:
             type: string
         locationDbIds:
@@ -3886,6 +3956,7 @@ components:
           type: array
           description: "The type of location this represents (ex. Breeding Location,\
             \ Storage Location, etc)"
+          nullable: true
           items:
             type: string
         parentLocationDbIds:
@@ -3894,6 +3965,7 @@ components:
             \ defines the encompassing location that this location belongs to. \n\
             For example, an Institution might have multiple Field Stations inside\
             \ it and each Field Station might have multiple Fields."
+          nullable: true
           items:
             type: string
         parentLocationNames:
@@ -3902,6 +3974,7 @@ components:
             \ defines the encompassing location that this location belongs to. \n\
             For example, an Institution might have multiple Field Stations inside\
             \ it and each Field Station might have multiple Fields."
+          nullable: true
           items:
             type: string
         programDbIds:
@@ -3925,6 +3998,81 @@ components:
     LocationSearchRequest:
       type: object
       properties:
+        abbreviations:
+          type: array
+          description: A list of shortened human readable names for a set of Locations
+          nullable: true
+          items:
+            type: string
+        altitudeMax:
+          type: number
+          description: The maximum altitude to search for
+          nullable: true
+          example: 200
+        altitudeMin:
+          type: number
+          description: The minimum altitude to search for
+          nullable: true
+          example: 20
+        commonCropNames:
+          type: array
+          description: "The BrAPI Common Crop Name is the simple, generalized, widely\
+            \ accepted name of the organism being researched. It is most often used\
+            \ in multi-crop systems where digital resources need to be divided at\
+            \ a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples\
+            \ of common crop names.\n\nUse this parameter to only return results associated\
+            \ with the given crops. \n\nUse `GET /commoncropnames` to find the list\
+            \ of available crops on a server."
+          items:
+            type: string
+        coordinates:
+          $ref: "#/components/schemas/GeoJSONSearchArea"
+        countryCodes:
+          type: array
+          description: "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)\
+            \ spec"
+          nullable: true
+          items:
+            type: string
+        countryNames:
+          type: array
+          description: The full name of the country to search for
+          nullable: true
+          items:
+            type: string
+        externalReferenceIDs:
+          type: array
+          description: "**Deprecated in v2.1** Please use `externalReferenceIds`.\
+            \ Github issue number #460 \n<br>List of external reference IDs. Could\
+            \ be a simple strings or a URIs. (use with `externalReferenceSources`\
+            \ parameter)"
+          deprecated: true
+          items:
+            type: string
+        externalReferenceIds:
+          type: array
+          description: List of external reference IDs. Could be a simple strings or
+            a URIs. (use with `externalReferenceSources` parameter)
+          items:
+            type: string
+        externalReferenceSources:
+          type: array
+          description: List of identifiers for the source system or database of an
+            external reference (use with `externalReferenceIDs` parameter)
+          items:
+            type: string
+        instituteAddresses:
+          type: array
+          description: The street address of the institute to search for
+          nullable: true
+          items:
+            type: string
+        instituteNames:
+          type: array
+          description: The name of the institute to search for
+          nullable: true
+          items:
+            type: string
         locationDbIds:
           type: array
           description: The location ids to search for
@@ -3935,34 +4083,40 @@ components:
           description: A human readable names to search for
           items:
             type: string
-        countryNames:
+        locationTypes:
           type: array
-          description: The full name of the country to search for
+          description: "The type of location this represents (ex. Breeding Location,\
+            \ Storage Location, etc)"
+          nullable: true
           items:
             type: string
-        coordinates:
-          $ref: "#/components/schemas/GeoJSONSearchArea"
-        programNames:
+        page:
+          type: integer
+          description: Which result page is requested. The page indexing starts at
+            0 (the first page is 'page'= 0). Default is `0`.
+          format: int32
+          example: 0
+        pageSize:
+          type: integer
+          description: The size of the pages to be returned. Default is `1000`.
+          format: int32
+          example: 1000
+        parentLocationDbIds:
           type: array
-          description: |-
-            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
-
-            Use `GET /programs` to find the list of available programs on a server.
+          description: "The unique identifier for a Location\n<br/> The Parent Location\
+            \ defines the encompassing location that this location belongs to. \n\
+            For example, an Institution might have multiple Field Stations inside\
+            \ it and each Field Station might have multiple Fields."
+          nullable: true
           items:
             type: string
-        altitudeMax:
-          type: number
-          description: The maximum altitude to search for
-          example: 200
-        commonCropNames:
+        parentLocationNames:
           type: array
-          description: "The BrAPI Common Crop Name is the simple, generalized, widely\
-            \ accepted name of the organism being researched. It is most often used\
-            \ in multi-crop systems where digital resources need to be divided at\
-            \ a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples\
-            \ of common crop names.\n\nUse this parameter to only return results associated\
-            \ with the given crops. \n\nUse `GET /commoncropnames` to find the list\
-            \ of available crops on a server."
+          description: "A human readable name for a location\n<br/> The Parent Location\
+            \ defines the encompassing location that this location belongs to. \n\
+            For example, an Institution might have multiple Field Stations inside\
+            \ it and each Field Station might have multiple Fields."
+          nullable: true
           items:
             type: string
         programDbIds:
@@ -3975,51 +4129,12 @@ components:
             \ on a server."
           items:
             type: string
-        instituteNames:
+        programNames:
           type: array
-          description: The name of the institute to search for
-          items:
-            type: string
-        countryCodes:
-          type: array
-          description: "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)\
-            \ spec"
-          items:
-            type: string
-        parentLocationNames:
-          type: array
-          description: "A human readable name for a location\n<br/> The Parent Location\
-            \ defines the encompassing location that this location belongs to. \n\
-            For example, an Institution might have multiple Field Stations inside\
-            \ it and each Field Station might have multiple Fields."
-          items:
-            type: string
-        locationTypes:
-          type: array
-          description: "The type of location this represents (ex. Breeding Location,\
-            \ Storage Location, etc)"
-          items:
-            type: string
-        parentLocationDbIds:
-          type: array
-          description: "The unique identifier for a Location\n<br/> The Parent Location\
-            \ defines the encompassing location that this location belongs to. \n\
-            For example, an Institution might have multiple Field Stations inside\
-            \ it and each Field Station might have multiple Fields."
-          items:
-            type: string
-        instituteAddresses:
-          type: array
-          description: The street address of the institute to search for
-          items:
-            type: string
-        altitudeMin:
-          type: number
-          description: The minimum altitude to search for
-          example: 20
-        abbreviations:
-          type: array
-          description: A list of shortened human readable names for a set of Locations
+          description: |-
+            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+
+            Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
       description: "A geographic Location on earth. This is usually used to describe\
@@ -4149,29 +4264,35 @@ components:
         observationDbIds:
           type: array
           description: The unique id of an Observation
+          nullable: true
           items:
             type: string
         observationLevelRelationships:
           type: array
           description: Searches for values in ObservationUnit->observationUnitPosition->observationLevelRelationships
+          nullable: true
           items:
             $ref: "#/components/schemas/ObservationUnitLevelRelationship"
         observationLevels:
           type: array
           description: Searches for values in ObservationUnit->observationUnitPosition->observationLevel
+          nullable: true
           items:
             $ref: "#/components/schemas/ObservationUnitLevel"
         observationTimeStampRangeEnd:
           type: string
           description: Timestamp range end
           format: date-time
+          nullable: true
         observationTimeStampRangeStart:
           type: string
           description: Timestamp range start
           format: date-time
+          nullable: true
         observationUnitDbIds:
           type: array
           description: The unique id of an Observation Unit
+          nullable: true
           items:
             type: string
         observationUnitLevelCodes:
@@ -4284,6 +4405,7 @@ components:
           type: array
           description: "The year or Phenotyping campaign of a multi-annual study (trees,\
             \ grape, ...)"
+          nullable: true
           items:
             type: string
         studyDbIds:
@@ -4372,6 +4494,7 @@ components:
             \ in each ObservationUnit object. \n\nCAUTION - Use this parameter at\
             \ your own risk. It may return large, unpaginated lists of observation\
             \ data. Only set this value to True if you are sure you need to."
+          nullable: true
           example: false
         locationDbIds:
           type: array
@@ -4386,16 +4509,19 @@ components:
         observationLevelRelationships:
           type: array
           description: Searches for values in ObservationUnit->observationUnitPosition->observationLevelRelationships
+          nullable: true
           items:
             $ref: "#/components/schemas/ObservationUnitLevelRelationship"
         observationLevels:
           type: array
           description: Searches for values in ObservationUnit->observationUnitPosition->observationLevel
+          nullable: true
           items:
             $ref: "#/components/schemas/ObservationUnitLevel"
         observationUnitDbIds:
           type: array
           description: The unique id of an observation unit
+          nullable: true
           items:
             type: string
         observationUnitLevelCodes:
@@ -4473,6 +4599,7 @@ components:
         observationUnitNames:
           type: array
           description: The human readable identifier for an Observation Unit
+          nullable: true
           items:
             type: string
         observationVariableDbIds:
@@ -4513,6 +4640,7 @@ components:
           type: array
           description: "The year or Phenotyping campaign of a multi-annual study (trees,\
             \ grape, ...)"
+          nullable: true
           items:
             type: string
         studyDbIds:
@@ -4652,6 +4780,7 @@ components:
           type: array
           description: "**Deprecated in v2.1** Please use `studyDbIds`. Github issue\
             \ number #483 \n<br>The unique ID of a studies to filter on"
+          deprecated: true
           items:
             type: string
         studyDbIds:
@@ -4790,18 +4919,21 @@ components:
             A collection of unique identifiers for materials or germplasm within a genebank
 
             MCPD (v2.1) (ACCENUMB) 2. This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection (e.g. "PI 113869").
+          nullable: true
           items:
             type: string
         binomialNames:
           type: array
           description: List of the full binomial name (scientific name) to identify
             a germplasm
+          nullable: true
           items:
             type: string
         collections:
           type: array
           description: A specific panel/collection/population name this germplasm
             belongs to.
+          nullable: true
           items:
             type: string
         commonCropNames:
@@ -4819,11 +4951,13 @@ components:
           type: array
           description: A familyCode representing the family this germplasm belongs
             to.
+          nullable: true
           items:
             type: string
         genus:
           type: array
           description: List of Genus names to identify germplasm
+          nullable: true
           items:
             type: string
         germplasmDbIds:
@@ -4842,27 +4976,32 @@ components:
         germplasmPUIs:
           type: array
           description: List of Permanent Unique Identifiers to identify germplasm
+          nullable: true
           items:
             type: string
         includeFullTree:
           type: boolean
           description: "If this parameter is true, recursively include ALL of the\
             \ nodes available in this pedigree tree"
+          nullable: true
           example: true
         includeParents:
           type: boolean
           description: "If this parameter is true, include the array of parents in\
             \ the response"
+          nullable: true
           example: true
         includeProgeny:
           type: boolean
           description: "If this parameter is true, include the array of progeny in\
             \ the response"
+          nullable: true
           example: true
         includeSiblings:
           type: boolean
           description: "If this parameter is true, include the array of siblings in\
             \ the response"
+          nullable: true
           example: true
         instituteCodes:
           type: array
@@ -4874,6 +5013,7 @@ components:
             \ http://www.fao.org/wiews. For those institutes not yet having an FAO\
             \ Code, or for those with \"obsolete\" codes, see \"Common formatting\
             \ rules (v)\"."
+          nullable: true
           items:
             type: string
         pedigreeDepth:
@@ -4909,6 +5049,7 @@ components:
         species:
           type: array
           description: List of Species names to identify germplasm
+          nullable: true
           items:
             type: string
         studyDbIds:
@@ -4924,6 +5065,7 @@ components:
         synonyms:
           type: array
           description: List of alternative names or IDs used to reference this germplasm
+          nullable: true
           items:
             type: string
         trialDbIds:
@@ -5082,39 +5224,6 @@ components:
     PersonSearchRequest:
       type: object
       properties:
-        middleNames:
-          type: array
-          description: Persons middle name
-          nullable: true
-          items:
-            type: string
-        emailAddresses:
-          type: array
-          description: email address for this person
-          nullable: true
-          items:
-            type: string
-        userIDs:
-          type: array
-          description: A systems user ID associated with this person. Different from
-            personDbId because you could have a person who is not a user of the system.
-          nullable: true
-          items:
-            type: string
-        personDbIds:
-          type: array
-          description: Unique ID for this person
-          nullable: true
-          items:
-            type: string
-        programNames:
-          type: array
-          description: |-
-            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
-
-            Use `GET /programs` to find the list of available programs on a server.
-          items:
-            type: string
         commonCropNames:
           type: array
           description: "The BrAPI Common Crop Name is the simple, generalized, widely\
@@ -5126,14 +5235,31 @@ components:
             \ of available crops on a server."
           items:
             type: string
-        programDbIds:
+        emailAddresses:
           type: array
-          description: "A BrAPI Program represents the high level organization or\
-            \ group who is responsible for conducting trials and studies. Things like\
-            \ Breeding Programs and Funded Projects are considered BrAPI Programs.\
-            \ \n\nUse this parameter to only return results associated with the given\
-            \ programs. \n\nUse `GET /programs` to find the list of available programs\
-            \ on a server."
+          description: email address for this person
+          nullable: true
+          items:
+            type: string
+        externalReferenceIDs:
+          type: array
+          description: "**Deprecated in v2.1** Please use `externalReferenceIds`.\
+            \ Github issue number #460 \n<br>List of external reference IDs. Could\
+            \ be a simple strings or a URIs. (use with `externalReferenceSources`\
+            \ parameter)"
+          deprecated: true
+          items:
+            type: string
+        externalReferenceIds:
+          type: array
+          description: List of external reference IDs. Could be a simple strings or
+            a URIs. (use with `externalReferenceSources` parameter)
+          items:
+            type: string
+        externalReferenceSources:
+          type: array
+          description: List of identifiers for the source system or database of an
+            external reference (use with `externalReferenceIDs` parameter)
           items:
             type: string
         firstNames:
@@ -5154,9 +5280,57 @@ components:
           nullable: true
           items:
             type: string
+        middleNames:
+          type: array
+          description: Persons middle name
+          nullable: true
+          items:
+            type: string
+        page:
+          type: integer
+          description: Which result page is requested. The page indexing starts at
+            0 (the first page is 'page'= 0). Default is `0`.
+          format: int32
+          example: 0
+        pageSize:
+          type: integer
+          description: The size of the pages to be returned. Default is `1000`.
+          format: int32
+          example: 1000
+        personDbIds:
+          type: array
+          description: Unique ID for this person
+          nullable: true
+          items:
+            type: string
         phoneNumbers:
           type: array
           description: phone number of this person
+          nullable: true
+          items:
+            type: string
+        programDbIds:
+          type: array
+          description: "A BrAPI Program represents the high level organization or\
+            \ group who is responsible for conducting trials and studies. Things like\
+            \ Breeding Programs and Funded Projects are considered BrAPI Programs.\
+            \ \n\nUse this parameter to only return results associated with the given\
+            \ programs. \n\nUse `GET /programs` to find the list of available programs\
+            \ on a server."
+          items:
+            type: string
+        programNames:
+          type: array
+          description: |-
+            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+
+            Use `GET /programs` to find the list of available programs on a server.
+          items:
+            type: string
+        userIDs:
+          type: array
+          description: A systems user ID associated with this person. Different from
+            personDbId because you could have a person who is not a user of the system.
           nullable: true
           items:
             type: string
@@ -5380,12 +5554,15 @@ components:
           description: Information describing the grant or funding source for this
             program
           nullable: true
+        leadPersonDbId:
+          type: string
+          nullable: true
+        leadPersonName:
+          type: string
+          nullable: true
         objective:
           type: string
           description: The primary objective of the program
-          nullable: true
-        personDbId:
-          type: string
           nullable: true
         programName:
           type: string
@@ -5396,7 +5573,6 @@ components:
             \ represents a standard, permanent breeding program\n<br/> 'PROJECT' represents\
             \ a short term project, usually with a set time limit based on funding\
             \   "
-          nullable: true
           enum:
           - STANDARD
           - PROJECT
@@ -5499,18 +5675,10 @@ components:
     ProgramSearchRequest:
       type: object
       properties:
-        leadPersonNames:
+        abbreviations:
           type: array
-          description: The names of the program leader to search for
+          description: A list of shortened human readable names for a set of Programs
           nullable: true
-          items:
-            type: string
-        programNames:
-          type: array
-          description: |-
-            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
-
-            Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
         commonCropNames:
@@ -5524,6 +5692,56 @@ components:
             \ of available crops on a server."
           items:
             type: string
+        externalReferenceIDs:
+          type: array
+          description: "**Deprecated in v2.1** Please use `externalReferenceIds`.\
+            \ Github issue number #460 \n<br>List of external reference IDs. Could\
+            \ be a simple strings or a URIs. (use with `externalReferenceSources`\
+            \ parameter)"
+          deprecated: true
+          items:
+            type: string
+        externalReferenceIds:
+          type: array
+          description: List of external reference IDs. Could be a simple strings or
+            a URIs. (use with `externalReferenceSources` parameter)
+          items:
+            type: string
+        externalReferenceSources:
+          type: array
+          description: List of identifiers for the source system or database of an
+            external reference (use with `externalReferenceIDs` parameter)
+          items:
+            type: string
+        leadPersonDbIds:
+          type: array
+          description: The person DbIds of the program leader to search for
+          nullable: true
+          items:
+            type: string
+        leadPersonNames:
+          type: array
+          description: The names of the program leader to search for
+          nullable: true
+          items:
+            type: string
+        objectives:
+          type: array
+          description: A program objective to search for
+          nullable: true
+          items:
+            type: string
+        page:
+          type: integer
+          description: Which result page is requested. The page indexing starts at
+            0 (the first page is 'page'= 0). Default is `0`.
+          format: int32
+          example: 0
+        pageSize:
+          type: integer
+          description: The size of the pages to be returned. Default is `1000`.
+          format: int32
+          example: 1000
         programDbIds:
           type: array
           description: "A BrAPI Program represents the high level organization or\
@@ -5534,16 +5752,12 @@ components:
             \ on a server."
           items:
             type: string
-        objectives:
+        programNames:
           type: array
-          description: A program objective to search for
-          nullable: true
-          items:
-            type: string
-        leadPersonDbIds:
-          type: array
-          description: The person DbIds of the program leader to search for
-          nullable: true
+          description: |-
+            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+
+            Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
         programTypes:
@@ -5561,12 +5775,6 @@ components:
             enum:
             - STANDARD
             - PROJECT
-        abbreviations:
-          type: array
-          description: A list of shortened human readable names for a set of Programs
-          nullable: true
-          items:
-            type: string
       description: A BrAPI Program represents the high level organization or group
         who is responsible for conducting trials and studies. Things like Breeding
         Programs and Funded Projects are considered BrAPI Programs. A Program can
@@ -5590,12 +5798,6 @@ components:
           type: string
           description: The publication reference.
           nullable: true
-        trialDbId:
-          type: string
-        trialName:
-          type: string
-        trialPUI:
-          type: string
       description: MIAPPE V1.1 (DM-9) Associated publication - An identifier for a
         literature publication where the investigation is described. Use of DOIs is
         recommended.
@@ -5628,6 +5830,7 @@ components:
           type: array
           description: "If specified, return the references for which the `accession`\
             \ matches this string (case-sensitive, exact match)."
+          nullable: true
           items:
             type: string
         commonCropNames:
@@ -5662,6 +5865,7 @@ components:
             \ same official sequence share the same coordinates and annotations, and\
             \ can be replaced with the official sequence for certain use cases."
           format: boolean
+          nullable: true
         maxLength:
           type: integer
           description: The minimum length of this `References` sequence.
@@ -5671,6 +5875,7 @@ components:
           type: array
           description: "If specified, return the references for which the `md5checksum`\
             \ matches this string (case-sensitive, exact match)."
+          nullable: true
           items:
             type: string
         minLength:
@@ -5700,12 +5905,14 @@ components:
           type: array
           description: A list of IDs which uniquely identify `References` within the
             given database server
+          nullable: true
           items:
             type: string
         referenceSetDbIds:
           type: array
           description: A list of IDs which uniquely identify `ReferenceSets` within
             the given database server
+          nullable: true
           items:
             type: string
         studyDbIds:
@@ -6094,14 +6301,16 @@ components:
       - studyName
       - studyLocation
       - programName
+      - germplasmDbId
+      - observationVariableDbId
     SortOrder:
       type: string
       description: Sort order direction. Ascending/Descending.
       enum:
-      - asc
       - ASC
-      - desc
       - DESC
+      - asc
+      - desc
     Study:
       allOf:
       - $ref: "#/components/schemas/StudyNewRequest"
@@ -6134,6 +6343,12 @@ components:
           type: string
           description: Common name for the crop associated with this study
           nullable: true
+        contacts:
+          type: array
+          description: List of contact entities associated with this study
+          nullable: true
+          items:
+            $ref: "#/components/schemas/Contact"
         culturalPractices:
           type: string
           description: MIAPPE V1.1 (DM-28) Cultural practices - General description
@@ -6211,6 +6426,14 @@ components:
           description: MIAPPE V1.1 (DM-25) Observation unit description - General
             description of the observation units in the study.
           nullable: true
+        observationVariableDbIds:
+          type: array
+          description: "The list of Observation Variables being used in this study.\
+            \ \n\nThis list is intended to be the wishlist of variables to collect\
+            \ in this study. It may or may not match the set of variables used in\
+            \ the collected observation records. "
+          items:
+            type: string
         seasons:
           type: array
           description: List of seasons over which this study was performed.
@@ -6235,7 +6458,6 @@ components:
             The description of this study
 
             MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study
-          nullable: true
         studyName:
           type: string
           description: |-
@@ -6255,8 +6477,6 @@ components:
         trialDbId:
           type: string
         trialName:
-          type: string
-        trialPUI:
           type: string
       description: A Study represents an experiment that has taken place at a single
         location. The Study contains metadata about the parameters and design of the
@@ -6371,15 +6591,17 @@ components:
           - studyName
           - studyLocation
           - programName
+          - germplasmDbId
+          - observationVariableDbId
         sortOrder:
           type: string
           description: Sort order direction. Ascending/Descending.
           nullable: true
           enum:
-          - asc
           - ASC
-          - desc
           - DESC
+          - asc
+          - desc
         studyCodes:
           type: array
           description: A short human readable code for a study
@@ -6422,43 +6644,6 @@ components:
     StudySearchRequest:
       type: object
       properties:
-        germplasmDbIds:
-          type: array
-          description: List of IDs which uniquely identify germplasm to search for
-          nullable: true
-          items:
-            type: string
-        locationDbIds:
-          type: array
-          description: The location ids to search for
-          items:
-            type: string
-        locationNames:
-          type: array
-          description: A human readable names to search for
-          items:
-            type: string
-        germplasmNames:
-          type: array
-          description: List of human readable names to identify germplasm to search
-            for
-          nullable: true
-          items:
-            type: string
-        programNames:
-          type: array
-          description: |-
-            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
-
-            Use `GET /programs` to find the list of available programs on a server.
-          items:
-            type: string
-        seasonDbIds:
-          type: array
-          description: The ID which uniquely identifies a season
-          nullable: true
-          items:
-            type: string
         active:
           type: boolean
           description: A flag to indicate if a Study is currently active and ongoing
@@ -6475,6 +6660,77 @@ components:
             \ of available crops on a server."
           items:
             type: string
+        externalReferenceIDs:
+          type: array
+          description: "**Deprecated in v2.1** Please use `externalReferenceIds`.\
+            \ Github issue number #460 \n<br>List of external reference IDs. Could\
+            \ be a simple strings or a URIs. (use with `externalReferenceSources`\
+            \ parameter)"
+          deprecated: true
+          items:
+            type: string
+        externalReferenceIds:
+          type: array
+          description: List of external reference IDs. Could be a simple strings or
+            a URIs. (use with `externalReferenceSources` parameter)
+          items:
+            type: string
+        externalReferenceSources:
+          type: array
+          description: List of identifiers for the source system or database of an
+            external reference (use with `externalReferenceIDs` parameter)
+          items:
+            type: string
+        germplasmDbIds:
+          type: array
+          description: List of IDs which uniquely identify germplasm to search for
+          nullable: true
+          items:
+            type: string
+        germplasmNames:
+          type: array
+          description: List of human readable names to identify germplasm to search
+            for
+          nullable: true
+          items:
+            type: string
+        locationDbIds:
+          type: array
+          description: The location ids to search for
+          items:
+            type: string
+        locationNames:
+          type: array
+          description: A human readable names to search for
+          items:
+            type: string
+        observationVariableDbIds:
+          type: array
+          description: The DbIds of Variables to search for
+          items:
+            type: string
+        observationVariableNames:
+          type: array
+          description: The names of Variables to search for
+          items:
+            type: string
+        observationVariablePUIs:
+          type: array
+          description: "The Permanent Unique Identifier of an Observation Variable,\
+            \ usually in the form of a URI"
+          items:
+            type: string
+        page:
+          type: integer
+          description: Which result page is requested. The page indexing starts at
+            0 (the first page is 'page'= 0). Default is `0`.
+          format: int32
+          example: 0
+        pageSize:
+          type: integer
+          description: The size of the pages to be returned. Default is `1000`.
+          format: int32
+          example: 1000
         programDbIds:
           type: array
           description: "A BrAPI Program represents the high level organization or\
@@ -6485,64 +6741,20 @@ components:
             \ on a server."
           items:
             type: string
-        studyCodes:
+        programNames:
           type: array
-          description: A short human readable code for a study
+          description: |-
+            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+
+            Use `GET /programs` to find the list of available programs on a server.
+          items:
+            type: string
+        seasonDbIds:
+          type: array
+          description: The ID which uniquely identifies a season
           nullable: true
           items:
             type: string
-        studyPUIs:
-          type: array
-          description: "Permanent unique identifier associated with study data. For\
-            \ example, a URI or DOI"
-          nullable: true
-          items:
-            type: string
-        observationVariablePUIs:
-          type: array
-          description: "The Permanent Unique Identifier of an Observation Variable,\
-            \ usually in the form of a URI"
-          items:
-            type: string
-        trialDbIds:
-          type: array
-          description: The ID which uniquely identifies a trial to search for
-          items:
-            type: string
-        studyDbIds:
-          type: array
-          description: List of study identifiers to search for
-          items:
-            type: string
-        trialNames:
-          type: array
-          description: The human readable name of a trial to search for
-          items:
-            type: string
-        observationVariableNames:
-          type: array
-          description: The names of Variables to search for
-          items:
-            type: string
-        studyNames:
-          type: array
-          description: List of study names to filter search results
-          items:
-            type: string
-        observationVariableDbIds:
-          type: array
-          description: The DbIds of Variables to search for
-          items:
-            type: string
-        sortOrder:
-          type: string
-          description: Sort order direction. Ascending/Descending.
-          nullable: true
-          enum:
-          - asc
-          - ASC
-          - desc
-          - DESC
         sortBy:
           type: string
           description: Name of the field to sort by.
@@ -6557,10 +6769,54 @@ components:
           - studyName
           - studyLocation
           - programName
+          - germplasmDbId
+          - observationVariableDbId
+        sortOrder:
+          type: string
+          description: Sort order direction. Ascending/Descending.
+          nullable: true
+          enum:
+          - ASC
+          - DESC
+          - asc
+          - desc
+        studyCodes:
+          type: array
+          description: A short human readable code for a study
+          nullable: true
+          items:
+            type: string
+        studyDbIds:
+          type: array
+          description: List of study identifiers to search for
+          items:
+            type: string
+        studyNames:
+          type: array
+          description: List of study names to filter search results
+          items:
+            type: string
+        studyPUIs:
+          type: array
+          description: "Permanent unique identifier associated with study data. For\
+            \ example, a URI or DOI"
+          nullable: true
+          items:
+            type: string
         studyTypes:
           type: array
           description: "The type of study being performed. ex. \"Yield Trial\", etc"
           nullable: true
+          items:
+            type: string
+        trialDbIds:
+          type: array
+          description: The ID which uniquely identifies a trial to search for
+          items:
+            type: string
+        trialNames:
+          type: array
+          description: The human readable name of a trial to search for
           items:
             type: string
       description: A Study represents an experiment that has taken place at a single
@@ -6590,6 +6846,7 @@ components:
             \ a prior response to construct a query and move to the next or previous\
             \ page respectively. "
           example: 33c27874
+          deprecated: true
     TraitDataType:
       type: string
       description: |-
@@ -6737,12 +6994,6 @@ components:
           type: string
           description: The date this trial started
           nullable: true
-        studyDbIds:
-          type: array
-          description: ""
-          nullable: true
-          items:
-            type: string
         trialDescription:
           type: string
           description: |-
@@ -6880,35 +7131,6 @@ components:
     TrialSearchRequest:
       type: object
       properties:
-        locationDbIds:
-          type: array
-          description: The location ids to search for
-          items:
-            type: string
-        locationNames:
-          type: array
-          description: A human readable names to search for
-          items:
-            type: string
-        searchDateRangeEnd:
-          type: string
-          description: "The end of the overlapping search date range. `searchDateRangeStart`\
-            \ must be before `searchDateRangeEnd`.\n\nReturn a Trial entity if any\
-            \ of the following cases are true\n\n- `searchDateRangeStart` is before\
-            \ `trial.endDate` AND `searchDateRangeEnd` is null \n\n- `searchDateRangeStart`\
-            \ is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`\n\
-            \n- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart`\
-            \ is null\n\n- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart`\
-            \ is before `trial.endDate`"
-          format: date
-        programNames:
-          type: array
-          description: |-
-            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
-
-            Use `GET /programs` to find the list of available programs on a server.
-          items:
-            type: string
         active:
           type: boolean
           description: A flag to indicate if a Trial is currently active and ongoing
@@ -6924,6 +7146,53 @@ components:
             \ of available crops on a server."
           items:
             type: string
+        contactDbIds:
+          type: array
+          description: List of contact entities associated with this trial
+          items:
+            type: string
+        externalReferenceIDs:
+          type: array
+          description: "**Deprecated in v2.1** Please use `externalReferenceIds`.\
+            \ Github issue number #460 \n<br>List of external reference IDs. Could\
+            \ be a simple strings or a URIs. (use with `externalReferenceSources`\
+            \ parameter)"
+          deprecated: true
+          items:
+            type: string
+        externalReferenceIds:
+          type: array
+          description: List of external reference IDs. Could be a simple strings or
+            a URIs. (use with `externalReferenceSources` parameter)
+          items:
+            type: string
+        externalReferenceSources:
+          type: array
+          description: List of identifiers for the source system or database of an
+            external reference (use with `externalReferenceIDs` parameter)
+          items:
+            type: string
+        locationDbIds:
+          type: array
+          description: The location ids to search for
+          items:
+            type: string
+        locationNames:
+          type: array
+          description: A human readable names to search for
+          items:
+            type: string
+        page:
+          type: integer
+          description: Which result page is requested. The page indexing starts at
+            0 (the first page is 'page'= 0). Default is `0`.
+          format: int32
+          example: 0
+        pageSize:
+          type: integer
+          description: The size of the pages to be returned. Default is `1000`.
+          format: int32
+          example: 1000
         programDbIds:
           type: array
           description: "A BrAPI Program represents the high level organization or\
@@ -6934,14 +7203,49 @@ components:
             \ on a server."
           items:
             type: string
-        trialDbIds:
+        programNames:
           type: array
-          description: The ID which uniquely identifies a trial to search for
+          description: |-
+            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+
+            Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
+        searchDateRangeEnd:
+          type: string
+          description: "The end of the overlapping search date range. `searchDateRangeStart`\
+            \ must be before `searchDateRangeEnd`.\n\nReturn a Trial entity if any\
+            \ of the following cases are true\n\n- `searchDateRangeStart` is before\
+            \ `trial.endDate` AND `searchDateRangeEnd` is null \n\n- `searchDateRangeStart`\
+            \ is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`\n\
+            \n- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart`\
+            \ is null\n\n- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart`\
+            \ is before `trial.endDate`"
+          format: date
+        searchDateRangeStart:
+          type: string
+          description: "The start of the overlapping search date range. `searchDateRangeStart`\
+            \ must be before `searchDateRangeEnd`.\n\nReturn a Trial entity if any\
+            \ of the following cases are true\n\n- `searchDateRangeStart` is before\
+            \ `trial.endDate` AND `searchDateRangeEnd` is null \n\n- `searchDateRangeStart`\
+            \ is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`\n\
+            \n- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart`\
+            \ is null\n\n- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart`\
+            \ is before `trial.endDate`"
+          format: date
         studyDbIds:
           type: array
           description: List of study identifiers to search for
+          items:
+            type: string
+        studyNames:
+          type: array
+          description: List of study names to filter search results
+          items:
+            type: string
+        trialDbIds:
+          type: array
+          description: The ID which uniquely identifies a trial to search for
           items:
             type: string
         trialNames:
@@ -6955,38 +7259,15 @@ components:
             formatted identifier.
           items:
             type: string
-        studyNames:
-          type: array
-          description: List of study names to filter search results
-          items:
-            type: string
-        contactDbIds:
-          type: array
-          description: List of contact entities associated with this trial
-          items:
-            type: string
-        searchDateRangeStart:
-          type: string
-          description: "The start of the overlapping search date range. `searchDateRangeStart`\
-            \ must be before `searchDateRangeEnd`.\n\nReturn a Trial entity if any\
-            \ of the following cases are true\n\n- `searchDateRangeStart` is before\
-            \ `trial.endDate` AND `searchDateRangeEnd` is null \n\n- `searchDateRangeStart`\
-            \ is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`\n\
-            \n- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart`\
-            \ is null\n\n- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart`\
-            \ is before `trial.endDate`"
-          format: date
       description: "A Trial represents a collection of Study objects, and the metadata\
         \ associated with that collection. A Trial could represent a multi-location\
         \ experiment, and could contain information related to publications and data\
         \ licensing."
     Variable:
       required:
-      - methodDbId
-      - methodName
-      - scaleDbId
-      - scaleName
-      - traitName
+      - method
+      - scale
+      - trait
       type: object
       properties:
         additionalInfo:
@@ -7033,20 +7314,12 @@ components:
           description: 2 letter ISO 639-1 code for the language of submission of the
             variable.
           nullable: true
-        methodDbId:
-          type: string
-        methodName:
-          type: string
-        methodPUI:
-          type: string
+        method:
+          $ref: "#/components/schemas/Method"
         ontologyReference:
           $ref: "#/components/schemas/OntologyReference"
-        scaleDbId:
-          type: string
-        scaleName:
-          type: string
-        scalePUI:
-          type: string
+        scale:
+          $ref: "#/components/schemas/Scale"
         scientist:
           type: string
           description: Name of scientist submitting the variable.
@@ -7067,12 +7340,8 @@ components:
           nullable: true
           items:
             type: string
-        traitDbId:
-          type: string
-        traitName:
-          type: string
-        traitPUI:
-          type: string
+        trait:
+          $ref: "#/components/schemas/Trait"
       description: "A unique combination of Trait, Method, and Scale to define a clear\
         \ context for an Observation."
     VariableBaseClassParameters:
@@ -7157,6 +7426,7 @@ components:
           type: array
           description: "**Deprecated in v2.1** Please use `studyDbIds`. Github issue\
             \ number #483 \n<br>The unique ID of a studies to filter on"
+          deprecated: true
           items:
             type: string
         studyDbIds:
@@ -7240,6 +7510,8 @@ components:
             \ number #474 \n<br/>Only return variant calls which belong to call sets\
             \ with these IDs. If unspecified, return all variants and no variant call\
             \ objects."
+          nullable: true
+          deprecated: true
           items:
             type: string
         commonCropNames:
@@ -7282,15 +7554,19 @@ components:
           description: |-
             **Deprecated in v2.1** Please use `referenceDbIds`. Github issue number #472
             <br/>Only return variants on this reference.
+          nullable: true
           example: 120a2d5c
+          deprecated: true
         referenceDbIds:
           type: array
           description: The unique identifier representing a genotype `Reference`
+          nullable: true
           items:
             type: string
         referenceSetDbIds:
           type: array
           description: The unique identifier representing a genotype `ReferenceSet`
+          nullable: true
           items:
             type: string
         start:
@@ -7325,11 +7601,13 @@ components:
         variantDbIds:
           type: array
           description: A list of IDs which uniquely identify `Variants`
+          nullable: true
           items:
             type: string
         variantSetDbIds:
           type: array
           description: A list of IDs which uniquely identify `VariantSets`
+          nullable: true
           items:
             type: string
     VariantSetRequest:
@@ -7847,6 +8125,59 @@ components:
                     type: array
                     items:
                       $ref: "#/components/schemas/Study"
+    CallListResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            title: CallListResponse
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: "#/components/schemas/Context"
+              metadata:
+                $ref: "#/components/schemas/metadata"
+              result:
+                required:
+                - data
+                type: object
+                properties:
+                  data:
+                    type: array
+                    description: "The `data` array is part of the BrAPI standard List\
+                      \ Response JSON container. `data` will always contain the primary\
+                      \ list of objects being returned by a BrAPI endpoint. `data`\
+                      \ is also the only array impacted by the `metadata.pagination`\
+                      \ details. When the pagination parameters change, the `data`\
+                      \ array will reflect those changes in the JSON response."
+                    items:
+                      $ref: "#/components/schemas/Call"
+                  expandHomozygotes:
+                    type: boolean
+                    description: Should homozygotes be expanded (true) or collapsed
+                      into a single occurrence (false)
+                    nullable: true
+                    example: true
+                  sepPhased:
+                    type: string
+                    description: The string used as a separator for phased allele
+                      calls.
+                    nullable: true
+                    example: '|'
+                  sepUnphased:
+                    type: string
+                    description: The string used as a separator for unphased allele
+                      calls.
+                    nullable: true
+                    example: /
+                  unknownString:
+                    type: string
+                    description: The string used as a representation for missing data.
+                    nullable: true
+                    example: "."
     LocationSingleResponse:
       description: OK
       content:

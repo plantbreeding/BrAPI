@@ -118,80 +118,6 @@ interface ObservationUnitHierarchyLevel {
   levelOrder: Int
 }
 
-"""
-The exact level and level code of an observation unit. 
-
-For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
-
-MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended. 
-The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). 
-Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead." 
-"""
-interface ObservationUnitLevel implements ObservationUnitHierarchyLevel {
-  """
-  An ID code or number to represent a real thing that may or may not be an an observation unit.
-  <br/>For example, if the 'levelName' is 'plot', then the 'levelCode' would be the plot number or plot barcode. If this plot is also considered an ObservationUnit, then the appropriate observationUnitDbId should also be recorded.
-  <br/>If the 'levelName' is 'field', then the 'levelCode' might be something like '3' or 'F3' to indicate the third field at a research station. 
-  """
-  levelCode: String
-  """
-  A name for this level 
-  
-  **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** 
-  
-  For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
-  """
-  levelName: String
-  """
-  `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers 
-  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9). 
-  
-  For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
-  """
-  levelOrder: Int
-}
-
-"""
-Observation levels indicate the granularity level at which the measurements are taken. `levelName` 
-defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. 
-`levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are 
-at the bottom of the hierarchy (ie plant > 6). `levelCode` is an ID code for this level tag. Identify 
-this observation unit by each level of the hierarchy where it exists. 
-
-For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
-
-**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** 
-"""
-interface ObservationUnitLevelRelationship {
-  """
-  An ID code or number to represent a real thing that may or may not be an an observation unit.
-  <br/>For example, if the 'levelName' is 'plot', then the 'levelCode' would be the plot number or plot barcode. If this plot is also considered an ObservationUnit, then the appropriate observationUnitDbId should also be recorded.
-  <br/>If the 'levelName' is 'field', then the 'levelCode' might be something like '3' or 'F3' to indicate the third field at a research station. 
-  """
-  levelCode: String
-  """
-  A name for this level 
-  
-  **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** 
-  
-  For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
-  """
-  levelName: String
-  """
-  `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers 
-  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9). 
-  
-  For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
-  """
-  levelOrder: Int
-  """
-  The an observation unit
-  <br/>If this level has on ObservationUnit associated with it, record the observationUnitDbId here. This is intended to construct a strict hierarchy of observationUnits. 
-  <br/>If there is no ObservationUnit associated with this level, this field can set to NULL or omitted from the response.
-  """
-  observationUnitDbIds: ID
-}
-
 "A unique combination of Trait, Method, and Scale to define a clear context for an Observation."
 interface Variable {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
@@ -250,6 +176,8 @@ interface Variable {
 }
 
 union GeoJSONGeometry = GeoJSONPoint | GeoJSONPolygon
+
+union Value = BooleanValue | NumberValue | StringValue
 
 "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
 type AdditionalInfo {
@@ -334,6 +262,11 @@ type AvailableFormat {
   variantSetDbIds: ID
 }
 
+"A value type wrapper for boolean"
+type BooleanValue {
+  value: Boolean
+}
+
 "The techniques and protocol used to produce a Cross or Germplasm"
 type BreedingMethod {
   "A shortened version of the human readable name for a Breeding Method"
@@ -364,10 +297,16 @@ type Call {
   If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.
   """
   callSetDbIds: ID
+  genotype: ListValue
   "Genotype Metadata are additional layers of metadata associated with each genotype."
   genotypeMetadata: [GenotypeMetadata]
   "The value of this genotype call"
   genotypeValue: String
+  """
+  **Deprecated in v2.1** Please use `genotypeMetadata`. Github issue number #491             
+  <br>The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data | genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.
+  """
+  genotype_likelihood: [Float]
   """
   If this field is populated, this variant call's genotype ordering implies the phase of the bases and 
   is consistent with any other variant calls on the same contig which have the same phase set string.
@@ -380,8 +319,16 @@ type Call {
 }
 
 type CallListResponse {
-  data: [Call]
-  page: PageInfo
+  "The `data` array is part of the BrAPI standard List Response JSON container. `data` will always contain the primary list of objects being returned by a BrAPI endpoint. `data` is also the only array impacted by the `metadata.pagination` details. When the pagination parameters change, the `data` array will reflect those changes in the JSON response."
+  dataDbId: [ID]
+  "Should homozygotes be expanded (true) or collapsed into a single occurrence (false)"
+  expandHomozygotes: Boolean
+  "The string used as a separator for phased allele calls."
+  sepPhased: String
+  "The string used as a separator for unphased allele calls."
+  sepUnphased: String
+  "The string used as a representation for missing data."
+  unknownString: String
 }
 
 "A CallSet is a collection of Calls that were generated by the same analysis of the same Sample"
@@ -539,6 +486,11 @@ type Cross {
   plannedCrosDbIds: ID
   "The list of pollination events that occurred for this cross."
   pollinationEvents: [PollinationEvent]
+  """
+  **Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265
+  <br>The timestamp when the pollination took place
+  """
+  pollinationTimeStamp: String
 }
 
 "A custom attribute associated with a cross. For example, if the crossing event occurred on a humid day, a user might record 'crossAttributeName':'Relative Humidity', 'crossAttributeValue':'80%'"
@@ -726,8 +678,6 @@ MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept consta
 type EnvironmentParameter {
   "Human-readable value of the environment parameter (defined above) constant within the experiment"
   description: String
-  "Human-readable value of the environment parameter (defined above) constant within the experiment"
-  environmentParametersDbId: String
   """
   Name of the environment parameter constant within the experiment
   
@@ -759,6 +709,12 @@ An event is discrete occurrence at a particular time in the experiment. Events m
 type Event {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfo
+  """
+  **Deprecated in v2.1** Please use `eventDateRange.discreteDates`. Github issue number #440
+  <br>A list of dates when the event occurred
+  <br>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.
+  """
+  date: [String]
   "An object describing when a particular Event has taken place. An Event can occur at one or more discrete time points (`discreteDates`) or an event can happen continuously over a longer period of time (`startDate`, `endDate`)"
   eventDateRange: EventDateRange
   "Internal database identifier"
@@ -1158,7 +1114,7 @@ type Germplasm {
 }
 
 "The Trait-Method-Scale definition for a variable, specifically variables related to Germplasm. Similar to an ObservationVariable, but related to a Germplasm instead of an ObservationUnit"
-type GermplasmAttribute {
+type GermplasmAttribute implements Attribute & Variable {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfo
   "General category for the attribute. very similar to Trait class."
@@ -1418,7 +1374,7 @@ type GermplasmOrigin {
 "A germplasm reference that is a direct parent of this germplasm. These represent edges in the tree, connecting to other nodes."
 type GermplasmParent {
   "The parent germplasm"
-  parentGermplasmDbIds: ID
+  germplasmDbIds: ID
   """
   The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. 
   
@@ -1522,8 +1478,6 @@ type KeyValuePair {
 
 "The date and time when this study was last modified"
 type LastUpdate {
-  "The ID which uniquely identifies a LastUpdate within the given database server"
-  lastUpdateDbId: String
   "Last update associated with a study"
   studyDbIds: ID
   "The timestamp of the update."
@@ -1579,6 +1533,19 @@ type List {
 type ListListResponse {
   data: [List]
   page: PageInfo
+}
+
+"""
+**Deprecated in v2.1** Please use `genotypeValue` or `genotypeMetadata`. Github issue number #491             
+<br>`ListValue` is a wrapper around a repeated field of values.
+<br>The JSON representation for `ListValue` is JSON array.
+"""
+type ListValue {
+  """
+  **Deprecated in v2.1** Please use `genotypeValue` or `genotypeMetadata`. Github issue number #491             
+  <br>Repeated field of dynamically typed values.
+  """
+  values: [Value]
 }
 
 type ListsSearchResponse {
@@ -1874,6 +1841,11 @@ type Mutation {
   updateVariantSet(variantSetInput: VariantSetInput): VariantSet
 }
 
+"A value type wrapper for number"
+type NumberValue {
+  value: Float
+}
+
 "A value assigned for a specific ObservationVariable when observing a specific ObservationUnit."
 type Observation {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
@@ -1982,6 +1954,80 @@ type ObservationUnit {
   treatments: [ObservationTreatment]
   "The ID which uniquely identifies a trial"
   trialDbIds: ID
+}
+
+"""
+The exact level and level code of an observation unit. 
+
+For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+
+MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended. 
+The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). 
+Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead." 
+"""
+type ObservationUnitLevel implements ObservationUnitHierarchyLevel {
+  """
+  An ID code or number to represent a real thing that may or may not be an an observation unit.
+  <br/>For example, if the 'levelName' is 'plot', then the 'levelCode' would be the plot number or plot barcode. If this plot is also considered an ObservationUnit, then the appropriate observationUnitDbId should also be recorded.
+  <br/>If the 'levelName' is 'field', then the 'levelCode' might be something like '3' or 'F3' to indicate the third field at a research station. 
+  """
+  levelCode: String
+  """
+  A name for this level 
+  
+  **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** 
+  
+  For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+  """
+  levelName: String
+  """
+  `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers 
+  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9). 
+  
+  For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+  """
+  levelOrder: Int
+}
+
+"""
+Observation levels indicate the granularity level at which the measurements are taken. `levelName` 
+defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. 
+`levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are 
+at the bottom of the hierarchy (ie plant > 6). `levelCode` is an ID code for this level tag. Identify 
+this observation unit by each level of the hierarchy where it exists. 
+
+For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+
+**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** 
+"""
+type ObservationUnitLevelRelationship {
+  """
+  An ID code or number to represent a real thing that may or may not be an an observation unit.
+  <br/>For example, if the 'levelName' is 'plot', then the 'levelCode' would be the plot number or plot barcode. If this plot is also considered an ObservationUnit, then the appropriate observationUnitDbId should also be recorded.
+  <br/>If the 'levelName' is 'field', then the 'levelCode' might be something like '3' or 'F3' to indicate the third field at a research station. 
+  """
+  levelCode: String
+  """
+  A name for this level 
+  
+  **Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** 
+  
+  For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+  """
+  levelName: String
+  """
+  `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers 
+  are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9). 
+  
+  For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>. 
+  """
+  levelOrder: Int
+  """
+  The an observation unit
+  <br/>If this level has on ObservationUnit associated with it, record the observationUnitDbId here. This is intended to construct a strict hierarchy of observationUnits. 
+  <br/>If there is no ObservationUnit associated with this level, this field can set to NULL or omitted from the response.
+  """
+  observationUnitDbIds: ID
 }
 
 type ObservationUnitListResponse {
@@ -2228,8 +2274,6 @@ type PedigreeNode {
   <br/> If the parameter 'includeParents' is set to false, then this array should be empty, null, or not present in the response.
   """
   parents: [GermplasmParent]
-  "The ID which uniquely identifies a pedigree node"
-  pedigreeNodeDbId: String
   "The string representation of the pedigree for this germplasm in PURDY notation"
   pedigreeString: String
   """
@@ -2637,7 +2681,7 @@ type Reference {
   "The `sourceDivergence` is the fraction of non-indel bases that do not match the `Reference` this message was derived from."
   sourceDivergence: Float
   "All known corresponding Germplasm"
-  sourceGermplasmDbId: [ID]
+  sourceGermplasm: [SourceGermplasm]
   "The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI."
   sourceURI: String
   "An ontology term describing an attribute."
@@ -2751,7 +2795,7 @@ type Sample {
   """
   sampleDescription: String
   "The ID which uniquely identifies a group of `Samples`"
-  sampleGroupId: String
+  sampleGroupDbId: String
   "The human readable name of the `Sample`"
   sampleName: String
   """
@@ -2944,6 +2988,23 @@ type SeedLotsSearchResponse {
   searchResultsDbId: String
 }
 
+"A reference to a Germplasm"
+type SourceGermplasm {
+  """
+  The ID which uniquely identifies a germplasm within the given database server 
+  <br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, inventory lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
+  """
+  germplasmDbId: String
+  """
+  Name of the germplasm. It can be the preferred name and does not have to be unique.
+  
+  MCPD (v2.1) (ACCENAME) 11. Either a registered or other designation given to the material received, other than the donors accession number (23) or collecting number (3). First letter uppercase. Multiple names are separated by a semicolon without space.
+  """
+  germplasmName: String
+  "The Reference associated with this Source Germplasm"
+  referenceDbIds: ID
+}
+
 "The type of storage this germplasm is kept in at a genebank."
 type StorageType {
   """
@@ -2966,6 +3027,11 @@ type StorageType {
   description: String
   "associated germplasm"
   germplasmDbIds: ID
+}
+
+"A value type wrapper for string"
+type StringValue {
+  value: String
 }
 
 type StudiesSearchResponse {
@@ -3247,8 +3313,13 @@ type Variant {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfo
   alleleMatrices(alleleMatrixInput: AlleleMatrixInput, paging: PageInput): AlleleMatrixListResponse
-  "Set of Analysis descriptors for this VariantSet"
-  analysis: [String]
+  "The bases that appear instead of the reference bases. Multiple alternate alleles are possible."
+  alternateBases: [String]
+  """
+  **Deprecated in v2.1** Please use `alternateBases`. Github issue number #549
+  <br>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.
+  """
+  alternate_bases: [String]
   calls(callsInput: CallsInput, paging: PageInput): CallListResponse
   "Similar to \"cipos\", but for the variant's end position (which is derived from start + svlen)."
   ciend: [Int]
@@ -3300,7 +3371,7 @@ type Variant {
   "A human readable name associated with a `Variant`"
   variantNames: [String]
   "An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted."
-  variantSet(paging: PageInput, variantSetsInput: VariantSetsInput): VariantSetListResponse
+  variantSets(paging: PageInput, variantSetsInput: VariantSetsInput): VariantSetListResponse
   """
   The "variant_type" is used to denote e.g. structural variants.
   Examples:
@@ -3555,6 +3626,7 @@ enum MlsStatus {
 
 "The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. \\n\\nIn a pedigree record, the 'parentType' describes each parent of a particular germplasm. \\n\\nIn a progeny record, the 'parentType' is used to describe how this germplasm was crossed to generate a particular progeny. \\nFor example, given a record for germplasm A, having a progeny B and C. The 'parentType' field for progeny B item refers \\nto the 'parentType' of A toward B. The 'parentType' field for progeny C item refers to the 'parentType' of A toward C.\\nIn this way, A could be a male parent to B, but a female parent to C. "
 enum ParentType {
+  CLONAL
   FEMALE
   MALE
   POPULATION
@@ -3624,7 +3696,9 @@ enum SampleType {
 
 "Name of the field to sort by."
 enum SortBy {
+  germplasmDbId
   locationDbId
+  observationVariableDbId
   programDbId
   programName
   seasonDbId
@@ -3770,10 +3844,16 @@ input CallInput {
   If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.
   """
   callSet: CallSetInput
+  genotype: ListValueInput
   "Genotype Metadata are additional layers of metadata associated with each genotype."
   genotypeMetadata: [GenotypeMetadataInput]
   "The value of this genotype call"
   genotypeValue: String
+  """
+  **Deprecated in v2.1** Please use `genotypeMetadata`. Github issue number #491             
+  <br>The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data | genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.
+  """
+  genotype_likelihood: [Float]
   """
   If this field is populated, this variant call's genotype ordering implies the phase of the bases and 
   is consistent with any other variant calls on the same contig which have the same phase set string.
@@ -3861,6 +3941,12 @@ input CallsInput {
   callSetDbIds: [String]
   "Should homozygotes be expanded (true) or collapsed into a single occurrence (false)"
   expandHomozygotes: Boolean
+  """
+  The continuation token, which is used to page through large result sets.
+  To get the next page of results, set this parameter to the value of
+  `next_page_token` from the previous response.
+  """
+  pageToken: String
   "The string used as a separator for phased allele calls."
   sepPhased: String
   "The string used as a separator for unphased allele calls."
@@ -4001,6 +4087,11 @@ input CrossInput {
   plannedCross: PlannedCrossInput
   "The list of pollination events that occurred for this cross."
   pollinationEvents: [PollinationEventInput]
+  """
+  **Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265
+  <br>The timestamp when the pollination took place
+  """
+  pollinationTimeStamp: String
 }
 
 "The identifying information gor the parent material of a cross."
@@ -4233,8 +4324,6 @@ MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept consta
 input EnvironmentParameterInput {
   "Human-readable value of the environment parameter (defined above) constant within the experiment"
   description: String
-  "Human-readable value of the environment parameter (defined above) constant within the experiment"
-  environmentParametersDbId: String
   """
   Name of the environment parameter constant within the experiment
   
@@ -4287,6 +4376,12 @@ An event is discrete occurrence at a particular time in the experiment. Events m
 input EventInput {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfoInput
+  """
+  **Deprecated in v2.1** Please use `eventDateRange.discreteDates`. Github issue number #440
+  <br>A list of dates when the event occurred
+  <br>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.
+  """
+  date: [String]
   "An object describing when a particular Event has taken place. An Event can occur at one or more discrete time points (`discreteDates`) or an event can happen continuously over a longer period of time (`startDate`, `endDate`)"
   eventDateRange: EventDateRangeInput
   "Internal database identifier"
@@ -5130,7 +5225,7 @@ input GermplasmOriginInput {
 "A germplasm reference that is a direct parent of this germplasm. These represent edges in the tree, connecting to other nodes."
 input GermplasmParentInput {
   "The parent germplasm"
-  parentGermplasm: GermplasmInput
+  germplasm: GermplasmInput
   """
   The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. 
   
@@ -5271,8 +5366,6 @@ input InstituteInput {
 
 "The date and time when this study was last modified"
 input LastUpdateInput {
-  "The ID which uniquely identifies a LastUpdate within the given database server"
-  lastUpdateDbId: String
   "Last update associated with a study"
   study: StudyInput
   "The timestamp of the update."
@@ -5323,6 +5416,19 @@ input ListInput {
   listSource: String
   "A flag to indicate the type of objects that are referenced in a List"
   listType: ListType
+}
+
+"""
+**Deprecated in v2.1** Please use `genotypeValue` or `genotypeMetadata`. Github issue number #491             
+<br>`ListValue` is a wrapper around a repeated field of values.
+<br>The JSON representation for `ListValue` is JSON array.
+"""
+input ListValueInput {
+  """
+  **Deprecated in v2.1** Please use `genotypeValue` or `genotypeMetadata`. Github issue number #491             
+  <br>Repeated field of dynamically typed values.
+  """
+  values: [ValueInput]
 }
 
 input ListsInput {
@@ -6387,8 +6493,6 @@ input PedigreeNodeInput {
   <br/> If the parameter 'includeParents' is set to false, then this array should be empty, null, or not present in the response.
   """
   parents: [GermplasmParentInput]
-  "The ID which uniquely identifies a pedigree node"
-  pedigreeNodeDbId: String
   "The string representation of the pedigree for this germplasm in PURDY notation"
   pedigreeString: String
   """
@@ -6824,7 +6928,7 @@ input ReferenceInput {
   "The `sourceDivergence` is the fraction of non-indel bases that do not match the `Reference` this message was derived from."
   sourceDivergence: Float
   "All known corresponding Germplasm"
-  sourceGermplasm: [GermplasmInput]
+  sourceGermplasm: [SourceGermplasmInput]
   "The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI."
   sourceURI: String
   "An ontology term describing an attribute."
@@ -7004,7 +7108,7 @@ input SampleInput {
   """
   sampleDescription: String
   "The ID which uniquely identifies a group of `Samples`"
-  sampleGroupId: String
+  sampleGroupDbId: String
   "The human readable name of the `Sample`"
   sampleName: String
   """
@@ -7292,6 +7396,23 @@ input SeedLotsInput {
   programNames: [String]
   "Unique id for a seed lot on this server"
   seedLotDbIds: [String]
+}
+
+"A reference to a Germplasm"
+input SourceGermplasmInput {
+  """
+  The ID which uniquely identifies a germplasm within the given database server 
+  <br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, inventory lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
+  """
+  germplasmDbId: String
+  """
+  Name of the germplasm. It can be the preferred name and does not have to be unique.
+  
+  MCPD (v2.1) (ACCENAME) 11. Either a registered or other designation given to the material received, other than the donors accession number (23) or collecting number (3). First letter uppercase. Multiple names are separated by a semicolon without space.
+  """
+  germplasmName: String
+  "The Reference associated with this Source Germplasm"
+  reference: ReferenceInput
 }
 
 "The type of storage this germplasm is kept in at a genebank."
@@ -7753,13 +7874,27 @@ input ValidValuesInput {
   scale: ScaleInput
 }
 
+input ValueInput {
+  "Field for possible type 'Boolean'"
+  boolean: Boolean
+  "Field for possible type 'Float'"
+  float: Float
+  "Field for possible type 'String'"
+  string: String
+}
+
 "A `Variant` represents a change in DNA sequence relative to some reference. For example, a variant could represent a classic marker, a SNP, or an insertion. This is equivalent to a row in VCF."
 input VariantInput {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfoInput
   alleleMatrices: [AlleleMatrixInput]
-  "Set of Analysis descriptors for this VariantSet"
-  analysis: [String]
+  "The bases that appear instead of the reference bases. Multiple alternate alleles are possible."
+  alternateBases: [String]
+  """
+  **Deprecated in v2.1** Please use `alternateBases`. Github issue number #549
+  <br>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.
+  """
+  alternate_bases: [String]
   calls: [CallInput]
   "Similar to \"cipos\", but for the variant's end position (which is derived from start + svlen)."
   ciend: [Int]
@@ -7811,7 +7946,7 @@ input VariantInput {
   "A human readable name associated with a `Variant`"
   variantNames: [String]
   "An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted."
-  variantSet: [VariantSetInput]
+  variantSets: [VariantSetInput]
   """
   The "variant_type" is used to denote e.g. structural variants.
   Examples:

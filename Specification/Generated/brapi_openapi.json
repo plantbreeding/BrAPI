@@ -305,7 +305,7 @@
           },
           "style" : "form"
         }, {
-          "description" : "\"dataMatrixNames\" is a comma seperated list of names (ie 'Genotype, Read Depth' etc). This list controls which data matrices are returned in the response.\n<br> This maps to a FORMAT field in the VCF file standard.",
+          "description" : "\"dataMatrixNames\" is a comma separated list of names (ie 'Genotype, Read Depth' etc). This list controls which data matrices are returned in the response.\n<br> This maps to a FORMAT field in the VCF file standard.",
           "explode" : true,
           "in" : "query",
           "name" : "dataMatrixNames",
@@ -315,7 +315,7 @@
           },
           "style" : "form"
         }, {
-          "description" : "\"dataMatrixAbbreviations\" is a comma seperated list of abbreviations (ie 'GT, RD' etc). This list controls which data matrices are returned in the response.\n<br> This maps to a FORMAT field in the VCF file standard.",
+          "description" : "\"dataMatrixAbbreviations\" is a comma separated list of abbreviations (ie 'GT, RD' etc). This list controls which data matrices are returned in the response.\n<br> This maps to a FORMAT field in the VCF file standard.",
           "explode" : true,
           "in" : "query",
           "name" : "dataMatrixAbbreviations",
@@ -15524,17 +15524,6 @@
       "get" : {
         "description" : "Get the results of a `Observations` search request <br/>\nClients should submit a search request using the corresponding `POST /search/observations` endpoint.\nSearch requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \nIf a server needs more time to process the request, it might respond with a `searchResultsDbId`. \nUse this endpoint to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\">Search Services documentation</a> for additional implementation details.",
         "parameters" : [ {
-          "description" : "A standard HTTP request header that is used to request a specific content type (JSON, CSV, etc) which is \"acceptable\" to the client and should be returned by the server",
-          "example" : "application/json",
-          "explode" : false,
-          "in" : "header",
-          "name" : "Accept",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/components/schemas/ContentTypes"
-          },
-          "style" : "simple"
-        }, {
           "description" : "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer {token_string} </strong>",
           "example" : "Bearer XXXX",
           "explode" : false,
@@ -19689,7 +19678,7 @@
           "name" : "sortBy",
           "required" : false,
           "schema" : {
-            "enum" : [ "studyDbId", "trialDbId", "programDbId", "locationDbId", "seasonDbId", "studyType", "studyName", "studyLocation", "programName" ],
+            "enum" : [ "studyDbId", "trialDbId", "programDbId", "locationDbId", "seasonDbId", "studyType", "studyName", "studyLocation", "programName", "germplasmDbId", "observationVariableDbId" ],
             "type" : "string"
           },
           "style" : "form"
@@ -22210,6 +22199,17 @@
           },
           "style" : "form"
         }, {
+          "deprecated" : true,
+          "description" : "**Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 \n<br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)",
+          "explode" : true,
+          "in" : "query",
+          "name" : "externalReferenceID",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "style" : "form"
+        }, {
           "description" : "An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)",
           "explode" : true,
           "in" : "query",
@@ -23617,7 +23617,7 @@
         "style" : "form"
       },
       "dataMatrixAbbreviations" : {
-        "description" : "\"dataMatrixAbbreviations\" is a comma seperated list of abbreviations (ie 'GT, RD' etc). This list controls which data matrices are returned in the response.\n<br> This maps to a FORMAT field in the VCF file standard.",
+        "description" : "\"dataMatrixAbbreviations\" is a comma separated list of abbreviations (ie 'GT, RD' etc). This list controls which data matrices are returned in the response.\n<br> This maps to a FORMAT field in the VCF file standard.",
         "explode" : true,
         "in" : "query",
         "name" : "dataMatrixAbbreviations",
@@ -23628,7 +23628,7 @@
         "style" : "form"
       },
       "dataMatrixNames" : {
-        "description" : "\"dataMatrixNames\" is a comma seperated list of names (ie 'Genotype, Read Depth' etc). This list controls which data matrices are returned in the response.\n<br> This maps to a FORMAT field in the VCF file standard.",
+        "description" : "\"dataMatrixNames\" is a comma separated list of names (ie 'Genotype, Read Depth' etc). This list controls which data matrices are returned in the response.\n<br> This maps to a FORMAT field in the VCF file standard.",
         "explode" : true,
         "in" : "query",
         "name" : "dataMatrixNames",
@@ -25813,7 +25813,7 @@
           },
           "parentType" : {
             "description" : "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
-            "enum" : [ "MALE", "FEMALE", "SELF", "POPULATION" ],
+            "enum" : [ "MALE", "FEMALE", "SELF", "POPULATION", "CLONAL" ],
             "example" : "MALE",
             "type" : "string"
           }
@@ -35819,7 +35819,7 @@
           },
           "sortOrder" : {
             "description" : "Order results should be sorted. ex. \"ASC\" or \"DESC\"",
-            "enum" : [ "ASC", "DESC" ],
+            "enum" : [ "asc", "ASC", "desc", "DESC" ],
             "nullable" : true,
             "type" : "string"
           },
@@ -40908,7 +40908,7 @@
           },
           "parentType" : {
             "description" : "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
-            "enum" : [ "MALE", "FEMALE", "SELF", "POPULATION" ],
+            "enum" : [ "MALE", "FEMALE", "SELF", "POPULATION", "CLONAL" ],
             "example" : "MALE",
             "type" : "string"
           }
@@ -40964,7 +40964,7 @@
           },
           "parentType" : {
             "description" : "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
-            "enum" : [ "MALE", "FEMALE", "SELF", "POPULATION" ],
+            "enum" : [ "MALE", "FEMALE", "SELF", "POPULATION", "CLONAL" ],
             "example" : "MALE",
             "type" : "string"
           }

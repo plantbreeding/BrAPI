@@ -3,6 +3,153 @@ info:
   title: BrAPI-Genotyping
   version: "2.1"
 paths:
+  /allelematrix:
+    get:
+      tags:
+      - AlleleMatrix
+      summary: Get a filtered list of AlleleMatrix
+      description: Get a list of AlleleMatrix
+      parameters:
+      - name: preview
+        in: query
+        description: "Default Value = false\n<br/>\nIf 'preview' is set to true, then\
+          \ the server should only return the lists of 'callSetDbIds', \n'variantDbIds',\
+          \ and 'variantSetDbIds'. The server should not return any matrix data. This\n\
+          is intended to be a preview and give the client a sense of how large the\
+          \ matrix returned will be\n<br/>\nIf 'preview' is set to false or not set\
+          \ (default), then the server should return all the matrix\ndata as requested."
+        required: false
+        schema:
+          type: boolean
+      - name: dimensionVariantPage
+        in: query
+        description: The requested page number for the Variant dimension of the matrix
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: dimensionVariantPageSize
+        in: query
+        description: The requested page size for the Variant dimension of the matrix
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: dimensionCallSetPage
+        in: query
+        description: The requested page number for the CallSet dimension of the matrix
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: dimensionCallSetPageSize
+        in: query
+        description: The requested page size for the CallSet dimension of the matrix
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: dataMatrixNames
+        in: query
+        description: "`dataMatrixNames` is a comma separated list of names (ie 'Genotype',\
+          \ 'Read Depth' etc). This list controls which data matrices are returned\
+          \ in the response."
+        required: false
+        schema:
+          type: string
+      - name: dataMatrixAbbreviations
+        in: query
+        description: "`dataMatrixAbbreviations` is a comma separated list of abbreviations\
+          \ (ie 'GT', 'RD' etc). This list controls which data matrices are returned\
+          \ in the response."
+        required: false
+        schema:
+          type: string
+      - name: positionRange
+        in: query
+        description: "The postion range to search\n<br/>\nUses the format \"<chrom>:<start>-<end>\"\
+          \ where <chrom> is the chromosome name, <start> is \nthe starting position\
+          \ of the range, and <end> is the ending position of the range"
+        required: false
+        schema:
+          type: string
+      - name: germplasmName
+        in: query
+        description: A list of human readable `Germplasm` names
+        required: false
+        schema:
+          type: string
+      - name: germplasmPUI
+        in: query
+        description: A list of permanent unique identifiers associated with `Germplasm`
+        required: false
+        schema:
+          type: string
+      - name: germplasmDbId
+        in: query
+        description: A list of IDs which uniquely identify `Germplasm` within the
+          given database server
+        required: false
+        schema:
+          type: string
+      - name: callSetDbId
+        in: query
+        description: A list of IDs which uniquely identify `CallSets` within the given
+          database server
+        required: false
+        schema:
+          type: string
+      - name: variantDbId
+        in: query
+        description: A list of IDs which uniquely identify `Variants` within the given
+          database server
+        required: false
+        schema:
+          type: string
+      - name: variantSetDbId
+        in: query
+        description: A list of IDs which uniquely identify `VariantSets` within the
+          given database server
+        required: false
+        schema:
+          type: string
+      - name: expandHomozygotes
+        in: query
+        description: Should homozygotes be expanded (true) or collapsed into a single
+          occurrence (false)
+        required: false
+        schema:
+          type: boolean
+      - name: sepPhased
+        in: query
+        description: The string used as a separator for phased allele calls.
+        required: false
+        schema:
+          type: string
+      - name: sepUnphased
+        in: query
+        description: The string used as a separator for unphased allele calls.
+        required: false
+        schema:
+          type: string
+      - name: unknownString
+        in: query
+        description: The string used as a representation for missing data.
+        required: false
+        schema:
+          type: string
+      - $ref: "#/components/parameters/authorizationHeader"
+      responses:
+        "200":
+          $ref: "#/components/responses/AlleleMatrixSingleResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
   /calls:
     get:
       tags:
@@ -53,6 +200,15 @@ paths:
       - name: unknownString
         in: query
         description: The string used as a representation for missing data.
+        required: false
+        schema:
+          type: string
+      - name: pageToken
+        in: query
+        description: |-
+          The continuation token, which is used to page through large result sets.
+          To get the next page of results, set this parameter to the value of
+          `next_page_token` from the previous response.
         required: false
         schema:
           type: string
@@ -683,13 +839,13 @@ paths:
               example: "{<sampleDbId>_1={additionalInfo={}, callSets=[{}], column=10,\
                 \ externalReferences=[{}], germplasm={}, observationUnit={}, plate={},\
                 \ program={}, row=00358167, sampleBarcode=6a6db74b, sampleDescription=3388964f,\
-                \ sampleDbId=079d6d5e, sampleGroupId=70fcb311, sampleName=082a6b4c,\
+                \ sampleDbId=079d6d5e, sampleGroupDbId=2455eef3, sampleName=082a6b4c,\
                 \ samplePUI=08863647, sampleTimestamp=2020-08-12T18:10:40.413Z, sampleType=0889ec7d,\
                 \ study={}, takenBy=599da043, tissueType=4d105e22, trial={}, well=06bc78f3},\
                 \ <sampleDbId>_2={additionalInfo={}, callSets=[{}], column=20, externalReferences=[{}],\
                 \ germplasm={}, observationUnit={}, plate={}, program={}, row=00358168,\
                 \ sampleBarcode=6a6db74c, sampleDescription=33889650, sampleDbId=079d6d5f,\
-                \ sampleGroupId=70fcb312, sampleName=082a6b4d, samplePUI=08863648,\
+                \ sampleGroupDbId=2455eef4, sampleName=082a6b4d, samplePUI=08863648,\
                 \ sampleTimestamp=2020-08-12T18:10:40.413Z, sampleType=0889ec7e, study={},\
                 \ takenBy=599da044, tissueType=4d105e23, trial={}, well=06bc78f4}}"
       responses:
@@ -925,14 +1081,14 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/CallListResponse"
+        "404":
+          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
-        "404":
-          $ref: "#/components/responses/404NotFound"
   /maps/{mapDbId}:
     get:
       tags:
@@ -977,14 +1133,14 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/LinkageGroupListResponse"
+        "404":
+          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
-        "404":
-          $ref: "#/components/responses/404NotFound"
   /plates/{plateDbId}:
     get:
       tags:
@@ -1210,14 +1366,14 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/CallListResponse"
+        "404":
+          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
-        "404":
-          $ref: "#/components/responses/404NotFound"
   /variantsets/{variantSetDbId}:
     get:
       tags:
@@ -1288,14 +1444,14 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/CallListResponse"
+        "404":
+          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
-        "404":
-          $ref: "#/components/responses/404NotFound"
   /variantsets/{variantSetDbId}/callsets:
     get:
       tags:
@@ -1328,14 +1484,14 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/CallSetListResponse"
+        "404":
+          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
-        "404":
-          $ref: "#/components/responses/404NotFound"
   /variantsets/{variantSetDbId}/variants:
     get:
       tags:
@@ -1362,14 +1518,14 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/VariantListResponse"
+        "404":
+          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
-        "404":
-          $ref: "#/components/responses/404NotFound"
   /search/allelematrix:
     post:
       tags:
@@ -1392,7 +1548,7 @@ paths:
               $ref: "#/components/schemas/AlleleMatrixSearchRequest"
       responses:
         "200":
-          $ref: "#/components/responses/AlleleMatrixListResponse"
+          $ref: "#/components/responses/AlleleMatrixSingleResponse"
         "202":
           $ref: "#/components/responses/202AcceptedSearchResponse"
         "400":
@@ -1704,7 +1860,11 @@ paths:
       - $ref: "#/components/parameters/authorizationHeader"
       responses:
         "200":
-          $ref: "#/components/responses/AlleleMatrixListResponse"
+          $ref: "#/components/responses/AlleleMatrixSingleResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "404":
+          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
@@ -1743,6 +1903,10 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/CallListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "404":
+          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
@@ -1781,6 +1945,10 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/CallSetListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "404":
+          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
@@ -1820,6 +1988,10 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/MarkerPositionListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "404":
+          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
@@ -1858,6 +2030,10 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/PlateListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "404":
+          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
@@ -1896,6 +2072,10 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/ReferenceListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "404":
+          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
@@ -1934,6 +2114,10 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/ReferenceSetListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "404":
+          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
@@ -1972,6 +2156,10 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/SampleListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "404":
+          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
@@ -2010,6 +2198,10 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/VariantListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "404":
+          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
@@ -2048,6 +2240,10 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/VariantSetListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "404":
+          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
@@ -2066,8 +2262,20 @@ components:
         \ by the BrAPI specification."
       nullable: true
     AlleleMatrix:
+      required:
+      - callSetDbIds
+      - variantSetDbIds
       type: object
       properties:
+        callSetDbIds:
+          type: array
+          description: "A list of unique identifiers for the CallSets contained in\
+            \ the matrix response. This array should match the ordering for columns\
+            \ in the matrix. A CallSet is a unique combination of a Sample and a sequencing\
+            \ event. CallSets often have a 1-to-1 relationship with Samples, but this\
+            \ is not always the case."
+          items:
+            type: string
         dataMatrices:
           type: array
           description: "The 'dataMatrices' are an array of matrix objects that hold\
@@ -2100,6 +2308,23 @@ components:
           type: string
           description: The string used as a representation for missing data.
           nullable: true
+        variantDbIds:
+          type: array
+          description: A list of unique identifiers for the Variants contained in
+            the matrix response. This array should match the ordering for rows in
+            the matrix.
+          nullable: true
+          items:
+            type: string
+        variantSetDbIds:
+          type: array
+          description: "A list of unique identifiers for the VariantSets contained\
+            \ in the matrix response. A VariantSet is a data set originating from\
+            \ a sequencing event. Often, users will only be interested in data from\
+            \ a single VariantSet, but in some cases a user might be interested in\
+            \ a matrix with data from multiple VariantSets."
+          items:
+            type: string
       description: "The AlleleMatrix object is used to describe a matrix of genotyping\
         \ results. This 2d array of data reduces the overall size of the response\
         \ for larger datasets, when compared to the Calls endpoints. This makes genotype\
@@ -2135,21 +2360,41 @@ components:
           items:
             type: string
         dataMatrixAbbreviations:
-          type: array
-          description: "`dataMatrixAbbreviations` is a comma seperated list of abbreviations\
+          type: string
+          description: "`dataMatrixAbbreviations` is a comma separated list of abbreviations\
             \ (ie 'GT', 'RD' etc). This list controls which data matrices are returned\
             \ in the response."
           nullable: true
-          items:
-            type: string
+          example: "GT,RD"
         dataMatrixNames:
-          type: array
-          description: "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read\
-            \ Depth' etc). This list controls which data matrices are returned in\
-            \ the response."
+          type: string
+          description: "`dataMatrixNames` is a comma separated list of names (ie 'Genotype',\
+            \ 'Read Depth' etc). This list controls which data matrices are returned\
+            \ in the response."
           nullable: true
-          items:
-            type: string
+          example: "Genotype,Read Depth"
+        dimensionCallSetPage:
+          type: integer
+          description: The requested page number for the CallSet dimension of the
+            matrix
+          format: int32
+          nullable: true
+        dimensionCallSetPageSize:
+          type: integer
+          description: The requested page size for the CallSet dimension of the matrix
+          format: int32
+          nullable: true
+        dimensionVariantPage:
+          type: integer
+          description: The requested page number for the Variant dimension of the
+            matrix
+          format: int32
+          nullable: true
+        dimensionVariantPageSize:
+          type: integer
+          description: The requested page size for the Variant dimension of the matrix
+          format: int32
+          nullable: true
         expandHomozygotes:
           type: boolean
           description: Should homozygotes be expanded (true) or collapsed into a single
@@ -2218,6 +2463,7 @@ components:
             \ or not set (default), then the server should return all the matrix\n\
             data as requested."
           example: true
+          default: false
         sampleDbIds:
           type: array
           description: A list of IDs which uniquely identify `Samples` within the
@@ -2257,6 +2503,54 @@ components:
     AlleleMatrixSearchRequest:
       type: object
       properties:
+        callSetDbIds:
+          type: array
+          description: A list of IDs which uniquely identify `CallSets` within the
+            given database server
+          items:
+            type: string
+        dataMatrixAbbreviations:
+          type: string
+          description: "`dataMatrixAbbreviations` is a comma separated list of abbreviations\
+            \ (ie 'GT', 'RD' etc). This list controls which data matrices are returned\
+            \ in the response."
+          nullable: true
+          example: "GT,RD"
+        dataMatrixNames:
+          type: string
+          description: "`dataMatrixNames` is a comma separated list of names (ie 'Genotype',\
+            \ 'Read Depth' etc). This list controls which data matrices are returned\
+            \ in the response."
+          nullable: true
+          example: "Genotype,Read Depth"
+        dimensionCallSetPage:
+          type: integer
+          description: The requested page number for the CallSet dimension of the
+            matrix
+          format: int32
+          nullable: true
+        dimensionCallSetPageSize:
+          type: integer
+          description: The requested page size for the CallSet dimension of the matrix
+          format: int32
+          nullable: true
+        dimensionVariantPage:
+          type: integer
+          description: The requested page number for the Variant dimension of the
+            matrix
+          format: int32
+          nullable: true
+        dimensionVariantPageSize:
+          type: integer
+          description: The requested page size for the Variant dimension of the matrix
+          format: int32
+          nullable: true
+        expandHomozygotes:
+          type: boolean
+          description: Should homozygotes be expanded (true) or collapsed into a single
+            occurrence (false)
+          nullable: true
+          example: true
         germplasmDbIds:
           type: array
           description: A list of IDs which uniquely identify `Germplasm` within the
@@ -2264,19 +2558,15 @@ components:
           nullable: true
           items:
             type: string
-        preview:
-          type: boolean
-          description: "Default Value = false\n<br/>\nIf 'preview' is set to true,\
-            \ then the server should only return the lists of 'callSetDbIds', \n'variantDbIds',\
-            \ and 'variantSetDbIds'. The server should not return any matrix data.\
-            \ This\nis intended to be a preview and give the client a sense of how\
-            \ large the matrix returned will be\n<br/>\nIf 'preview' is set to false\
-            \ or not set (default), then the server should return all the matrix\n\
-            data as requested."
-          example: true
         germplasmNames:
           type: array
           description: A list of human readable `Germplasm` names
+          nullable: true
+          items:
+            type: string
+        germplasmPUIs:
+          type: array
+          description: A list of permanent unique identifiers associated with `Germplasm`
           nullable: true
           items:
             type: string
@@ -2305,17 +2595,6 @@ components:
                   of the matrix
                 format: int32
                 example: 500
-        unknownString:
-          type: string
-          description: The string used as a representation for missing data.
-          nullable: true
-          example: "."
-        germplasmPUIs:
-          type: array
-          description: A list of permanent unique identifiers associated with `Germplasm`
-          nullable: true
-          items:
-            type: string
         positionRanges:
           type: array
           description: "The postion range to search\n<br/>\nUses the format \"<chrom>:<start>-<end>\"\
@@ -2324,52 +2603,21 @@ components:
           nullable: true
           items:
             type: string
+        preview:
+          type: boolean
+          description: "Default Value = false\n<br/>\nIf 'preview' is set to true,\
+            \ then the server should only return the lists of 'callSetDbIds', \n'variantDbIds',\
+            \ and 'variantSetDbIds'. The server should not return any matrix data.\
+            \ This\nis intended to be a preview and give the client a sense of how\
+            \ large the matrix returned will be\n<br/>\nIf 'preview' is set to false\
+            \ or not set (default), then the server should return all the matrix\n\
+            data as requested."
+          example: true
+          default: false
         sampleDbIds:
           type: array
           description: A list of IDs which uniquely identify `Samples` within the
             given database server
-          nullable: true
-          items:
-            type: string
-        variantSetDbIds:
-          type: array
-          description: A list of IDs which uniquely identify `VariantSets` within
-            the given database server
-          nullable: true
-          items:
-            type: string
-        dataMatrixAbbreviations:
-          type: array
-          description: "`dataMatrixAbbreviations` is a comma seperated list of abbreviations\
-            \ (ie 'GT', 'RD' etc). This list controls which data matrices are returned\
-            \ in the response."
-          nullable: true
-          items:
-            type: string
-        expandHomozygotes:
-          type: boolean
-          description: Should homozygotes be expanded (true) or collapsed into a single
-            occurrence (false)
-          nullable: true
-          example: true
-        variantDbIds:
-          type: array
-          description: A list of IDs which uniquely identify `Variants` within the
-            given database server
-          nullable: true
-          items:
-            type: string
-        callSetDbIds:
-          type: array
-          description: A list of IDs which uniquely identify `CallSets` within the
-            given database server
-          items:
-            type: string
-        dataMatrixNames:
-          type: array
-          description: "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read\
-            \ Depth' etc). This list controls which data matrices are returned in\
-            \ the response."
           nullable: true
           items:
             type: string
@@ -2383,6 +2631,25 @@ components:
           description: The string used as a separator for unphased allele calls.
           nullable: true
           example: /
+        unknownString:
+          type: string
+          description: The string used as a representation for missing data.
+          nullable: true
+          example: "."
+        variantDbIds:
+          type: array
+          description: A list of IDs which uniquely identify `Variants` within the
+            given database server
+          nullable: true
+          items:
+            type: string
+        variantSetDbIds:
+          type: array
+          description: A list of IDs which uniquely identify `VariantSets` within
+            the given database server
+          nullable: true
+          items:
+            type: string
       description: "The AlleleMatrix object is used to describe a matrix of genotyping\
         \ results. This 2d array of data reduces the overall size of the response\
         \ for larger datasets, when compared to the Calls endpoints. This makes genotype\
@@ -2425,21 +2692,15 @@ components:
             \ format."
           format: date-time
           nullable: true
-        variantSetDbId:
-          type: string
-        variantSetName:
-          type: string
       description: "An analysis contains an interpretation of one or several experiments.\
         \ (e.g. SNVs, copy number variations, methylation status) together with information\
         \ about the methodology used."
     Attribute:
       required:
       - attributeName
-      - methodDbId
-      - methodName
-      - scaleDbId
-      - scaleName
-      - traitName
+      - method
+      - scale
+      - trait
       type: object
       properties:
         additionalInfo:
@@ -2507,20 +2768,12 @@ components:
           description: 2 letter ISO 639-1 code for the language of submission of the
             variable.
           nullable: true
-        methodDbId:
-          type: string
-        methodName:
-          type: string
-        methodPUI:
-          type: string
+        method:
+          $ref: "#/components/schemas/Method"
         ontologyReference:
           $ref: "#/components/schemas/OntologyReference"
-        scaleDbId:
-          type: string
-        scaleName:
-          type: string
-        scalePUI:
-          type: string
+        scale:
+          $ref: "#/components/schemas/Scale"
         scientist:
           type: string
           description: Name of scientist submitting the variable.
@@ -2541,12 +2794,8 @@ components:
           nullable: true
           items:
             type: string
-        traitDbId:
-          type: string
-        traitName:
-          type: string
-        traitPUI:
-          type: string
+        trait:
+          $ref: "#/components/schemas/Trait"
     AvailableFormat:
       type: object
       properties:
@@ -2598,10 +2847,6 @@ components:
           type: string
           description: The string used as a representation for missing data.
           nullable: true
-        variantSetDbId:
-          type: string
-        variantSetName:
-          type: string
       description: Each 'availableFormat' object is a pairing of dataFormat and fileFormat.
         These must be communicated in pairs because they are not independent parameters
         and sometimes one influences the other.
@@ -2618,6 +2863,10 @@ components:
           type: string
         callSetName:
           type: string
+        genotype:
+          deprecated: true
+          allOf:
+          - $ref: "#/components/schemas/ListValue"
         genotypeMetadata:
           type: array
           description: Genotype Metadata are additional layers of metadata associated
@@ -2627,12 +2876,26 @@ components:
         genotypeValue:
           type: string
           description: The value of this genotype call
+        genotype_likelihood:
+          type: array
+          description: "**Deprecated in v2.1** Please use `genotypeMetadata`. Github\
+            \ issue number #491             \n<br>The genotype likelihood for this\
+            \ variant call. Each array entry represents how likely a specific genotype\
+            \ is for this call as log10(P(data | genotype)), analogous to the GL tag\
+            \ in the VCF spec. The value ordering is defined by the GL tag in the\
+            \ VCF spec."
+          deprecated: true
+          items:
+            type: number
+            format: double
         phaseSet:
           type: string
           description: "If this field is populated, this variant call's genotype ordering\
             \ implies the phase of the bases and \nis consistent with any other variant\
             \ calls on the same contig which have the same phase set string."
         variantDbId:
+          type: string
+        variantName:
           type: string
         variantSetDbId:
           type: string
@@ -2659,6 +2922,12 @@ components:
             occurrence (false)
           nullable: true
           example: true
+        pageToken:
+          type: string
+          description: |-
+            The continuation token, which is used to page through large result sets.
+            To get the next page of results, set this parameter to the value of
+            `next_page_token` from the previous response.
         sepPhased:
           type: string
           description: The string used as a separator for phased allele calls.
@@ -2691,31 +2960,6 @@ components:
     CallSearchRequest:
       type: object
       properties:
-        variantSetDbIds:
-          type: array
-          description: A list of IDs which uniquely identify `VariantSets` within
-            the given database server
-          nullable: true
-          items:
-            type: string
-        unknownString:
-          type: string
-          description: The string used as a representation for missing data.
-          nullable: true
-          example: "."
-        expandHomozygotes:
-          type: boolean
-          description: Should homozygotes be expanded (true) or collapsed into a single
-            occurrence (false)
-          nullable: true
-          example: true
-        variantDbIds:
-          type: array
-          description: A list of IDs which uniquely identify `Variant` within the
-            given database server
-          nullable: true
-          items:
-            type: string
         callSetDbIds:
           type: array
           description: A list of IDs which uniquely identify `CallSets` within the
@@ -2723,6 +2967,29 @@ components:
           nullable: true
           items:
             type: string
+        expandHomozygotes:
+          type: boolean
+          description: Should homozygotes be expanded (true) or collapsed into a single
+            occurrence (false)
+          nullable: true
+          example: true
+        page:
+          type: integer
+          description: Which result page is requested. The page indexing starts at
+            0 (the first page is 'page'= 0). Default is `0`.
+          format: int32
+          example: 0
+        pageSize:
+          type: integer
+          description: The size of the pages to be returned. Default is `1000`.
+          format: int32
+          example: 1000
+        pageToken:
+          type: string
+          description: |-
+            The continuation token, which is used to page through large result sets.
+            To get the next page of results, set this parameter to the value of
+            `next_page_token` from the previous response.
         sepPhased:
           type: string
           description: The string used as a separator for phased allele calls.
@@ -2733,6 +3000,25 @@ components:
           description: The string used as a separator for unphased allele calls.
           nullable: true
           example: /
+        unknownString:
+          type: string
+          description: The string used as a representation for missing data.
+          nullable: true
+          example: "."
+        variantDbIds:
+          type: array
+          description: A list of IDs which uniquely identify `Variant` within the
+            given database server
+          nullable: true
+          items:
+            type: string
+        variantSetDbIds:
+          type: array
+          description: A list of IDs which uniquely identify `VariantSets` within
+            the given database server
+          nullable: true
+          items:
+            type: string
       description: "A `Call` represents the determination of genotype with respect\
         \ to a particular `Variant`. \n\nIt may include associated information such\
         \ as quality and phasing. For example, a call might assign a probability of\
@@ -2764,25 +3050,12 @@ components:
           description: An array of external reference ids. These are references to
             this piece of data in an external system. Could be a simple string or
             a URI.
-          nullable: true
           items:
             $ref: "#/components/schemas/ExternalReference"
         sampleDbId:
           type: string
           nullable: true
-        sampleName:
-          type: string
-          nullable: true
-        samplePUI:
-          type: string
-          nullable: true
         studyDbId:
-          type: string
-          nullable: true
-        studyName:
-          type: string
-          nullable: true
-        studyPUI:
           type: string
           nullable: true
         updated:
@@ -2790,6 +3063,12 @@ components:
           description: The time at which this call set was last updated
           format: date-time
           nullable: true
+        variantSetDbIds:
+          type: array
+          description: The IDs of the variantSets this callSet has calls in.
+          nullable: true
+          items:
+            type: string
       description: A CallSet is a collection of Calls that were generated by the same
         analysis of the same Sample
     CallSetRequest:
@@ -2893,25 +3172,17 @@ components:
     CallSetSearchRequest:
       type: object
       properties:
-        germplasmDbIds:
+        callSetDbIds:
           type: array
-          description: List of IDs which uniquely identify germplasm to search for
+          description: A list of IDs which uniquely identify `CallSets` within the
+            given database server
           nullable: true
           items:
             type: string
-        germplasmNames:
+        callSetNames:
           type: array
-          description: List of human readable names to identify germplasm to search
-            for
+          description: A list of human readable names associated with `CallSets`
           nullable: true
-          items:
-            type: string
-        programNames:
-          type: array
-          description: |-
-            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
-
-            Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
         commonCropNames:
@@ -2925,6 +3196,51 @@ components:
             \ of available crops on a server."
           items:
             type: string
+        externalReferenceIDs:
+          type: array
+          description: "**Deprecated in v2.1** Please use `externalReferenceIds`.\
+            \ Github issue number #460 \n<br>List of external reference IDs. Could\
+            \ be a simple strings or a URIs. (use with `externalReferenceSources`\
+            \ parameter)"
+          deprecated: true
+          items:
+            type: string
+        externalReferenceIds:
+          type: array
+          description: List of external reference IDs. Could be a simple strings or
+            a URIs. (use with `externalReferenceSources` parameter)
+          items:
+            type: string
+        externalReferenceSources:
+          type: array
+          description: List of identifiers for the source system or database of an
+            external reference (use with `externalReferenceIDs` parameter)
+          items:
+            type: string
+        germplasmDbIds:
+          type: array
+          description: List of IDs which uniquely identify germplasm to search for
+          nullable: true
+          items:
+            type: string
+        germplasmNames:
+          type: array
+          description: List of human readable names to identify germplasm to search
+            for
+          nullable: true
+          items:
+            type: string
+        page:
+          type: integer
+          description: Which result page is requested. The page indexing starts at
+            0 (the first page is 'page'= 0). Default is `0`.
+          format: int32
+          example: 0
+        pageSize:
+          type: integer
+          description: The size of the pages to be returned. Default is `1000`.
+          format: int32
+          example: 1000
         programDbIds:
           type: array
           description: "A BrAPI Program represents the high level organization or\
@@ -2935,9 +3251,12 @@ components:
             \ on a server."
           items:
             type: string
-        trialDbIds:
+        programNames:
           type: array
-          description: The ID which uniquely identifies a trial to search for
+          description: |-
+            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+
+            Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
         sampleDbIds:
@@ -2947,9 +3266,25 @@ components:
           nullable: true
           items:
             type: string
+        sampleNames:
+          type: array
+          description: A list of human readable names associated with `Samples`
+          nullable: true
+          items:
+            type: string
         studyDbIds:
           type: array
           description: List of study identifiers to search for
+          items:
+            type: string
+        studyNames:
+          type: array
+          description: List of study names to filter search results
+          items:
+            type: string
+        trialDbIds:
+          type: array
+          description: The ID which uniquely identifies a trial to search for
           items:
             type: string
         trialNames:
@@ -2961,30 +3296,6 @@ components:
           type: array
           description: A list of IDs which uniquely identify `VariantSets` within
             the given database server
-          nullable: true
-          items:
-            type: string
-        callSetNames:
-          type: array
-          description: A list of human readable names associated with `CallSets`
-          nullable: true
-          items:
-            type: string
-        studyNames:
-          type: array
-          description: List of study names to filter search results
-          items:
-            type: string
-        sampleNames:
-          type: array
-          description: A list of human readable names associated with `Samples`
-          nullable: true
-          items:
-            type: string
-        callSetDbIds:
-          type: array
-          description: A list of IDs which uniquely identify `CallSets` within the
-            given database server
           nullable: true
           items:
             type: string
@@ -3177,15 +3488,6 @@ components:
       description: "A two dimensional array that holds allele data or associated metadata.\
         \ Each matrix should be the same size and orientation, aligned with the \"\
         callSetDbIds\" as columns and the \"variantDbIds\" as rows."
-    DataType:
-      type: string
-      description: The type of field represented in this Genotype Field. This is intended
-        to help parse the data out of JSON.
-      enum:
-      - string
-      - integer
-      - float
-      - boolean
     Dimension:
       type: string
       description: The dimension of the matrix being paginated
@@ -3237,6 +3539,7 @@ components:
             \ number #460 <br>The external reference ID. Could be a simple string\
             \ or a URI."
           nullable: true
+          deprecated: true
         referenceId:
           type: string
           description: The external reference ID. Could be a simple string or a URI.
@@ -3252,6 +3555,7 @@ components:
             \ Github issue number #460 \n<br>List of external reference IDs. Could\
             \ be a simple strings or a URIs. (use with `externalReferenceSources`\
             \ parameter)"
+          deprecated: true
           items:
             type: string
         externalReferenceIds:
@@ -3450,6 +3754,7 @@ components:
           type: string
           description: The literal string "Feature"
           example: Feature
+          default: Feature
       description: |-
         One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
 
@@ -3457,10 +3762,12 @@ components:
 
         A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
         easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
+      nullable: true
     GeoJSONGeometry:
+      nullable: true
       oneOf:
       - required:
-        - coordinateDbIds
+        - coordinates
         - type
         type: object
         properties:
@@ -3472,13 +3779,14 @@ components:
           type:
             type: string
             description: The literal string "Point"
+            default: Point
         description: |-
           Copied from RFC 7946 Section 3.1.1
 
           A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
           easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
       - required:
-        - coordinateDbIds
+        - coordinates
         - type
         type: object
         properties:
@@ -3494,6 +3802,7 @@ components:
           type:
             type: string
             description: The literal string "Polygon"
+            default: Polygon
         description: "An array of Linear Rings. Each Linear Ring is an array of Points.\
           \ \n\nA Point is an array of numbers. There MUST be two or more elements.\
           \ The first two elements are longitude and latitude, or\neasting and northing,\
@@ -3501,7 +3810,7 @@ components:
           \ MAY be included as an optional third element."
     GeoJSONPoint:
       required:
-      - coordinateDbIds
+      - coordinates
       - type
       type: object
       properties:
@@ -3513,6 +3822,7 @@ components:
         type:
           type: string
           description: The literal string "Point"
+          default: Point
       description: |-
         Copied from RFC 7946 Section 3.1.1
 
@@ -3520,7 +3830,7 @@ components:
         easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
     GeoJSONPolygon:
       required:
-      - coordinateDbIds
+      - coordinates
       - type
       type: object
       properties:
@@ -3536,6 +3846,7 @@ components:
         type:
           type: string
           description: The literal string "Polygon"
+          default: Polygon
       description: "An array of Linear Rings. Each Linear Ring is an array of Points.\
         \ \n\nA Point is an array of numbers. There MUST be two or more elements.\
         \ The first two elements are longitude and latitude, or\neasting and northing,\
@@ -3552,7 +3863,13 @@ components:
           type: string
         imageName:
           type: string
+        imagePUI:
+          type: string
         observationDbId:
+          type: string
+        observationName:
+          type: string
+        observationPUI:
           type: string
         observationUnit:
           $ref: "#/components/schemas/ObservationUnitPosition"
@@ -3560,6 +3877,7 @@ components:
           type: string
           description: The literal string "Feature"
           example: Feature
+          default: Feature
     GermplasmAttributeRequest:
       type: object
       properties:
@@ -3681,6 +3999,7 @@ components:
           type: array
           description: "**Deprecated in v2.1** Please use `studyDbIds`. Github issue\
             \ number #483 \n<br>The unique ID of a studies to filter on"
+          deprecated: true
           items:
             type: string
         studyDbIds:
@@ -4244,6 +4563,26 @@ components:
             Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
+    ListValue:
+      type: object
+      properties:
+        values:
+          type: array
+          description: "**Deprecated in v2.1** Please use `genotypeValue` or `genotypeMetadata`.\
+            \ Github issue number #491             \n<br>Repeated field of dynamically\
+            \ typed values."
+          deprecated: true
+          items:
+            oneOf:
+            - type: boolean
+              format: boolean
+            - type: number
+              format: double
+            - type: string
+      description: "**Deprecated in v2.1** Please use `genotypeValue` or `genotypeMetadata`.\
+        \ Github issue number #491             \n<br>`ListValue` is a wrapper around\
+        \ a repeated field of values.\n<br>The JSON representation for `ListValue`\
+        \ is JSON array."
     LocationParameters:
       type: object
       properties:
@@ -4263,15 +4602,18 @@ components:
         abbreviations:
           type: array
           description: A list of shortened human readable names for a set of Locations
+          nullable: true
           items:
             type: string
         altitudeMax:
           type: number
           description: The maximum altitude to search for
+          nullable: true
           example: 200
         altitudeMin:
           type: number
           description: The minimum altitude to search for
+          nullable: true
           example: 20
         commonCropNames:
           type: array
@@ -4290,21 +4632,25 @@ components:
           type: array
           description: "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)\
             \ spec"
+          nullable: true
           items:
             type: string
         countryNames:
           type: array
           description: The full name of the country to search for
+          nullable: true
           items:
             type: string
         instituteAddresses:
           type: array
           description: The street address of the institute to search for
+          nullable: true
           items:
             type: string
         instituteNames:
           type: array
           description: The name of the institute to search for
+          nullable: true
           items:
             type: string
         locationDbIds:
@@ -4321,6 +4667,7 @@ components:
           type: array
           description: "The type of location this represents (ex. Breeding Location,\
             \ Storage Location, etc)"
+          nullable: true
           items:
             type: string
         parentLocationDbIds:
@@ -4329,6 +4676,7 @@ components:
             \ defines the encompassing location that this location belongs to. \n\
             For example, an Institution might have multiple Field Stations inside\
             \ it and each Field Station might have multiple Fields."
+          nullable: true
           items:
             type: string
         parentLocationNames:
@@ -4337,6 +4685,7 @@ components:
             \ defines the encompassing location that this location belongs to. \n\
             For example, an Institution might have multiple Field Stations inside\
             \ it and each Field Station might have multiple Fields."
+          nullable: true
           items:
             type: string
         programDbIds:
@@ -4380,6 +4729,9 @@ components:
           format: int32
           nullable: true
         variantDbId:
+          type: string
+          nullable: true
+        variantName:
           type: string
           nullable: true
       description: A MarkerPosition describes a particular genetic marker at a specific
@@ -4429,13 +4781,6 @@ components:
           nullable: true
           items:
             type: string
-        variantDbIds:
-          type: array
-          description: A list of IDs which uniquely identify `Variants` within the
-            given database server
-          nullable: true
-          items:
-            type: string
         mapDbIds:
           type: array
           description: A list of IDs which uniquely identify `GenomeMaps` within the
@@ -4455,6 +4800,24 @@ components:
           format: int32
           nullable: true
           example: 250
+        page:
+          type: integer
+          description: Which result page is requested. The page indexing starts at
+            0 (the first page is 'page'= 0). Default is `0`.
+          format: int32
+          example: 0
+        pageSize:
+          type: integer
+          description: The size of the pages to be returned. Default is `1000`.
+          format: int32
+          example: 1000
+        variantDbIds:
+          type: array
+          description: A list of IDs which uniquely identify `Variants` within the
+            given database server
+          nullable: true
+          items:
+            type: string
       description: A MarkerPosition describes a particular genetic marker at a specific
         position on a GenomeMap. A collection of MarkerPositions make up the data
         to represent a full GenomeMap.
@@ -4465,7 +4828,6 @@ components:
           type: string
           description: The type of field represented in this Genotype Field. This
             is intended to help parse the data out of JSON.
-          nullable: true
           enum:
           - string
           - integer
@@ -4476,17 +4838,11 @@ components:
           description: "The abbreviated code of the field represented in this Genotype\
             \ Field. These codes should match the VCF standard when possible. Examples\
             \ include: \"GQ\", \"RD\", and \"HQ\""
-          nullable: true
         fieldName:
           type: string
           description: "The name of the field represented in this Genotype Field.\
             \ Examples include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype\
             \ Quality\""
-          nullable: true
-        variantSetDbId:
-          type: string
-        variantSetName:
-          type: string
       description: "Indicates which types of genotyping data and metadata are available\
         \ in the VariantSet. \n<br> When possible, these field names and abbreviations\
         \ should follow the VCF standard "
@@ -4579,29 +4935,35 @@ components:
         observationDbIds:
           type: array
           description: The unique id of an Observation
+          nullable: true
           items:
             type: string
         observationLevelRelationships:
           type: array
           description: Searches for values in ObservationUnit->observationUnitPosition->observationLevelRelationships
+          nullable: true
           items:
             $ref: "#/components/schemas/ObservationUnitLevelRelationship"
         observationLevels:
           type: array
           description: Searches for values in ObservationUnit->observationUnitPosition->observationLevel
+          nullable: true
           items:
             $ref: "#/components/schemas/ObservationUnitLevel"
         observationTimeStampRangeEnd:
           type: string
           description: Timestamp range end
           format: date-time
+          nullable: true
         observationTimeStampRangeStart:
           type: string
           description: Timestamp range start
           format: date-time
+          nullable: true
         observationUnitDbIds:
           type: array
           description: The unique id of an Observation Unit
+          nullable: true
           items:
             type: string
         observationUnitLevelCodes:
@@ -4714,6 +5076,7 @@ components:
           type: array
           description: "The year or Phenotyping campaign of a multi-annual study (trees,\
             \ grape, ...)"
+          nullable: true
           items:
             type: string
         studyDbIds:
@@ -4802,6 +5165,7 @@ components:
             \ in each ObservationUnit object. \n\nCAUTION - Use this parameter at\
             \ your own risk. It may return large, unpaginated lists of observation\
             \ data. Only set this value to True if you are sure you need to."
+          nullable: true
           example: false
         locationDbIds:
           type: array
@@ -4816,16 +5180,19 @@ components:
         observationLevelRelationships:
           type: array
           description: Searches for values in ObservationUnit->observationUnitPosition->observationLevelRelationships
+          nullable: true
           items:
             $ref: "#/components/schemas/ObservationUnitLevelRelationship"
         observationLevels:
           type: array
           description: Searches for values in ObservationUnit->observationUnitPosition->observationLevel
+          nullable: true
           items:
             $ref: "#/components/schemas/ObservationUnitLevel"
         observationUnitDbIds:
           type: array
           description: The unique id of an observation unit
+          nullable: true
           items:
             type: string
         observationUnitLevelCodes:
@@ -4903,6 +5270,7 @@ components:
         observationUnitNames:
           type: array
           description: The human readable identifier for an Observation Unit
+          nullable: true
           items:
             type: string
         observationVariableDbIds:
@@ -4943,6 +5311,7 @@ components:
           type: array
           description: "The year or Phenotyping campaign of a multi-annual study (trees,\
             \ grape, ...)"
+          nullable: true
           items:
             type: string
         studyDbIds:
@@ -5082,6 +5451,7 @@ components:
           type: array
           description: "**Deprecated in v2.1** Please use `studyDbIds`. Github issue\
             \ number #483 \n<br>The unique ID of a studies to filter on"
+          deprecated: true
           items:
             type: string
         studyDbIds:
@@ -5255,18 +5625,21 @@ components:
             A collection of unique identifiers for materials or germplasm within a genebank
 
             MCPD (v2.1) (ACCENUMB) 2. This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection (e.g. "PI 113869").
+          nullable: true
           items:
             type: string
         binomialNames:
           type: array
           description: List of the full binomial name (scientific name) to identify
             a germplasm
+          nullable: true
           items:
             type: string
         collections:
           type: array
           description: A specific panel/collection/population name this germplasm
             belongs to.
+          nullable: true
           items:
             type: string
         commonCropNames:
@@ -5284,11 +5657,13 @@ components:
           type: array
           description: A familyCode representing the family this germplasm belongs
             to.
+          nullable: true
           items:
             type: string
         genus:
           type: array
           description: List of Genus names to identify germplasm
+          nullable: true
           items:
             type: string
         germplasmDbIds:
@@ -5307,27 +5682,32 @@ components:
         germplasmPUIs:
           type: array
           description: List of Permanent Unique Identifiers to identify germplasm
+          nullable: true
           items:
             type: string
         includeFullTree:
           type: boolean
           description: "If this parameter is true, recursively include ALL of the\
             \ nodes available in this pedigree tree"
+          nullable: true
           example: true
         includeParents:
           type: boolean
           description: "If this parameter is true, include the array of parents in\
             \ the response"
+          nullable: true
           example: true
         includeProgeny:
           type: boolean
           description: "If this parameter is true, include the array of progeny in\
             \ the response"
+          nullable: true
           example: true
         includeSiblings:
           type: boolean
           description: "If this parameter is true, include the array of siblings in\
             \ the response"
+          nullable: true
           example: true
         instituteCodes:
           type: array
@@ -5339,6 +5719,7 @@ components:
             \ http://www.fao.org/wiews. For those institutes not yet having an FAO\
             \ Code, or for those with \"obsolete\" codes, see \"Common formatting\
             \ rules (v)\"."
+          nullable: true
           items:
             type: string
         pedigreeDepth:
@@ -5374,6 +5755,7 @@ components:
         species:
           type: array
           description: List of Species names to identify germplasm
+          nullable: true
           items:
             type: string
         studyDbIds:
@@ -5389,6 +5771,7 @@ components:
         synonyms:
           type: array
           description: List of alternative names or IDs used to reference this germplasm
+          nullable: true
           items:
             type: string
         trialDbIds:
@@ -5599,9 +5982,6 @@ components:
         programDbId:
           type: string
           nullable: true
-        programName:
-          type: string
-          nullable: true
         sampleType:
           type: string
           description: "The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc"
@@ -5614,19 +5994,7 @@ components:
         studyDbId:
           type: string
           nullable: true
-        studyName:
-          type: string
-          nullable: true
-        studyPUI:
-          type: string
-          nullable: true
         trialDbId:
-          type: string
-          nullable: true
-        trialName:
-          type: string
-          nullable: true
-        trialPUI:
           type: string
           nullable: true
       description: "A Plate represents the metadata for a collection of Samples. The\
@@ -5745,6 +6113,38 @@ components:
     PlateSearchRequest:
       type: object
       properties:
+        commonCropNames:
+          type: array
+          description: "The BrAPI Common Crop Name is the simple, generalized, widely\
+            \ accepted name of the organism being researched. It is most often used\
+            \ in multi-crop systems where digital resources need to be divided at\
+            \ a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples\
+            \ of common crop names.\n\nUse this parameter to only return results associated\
+            \ with the given crops. \n\nUse `GET /commoncropnames` to find the list\
+            \ of available crops on a server."
+          items:
+            type: string
+        externalReferenceIDs:
+          type: array
+          description: "**Deprecated in v2.1** Please use `externalReferenceIds`.\
+            \ Github issue number #460 \n<br>List of external reference IDs. Could\
+            \ be a simple strings or a URIs. (use with `externalReferenceSources`\
+            \ parameter)"
+          deprecated: true
+          items:
+            type: string
+        externalReferenceIds:
+          type: array
+          description: List of external reference IDs. Could be a simple strings or
+            a URIs. (use with `externalReferenceSources` parameter)
+          items:
+            type: string
+        externalReferenceSources:
+          type: array
+          description: List of identifiers for the source system or database of an
+            external reference (use with `externalReferenceIDs` parameter)
+          items:
+            type: string
         germplasmDbIds:
           type: array
           description: List of IDs which uniquely identify germplasm to search for
@@ -5764,9 +6164,26 @@ components:
           nullable: true
           items:
             type: string
+        page:
+          type: integer
+          description: Which result page is requested. The page indexing starts at
+            0 (the first page is 'page'= 0). Default is `0`.
+          format: int32
+          example: 0
+        pageSize:
+          type: integer
+          description: The size of the pages to be returned. Default is `1000`.
+          format: int32
+          example: 1000
         plateBarcodes:
           type: array
           description: A unique identifier physically attached to the plate
+          nullable: true
+          items:
+            type: string
+        plateDbIds:
+          type: array
+          description: The ID which uniquely identifies a plate of samples
           nullable: true
           items:
             type: string
@@ -5774,25 +6191,6 @@ components:
           type: array
           description: The human readable name of a plate of samples
           nullable: true
-          items:
-            type: string
-        programNames:
-          type: array
-          description: |-
-            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
-
-            Use `GET /programs` to find the list of available programs on a server.
-          items:
-            type: string
-        commonCropNames:
-          type: array
-          description: "The BrAPI Common Crop Name is the simple, generalized, widely\
-            \ accepted name of the organism being researched. It is most often used\
-            \ in multi-crop systems where digital resources need to be divided at\
-            \ a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples\
-            \ of common crop names.\n\nUse this parameter to only return results associated\
-            \ with the given crops. \n\nUse `GET /commoncropnames` to find the list\
-            \ of available crops on a server."
           items:
             type: string
         programDbIds:
@@ -5805,9 +6203,12 @@ components:
             \ on a server."
           items:
             type: string
-        trialDbIds:
+        programNames:
           type: array
-          description: The ID which uniquely identifies a trial to search for
+          description: |-
+            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+
+            Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
         sampleDbIds:
@@ -5816,9 +6217,15 @@ components:
           nullable: true
           items:
             type: string
-        plateDbIds:
+        sampleGroupDbIds:
           type: array
-          description: The ID which uniquely identifies a plate of samples
+          description: The unique identifier for a group of related Samples
+          nullable: true
+          items:
+            type: string
+        sampleNames:
+          type: array
+          description: The human readable name of the sample
           nullable: true
           items:
             type: string
@@ -5827,26 +6234,19 @@ components:
           description: List of study identifiers to search for
           items:
             type: string
-        trialNames:
-          type: array
-          description: The human readable name of a trial to search for
-          items:
-            type: string
-        sampleGroupDbIds:
-          type: array
-          description: The unique identifier for a group of related Samples
-          nullable: true
-          items:
-            type: string
         studyNames:
           type: array
           description: List of study names to filter search results
           items:
             type: string
-        sampleNames:
+        trialDbIds:
           type: array
-          description: The human readable name of the sample
-          nullable: true
+          description: The ID which uniquely identifies a trial to search for
+          items:
+            type: string
+        trialNames:
+          type: array
+          description: The human readable name of a trial to search for
           items:
             type: string
       description: "A Plate represents the metadata for a collection of Samples. The\
@@ -5964,7 +6364,6 @@ components:
           description: An array of external reference ids. These are references to
             this piece of data in an external system. Could be a simple string or
             a URI.
-          nullable: true
           items:
             $ref: "#/components/schemas/ExternalReference"
         isDerived:
@@ -5995,8 +6394,10 @@ components:
           description: The human readable name of a `Reference` within a `ReferenceSet`.
         referenceSetDbId:
           type: string
+          nullable: true
         referenceSetName:
           type: string
+          nullable: true
         sourceAccessions:
           type: array
           description: "All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ)\
@@ -6009,12 +6410,12 @@ components:
           description: The `sourceDivergence` is the fraction of non-indel bases that
             do not match the `Reference` this message was derived from.
           nullable: true
-        sourceGermplasmDbIds:
+        sourceGermplasm:
           type: array
           description: All known corresponding Germplasm
           nullable: true
           items:
-            type: string
+            $ref: "#/components/schemas/SourceGermplasm"
         sourceURI:
           type: string
           description: "The URI from which the sequence was obtained. Specifies a\
@@ -6024,12 +6425,6 @@ components:
           nullable: true
         species:
           $ref: "#/components/schemas/OntologyTerm"
-        variantDbIds:
-          type: array
-          description: variants
-          nullable: true
-          items:
-            type: string
       description: "A `Reference` is a canonical assembled contig, intended to act\
         \ as a reference coordinate space for other genomic annotations. A single\
         \ `Reference` might represent the human chromosome 1, for instance. `References`\
@@ -6089,6 +6484,7 @@ components:
           type: array
           description: "If specified, return the references for which the `accession`\
             \ matches this string (case-sensitive, exact match)."
+          nullable: true
           items:
             type: string
         commonCropNames:
@@ -6123,6 +6519,7 @@ components:
             \ same official sequence share the same coordinates and annotations, and\
             \ can be replaced with the official sequence for certain use cases."
           format: boolean
+          nullable: true
         maxLength:
           type: integer
           description: The minimum length of this `References` sequence.
@@ -6132,6 +6529,7 @@ components:
           type: array
           description: "If specified, return the references for which the `md5checksum`\
             \ matches this string (case-sensitive, exact match)."
+          nullable: true
           items:
             type: string
         minLength:
@@ -6161,12 +6559,14 @@ components:
           type: array
           description: A list of IDs which uniquely identify `References` within the
             given database server
+          nullable: true
           items:
             type: string
         referenceSetDbIds:
           type: array
           description: A list of IDs which uniquely identify `ReferenceSets` within
             the given database server
+          nullable: true
           items:
             type: string
         studyDbIds:
@@ -6192,38 +6592,11 @@ components:
     ReferenceSearchRequest:
       type: object
       properties:
-        germplasmDbIds:
+        accessions:
           type: array
-          description: List of IDs which uniquely identify germplasm to search for
+          description: "If specified, return the references for which the `accession`\
+            \ matches this string (case-sensitive, exact match)."
           nullable: true
-          items:
-            type: string
-        isDerived:
-          type: boolean
-          description: "A sequence X is said to be derived from source sequence Y,\
-            \ if X and Y are of the same length and the per-base sequence divergence\
-            \ at A/C/G/T bases is sufficiently small. Two sequences derived from the\
-            \ same official sequence share the same coordinates and annotations, and\
-            \ can be replaced with the official sequence for certain use cases."
-          format: boolean
-        germplasmNames:
-          type: array
-          description: List of human readable names to identify germplasm to search
-            for
-          nullable: true
-          items:
-            type: string
-        minLength:
-          type: integer
-          description: The minimum length of this `References` sequence.
-          format: int32
-          example: 4000
-        programNames:
-          type: array
-          description: |-
-            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
-
-            Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
         commonCropNames:
@@ -6237,6 +6610,77 @@ components:
             \ of available crops on a server."
           items:
             type: string
+        externalReferenceIDs:
+          type: array
+          description: "**Deprecated in v2.1** Please use `externalReferenceIds`.\
+            \ Github issue number #460 \n<br>List of external reference IDs. Could\
+            \ be a simple strings or a URIs. (use with `externalReferenceSources`\
+            \ parameter)"
+          deprecated: true
+          items:
+            type: string
+        externalReferenceIds:
+          type: array
+          description: List of external reference IDs. Could be a simple strings or
+            a URIs. (use with `externalReferenceSources` parameter)
+          items:
+            type: string
+        externalReferenceSources:
+          type: array
+          description: List of identifiers for the source system or database of an
+            external reference (use with `externalReferenceIDs` parameter)
+          items:
+            type: string
+        germplasmDbIds:
+          type: array
+          description: List of IDs which uniquely identify germplasm to search for
+          nullable: true
+          items:
+            type: string
+        germplasmNames:
+          type: array
+          description: List of human readable names to identify germplasm to search
+            for
+          nullable: true
+          items:
+            type: string
+        isDerived:
+          type: boolean
+          description: "A sequence X is said to be derived from source sequence Y,\
+            \ if X and Y are of the same length and the per-base sequence divergence\
+            \ at A/C/G/T bases is sufficiently small. Two sequences derived from the\
+            \ same official sequence share the same coordinates and annotations, and\
+            \ can be replaced with the official sequence for certain use cases."
+          format: boolean
+          nullable: true
+        maxLength:
+          type: integer
+          description: The minimum length of this `References` sequence.
+          format: int32
+          example: 90000
+        md5checksums:
+          type: array
+          description: "If specified, return the references for which the `md5checksum`\
+            \ matches this string (case-sensitive, exact match)."
+          nullable: true
+          items:
+            type: string
+        minLength:
+          type: integer
+          description: The minimum length of this `References` sequence.
+          format: int32
+          example: 4000
+        page:
+          type: integer
+          description: Which result page is requested. The page indexing starts at
+            0 (the first page is 'page'= 0). Default is `0`.
+          format: int32
+          example: 0
+        pageSize:
+          type: integer
+          description: The size of the pages to be returned. Default is `1000`.
+          format: int32
+          example: 1000
         programDbIds:
           type: array
           description: "A BrAPI Program represents the high level organization or\
@@ -6247,15 +6691,26 @@ components:
             \ on a server."
           items:
             type: string
-        trialDbIds:
+        programNames:
           type: array
-          description: The ID which uniquely identifies a trial to search for
+          description: |-
+            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+
+            Use `GET /programs` to find the list of available programs on a server.
+          items:
+            type: string
+        referenceDbIds:
+          type: array
+          description: A list of IDs which uniquely identify `References` within the
+            given database server
+          nullable: true
           items:
             type: string
         referenceSetDbIds:
           type: array
           description: A list of IDs which uniquely identify `ReferenceSets` within
             the given database server
+          nullable: true
           items:
             type: string
         studyDbIds:
@@ -6263,39 +6718,21 @@ components:
           description: List of study identifiers to search for
           items:
             type: string
-        trialNames:
-          type: array
-          description: The human readable name of a trial to search for
-          items:
-            type: string
-        md5checksums:
-          type: array
-          description: "If specified, return the references for which the `md5checksum`\
-            \ matches this string (case-sensitive, exact match)."
-          items:
-            type: string
         studyNames:
           type: array
           description: List of study names to filter search results
           items:
             type: string
-        referenceDbIds:
+        trialDbIds:
           type: array
-          description: A list of IDs which uniquely identify `References` within the
-            given database server
+          description: The ID which uniquely identifies a trial to search for
           items:
             type: string
-        accessions:
+        trialNames:
           type: array
-          description: "If specified, return the references for which the `accession`\
-            \ matches this string (case-sensitive, exact match)."
+          description: The human readable name of a trial to search for
           items:
             type: string
-        maxLength:
-          type: integer
-          description: The minimum length of this `References` sequence.
-          format: int32
-          example: 90000
       description: "A `Reference` is a canonical assembled contig, intended to act\
         \ as a reference coordinate space for other genomic annotations. A single\
         \ `Reference` might represent the human chromosome 1, for instance. `References`\
@@ -6357,13 +6794,13 @@ components:
             all the strings concatenated together. Express the hash as a lower-case
             hexadecimal string.
           nullable: true
-        referenceDbId:
-          type: string
-        referenceName:
-          type: string
         referenceSetName:
           type: string
           description: The human readable name of a ReferenceSet
+        referencesDbId:
+          type: string
+        referencesName:
+          type: string
         sourceAccessions:
           type: array
           description: "All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ)\
@@ -6493,25 +6930,18 @@ components:
     ReferenceSetSearchRequest:
       type: object
       properties:
-        germplasmDbIds:
+        accessions:
           type: array
-          description: List of IDs which uniquely identify germplasm to search for
+          description: "If set, return the reference sets for which the `accession`\
+            \ matches this string (case-sensitive, exact match)."
           nullable: true
           items:
             type: string
-        germplasmNames:
+        assemblyPUIs:
           type: array
-          description: List of human readable names to identify germplasm to search
-            for
+          description: "If set, return the reference sets for which the `assemblyId`\
+            \ matches this string (case-sensitive, exact match)."
           nullable: true
-          items:
-            type: string
-        programNames:
-          type: array
-          description: |-
-            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
-
-            Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
         commonCropNames:
@@ -6525,6 +6955,58 @@ components:
             \ of available crops on a server."
           items:
             type: string
+        externalReferenceIDs:
+          type: array
+          description: "**Deprecated in v2.1** Please use `externalReferenceIds`.\
+            \ Github issue number #460 \n<br>List of external reference IDs. Could\
+            \ be a simple strings or a URIs. (use with `externalReferenceSources`\
+            \ parameter)"
+          deprecated: true
+          items:
+            type: string
+        externalReferenceIds:
+          type: array
+          description: List of external reference IDs. Could be a simple strings or
+            a URIs. (use with `externalReferenceSources` parameter)
+          items:
+            type: string
+        externalReferenceSources:
+          type: array
+          description: List of identifiers for the source system or database of an
+            external reference (use with `externalReferenceIDs` parameter)
+          items:
+            type: string
+        germplasmDbIds:
+          type: array
+          description: List of IDs which uniquely identify germplasm to search for
+          nullable: true
+          items:
+            type: string
+        germplasmNames:
+          type: array
+          description: List of human readable names to identify germplasm to search
+            for
+          nullable: true
+          items:
+            type: string
+        md5checksums:
+          type: array
+          description: "If set, return the reference sets for which the `md5checksum`\
+            \ matches this string (case-sensitive, exact match)."
+          nullable: true
+          items:
+            type: string
+        page:
+          type: integer
+          description: Which result page is requested. The page indexing starts at
+            0 (the first page is 'page'= 0). Default is `0`.
+          format: int32
+          example: 0
+        pageSize:
+          type: integer
+          description: The size of the pages to be returned. Default is `1000`.
+          format: int32
+          example: 1000
         programDbIds:
           type: array
           description: "A BrAPI Program represents the high level organization or\
@@ -6535,9 +7017,12 @@ components:
             \ on a server."
           items:
             type: string
-        trialDbIds:
+        programNames:
           type: array
-          description: The ID which uniquely identifies a trial to search for
+          description: |-
+            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+
+            Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
         referenceSetDbIds:
@@ -6551,35 +7036,19 @@ components:
           description: List of study identifiers to search for
           items:
             type: string
-        trialNames:
-          type: array
-          description: The human readable name of a trial to search for
-          items:
-            type: string
-        md5checksums:
-          type: array
-          description: "If set, return the reference sets for which the `md5checksum`\
-            \ matches this string (case-sensitive, exact match)."
-          nullable: true
-          items:
-            type: string
-        assemblyPUIs:
-          type: array
-          description: "If set, return the reference sets for which the `assemblyId`\
-            \ matches this string (case-sensitive, exact match)."
-          nullable: true
-          items:
-            type: string
         studyNames:
           type: array
           description: List of study names to filter search results
           items:
             type: string
-        accessions:
+        trialDbIds:
           type: array
-          description: "If set, return the reference sets for which the `accession`\
-            \ matches this string (case-sensitive, exact match)."
-          nullable: true
+          description: The ID which uniquely identifies a trial to search for
+          items:
+            type: string
+        trialNames:
+          type: array
+          description: The human readable name of a trial to search for
           items:
             type: string
       description: "A `ReferenceSet` is a set of `Reference` s which typically comprise\
@@ -6607,12 +7076,6 @@ components:
       properties:
         additionalInfo:
           $ref: "#/components/schemas/AdditionalInfo"
-        callSetDbIds:
-          type: array
-          description: ""
-          nullable: true
-          items:
-            type: string
         column:
           type: integer
           description: The Column identifier for this `Sample` location in the `Plate`
@@ -6623,25 +7086,12 @@ components:
           description: An array of external reference ids. These are references to
             this piece of data in an external system. Could be a simple string or
             a URI.
-          nullable: true
           items:
             $ref: "#/components/schemas/ExternalReference"
         germplasmDbId:
           type: string
           nullable: true
-        germplasmName:
-          type: string
-          nullable: true
-        germplasmPUI:
-          type: string
-          nullable: true
         observationUnitDbId:
-          type: string
-          nullable: true
-        observationUnitName:
-          type: string
-          nullable: true
-        observationUnitPUI:
           type: string
           nullable: true
         plateDbId:
@@ -6651,9 +7101,6 @@ components:
           type: string
           nullable: true
         programDbId:
-          type: string
-          nullable: true
-        programName:
           type: string
           nullable: true
         row:
@@ -6670,7 +7117,7 @@ components:
             Description of a `Sample`
             <br>MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.
           nullable: true
-        sampleGroupId:
+        sampleGroupDbId:
           type: string
           description: The ID which uniquely identifies a group of `Samples`
           nullable: true
@@ -6700,12 +7147,6 @@ components:
         studyDbId:
           type: string
           nullable: true
-        studyName:
-          type: string
-          nullable: true
-        studyPUI:
-          type: string
-          nullable: true
         takenBy:
           type: string
           description: The name or identifier of the entity which took the `Sample`
@@ -6718,12 +7159,6 @@ components:
             <br> MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).
           nullable: true
         trialDbId:
-          type: string
-          nullable: true
-        trialName:
-          type: string
-          nullable: true
-        trialPUI:
           type: string
           nullable: true
         well:
@@ -6840,6 +7275,38 @@ components:
     SampleSearchRequest:
       type: object
       properties:
+        commonCropNames:
+          type: array
+          description: "The BrAPI Common Crop Name is the simple, generalized, widely\
+            \ accepted name of the organism being researched. It is most often used\
+            \ in multi-crop systems where digital resources need to be divided at\
+            \ a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples\
+            \ of common crop names.\n\nUse this parameter to only return results associated\
+            \ with the given crops. \n\nUse `GET /commoncropnames` to find the list\
+            \ of available crops on a server."
+          items:
+            type: string
+        externalReferenceIDs:
+          type: array
+          description: "**Deprecated in v2.1** Please use `externalReferenceIds`.\
+            \ Github issue number #460 \n<br>List of external reference IDs. Could\
+            \ be a simple strings or a URIs. (use with `externalReferenceSources`\
+            \ parameter)"
+          deprecated: true
+          items:
+            type: string
+        externalReferenceIds:
+          type: array
+          description: List of external reference IDs. Could be a simple strings or
+            a URIs. (use with `externalReferenceSources` parameter)
+          items:
+            type: string
+        externalReferenceSources:
+          type: array
+          description: List of identifiers for the source system or database of an
+            external reference (use with `externalReferenceIDs` parameter)
+          items:
+            type: string
         germplasmDbIds:
           type: array
           description: List of IDs which uniquely identify germplasm to search for
@@ -6859,29 +7326,27 @@ components:
           nullable: true
           items:
             type: string
+        page:
+          type: integer
+          description: Which result page is requested. The page indexing starts at
+            0 (the first page is 'page'= 0). Default is `0`.
+          format: int32
+          example: 0
+        pageSize:
+          type: integer
+          description: The size of the pages to be returned. Default is `1000`.
+          format: int32
+          example: 1000
+        plateDbIds:
+          type: array
+          description: The ID which uniquely identifies a `Plate` of `Samples`
+          nullable: true
+          items:
+            type: string
         plateNames:
           type: array
           description: The human readable name of a `Plate` of `Samples`
           nullable: true
-          items:
-            type: string
-        programNames:
-          type: array
-          description: |-
-            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
-
-            Use `GET /programs` to find the list of available programs on a server.
-          items:
-            type: string
-        commonCropNames:
-          type: array
-          description: "The BrAPI Common Crop Name is the simple, generalized, widely\
-            \ accepted name of the organism being researched. It is most often used\
-            \ in multi-crop systems where digital resources need to be divided at\
-            \ a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples\
-            \ of common crop names.\n\nUse this parameter to only return results associated\
-            \ with the given crops. \n\nUse `GET /commoncropnames` to find the list\
-            \ of available crops on a server."
           items:
             type: string
         programDbIds:
@@ -6894,9 +7359,12 @@ components:
             \ on a server."
           items:
             type: string
-        trialDbIds:
+        programNames:
           type: array
-          description: The ID which uniquely identifies a trial to search for
+          description: |-
+            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+
+            Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
         sampleDbIds:
@@ -6905,9 +7373,15 @@ components:
           nullable: true
           items:
             type: string
-        plateDbIds:
+        sampleGroupDbIds:
           type: array
-          description: The ID which uniquely identifies a `Plate` of `Samples`
+          description: The unique identifier for a group of related `Samples`
+          nullable: true
+          items:
+            type: string
+        sampleNames:
+          type: array
+          description: The human readable name of the `Sample`
           nullable: true
           items:
             type: string
@@ -6916,26 +7390,19 @@ components:
           description: List of study identifiers to search for
           items:
             type: string
-        trialNames:
-          type: array
-          description: The human readable name of a trial to search for
-          items:
-            type: string
-        sampleGroupDbIds:
-          type: array
-          description: The unique identifier for a group of related `Samples`
-          nullable: true
-          items:
-            type: string
         studyNames:
           type: array
           description: List of study names to filter search results
           items:
             type: string
-        sampleNames:
+        trialDbIds:
           type: array
-          description: The human readable name of the `Sample`
-          nullable: true
+          description: The ID which uniquely identifies a trial to search for
+          items:
+            type: string
+        trialNames:
+          type: array
+          description: The human readable name of a trial to search for
           items:
             type: string
       description: "The identifiers and metadata associated with a physical piece\
@@ -7099,14 +7566,35 @@ components:
       - studyName
       - studyLocation
       - programName
+      - germplasmDbId
+      - observationVariableDbId
     SortOrder:
       type: string
       description: Sort order direction. Ascending/Descending.
       enum:
-      - asc
       - ASC
-      - desc
       - DESC
+      - asc
+      - desc
+    SourceGermplasm:
+      type: object
+      properties:
+        germplasmDbId:
+          type: string
+          description: "The ID which uniquely identifies a germplasm within the given\
+            \ database server \n<br>MIAPPE V1.1 (DM-41) Biological material ID - Code\
+            \ used to identify the biological material in the data file. Should be\
+            \ unique within the Investigation. Can correspond to experimental plant\
+            \ ID, inventory lot ID, etc. This material identification is different\
+            \ from a BiosampleID which corresponds to Observation Unit or Samples\
+            \ sections below."
+        germplasmName:
+          type: string
+          description: |-
+            Name of the germplasm. It can be the preferred name and does not have to be unique.
+
+            MCPD (v2.1) (ACCENAME) 11. Either a registered or other designation given to the material received, other than the donors accession number (23) or collecting number (3). First letter uppercase. Multiple names are separated by a semicolon without space.
+      description: A reference to a Germplasm
     StudyParameters:
       type: object
       properties:
@@ -7216,15 +7704,17 @@ components:
           - studyName
           - studyLocation
           - programName
+          - germplasmDbId
+          - observationVariableDbId
         sortOrder:
           type: string
           description: Sort order direction. Ascending/Descending.
           nullable: true
           enum:
-          - asc
           - ASC
-          - desc
           - DESC
+          - asc
+          - desc
         studyCodes:
           type: array
           description: A short human readable code for a study
@@ -7287,6 +7777,7 @@ components:
             \ a prior response to construct a query and move to the next or previous\
             \ page respectively. "
           example: 33c27874
+          deprecated: true
     TraitDataType:
       type: string
       description: |-
@@ -7467,13 +7958,18 @@ components:
             formatted identifier.
           items:
             type: string
+    Value:
+      oneOf:
+      - type: boolean
+        format: boolean
+      - type: number
+        format: double
+      - type: string
     Variable:
       required:
-      - methodDbId
-      - methodName
-      - scaleDbId
-      - scaleName
-      - traitName
+      - method
+      - scale
+      - trait
       type: object
       properties:
         additionalInfo:
@@ -7520,20 +8016,12 @@ components:
           description: 2 letter ISO 639-1 code for the language of submission of the
             variable.
           nullable: true
-        methodDbId:
-          type: string
-        methodName:
-          type: string
-        methodPUI:
-          type: string
+        method:
+          $ref: "#/components/schemas/Method"
         ontologyReference:
           $ref: "#/components/schemas/OntologyReference"
-        scaleDbId:
-          type: string
-        scaleName:
-          type: string
-        scalePUI:
-          type: string
+        scale:
+          $ref: "#/components/schemas/Scale"
         scientist:
           type: string
           description: Name of scientist submitting the variable.
@@ -7554,12 +8042,8 @@ components:
           nullable: true
           items:
             type: string
-        traitDbId:
-          type: string
-        traitName:
-          type: string
-        traitPUI:
-          type: string
+        trait:
+          $ref: "#/components/schemas/Trait"
       description: "A unique combination of Trait, Method, and Scale to define a clear\
         \ context for an Observation."
     VariableBaseClassParameters:
@@ -7644,6 +8128,7 @@ components:
           type: array
           description: "**Deprecated in v2.1** Please use `studyDbIds`. Github issue\
             \ number #483 \n<br>The unique ID of a studies to filter on"
+          deprecated: true
           items:
             type: string
         studyDbIds:
@@ -7725,10 +8210,20 @@ components:
       properties:
         additionalInfo:
           $ref: "#/components/schemas/AdditionalInfo"
-        analysis:
+        alternateBases:
           type: array
-          description: Set of Analysis descriptors for this VariantSet
+          description: The bases that appear instead of the reference bases. Multiple
+            alternate alleles are possible.
           nullable: true
+          items:
+            type: string
+        alternate_bases:
+          type: array
+          description: |-
+            **Deprecated in v2.1** Please use `alternateBases`. Github issue number #549
+            <br>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.
+          nullable: true
+          deprecated: true
           items:
             type: string
         ciend:
@@ -7769,7 +8264,6 @@ components:
           description: An array of external reference ids. These are references to
             this piece of data in an external system. Could be a simple string or
             a URI.
-          nullable: true
           items:
             $ref: "#/components/schemas/ExternalReference"
         filtersApplied:
@@ -7838,6 +8332,13 @@ components:
           nullable: true
           items:
             type: string
+        variantSetDbIds:
+          type: array
+          description: An array of `VariantSet` IDs this variant belongs to. This
+            also defines the `ReferenceSet` against which the `Variant` is to be interpreted.
+          nullable: true
+          items:
+            type: string
         variantType:
           type: string
           description: |-
@@ -7858,6 +8359,8 @@ components:
             \ number #474 \n<br/>Only return variant calls which belong to call sets\
             \ with these IDs. If unspecified, return all variants and no variant call\
             \ objects."
+          nullable: true
+          deprecated: true
           items:
             type: string
         commonCropNames:
@@ -7900,15 +8403,19 @@ components:
           description: |-
             **Deprecated in v2.1** Please use `referenceDbIds`. Github issue number #472
             <br/>Only return variants on this reference.
+          nullable: true
           example: 120a2d5c
+          deprecated: true
         referenceDbIds:
           type: array
           description: The unique identifier representing a genotype `Reference`
+          nullable: true
           items:
             type: string
         referenceSetDbIds:
           type: array
           description: The unique identifier representing a genotype `ReferenceSet`
+          nullable: true
           items:
             type: string
         start:
@@ -7943,112 +8450,154 @@ components:
         variantDbIds:
           type: array
           description: A list of IDs which uniquely identify `Variants`
+          nullable: true
           items:
             type: string
         variantSetDbIds:
           type: array
           description: A list of IDs which uniquely identify `VariantSets`
+          nullable: true
           items:
             type: string
     VariantSearchRequest:
       type: object
       properties:
-        referenceDbId:
-          type: string
-          description: |-
-            **Deprecated in v2.1** Please use `referenceDbIds`. Github issue number #472
-            <br/>Only return variants on this reference.
-          example: 120a2d5c
-        programNames:
-          type: array
-          description: |-
-            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
-
-            Use `GET /programs` to find the list of available programs on a server.
-          items:
-            type: string
-        start:
-          type: integer
-          description: "The beginning of the window (0-based, inclusive) for which\
-            \ overlapping variants should be returned. Genomic positions are non-negative\
-            \ integers less than reference length. Requests spanning the join of circular\
-            \ genomes are represented as two requests one on each side of the join\
-            \ (position 0)."
-          format: int32
-          example: 100
-        commonCropNames:
-          type: array
-          description: "The BrAPI Common Crop Name is the simple, generalized, widely\
-            \ accepted name of the organism being researched. It is most often used\
-            \ in multi-crop systems where digital resources need to be divided at\
-            \ a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples\
-            \ of common crop names.\n\nUse this parameter to only return results associated\
-            \ with the given crops. \n\nUse `GET /commoncropnames` to find the list\
-            \ of available crops on a server."
-          items:
-            type: string
-        programDbIds:
-          type: array
-          description: "A BrAPI Program represents the high level organization or\
-            \ group who is responsible for conducting trials and studies. Things like\
-            \ Breeding Programs and Funded Projects are considered BrAPI Programs.\
-            \ \n\nUse this parameter to only return results associated with the given\
-            \ programs. \n\nUse `GET /programs` to find the list of available programs\
-            \ on a server."
-          items:
-            type: string
-        trialDbIds:
-          type: array
-          description: The ID which uniquely identifies a trial to search for
-          items:
-            type: string
-        referenceSetDbIds:
-          type: array
-          description: The unique identifier representing a genotype `ReferenceSet`
-          items:
-            type: string
-        studyDbIds:
-          type: array
-          description: List of study identifiers to search for
-          items:
-            type: string
-        trialNames:
-          type: array
-          description: The human readable name of a trial to search for
-          items:
-            type: string
-        variantSetDbIds:
-          type: array
-          description: A list of IDs which uniquely identify `VariantSets`
-          items:
-            type: string
-        studyNames:
-          type: array
-          description: List of study names to filter search results
-          items:
-            type: string
-        referenceDbIds:
-          type: array
-          description: The unique identifier representing a genotype `Reference`
-          items:
-            type: string
-        variantDbIds:
-          type: array
-          description: A list of IDs which uniquely identify `Variants`
-          items:
-            type: string
-        end:
-          type: integer
-          description: "The end of the window (0-based, exclusive) for which overlapping\
-            \ variants should be returned."
-          format: int32
-          example: 1500
         callSetDbIds:
           type: array
           description: "**Deprecated in v2.1** Parameter unnecessary. Github issue\
             \ number #474 \n<br/>Only return variant calls which belong to call sets\
             \ with these IDs. If unspecified, return all variants and no variant call\
             \ objects."
+          nullable: true
+          deprecated: true
+          items:
+            type: string
+        commonCropNames:
+          type: array
+          description: "The BrAPI Common Crop Name is the simple, generalized, widely\
+            \ accepted name of the organism being researched. It is most often used\
+            \ in multi-crop systems where digital resources need to be divided at\
+            \ a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples\
+            \ of common crop names.\n\nUse this parameter to only return results associated\
+            \ with the given crops. \n\nUse `GET /commoncropnames` to find the list\
+            \ of available crops on a server."
+          items:
+            type: string
+        end:
+          type: integer
+          description: "The end of the window (0-based, exclusive) for which overlapping\
+            \ variants should be returned."
+          format: int32
+          example: 1500
+        externalReferenceIDs:
+          type: array
+          description: "**Deprecated in v2.1** Please use `externalReferenceIds`.\
+            \ Github issue number #460 \n<br>List of external reference IDs. Could\
+            \ be a simple strings or a URIs. (use with `externalReferenceSources`\
+            \ parameter)"
+          deprecated: true
+          items:
+            type: string
+        externalReferenceIds:
+          type: array
+          description: List of external reference IDs. Could be a simple strings or
+            a URIs. (use with `externalReferenceSources` parameter)
+          items:
+            type: string
+        externalReferenceSources:
+          type: array
+          description: List of identifiers for the source system or database of an
+            external reference (use with `externalReferenceIDs` parameter)
+          items:
+            type: string
+        page:
+          type: integer
+          description: Which result page is requested. The page indexing starts at
+            0 (the first page is 'page'= 0). Default is `0`.
+          format: int32
+          example: 0
+        pageSize:
+          type: integer
+          description: The size of the pages to be returned. Default is `1000`.
+          format: int32
+          example: 1000
+        programDbIds:
+          type: array
+          description: "A BrAPI Program represents the high level organization or\
+            \ group who is responsible for conducting trials and studies. Things like\
+            \ Breeding Programs and Funded Projects are considered BrAPI Programs.\
+            \ \n\nUse this parameter to only return results associated with the given\
+            \ programs. \n\nUse `GET /programs` to find the list of available programs\
+            \ on a server."
+          items:
+            type: string
+        programNames:
+          type: array
+          description: |-
+            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+
+            Use `GET /programs` to find the list of available programs on a server.
+          items:
+            type: string
+        referenceDbId:
+          type: string
+          description: |-
+            **Deprecated in v2.1** Please use `referenceDbIds`. Github issue number #472
+            <br/>Only return variants on this reference.
+          nullable: true
+          example: 120a2d5c
+          deprecated: true
+        referenceDbIds:
+          type: array
+          description: The unique identifier representing a genotype `Reference`
+          nullable: true
+          items:
+            type: string
+        referenceSetDbIds:
+          type: array
+          description: The unique identifier representing a genotype `ReferenceSet`
+          nullable: true
+          items:
+            type: string
+        start:
+          type: integer
+          description: "The beginning of the window (0-based, inclusive) for which\
+            \ overlapping variants should be returned. Genomic positions are non-negative\
+            \ integers less than reference length. Requests spanning the join of circular\
+            \ genomes are represented as two requests one on each side of the join\
+            \ (position 0)."
+          format: int32
+          example: 100
+        studyDbIds:
+          type: array
+          description: List of study identifiers to search for
+          items:
+            type: string
+        studyNames:
+          type: array
+          description: List of study names to filter search results
+          items:
+            type: string
+        trialDbIds:
+          type: array
+          description: The ID which uniquely identifies a trial to search for
+          items:
+            type: string
+        trialNames:
+          type: array
+          description: The human readable name of a trial to search for
+          items:
+            type: string
+        variantDbIds:
+          type: array
+          description: A list of IDs which uniquely identify `Variants`
+          nullable: true
+          items:
+            type: string
+        variantSetDbIds:
+          type: array
+          description: A list of IDs which uniquely identify `VariantSets`
+          nullable: true
           items:
             type: string
       description: "A `Variant` represents a change in DNA sequence relative to some\
@@ -8077,7 +8626,6 @@ components:
           description: An array of external reference ids. These are references to
             this piece of data in an external system. Could be a simple string or
             a URI.
-          nullable: true
           items:
             $ref: "#/components/schemas/ExternalReference"
         metadataFields:
@@ -8092,15 +8640,6 @@ components:
           type: string
           nullable: true
         referenceSetName:
-          type: string
-          nullable: true
-        studyDbId:
-          type: string
-          nullable: true
-        studyName:
-          type: string
-          nullable: true
-        studyPUI:
           type: string
           nullable: true
         variantCount:
@@ -8197,32 +8736,9 @@ components:
     VariantSetSearchRequest:
       type: object
       properties:
-        variantSetDbIds:
+        callSetDbIds:
           type: array
-          description: The unique identifier representing a VariantSet
-          items:
-            type: string
-        studyNames:
-          type: array
-          description: List of study names to filter search results
-          items:
-            type: string
-        referenceDbIds:
-          type: array
-          description: The unique identifier representing a genotype Reference
-          items:
-            type: string
-        programNames:
-          type: array
-          description: |-
-            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
-
-            Use `GET /programs` to find the list of available programs on a server.
-          items:
-            type: string
-        variantDbIds:
-          type: array
-          description: The unique identifier representing a Variant
+          description: The unique identifier representing a CallSet
           items:
             type: string
         commonCropNames:
@@ -8236,6 +8752,38 @@ components:
             \ of available crops on a server."
           items:
             type: string
+        externalReferenceIDs:
+          type: array
+          description: "**Deprecated in v2.1** Please use `externalReferenceIds`.\
+            \ Github issue number #460 \n<br>List of external reference IDs. Could\
+            \ be a simple strings or a URIs. (use with `externalReferenceSources`\
+            \ parameter)"
+          deprecated: true
+          items:
+            type: string
+        externalReferenceIds:
+          type: array
+          description: List of external reference IDs. Could be a simple strings or
+            a URIs. (use with `externalReferenceSources` parameter)
+          items:
+            type: string
+        externalReferenceSources:
+          type: array
+          description: List of identifiers for the source system or database of an
+            external reference (use with `externalReferenceIDs` parameter)
+          items:
+            type: string
+        page:
+          type: integer
+          description: Which result page is requested. The page indexing starts at
+            0 (the first page is 'page'= 0). Default is `0`.
+          format: int32
+          example: 0
+        pageSize:
+          type: integer
+          description: The size of the pages to be returned. Default is `1000`.
+          format: int32
+          example: 1000
         programDbIds:
           type: array
           description: "A BrAPI Program represents the high level organization or\
@@ -8246,14 +8794,17 @@ components:
             \ on a server."
           items:
             type: string
-        trialDbIds:
+        programNames:
           type: array
-          description: The ID which uniquely identifies a trial to search for
+          description: |-
+            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+
+            Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
-        callSetDbIds:
+        referenceDbIds:
           type: array
-          description: The unique identifier representing a CallSet
+          description: The unique identifier representing a genotype Reference
           items:
             type: string
         referenceSetDbIds:
@@ -8266,9 +8817,29 @@ components:
           description: List of study identifiers to search for
           items:
             type: string
+        studyNames:
+          type: array
+          description: List of study names to filter search results
+          items:
+            type: string
+        trialDbIds:
+          type: array
+          description: The ID which uniquely identifies a trial to search for
+          items:
+            type: string
         trialNames:
           type: array
           description: The human readable name of a trial to search for
+          items:
+            type: string
+        variantDbIds:
+          type: array
+          description: The unique identifier representing a Variant
+          items:
+            type: string
+        variantSetDbIds:
+          type: array
+          description: The unique identifier representing a VariantSet
           items:
             type: string
       description: A VariantSet is a collection of variants and variant calls intended
@@ -8863,8 +9434,37 @@ components:
                 properties:
                   data:
                     type: array
+                    description: "The `data` array is part of the BrAPI standard List\
+                      \ Response JSON container. `data` will always contain the primary\
+                      \ list of objects being returned by a BrAPI endpoint. `data`\
+                      \ is also the only array impacted by the `metadata.pagination`\
+                      \ details. When the pagination parameters change, the `data`\
+                      \ array will reflect those changes in the JSON response."
                     items:
                       $ref: "#/components/schemas/Call"
+                  expandHomozygotes:
+                    type: boolean
+                    description: Should homozygotes be expanded (true) or collapsed
+                      into a single occurrence (false)
+                    nullable: true
+                    example: true
+                  sepPhased:
+                    type: string
+                    description: The string used as a separator for phased allele
+                      calls.
+                    nullable: true
+                    example: '|'
+                  sepUnphased:
+                    type: string
+                    description: The string used as a separator for unphased allele
+                      calls.
+                    nullable: true
+                    example: /
+                  unknownString:
+                    type: string
+                    description: The string used as a representation for missing data.
+                    nullable: true
+                    example: "."
     LocationSingleResponse:
       description: OK
       content:
@@ -9070,6 +9670,23 @@ components:
                 $ref: "#/components/schemas/metadata"
               result:
                 $ref: "#/components/schemas/GenomeMap"
+    AlleleMatrixSingleResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            title: AlleleMatrixSingleResponse
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: "#/components/schemas/Context"
+              metadata:
+                $ref: "#/components/schemas/metadata"
+              result:
+                $ref: "#/components/schemas/AlleleMatrix"
     PersonListResponse:
       description: OK
       content:
