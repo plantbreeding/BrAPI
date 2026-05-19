@@ -68,6 +68,8 @@ paths:
           - studyName
           - studyLocation
           - programName
+          - germplasmDbId
+          - observationVariableDbId
           type: string
       - description: Sort order direction. Ascending/Descending.
         in: query

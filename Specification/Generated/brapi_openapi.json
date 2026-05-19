@@ -11261,13 +11261,13 @@
           },
           "style" : "form"
         }, {
-          "description" : "The type of program entity this object represents\n<br/> 'STANARD' represents a standard, permenant breeding program\n<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding ",
+          "description" : "The type of program entity this object represents\n<br/> 'STANDARD' represents a standard, permenant breeding program\n<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding ",
           "explode" : true,
           "in" : "query",
           "name" : "programType",
           "required" : false,
           "schema" : {
-            "enum" : [ "STANARD", "PROJECT" ],
+            "enum" : [ "STANDARD", "PROJECT" ],
             "type" : "string"
           },
           "style" : "form"
@@ -33137,10 +33137,10 @@
             "type" : "array"
           },
           "programTypes" : {
-            "description" : "The type of program entity this object represents\n<br/> 'STANARD' represents a standard, permenant breeding program\n<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding ",
-            "example" : [ "STANARD", "PROJECT" ],
+            "description" : "The type of program entity this object represents\n<br/> 'STANDARD' represents a standard, permenant breeding program\n<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding ",
+            "example" : [ "STANDARD", "PROJECT" ],
             "items" : {
-              "enum" : [ "STANARD", "PROJECT" ],
+              "enum" : [ "STANDARD", "PROJECT" ],
               "type" : "string"
             },
             "nullable" : true,

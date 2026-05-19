@@ -336,27 +336,17 @@
                         "string",
                         "integer",
                         "float",
-                        "boolean",
-                        null
+                        "boolean"
                     ],
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type": "string"
                 },
                 "fieldAbbreviation": {
                     "description": "The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: \"GQ\", \"RD\", and \"HQ\"",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type": "string"
                 },
                 "fieldName": {
                     "description": "The name of the field represented in this Genotype Field. Examples include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype Quality\"",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type": "string"
                 },
                 "variantSet": {
                     "description": "Formats associated with a variant set",

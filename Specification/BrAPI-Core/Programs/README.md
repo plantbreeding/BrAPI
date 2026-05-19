@@ -38,7 +38,7 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
 
 + Parameters
     + abbreviation (Optional, ) ... A shortened version of the human readable name for a Program
-    + programType (Optional, ) ... The type of program entity this object represents<br/> 'STANARD' represents a standard, permenant breeding program<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding 
+    + programType (Optional, ) ... The type of program entity this object represents<br/> 'STANDARD' represents a standard, permenant breeding program<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding 
     + commonCropName (Optional, ) ... The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.Use this parameter to only return results associated with the given crop. Use `GET /commoncropnames` to find the list of available crops on a server.
     + programDbId (Optional, ) ... Use this parameter to only return results associated with the given `Program` unique identifier. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
     + programName (Optional, ) ... Use this parameter to only return results associated with the given `Program` by its human readable name. <br/>Use `GET /programs` to find the list of available `Programs` on a server.
@@ -548,7 +548,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">pageSize</span></td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
 <tr><td><span style="font-weight:bold;">programDbIds</span></td><td>array[string]</td><td>A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.</td></tr>
 <tr><td><span style="font-weight:bold;">programNames</span></td><td>array[string]</td><td>Use this parameter to only return results associated with the given program names. Program names are not required to be unique.  Use `GET /programs` to find the list of available programs on a server.</td></tr>
-<tr><td><span style="font-weight:bold;">programTypes</span></td><td>array[string]</td><td>The type of program entity this object represents <br/> 'STANARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding </td></tr>
+<tr><td><span style="font-weight:bold;">programTypes</span></td><td>array[string]</td><td>The type of program entity this object represents <br/> 'STANDARD' represents a standard, permenant breeding program <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding </td></tr>
 </table>
 
 

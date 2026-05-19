@@ -14,8 +14,7 @@
                 "observationVariables",
                 "samples"
             ],
-            "type": "string",
-            "nullable": true
+            "type": "string"
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Core/ListType.json",

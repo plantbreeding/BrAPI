@@ -96,7 +96,9 @@
                             "description": "Sort order direction. Ascending/Descending.",
                                 "enum": [
                                     "ASC",
-                                    "DESC"
+                                    "DESC",
+                                    "asc",
+                                    "desc"
                                 ],
                                 "type": ["null", "string"]
                         }

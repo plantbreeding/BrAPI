@@ -914,7 +914,7 @@ Changed response : **200**
 
 Changed: `programType` in `query`:
   - Added enum values: [STANDARD]
-  - Removed enum values: [STANARD]
+  - Removed enum values: [STANDARD]
 
 ##### `POST` /programs
 
