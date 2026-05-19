@@ -112,7 +112,7 @@ tasks.register("generateAll") {
   dependsOn generateGraphQL
   dependsOn generateOpenAPI
   dependsOn generateOpenAPIJSON
-  dependsOn generateOWL
+  //dependsOn generateOWL
 }
 
 tasks.register("compareOpenAPI", JavaExec) {
