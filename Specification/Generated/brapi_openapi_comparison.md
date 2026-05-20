@@ -77,8 +77,6 @@ Changed response : **200**
 
     * Changed property `result` (object)
 
-        New properties: `germplasmName`
-
         Deleted properties: `germplasmPUI`
 
 ##### `PUT` /samples

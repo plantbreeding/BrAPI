@@ -14343,9 +14343,6 @@
                     "germplasmDbId" : {
                         "type" : "string"
                     },
-                    "germplasmName" : {
-                        "type" : "string"
-                    },
                     "instituteCode" : {
                         "type" : "string",
                         "description" : "MCPD (v2.1) (INSTCODE) 1. FAO WIEWS code of the institute where the accession is maintained. The codes consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. PER001). The current set of institute codes is available from http://www.fao.org/wiews. For those institutes not yet having an FAO Code, or for those with \"obsolete\" codes, see \"Common formatting rules (v)\".",
