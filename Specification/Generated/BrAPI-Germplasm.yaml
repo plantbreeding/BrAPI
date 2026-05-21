@@ -1424,6 +1424,21 @@ paths:
         required: true
         schema:
           type: string
+      - name: transactionDirection
+        in: query
+        description: "Filter results to only include transactions directed to the\
+          \ specific Seed Lot (TO), away from the specific Seed Lot (FROM), or both\
+          \ (BOTH). The default value for this parameter is BOTH"
+        required: false
+        schema:
+          type: string
+          description: "Filter results to only include transactions directed to the\
+            \ specific Seed Lot (TO), away from the specific Seed Lot (FROM), or both\
+            \ (BOTH). The default value for this parameter is BOTH"
+          enum:
+          - TO
+          - FROM
+          - BOTH
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
       - $ref: "#/components/parameters/authorizationHeader"
@@ -1811,19 +1826,21 @@ components:
           items:
             type: string
         dataMatrixAbbreviations:
-          type: string
-          description: "`dataMatrixAbbreviations` is a comma separated list of abbreviations\
-            \ (ie 'GT', 'RD' etc). This list controls which data matrices are returned\
-            \ in the response."
+          type: array
+          description: "`dataMatrixAbbreviations` is a list of abbreviations (ie 'GT',\
+            \ 'RD' etc). This list controls which data matrices are returned in the\
+            \ response."
           nullable: true
-          example: "GT,RD"
+          items:
+            type: string
         dataMatrixNames:
-          type: string
-          description: "`dataMatrixNames` is a comma separated list of names (ie 'Genotype',\
-            \ 'Read Depth' etc). This list controls which data matrices are returned\
-            \ in the response."
+          type: array
+          description: "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read\
+            \ Depth' etc). This list controls which data matrices are returned in\
+            \ the response."
           nullable: true
-          example: "Genotype,Read Depth"
+          items:
+            type: string
         dimensionCallSetPage:
           type: integer
           description: The requested page number for the CallSet dimension of the
@@ -2133,6 +2150,7 @@ components:
             The continuation token, which is used to page through large result sets.
             To get the next page of results, set this parameter to the value of
             `next_page_token` from the previous response.
+          deprecated: true
         sepPhased:
           type: string
           description: The string used as a separator for phased allele calls.
@@ -3068,22 +3086,6 @@ components:
       properties:
         geometry:
           $ref: "#/components/schemas/GeoJSONGeometry"
-        germplasmOrigin:
-          $ref: "#/components/schemas/GermplasmOrigin"
-        imageDbId:
-          type: string
-        imageName:
-          type: string
-        imagePUI:
-          type: string
-        observationDbId:
-          type: string
-        observationName:
-          type: string
-        observationPUI:
-          type: string
-        observationUnit:
-          $ref: "#/components/schemas/ObservationUnitPosition"
         type:
           type: string
           description: The literal string "Feature"
@@ -4248,6 +4250,8 @@ components:
           nullable: true
           example: Aspergillus
         germplasmDbId:
+          type: string
+        germplasmPUI:
           type: string
         instituteCode:
           type: string
@@ -6133,6 +6137,7 @@ components:
       required:
       - germplasmDbId
       - germplasmName
+      - germplasmPUI
       type: object
       properties:
         additionalInfo:
@@ -6169,6 +6174,8 @@ components:
         germplasmDbId:
           type: string
         germplasmName:
+          type: string
+        germplasmPUI:
           type: string
         parents:
           type: array
@@ -7591,13 +7598,7 @@ components:
         fromSeedLotDbId:
           type: string
           nullable: true
-        fromSeedLotPUI:
-          type: string
-          nullable: true
         toSeedLotDbId:
-          type: string
-          nullable: true
-        toSeedLotPUI:
           type: string
           nullable: true
         transactionDbId:
@@ -7619,21 +7620,35 @@ components:
           nullable: true
       description: The record of an event where material was moved in or out of a
         particular SeedLot
+    SeedLotTransactionRequest:
+      type: object
+      properties:
+        transactionDbIs:
+          type: array
+          description: Unique id for a Transaction that has occurred
+          items:
+            type: string
+        transactionDirection:
+          type: string
+          description: "Filter results to only include transactions directed to the\
+            \ specific Seed Lot (TO), away from the specific Seed Lot (FROM), or both\
+            \ (BOTH). The default value for this parameter is BOTH"
+          nullable: true
+          enum:
+          - TO
+          - FROM
+          - BOTH
     SortBy:
       type: string
       description: Name of the field to sort by.
       enum:
-      - studyDbId
       - trialDbId
+      - trialName
       - programDbId
-      - locationDbId
-      - seasonDbId
-      - studyType
-      - studyName
-      - studyLocation
       - programName
-      - germplasmDbId
-      - observationVariableDbId
+      - locationDbId
+      - startDate
+      - endDate
     SortOrder:
       type: string
       description: Sort order direction. Ascending/Descending.
@@ -7972,6 +7987,15 @@ components:
           description: The unique identifier for a trait.
           items:
             type: string
+    TransactionDirection:
+      type: string
+      description: "Filter results to only include transactions directed to the specific\
+        \ Seed Lot (TO), away from the specific Seed Lot (FROM), or both (BOTH). The\
+        \ default value for this parameter is BOTH"
+      enum:
+      - TO
+      - FROM
+      - BOTH
     TrialParameters:
       type: object
       properties:
@@ -8058,6 +8082,27 @@ components:
             \ is null\n\n- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart`\
             \ is before `trial.endDate`"
           format: date
+        sortBy:
+          type: string
+          description: Name of the field to sort by.
+          nullable: true
+          enum:
+          - trialDbId
+          - trialName
+          - programDbId
+          - programName
+          - locationDbId
+          - startDate
+          - endDate
+        sortOrder:
+          type: string
+          description: Sort order direction. Ascending/Descending.
+          nullable: true
+          enum:
+          - ASC
+          - DESC
+          - asc
+          - desc
         studyDbIds:
           type: array
           description: List of study identifiers to search for
@@ -8352,6 +8397,13 @@ components:
             \ variants should be returned."
           format: int32
           example: 1500
+        pageToken:
+          type: string
+          description: |-
+            The continuation token, which is used to page through large result sets.
+            To get the next page of results, set this parameter to the value of
+            `next_page_token` from the previous response.
+          deprecated: true
         programDbIds:
           type: array
           description: "A BrAPI Program represents the high level organization or\

@@ -10,6 +10,9 @@
 ##### `POST` /delete/observations
 
 
+##### `PUT` /images/{imageDbId}/imagecontent
+
+
 ##### `GET` /observationlevels
 
 
@@ -62,22 +65,19 @@
 ##### `GET` /allelematrix
 
 
+###### Parameters:
+
+Deleted: `dataMatrixNames` in `query`
+
+Deleted: `dataMatrixAbbreviations` in `query`
+
+Added: `dataMatrixName` in `query`
+
+Added: `dataMatrixAbbreviation` in `query`
+
 ###### Return Type:
 
 New response : **404**
-
-##### `GET` /germplasm/{germplasmDbId}/mcpd
-
-
-###### Return Type:
-
-Changed response : **200**
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        Deleted properties: `germplasmPUI`
 
 ##### `PUT` /samples
 
@@ -85,31 +85,6 @@ Changed response : **200**
 ###### Return Type:
 
 Deleted response : **404**
-
-##### `POST` /search/allelematrix
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    New properties: `dimensionCallSetPage`, `dimensionCallSetPageSize`, `dimensionVariantPage`, `dimensionVariantPageSize`
-
-    * Changed property `dataMatrixAbbreviations` (array -> string):
-      - Type changed: `array` -> `string`
-
-    * Changed property `dataMatrixNames` (array -> string):
-      - Type changed: `array` -> `string`
-
-##### `POST` /search/calls
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    * Changed property `pageToken` (string):
-      - Deprecated status changed
 
 ##### `GET` /search/calls/{searchResultsDbId}
 
@@ -146,15 +121,6 @@ Deleted: `pageToken` in `query`
             * Changed property `observationUnitDbId` (string):
               - Nullable changed: `true` -> `null`
 
-##### `POST` /search/variants
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    Deleted properties: `pageToken`
-
 ##### `GET` /search/variants/{searchResultsDbId}
 
 
@@ -162,149 +128,12 @@ Deleted: `pageToken` in `query`
 
 Deleted: `pageToken` in `query`
 
-##### `POST` /search/variantsets
-
-
-###### Return Type:
-
-Changed response : **200**
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (array):
-
-                New properties: `referenceSetName`
-
-                Deleted properties: `availableFormats`, `studyDbId`
-
-                * Changed property `referenceSetDbId` (string):
-                  - Nullable changed: `false` -> `true`
-
-                * Changed property `analysis` (array)
-
-                    Changed items (array):
-
-                        New required properties:
-                        - `analysisDbId`
-
-##### `GET` /search/variantsets/{searchResultsDbId}
-
-
-###### Return Type:
-
-Changed response : **200**
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (array):
-
-                New properties: `referenceSetName`
-
-                Deleted properties: `availableFormats`, `studyDbId`
-
-                * Changed property `referenceSetDbId` (string):
-                  - Nullable changed: `false` -> `true`
-
-                * Changed property `analysis` (array)
-
-                    Changed items (array):
-
-                        New required properties:
-                        - `analysisDbId`
-
 ##### `GET` /seedlots/{seedLotDbId}/transactions
 
 
 ###### Parameters:
 
 Deleted: `transactionDbId` in `query`
-
-Deleted: `transactionDirection` in `query`
-
-###### Return Type:
-
-Changed response : **200**
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (array):
-
-                New properties: `fromSeedLotPUI`, `toSeedLotPUI`
-
-##### `GET` /trials
-
-
-###### Parameters:
-
-Deleted: `sortBy` in `query`
-
-Deleted: `sortOrder` in `query`
-
-##### `GET` /variantsets
-
-
-###### Return Type:
-
-Changed response : **200**
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (array):
-
-                New properties: `referenceSetName`
-
-                Deleted properties: `availableFormats`, `studyDbId`
-
-                * Changed property `referenceSetDbId` (string):
-                  - Nullable changed: `false` -> `true`
-
-                * Changed property `analysis` (array)
-
-                    Changed items (array):
-
-                        New required properties:
-                        - `analysisDbId`
-
-##### `GET` /variantsets/{variantSetDbId}
-
-
-###### Return Type:
-
-Changed response : **200**
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        New properties: `referenceSetName`
-
-        Deleted properties: `availableFormats`, `studyDbId`
-
-        * Changed property `referenceSetDbId` (string):
-          - Nullable changed: `false` -> `true`
-
-        * Changed property `analysis` (array)
-
-            Changed items (array):
-
-                New required properties:
-                - `analysisDbId`
 
 ##### `POST` /attributes
 
@@ -318,7 +147,7 @@ Changed response : **200**
         * Changed property `ontologyReference` (object):
           - Nullable changed: `true` -> `false`
 
-            New properties: `ontologyPUI`, `ontologyReferenceDbId`
+            New properties: `ontologyReferenceDbId`
 
 ##### `PUT` /attributes/{attributeDbId}
 
@@ -330,7 +159,7 @@ Changed response : **200**
     * Changed property `ontologyReference` (object):
       - Nullable changed: `true` -> `false`
 
-        New properties: `ontologyPUI`, `ontologyReferenceDbId`
+        New properties: `ontologyReferenceDbId`
 
 ##### `POST` /images
 
@@ -340,8 +169,6 @@ Changed response : **200**
 * Changed content type : `application/json`
 
     Changed items (array):
-
-        New properties: `imageContent`, `observationUnitName`
 
         Deleted properties: `observationDbIds`
 
@@ -359,8 +186,6 @@ Changed response : **200**
 ###### Request:
 
 * Changed content type : `application/json`
-
-    New properties: `imageContent`, `observationUnitName`
 
     Deleted properties: `observationDbIds`
 
@@ -418,7 +243,7 @@ Deleted response : **404**
 
     Changed items (array):
 
-        New properties: `observationVariablePUI`, `seasonDbId`, `seasonName`, `seasonPUI`, `studyName`
+        New properties: `seasonDbId`
 
         Deleted properties: `season`
 
@@ -439,8 +264,6 @@ Deleted response : **404**
 * Changed content type : `application/json`
 
     Changed items (array):
-
-        New properties: `crossPUI`, `locationPUI`, `programPUI`, `seedLotPUI`
 
         * Changed property `observationUnitPosition` (object)
 
@@ -477,7 +300,23 @@ Changed response : **200**
 
             Changed items (array):
 
-                Deleted properties: `germplasmPUI`
+                New required properties:
+                - `germplasmPUI`
+
+                * Changed property `progeny` (array)
+
+                    Changed items (array):
+
+                        New properties: `childGermplasmDbId`, `childGermplasmName`, `pedigreeNodeDbId`, `pedigreeNodeName`, `pedigreeNodePUI`
+
+                        Deleted properties: `germplasmDbId`, `germplasmName`
+
+                        New required properties:
+                        - `childGermplasmDbId`
+                        - `childGermplasmName`
+
+                        Removed required properties:
+                        - `germplasmDbId`
 
                 * Changed property `parents` (array)
 
@@ -485,9 +324,6 @@ Changed response : **200**
 
                         New required properties:
                         - `germplasmName`
-
-                        * Changed property `germplasmName` (string):
-                          - Nullable changed: `true` -> `null`
 
 ##### `POST` /pedigree
 
@@ -498,7 +334,23 @@ Changed response : **200**
 
     Changed items (array):
 
-        Deleted properties: `germplasmPUI`
+        New required properties:
+        - `germplasmPUI`
+
+        * Changed property `progeny` (array)
+
+            Changed items (array):
+
+                New properties: `childGermplasmDbId`, `childGermplasmName`, `pedigreeNodeDbId`, `pedigreeNodeName`, `pedigreeNodePUI`
+
+                Deleted properties: `germplasmDbId`, `germplasmName`
+
+                New required properties:
+                - `childGermplasmDbId`
+                - `childGermplasmName`
+
+                Removed required properties:
+                - `germplasmDbId`
 
         * Changed property `parents` (array)
 
@@ -506,9 +358,6 @@ Changed response : **200**
 
                 New required properties:
                 - `germplasmName`
-
-                * Changed property `germplasmName` (string):
-                  - Nullable changed: `true` -> `null`
 
 ###### Return Type:
 
@@ -524,7 +373,23 @@ Changed response : **200**
 
             Changed items (array):
 
-                Deleted properties: `germplasmPUI`
+                New required properties:
+                - `germplasmPUI`
+
+                * Changed property `progeny` (array)
+
+                    Changed items (array):
+
+                        New properties: `childGermplasmDbId`, `childGermplasmName`, `pedigreeNodeDbId`, `pedigreeNodeName`, `pedigreeNodePUI`
+
+                        Deleted properties: `germplasmDbId`, `germplasmName`
+
+                        New required properties:
+                        - `childGermplasmDbId`
+                        - `childGermplasmName`
+
+                        Removed required properties:
+                        - `germplasmDbId`
 
                 * Changed property `parents` (array)
 
@@ -532,9 +397,6 @@ Changed response : **200**
 
                         New required properties:
                         - `germplasmName`
-
-                        * Changed property `germplasmName` (string):
-                          - Nullable changed: `true` -> `null`
 
 ##### `POST` /search/images
 
@@ -544,8 +406,6 @@ Changed response : **200**
 * Changed content type : `application/json`
 
     * Changed property `imageLocation` (object)
-
-        New properties: `germplasmOrigin`, `imageDbId`, `imageName`, `imagePUI`, `observationDbId`, `observationName`, `observationPUI`, `observationUnit`
 
         * Changed property `geometry` (object -> null):
           - Type changed: `object` -> `null`
@@ -559,8 +419,6 @@ Changed response : **200**
 
     * Changed property `coordinates` (object):
       - Nullable changed: `true` -> `null`
-
-        New properties: `germplasmOrigin`, `imageDbId`, `imageName`, `imagePUI`, `observationDbId`, `observationName`, `observationPUI`, `observationUnit`
 
         * Changed property `geometry` (object -> null):
           - Type changed: `object` -> `null`
@@ -580,7 +438,23 @@ Changed response : **200**
 
             Changed items (array):
 
-                Deleted properties: `germplasmPUI`
+                New required properties:
+                - `germplasmPUI`
+
+                * Changed property `progeny` (array)
+
+                    Changed items (array):
+
+                        New properties: `childGermplasmDbId`, `childGermplasmName`, `pedigreeNodeDbId`, `pedigreeNodeName`, `pedigreeNodePUI`
+
+                        Deleted properties: `germplasmDbId`, `germplasmName`
+
+                        New required properties:
+                        - `childGermplasmDbId`
+                        - `childGermplasmName`
+
+                        Removed required properties:
+                        - `germplasmDbId`
 
                 * Changed property `parents` (array)
 
@@ -588,9 +462,6 @@ Changed response : **200**
 
                         New required properties:
                         - `germplasmName`
-
-                        * Changed property `germplasmName` (string):
-                          - Nullable changed: `true` -> `null`
 
 ##### `GET` /search/pedigree/{searchResultsDbId}
 
@@ -607,7 +478,23 @@ Changed response : **200**
 
             Changed items (array):
 
-                Deleted properties: `germplasmPUI`
+                New required properties:
+                - `germplasmPUI`
+
+                * Changed property `progeny` (array)
+
+                    Changed items (array):
+
+                        New properties: `childGermplasmDbId`, `childGermplasmName`, `pedigreeNodeDbId`, `pedigreeNodeName`, `pedigreeNodePUI`
+
+                        Deleted properties: `germplasmDbId`, `germplasmName`
+
+                        New required properties:
+                        - `childGermplasmDbId`
+                        - `childGermplasmName`
+
+                        Removed required properties:
+                        - `germplasmDbId`
 
                 * Changed property `parents` (array)
 
@@ -615,9 +502,6 @@ Changed response : **200**
 
                         New required properties:
                         - `germplasmName`
-
-                        * Changed property `germplasmName` (string):
-                          - Nullable changed: `true` -> `null`
 
 ##### `POST` /variables
 
@@ -631,7 +515,7 @@ Changed response : **200**
         * Changed property `ontologyReference` (object):
           - Nullable changed: `true` -> `false`
 
-            New properties: `ontologyPUI`, `ontologyReferenceDbId`
+            New properties: `ontologyReferenceDbId`
 
 ##### `PUT` /variables/{observationVariableDbId}
 
@@ -643,7 +527,7 @@ Changed response : **200**
     * Changed property `ontologyReference` (object):
       - Nullable changed: `true` -> `false`
 
-        New properties: `ontologyPUI`, `ontologyReferenceDbId`
+        New properties: `ontologyReferenceDbId`
 
 ##### `POST` /germplasm
 

@@ -1415,8 +1415,6 @@ type Image {
   descriptiveOntologyTerms: [String]
   "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI."
   externalReferences: [ExternalReference]
-  "The content of the image"
-  imageContent: String
   "The unique identifier of an image"
   imageDbId: String
   "The name of the image file. Might be the same as 'imageName', but could be different."
@@ -3696,17 +3694,13 @@ enum SampleType {
 
 "Name of the field to sort by."
 enum SortBy {
-  germplasmDbId
+  endDate
   locationDbId
-  observationVariableDbId
   programDbId
   programName
-  seasonDbId
-  studyDbId
-  studyLocation
-  studyName
-  studyType
+  startDate
   trialDbId
+  trialName
 }
 
 "Sort order direction. Ascending/Descending."
@@ -3747,6 +3741,13 @@ enum TraitDataType {
   Numerical
   Ordinal
   Text
+}
+
+"Filter results to only include transactions directed to the specific Seed Lot (TO), away from the specific Seed Lot (FROM), or both (BOTH). The default value for this parameter is BOTH"
+enum TransactionDirection {
+  BOTH
+  FROM
+  TO
 }
 
 "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
@@ -5263,8 +5264,6 @@ input ImageInput {
   descriptiveOntologyTerms: [String]
   "Filter by External References"
   externalReferences: [ExternalReferenceInput]
-  "The content of the image"
-  imageContent: String
   "The unique identifier of an image"
   imageDbId: String
   "The name of the image file. Might be the same as 'imageName', but could be different."
@@ -7840,6 +7839,10 @@ input TrialsInput {
   - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
   """
   searchDateRangeStart: String
+  "Name of the field to sort by."
+  sortBy: SortBy
+  "Sort order direction. Ascending/Descending."
+  sortOrder: SortOrder
   "List of study identifiers to search for"
   studyDbIds: [String]
   "List of study names to filter search results"
@@ -8053,6 +8056,12 @@ input VariantsInput {
   commonCropNames: [String]
   "The end of the window (0-based, exclusive) for which overlapping variants should be returned."
   end: Int
+  """
+  The continuation token, which is used to page through large result sets.
+  To get the next page of results, set this parameter to the value of
+  `next_page_token` from the previous response.
+  """
+  pageToken: String
   """
   A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
   

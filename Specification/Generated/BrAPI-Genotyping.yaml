@@ -49,19 +49,18 @@ paths:
         schema:
           type: integer
           format: int32
-      - name: dataMatrixNames
+      - name: dataMatrixName
         in: query
-        description: "`dataMatrixNames` is a comma separated list of names (ie 'Genotype',\
-          \ 'Read Depth' etc). This list controls which data matrices are returned\
-          \ in the response."
+        description: "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read Depth'\
+          \ etc). This list controls which data matrices are returned in the response."
         required: false
         schema:
           type: string
-      - name: dataMatrixAbbreviations
+      - name: dataMatrixAbbreviation
         in: query
-        description: "`dataMatrixAbbreviations` is a comma separated list of abbreviations\
-          \ (ie 'GT', 'RD' etc). This list controls which data matrices are returned\
-          \ in the response."
+        description: "`dataMatrixAbbreviations` is a list of abbreviations (ie 'GT',\
+          \ 'RD' etc). This list controls which data matrices are returned in the\
+          \ response."
         required: false
         schema:
           type: string
@@ -910,6 +909,15 @@ paths:
       - name: variantSetDbId
         in: query
         description: A list of IDs which uniquely identify `VariantSets`
+        required: false
+        schema:
+          type: string
+      - name: pageToken
+        in: query
+        description: |-
+          The continuation token, which is used to page through large result sets.
+          To get the next page of results, set this parameter to the value of
+          `next_page_token` from the previous response.
         required: false
         schema:
           type: string
@@ -2360,19 +2368,21 @@ components:
           items:
             type: string
         dataMatrixAbbreviations:
-          type: string
-          description: "`dataMatrixAbbreviations` is a comma separated list of abbreviations\
-            \ (ie 'GT', 'RD' etc). This list controls which data matrices are returned\
-            \ in the response."
+          type: array
+          description: "`dataMatrixAbbreviations` is a list of abbreviations (ie 'GT',\
+            \ 'RD' etc). This list controls which data matrices are returned in the\
+            \ response."
           nullable: true
-          example: "GT,RD"
+          items:
+            type: string
         dataMatrixNames:
-          type: string
-          description: "`dataMatrixNames` is a comma separated list of names (ie 'Genotype',\
-            \ 'Read Depth' etc). This list controls which data matrices are returned\
-            \ in the response."
+          type: array
+          description: "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read\
+            \ Depth' etc). This list controls which data matrices are returned in\
+            \ the response."
           nullable: true
-          example: "Genotype,Read Depth"
+          items:
+            type: string
         dimensionCallSetPage:
           type: integer
           description: The requested page number for the CallSet dimension of the
@@ -2510,41 +2520,21 @@ components:
           items:
             type: string
         dataMatrixAbbreviations:
-          type: string
-          description: "`dataMatrixAbbreviations` is a comma separated list of abbreviations\
-            \ (ie 'GT', 'RD' etc). This list controls which data matrices are returned\
-            \ in the response."
+          type: array
+          description: "`dataMatrixAbbreviations` is a list of abbreviations (ie 'GT',\
+            \ 'RD' etc). This list controls which data matrices are returned in the\
+            \ response."
           nullable: true
-          example: "GT,RD"
+          items:
+            type: string
         dataMatrixNames:
-          type: string
-          description: "`dataMatrixNames` is a comma separated list of names (ie 'Genotype',\
-            \ 'Read Depth' etc). This list controls which data matrices are returned\
-            \ in the response."
+          type: array
+          description: "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read\
+            \ Depth' etc). This list controls which data matrices are returned in\
+            \ the response."
           nullable: true
-          example: "Genotype,Read Depth"
-        dimensionCallSetPage:
-          type: integer
-          description: The requested page number for the CallSet dimension of the
-            matrix
-          format: int32
-          nullable: true
-        dimensionCallSetPageSize:
-          type: integer
-          description: The requested page size for the CallSet dimension of the matrix
-          format: int32
-          nullable: true
-        dimensionVariantPage:
-          type: integer
-          description: The requested page number for the Variant dimension of the
-            matrix
-          format: int32
-          nullable: true
-        dimensionVariantPageSize:
-          type: integer
-          description: The requested page size for the Variant dimension of the matrix
-          format: int32
-          nullable: true
+          items:
+            type: string
         expandHomozygotes:
           type: boolean
           description: Should homozygotes be expanded (true) or collapsed into a single
@@ -2655,8 +2645,6 @@ components:
         \ for larger datasets, when compared to the Calls endpoints. This makes genotype\
         \ data retrieval faster and easier."
     Analysis:
-      required:
-      - analysisDbId
       type: object
       properties:
         analysisDbId:
@@ -2928,6 +2916,7 @@ components:
             The continuation token, which is used to page through large result sets.
             To get the next page of results, set this parameter to the value of
             `next_page_token` from the previous response.
+          deprecated: true
         sepPhased:
           type: string
           description: The string used as a separator for phased allele calls.
@@ -2990,6 +2979,7 @@ components:
             The continuation token, which is used to page through large result sets.
             To get the next page of results, set this parameter to the value of
             `next_page_token` from the previous response.
+          deprecated: true
         sepPhased:
           type: string
           description: The string used as a separator for phased allele calls.
@@ -3857,22 +3847,6 @@ components:
       properties:
         geometry:
           $ref: "#/components/schemas/GeoJSONGeometry"
-        germplasmOrigin:
-          $ref: "#/components/schemas/GermplasmOrigin"
-        imageDbId:
-          type: string
-        imageName:
-          type: string
-        imagePUI:
-          type: string
-        observationDbId:
-          type: string
-        observationName:
-          type: string
-        observationPUI:
-          type: string
-        observationUnit:
-          $ref: "#/components/schemas/ObservationUnitPosition"
         type:
           type: string
           description: The literal string "Feature"
@@ -7553,21 +7527,35 @@ components:
           description: Unique id for a seed lot on this server
           items:
             type: string
+    SeedLotTransactionRequest:
+      type: object
+      properties:
+        transactionDbIs:
+          type: array
+          description: Unique id for a Transaction that has occurred
+          items:
+            type: string
+        transactionDirection:
+          type: string
+          description: "Filter results to only include transactions directed to the\
+            \ specific Seed Lot (TO), away from the specific Seed Lot (FROM), or both\
+            \ (BOTH). The default value for this parameter is BOTH"
+          nullable: true
+          enum:
+          - TO
+          - FROM
+          - BOTH
     SortBy:
       type: string
       description: Name of the field to sort by.
       enum:
-      - studyDbId
       - trialDbId
+      - trialName
       - programDbId
-      - locationDbId
-      - seasonDbId
-      - studyType
-      - studyName
-      - studyLocation
       - programName
-      - germplasmDbId
-      - observationVariableDbId
+      - locationDbId
+      - startDate
+      - endDate
     SortOrder:
       type: string
       description: Sort order direction. Ascending/Descending.
@@ -7846,6 +7834,15 @@ components:
           description: The unique identifier for a trait.
           items:
             type: string
+    TransactionDirection:
+      type: string
+      description: "Filter results to only include transactions directed to the specific\
+        \ Seed Lot (TO), away from the specific Seed Lot (FROM), or both (BOTH). The\
+        \ default value for this parameter is BOTH"
+      enum:
+      - TO
+      - FROM
+      - BOTH
     TrialParameters:
       type: object
       properties:
@@ -7932,6 +7929,27 @@ components:
             \ is null\n\n- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart`\
             \ is before `trial.endDate`"
           format: date
+        sortBy:
+          type: string
+          description: Name of the field to sort by.
+          nullable: true
+          enum:
+          - trialDbId
+          - trialName
+          - programDbId
+          - programName
+          - locationDbId
+          - startDate
+          - endDate
+        sortOrder:
+          type: string
+          description: Sort order direction. Ascending/Descending.
+          nullable: true
+          enum:
+          - ASC
+          - DESC
+          - asc
+          - desc
         studyDbIds:
           type: array
           description: List of study identifiers to search for
@@ -8380,6 +8398,13 @@ components:
             \ variants should be returned."
           format: int32
           example: 1500
+        pageToken:
+          type: string
+          description: |-
+            The continuation token, which is used to page through large result sets.
+            To get the next page of results, set this parameter to the value of
+            `next_page_token` from the previous response.
+          deprecated: true
         programDbIds:
           type: array
           description: "A BrAPI Program represents the high level organization or\
@@ -8521,6 +8546,13 @@ components:
           description: The size of the pages to be returned. Default is `1000`.
           format: int32
           example: 1000
+        pageToken:
+          type: string
+          description: |-
+            The continuation token, which is used to page through large result sets.
+            To get the next page of results, set this parameter to the value of
+            `next_page_token` from the previous response.
+          deprecated: true
         programDbIds:
           type: array
           description: "A BrAPI Program represents the high level organization or\
@@ -8616,6 +8648,18 @@ components:
           nullable: true
           items:
             $ref: "#/components/schemas/Analysis"
+        availableFormats:
+          type: array
+          description: "When the data for a VariantSet is retrieved, it can be retrieved\
+            \ in a variety of data formats and file formats. \n<br/>'dataFormat' defines\
+            \ the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular,\
+            \ etc)\n<br/>'fileFormat' defines the MIME type of the file (ie text/csv,\
+            \ application/excel, application/zip). This should also be reflected in\
+            \ the Accept and ContentType HTTP headers for every relevant request and\
+            \ response."
+          nullable: true
+          items:
+            $ref: "#/components/schemas/AvailableFormat"
         callSetCount:
           type: integer
           description: The number of CallSets included in this VariantSet
@@ -8639,7 +8683,7 @@ components:
         referenceSetDbId:
           type: string
           nullable: true
-        referenceSetName:
+        studyDbId:
           type: string
           nullable: true
         variantCount:

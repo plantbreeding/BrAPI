@@ -24888,7 +24888,7 @@
             "type" : "array"
           },
           "dataMatrixAbbreviations" : {
-            "description" : "`dataMatrixAbbreviations` is a comma seperated list of abbreviations (ie 'GT', 'RD' etc). This list controls which data matrices are returned in the response.",
+            "description" : "`dataMatrixAbbreviations` is a list of abbreviations (ie 'GT', 'RD' etc). This list controls which data matrices are returned in the response.",
             "example" : [ "GT", "RD" ],
             "items" : {
               "type" : "string"
@@ -27477,7 +27477,6 @@
           "germplasmPUI" : {
             "description" : "MCPD (v2.1) (PUID) 0. Any persistent, unique identifier assigned to the accession so it can be unambiguously referenced at the global level and the information associated with it harvested through automated means. Report one PUID for each accession. The Secretariat of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) is facilitating the assignment of a persistent unique identifier (PUID), in the form of a DOI, to PGRFA at the accession level. Genebanks not applying a true PUID to their accessions should use, and request recipients to use, the concatenation of INSTCODE, ACCENUMB, and GENUS as a globally unique identifier similar in most respects to the PUID whenever they exchange information on accessions with third parties.",
             "example" : "http://pui.per/accession/A0403652",
-            "nullable" : true,
             "type" : "string"
           },
           "instituteCode" : {
@@ -31654,7 +31653,6 @@
           "germplasmPUI" : {
             "description" : "The Permanent Unique Identifier which represents a germplasm\n\nMIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.\n\nMIAPPE V1.1 (DM-51) Material source DOI - Digital Object Identifier (DOI) of the material source\n\nMCPD (v2.1) (PUID) 0. Any persistent, unique identifier assigned to the accession so it can be unambiguously referenced at the global level and the information associated with it harvested through automated means. Report one PUID for each accession. The Secretariat of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) is facilitating the assignment of a persistent unique identifier (PUID), in the form of a DOI, to PGRFA at the accession level. Genebanks not applying a true PUID to their accessions should use, and request recipients to use, the concatenation of INSTCODE, ACCENUMB, and GENUS as a globally unique identifier similar in most respects to the PUID whenever they exchange information on accessions with third parties.",
             "example" : "http://pui.per/accession/A0000003",
-            "nullable" : true,
             "type" : "string"
           },
           "parents" : {
@@ -31696,7 +31694,7 @@
               "parentType" : "FEMALE"
             } ],
             "items" : {
-              "$ref" : "#/components/schemas/PedigreeNode_parents_inner"
+              "$ref" : "#/components/schemas/PedigreeNode_progeny_inner"
             },
             "nullable" : true,
             "type" : "array"
@@ -36859,7 +36857,7 @@
           "referenceSetDbId" : {
             "description" : "The ID of the reference set that describes the sequences used by the variants in this set.",
             "example" : "57eae639",
-            "nullable" : false,
+            "nullable" : true,
             "type" : "string"
           },
           "studyDbId" : {
@@ -42087,6 +42085,25 @@
         "type" : "object"
       },
       "PedigreeNode_parents_inner" : {
+        "properties" : {
+          "germplasmDbId" : {
+            "description" : "The ID which uniquely identifies a germplasm",
+            "example" : "a55847ed",
+            "type" : "string"
+          },
+          "germplasmName" : {
+            "description" : "A human readable name for a germplasm",
+            "example" : "A0000592",
+            "type" : "string"
+          },
+          "parentType" : {
+            "$ref" : "#/components/schemas/ParentType"
+          }
+        },
+        "required" : [ "germplasmDbId", "parentType" ],
+        "type" : "object"
+      },
+      "PedigreeNode_progeny_inner" : {
         "properties" : {
           "germplasmDbId" : {
             "description" : "The ID which uniquely identifies a germplasm",
