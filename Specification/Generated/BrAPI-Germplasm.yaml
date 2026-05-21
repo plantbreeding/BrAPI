@@ -4249,8 +4249,6 @@ components:
           example: Aspergillus
         germplasmDbId:
           type: string
-        germplasmName:
-          type: string
         instituteCode:
           type: string
           description: "MCPD (v2.1) (INSTCODE) 1. FAO WIEWS code of the institute\
