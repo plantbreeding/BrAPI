@@ -60,7 +60,7 @@ components:
           example: ['Genotype', 'Read Depth']
         dataMatrixAbbreviations:
           description: |-
-            `dataMatrixAbbreviations` is a comma seperated list of abbreviations (ie 'GT', 'RD' etc). This list controls which data matrices are returned in the response.
+            `dataMatrixAbbreviations` is a list of abbreviations (ie 'GT', 'RD' etc). This list controls which data matrices are returned in the response.
           type: array
           nullable: true
           items:

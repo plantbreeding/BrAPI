@@ -43,7 +43,6 @@ components:
 
             MCPD (v2.1) (PUID) 0. Any persistent, unique identifier assigned to the accession so it can be unambiguously referenced at the global level and the information associated with it harvested through automated means. Report one PUID for each accession. The Secretariat of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) is facilitating the assignment of a persistent unique identifier (PUID), in the form of a DOI, to PGRFA at the accession level. Genebanks not applying a true PUID to their accessions should use, and request recipients to use, the concatenation of INSTCODE, ACCENUMB, and GENUS as a globally unique identifier similar in most respects to the PUID whenever they exchange information on accessions with third parties.
           type: string
-          nullable: true
           example: http://pui.per/accession/A0000003
         defaultDisplayName:
           description: Human readable name used for display purposes
@@ -100,7 +99,6 @@ components:
               germplasmName:
                 description: A human readable name for a germplasm
                 type: string
-                nullable: true
                 example: A0000592
               parentType:
                 $ref: '#/components/schemas/ParentType'

@@ -236,9 +236,6 @@
                     "referencedAttribute": "analysis"
                 }
             },
-            "required": [
-                "analysisDbId"
-            ],
             "title": "Analysis",
             "description": "An analysis contains an interpretation of one or several experiments. (e.g. SNVs, copy number variations, methylation status) together with information about the methodology used.",
             "type": "object",

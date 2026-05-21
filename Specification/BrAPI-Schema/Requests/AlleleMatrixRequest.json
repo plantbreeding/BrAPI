@@ -67,17 +67,25 @@
                     "type": ["null", "integer"]
                 },
                 "dataMatrixNames": {
-                    "description": "`dataMatrixNames` is a comma separated list of names (ie 'Genotype', 'Read Depth' etc). This list controls which data matrices are returned in the response.",
-                    "type": ["null", "string"],
+                    "description": "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read Depth' etc). This list controls which data matrices are returned in the response.",
+                    "type": ["null", "array"],
+                    "items": {
+                        "type": "string"
+                    },
                     "example": [
-                        "Genotype,Read Depth"
+                        "Genotype",
+                        "Read Depth"
                     ]
                 },
                 "dataMatrixAbbreviations": {
-                    "description": "`dataMatrixAbbreviations` is a comma separated list of abbreviations (ie 'GT', 'RD' etc). This list controls which data matrices are returned in the response.",
-                    "type": ["null", "string"],
+                    "description": "`dataMatrixAbbreviations` is a list of abbreviations (ie 'GT', 'RD' etc). This list controls which data matrices are returned in the response.",
+                    "type": ["null", "array"],
+                    "items": {
+                        "type": "string"
+                    },
                     "example": [
-                        "GT,RD"
+                        "GT",
+                        "RD"
                     ]
                 },
                 "positionRanges": {

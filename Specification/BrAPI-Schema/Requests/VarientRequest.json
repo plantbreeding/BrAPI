@@ -88,6 +88,11 @@
                                 "ba63d810",
                                 "434d1760"
                             ]
+                        },
+                        "pageToken": {
+                            "description": "The continuation token, which is used to page through large result sets.\nTo get the next page of results, set this parameter to the value of\n`next_page_token` from the previous response.",
+                            "type": "string",
+                            "deprecated": true
                         }
                     }
                 }
