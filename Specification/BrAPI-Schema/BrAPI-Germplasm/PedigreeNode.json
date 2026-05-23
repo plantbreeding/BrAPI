@@ -160,7 +160,7 @@
         },
         "GermplasmChild": {
             "properties": {
-                "childGermplasm": {
+                "germplasm": {
                     "$ref": "Germplasm.json#/$defs/Germplasm",
                     "description": "The child germplasm",
                     "referencedAttribute": "parentPedigreeNodes",
@@ -178,7 +178,7 @@
                 }
             },
             "required": [
-                "childGermplasm",
+                "germplasm",
                 "parentType"
             ],
             "title": "GermplasmChild",

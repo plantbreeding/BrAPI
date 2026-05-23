@@ -58,7 +58,14 @@
                             ]
                         },
                         "coordinates": {
-                            "$ref": "Schemas/GeoJSONSearchArea.json#/$defs/GeoJSONSearchArea"
+                            "anyOf": [
+                                {
+                                    "$ref": "Schemas/GeoJSONSearchArea.json#/$defs/GeoJSONSearchArea"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ]
                         },
                         "instituteAddresses": {
                             "description": "The street address of the institute to search for",

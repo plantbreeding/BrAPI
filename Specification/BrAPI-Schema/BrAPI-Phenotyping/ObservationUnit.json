@@ -272,7 +272,14 @@
                 },
                 "positionCoordinateXType": {
                     "description": "The type of positional coordinate used for the X coordinate of the position.",
-                    "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/PositionCoordinateType"
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/PositionCoordinateType"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "positionCoordinateY": {
                     "description": "The Y position coordinate for an observation unit. Different systems may use different coordinate systems.",
@@ -283,7 +290,14 @@
                 },
                 "positionCoordinateYType": {
                     "description": "The type of positional coordinate used for the Y coordinate of the position.",
-                    "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/PositionCoordinateType"
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/PositionCoordinateType"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "observationUnit": {
                     "description": "associated observation Unit",

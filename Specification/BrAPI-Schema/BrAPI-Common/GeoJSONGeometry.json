@@ -60,7 +60,8 @@
                     ],
                     "type": "object"
                 }
-            ]
+            ],
+            "type": "object"
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/Components/Common/AdditionalInfo.json",

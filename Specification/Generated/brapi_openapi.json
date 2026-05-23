@@ -41812,8 +41812,7 @@
             "type" : "string"
           }
         },
-        "title" : "GeoJSONSearchArea",
-        "type" : "object"
+        "title" : "GeoJSONSearchArea"
       },
       "Observation_season" : {
         "nullable" : true,

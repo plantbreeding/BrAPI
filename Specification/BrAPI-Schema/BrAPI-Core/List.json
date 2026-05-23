@@ -91,7 +91,8 @@
                 },
                 "listType": {
                     "description": "A flag to indicate the type of objects that are referenced in a List",
-                    "$ref": "ListType.json#/$defs/ListType"
+                    "$ref": "ListType.json#/$defs/ListType",
+                    "nullable": false
                 }
             },
             "required": [
