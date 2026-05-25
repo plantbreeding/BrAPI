@@ -1,4 +1,0 @@
-
-# Group Locations
-
-Location calls.

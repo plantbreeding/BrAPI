@@ -1,7 +1,0 @@
-[[Versioning | BrAPI Version]] V1.0
-
-Released: November 13, 2017
-
-Release Notes
-
-Apiary Archive

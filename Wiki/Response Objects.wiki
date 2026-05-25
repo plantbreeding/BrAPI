@@ -1,8 +1,0 @@
-==Structure==
-===Metadata===
-===Payload===
-====Master====
-====Details====
-====Master/Details====
-
-==Examples==

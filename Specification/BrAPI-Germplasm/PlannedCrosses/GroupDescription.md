@@ -1,2 +1,0 @@
-# Group Planned Crosses
-
