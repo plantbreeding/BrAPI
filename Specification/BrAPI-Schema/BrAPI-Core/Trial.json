@@ -12,7 +12,7 @@
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
                     "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
-					"relationshipType": "one-to-one"
+                    "relationshipType": "one-to-one"
                 },
                 "commonCropName": {
                     "description": "Common name for the crop associated with this trial",
@@ -75,10 +75,17 @@
                     ]
                 },
                 "program": {
-                    "$ref": "Program.json#/$defs/Program",
                     "description": "A program identifier to search for",
                     "referencedAttribute": "trials",
-                    "relationshipType": "many-to-one"
+                    "relationshipType": "many-to-one",
+                    "anyOf": [
+                        {
+                            "$ref": "Program.json#/$defs/Program"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "studies": {
                     "title": "Studies",

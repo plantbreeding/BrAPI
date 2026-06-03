@@ -8,13 +8,27 @@
                     "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
                 },
                 "breedingMethod": {
-                    "$ref": "BreedingMethod.json#/$defs/BreedingMethod",
+                    "anyOf": [
+                        {
+                            "$ref": "BreedingMethod.json#/$defs/BreedingMethod"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The unique identifier for the breeding method used to create this germplasm",
                     "referencedAttribute": "pedigreeNodes",
                     "relationshipType": "many-to-one"
                 },
                 "crossingProject": {
-                    "$ref": "CrossingProject.json#/$defs/CrossingProject",
+                    "anyOf": [
+                        {
+                            "$ref": "CrossingProject.json#/$defs/CrossingProject"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The crossing project used to generate this germplasm",
                     "referencedAttribute": "pedigreeNodes",
                     "relationshipType": "many-to-one"
@@ -41,10 +55,7 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "type": "array"
                 },
                 "familyCode": {
                     "description": "The code representing the family of this germplasm",
@@ -70,13 +81,6 @@
                     "type": [
                         "null",
                         "array"
-                    ]
-                },
-				"pedigreeNodeDbId": {
-                    "description": "The ID which uniquely identifies a pedigree node",
-                    "type": [
-                        "null",
-                        "string"
                     ]
                 },
                 "pedigreeString": {
@@ -126,7 +130,7 @@
         },
         "GermplasmParent": {
             "properties": {
-                "parentGermplasm": {
+                "germplasm": {
                     "$ref": "Germplasm.json#/$defs/Germplasm",
                     "description": "The parent germplasm",
                     "referencedAttribute": "progenyPedigreeNodes",
@@ -144,7 +148,7 @@
                 }
             },
             "required": [
-                "parentGermplasm",
+                "germplasm",
                 "parentType"
             ],
             "title": "GermplasmParent",
@@ -156,7 +160,7 @@
         },
         "GermplasmChild": {
             "properties": {
-                "childGermplasm": {
+                "germplasm": {
                     "$ref": "Germplasm.json#/$defs/Germplasm",
                     "description": "The child germplasm",
                     "referencedAttribute": "parentPedigreeNodes",
@@ -174,7 +178,7 @@
                 }
             },
             "required": [
-                "childGermplasm",
+                "germplasm",
                 "parentType"
             ],
             "title": "GermplasmChild",

@@ -23,22 +23,31 @@
                     },
                     "title": "GenotypeMetadata",
                     "type": [
-                        "null",
                         "array"
                     ]
                 },
                 "genotypeValue": {
                     "description": "The value of this genotype call",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type": "string"
                 },
                 "phaseSet": {
                     "description": "If this field is populated, this variant call's genotype ordering implies the phase of the bases and \nis consistent with any other variant calls on the same contig which have the same phase set string.",
-                    "type": [
-                        "null",
-                        "string"
+                    "type": "string"
+                },
+                "genotype": {
+                    "deprecated": true,
+                    "$ref": "../BrAPI-Genotyping/Call.json#/$defs/ListValue"
+                },
+                "genotype_likelihood": {
+                    "deprecated": true,
+                    "description": "**Deprecated in v2.1** Please use `genotypeMetadata`. Github issue number #491             \n<br>The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data | genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.",
+                    "items": {
+                        "format": "double",
+                        "type": "number"
+                    },
+                    "type": "array",
+                    "example": [
+                        1
                     ]
                 },
                 "variant": {
@@ -78,31 +87,19 @@
                         "boolean",
                         null
                     ],
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type": "string"
                 },
                 "fieldAbbreviation": {
                     "description": "The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: \"GQ\", \"RD\", and \"HQ\"\n<br> This maps to a FORMAT field in the VCF file standard.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type": "string"
                 },
                 "fieldName": {
                     "description": "The name of the field represented in this Genotype Field. Examples include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype Quality\"\n<br> This maps to a FORMAT field in the VCF file standard.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type": "string"
                 },
                 "fieldValue": {
                     "description": "The additional metadata value associated with this genotype call",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type": "string"
                 },
                 "call": {
                     "description": "Genotype metadata associated with a call",
@@ -116,6 +113,39 @@
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
+            }
+        },
+        "ListValue": {
+            "deprecated": true,
+            "type": "object",
+            "description": "**Deprecated in v2.1** Please use `genotypeValue` or `genotypeMetadata`. Github issue number #491             \n<br>`ListValue` is a wrapper around a repeated field of values.\n<br>The JSON representation for `ListValue` is JSON array.",
+            "properties": {
+                "values": {
+                    "type": "array",
+                    "deprecated": true,
+                    "description": "**Deprecated in v2.1** Please use `genotypeValue` or `genotypeMetadata`. Github issue number #491             \n<br>Repeated field of dynamically typed values.",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "description": "Represents a boolean value.",
+                                "format": "boolean",
+                                "type": "boolean"
+                            },
+                            {
+                                "description": "Represents a double value.",
+                                "format": "double",
+                                "type": "number"
+                            },
+                            {
+                                "description": "Represents a string value.",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "example": [
+                        "AA"
+                    ]
+                }
             }
         }
     },

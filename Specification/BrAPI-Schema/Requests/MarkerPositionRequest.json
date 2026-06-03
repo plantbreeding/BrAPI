@@ -7,7 +7,7 @@
                     "properties": {
                         "mapDbIds": {
                             "description": "A list of IDs which uniquely identify `GenomeMaps` within the given database server",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },
@@ -18,7 +18,7 @@
                         },
                         "linkageGroupNames": {
                             "description": "A list of Uniquely Identifiable linkage group names",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },
@@ -29,7 +29,7 @@
                         },
                         "variantDbIds": {
                             "description": "A list of IDs which uniquely identify `Variants` within the given database server",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },
@@ -40,12 +40,12 @@
                         },
                         "minPosition": {
                             "description": "The minimum position of markers in a given map",
-                            "type": "integer",
+                            "type": ["null", "integer"],
                             "example": 250
                         },
                         "maxPosition": {
                             "description": "The maximum position of markers in a given map",
-                            "type": "integer",
+                            "type": ["null", "integer"],
                             "example": 4000
                         }
                     }

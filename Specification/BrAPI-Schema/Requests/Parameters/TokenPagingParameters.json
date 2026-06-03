@@ -1,0 +1,30 @@
+{
+    "$defs": {
+        "TokenPagingParameters": {
+            "type": "object",
+            "properties": {
+                "pageToken": {
+                    "deprecated": true,
+                    "description": "**Deprecated in v2.1** Please use `page`. Github issue number #451 \n<br>Used to request a specific page of data to be returned.\n<br>Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. ",
+                    "example": "33c27874",
+                    "type": "string"
+                },
+                "page": {
+                    "description": "Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.",
+                    "type": "integer",
+                    "example": 0
+                },
+                "pageSize": {
+                    "description": "The size of the pages to be returned. Default is `1000`.",
+                    "example": 1000,
+                    "type": "integer"
+                }
+            },
+            "brapi-metadata": {
+                "parameters": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/Parameters/TokenPagingParameters.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

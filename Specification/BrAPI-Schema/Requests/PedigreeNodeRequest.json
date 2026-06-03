@@ -25,7 +25,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["array", "null"],
                             "example": [
                                 "http://pui.per/accession/A0000003",
                                 "http://pui.per/accession/A0000477"
@@ -36,7 +36,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["array", "null"],
                             "example": [
                                 "A0000003",
                                 "A0000477"
@@ -47,7 +47,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["array", "null"],
                             "example": [
                                 "RDP1",
                                 "MDP1"
@@ -58,7 +58,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["array", "null"],
                             "example": [
                                 "f0000203",
                                 "fa009965"
@@ -69,7 +69,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["array", "null"],
                             "example": [
                                 "PER001",
                                 "NOR001"
@@ -80,7 +80,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["array", "null"],
                             "example": [
                                 "Aspergillus fructus",
                                 "Zea mays"
@@ -91,7 +91,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["array", "null"],
                             "example": [
                                 "Aspergillus",
                                 "Zea"
@@ -102,7 +102,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["array", "null"],
                             "example": [
                                 "fructus",
                                 "mays"
@@ -113,7 +113,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["array", "null"],
                             "example": [
                                 "variety_1",
                                 "2c38f9b6"
@@ -121,22 +121,22 @@
                         },
                         "includeParents": {
                             "description": "If this parameter is true, include the array of parents in the response",
-                            "type": "boolean",
+                            "type": ["boolean", "null"],
                             "example": true
                         },
                         "includeSiblings": {
                             "description": "If this parameter is true, include the array of siblings in the response",
-                            "type": "boolean",
+                            "type": ["boolean", "null"],
                             "example": true
                         },
                         "includeProgeny": {
                             "description": "If this parameter is true, include the array of progeny in the response",
-                            "type": "boolean",
+                            "type": ["boolean", "null"],
                             "example": true
                         },
                         "includeFullTree": {
                             "description": "If this parameter is true, recursively include ALL of the nodes available in this pedigree tree",
-                            "type": "boolean",
+                            "type": ["boolean", "null"],
                             "example": true
                         },
                         "pedigreeDepth": {

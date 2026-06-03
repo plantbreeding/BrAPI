@@ -37,13 +37,13 @@
                     ]
                 },
                 "years": {
-                    "description": "The 4 digit year of a season. Example \"2017\"",
+                    "description": "The 4 digit year of a season. Example 2017",
                     "items": {
-                        "type": "string"
+                        "type": "integer"
                     },
                     "type": "array",
                     "example": [
-                        "2017"
+                        2017
                     ]
                 }
             },

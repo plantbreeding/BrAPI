@@ -39,7 +39,10 @@
                 }
             ],
             "brapi-metadata": {
-                "interface": true
+                "interface": true,
+                "controlledVocabularyProperties": [
+                    "attributeCategory"
+                ]
             }
         }
     },

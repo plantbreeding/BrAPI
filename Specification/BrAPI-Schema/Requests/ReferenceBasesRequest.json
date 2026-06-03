@@ -1,0 +1,31 @@
+{
+  "$defs": {
+    "ReferenceBasesRequest": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "description": "The start position (0-based) of this query. Defaults to 0.\nGenomic positions are non-negative integers less than reference length.\nRequests spanning the join of circular genomes are represented as\ntwo requests one on each side of the join (position 0).",
+          "type": "integer"
+        },
+        "end": {
+          "description": "The end position (0-based, exclusive) of this query. Defaults to the length of this `Reference`.",
+          "type": "integer"
+        },
+        "pageToken": {
+          "description": "The continuation token, which is used to page through large result sets.\nTo get the next page of results, set this parameter to the value of\n`next_page_token` from the previous response.",
+          "type": "string"
+        }
+      },
+      "brapi-metadata": {
+        "request": true,
+        "subQueryProperties" : [
+          "start",
+          "end",
+          "pageToken"
+        ]
+      }
+    }
+  },
+  "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/ReferenceBasesRequest.json",
+  "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

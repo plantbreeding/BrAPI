@@ -25,7 +25,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "http://pui.per/accession/A0000003",
                                 "http://pui.per/accession/A0000477"
@@ -36,7 +36,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "A0000003",
                                 "A0000477"
@@ -47,7 +47,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "RDP1",
                                 "MDP1"
@@ -58,7 +58,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "fa000203",
                                 "fa009965"
@@ -69,7 +69,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "PER001",
                                 "NOR001"
@@ -80,7 +80,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "Aspergillus fructus",
                                 "Zea mays"
@@ -91,7 +91,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "Aspergillus",
                                 "Zea"
@@ -102,7 +102,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "fructus",
                                 "mays"
@@ -113,7 +113,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "variety_1",
                                 "2c38f9b6"
@@ -124,7 +124,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "72c1001f",
                                 "7346c553"
@@ -135,7 +135,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "16e16a7e",
                                 "ce06cf9e"

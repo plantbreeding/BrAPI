@@ -37,10 +37,17 @@
                     "$ref": "CrossType.json#/$defs/CrossType"
                 },
                 "crossingProject": {
-                    "$ref": "CrossingProject.json#/$defs/CrossingProject",
                     "description": "the unique identifier for a crossing project",
                     "referencedAttribute": "crosses",
-                    "relationshipType": "many-to-one"
+                    "relationshipType": "many-to-one",
+                    "anyOf": [
+                        {
+                            "$ref": "CrossingProject.json#/$defs/CrossingProject"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
@@ -50,10 +57,7 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "type": "array"
                 },
                 "parent1": {
                     "$ref": "CrossParent.json#/$defs/CrossParent",
@@ -64,10 +68,26 @@
                     "description": "the second parent used in the cross"
                 },
                 "plannedCross": {
-                    "$ref": "PlannedCross.json#/$defs/PlannedCross",
                     "description": "The Cross that was used in the planning of this one.",
                     "referencedAttribute": "crosses",
-                    "relationshipType": "many-to-one"
+                    "relationshipType": "many-to-one",
+                    "anyOf": [
+                        {
+                            "$ref": "PlannedCross.json#/$defs/PlannedCross"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "pollinationTimeStamp": {
+                    "description": "**Deprecated in v2.1** Please use `pollinationEvents`. Github issue number #265\n<br>The timestamp when the pollination took place",
+                    "deprecated": true,
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "format": "date-time"
                 },
                 "pollinationEvents": {
                     "description": "The list of pollination events that occurred for this cross.",

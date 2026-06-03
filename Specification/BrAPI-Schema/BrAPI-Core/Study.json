@@ -12,7 +12,7 @@
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
                     "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
-					"relationshipType": "one-to-one"
+                    "relationshipType": "one-to-one"
                 },
                 "commonCropName": {
                     "description": "Common name for the crop associated with this study",
@@ -81,7 +81,14 @@
                     "description": "The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology",
                     "relationshipType": "one-to-one",
                     "referencedAttribute": "study",
-                    "$ref": "../BrAPI-Core/Study.json#/$defs/ExperimentalDesign"
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Core/Study.json#/$defs/ExperimentalDesign"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
@@ -100,13 +107,27 @@
                     "description": "Short description of the facility in which the study was carried out.",
                     "relationshipType": "many-to-one",
                     "referencedAttribute": "study",
-					"$ref": "../BrAPI-Core/Study.json#/$defs/GrowthFacility"
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Core/Study.json#/$defs/GrowthFacility"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "lastUpdate": {
                     "description": "The date and time when this study was last modified",
                     "relationshipType": "one-to-one",
                     "referencedAttribute": "study",
-                    "$ref": "../BrAPI-Core/Study.json#/$defs/LastUpdate"
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Core/Study.json#/$defs/LastUpdate"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "license": {
                     "description": "The usage license associated with the study data",
@@ -116,10 +137,17 @@
                     ]
                 },
                 "location": {
-                    "$ref": "Location.json#/$defs/Location",
                     "description": "The unique identifier for a Location",
                     "referencedAttribute": "studies",
-                    "relationshipType": "many-to-one"
+                    "relationshipType": "many-to-one",
+                    "anyOf": [
+                        {
+                            "$ref": "Location.json#/$defs/Location"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "observationLevels": {
                     "description": "Observation levels indicate the granularity level at which the measurements are taken. `levelName` \ndefines the level, `levelOrder` defines where that level exists in the hierarchy of levels. \n`levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are \nat the bottom of the hierarchy (ie plant > 6). \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
@@ -181,14 +209,14 @@
                 },
                 "studyDescription": {
                     "description": "The description of this study\n\nMIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study",
+                    "type": "string"
+                },
+                "studyName": {
+                    "description": "The human readable name for a study\n\nMIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study",
                     "type": [
                         "null",
                         "string"
                     ]
-                },
-                "studyName": {
-                    "description": "The human readable name for a study\n\nMIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study",
-                    "type": "string"
                 },
                 "studyPUI": {
                     "description": "A permanent unique identifier associated with this study data. For example, a URI or DOI",
@@ -323,17 +351,16 @@
             "description": "A Study represents an experiment that has taken place at a single location. The Study contains metadata about the parameters and design of the experiment. It can also be used to group results and data sets generated from the experiment. A Trial can represent a collection of one or more Studies.",
             "type": "object",
             "brapi-metadata": {
-                "primaryModel": true
+                "primaryModel": true,
+                "controlledVocabularyProperties": [
+                    "studyType"
+                ]
             }
         },
         "EnvironmentParameter": {
-            "description": "An environmental parameter that was kept constant throughout the study and did not change between observation units.\n\nMIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables.",
+            "description": "Environmental parameters that were kept constant throughout the study and did not change between observation units. \n\nMIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).",
             "properties": {
                 "description": {
-                    "description": "Human-readable value of the environment parameter (defined above) constant within the experiment",
-                    "type": "string"
-                },
-                "environmentParametersDbId": {
                     "description": "Human-readable value of the environment parameter (defined above) constant within the experiment",
                     "type": "string"
                 },
@@ -389,13 +416,13 @@
                 "description"
             ],
             "title": "EnvironmentParameter",
-            "description": "Environmental parameters that were kept constant throughout the study and did not change between observation units. \n\nMIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
             }
         },
         "ExperimentalDesign": {
+            "nullable": true,
             "properties": {
                 "PUI": {
                     "description": "MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology. **Deprecated in v2.2** Please use `experimentalDesignPUI`. Github issue number #539",
@@ -543,13 +570,11 @@
             }
         },
         "GrowthFacility": {
+            "nullable": true,
             "properties": {
                 "PUI": {
                     "description": "MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type": "string"
                 },
                 "description": {
                     "description": "MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.",
@@ -573,11 +598,8 @@
             }
         },
         "LastUpdate": {
+            "nullable": true,
             "properties": {
-                "lastUpdateDbId": {
-                    "description": "The date and time when this study was last modified",
-                    "type": "string"
-                },
                 "timestamp": {
                     "description": "The timestamp of the update.",
                     "format": "date-time",

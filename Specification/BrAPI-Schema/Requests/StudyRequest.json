@@ -28,7 +28,7 @@
                     "properties": {
                         "active": {
                             "description": "A flag to indicate if a Study is currently active and ongoing",
-                            "type": "boolean",
+                            "type": ["null", "boolean"],
                             "example": true
                         },
                         "seasonDbIds": {
@@ -36,7 +36,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "Harvest Two 2017",
                                 "Summer 2018"
@@ -47,7 +47,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "Yield Trial",
                                 "Disease Resistance Trial"
@@ -58,7 +58,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "Grape_Yield_Spring_2018",
                                 "Walnut_Kenya"
@@ -66,7 +66,7 @@
                         },
                         "studyPUIs": {
                             "description": "Permanent unique identifier associated with study data. For example, a URI or DOI",
-                            "type": "array",
+                            "type": ["null", "array"],
                             "items": {
                                 "type": "string"
                             },
@@ -74,6 +74,33 @@
                                 "doi:10.155454/12349537312",
                                 "https://pui.per/d8dd35e1"
                             ]
+                        },
+                        "sortBy": {
+                            "description": "Name of the field to sort by.",
+                                "enum": [
+                                    "studyDbId",
+                                    "trialDbId",
+                                    "programDbId",
+                                    "locationDbId",
+                                    "seasonDbId",
+                                    "studyType",
+                                    "studyName",
+                                    "studyLocation",
+                                    "programName",
+                                    "germplasmDbId",
+                                    "observationVariableDbId"
+                                ],
+                                "type": ["null", "string"]
+                        },
+                        "sortOrder": {
+                            "description": "Sort order direction. Ascending/Descending.",
+                                "enum": [
+                                    "ASC",
+                                    "DESC",
+                                    "asc",
+                                    "desc"
+                                ],
+                                "type": ["null", "string"]
                         }
                     }
                 }
