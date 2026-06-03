@@ -83,7 +83,10 @@
                     },
                     "referencedAttribute": "alleleMatrices",
                     "relationshipType": "many-to-many",
-                    "type": "array"
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 }
             },
             "required": [

@@ -15,7 +15,10 @@
                     ]
                 },
                 "map": {
-                    "$ref": "GenomeMap.json#/$defs/GenomeMap",
+                    "anyOf": [
+                        {"$ref": "GenomeMap.json#/$defs/GenomeMap"},
+                        {"type": "null"}
+                    ],
                     "description": "The ID which uniquely identifies a `GenomeMap`",
                     "referencedAttribute": "markerPositions",
                     "relationshipType": "many-to-one"
@@ -28,7 +31,10 @@
                     ]
                 },
                 "variant": {
-                    "$ref": "Variant.json#/$defs/Variant",
+                    "anyOf": [
+                        {"$ref": "Variant.json#/$defs/Variant"},
+                        {"type": "null"}
+                    ],
                     "description": "The ID which uniquely identifies a `Variant` within the given database server\n<br> A `Variant` can also represent a Marker ",
                     "referencedAttribute": "markerPositions",
                     "relationshipType": "many-to-one"

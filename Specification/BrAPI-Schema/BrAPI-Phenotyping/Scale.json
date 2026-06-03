@@ -5,7 +5,7 @@
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
                     "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
-					"relationshipType": "one-to-one"
+                    "relationshipType": "one-to-one"
                 },
                 "dataType": {
                     "description": "<p>Class of the scale, entries can be</p>\n<p>\"Code\" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. \"75VD\" means \"75 %\" of the plant is infected and the plant is very delayed.</p>\n<p>\"Date\" - The date class is for events expressed in a time format, See ISO 8601</p>\n<p>\"Duration\" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p>\n<p>\"Nominal\" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p>\n<p>\"Numerical\" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p>\n<p>\"Ordinal\" - Ordinal scales are scales composed of ordered categories</p>\n<p>\"Text\" - A free text is used to express the trait.</p>",
@@ -94,7 +94,7 @@
             }
         },
         "ValidValues": {
-            "description": "Defines the valid values for a Scale, which can be restricted to a list of categorical values, or a minimum and/or a maximum value.",
+            "description": "Metadata describing the acceptable values for this Scale",
             "properties": {
                 "categories": {
                     "description": "List of possible values with optional labels",
@@ -132,14 +132,13 @@
                 }
             },
             "title": "ValidValues",
-            "description": "Metadata describing the acceptable values for this Scale",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
             }
         },
         "ValidValuesCategory": {
-            "description": "A categorical value for a Scale.",
+            "description": "If the Scale is a categorical type, these objects define the valid options",
             "properties": {
                 "label": {
                     "description": "A text label for a category",
@@ -163,7 +162,6 @@
                 }
             },
             "title": "ValidValuesCategory",
-            "description": "If the Scale is a categorical type, these objects define the valid options",
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false

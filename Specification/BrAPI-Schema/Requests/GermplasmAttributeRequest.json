@@ -16,7 +16,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "2ef15c9f",
                                 "318e7f7d"
@@ -27,7 +27,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "Plant Height 1",
                                 "Root Color"
@@ -38,7 +38,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "http://my-traits.com/trait/CO_123:0008012",
                                 "http://my-traits.com/trait/CO_123:0007261"
@@ -49,7 +49,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "Morphological",
                                 "Physical"

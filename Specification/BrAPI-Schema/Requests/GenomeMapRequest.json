@@ -24,7 +24,7 @@
                             },
                             "type": "array"
                         },
-                        "mapPUI": {
+                        "mapPUIs": {
                             "description": "The DOI or other permanent identifier for a `GenomeMap`",
                             "items": {
                                 "type": "string"

@@ -49,7 +49,9 @@ components:
           sortOrder:
             description: Order results should be sorted. ex. "ASC" or "DESC"
             enum:
+            - asc
             - ASC
+            - desc
             - DESC
             type: string
             nullable: true

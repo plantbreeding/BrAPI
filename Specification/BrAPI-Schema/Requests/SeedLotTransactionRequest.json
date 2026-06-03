@@ -1,0 +1,37 @@
+{
+    "$defs": {
+        "SeedLotTransactionRequest": {
+            "type": "object",
+            "properties": {
+                "transactionDbIs": {
+                    "description": "Unique id for a Transaction that has occurred",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "transactionDirection": {
+                    "description": "Filter results to only include transactions directed to the specific Seed Lot (TO), away from the specific Seed Lot (FROM), or both (BOTH). The default value for this parameter is BOTH",
+                    "enum": [
+                        "TO",
+                        "FROM",
+                        "BOTH"
+                    ],
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
+            },
+            "brapi-metadata": {
+                "request": true,
+                "subQueryProperties" : [
+                    "transactionDbIds",
+                    "transactionDirection"
+                ]
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/SeedLotTransactionRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

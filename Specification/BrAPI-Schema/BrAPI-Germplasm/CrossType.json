@@ -11,7 +11,8 @@
                 "BULK_OPEN_POLLINATED",
                 "DOUBLE_HAPLOID"
             ],
-            "type": "string"
+            "type": "string",
+            "nullable": true
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/CrossType.json",

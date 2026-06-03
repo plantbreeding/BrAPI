@@ -4,14 +4,21 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "relationshipType": "one-to-one",
-                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
+                    "relationshipType": "one-to-one"
                 },
                 "attribute": {
-                    "$ref": "GermplasmAttribute.json#/$defs/GermplasmAttribute",
                     "description": "The ID which uniquely identifies this attribute within the given database server",
                     "referencedAttribute": "attributeValues",
-                    "relationshipType": "many-to-one"
+                    "relationshipType": "many-to-one",
+                    "anyOf": [
+                        {
+                            "$ref": "GermplasmAttribute.json#/$defs/GermplasmAttribute"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "attributeValueDbId": {
                     "description": "The ID which uniquely identifies this attribute value within the given database server",
@@ -39,10 +46,17 @@
                     ]
                 },
                 "germplasm": {
-                    "$ref": "Germplasm.json#/$defs/Germplasm",
                     "description": "The ID which uniquely identifies a germplasm within the given database server",
                     "referencedAttribute": "attributeValues",
-                    "relationshipType": "many-to-one"
+                    "relationshipType": "many-to-one",
+                    "anyOf": [
+                        {
+                            "$ref": "Germplasm.json#/$defs/Germplasm"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "value": {
                     "description": "The value of this attribute for a given germplasm",

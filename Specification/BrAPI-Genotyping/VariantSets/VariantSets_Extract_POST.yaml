@@ -14,7 +14,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/VariantSetsExtractRequest'
-        description: Study Search request
+        description: VariantSet Search request
       responses:
         '200':
           content:

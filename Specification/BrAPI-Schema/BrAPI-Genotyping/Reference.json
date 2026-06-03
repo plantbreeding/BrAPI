@@ -5,7 +5,7 @@
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
                     "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
-					"relationshipType": "one-to-one"
+                    "relationshipType": "one-to-one"
                 },
                 "commonCropName": {
                     "description": "Common name for the crop",
@@ -13,6 +13,11 @@
                         "null",
                         "string"
                     ]
+                },
+                "bases": {
+                    "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "relationshipType": "one-to-one",
+                    "$ref": "Reference.json#/$defs/ReferenceBases"
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
@@ -22,10 +27,7 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "type": "array"
                 },
                 "isDerived": {
                     "description": "A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.",
@@ -57,7 +59,14 @@
                     "type": "string"
                 },
                 "referenceSet": {
-                    "$ref": "ReferenceSet.json#/$defs/ReferenceSet",
+                    "anyOf": [
+                        {
+                            "$ref": "ReferenceSet.json#/$defs/ReferenceSet"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The unique identifier for a `ReferenceSet`",
                     "referencedAttribute": "references",
                     "relationshipType": "many-to-one"
@@ -84,7 +93,7 @@
                     "relationshipType": "one-to-many",
                     "referencedAttribute": "reference",
                     "items": {
-                        "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm",
+                        "$ref": "Reference.json#/$defs/SourceGermplasm",
                         "description": "SourceGermplasm"
                     },
                     "title": "SourceGermplasm",
@@ -104,7 +113,7 @@
                     "description": "An ontology term describing an attribute.",
                     "relationshipType": "one-to-one",
                     "referencedAttribute": "reference",
-					"$ref": "../BrAPI-Common/OntologyTerm.json#/$defs/OntologyTerm"
+                    "$ref": "../BrAPI-Common/OntologyTerm.json#/$defs/OntologyTerm"
                 },
                 "variants": {
                     "title": "variants",
@@ -130,6 +139,64 @@
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
+            }
+        },
+        "ReferenceBases": {
+            "properties": {
+                "nextPageToken": {
+                    "description": "The continuation token, which is used to page through large result sets. Provide this value in a subsequent request to return the next page of results. This field will be empty if there are not any additional results.",
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "example": "3a3d658a"
+                },
+                "offset": {
+                    "description": "The offset position (0-based) of the given sequence from the start of this `Reference`. This value will differ for each page in a request.",
+                    "type": [
+                        "null",
+                        "integer"
+                    ],
+                    "example": 20000
+                },
+                "sequence": {
+                    "description": "A sub-string of the bases that make up this reference. Bases are represented as IUPAC-IUB codes; this string matches the regular expression `[ACGTMRWSYKVHDBN]*`.",
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "example": "TAGGATTGAGCTCTATATTAGGATTGAGCTCTATATTAGGATTGAGCTCTATATTAGGATTGAGCTCTATATTAGGATTGAGCTCTATATTAGGATTGAGCTCTATATTAGGATTGAGCTCTATATTAGGATTGAGCTCTATATTAGGATTGAGCTCTATAT"
+                }
+            },
+            "title": "ReferenceBases",
+            "description": "A string representation of the `Reference` base alleles.",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            }
+        },
+        "SourceGermplasm": {
+            "properties": {
+                "germplasmDbId": {
+                    "description": "The ID which uniquely identifies a germplasm within the given database server \n<br>MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, inventory lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.",
+                    "type": "string"
+                },
+                "germplasmName": {
+                    "description": "Name of the germplasm. It can be the preferred name and does not have to be unique.\n\nMCPD (v2.1) (ACCENAME) 11. Either a registered or other designation given to the material received, other than the donors accession number (23) or collecting number (3). First letter uppercase. Multiple names are separated by a semicolon without space.",
+                    "type": "string"
+                },
+                "reference": {
+                    "description": "The Reference associated with this Source Germplasm",
+                    "$ref": "Reference.json#/$defs/Reference",
+                    "relationshipType": "many-to-one",
+                    "referencedAttribute": "sourceGermplasm"
+                }
+            },
+            "title": "SourceGermplasm",
+            "description": "A reference to a Germplasm",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
             }
         }
     },

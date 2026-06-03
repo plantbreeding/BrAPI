@@ -1,6 +1,7 @@
 {
     "$defs": {
         "OntologyReference": {
+            "nullable": false,
             "properties": {
                 "documentationLinks": {
                     "description": "links to various ontology documentation",
@@ -51,10 +52,7 @@
                 "URL": {
                     "description": "The URL or URI to the documentation",
                     "format": "uri",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type": "string"
                 },
                 "type": {
                     "description": "The type of documentation, which can be OBO Foundry, an RDF term or a webpage.",
@@ -65,10 +63,7 @@
                         "WEBPAGE",
                         null
                     ],
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type": "string"
                 },
                 "ontologyReference": {
                     "description": "associated ontology reference",

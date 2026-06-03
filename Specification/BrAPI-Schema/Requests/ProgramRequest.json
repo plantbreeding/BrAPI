@@ -16,7 +16,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "P1",
                                 "P2"
@@ -27,7 +27,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "d8bd96c7",
                                 "a2b9c8e7"
@@ -38,7 +38,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "Bob Robertson",
                                 "Rob Robertson"
@@ -49,7 +49,7 @@
                             "items": {
                                 "type": "string"
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "Objective Code One",
                                 "This is a longer objective search query"
@@ -59,12 +59,13 @@
                             "description": "The type of program entity this object represents\n<br/> 'STANDARD' represents a standard, permanent breeding program\n<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding ",
                             "items": {
                                 "type": "string",
+                                "description": "The type of program entity this object represents\n<br/> 'STANDARD' represents a standard, permanent breeding program\n<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding.",
                                 "enum": [
                                     "STANDARD",
                                     "PROJECT"
                                 ]
                             },
-                            "type": "array",
+                            "type": ["null", "array"],
                             "example": [
                                 "STANDARD",
                                 "PROJECT"

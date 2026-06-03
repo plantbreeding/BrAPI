@@ -305,7 +305,7 @@
           },
           "style" : "form"
         }, {
-          "description" : "\"dataMatrixNames\" is a comma seperated list of names (ie 'Genotype, Read Depth' etc). This list controls which data matrices are returned in the response.\n<br> This maps to a FORMAT field in the VCF file standard.",
+          "description" : "\"dataMatrixNames\" is a comma separated list of names (ie 'Genotype, Read Depth' etc). This list controls which data matrices are returned in the response.\n<br> This maps to a FORMAT field in the VCF file standard.",
           "explode" : true,
           "in" : "query",
           "name" : "dataMatrixNames",
@@ -315,7 +315,7 @@
           },
           "style" : "form"
         }, {
-          "description" : "\"dataMatrixAbbreviations\" is a comma seperated list of abbreviations (ie 'GT, RD' etc). This list controls which data matrices are returned in the response.\n<br> This maps to a FORMAT field in the VCF file standard.",
+          "description" : "\"dataMatrixAbbreviations\" is a comma separated list of abbreviations (ie 'GT, RD' etc). This list controls which data matrices are returned in the response.\n<br> This maps to a FORMAT field in the VCF file standard.",
           "explode" : true,
           "in" : "query",
           "name" : "dataMatrixAbbreviations",
@@ -1005,6 +1005,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the details for a specific Germplasm Attribute",
@@ -1087,6 +1098,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Update an existing Germplasm Attribute",
@@ -1415,6 +1437,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the details for a specific Germplasm Attribute",
@@ -1497,6 +1530,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Update an existing Germplasm Attribute Value",
@@ -1996,6 +2040,17 @@
           },
           "style" : "form"
         }, {
+          "deprecated" : true,
+          "description" : "**Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 \n<br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)",
+          "explode" : true,
+          "in" : "query",
+          "name" : "externalReferenceID",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "style" : "form"
+        }, {
           "description" : "An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)",
           "explode" : true,
           "in" : "query",
@@ -2306,6 +2361,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Gets a list of `Calls` associated with a `CallSet`.",
@@ -3094,6 +3160,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get a filtered list of Crossing Projects",
@@ -3176,6 +3253,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Update an existing Crossing Project",
@@ -8789,6 +8877,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the details of a specific Observation Unit",
@@ -8871,6 +8970,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Update an existing Observation Units",
@@ -9128,6 +9238,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get a specific Ontology record by its ontologyDbId",
@@ -9210,6 +9331,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Update a specific Ontology record",
@@ -9414,6 +9546,17 @@
           "explode" : true,
           "in" : "query",
           "name" : "germplasmPUI",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "style" : "form"
+        }, {
+          "deprecated" : true,
+          "description" : "**Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 \n<br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)",
+          "explode" : true,
+          "in" : "query",
+          "name" : "externalReferenceID",
           "required" : false,
           "schema" : {
             "type" : "string"
@@ -11118,13 +11261,13 @@
           },
           "style" : "form"
         }, {
-          "description" : "The type of program entity this object represents\n<br/> 'STANARD' represents a standard, permenant breeding program\n<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding ",
+          "description" : "The type of program entity this object represents\n<br/> 'STANDARD' represents a standard, permenant breeding program\n<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding ",
           "explode" : true,
           "in" : "query",
           "name" : "programType",
           "required" : false,
           "schema" : {
-            "enum" : [ "STANARD", "PROJECT" ],
+            "enum" : [ "STANDARD", "PROJECT" ],
             "type" : "string"
           },
           "style" : "form"
@@ -11417,6 +11560,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get a breeding Program by Id",
@@ -11499,6 +11653,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Update an existing Program",
@@ -11613,6 +11778,17 @@
           "explode" : true,
           "in" : "query",
           "name" : "studyDbId",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "style" : "form"
+        }, {
+          "deprecated" : true,
+          "description" : "**Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 \n<br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)",
+          "explode" : true,
+          "in" : "query",
+          "name" : "externalReferenceID",
           "required" : false,
           "schema" : {
             "type" : "string"
@@ -12008,6 +12184,17 @@
           },
           "style" : "form"
         }, {
+          "deprecated" : true,
+          "description" : "**Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 \n<br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)",
+          "explode" : true,
+          "in" : "query",
+          "name" : "externalReferenceID",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "style" : "form"
+        }, {
           "description" : "An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)",
           "explode" : true,
           "in" : "query",
@@ -12147,6 +12334,50 @@
               }
             },
             "description" : "A successful response."
+          },
+          "400" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Bad Request"
+          },
+          "401" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Gets a `ReferenceSet` by ID.",
@@ -13216,7 +13447,7 @@
               }
             }
           },
-          "description" : "Study Search request"
+          "description" : "AlleleMatrix Search request"
         },
         "responses" : {
           "200" : {
@@ -13356,6 +13587,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a Allele Matrix search request",
@@ -13790,7 +14032,7 @@
               }
             }
           },
-          "description" : "Study Search request"
+          "description" : "Calls Search request"
         },
         "responses" : {
           "200" : {
@@ -13964,6 +14206,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a `Calls` search request",
@@ -13990,11 +14243,11 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/callSetsSearchRequest"
+                "$ref" : "#/components/schemas/CallSetsSearchRequest"
               }
             }
           },
-          "description" : "Study Search request"
+          "description" : "CallSet Search request"
         },
         "responses" : {
           "200" : {
@@ -14156,6 +14409,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a `CallSets` search request",
@@ -14751,6 +15015,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a `List` search request",
@@ -14942,6 +15217,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a `Locations` search request",
@@ -15133,6 +15419,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a `MarkerPositions` search request",
@@ -15227,17 +15524,6 @@
       "get" : {
         "description" : "Get the results of a `Observations` search request <br/>\nClients should submit a search request using the corresponding `POST /search/observations` endpoint.\nSearch requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. \nIf a server needs more time to process the request, it might respond with a `searchResultsDbId`. \nUse this endpoint to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\">Search Services documentation</a> for additional implementation details.",
         "parameters" : [ {
-          "description" : "A standard HTTP request header that is used to request a specific content type (JSON, CSV, etc) which is \"acceptable\" to the client and should be returned by the server",
-          "example" : "application/json",
-          "explode" : false,
-          "in" : "header",
-          "name" : "Accept",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/components/schemas/ContentTypes"
-          },
-          "style" : "simple"
-        }, {
           "description" : "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer {token_string} </strong>",
           "example" : "Bearer XXXX",
           "explode" : false,
@@ -15335,6 +15621,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a `Observations` search request",
@@ -15930,6 +16227,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a `People` search request",
@@ -16526,6 +16834,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a `References` search request",
@@ -16718,6 +17037,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a `ReferenceSets` search request",
@@ -17553,11 +17883,11 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/variantsSearchRequest"
+                "$ref" : "#/components/schemas/VariantsSearchRequest"
               }
             }
           },
-          "description" : "Study Search request"
+          "description" : "Variant Search request"
         },
         "responses" : {
           "200" : {
@@ -17731,6 +18061,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a `Variants` search request",
@@ -17761,7 +18102,7 @@
               }
             }
           },
-          "description" : "Study Search request"
+          "description" : "VariantSet Search request"
         },
         "responses" : {
           "200" : {
@@ -17923,6 +18264,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the results of a `VariantSets` search request",
@@ -18205,6 +18557,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Get the a single Season",
@@ -18288,6 +18651,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Update existing Seasons",
@@ -19304,7 +19678,7 @@
           "name" : "sortBy",
           "required" : false,
           "schema" : {
-            "enum" : [ "studyDbId", "trialDbId", "programDbId", "locationDbId", "seasonDbId", "studyType", "studyName", "studyLocation", "programName" ],
+            "enum" : [ "studyDbId", "trialDbId", "programDbId", "locationDbId", "seasonDbId", "studyType", "studyName", "studyLocation", "programName", "germplasmDbId", "observationVariableDbId" ],
             "type" : "string"
           },
           "style" : "form"
@@ -21393,6 +21767,17 @@
           },
           "style" : "form"
         }, {
+          "deprecated" : true,
+          "description" : "**Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 \n<br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)",
+          "explode" : true,
+          "in" : "query",
+          "name" : "externalReferenceID",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "style" : "form"
+        }, {
           "description" : "An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)",
           "explode" : true,
           "in" : "query",
@@ -21703,6 +22088,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Gets a list of `Calls` associated with a `Variant`.",
@@ -21797,6 +22193,17 @@
           "explode" : true,
           "in" : "query",
           "name" : "externalReferenceId",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "style" : "form"
+        }, {
+          "deprecated" : true,
+          "description" : "**Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 \n<br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)",
+          "explode" : true,
+          "in" : "query",
+          "name" : "externalReferenceID",
           "required" : false,
           "schema" : {
             "type" : "string"
@@ -21920,7 +22327,7 @@
               }
             }
           },
-          "description" : "Study Search request"
+          "description" : "VariantSet Search request"
         },
         "responses" : {
           "200" : {
@@ -22211,6 +22618,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Gets a list of `Calls` associated with a `VariantSet`.",
@@ -22328,6 +22746,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Gets a list of `CallSets` associated with a `VariantSet`.",
@@ -22447,6 +22876,17 @@
               }
             },
             "description" : "Forbidden"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "example" : "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "description" : "Not Found"
           }
         },
         "summary" : "Gets a `Variants` for a given `VariantSet`.",
@@ -23177,7 +23617,7 @@
         "style" : "form"
       },
       "dataMatrixAbbreviations" : {
-        "description" : "\"dataMatrixAbbreviations\" is a comma seperated list of abbreviations (ie 'GT, RD' etc). This list controls which data matrices are returned in the response.\n<br> This maps to a FORMAT field in the VCF file standard.",
+        "description" : "\"dataMatrixAbbreviations\" is a comma separated list of abbreviations (ie 'GT, RD' etc). This list controls which data matrices are returned in the response.\n<br> This maps to a FORMAT field in the VCF file standard.",
         "explode" : true,
         "in" : "query",
         "name" : "dataMatrixAbbreviations",
@@ -23188,7 +23628,7 @@
         "style" : "form"
       },
       "dataMatrixNames" : {
-        "description" : "\"dataMatrixNames\" is a comma seperated list of names (ie 'Genotype, Read Depth' etc). This list controls which data matrices are returned in the response.\n<br> This maps to a FORMAT field in the VCF file standard.",
+        "description" : "\"dataMatrixNames\" is a comma separated list of names (ie 'Genotype, Read Depth' etc). This list controls which data matrices are returned in the response.\n<br> This maps to a FORMAT field in the VCF file standard.",
         "explode" : true,
         "in" : "query",
         "name" : "dataMatrixNames",
@@ -24448,7 +24888,7 @@
             "type" : "array"
           },
           "dataMatrixAbbreviations" : {
-            "description" : "`dataMatrixAbbreviations` is a comma seperated list of abbreviations (ie 'GT', 'RD' etc). This list controls which data matrices are returned in the response.",
+            "description" : "`dataMatrixAbbreviations` is a list of abbreviations (ie 'GT', 'RD' etc). This list controls which data matrices are returned in the response.",
             "example" : [ "GT", "RD" ],
             "items" : {
               "type" : "string"
@@ -24859,6 +25299,165 @@
           "primaryModel" : true
         }
       },
+      "CallSetsSearchRequest" : {
+        "properties" : {
+          "callSetDbIds" : {
+            "description" : "A list of IDs which uniquely identify `CallSets` within the given database server",
+            "example" : [ "6c7486b2", "49c36a73" ],
+            "items" : {
+              "type" : "string"
+            },
+            "nullable" : true,
+            "type" : "array"
+          },
+          "callSetNames" : {
+            "description" : "A list of human readable names associated with `CallSets`",
+            "example" : [ "Sample_123_DNA_Run_456", "Sample_789_DNA_Run_101" ],
+            "items" : {
+              "type" : "string"
+            },
+            "nullable" : true,
+            "type" : "array"
+          },
+          "commonCropNames" : {
+            "description" : "The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.\n\nUse this parameter to only return results associated with the given crops. \n\nUse `GET /commoncropnames` to find the list of available crops on a server.",
+            "example" : [ "Tomatillo", "Paw Paw" ],
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          },
+          "externalReferenceIDs" : {
+            "deprecated" : true,
+            "description" : "**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460 \n<br>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)",
+            "example" : [ "doi:10.155454/12341234", "14a19841" ],
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          },
+          "externalReferenceIds" : {
+            "description" : "List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)",
+            "example" : [ "doi:10.155454/12341234", "14a19841" ],
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          },
+          "externalReferenceSources" : {
+            "description" : "List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)",
+            "example" : [ "DOI", "Field App Name" ],
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          },
+          "germplasmDbIds" : {
+            "description" : "List of IDs which uniquely identify germplasm to search for",
+            "example" : [ "e9c6edd7", "1b1df4a6" ],
+            "items" : {
+              "type" : "string"
+            },
+            "nullable" : true,
+            "type" : "array"
+          },
+          "germplasmNames" : {
+            "description" : "List of human readable names to identify germplasm to search for",
+            "example" : [ "A0000003", "A0000477" ],
+            "items" : {
+              "type" : "string"
+            },
+            "nullable" : true,
+            "type" : "array"
+          },
+          "page" : {
+            "description" : "Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.",
+            "example" : 0,
+            "type" : "integer"
+          },
+          "pageSize" : {
+            "description" : "The size of the pages to be returned. Default is `1000`.",
+            "example" : 1000,
+            "type" : "integer"
+          },
+          "programDbIds" : {
+            "description" : "A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. \n\nUse this parameter to only return results associated with the given programs. \n\nUse `GET /programs` to find the list of available programs on a server.",
+            "example" : [ "8f5de35b", "0e2d4a13" ],
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          },
+          "programNames" : {
+            "description" : "Use this parameter to only return results associated with the given program names. Program names are not required to be unique.\n\nUse `GET /programs` to find the list of available programs on a server.",
+            "example" : [ "Better Breeding Program", "Best Breeding Program" ],
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          },
+          "sampleDbIds" : {
+            "description" : "A list of IDs which uniquely identify `Samples` within the given database server",
+            "example" : [ "758d3f6d", "39c0a3f7" ],
+            "items" : {
+              "type" : "string"
+            },
+            "nullable" : true,
+            "type" : "array"
+          },
+          "sampleNames" : {
+            "description" : "A list of human readable names associated with `Samples`",
+            "example" : [ "Sample_123", "Sample_789" ],
+            "items" : {
+              "type" : "string"
+            },
+            "nullable" : true,
+            "type" : "array"
+          },
+          "studyDbIds" : {
+            "description" : "List of study identifiers to search for",
+            "example" : [ "cf6c4bd4", "691e69d6" ],
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          },
+          "studyNames" : {
+            "description" : "List of study names to filter search results",
+            "example" : [ "The First Bob Study 2017", "Wheat Yield Trial 246" ],
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          },
+          "trialDbIds" : {
+            "description" : "The ID which uniquely identifies a trial to search for",
+            "example" : [ "d2593dc2", "9431a731" ],
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          },
+          "trialNames" : {
+            "description" : "The human readable name of a trial to search for",
+            "example" : [ "All Yield Trials 2016", "Disease Resistance Study Comparison Group" ],
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          },
+          "variantSetDbIds" : {
+            "description" : "A list of IDs which uniquely identify `VariantSets` within the given database server",
+            "example" : [ "8a9a8972", "32a2649a" ],
+            "items" : {
+              "type" : "string"
+            },
+            "nullable" : true,
+            "type" : "array"
+          }
+        },
+        "type" : "object"
+      },
       "CallsSearchRequest" : {
         "properties" : {
           "callSetDbIds" : {
@@ -25214,7 +25813,7 @@
           },
           "parentType" : {
             "description" : "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
-            "enum" : [ "MALE", "FEMALE", "SELF", "POPULATION" ],
+            "enum" : [ "MALE", "FEMALE", "SELF", "POPULATION", "CLONAL" ],
             "example" : "MALE",
             "type" : "string"
           }
@@ -26275,6 +26874,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "germplasmNames" : {
@@ -26283,6 +26883,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "methodDbIds" : {
@@ -26698,6 +27299,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "germplasmNames" : {
@@ -26706,6 +27308,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "methodDbIds" : {
@@ -26874,7 +27477,6 @@
           "germplasmPUI" : {
             "description" : "MCPD (v2.1) (PUID) 0. Any persistent, unique identifier assigned to the accession so it can be unambiguously referenced at the global level and the information associated with it harvested through automated means. Report one PUID for each accession. The Secretariat of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) is facilitating the assignment of a persistent unique identifier (PUID), in the form of a DOI, to PGRFA at the accession level. Genebanks not applying a true PUID to their accessions should use, and request recipients to use, the concatenation of INSTCODE, ACCENUMB, and GENUS as a globally unique identifier similar in most respects to the PUID whenever they exchange information on accessions with third parties.",
             "example" : "http://pui.per/accession/A0403652",
-            "nullable" : true,
             "type" : "string"
           },
           "instituteCode" : {
@@ -27261,6 +27863,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "germplasmNames" : {
@@ -27269,6 +27872,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "germplasmPUIs" : {
@@ -29335,6 +29939,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "germplasmNames" : {
@@ -29343,6 +29948,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "locationDbIds" : {
@@ -30053,6 +30659,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "germplasmNames" : {
@@ -30061,6 +30668,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "includeObservations" : {
@@ -31045,7 +31653,6 @@
           "germplasmPUI" : {
             "description" : "The Permanent Unique Identifier which represents a germplasm\n\nMIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.\n\nMIAPPE V1.1 (DM-51) Material source DOI - Digital Object Identifier (DOI) of the material source\n\nMCPD (v2.1) (PUID) 0. Any persistent, unique identifier assigned to the accession so it can be unambiguously referenced at the global level and the information associated with it harvested through automated means. Report one PUID for each accession. The Secretariat of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) is facilitating the assignment of a persistent unique identifier (PUID), in the form of a DOI, to PGRFA at the accession level. Genebanks not applying a true PUID to their accessions should use, and request recipients to use, the concatenation of INSTCODE, ACCENUMB, and GENUS as a globally unique identifier similar in most respects to the PUID whenever they exchange information on accessions with third parties.",
             "example" : "http://pui.per/accession/A0000003",
-            "nullable" : true,
             "type" : "string"
           },
           "parents" : {
@@ -31087,7 +31694,7 @@
               "parentType" : "FEMALE"
             } ],
             "items" : {
-              "$ref" : "#/components/schemas/PedigreeNode_parents_inner"
+              "$ref" : "#/components/schemas/PedigreeNode_progeny_inner"
             },
             "nullable" : true,
             "type" : "array"
@@ -31281,6 +31888,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "germplasmNames" : {
@@ -31289,6 +31897,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "germplasmPUIs" : {
@@ -32085,6 +32694,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "observationUnitDbIds" : {
@@ -32525,10 +33135,10 @@
             "type" : "array"
           },
           "programTypes" : {
-            "description" : "The type of program entity this object represents\n<br/> 'STANARD' represents a standard, permenant breeding program\n<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding ",
-            "example" : [ "STANARD", "PROJECT" ],
+            "description" : "The type of program entity this object represents\n<br/> 'STANDARD' represents a standard, permenant breeding program\n<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding ",
+            "example" : [ "STANDARD", "PROJECT" ],
             "items" : {
-              "enum" : [ "STANARD", "PROJECT" ],
+              "enum" : [ "STANDARD", "PROJECT" ],
               "type" : "string"
             },
             "nullable" : true,
@@ -32812,6 +33422,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "germplasmNames" : {
@@ -32820,6 +33431,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "md5checksums" : {
@@ -32951,6 +33563,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "germplasmNames" : {
@@ -32959,6 +33572,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "isDerived" : {
@@ -33411,6 +34025,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "observationUnitDbIds" : {
@@ -33728,6 +34343,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "germplasmNames" : {
@@ -33736,6 +34352,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           }
         },
@@ -35105,6 +35722,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "germplasmNames" : {
@@ -35113,6 +35731,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "locationDbIds" : {
@@ -35198,7 +35817,7 @@
           },
           "sortOrder" : {
             "description" : "Order results should be sorted. ex. \"ASC\" or \"DESC\"",
-            "enum" : [ "ASC", "DESC" ],
+            "enum" : [ "asc", "ASC", "desc", "DESC" ],
             "nullable" : true,
             "type" : "string"
           },
@@ -36167,7 +36786,7 @@
             "nullable" : true,
             "type" : "array"
           },
-          "variantSetDbId" : {
+          "variantSetDbIds" : {
             "description" : "An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.",
             "example" : [ "c8ae400b", "ef2c204b" ],
             "items" : {
@@ -36238,7 +36857,7 @@
           "referenceSetDbId" : {
             "description" : "The ID of the reference set that describes the sequences used by the variants in this set.",
             "example" : "57eae639",
-            "nullable" : false,
+            "nullable" : true,
             "type" : "string"
           },
           "studyDbId" : {
@@ -36470,6 +37089,173 @@
             "items" : {
               "type" : "string"
             },
+            "type" : "array"
+          }
+        },
+        "type" : "object"
+      },
+      "VariantsSearchRequest" : {
+        "properties" : {
+          "callSetDbIds" : {
+            "deprecated" : true,
+            "description" : "**Deprecated in v2.1** Parameter unnecessary. Github issue number #474 \n<br/>Only return variant calls which belong to call sets with these IDs. If unspecified, return all variants and no variant call objects.",
+            "example" : [ "4639fe3e", "b60d900b" ],
+            "items" : {
+              "type" : "string"
+            },
+            "nullable" : true,
+            "type" : "array"
+          },
+          "commonCropNames" : {
+            "description" : "The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.\n\nUse this parameter to only return results associated with the given crops. \n\nUse `GET /commoncropnames` to find the list of available crops on a server.",
+            "example" : [ "Tomatillo", "Paw Paw" ],
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          },
+          "end" : {
+            "description" : "The end of the window (0-based, exclusive) for which overlapping variants should be returned.",
+            "example" : 1500,
+            "nullable" : true,
+            "type" : "integer"
+          },
+          "externalReferenceIDs" : {
+            "deprecated" : true,
+            "description" : "**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460 \n<br>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)",
+            "example" : [ "doi:10.155454/12341234", "14a19841" ],
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          },
+          "externalReferenceIds" : {
+            "description" : "List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)",
+            "example" : [ "doi:10.155454/12341234", "14a19841" ],
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          },
+          "externalReferenceSources" : {
+            "description" : "List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)",
+            "example" : [ "DOI", "Field App Name" ],
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          },
+          "page" : {
+            "description" : "Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.",
+            "example" : 0,
+            "type" : "integer"
+          },
+          "pageSize" : {
+            "description" : "The size of the pages to be returned. Default is `1000`.",
+            "example" : 1000,
+            "type" : "integer"
+          },
+          "pageToken" : {
+            "deprecated" : true,
+            "description" : "**Deprecated in v2.1** Please use `page`. Github issue number #451 \n<br>Used to request a specific page of data to be returned.\n<br>Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. ",
+            "example" : "33c27874",
+            "type" : "string"
+          },
+          "programDbIds" : {
+            "description" : "A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. \n\nUse this parameter to only return results associated with the given programs. \n\nUse `GET /programs` to find the list of available programs on a server.",
+            "example" : [ "8f5de35b", "0e2d4a13" ],
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          },
+          "programNames" : {
+            "description" : "Use this parameter to only return results associated with the given program names. Program names are not required to be unique.\n\nUse `GET /programs` to find the list of available programs on a server.",
+            "example" : [ "Better Breeding Program", "Best Breeding Program" ],
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          },
+          "referenceDbId" : {
+            "deprecated" : true,
+            "description" : "**Deprecated in v2.1** Please use `referenceDbIds`. Github issue number #472\n<br/>Only return variants on this reference.",
+            "example" : "120a2d5c",
+            "nullable" : true,
+            "type" : "string"
+          },
+          "referenceDbIds" : {
+            "description" : "The unique identifier representing a genotype `Reference`",
+            "example" : [ "89ab4d17", "74d3b63d" ],
+            "items" : {
+              "type" : "string"
+            },
+            "nullable" : true,
+            "type" : "array"
+          },
+          "referenceSetDbIds" : {
+            "description" : "The unique identifier representing a genotype `ReferenceSet`",
+            "example" : [ "d3b63d4d", "3b63d74b" ],
+            "items" : {
+              "type" : "string"
+            },
+            "nullable" : true,
+            "type" : "array"
+          },
+          "start" : {
+            "description" : "The beginning of the window (0-based, inclusive) for which overlapping variants should be returned. Genomic positions are non-negative integers less than reference length. Requests spanning the join of circular genomes are represented as two requests one on each side of the join (position 0).",
+            "example" : 100,
+            "nullable" : true,
+            "type" : "integer"
+          },
+          "studyDbIds" : {
+            "description" : "List of study identifiers to search for",
+            "example" : [ "cf6c4bd4", "691e69d6" ],
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          },
+          "studyNames" : {
+            "description" : "List of study names to filter search results",
+            "example" : [ "The First Bob Study 2017", "Wheat Yield Trial 246" ],
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          },
+          "trialDbIds" : {
+            "description" : "The ID which uniquely identifies a trial to search for",
+            "example" : [ "d2593dc2", "9431a731" ],
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          },
+          "trialNames" : {
+            "description" : "The human readable name of a trial to search for",
+            "example" : [ "All Yield Trials 2016", "Disease Resistance Study Comparison Group" ],
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          },
+          "variantDbIds" : {
+            "description" : "A list of IDs which uniquely identify `Variants`",
+            "example" : [ "3b63d889", "ab4d174d" ],
+            "items" : {
+              "type" : "string"
+            },
+            "nullable" : true,
+            "type" : "array"
+          },
+          "variantSetDbIds" : {
+            "description" : "A list of IDs which uniquely identify `VariantSets`",
+            "example" : [ "ba63d810", "434d1760" ],
+            "items" : {
+              "type" : "string"
+            },
+            "nullable" : true,
             "type" : "array"
           }
         },
@@ -36969,163 +37755,6 @@
         "required" : [ "currentPage", "pageSize" ],
         "type" : "object"
       },
-      "callSetsSearchRequest" : {
-        "properties" : {
-          "callSetDbIds" : {
-            "description" : "A list of IDs which uniquely identify `CallSets` within the given database server",
-            "example" : [ "6c7486b2", "49c36a73" ],
-            "items" : {
-              "type" : "string"
-            },
-            "nullable" : true,
-            "type" : "array"
-          },
-          "callSetNames" : {
-            "description" : "A list of human readable names associated with `CallSets`",
-            "example" : [ "Sample_123_DNA_Run_456", "Sample_789_DNA_Run_101" ],
-            "items" : {
-              "type" : "string"
-            },
-            "nullable" : true,
-            "type" : "array"
-          },
-          "commonCropNames" : {
-            "description" : "The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.\n\nUse this parameter to only return results associated with the given crops. \n\nUse `GET /commoncropnames` to find the list of available crops on a server.",
-            "example" : [ "Tomatillo", "Paw Paw" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "externalReferenceIDs" : {
-            "deprecated" : true,
-            "description" : "**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460 \n<br>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)",
-            "example" : [ "doi:10.155454/12341234", "14a19841" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "externalReferenceIds" : {
-            "description" : "List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)",
-            "example" : [ "doi:10.155454/12341234", "14a19841" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "externalReferenceSources" : {
-            "description" : "List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)",
-            "example" : [ "DOI", "Field App Name" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "germplasmDbIds" : {
-            "description" : "List of IDs which uniquely identify germplasm to search for",
-            "example" : [ "e9c6edd7", "1b1df4a6" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "germplasmNames" : {
-            "description" : "List of human readable names to identify germplasm to search for",
-            "example" : [ "A0000003", "A0000477" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "page" : {
-            "description" : "Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.",
-            "example" : 0,
-            "type" : "integer"
-          },
-          "pageSize" : {
-            "description" : "The size of the pages to be returned. Default is `1000`.",
-            "example" : 1000,
-            "type" : "integer"
-          },
-          "programDbIds" : {
-            "description" : "A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. \n\nUse this parameter to only return results associated with the given programs. \n\nUse `GET /programs` to find the list of available programs on a server.",
-            "example" : [ "8f5de35b", "0e2d4a13" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "programNames" : {
-            "description" : "Use this parameter to only return results associated with the given program names. Program names are not required to be unique.\n\nUse `GET /programs` to find the list of available programs on a server.",
-            "example" : [ "Better Breeding Program", "Best Breeding Program" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "sampleDbIds" : {
-            "description" : "A list of IDs which uniquely identify `Samples` within the given database server",
-            "example" : [ "758d3f6d", "39c0a3f7" ],
-            "items" : {
-              "type" : "string"
-            },
-            "nullable" : true,
-            "type" : "array"
-          },
-          "sampleNames" : {
-            "description" : "A list of human readable names associated with `Samples`",
-            "example" : [ "Sample_123", "Sample_789" ],
-            "items" : {
-              "type" : "string"
-            },
-            "nullable" : true,
-            "type" : "array"
-          },
-          "studyDbIds" : {
-            "description" : "List of study identifiers to search for",
-            "example" : [ "cf6c4bd4", "691e69d6" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "studyNames" : {
-            "description" : "List of study names to filter search results",
-            "example" : [ "The First Bob Study 2017", "Wheat Yield Trial 246" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "trialDbIds" : {
-            "description" : "The ID which uniquely identifies a trial to search for",
-            "example" : [ "d2593dc2", "9431a731" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "trialNames" : {
-            "description" : "The human readable name of a trial to search for",
-            "example" : [ "All Yield Trials 2016", "Disease Resistance Study Comparison Group" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "variantSetDbIds" : {
-            "description" : "A list of IDs which uniquely identify `VariantSets` within the given database server",
-            "example" : [ "8a9a8972", "32a2649a" ],
-            "items" : {
-              "type" : "string"
-            },
-            "nullable" : true,
-            "type" : "array"
-          }
-        },
-        "type" : "object"
-      },
       "dataFile" : {
         "description" : "A dataFile contains a URL and the relevant file metadata to represent a file",
         "properties" : {
@@ -37440,173 +38069,6 @@
           }
         },
         "required" : [ "currentPage", "nextPageToken", "pageSize" ],
-        "type" : "object"
-      },
-      "variantsSearchRequest" : {
-        "properties" : {
-          "callSetDbIds" : {
-            "deprecated" : true,
-            "description" : "**Deprecated in v2.1** Parameter unnecessary. Github issue number #474 \n<br/>Only return variant calls which belong to call sets with these IDs. If unspecified, return all variants and no variant call objects.",
-            "example" : [ "4639fe3e", "b60d900b" ],
-            "items" : {
-              "type" : "string"
-            },
-            "nullable" : true,
-            "type" : "array"
-          },
-          "commonCropNames" : {
-            "description" : "The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.\n\nUse this parameter to only return results associated with the given crops. \n\nUse `GET /commoncropnames` to find the list of available crops on a server.",
-            "example" : [ "Tomatillo", "Paw Paw" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "end" : {
-            "description" : "The end of the window (0-based, exclusive) for which overlapping variants should be returned.",
-            "example" : 1500,
-            "nullable" : true,
-            "type" : "integer"
-          },
-          "externalReferenceIDs" : {
-            "deprecated" : true,
-            "description" : "**Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460 \n<br>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)",
-            "example" : [ "doi:10.155454/12341234", "14a19841" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "externalReferenceIds" : {
-            "description" : "List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)",
-            "example" : [ "doi:10.155454/12341234", "14a19841" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "externalReferenceSources" : {
-            "description" : "List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)",
-            "example" : [ "DOI", "Field App Name" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "page" : {
-            "description" : "Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.",
-            "example" : 0,
-            "type" : "integer"
-          },
-          "pageSize" : {
-            "description" : "The size of the pages to be returned. Default is `1000`.",
-            "example" : 1000,
-            "type" : "integer"
-          },
-          "pageToken" : {
-            "deprecated" : true,
-            "description" : "**Deprecated in v2.1** Please use `page`. Github issue number #451 \n<br>Used to request a specific page of data to be returned.\n<br>Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. ",
-            "example" : "33c27874",
-            "type" : "string"
-          },
-          "programDbIds" : {
-            "description" : "A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. \n\nUse this parameter to only return results associated with the given programs. \n\nUse `GET /programs` to find the list of available programs on a server.",
-            "example" : [ "8f5de35b", "0e2d4a13" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "programNames" : {
-            "description" : "Use this parameter to only return results associated with the given program names. Program names are not required to be unique.\n\nUse `GET /programs` to find the list of available programs on a server.",
-            "example" : [ "Better Breeding Program", "Best Breeding Program" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "referenceDbId" : {
-            "deprecated" : true,
-            "description" : "**Deprecated in v2.1** Please use `referenceDbIds`. Github issue number #472\n<br/>Only return variants on this reference.",
-            "example" : "120a2d5c",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "referenceDbIds" : {
-            "description" : "The unique identifier representing a genotype `Reference`",
-            "example" : [ "89ab4d17", "74d3b63d" ],
-            "items" : {
-              "type" : "string"
-            },
-            "nullable" : true,
-            "type" : "array"
-          },
-          "referenceSetDbIds" : {
-            "description" : "The unique identifier representing a genotype `ReferenceSet`",
-            "example" : [ "d3b63d4d", "3b63d74b" ],
-            "items" : {
-              "type" : "string"
-            },
-            "nullable" : true,
-            "type" : "array"
-          },
-          "start" : {
-            "description" : "The beginning of the window (0-based, inclusive) for which overlapping variants should be returned. Genomic positions are non-negative integers less than reference length. Requests spanning the join of circular genomes are represented as two requests one on each side of the join (position 0).",
-            "example" : 100,
-            "nullable" : true,
-            "type" : "integer"
-          },
-          "studyDbIds" : {
-            "description" : "List of study identifiers to search for",
-            "example" : [ "cf6c4bd4", "691e69d6" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "studyNames" : {
-            "description" : "List of study names to filter search results",
-            "example" : [ "The First Bob Study 2017", "Wheat Yield Trial 246" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "trialDbIds" : {
-            "description" : "The ID which uniquely identifies a trial to search for",
-            "example" : [ "d2593dc2", "9431a731" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "trialNames" : {
-            "description" : "The human readable name of a trial to search for",
-            "example" : [ "All Yield Trials 2016", "Disease Resistance Study Comparison Group" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          },
-          "variantDbIds" : {
-            "description" : "A list of IDs which uniquely identify `Variants`",
-            "example" : [ "3b63d889", "ab4d174d" ],
-            "items" : {
-              "type" : "string"
-            },
-            "nullable" : true,
-            "type" : "array"
-          },
-          "variantSetDbIds" : {
-            "description" : "A list of IDs which uniquely identify `VariantSets`",
-            "example" : [ "ba63d810", "434d1760" ],
-            "items" : {
-              "type" : "string"
-            },
-            "nullable" : true,
-            "type" : "array"
-          }
-        },
         "type" : "object"
       },
       "AlleleMatrixResponse" : {
@@ -39462,6 +39924,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "germplasmNames" : {
@@ -39470,6 +39933,7 @@
             "items" : {
               "type" : "string"
             },
+            "nullable" : true,
             "type" : "array"
           },
           "locationDbIds" : {
@@ -40442,7 +40906,7 @@
           },
           "parentType" : {
             "description" : "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
-            "enum" : [ "MALE", "FEMALE", "SELF", "POPULATION" ],
+            "enum" : [ "MALE", "FEMALE", "SELF", "POPULATION", "CLONAL" ],
             "example" : "MALE",
             "type" : "string"
           }
@@ -40498,7 +40962,7 @@
           },
           "parentType" : {
             "description" : "The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.",
-            "enum" : [ "MALE", "FEMALE", "SELF", "POPULATION" ],
+            "enum" : [ "MALE", "FEMALE", "SELF", "POPULATION", "CLONAL" ],
             "example" : "MALE",
             "type" : "string"
           }
@@ -41105,6 +41569,12 @@
       },
       "GermplasmMCPD_breedingInstitutes_inner" : {
         "properties" : {
+          "instituteAddress" : {
+            "description" : "MCPD (v2.1) (COLLINSTADDRESS) 4.1.1  Address of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled since the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.",
+            "example" : "123 Main Street, Lima, Peru, 5555",
+            "nullable" : true,
+            "type" : "string"
+          },
           "instituteCode" : {
             "description" : "MCPD (v2.1) (BREDCODE) 18. FAO WIEWS code of the institute that has bred the material. If the holding institute has bred the material, the breeding institute code (BREDCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard.",
             "example" : "PER001",
@@ -41242,6 +41712,12 @@
       "GermplasmMCPD_donorInfo_donorInstitute" : {
         "description" : "The identifying information for the entity acting as an accession donor\n<br> MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.\n<br> MCPD (v2.1) (DONORNAME) 22.1  Name of the donor institute (or person). This descriptor should be used only if DONORCODE can not be filled because the FAO WIEWS code for this institute is not available.",
         "properties" : {
+          "instituteAddress" : {
+            "description" : "MCPD (v2.1) (COLLINSTADDRESS) 4.1.1  Address of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled since the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.",
+            "example" : "123 Main Street, Lima, Peru, 5555",
+            "nullable" : true,
+            "type" : "string"
+          },
           "instituteCode" : {
             "description" : "MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.",
             "example" : "PER001",
@@ -41280,6 +41756,12 @@
       },
       "GermplasmMCPD_safetyDuplicateInstitutes_inner" : {
         "properties" : {
+          "instituteAddress" : {
+            "description" : "MCPD (v2.1) (COLLINSTADDRESS) 4.1.1  Address of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled since the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.",
+            "example" : "123 Main Street, Lima, Peru, 5555",
+            "nullable" : true,
+            "type" : "string"
+          },
           "instituteCode" : {
             "description" : "MCPD (v2.1) (DUPLSITE) 25. FAO WIEWS code of the institute(s) where a safety duplicate of the accession is maintained. Follows INSTCODE standard.",
             "example" : "PER001",
@@ -41330,8 +41812,7 @@
             "type" : "string"
           }
         },
-        "title" : "GeoJSONSearchArea",
-        "type" : "object"
+        "title" : "GeoJSONSearchArea"
       },
       "Observation_season" : {
         "nullable" : true,
@@ -41603,6 +42084,25 @@
         "type" : "object"
       },
       "PedigreeNode_parents_inner" : {
+        "properties" : {
+          "germplasmDbId" : {
+            "description" : "The ID which uniquely identifies a germplasm",
+            "example" : "a55847ed",
+            "type" : "string"
+          },
+          "germplasmName" : {
+            "description" : "A human readable name for a germplasm",
+            "example" : "A0000592",
+            "type" : "string"
+          },
+          "parentType" : {
+            "$ref" : "#/components/schemas/ParentType"
+          }
+        },
+        "required" : [ "germplasmDbId", "parentType" ],
+        "type" : "object"
+      },
+      "PedigreeNode_progeny_inner" : {
         "properties" : {
           "germplasmDbId" : {
             "description" : "The ID which uniquely identifies a germplasm",

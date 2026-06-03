@@ -18,8 +18,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/callSetsSearchRequest'
-        description: Study Search request
+              $ref: '#/components/schemas/CallSetsSearchRequest'
+        description: CallSet Search request
       responses:
         '200':
           $ref: '#/components/responses/CallSetsListResponse'

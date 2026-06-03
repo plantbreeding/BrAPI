@@ -35,5 +35,6 @@ components:
           - FEMALE
           - SELF
           - POPULATION
+          - CLONAL
           type: string
           example: MALE

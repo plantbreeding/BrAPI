@@ -1,17 +1,25 @@
 {
     "$defs": {
         "ObservationUnit": {
+            "nullable": true,
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
                     "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
-					"relationshipType": "one-to-one"
+                    "relationshipType": "one-to-one"
                 },
                 "cross": {
-                    "$ref": "../BrAPI-Germplasm/Cross.json#/$defs/Cross",
                     "description": "the unique identifier for a cross",
                     "referencedAttribute": "observationUnits",
-                    "relationshipType": "many-to-one"
+                    "relationshipType": "many-to-one",
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Germplasm/Cross.json#/$defs/Cross"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
@@ -27,16 +35,30 @@
                     ]
                 },
                 "germplasm": {
-                    "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm",
                     "description": "The ID which uniquely identifies a germplasm",
                     "referencedAttribute": "observationUnits",
-                    "relationshipType": "many-to-one"
+                    "relationshipType": "many-to-one",
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/Germplasm"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "location": {
-                    "$ref": "../BrAPI-Core/Location.json#/$defs/Location",
                     "description": "The ID which uniquely identifies a location, associated with this study",
                     "referencedAttribute": "observationUnits",
-                    "relationshipType": "many-to-one"
+                    "relationshipType": "many-to-one",
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Core/Location.json#/$defs/Location"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "observationUnitDbId": {
                     "description": "The ID which uniquely identifies an observation unit\n\nMIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. ",
@@ -58,35 +80,48 @@
                 },
                 "observationUnitPosition": {
                     "description": "All positional and layout information related to this Observation Unit \n\nMIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) \nor level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. \nLevels of observation must be consistent with those listed in the Study section.",
-                    "relationshipType": "one-to-many",
                     "referencedAttribute": "observationUnit",
-                    "items": {
-                        "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnitPosition",
-                        "description": "ObservationUnitPosition"
-                    },
-                    "title": "ObservationUnitPosition",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnitPosition",
+                    "title": "ObservationUnitPosition"
                 },
                 "program": {
-                    "$ref": "../BrAPI-Core/Program.json#/$defs/Program",
                     "description": "The ID which uniquely identifies a program",
                     "referencedAttribute": "observationUnits",
-                    "relationshipType": "many-to-one"
+                    "relationshipType": "many-to-one",
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Core/Program.json#/$defs/Program"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "seedLot": {
-                    "$ref": "../BrAPI-Germplasm/SeedLot.json#/$defs/SeedLot",
                     "description": "The unique identifier for the originating Seed Lot",
                     "referencedAttribute": "observationUnits",
-                    "relationshipType": "many-to-one"
+                    "relationshipType": "many-to-one",
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Germplasm/SeedLot.json#/$defs/SeedLot"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "study": {
-                    "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
                     "description": "The ID which uniquely identifies a study within the given database server",
                     "referencedAttribute": "observationUnits",
-                    "relationshipType": "many-to-one"
+                    "relationshipType": "many-to-one",
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Core/Study.json#/$defs/Study"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "treatments": {
                     "description": "List of treatments applied to an observation unit.\n\nMIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.",
@@ -103,10 +138,17 @@
                     ]
                 },
                 "trial": {
-                    "$ref": "../BrAPI-Core/Trial.json#/$defs/Trial",
                     "description": "The ID which uniquely identifies a trial",
                     "referencedAttribute": "observationUnits",
-                    "relationshipType": "many-to-one"
+                    "relationshipType": "many-to-one",
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Core/Trial.json#/$defs/Trial"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "samples": {
                     "title": "samples",
@@ -176,6 +218,7 @@
             }
         },
         "ObservationUnitPosition": {
+            "nullable": true,
             "properties": {
                 "entryType": {
                     "description": "The type of entry for this observation unit. ex. \"CHECK\", \"TEST\", \"FILLER\"",
@@ -229,7 +272,14 @@
                 },
                 "positionCoordinateXType": {
                     "description": "The type of positional coordinate used for the X coordinate of the position.",
-                    "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/PositionCoordinateType"
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/PositionCoordinateType"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "positionCoordinateY": {
                     "description": "The Y position coordinate for an observation unit. Different systems may use different coordinate systems.",
@@ -240,7 +290,14 @@
                 },
                 "positionCoordinateYType": {
                     "description": "The type of positional coordinate used for the Y coordinate of the position.",
-                    "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/PositionCoordinateType"
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/PositionCoordinateType"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "observationUnit": {
                     "description": "associated observation Unit",
@@ -265,7 +322,9 @@
                         "null",
                         "string"
                     ],
-                    "examples": ["test-factor:dia2020-2-nv.fertilizer"]
+                    "examples": [
+                        "test-factor:dia2020-2-nv.fertilizer"
+                    ]
                 },
                 "modality": {
                     "description": "The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc\n\nMIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planned and protocol planned for all the plants targeted by a given experimental factor. ",
@@ -273,7 +332,9 @@
                         "null",
                         "string"
                     ],
-                    "examples": ["test-factor:dia2020-2-nv.lf"]
+                    "examples": [
+                        "test-factor:dia2020-2-nv.lf"
+                    ]
                 },
                 "observationUnit": {
                     "description": "associated observation Unit",

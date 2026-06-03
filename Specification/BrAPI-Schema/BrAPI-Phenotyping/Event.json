@@ -7,19 +7,22 @@
                     "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
 					"relationshipType": "one-to-one"
                 },
-                "eventDateRange": {
-                    "description": "An object describing when a particular Event has taken place. An Event can occur at one or more discrete time points (`discreteDates`) or an event can happen continuously over a longer period of time (`startDate`, `endDate`)",
-                    "relationshipType": "one-to-many",
-                    "referencedAttribute": "event",
+                "date": {
+                    "description": "**Deprecated in v2.1** Please use `eventDateRange.discreteDates`. Github issue number #440\n<br>A list of dates when the event occurred\n<br>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
+                    "deprecated": true,
                     "items": {
-                        "$ref": "../BrAPI-Phenotyping/Event.json#/$defs/EventDateRange",
-                        "description": "EventDateRange"
+                        "type": "string",
+                        "format": "date-time"
                     },
-                    "title": "EventDateRange",
                     "type": [
                         "null",
                         "array"
-                    ]
+                    ],
+                    "examples" : ["2018-10-08T18:15:11Z", "2018-11-09T18:16:12Z"]
+                },
+                "eventDateRange": {
+                    "description": "An object describing when a particular Event has taken place. An Event can occur at one or more discrete time points (`discreteDates`) or an event can happen continuously over a longer period of time (`startDate`, `endDate`)",
+                    "$ref": "../BrAPI-Phenotyping/Event.json#/$defs/EventDateRange"
                 },
                 "eventDbId": {
                     "description": "Internal database identifier",
@@ -48,10 +51,7 @@
                 },
                 "eventType": {
                     "description": "An identifier for this event type, in the form of an ontology class reference\n<br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other\n<br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).",
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+                    "type": "string"
                 },
                 "eventTypeDbId": {
                     "description": "An identifier for this event type, in the form of an ontology class reference\n<br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other\n<br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).",
@@ -67,10 +67,20 @@
                     },
                     "referencedAttribute": "events",
                     "relationshipType": "many-to-many",
-                    "type": "array"
+                    "type": [
+                        "null",
+                        "array"
+                    ]
                 },
                 "study": {
-                    "$ref": "../BrAPI-Core/Study.json#/$defs/Study",
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Core/Study.json#/$defs/Study"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The study in which the event occurred",
                     "referencedAttribute": "events",
                     "relationshipType": "many-to-one"
@@ -88,6 +98,7 @@
             }
         },
         "EventDateRange": {
+            "nullable": true,
             "properties": {
 				"discreteDates": {
                     "description": "A list of dates when the event occurred\n<br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
@@ -173,6 +184,24 @@
                         "null",
                         "string"
                     ]
+                },
+                "key": {
+                    "deprecated": true,
+                    "description": "**Deprecated in v2.1** Please use `name`. Github issue number #440             \n<br>Specifies the relationship between the event and the given property. E.g. fertilizer, operator",
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "example": "operator"
+                },
+                "rdfValue": {
+                    "deprecated": true,
+                    "description": "**Deprecated in v2.1** Please use `code`. Github issue number #440             \n<brThe type of the value given above, e.g. http://xmlns.com/foaf/0.1/Agent",
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "example": "http://xmlns.com/foaf/0.1/Agent"
                 },
                 "valuesByDate": {
                     "description": "An array of values corresponding to each timestamp in the 'discreteDates' array of this event. The 'valuesByDate' array should exactly match the size of the 'discreteDates' array. If 'valuesByDate' is populated then 'value' should NOT be populated.",
