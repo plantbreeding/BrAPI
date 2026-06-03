@@ -1256,7 +1256,7 @@ type GermplasmAttributesSearchResponse {
 "A germplasm reference that is a direct child of this germplasm. These represent edges in the tree, connecting to other nodes."
 type GermplasmChild {
   "The child germplasm"
-  childGermplasmDbIds: ID
+  germplasmDbIds: ID
   """
   The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. 
   
@@ -2565,9 +2565,9 @@ type Query {
   "Returns a List object by id"
   list(commonCropName: String, listDbId: ID): List
   "Returns List objects"
-  lists(commonCropName: String, listsInput: ListsInput, paging: PageInput): ListListResponse
+  lists(listsInput: ListsInput, paging: PageInput): ListListResponse
   "Returns List objects"
-  listsSearch(commonCropName: String, listInput: ListsInput): ListsSearchResponse
+  listsSearch(listInput: ListsInput): ListsSearchResponse
   "Returns a Location object by id"
   location(commonCropName: String, locationDbId: ID): Location
   "Returns Location objects"
@@ -3141,7 +3141,7 @@ type Study {
   """
   observationVariables(observationVariablesInput: ObservationVariablesInput, paging: PageInput): ObservationVariableListResponse
   "A program identifier to search for"
-  program: Program
+  programDbIds: ID
   "List of seasons over which this study was performed."
   seasons: [String]
   """
@@ -4969,7 +4969,7 @@ input GermplasmAttributesInput {
 "A germplasm reference that is a direct child of this germplasm. These represent edges in the tree, connecting to other nodes."
 input GermplasmChildInput {
   "The child germplasm"
-  childGermplasm: GermplasmInput
+  germplasm: GermplasmInput
   """
   The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. 
   

@@ -1865,21 +1865,19 @@ components:
           items:
             type: string
         dataMatrixAbbreviations:
-          type: array
-          description: "`dataMatrixAbbreviations` is a list of abbreviations (ie 'GT',\
-            \ 'RD' etc). This list controls which data matrices are returned in the\
-            \ response."
+          type: string
+          description: "`dataMatrixAbbreviations` is a comma separated list of abbreviations\
+            \ (ie 'GT', 'RD' etc). This list controls which data matrices are returned\
+            \ in the response."
           nullable: true
-          items:
-            type: string
+          example: "GT,RD"
         dataMatrixNames:
-          type: array
-          description: "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read\
-            \ Depth' etc). This list controls which data matrices are returned in\
-            \ the response."
+          type: string
+          description: "`dataMatrixNames` is a comma separated list of names (ie 'Genotype',\
+            \ 'Read Depth' etc). This list controls which data matrices are returned\
+            \ in the response."
           nullable: true
-          items:
-            type: string
+          example: "Genotype,Read Depth"
         dimensionCallSetPage:
           type: integer
           description: The requested page number for the CallSet dimension of the
@@ -2083,7 +2081,9 @@ components:
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
-          $ref: "#/components/schemas/OntologyReference"
+          anyOf:
+          - $ref: "#/components/schemas/OntologyReference"
+          - type: "null"
         scale:
           $ref: "#/components/schemas/Scale"
         scientist:
@@ -2524,6 +2524,12 @@ components:
             the dataset presently being described to a host repository.
           nullable: true
       description: License and citation information for the data in this trial
+    Dimension:
+      type: string
+      description: the dimension of the matrix being paginated
+      enum:
+      - CALLSETS
+      - VARIANTS
     EnvironmentParameter:
       required:
       - description
@@ -2604,6 +2610,45 @@ components:
           description: List of study names to filter search results
           items:
             type: string
+    ExperimentFactor:
+      type: object
+      properties:
+        factor:
+          type: string
+          description: |-
+            The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
+
+            MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
+          example: fertilizer
+        factorPUI:
+          type: string
+          description: The PUI of the factor which may link to an ontology.
+          nullable: true
+          example: test-factor:dia2020-2-nv.fertilizer
+        modalities:
+          type: array
+          description: |-
+            The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
+
+            MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
+          nullable: true
+          items:
+            type: object
+            properties:
+              modality:
+                type: string
+                description: "The treatment/factor description. ex. 'low fertilizer',\
+                  \ 'yellow rust inoculation', 'high water', etc\n\nMIAPPE V1.1 (DM-62)\
+                  \ Experimental Factor description - Free text description of the\
+                  \ experimental factor. This includes all relevant treatments planned\
+                  \ and protocol planned for all the plants targeted by a given experimental\
+                  \ factor. "
+                example: low fertilizer
+              modalityPUI:
+                type: string
+                description: The PUI of the modality which may link to an ontology.
+                nullable: true
+                example: test-factor:dia2020-2-nv.lf
     ExperimentalDesign:
       type: object
       properties:
@@ -2611,8 +2656,10 @@ components:
           type: string
           description: "MIAPPE V1.1 (DM-23) Type of experimental design - Type of\
             \ experimental  design of the study, in the form of an accession number\
-            \ from the Crop Ontology."
+            \ from the Crop Ontology. **Deprecated in v2.2** Please use `experimentalDesignPUI`.\
+            \ Github issue number #539"
           nullable: true
+          deprecated: true
         description:
           type: string
           description: "MIAPPE V1.1 (DM-22) Description of the experimental design\
@@ -2621,6 +2668,44 @@ components:
             \ several studies, the experimental design can be \"unknown\"/\"NA\",\
             \ \"aggregated/reduced data\", or simply 'none'."
           nullable: true
+        experimentFactors:
+          type: array
+          description: The factors used in the experimental design.
+          nullable: true
+          items:
+            $ref: "#/components/schemas/ExperimentFactor"
+        experimentalDesignPUI:
+          type: string
+          description: "MIAPPE V1.1 (DM-23) Type of experimental design - Type of\
+            \ experimental  design of the study, in the form of an accession number\
+            \ from the Crop Ontology."
+          nullable: true
+          example: CO_715:0000145
+        firstRepRand:
+          type: boolean
+          description: Is the first replication random.
+          nullable: true
+          example: true
+        layoutPattern:
+          type: string
+          description: How the trial is layout in the field.
+          nullable: true
+          example: Serpentine
+        randomizationType:
+          type: string
+          description: The type of randomization use to create the experimental design.
+          nullable: true
+          example: RCB:Randomize Complete Block
+        rowsPerPlot:
+          type: number
+          description: The number of rows in a plot.
+          nullable: true
+          example: 1
+        setSize:
+          type: number
+          description: The size of the sets in the design.
+          nullable: true
+          example: 1
       description: The experimental and statistical design full description plus a
         category PUI taken from crop research ontology or agronomy ontology
       nullable: true
@@ -2756,6 +2841,7 @@ components:
         easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
       nullable: true
     GeoJSONGeometry:
+      type: object
       nullable: true
       oneOf:
       - required:
@@ -3782,14 +3868,6 @@ components:
           nullable: true
         additionalInfo:
           $ref: "#/components/schemas/AdditionalInfo"
-        childLocationDbIds:
-          type: array
-          description: "The child locations that belong to this Location. \nFor example,\
-            \ an Institution might have multiple Field Stations inside it and each\
-            \ Field Station might have multiple Fields."
-          nullable: true
-          items:
-            type: string
         coordinateDescription:
           type: string
           description: "Describes the precision and landmarks of the coordinate values\
@@ -3866,9 +3944,6 @@ components:
         parentLocationName:
           type: string
           nullable: true
-        parentLocationPUI:
-          type: string
-          nullable: true
         siteStatus:
           type: string
           description: "Description of the accessibility of the location (ex. Public,\
@@ -3930,7 +4005,9 @@ components:
           items:
             type: string
         coordinates:
-          $ref: "#/components/schemas/GeoJSONSearchArea"
+          anyOf:
+          - $ref: "#/components/schemas/GeoJSONSearchArea"
+          - type: "null"
         countryCodes:
           type: array
           description: "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)\
@@ -4040,7 +4117,9 @@ components:
           items:
             type: string
         coordinates:
-          $ref: "#/components/schemas/GeoJSONSearchArea"
+          anyOf:
+          - $ref: "#/components/schemas/GeoJSONSearchArea"
+          - type: "null"
         countryCodes:
           type: array
           description: "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)\
@@ -4238,6 +4317,22 @@ components:
             Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
+    Modality:
+      type: object
+      properties:
+        modality:
+          type: string
+          description: "The treatment/factor description. ex. 'low fertilizer', 'yellow\
+            \ rust inoculation', 'high water', etc\n\nMIAPPE V1.1 (DM-62) Experimental\
+            \ Factor description - Free text description of the experimental factor.\
+            \ This includes all relevant treatments planned and protocol planned for\
+            \ all the plants targeted by a given experimental factor. "
+          example: low fertilizer
+        modalityPUI:
+          type: string
+          description: The PUI of the modality which may link to an ontology.
+          nullable: true
+          example: test-factor:dia2020-2-nv.lf
     ObservationRequest:
       type: object
       properties:
@@ -6462,6 +6557,12 @@ components:
             \ the collected observation records. "
           items:
             type: string
+        programDbId:
+          type: string
+        programName:
+          type: string
+        programPUI:
+          type: string
         seasons:
           type: array
           description: List of seasons over which this study was performed.
@@ -7375,7 +7476,9 @@ components:
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
-          $ref: "#/components/schemas/OntologyReference"
+          anyOf:
+          - $ref: "#/components/schemas/OntologyReference"
+          - type: "null"
         scale:
           $ref: "#/components/schemas/Scale"
         scientist:
@@ -8411,19 +8514,6 @@ components:
         pattern: ^Bearer .*$
         type: string
       example: Bearer XXXX
-    page:
-      name: page
-      in: query
-      description: |-
-        Used to request a specific page of data to be returned.
-
-        The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: integer
-      example: "0"
     pageToken:
       name: pageToken
       in: query
@@ -8439,6 +8529,19 @@ components:
       schema:
         type: string
       example: 33c27874
+    page:
+      name: page
+      in: query
+      description: |-
+        Used to request a specific page of data to be returned.
+
+        The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: integer
+      example: "0"
   securitySchemes:
     AuthorizationToken:
       type: http

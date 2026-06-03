@@ -1,569 +1,522 @@
 #### What's New
 ---
 
-##### `GET` /commoncropnames
-
-
-##### `POST` /delete/images
-
-
-##### `POST` /delete/observations
-
-
-##### `PUT` /images/{imageDbId}/imagecontent
-
-
-##### `GET` /observationlevels
-
-
-##### `GET` /observations/table
-
-
-##### `GET` /observationunits/table
-
-
-##### `GET` /seedlots/transactions
-
-
-##### `POST` /seedlots/transactions
-
-
-##### `GET` /serverinfo
-
-
-##### `POST` /variantsets/extract
-
-
-##### `PUT` /observations/{observationDbId}
-
-
-##### `PUT` /observationunits/{observationUnitDbId}
-
-
-##### `PUT` /calls
-
-
-##### `PUT` /plates
-
-
-##### `PUT` /pedigree
-
-
-#### What's Changed
----
-
-##### `POST` /search/lists
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    * Changed property `listType` (string):
-      - Nullable changed: `true` -> `null`
-
 ##### `GET` /allelematrix
 
 
-###### Parameters:
+##### `GET` /breedingmethods
 
-Deleted: `dataMatrixNames` in `query`
 
-Deleted: `dataMatrixAbbreviations` in `query`
+##### `GET` /calls
 
-Added: `dataMatrixName` in `query`
 
-Added: `dataMatrixAbbreviation` in `query`
+##### `GET` /callsets
 
-###### Return Type:
 
-New response : **404**
+##### `GET` /crosses
 
-##### `PUT` /samples
 
+##### `PUT` /crosses
 
-###### Return Type:
 
-Deleted response : **404**
+##### `POST` /crosses
 
-##### `GET` /search/calls/{searchResultsDbId}
 
+##### `GET` /crossingprojects
 
-###### Parameters:
 
-Deleted: `pageToken` in `query`
+##### `POST` /crossingprojects
 
-##### `POST` /search/observations
 
+##### `GET` /events
 
-###### Request:
 
-* Changed content type : `application/json`
+##### `GET` /maps
 
-    * Changed property `observationLevelRelationships` (array)
 
-        Changed items (array):
+##### `GET` /germplasm
 
-            * Changed property `observationUnitDbId` (string):
-              - Nullable changed: `true` -> `null`
-
-##### `POST` /search/observationunits
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    * Changed property `observationLevelRelationships` (array)
-
-        Changed items (array):
-
-            * Changed property `observationUnitDbId` (string):
-              - Nullable changed: `true` -> `null`
-
-##### `GET` /search/variants/{searchResultsDbId}
-
-
-###### Parameters:
-
-Deleted: `pageToken` in `query`
-
-##### `GET` /seedlots/{seedLotDbId}/transactions
-
-
-###### Parameters:
-
-Deleted: `transactionDbId` in `query`
-
-##### `POST` /attributes
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    Changed items (array):
-
-        * Changed property `ontologyReference` (object):
-          - Nullable changed: `true` -> `false`
-
-            New properties: `ontologyReferenceDbId`
-
-##### `PUT` /attributes/{attributeDbId}
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    * Changed property `ontologyReference` (object):
-      - Nullable changed: `true` -> `false`
-
-        New properties: `ontologyReferenceDbId`
-
-##### `POST` /images
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    Changed items (array):
-
-        Deleted properties: `observationDbIds`
-
-        * Changed property `mimeType` (string):
-          - Pattern changed: `image/.*` -> `null`
-
-        * Changed property `imageLocation` (object)
-
-            * Changed property `geometry` (object -> null):
-              - Type changed: `object` -> `null`
-
-##### `PUT` /images/{imageDbId}
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    Deleted properties: `observationDbIds`
-
-    * Changed property `mimeType` (string):
-      - Pattern changed: `image/.*` -> `null`
-
-    * Changed property `imageLocation` (object)
-
-        * Changed property `geometry` (object -> null):
-          - Type changed: `object` -> `null`
-
-##### `POST` /locations
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    Changed items (array):
-
-        New properties: `childLocationDbIds`, `parentLocationPUI`
-
-        * Changed property `coordinates` (object)
-
-            * Changed property `geometry` (object -> null):
-              - Type changed: `object` -> `null`
-
-##### `PUT` /locations/{locationDbId}
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    New properties: `childLocationDbIds`, `parentLocationPUI`
-
-    * Changed property `coordinates` (object)
-
-        * Changed property `geometry` (object -> null):
-          - Type changed: `object` -> `null`
-
-##### `PUT` /observations
-
-
-###### Return Type:
-
-Deleted response : **404**
-
-##### `POST` /observations
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    Changed items (array):
-
-        New properties: `seasonDbId`
-
-        Deleted properties: `season`
-
-        * Changed property `geoCoordinates` (object)
-
-            * Changed property `geometry` (object -> null):
-              - Type changed: `object` -> `null`
-
-###### Return Type:
-
-Deleted response : **404**
-
-##### `POST` /observationunits
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    Changed items (array):
-
-        * Changed property `observationUnitPosition` (object)
-
-            * Changed property `geoCoordinates` (object -> array):
-              - Type changed: `object` -> `array`
-
-            * Changed property `positionCoordinateXType` (string):
-              - Nullable changed: `true` -> `null`
-
-            * Changed property `positionCoordinateYType` (string):
-              - Nullable changed: `true` -> `null`
-
-            * Changed property `observationLevelRelationships` (array)
-
-                Changed items (array):
-
-                    * Changed property `observationUnitDbId` (string):
-                      - Nullable changed: `true` -> `null`
-
-##### `GET` /pedigree
-
-
-###### Return Type:
-
-Deleted response : **404**
-
-Changed response : **200**
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (array):
-
-                New required properties:
-                - `germplasmPUI`
-
-                * Changed property `progeny` (array)
-
-                    Changed items (array):
-
-                        New properties: `childGermplasmDbId`, `childGermplasmName`, `pedigreeNodeDbId`, `pedigreeNodeName`, `pedigreeNodePUI`
-
-                        Deleted properties: `germplasmDbId`, `germplasmName`
-
-                        New required properties:
-                        - `childGermplasmDbId`
-                        - `childGermplasmName`
-
-                        Removed required properties:
-                        - `germplasmDbId`
-
-                * Changed property `parents` (array)
-
-                    Changed items (array):
-
-                        New required properties:
-                        - `germplasmName`
-
-##### `POST` /pedigree
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    Changed items (array):
-
-        New required properties:
-        - `germplasmPUI`
-
-        * Changed property `progeny` (array)
-
-            Changed items (array):
-
-                New properties: `childGermplasmDbId`, `childGermplasmName`, `pedigreeNodeDbId`, `pedigreeNodeName`, `pedigreeNodePUI`
-
-                Deleted properties: `germplasmDbId`, `germplasmName`
-
-                New required properties:
-                - `childGermplasmDbId`
-                - `childGermplasmName`
-
-                Removed required properties:
-                - `germplasmDbId`
-
-        * Changed property `parents` (array)
-
-            Changed items (array):
-
-                New required properties:
-                - `germplasmName`
-
-###### Return Type:
-
-Deleted response : **404**
-
-Changed response : **200**
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (array):
-
-                New required properties:
-                - `germplasmPUI`
-
-                * Changed property `progeny` (array)
-
-                    Changed items (array):
-
-                        New properties: `childGermplasmDbId`, `childGermplasmName`, `pedigreeNodeDbId`, `pedigreeNodeName`, `pedigreeNodePUI`
-
-                        Deleted properties: `germplasmDbId`, `germplasmName`
-
-                        New required properties:
-                        - `childGermplasmDbId`
-                        - `childGermplasmName`
-
-                        Removed required properties:
-                        - `germplasmDbId`
-
-                * Changed property `parents` (array)
-
-                    Changed items (array):
-
-                        New required properties:
-                        - `germplasmName`
-
-##### `POST` /search/images
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    * Changed property `imageLocation` (object)
-
-        * Changed property `geometry` (object -> null):
-          - Type changed: `object` -> `null`
-
-##### `POST` /search/locations
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    * Changed property `coordinates` (object):
-      - Nullable changed: `true` -> `null`
-
-        * Changed property `geometry` (object -> null):
-          - Type changed: `object` -> `null`
-
-##### `POST` /search/pedigree
-
-
-###### Return Type:
-
-Changed response : **200**
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (array):
-
-                New required properties:
-                - `germplasmPUI`
-
-                * Changed property `progeny` (array)
-
-                    Changed items (array):
-
-                        New properties: `childGermplasmDbId`, `childGermplasmName`, `pedigreeNodeDbId`, `pedigreeNodeName`, `pedigreeNodePUI`
-
-                        Deleted properties: `germplasmDbId`, `germplasmName`
-
-                        New required properties:
-                        - `childGermplasmDbId`
-                        - `childGermplasmName`
-
-                        Removed required properties:
-                        - `germplasmDbId`
-
-                * Changed property `parents` (array)
-
-                    Changed items (array):
-
-                        New required properties:
-                        - `germplasmName`
-
-##### `GET` /search/pedigree/{searchResultsDbId}
-
-
-###### Return Type:
-
-Changed response : **200**
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (array):
-
-                New required properties:
-                - `germplasmPUI`
-
-                * Changed property `progeny` (array)
-
-                    Changed items (array):
-
-                        New properties: `childGermplasmDbId`, `childGermplasmName`, `pedigreeNodeDbId`, `pedigreeNodeName`, `pedigreeNodePUI`
-
-                        Deleted properties: `germplasmDbId`, `germplasmName`
-
-                        New required properties:
-                        - `childGermplasmDbId`
-                        - `childGermplasmName`
-
-                        Removed required properties:
-                        - `germplasmDbId`
-
-                * Changed property `parents` (array)
-
-                    Changed items (array):
-
-                        New required properties:
-                        - `germplasmName`
-
-##### `POST` /variables
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    Changed items (array):
-
-        * Changed property `ontologyReference` (object):
-          - Nullable changed: `true` -> `false`
-
-            New properties: `ontologyReferenceDbId`
-
-##### `PUT` /variables/{observationVariableDbId}
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    * Changed property `ontologyReference` (object):
-      - Nullable changed: `true` -> `false`
-
-        New properties: `ontologyReferenceDbId`
 
 ##### `POST` /germplasm
 
 
-###### Request:
+##### `GET` /attributes
 
-* Changed content type : `application/json`
 
-    Changed items (array):
+##### `POST` /attributes
 
-        New properties: `breedingMethodPUI`
 
-        * Changed property `germplasmOrigin` (array)
+##### `GET` /attributevalues
 
-            Changed items (array):
 
-                * Changed property `coordinates` (object)
+##### `POST` /attributevalues
 
-                    * Changed property `geometry` (object -> null):
-                      - Type changed: `object` -> `null`
+
+##### `GET` /images
+
+
+##### `POST` /images
+
+
+##### `GET` /lists
+
+
+##### `POST` /lists
+
+
+##### `GET` /locations
+
+
+##### `POST` /locations
+
+
+##### `GET` /markerpositions
+
+
+##### `GET` /methods
+
+
+##### `POST` /methods
+
+
+##### `GET` /observations
+
+
+##### `PUT` /observations
+
+
+##### `POST` /observations
+
+
+##### `GET` /observationunits
+
+
+##### `PUT` /observationunits
+
+
+##### `POST` /observationunits
+
+
+##### `GET` /variables
+
+
+##### `POST` /variables
+
+
+##### `GET` /ontologies
+
+
+##### `POST` /ontologies
+
+
+##### `GET` /pedigree
+
+
+##### `POST` /pedigree
+
+
+##### `GET` /people
+
+
+##### `POST` /people
+
+
+##### `GET` /plannedcrosses
+
+
+##### `PUT` /plannedcrosses
+
+
+##### `POST` /plannedcrosses
+
+
+##### `GET` /plates
+
+
+##### `POST` /plates
+
+
+##### `GET` /programs
+
+
+##### `POST` /programs
+
+
+##### `GET` /references
+
+
+##### `GET` /referencesets
+
+
+##### `GET` /samples
+
+
+##### `PUT` /samples
+
+
+##### `POST` /samples
+
+
+##### `GET` /scales
+
+
+##### `POST` /scales
+
+
+##### `GET` /seasons
+
+
+##### `POST` /seasons
+
+
+##### `GET` /seedlots
+
+
+##### `POST` /seedlots
+
+
+##### `GET` /studies
+
+
+##### `POST` /studies
+
+
+##### `GET` /traits
+
+
+##### `POST` /traits
+
+
+##### `GET` /trials
+
+
+##### `POST` /trials
+
+
+##### `GET` /variants
+
+
+##### `GET` /variantsets
+
+
+##### `GET` /attributes/categories
+
+
+##### `GET` /studytypes
+
+
+##### `GET` /breedingmethods/{breedingMethodDbId}
+
+
+##### `GET` /callsets/{callSetDbId}
+
+
+##### `GET` /callsets/{callSetDbId}/calls
+
+
+##### `GET` /crossingprojects/{crossingProjectDbId}
+
+
+##### `PUT` /crossingprojects/{crossingProjectDbId}
+
+
+##### `GET` /maps/{mapDbId}
+
+
+##### `GET` /maps/{mapDbId}/linkagegroups
+
+
+##### `GET` /germplasm/{germplasmDbId}
+
 
 ##### `PUT` /germplasm/{germplasmDbId}
 
 
-###### Request:
+##### `GET` /germplasm/{germplasmDbId}/mcpd
 
-* Changed content type : `application/json`
 
-    New properties: `breedingMethodPUI`
+##### `GET` /attributes/{attributeDbId}
 
-    * Changed property `germplasmOrigin` (array)
 
-        Changed items (array):
+##### `PUT` /attributes/{attributeDbId}
 
-            * Changed property `coordinates` (object)
 
-                * Changed property `geometry` (object -> null):
-                  - Type changed: `object` -> `null`
+##### `GET` /attributevalues/{attributeValueDbId}
+
+
+##### `PUT` /attributevalues/{attributeValueDbId}
+
+
+##### `GET` /images/{imageDbId}
+
+
+##### `PUT` /images/{imageDbId}
+
+
+##### `GET` /lists/{listDbId}
+
+
+##### `PUT` /lists/{listDbId}
+
+
+##### `POST` /lists/{listDbId}/data
+
+
+##### `GET` /locations/{locationDbId}
+
+
+##### `PUT` /locations/{locationDbId}
+
+
+##### `GET` /methods/{methodDbId}
+
+
+##### `PUT` /methods/{methodDbId}
+
+
+##### `GET` /observations/{observationDbId}
+
+
+##### `GET` /observationunits/{observationUnitDbId}
+
+
+##### `GET` /variables/{observationVariableDbId}
+
+
+##### `PUT` /variables/{observationVariableDbId}
+
+
+##### `GET` /ontologies/{ontologyDbId}
+
+
+##### `PUT` /ontologies/{ontologyDbId}
+
+
+##### `GET` /people/{personDbId}
+
+
+##### `PUT` /people/{personDbId}
+
+
+##### `GET` /plates/{plateDbId}
+
+
+##### `GET` /programs/{programDbId}
+
+
+##### `PUT` /programs/{programDbId}
+
+
+##### `GET` /references/{referenceDbId}
+
+
+##### `GET` /references/{referenceDbId}/bases
+
+
+##### `GET` /referencesets/{referenceSetDbId}
+
+
+##### `GET` /samples/{sampleDbId}
+
+
+##### `GET` /scales/{scaleDbId}
+
+
+##### `PUT` /scales/{scaleDbId}
+
+
+##### `GET` /seasons/{seasonDbId}
+
+
+##### `PUT` /seasons/{seasonDbId}
+
+
+##### `GET` /seedlots/{seedLotDbId}
+
+
+##### `PUT` /seedlots/{seedLotDbId}
+
+
+##### `GET` /seedlots/{seedLotDbId}/transactions
+
+
+##### `GET` /studies/{studyDbId}
+
+
+##### `PUT` /studies/{studyDbId}
+
+
+##### `GET` /traits/{traitDbId}
+
+
+##### `PUT` /traits/{traitDbId}
+
+
+##### `GET` /trials/{trialDbId}
+
+
+##### `PUT` /trials/{trialDbId}
+
+
+##### `GET` /variants/{variantDbId}
+
+
+##### `GET` /variants/{variantDbId}/calls
+
+
+##### `GET` /variantsets/{variantSetDbId}
+
+
+##### `GET` /variantsets/{variantSetDbId}/calls
+
+
+##### `GET` /variantsets/{variantSetDbId}/callsets
+
+
+##### `GET` /variantsets/{variantSetDbId}/variants
+
+
+##### `POST` /search/allelematrix
+
+
+##### `POST` /search/calls
+
+
+##### `POST` /search/callsets
+
+
+##### `POST` /search/germplasm
+
+
+##### `POST` /search/attributes
+
+
+##### `POST` /search/attributevalues
+
+
+##### `POST` /search/images
+
+
+##### `POST` /search/lists
+
+
+##### `POST` /search/locations
+
+
+##### `POST` /search/markerpositions
+
+
+##### `POST` /search/observations
+
+
+##### `POST` /search/observationunits
+
+
+##### `POST` /search/variables
+
+
+##### `POST` /search/pedigree
+
+
+##### `POST` /search/people
+
+
+##### `POST` /search/plates
+
+
+##### `POST` /search/programs
+
+
+##### `POST` /search/references
+
+
+##### `POST` /search/referencesets
+
+
+##### `POST` /search/samples
+
+
+##### `POST` /search/studies
+
+
+##### `POST` /search/trials
+
+
+##### `POST` /search/variants
+
+
+##### `POST` /search/variantsets
+
+
+##### `GET` /search/allelematrix/{searchResultsDbId}
+
+
+##### `GET` /search/calls/{searchResultsDbId}
+
+
+##### `GET` /search/callsets/{searchResultsDbId}
+
+
+##### `GET` /search/germplasm/{searchResultsDbId}
+
+
+##### `GET` /search/attributes/{searchResultsDbId}
+
+
+##### `GET` /search/attributevalues/{searchResultsDbId}
+
+
+##### `GET` /search/images/{searchResultsDbId}
+
+
+##### `GET` /search/lists/{searchResultsDbId}
+
+
+##### `GET` /search/locations/{searchResultsDbId}
+
+
+##### `GET` /search/markerpositions/{searchResultsDbId}
+
+
+##### `GET` /search/observations/{searchResultsDbId}
+
+
+##### `GET` /search/observationunits/{searchResultsDbId}
+
+
+##### `GET` /search/variables/{searchResultsDbId}
+
+
+##### `GET` /search/pedigree/{searchResultsDbId}
+
+
+##### `GET` /search/people/{searchResultsDbId}
+
+
+##### `GET` /search/plates/{searchResultsDbId}
+
+
+##### `GET` /search/programs/{searchResultsDbId}
+
+
+##### `GET` /search/references/{searchResultsDbId}
+
+
+##### `GET` /search/referencesets/{searchResultsDbId}
+
+
+##### `GET` /search/samples/{searchResultsDbId}
+
+
+##### `GET` /search/studies/{searchResultsDbId}
+
+
+##### `GET` /search/trials/{searchResultsDbId}
+
+
+##### `GET` /search/variants/{searchResultsDbId}
+
+
+##### `GET` /search/variantsets/{searchResultsDbId}
+
 

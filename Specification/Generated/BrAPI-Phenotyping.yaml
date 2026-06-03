@@ -1835,8 +1835,6 @@ components:
     AlleleMatrixRequest:
       type: object
       properties:
-        additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
         callSetDbIds:
           type: array
           description: A list of IDs which uniquely identify `CallSets` within the
@@ -1844,21 +1842,19 @@ components:
           items:
             type: string
         dataMatrixAbbreviations:
-          type: array
-          description: "`dataMatrixAbbreviations` is a list of abbreviations (ie 'GT',\
-            \ 'RD' etc). This list controls which data matrices are returned in the\
-            \ response."
+          type: string
+          description: "`dataMatrixAbbreviations` is a comma separated list of abbreviations\
+            \ (ie 'GT', 'RD' etc). This list controls which data matrices are returned\
+            \ in the response."
           nullable: true
-          items:
-            type: string
+          example: "GT,RD"
         dataMatrixNames:
-          type: array
-          description: "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read\
-            \ Depth' etc). This list controls which data matrices are returned in\
-            \ the response."
+          type: string
+          description: "`dataMatrixNames` is a comma separated list of names (ie 'Genotype',\
+            \ 'Read Depth' etc). This list controls which data matrices are returned\
+            \ in the response."
           nullable: true
-          items:
-            type: string
+          example: "Genotype,Read Depth"
         dimensionCallSetPage:
           type: integer
           description: The requested page number for the CallSet dimension of the
@@ -2062,7 +2058,9 @@ components:
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
-          $ref: "#/components/schemas/OntologyReference"
+          anyOf:
+          - $ref: "#/components/schemas/OntologyReference"
+          - type: "null"
         scale:
           $ref: "#/components/schemas/Scale"
         scientist:
@@ -2375,25 +2373,12 @@ components:
             Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
-    DataType:
+    Dimension:
       type: string
-      description: |-
-        <p>Class of the scale, entries can be</p>
-        <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p>
-        <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p>
-        <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p>
-        <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p>
-        <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p>
-        <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p>
-        <p>"Text" - A free text is used to express the trait.</p>
+      description: the dimension of the matrix being paginated
       enum:
-      - Code
-      - Date
-      - Duration
-      - Nominal
-      - Numerical
-      - Ordinal
-      - Text
+      - CALLSETS
+      - VARIANTS
     DocumentationLink:
       type: object
       properties:
@@ -2764,6 +2749,7 @@ components:
         easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
       nullable: true
     GeoJSONGeometry:
+      type: object
       nullable: true
       oneOf:
       - required:
@@ -3796,7 +3782,9 @@ components:
           items:
             type: string
         coordinates:
-          $ref: "#/components/schemas/GeoJSONSearchArea"
+          anyOf:
+          - $ref: "#/components/schemas/GeoJSONSearchArea"
+          - type: "null"
         countryCodes:
           type: array
           description: "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)\
@@ -4084,9 +4072,10 @@ components:
         observationVariableName:
           type: string
           nullable: true
-        seasonDbId:
-          type: string
-          nullable: true
+        season:
+          anyOf:
+          - $ref: "#/components/schemas/Season"
+          - type: "null"
         studyDbId:
           type: string
           nullable: true
@@ -4619,6 +4608,7 @@ components:
           nullable: true
         observationUnitDbId:
           type: string
+          nullable: true
       description: "Observation levels indicate the granularity level at which the\
         \ measurements are taken. `levelName` \ndefines the level, `levelOrder` defines\
         \ where that level exists in the hierarchy of levels. \n`levelOrder`s lower\
@@ -4758,14 +4748,18 @@ components:
             systems may use different coordinate systems.
           nullable: true
         positionCoordinateXType:
-          $ref: "#/components/schemas/PositionCoordinateType"
+          anyOf:
+          - $ref: "#/components/schemas/PositionCoordinateType"
+          - type: "null"
         positionCoordinateY:
           type: string
           description: The Y position coordinate for an observation unit. Different
             systems may use different coordinate systems.
           nullable: true
         positionCoordinateYType:
-          $ref: "#/components/schemas/PositionCoordinateType"
+          anyOf:
+          - $ref: "#/components/schemas/PositionCoordinateType"
+          - type: "null"
       description: All positional and layout information related to this Observation
         Unit
       nullable: true
@@ -5215,7 +5209,9 @@ components:
             \ usually in the form of a URI"
           nullable: true
         ontologyReference:
-          $ref: "#/components/schemas/OntologyReference"
+          anyOf:
+          - $ref: "#/components/schemas/OntologyReference"
+          - type: "null"
         scale:
           $ref: "#/components/schemas/Scale"
         scientist:
@@ -7482,7 +7478,9 @@ components:
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
-          $ref: "#/components/schemas/OntologyReference"
+          anyOf:
+          - $ref: "#/components/schemas/OntologyReference"
+          - type: "null"
         scale:
           $ref: "#/components/schemas/Scale"
         scientist:
@@ -9687,19 +9685,6 @@ components:
         pattern: ^Bearer .*$
         type: string
       example: Bearer XXXX
-    page:
-      name: page
-      in: query
-      description: |-
-        Used to request a specific page of data to be returned.
-
-        The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: integer
-      example: "0"
     pageToken:
       name: pageToken
       in: query
@@ -9715,6 +9700,19 @@ components:
       schema:
         type: string
       example: 33c27874
+    page:
+      name: page
+      in: query
+      description: |-
+        Used to request a specific page of data to be returned.
+
+        The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: integer
+      example: "0"
   securitySchemes:
     AuthorizationToken:
       type: http

@@ -49,18 +49,19 @@ paths:
         schema:
           type: integer
           format: int32
-      - name: dataMatrixName
+      - name: dataMatrixNames
         in: query
-        description: "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read Depth'\
-          \ etc). This list controls which data matrices are returned in the response."
+        description: "`dataMatrixNames` is a comma separated list of names (ie 'Genotype',\
+          \ 'Read Depth' etc). This list controls which data matrices are returned\
+          \ in the response."
         required: false
         schema:
           type: string
-      - name: dataMatrixAbbreviation
+      - name: dataMatrixAbbreviations
         in: query
-        description: "`dataMatrixAbbreviations` is a list of abbreviations (ie 'GT',\
-          \ 'RD' etc). This list controls which data matrices are returned in the\
-          \ response."
+        description: "`dataMatrixAbbreviations` is a comma separated list of abbreviations\
+          \ (ie 'GT', 'RD' etc). This list controls which data matrices are returned\
+          \ in the response."
         required: false
         schema:
           type: string
@@ -1907,6 +1908,7 @@ paths:
           type: string
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
+      - $ref: "#/components/parameters/pageToken"
       - $ref: "#/components/parameters/authorizationHeader"
       responses:
         "200":
@@ -2202,6 +2204,7 @@ paths:
           type: string
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
+      - $ref: "#/components/parameters/pageToken"
       - $ref: "#/components/parameters/authorizationHeader"
       responses:
         "200":
@@ -2370,21 +2373,19 @@ components:
           items:
             type: string
         dataMatrixAbbreviations:
-          type: array
-          description: "`dataMatrixAbbreviations` is a list of abbreviations (ie 'GT',\
-            \ 'RD' etc). This list controls which data matrices are returned in the\
-            \ response."
+          type: string
+          description: "`dataMatrixAbbreviations` is a comma separated list of abbreviations\
+            \ (ie 'GT', 'RD' etc). This list controls which data matrices are returned\
+            \ in the response."
           nullable: true
-          items:
-            type: string
+          example: "GT,RD"
         dataMatrixNames:
-          type: array
-          description: "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read\
-            \ Depth' etc). This list controls which data matrices are returned in\
-            \ the response."
+          type: string
+          description: "`dataMatrixNames` is a comma separated list of names (ie 'Genotype',\
+            \ 'Read Depth' etc). This list controls which data matrices are returned\
+            \ in the response."
           nullable: true
-          items:
-            type: string
+          example: "Genotype,Read Depth"
         dimensionCallSetPage:
           type: integer
           description: The requested page number for the CallSet dimension of the
@@ -2522,21 +2523,19 @@ components:
           items:
             type: string
         dataMatrixAbbreviations:
-          type: array
-          description: "`dataMatrixAbbreviations` is a list of abbreviations (ie 'GT',\
-            \ 'RD' etc). This list controls which data matrices are returned in the\
-            \ response."
+          type: string
+          description: "`dataMatrixAbbreviations` is a comma separated list of abbreviations\
+            \ (ie 'GT', 'RD' etc). This list controls which data matrices are returned\
+            \ in the response."
           nullable: true
-          items:
-            type: string
+          example: "GT,RD"
         dataMatrixNames:
-          type: array
-          description: "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read\
-            \ Depth' etc). This list controls which data matrices are returned in\
-            \ the response."
+          type: string
+          description: "`dataMatrixNames` is a comma separated list of names (ie 'Genotype',\
+            \ 'Read Depth' etc). This list controls which data matrices are returned\
+            \ in the response."
           nullable: true
-          items:
-            type: string
+          example: "Genotype,Read Depth"
         expandHomozygotes:
           type: boolean
           description: Should homozygotes be expanded (true) or collapsed into a single
@@ -2761,7 +2760,9 @@ components:
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
-          $ref: "#/components/schemas/OntologyReference"
+          anyOf:
+          - $ref: "#/components/schemas/OntologyReference"
+          - type: "null"
         scale:
           $ref: "#/components/schemas/Scale"
         scientist:
@@ -3480,9 +3481,18 @@ components:
       description: "A two dimensional array that holds allele data or associated metadata.\
         \ Each matrix should be the same size and orientation, aligned with the \"\
         callSetDbIds\" as columns and the \"variantDbIds\" as rows."
+    DataType:
+      type: string
+      description: The type of field represented in this Genotype Field. This is intended
+        to help parse the data out of JSON.
+      enum:
+      - string
+      - integer
+      - float
+      - boolean
     Dimension:
       type: string
-      description: The dimension of the matrix being paginated
+      description: the dimension of the matrix being paginated
       enum:
       - CALLSETS
       - VARIANTS
@@ -3756,6 +3766,7 @@ components:
         easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
       nullable: true
     GeoJSONGeometry:
+      type: object
       nullable: true
       oneOf:
       - required:
@@ -4603,7 +4614,9 @@ components:
           items:
             type: string
         coordinates:
-          $ref: "#/components/schemas/GeoJSONSearchArea"
+          anyOf:
+          - $ref: "#/components/schemas/GeoJSONSearchArea"
+          - type: "null"
         countryCodes:
           type: array
           description: "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)\
@@ -8039,7 +8052,9 @@ components:
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
-          $ref: "#/components/schemas/OntologyReference"
+          anyOf:
+          - $ref: "#/components/schemas/OntologyReference"
+          - type: "null"
         scale:
           $ref: "#/components/schemas/Scale"
         scientist:
@@ -9983,19 +9998,6 @@ components:
         pattern: ^Bearer .*$
         type: string
       example: Bearer XXXX
-    page:
-      name: page
-      in: query
-      description: |-
-        Used to request a specific page of data to be returned.
-
-        The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: integer
-      example: "0"
     pageToken:
       name: pageToken
       in: query
@@ -10011,6 +10013,19 @@ components:
       schema:
         type: string
       example: 33c27874
+    page:
+      name: page
+      in: query
+      description: |-
+        Used to request a specific page of data to be returned.
+
+        The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: integer
+      example: "0"
   securitySchemes:
     AuthorizationToken:
       type: http
