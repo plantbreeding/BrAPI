@@ -41,6 +41,13 @@
                         "string"
                     ]
                 },
+                "instituteName": {
+                    "description": "The name of the institution which this person is part of\n\nMIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
                 "lastName": {
                     "description": "Persons last name",
                     "type": [
@@ -66,6 +73,13 @@
                     "description": "Unique ID for a person",
                     "type": "string"
                 },
+                "personName": {
+                    "description": "The full name of a person",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
                 "phoneNumber": {
                     "description": "phone number of this person",
                     "type": [
@@ -75,6 +89,20 @@
                 },
                 "userID": {
                     "description": "A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "orcid": {
+                    "description": "The Open Researcher and Contributor ID for this person (orcid.org)\n\nMIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "type": {
+                    "description": "The type of person this represents (ex: Coordinator, Scientist, PI, etc.)\n\nMIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation",
                     "type": [
                         "null",
                         "string"
@@ -102,6 +130,20 @@
                     "items": {
                         "$ref": "Program.json#/$defs/Program",
                         "description": "Program"
+                    },
+                    "type": [
+                        "null",
+                        "array"
+                    ]
+                },
+                "observations": {
+                    "title": "Observations",
+                    "description": "Observations uploaded by a person",
+                    "referencedAttribute": "uploadedByPerson",
+                    "relationshipType": "one-to-many",
+                    "items": {
+                        "$ref": "../BrAPI-Phenotyping/Observation.json#/$defs/Observation",
+                        "description": "Observation"
                     },
                     "type": [
                         "null",
