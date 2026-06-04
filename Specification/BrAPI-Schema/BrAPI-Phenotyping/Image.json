@@ -128,8 +128,8 @@
                         "$ref": "Observation.json#/$defs/Observation"
                     },
                     "referencedAttribute": "images",
-                    "relationshipType": "many-to-many",
-                    "type": "array"
+                    "relationshipType": "one-to-many",
+                    "type": ["null", "array"]
                 }
             },
             "required": [

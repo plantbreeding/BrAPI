@@ -3,7 +3,7 @@
         "SeedLotTransactionRequest": {
             "type": "object",
             "properties": {
-                "transactionDbIs": {
+                "transactionDbIds": {
                     "description": "Unique id for a Transaction that has occurred",
                     "type": "array",
                     "items": {
