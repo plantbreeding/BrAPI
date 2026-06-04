@@ -450,12 +450,12 @@ paths:
               example: "{<observationDbId>_1={additionalInfo={}, collector=1835c514,\
                 \ externalReferences=[{}], geoCoordinates={}, germplasm={}, observationDbId=5cbd4c1c,\
                 \ observationTimeStamp=2020-08-12T18:10:40.413Z, observationUnit={},\
-                \ observationVariable={}, season={}, study={}, uploadedBy=3fc74c0a,\
-                \ value=4ee59cb0, images=[{}]}, <observationDbId>_2={additionalInfo={},\
+                \ observationVariable={}, season={}, study={}, uploadedByPerson={},\
+                \ uploadedBy=3fc74c0a, value=4ee59cb0, images=[{}]}, <observationDbId>_2={additionalInfo={},\
                 \ collector=1835c515, externalReferences=[{}], geoCoordinates={},\
                 \ germplasm={}, observationDbId=5cbd4c1d, observationTimeStamp=2020-08-12T18:10:40.413Z,\
                 \ observationUnit={}, observationVariable={}, season={}, study={},\
-                \ uploadedBy=3fc74c0b, value=4ee59cb1, images=[{}]}}"
+                \ uploadedByPerson={}, uploadedBy=3fc74c0b, value=4ee59cb1, images=[{}]}}"
       responses:
         "200":
           $ref: "#/components/responses/ObservationListResponse"
@@ -4081,8 +4081,18 @@ components:
           nullable: true
         uploadedBy:
           type: string
-          description: The name or id of the user who uploaded the observation to
-            the database system
+          description: "**Deprecated in v2.2** Please use `uploadedByPersonDbId` or\
+            \ `uploadedByPersonName`. Github issue number #582 <br> The name or id\
+            \ of the user who uploaded the observation to the database system"
+          nullable: true
+        uploadedByPersonDbId:
+          type: string
+          nullable: true
+        uploadedByPersonName:
+          type: string
+          nullable: true
+        uploadedByPersonPUI:
+          type: string
           nullable: true
         value:
           type: string
@@ -7284,6 +7294,13 @@ components:
           items:
             type: string
         contactDbIds:
+          type: array
+          description: "**Deprecated in v2.2** Please use `contactPersonDbIds`. Github\
+            \ issue number #582 <br> List of contact entities associated with this\
+            \ trial"
+          items:
+            type: string
+        contactPersonDbIds:
           type: array
           description: List of contact entities associated with this trial
           items:

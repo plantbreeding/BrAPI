@@ -8029,6 +8029,13 @@ components:
             type: string
         contactDbIds:
           type: array
+          description: "**Deprecated in v2.2** Please use `contactPersonDbIds`. Github\
+            \ issue number #582 <br> List of contact entities associated with this\
+            \ trial"
+          items:
+            type: string
+        contactPersonDbIds:
+          type: array
           description: List of contact entities associated with this trial
           items:
             type: string

@@ -408,44 +408,71 @@ type CollectingSite {
   spatialReferenceSystem: String
 }
 
-"A persons contact information"
 type Contact {
+  "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
+  additionalInfo: AdditionalInfo
   """
-  The ID which uniquely identifies this contact
+  **Deprecated in v2.2** Please use `personDbId`. Github issue number #582 <br> The ID which uniquely identifies this contact
   
   MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.
   """
   contactDbId: String
+  "description of this person"
+  description: String
   """
-  The contacts email address
+  **Deprecated in v2.2** Please use `emailAddress`. Github issue number #582 <br> The contacts email address
   
   MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.
   """
   email: String
+  "email address for this person"
+  emailAddress: String
+  "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI."
+  externalReferences: [ExternalReference]
+  "Persons first name"
+  firstName: String
   """
-  The name of the institution which this contact is part of
+  The name of the institution which this person is part of
   
   MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to
   """
   instituteName: String
+  "Persons last name"
+  lastName: String
+  listDbId: [ID]
+  "physical address of this person"
+  mailingAddress: String
+  "Persons middle name"
+  middleName: String
   """
-  The full name of this contact person
+  **Deprecated in v2.2** Please use `firstName`, `middleName`, and `lastName`. Github issue number #582 <br> The full name of this contact person
   
   MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)
   """
   name: String
+  "Observations uploaded by a person"
+  observationDbId: [ID]
   """
-  The Open Researcher and Contributor ID for this contact person (orcid.org)
+  The Open Researcher and Contributor ID for this person (orcid.org)
   
   MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.
   """
   orcid: String
+  "Unique ID for a person"
+  personDbId: String
+  "The full name of a person"
+  personName: String
+  "phone number of this person"
+  phoneNumber: String
+  programDbId: [ID]
   """
-  The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)
+  The type of person this represents (ex: Coordinator, Scientist, PI, etc.)
   
   MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation
   """
   type: String
+  "A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system."
+  userID: String
 }
 
 """
@@ -1919,8 +1946,10 @@ type Observation {
   seasonDbIds: ID
   "The ID which uniquely identifies a study within the given database server"
   studyDbIds: ID
-  "The name or id of the user who uploaded the observation to the database system"
+  "**Deprecated in v2.2** Please use `uploadedByPersonDbId` or `uploadedByPersonName`. Github issue number #582 <br> The name or id of the user who uploaded the observation to the database system"
   uploadedBy: String
+  "The user or person who uploaded the observation to the database system"
+  uploadedByPersonDbIds: ID
   "The value of the data collected as an observation"
   value: String
 }
@@ -2360,16 +2389,38 @@ type Person {
   externalReferences: [ExternalReference]
   "Persons first name"
   firstName: String
+  """
+  The name of the institution which this person is part of
+  
+  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to
+  """
+  instituteName: String
   "Persons last name"
   lastName: String
   "physical address of this person"
   mailingAddress: String
   "Persons middle name"
   middleName: String
+  "Observations uploaded by a person"
+  observationDbId: [ID]
+  """
+  The Open Researcher and Contributor ID for this person (orcid.org)
+  
+  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.
+  """
+  orcid: String
   "Unique ID for a person"
   personDbId: String
+  "The full name of a person"
+  personName: String
   "phone number of this person"
   phoneNumber: String
+  """
+  The type of person this represents (ex: Coordinator, Scientist, PI, etc.)
+  
+  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation
+  """
+  type: String
   "A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system."
   userID: String
 }
@@ -4044,44 +4095,71 @@ input CollectingSiteInput {
   spatialReferenceSystem: String
 }
 
-"A persons contact information"
 input ContactInput {
+  "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
+  additionalInfo: AdditionalInfoInput
   """
-  The ID which uniquely identifies this contact
+  **Deprecated in v2.2** Please use `personDbId`. Github issue number #582 <br> The ID which uniquely identifies this contact
   
   MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.
   """
   contactDbId: String
+  "description of this person"
+  description: String
   """
-  The contacts email address
+  **Deprecated in v2.2** Please use `emailAddress`. Github issue number #582 <br> The contacts email address
   
   MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.
   """
   email: String
+  "email address for this person"
+  emailAddress: String
+  "Filter by External References"
+  externalReferences: [ExternalReferenceInput]
+  "Persons first name"
+  firstName: String
   """
-  The name of the institution which this contact is part of
+  The name of the institution which this person is part of
   
   MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to
   """
   instituteName: String
+  "Persons last name"
+  lastName: String
+  lists: [ListInput]
+  "physical address of this person"
+  mailingAddress: String
+  "Persons middle name"
+  middleName: String
   """
-  The full name of this contact person
+  **Deprecated in v2.2** Please use `firstName`, `middleName`, and `lastName`. Github issue number #582 <br> The full name of this contact person
   
   MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)
   """
   name: String
+  "Observations uploaded by a person"
+  observations: [ObservationInput]
   """
-  The Open Researcher and Contributor ID for this contact person (orcid.org)
+  The Open Researcher and Contributor ID for this person (orcid.org)
   
   MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.
   """
   orcid: String
+  "Unique ID for a person"
+  personDbId: String
+  "The full name of a person"
+  personName: String
+  "phone number of this person"
+  phoneNumber: String
+  programs: [ProgramInput]
   """
-  The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)
+  The type of person this represents (ex: Coordinator, Scientist, PI, etc.)
   
   MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation
   """
   type: String
+  "A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system."
+  userID: String
 }
 
 """
@@ -5864,8 +5942,10 @@ input ObservationInput {
   season: SeasonInput
   "The ID which uniquely identifies a study within the given database server"
   study: StudyInput
-  "The name or id of the user who uploaded the observation to the database system"
+  "**Deprecated in v2.2** Please use `uploadedByPersonDbId` or `uploadedByPersonName`. Github issue number #582 <br> The name or id of the user who uploaded the observation to the database system"
   uploadedBy: String
+  "The user or person who uploaded the observation to the database system"
+  uploadedByPerson: PersonInput
   "The value of the data collected as an observation"
   value: String
 }
@@ -6726,6 +6806,12 @@ input PersonInput {
   externalReferences: [ExternalReferenceInput]
   "Persons first name"
   firstName: String
+  """
+  The name of the institution which this person is part of
+  
+  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to
+  """
+  instituteName: String
   "Persons last name"
   lastName: String
   lists: [ListInput]
@@ -6733,11 +6819,27 @@ input PersonInput {
   mailingAddress: String
   "Persons middle name"
   middleName: String
+  "Observations uploaded by a person"
+  observations: [ObservationInput]
+  """
+  The Open Researcher and Contributor ID for this person (orcid.org)
+  
+  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.
+  """
+  orcid: String
   "Unique ID for a person"
   personDbId: String
+  "The full name of a person"
+  personName: String
   "phone number of this person"
   phoneNumber: String
   programs: [ProgramInput]
+  """
+  The type of person this represents (ex: Coordinator, Scientist, PI, etc.)
+  
+  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation
+  """
+  type: String
   "A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system."
   userID: String
 }
@@ -7883,8 +7985,10 @@ input TrialsInput {
   Use `GET /commoncropnames` to find the list of available crops on a server.
   """
   commonCropNames: [String]
-  "List of contact entities associated with this trial"
+  "**Deprecated in v2.2** Please use `contactPersonDbIds`. Github issue number #582 <br> List of contact entities associated with this trial"
   contactDbIds: [String]
+  "List of contact entities associated with this trial"
+  contactPersonDbIds: [String]
   "The location ids to search for"
   locationDbIds: [String]
   "A human readable names to search for"

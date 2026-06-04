@@ -751,6 +751,13 @@ paths:
           type: boolean
       - name: contactDbId
         in: query
+        description: "**Deprecated in v2.2** Please use `contactPersonDbIds`. Github\
+          \ issue number #582 <br> List of contact entities associated with this trial"
+        required: false
+        schema:
+          type: string
+      - name: contactPersonDbId
+        in: query
         description: List of contact entities associated with this trial
         required: false
         schema:
@@ -2274,51 +2281,118 @@ components:
             type: string
     Contact:
       required:
-      - contactDbId
+      - personDbId
       type: object
       properties:
+        additionalInfo:
+          $ref: "#/components/schemas/AdditionalInfo"
         contactDbId:
           type: string
           description: |-
-            The ID which uniquely identifies this contact
+            **Deprecated in v2.2** Please use `personDbId`. Github issue number #582 <br> The ID which uniquely identifies this contact
 
             MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.
+        description:
+          type: string
+          description: description of this person
+          nullable: true
         email:
           type: string
           description: |-
-            The contacts email address
+            **Deprecated in v2.2** Please use `emailAddress`. Github issue number #582 <br> The contacts email address
 
             MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.
+          nullable: true
+        emailAddress:
+          type: string
+          description: email address for this person
+          nullable: true
+        externalReferences:
+          type: array
+          description: An array of external reference ids. These are references to
+            this piece of data in an external system. Could be a simple string or
+            a URI.
+          nullable: true
+          items:
+            $ref: "#/components/schemas/ExternalReference"
+        firstName:
+          type: string
+          description: Persons first name
           nullable: true
         instituteName:
           type: string
           description: |-
-            The name of the institution which this contact is part of
+            The name of the institution which this person is part of
 
             MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to
+          nullable: true
+        lastName:
+          type: string
+          description: Persons last name
+          nullable: true
+        listDbIds:
+          type: array
+          description: ""
+          nullable: true
+          items:
+            type: string
+        mailingAddress:
+          type: string
+          description: physical address of this person
+          nullable: true
+        middleName:
+          type: string
+          description: Persons middle name
           nullable: true
         name:
           type: string
           description: |-
-            The full name of this contact person
+            **Deprecated in v2.2** Please use `firstName`, `middleName`, and `lastName`. Github issue number #582 <br> The full name of this contact person
 
             MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)
           nullable: true
+        observationDbIds:
+          type: array
+          description: Observations uploaded by a person
+          nullable: true
+          items:
+            type: string
         orcid:
           type: string
           description: |-
-            The Open Researcher and Contributor ID for this contact person (orcid.org)
+            The Open Researcher and Contributor ID for this person (orcid.org)
 
             MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.
           nullable: true
+        personDbId:
+          type: string
+          description: Unique ID for a person
+        personName:
+          type: string
+          description: The full name of a person
+          nullable: true
+        phoneNumber:
+          type: string
+          description: phone number of this person
+          nullable: true
+        programDbIds:
+          type: array
+          description: ""
+          nullable: true
+          items:
+            type: string
         type:
           type: string
           description: |-
-            The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)
+            The type of person this represents (ex: Coordinator, Scientist, PI, etc.)
 
             MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation
           nullable: true
-      description: A persons contact information
+        userID:
+          type: string
+          description: A systems user ID associated with this person. Different from
+            personDbId because you could have a person who is not a user of the system.
+          nullable: true
     ContentTypes:
       type: string
       enum:
@@ -5225,6 +5299,13 @@ components:
           type: string
           description: Persons first name
           nullable: true
+        instituteName:
+          type: string
+          description: |-
+            The name of the institution which this person is part of
+
+            MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to
+          nullable: true
         lastName:
           type: string
           description: Persons last name
@@ -5237,9 +5318,33 @@ components:
           type: string
           description: Persons middle name
           nullable: true
+        observationDbIds:
+          type: array
+          description: Observations uploaded by a person
+          nullable: true
+          items:
+            type: string
+        orcid:
+          type: string
+          description: |-
+            The Open Researcher and Contributor ID for this person (orcid.org)
+
+            MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.
+          nullable: true
+        personName:
+          type: string
+          description: The full name of a person
+          nullable: true
         phoneNumber:
           type: string
           description: phone number of this person
+          nullable: true
+        type:
+          type: string
+          description: |-
+            The type of person this represents (ex: Coordinator, Scientist, PI, etc.)
+
+            MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation
           nullable: true
         userID:
           type: string
@@ -7187,6 +7292,13 @@ components:
             type: string
         contactDbIds:
           type: array
+          description: "**Deprecated in v2.2** Please use `contactPersonDbIds`. Github\
+            \ issue number #582 <br> List of contact entities associated with this\
+            \ trial"
+          items:
+            type: string
+        contactPersonDbIds:
+          type: array
           description: List of contact entities associated with this trial
           items:
             type: string
@@ -7306,6 +7418,13 @@ components:
           items:
             type: string
         contactDbIds:
+          type: array
+          description: "**Deprecated in v2.2** Please use `contactPersonDbIds`. Github\
+            \ issue number #582 <br> List of contact entities associated with this\
+            \ trial"
+          items:
+            type: string
+        contactPersonDbIds:
           type: array
           description: List of contact entities associated with this trial
           items:
