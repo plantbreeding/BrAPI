@@ -47,8 +47,8 @@ without having to download the entire genotype file.
     + dimensionCallSetPage (Optional, ) ... The requested page number for the CallSet dimension of the matrix
     + dimensionCallSetPageSize (Optional, ) ... The requested page size for the CallSet dimension of the matrix
     + preview (Optional, ) ... Default Value = false<br/>If 'preview' is set to true, then the server should return with the "dataMatrices" field as null or empty. All other data fields should be returned normally. This is intended to be a preview and give the client a sense of how large the matrix returned will be<br/>If 'preview' is set to false or not set (default), then the server should return all the matrix data as requested.
-    + dataMatrixNames (Optional, ) ... "dataMatrixNames" is a comma seperated list of names (ie 'Genotype, Read Depth' etc). This list controls which data matrices are returned in the response.<br> This maps to a FORMAT field in the VCF file standard.
-    + dataMatrixAbbreviations (Optional, ) ... "dataMatrixAbbreviations" is a comma seperated list of abbreviations (ie 'GT, RD' etc). This list controls which data matrices are returned in the response.<br> This maps to a FORMAT field in the VCF file standard.
+    + dataMatrixNames (Optional, ) ... "dataMatrixNames" is a comma separated list of names (ie 'Genotype, Read Depth' etc). This list controls which data matrices are returned in the response.<br> This maps to a FORMAT field in the VCF file standard.
+    + dataMatrixAbbreviations (Optional, ) ... "dataMatrixAbbreviations" is a comma separated list of abbreviations (ie 'GT, RD' etc). This list controls which data matrices are returned in the response.<br> This maps to a FORMAT field in the VCF file standard.
     + positionRange (Optional, ) ... The position range to search<br/> Uses the format "contig:start-end" where "contig" is the chromosome or contig name, "start" is  the starting position of the range, and "end" is the ending position of the range<br> Example: CRHOM_1:12000-14000
     + germplasmDbId (Optional, ) ... Use this parameter to only return results associated with the given `Germplasm` unique identifier. <br/>Use `GET /germplasm` to find the list of available `Germplasm` on a server.
     + germplasmName (Optional, ) ... Use this parameter to only return results associated with the given `Germplasm` by its human readable name. <br/>Use `GET /germplasm` to find the list of available `Germplasm` on a server.
@@ -202,7 +202,7 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
 <table>
 <tr> <th> Field </th> <th> Type </th> <th> Description </th> </tr> 
 <tr><td><span style="font-weight:bold;">callSetDbIds</span></td><td>array[string]</td><td>A list of IDs which uniquely identify `CallSets` within the given database server</td></tr>
-<tr><td><span style="font-weight:bold;">dataMatrixAbbreviations</span></td><td>array[string]</td><td>`dataMatrixAbbreviations` is a comma seperated list of abbreviations (ie 'GT', 'RD' etc). This list controls which data matrices are returned in the response.</td></tr>
+<tr><td><span style="font-weight:bold;">dataMatrixAbbreviations</span></td><td>array[string]</td><td>`dataMatrixAbbreviations` is a list of abbreviations (ie 'GT', 'RD' etc). This list controls which data matrices are returned in the response.</td></tr>
 <tr><td><span style="font-weight:bold;">dataMatrixNames</span></td><td>array[string]</td><td>`dataMatrixNames` is a list of names (ie 'Genotype', 'Read Depth' etc). This list controls which data matrices are returned in the response.</td></tr>
 <tr><td><span style="font-weight:bold;">expandHomozygotes</span></td><td>boolean</td><td>Should homozygotes be expanded (true) or collapsed into a single occurrence (false)</td></tr>
 <tr><td><span style="font-weight:bold;">germplasmDbIds</span></td><td>array[string]</td><td>A list of IDs which uniquely identify `Germplasm` within the given database server</td></tr>
@@ -662,5 +662,10 @@ Use this endpoint to retrieve a two dimensional matrix of genotype data. The res
 + Response 403 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 

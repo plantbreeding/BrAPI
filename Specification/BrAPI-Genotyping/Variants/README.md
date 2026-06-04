@@ -76,7 +76,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">svlen</span></td><td>integer</td><td>Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2</td></tr>
 <tr><td><span style="font-weight:bold;">updated</span></td><td>string<br>(date-time)</td><td>The time at which this variant was last updated.</td></tr>
 <tr><td><span style="font-weight:bold;">variantNames</span></td><td>array[string]</td><td>A human readable name associated with a `Variant`</td></tr>
-<tr><td><span style="font-weight:bold;">variantSetDbId</span></td><td>array[string]</td><td>An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.</td></tr>
+<tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.</td></tr>
 <tr><td><span style="font-weight:bold;">variantType</span></td><td>string</td><td>The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"   DEL  : deletion of sequence following "start"</td></tr>
 </table>
 
@@ -234,7 +234,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                     "RefSNP_ID_1",
                     "06ea312e"
                 ],
-                "variantSetDbId": [
+                "variantSetDbIds": [
                     "c8ae400b",
                     "ef2c204b"
                 ],
@@ -330,7 +330,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">svlen</span></td><td>integer</td><td>Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2</td></tr>
 <tr><td><span style="font-weight:bold;">updated</span></td><td>string<br>(date-time)</td><td>The time at which this variant was last updated.</td></tr>
 <tr><td><span style="font-weight:bold;">variantNames</span></td><td>array[string]</td><td>A human readable name associated with a `Variant`</td></tr>
-<tr><td><span style="font-weight:bold;">variantSetDbId</span></td><td>array[string]</td><td>An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.</td></tr>
+<tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.</td></tr>
 <tr><td><span style="font-weight:bold;">variantType</span></td><td>string</td><td>The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"   DEL  : deletion of sequence following "start"</td></tr>
 </table>
 
@@ -419,7 +419,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
                     "RefSNP_ID_1",
                     "06ea312e"
                 ],
-                "variantSetDbId": [
+                "variantSetDbIds": [
                     "c8ae400b",
                     "ef2c204b"
                 ],
@@ -472,10 +472,15 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
 
 
 
-### Get - /variants [GET /brapi/v2/variants{?variantDbId}{?variantSetDbId}{?referenceDbId}{?referenceSetDbId}{?pageToken}{?page}{?pageSize}{?externalReferenceId}{?externalReferenceSource}]
+
+### Get - /variants [GET /brapi/v2/variants{?variantDbId}{?variantSetDbId}{?referenceDbId}{?referenceSetDbId}{?pageToken}{?page}{?pageSize}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}]
 
 Gets a filtered list of `Variants`.
 
@@ -509,7 +514,7 @@ Gets a filtered list of `Variants`.
 <tr><td><span style="font-weight:bold;">svlen</span></td><td>integer</td><td>Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2</td></tr>
 <tr><td><span style="font-weight:bold;">updated</span></td><td>string<br>(date-time)</td><td>The time at which this variant was last updated.</td></tr>
 <tr><td><span style="font-weight:bold;">variantNames</span></td><td>array[string]</td><td>A human readable name associated with a `Variant`</td></tr>
-<tr><td><span style="font-weight:bold;">variantSetDbId</span></td><td>array[string]</td><td>An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.</td></tr>
+<tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.</td></tr>
 <tr><td><span style="font-weight:bold;">variantType</span></td><td>string</td><td>The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"   DEL  : deletion of sequence following "start"</td></tr>
 </table>
 
@@ -524,6 +529,7 @@ Gets a filtered list of `Variants`.
     + pageToken (Optional, ) ... **Deprecated in v2.1** Please use `page`. Github issue number #451 <br> Used to request a specific page of data to be returned.<br> Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. 
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -603,7 +609,7 @@ Gets a filtered list of `Variants`.
                     "RefSNP_ID_1",
                     "06ea312e"
                 ],
-                "variantSetDbId": [
+                "variantSetDbIds": [
                     "c8ae400b",
                     "ef2c204b"
                 ],
@@ -666,7 +672,7 @@ The endpoint `GET /variants/{id}` will return a JSON version of `Variant`.
 <tr><td><span style="font-weight:bold;">svlen</span></td><td>integer</td><td>Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2</td></tr>
 <tr><td><span style="font-weight:bold;">updated</span></td><td>string<br>(date-time)</td><td>The time at which this variant was last updated.</td></tr>
 <tr><td><span style="font-weight:bold;">variantNames</span></td><td>array[string]</td><td>A human readable name associated with a `Variant`</td></tr>
-<tr><td><span style="font-weight:bold;">variantSetDbId</span></td><td>array[string]</td><td>An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.</td></tr>
+<tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.</td></tr>
 <tr><td><span style="font-weight:bold;">variantType</span></td><td>string</td><td>The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"   DEL  : deletion of sequence following "start"</td></tr>
 </table>
 
@@ -750,7 +756,7 @@ The endpoint `GET /variants/{id}` will return a JSON version of `Variant`.
             "RefSNP_ID_1",
             "06ea312e"
         ],
-        "variantSetDbId": [
+        "variantSetDbIds": [
             "c8ae400b",
             "ef2c204b"
         ],
@@ -905,5 +911,10 @@ The variant calls for this particular variant. Each one represents the determina
 + Response 403 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 

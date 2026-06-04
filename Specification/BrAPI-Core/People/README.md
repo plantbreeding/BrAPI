@@ -877,3 +877,8 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+

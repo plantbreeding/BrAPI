@@ -373,6 +373,11 @@ Get a single breeding Program by Id. This can be used to quickly get the details
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
 
 
 
@@ -519,6 +524,11 @@ Update the details of an existing breeding Program.
 + Response 403 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 
 

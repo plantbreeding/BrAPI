@@ -478,10 +478,15 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
 
 
 
-### Get - /variantsets [GET /brapi/v2/variantsets{?variantSetDbId}{?variantDbId}{?callSetDbId}{?referenceSetDbId}{?commonCropName}{?programDbId}{?studyDbId}{?studyName}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+
+### Get - /variantsets [GET /brapi/v2/variantsets{?variantSetDbId}{?variantDbId}{?callSetDbId}{?referenceSetDbId}{?commonCropName}{?programDbId}{?studyDbId}{?studyName}{?externalReferenceId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Will return a filtered list of `VariantSet`.
 
@@ -537,6 +542,7 @@ Will return a filtered list of `VariantSet`.
     + studyDbId (Optional, ) ... Use this parameter to only return results associated with the given `Study` unique identifier. <br/>Use `GET /studies` to find the list of available `Studies` on a server.
     + studyName (Optional, ) ... Use this parameter to only return results associated with the given `Study` by its human readable name. <br/>Use `GET /studies` to find the list of available `Studies` on a server.
     + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
@@ -1146,6 +1152,11 @@ Gets a list of `Calls` associated with a `VariantSet`.
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
 
 
 
@@ -1253,6 +1264,11 @@ Gets a list of `CallSets` associated with a `VariantSet`.
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
 
 
 
@@ -1290,7 +1306,7 @@ This call will return an array of `Variants`.
 <tr><td><span style="font-weight:bold;">svlen</span></td><td>integer</td><td>Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2</td></tr>
 <tr><td><span style="font-weight:bold;">updated</span></td><td>string<br>(date-time)</td><td>The time at which this variant was last updated.</td></tr>
 <tr><td><span style="font-weight:bold;">variantNames</span></td><td>array[string]</td><td>A human readable name associated with a `Variant`</td></tr>
-<tr><td><span style="font-weight:bold;">variantSetDbId</span></td><td>array[string]</td><td>An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.</td></tr>
+<tr><td><span style="font-weight:bold;">variantSetDbIds</span></td><td>array[string]</td><td>An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.</td></tr>
 <tr><td><span style="font-weight:bold;">variantType</span></td><td>string</td><td>The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"   DEL  : deletion of sequence following "start"</td></tr>
 </table>
 
@@ -1380,7 +1396,7 @@ This call will return an array of `Variants`.
                     "RefSNP_ID_1",
                     "06ea312e"
                 ],
-                "variantSetDbId": [
+                "variantSetDbIds": [
                     "c8ae400b",
                     "ef2c204b"
                 ],
@@ -1404,5 +1420,10 @@ This call will return an array of `Variants`.
 + Response 403 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 

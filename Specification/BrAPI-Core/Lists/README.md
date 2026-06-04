@@ -832,7 +832,7 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 <tr><td><span style="font-weight:bold;">listOwnerNames</span></td><td>array[string]</td><td>An array of names for the people or entities who are responsible for a set of Lists</td></tr>
 <tr><td><span style="font-weight:bold;">listOwnerPersonDbIds</span></td><td>array[string]</td><td>An array of primary database identifiers to identify people or entities who are responsible for a set of Lists</td></tr>
 <tr><td><span style="font-weight:bold;">listSources</span></td><td>array[string]</td><td>An array of terms identifying lists from different sources (ie 'USER', 'SYSTEM', etc)</td></tr>
-<tr><td><span style="font-weight:bold;">listType</span></td><td>string</td><td>A flag to indicate the type of objects that are referenced in a List</td></tr>
+<tr><td><span style="font-weight:bold;">listType</span></td><td></td><td></td></tr>
 <tr><td><span style="font-weight:bold;">page</span></td><td>integer</td><td>Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.</td></tr>
 <tr><td><span style="font-weight:bold;">pageSize</span></td><td>integer</td><td>The size of the pages to be returned. Default is `1000`.</td></tr>
 <tr><td><span style="font-weight:bold;">programDbIds</span></td><td>array[string]</td><td>A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.   Use this parameter to only return results associated with the given programs.   Use `GET /programs` to find the list of available programs on a server.</td></tr>
@@ -913,7 +913,6 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "SYSTEM",
         "EXTERNAL"
     ],
-    "listType": "germplasm",
     "page": 0,
     "pageSize": 1000,
     "programDbIds": [
@@ -1160,5 +1159,10 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 + Response 403 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 
