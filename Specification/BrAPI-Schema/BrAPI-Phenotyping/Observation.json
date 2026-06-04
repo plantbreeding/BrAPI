@@ -116,8 +116,21 @@
                         }
                     ]
                 },
+                "uploadedByPerson": {
+                    "description": "The user or person who uploaded the observation to the database system",
+                    "referencedAttribute": "observations",
+                    "relationshipType": "many-to-one",
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Core/Person.json#/$defs/Person"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
                 "uploadedBy": {
-                    "description": "The name or id of the user who uploaded the observation to the database system",
+                    "description": "**Deprecated in v2.2** Please use `uploadedByPersonDbId` or `uploadedByPersonName`. Github issue number #582 <br> The name or id of the user who uploaded the observation to the database system",
                     "type": [
                         "null",
                         "string"

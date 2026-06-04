@@ -26,6 +26,17 @@
                             "example": true
                         },
                         "contactDbIds": {
+                            "description": "**Deprecated in v2.2** Please use `contactPersonDbIds`. Github issue number #582 <br> List of contact entities associated with this trial",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "e0f70c2a",
+                                "b82f0967"
+                            ]
+                        },
+                        "contactPersonDbIds": {
                             "description": "List of contact entities associated with this trial",
                             "type": "array",
                             "items": {
