@@ -1,0 +1,22 @@
+{
+    "$defs": {
+        "ObservationUnitHierarchyLevelRequest": {
+            "allOf": [
+                {
+                    "$ref": "Parameters/StudyParameters.json#/$defs/StudyParameters"
+                },
+                {
+                    "$ref": "Parameters/ProgramParameters.json#/$defs/ProgramParameters"
+                },
+                {
+                    "$ref": "Parameters/TrialParameters.json#/$defs/TrialParameters"
+                }
+            ],
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/ObservationUnitHierarchyLevelRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}
