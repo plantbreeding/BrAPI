@@ -41,6 +41,11 @@
                     "title": "ExternalReferences",
                     "type":  "array"
                 },
+                "imageContent": {
+                    "description": "The unique identifier of an image",
+                    "type": "string",
+                    "format": "binary"
+                },
                 "imageDbId": {
                     "description": "The unique identifier of an image",
                     "type": "string"
@@ -128,8 +133,8 @@
                         "$ref": "Observation.json#/$defs/Observation"
                     },
                     "referencedAttribute": "images",
-                    "relationshipType": "many-to-many",
-                    "type": "array"
+                    "relationshipType": "one-to-many",
+                    "type": ["null", "array"]
                 }
             },
             "required": [

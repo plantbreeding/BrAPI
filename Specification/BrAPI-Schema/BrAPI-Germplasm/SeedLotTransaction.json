@@ -85,7 +85,7 @@
             "description": "The record of an event where material was moved in or out of a particular SeedLot",
             "type": "object",
             "brapi-metadata": {
-                "primaryModel": false
+                "primaryModel": true
             }
         }
     },
