@@ -1,2 +1,48 @@
+# BrAPI OpenAPI generation overrides (single-file variant).
+#
+# Identical to generator/openapi-options.yaml apart from:
+#   * separateByModule: false                   (emit one combined spec)
+#   * supplementalSpecification: ...            (global supplemental, instead
+#     of the per-module supplementalSpecificationFor used by openapi-options.yaml)
+#
+# This file only contains values that differ from the defaults shipped in
+# brapi-schema-tools' core/src/main/resources/openapi-options.yaml.
+# Maps are merged per-key, so any key not listed here keeps its default value.
+#
+# IMPORTANT: the available options and their defaults are tied to the version
+# of brapi-schema-tools used to run generation. That version is pinned in
+# generator/build.gradle via the `brapiSchemaToolsVersion` property. Bump
+# that property first, then review this file for new defaults that may make
+# some entries here redundant (or for newly-required overrides).
+#
+# See https://github.com/plantbreeding/brapi-schema-tools/wiki/GenerateOptions
+# for the full set of available options.
+
 separateByModule: false
+
+# Single combined supplemental spec (extra paths, parameters, responses that
+# are not derivable from the JSON schema). Applied globally rather than
+# per-module because separateByModule is false.
 supplementalSpecification: generator/openapi-Supplemental-Spec-V2.2-BrAPI-Core.yaml
+
+# Season needs a *NewRequest schema (default behaviour for Season is to skip it).
+generateNewRequestFor:
+    Season: true
+
+# These three types currently override the default behaviour to *not* generate
+# a PUT endpoint. Review whether this is still desired — the defaults have
+# been updated to enable PUT for them (see /calls.put, /pedigree.put, /plates.put).
+put:
+    generateFor:
+        Call: false
+        PedigreeNode: false
+        Plate: false
+
+properties:
+    pui:
+        linkPropertyFor:
+            Observation:
+                uploadedByPerson: false
+    linkTypeFor:
+        Person:
+            observations: none
