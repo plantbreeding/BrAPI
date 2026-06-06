@@ -41,6 +41,11 @@
                     "title": "ExternalReferences",
                     "type":  "array"
                 },
+                "imageContent": {
+                    "description": "The unique identifier of an image",
+                    "type": "string",
+                    "format": "binary"
+                },
                 "imageDbId": {
                     "description": "The unique identifier of an image",
                     "type": "string"
