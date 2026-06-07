@@ -2,7 +2,7 @@
     "openapi" : "3.0.0",
     "info" : {
         "title" : "BrAPI",
-        "version" : ""
+        "version" : "2.1"
     },
     "paths" : {
         "/allelematrix" : {
