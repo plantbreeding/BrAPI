@@ -1223,7 +1223,7 @@ type GermplasmAttributesSearchResponse {
 "A germplasm reference that is a direct child of this germplasm. These represent edges in the tree, connecting to other nodes."
 type GermplasmChild {
   "The child germplasm"
-  childGermplasmDbIds: ID
+  germplasmDbIds: ID
   """
   The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. 
   
@@ -4890,7 +4890,7 @@ input GermplasmAttributesInput {
 "A germplasm reference that is a direct child of this germplasm. These represent edges in the tree, connecting to other nodes."
 input GermplasmChildInput {
   "The child germplasm"
-  childGermplasm: GermplasmInput
+  germplasm: GermplasmInput
   """
   The type of parent used during crossing. Accepted values for this field are 'MALE', 'FEMALE', 'SELF', 'POPULATION', and 'CLONAL'. 
   

@@ -63,18 +63,18 @@
                         }
                     },
                     {
-                        "name" : "dataMatrixName",
+                        "name" : "dataMatrixNames",
                         "in" : "query",
-                        "description" : "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read Depth' etc). This list controls which data matrices are returned in the response.",
+                        "description" : "`dataMatrixNames` is a comma separated list of names (ie 'Genotype', 'Read Depth' etc). This list controls which data matrices are returned in the response.",
                         "required" : false,
                         "schema" : {
                             "type" : "string"
                         }
                     },
                     {
-                        "name" : "dataMatrixAbbreviation",
+                        "name" : "dataMatrixAbbreviations",
                         "in" : "query",
-                        "description" : "`dataMatrixAbbreviations` is a list of abbreviations (ie 'GT', 'RD' etc). This list controls which data matrices are returned in the response.",
+                        "description" : "`dataMatrixAbbreviations` is a comma separated list of abbreviations (ie 'GT', 'RD' etc). This list controls which data matrices are returned in the response.",
                         "required" : false,
                         "schema" : {
                             "type" : "string"
@@ -9317,6 +9317,9 @@
                         "$ref" : "#/components/parameters/pageSize"
                     },
                     {
+                        "$ref" : "#/components/parameters/pageToken"
+                    },
+                    {
                         "$ref" : "#/components/parameters/authorizationHeader"
                     }
                 ],
@@ -10346,6 +10349,9 @@
                         "$ref" : "#/components/parameters/pageSize"
                     },
                     {
+                        "$ref" : "#/components/parameters/pageToken"
+                    },
+                    {
                         "$ref" : "#/components/parameters/authorizationHeader"
                     }
                 ],
@@ -10564,20 +10570,16 @@
                         }
                     },
                     "dataMatrixAbbreviations" : {
-                        "type" : "array",
-                        "description" : "`dataMatrixAbbreviations` is a list of abbreviations (ie 'GT', 'RD' etc). This list controls which data matrices are returned in the response.",
+                        "type" : "string",
+                        "description" : "`dataMatrixAbbreviations` is a comma separated list of abbreviations (ie 'GT', 'RD' etc). This list controls which data matrices are returned in the response.",
                         "nullable" : true,
-                        "items" : {
-                            "type" : "string"
-                        }
+                        "example" : "GT,RD"
                     },
                     "dataMatrixNames" : {
-                        "type" : "array",
-                        "description" : "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read Depth' etc). This list controls which data matrices are returned in the response.",
+                        "type" : "string",
+                        "description" : "`dataMatrixNames` is a comma separated list of names (ie 'Genotype', 'Read Depth' etc). This list controls which data matrices are returned in the response.",
                         "nullable" : true,
-                        "items" : {
-                            "type" : "string"
-                        }
+                        "example" : "Genotype,Read Depth"
                     },
                     "dimensionCallSetPage" : {
                         "type" : "integer",
@@ -10733,20 +10735,16 @@
                         }
                     },
                     "dataMatrixAbbreviations" : {
-                        "type" : "array",
-                        "description" : "`dataMatrixAbbreviations` is a list of abbreviations (ie 'GT', 'RD' etc). This list controls which data matrices are returned in the response.",
+                        "type" : "string",
+                        "description" : "`dataMatrixAbbreviations` is a comma separated list of abbreviations (ie 'GT', 'RD' etc). This list controls which data matrices are returned in the response.",
                         "nullable" : true,
-                        "items" : {
-                            "type" : "string"
-                        }
+                        "example" : "GT,RD"
                     },
                     "dataMatrixNames" : {
-                        "type" : "array",
-                        "description" : "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read Depth' etc). This list controls which data matrices are returned in the response.",
+                        "type" : "string",
+                        "description" : "`dataMatrixNames` is a comma separated list of names (ie 'Genotype', 'Read Depth' etc). This list controls which data matrices are returned in the response.",
                         "nullable" : true,
-                        "items" : {
-                            "type" : "string"
-                        }
+                        "example" : "Genotype,Read Depth"
                     },
                     "expandHomozygotes" : {
                         "type" : "boolean",
@@ -11001,7 +10999,14 @@
                         "$ref" : "#/components/schemas/Method"
                     },
                     "ontologyReference" : {
-                        "$ref" : "#/components/schemas/OntologyReference"
+                        "anyOf" : [
+                            {
+                                "$ref" : "#/components/schemas/OntologyReference"
+                            },
+                            {
+                                "type" : "null"
+                            }
+                        ]
                     },
                     "scale" : {
                         "$ref" : "#/components/schemas/Scale"
@@ -12321,15 +12326,12 @@
             },
             "DataType" : {
                 "type" : "string",
-                "description" : "<p>Class of the scale, entries can be</p>\n<p>\"Code\" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. \"75VD\" means \"75 %\" of the plant is infected and the plant is very delayed.</p>\n<p>\"Date\" - The date class is for events expressed in a time format, See ISO 8601</p>\n<p>\"Duration\" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p>\n<p>\"Nominal\" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p>\n<p>\"Numerical\" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p>\n<p>\"Ordinal\" - Ordinal scales are scales composed of ordered categories</p>\n<p>\"Text\" - A free text is used to express the trait.</p>",
+                "description" : "The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.",
                 "enum" : [
-                    "Code",
-                    "Date",
-                    "Duration",
-                    "Nominal",
-                    "Numerical",
-                    "Ordinal",
-                    "Text"
+                    "string",
+                    "integer",
+                    "float",
+                    "boolean"
                 ]
             },
             "DatasetAuthorships" : {
@@ -12360,7 +12362,7 @@
             },
             "Dimension" : {
                 "type" : "string",
-                "description" : "The dimension of the matrix being paginated",
+                "description" : "the dimension of the matrix being paginated",
                 "enum" : [
                     "CALLSETS",
                     "VARIANTS"
@@ -12964,6 +12966,7 @@
                 "nullable" : true
             },
             "GeoJSONGeometry" : {
+                "type" : "object",
                 "nullable" : true,
                 "oneOf" : [
                     {
@@ -13202,7 +13205,14 @@
                         "$ref" : "#/components/schemas/Method"
                     },
                     "ontologyReference" : {
-                        "$ref" : "#/components/schemas/OntologyReference"
+                        "anyOf" : [
+                            {
+                                "$ref" : "#/components/schemas/OntologyReference"
+                            },
+                            {
+                                "type" : "null"
+                            }
+                        ]
                     },
                     "scale" : {
                         "$ref" : "#/components/schemas/Scale"
@@ -14045,29 +14055,20 @@
             },
             "GermplasmChild" : {
                 "required" : [
-                    "childGermplasmDbId",
-                    "childGermplasmName",
+                    "germplasmDbId",
                     "parentType"
                 ],
                 "type" : "object",
                 "properties" : {
-                    "childGermplasmDbId" : {
+                    "germplasmDbId" : {
                         "type" : "string"
                     },
-                    "childGermplasmName" : {
-                        "type" : "string"
+                    "germplasmName" : {
+                        "type" : "string",
+                        "nullable" : true
                     },
                     "parentType" : {
                         "$ref" : "#/components/schemas/ParentType"
-                    },
-                    "pedigreeNodeDbId" : {
-                        "type" : "string"
-                    },
-                    "pedigreeNodeName" : {
-                        "type" : "string"
-                    },
-                    "pedigreeNodePUI" : {
-                        "type" : "string"
                     }
                 },
                 "description" : "A germplasm reference that is a direct child of this germplasm. These represent edges in the tree, connecting to other nodes."
@@ -14454,10 +14455,6 @@
                         "type" : "string",
                         "nullable" : true
                     },
-                    "breedingMethodPUI" : {
-                        "type" : "string",
-                        "nullable" : true
-                    },
                     "collection" : {
                         "type" : "string",
                         "description" : "A specific panel/collection/population name this germplasm belongs to.",
@@ -14635,7 +14632,6 @@
             "GermplasmParent" : {
                 "required" : [
                     "germplasmDbId",
-                    "germplasmName",
                     "parentType"
                 ],
                 "type" : "object",
@@ -15867,14 +15863,6 @@
                     "additionalInfo" : {
                         "$ref" : "#/components/schemas/AdditionalInfo"
                     },
-                    "childLocationDbIds" : {
-                        "type" : "array",
-                        "description" : "The child locations that belong to this Location. \nFor example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.",
-                        "nullable" : true,
-                        "items" : {
-                            "type" : "string"
-                        }
-                    },
                     "coordinateDescription" : {
                         "type" : "string",
                         "description" : "Describes the precision and landmarks of the coordinate values used for a Location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)",
@@ -15949,10 +15937,6 @@
                         "type" : "string",
                         "nullable" : true
                     },
-                    "parentLocationPUI" : {
-                        "type" : "string",
-                        "nullable" : true
-                    },
                     "siteStatus" : {
                         "type" : "string",
                         "description" : "Description of the accessibility of the location (ex. Public, Private)",
@@ -16021,7 +16005,14 @@
                         }
                     },
                     "coordinates" : {
-                        "$ref" : "#/components/schemas/GeoJSONSearchArea"
+                        "anyOf" : [
+                            {
+                                "$ref" : "#/components/schemas/GeoJSONSearchArea"
+                            },
+                            {
+                                "type" : "null"
+                            }
+                        ]
                     },
                     "countryCodes" : {
                         "type" : "array",
@@ -16140,7 +16131,14 @@
                         }
                     },
                     "coordinates" : {
-                        "$ref" : "#/components/schemas/GeoJSONSearchArea"
+                        "anyOf" : [
+                            {
+                                "$ref" : "#/components/schemas/GeoJSONSearchArea"
+                            },
+                            {
+                                "type" : "null"
+                            }
+                        ]
                     },
                     "countryCodes" : {
                         "type" : "array",
@@ -16624,9 +16622,15 @@
                         "type" : "string",
                         "nullable" : true
                     },
-                    "seasonDbId" : {
-                        "type" : "string",
-                        "nullable" : true
+                    "season" : {
+                        "anyOf" : [
+                            {
+                                "$ref" : "#/components/schemas/Season"
+                            },
+                            {
+                                "type" : "null"
+                            }
+                        ]
                     },
                     "studyDbId" : {
                         "type" : "string",
@@ -17141,7 +17145,8 @@
                         "nullable" : true
                     },
                     "observationUnitDbId" : {
-                        "type" : "string"
+                        "type" : "string",
+                        "nullable" : true
                     }
                 },
                 "description" : "Observation levels indicate the granularity level at which the measurements are taken. `levelName` \ndefines the level, `levelOrder` defines where that level exists in the hierarchy of levels. \n`levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are \nat the bottom of the hierarchy (ie plant > 6). `levelCode` is an ID code for this level tag. Identify \nthis observation unit by each level of the hierarchy where it exists. \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** "
@@ -17279,7 +17284,14 @@
                         "nullable" : true
                     },
                     "positionCoordinateXType" : {
-                        "$ref" : "#/components/schemas/PositionCoordinateType"
+                        "anyOf" : [
+                            {
+                                "$ref" : "#/components/schemas/PositionCoordinateType"
+                            },
+                            {
+                                "type" : "null"
+                            }
+                        ]
                     },
                     "positionCoordinateY" : {
                         "type" : "string",
@@ -17287,7 +17299,14 @@
                         "nullable" : true
                     },
                     "positionCoordinateYType" : {
-                        "$ref" : "#/components/schemas/PositionCoordinateType"
+                        "anyOf" : [
+                            {
+                                "$ref" : "#/components/schemas/PositionCoordinateType"
+                            },
+                            {
+                                "type" : "null"
+                            }
+                        ]
                     }
                 },
                 "description" : "All positional and layout information related to this Observation Unit",
@@ -17770,7 +17789,14 @@
                         "nullable" : true
                     },
                     "ontologyReference" : {
-                        "$ref" : "#/components/schemas/OntologyReference"
+                        "anyOf" : [
+                            {
+                                "$ref" : "#/components/schemas/OntologyReference"
+                            },
+                            {
+                                "type" : "null"
+                            }
+                        ]
                     },
                     "scale" : {
                         "$ref" : "#/components/schemas/Scale"
@@ -18474,8 +18500,7 @@
             "PedigreeNode" : {
                 "required" : [
                     "germplasmDbId",
-                    "germplasmName",
-                    "germplasmPUI"
+                    "germplasmName"
                 ],
                 "type" : "object",
                 "properties" : {
@@ -23098,7 +23123,14 @@
                         "$ref" : "#/components/schemas/Method"
                     },
                     "ontologyReference" : {
-                        "$ref" : "#/components/schemas/OntologyReference"
+                        "anyOf" : [
+                            {
+                                "$ref" : "#/components/schemas/OntologyReference"
+                            },
+                            {
+                                "type" : "null"
+                            }
+                        ]
                     },
                     "scale" : {
                         "$ref" : "#/components/schemas/Scale"
@@ -26698,18 +26730,6 @@
                 },
                 "example" : "Bearer XXXX"
             },
-            "page" : {
-                "name" : "page",
-                "in" : "query",
-                "description" : "Used to request a specific page of data to be returned.\n\nThe page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.",
-                "required" : false,
-                "style" : "form",
-                "explode" : true,
-                "schema" : {
-                    "type" : "integer"
-                },
-                "example" : "0"
-            },
             "pageToken" : {
                 "name" : "pageToken",
                 "in" : "query",
@@ -26722,6 +26742,18 @@
                     "type" : "string"
                 },
                 "example" : "33c27874"
+            },
+            "page" : {
+                "name" : "page",
+                "in" : "query",
+                "description" : "Used to request a specific page of data to be returned.\n\nThe page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.",
+                "required" : false,
+                "style" : "form",
+                "explode" : true,
+                "schema" : {
+                    "type" : "integer"
+                },
+                "example" : "0"
             }
         },
         "securitySchemes" : {

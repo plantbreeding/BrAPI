@@ -6,7 +6,7 @@ These end points can be used to interact with Pedigree Trees. Each response will
 
 
 
-### Get - /pedigree [GET /brapi/v2/pedigree{?accessionNumber}{?collection}{?familyCode}{?binomialName}{?genus}{?species}{?synonym}{?includeParents}{?includeSiblings}{?includeProgeny}{?includeFullTree}{?pedigreeDepth}{?progenyDepth}{?commonCropName}{?programDbId}{?trialDbId}{?studyDbId}{?germplasmDbId}{?germplasmName}{?germplasmPUI}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /pedigree [GET /brapi/v2/pedigree{?accessionNumber}{?collection}{?familyCode}{?binomialName}{?genus}{?species}{?synonym}{?includeParents}{?includeSiblings}{?includeProgeny}{?includeFullTree}{?pedigreeDepth}{?progenyDepth}{?commonCropName}{?programDbId}{?trialDbId}{?studyDbId}{?germplasmDbId}{?germplasmName}{?germplasmPUI}{?externalReferenceID}{?externalReferenceId}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of pedigree nodes which represent a subset of a pedigree tree
 
@@ -68,6 +68,7 @@ Get a filtered list of pedigree nodes which represent a subset of a pedigree tre
     + germplasmDbId (Optional, ) ... Use this parameter to only return results associated with the given `Germplasm` unique identifier. <br/>Use `GET /germplasm` to find the list of available `Germplasm` on a server.
     + germplasmName (Optional, ) ... Use this parameter to only return results associated with the given `Germplasm` by its human readable name. <br/>Use `GET /germplasm` to find the list of available `Germplasm` on a server.
     + germplasmPUI (Optional, ) ... Use this parameter to only return results associated with the given `Germplasm` by its global permanent unique identifier. <br/>Use `GET /germplasm` to find the list of available `Germplasm` on a server.
+    + externalReferenceID (Optional, ) ... **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceId (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
     + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.

@@ -1826,21 +1826,19 @@ components:
           items:
             type: string
         dataMatrixAbbreviations:
-          type: array
-          description: "`dataMatrixAbbreviations` is a list of abbreviations (ie 'GT',\
-            \ 'RD' etc). This list controls which data matrices are returned in the\
-            \ response."
+          type: string
+          description: "`dataMatrixAbbreviations` is a comma separated list of abbreviations\
+            \ (ie 'GT', 'RD' etc). This list controls which data matrices are returned\
+            \ in the response."
           nullable: true
-          items:
-            type: string
+          example: "GT,RD"
         dataMatrixNames:
-          type: array
-          description: "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read\
-            \ Depth' etc). This list controls which data matrices are returned in\
-            \ the response."
+          type: string
+          description: "`dataMatrixNames` is a comma separated list of names (ie 'Genotype',\
+            \ 'Read Depth' etc). This list controls which data matrices are returned\
+            \ in the response."
           nullable: true
-          items:
-            type: string
+          example: "Genotype,Read Depth"
         dimensionCallSetPage:
           type: integer
           description: The requested page number for the CallSet dimension of the
@@ -2044,7 +2042,9 @@ components:
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
-          $ref: "#/components/schemas/OntologyReference"
+          anyOf:
+          - $ref: "#/components/schemas/OntologyReference"
+          - type: "null"
         scale:
           $ref: "#/components/schemas/Scale"
         scientist:
@@ -2791,6 +2791,12 @@ components:
             Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
+    Dimension:
+      type: string
+      description: the dimension of the matrix being paginated
+      enum:
+      - CALLSETS
+      - VARIANTS
     Donor:
       type: object
       properties:
@@ -2993,6 +2999,7 @@ components:
         easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
       nullable: true
     GeoJSONGeometry:
+      type: object
       nullable: true
       oneOf:
       - required:
@@ -3199,7 +3206,9 @@ components:
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
-          $ref: "#/components/schemas/OntologyReference"
+          anyOf:
+          - $ref: "#/components/schemas/OntologyReference"
+          - type: "null"
         scale:
           $ref: "#/components/schemas/Scale"
         scientist:
@@ -3943,23 +3952,17 @@ components:
         \ to the whole Germplasm instead of a single ObservationUnit."
     GermplasmChild:
       required:
-      - childGermplasmDbId
-      - childGermplasmName
+      - germplasmDbId
       - parentType
       type: object
       properties:
-        childGermplasmDbId:
+        germplasmDbId:
           type: string
-        childGermplasmName:
+        germplasmName:
           type: string
+          nullable: true
         parentType:
           $ref: "#/components/schemas/ParentType"
-        pedigreeNodeDbId:
-          type: string
-        pedigreeNodeName:
-          type: string
-        pedigreeNodePUI:
-          type: string
       description: "A germplasm reference that is a direct child of this germplasm.\
         \ These represent edges in the tree, connecting to other nodes."
     GermplasmMCPD:
@@ -4425,9 +4428,6 @@ components:
         breedingMethodName:
           type: string
           nullable: true
-        breedingMethodPUI:
-          type: string
-          nullable: true
         collection:
           type: string
           description: A specific panel/collection/population name this germplasm
@@ -4639,7 +4639,6 @@ components:
     GermplasmParent:
       required:
       - germplasmDbId
-      - germplasmName
       - parentType
       type: object
       properties:
@@ -5254,7 +5253,9 @@ components:
           items:
             type: string
         coordinates:
-          $ref: "#/components/schemas/GeoJSONSearchArea"
+          anyOf:
+          - $ref: "#/components/schemas/GeoJSONSearchArea"
+          - type: "null"
         countryCodes:
           type: array
           description: "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)\
@@ -6137,7 +6138,6 @@ components:
       required:
       - germplasmDbId
       - germplasmName
-      - germplasmPUI
       type: object
       properties:
         additionalInfo:
@@ -8183,7 +8183,9 @@ components:
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
-          $ref: "#/components/schemas/OntologyReference"
+          anyOf:
+          - $ref: "#/components/schemas/OntologyReference"
+          - type: "null"
         scale:
           $ref: "#/components/schemas/Scale"
         scientist:
@@ -10036,19 +10038,6 @@ components:
         pattern: ^Bearer .*$
         type: string
       example: Bearer XXXX
-    page:
-      name: page
-      in: query
-      description: |-
-        Used to request a specific page of data to be returned.
-
-        The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: integer
-      example: "0"
     pageToken:
       name: pageToken
       in: query
@@ -10064,6 +10053,19 @@ components:
       schema:
         type: string
       example: 33c27874
+    page:
+      name: page
+      in: query
+      description: |-
+        Used to request a specific page of data to be returned.
+
+        The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: integer
+      example: "0"
   securitySchemes:
     AuthorizationToken:
       type: http

@@ -1886,7 +1886,6 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
  
 
 + Parameters
-    + Accept (Required, ) ... A standard HTTP request header that is used to request a specific content type (JSON, CSV, etc) which is "acceptable" to the client and should be returned by the server
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
     + searchResultsDbId (Required, ) ... Unique identifier which references the search results
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
@@ -2005,5 +2004,10 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
 + Response 403 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 

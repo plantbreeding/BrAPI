@@ -62,78 +62,22 @@
     * Changed property `listType` (string):
       - Nullable changed: `true` -> `null`
 
+##### `POST` /search/locations
+
+
+###### Request:
+
+* Changed content type : `application/json`
+
+    * Changed property `coordinates` (object -> null):
+      - Type changed: `object` -> `null`
+
 ##### `GET` /allelematrix
 
-
-###### Parameters:
-
-Deleted: `dataMatrixNames` in `query`
-
-Deleted: `dataMatrixAbbreviations` in `query`
-
-Added: `dataMatrixName` in `query`
-
-Added: `dataMatrixAbbreviation` in `query`
 
 ###### Return Type:
 
 New response : **404**
-
-##### `PUT` /samples
-
-
-###### Return Type:
-
-Deleted response : **404**
-
-##### `GET` /search/calls/{searchResultsDbId}
-
-
-###### Parameters:
-
-Deleted: `pageToken` in `query`
-
-##### `POST` /search/observations
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    * Changed property `observationLevelRelationships` (array)
-
-        Changed items (array):
-
-            * Changed property `observationUnitDbId` (string):
-              - Nullable changed: `true` -> `null`
-
-##### `POST` /search/observationunits
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    * Changed property `observationLevelRelationships` (array)
-
-        Changed items (array):
-
-            * Changed property `observationUnitDbId` (string):
-              - Nullable changed: `true` -> `null`
-
-##### `GET` /search/variants/{searchResultsDbId}
-
-
-###### Parameters:
-
-Deleted: `pageToken` in `query`
-
-##### `GET` /seedlots/{seedLotDbId}/transactions
-
-
-###### Parameters:
-
-Deleted: `transactionDbId` in `query`
 
 ##### `POST` /attributes
 
@@ -144,10 +88,8 @@ Deleted: `transactionDbId` in `query`
 
     Changed items (array):
 
-        * Changed property `ontologyReference` (object):
-          - Nullable changed: `true` -> `false`
-
-            New properties: `ontologyReferenceDbId`
+        * Changed property `ontologyReference` (object -> null):
+          - Type changed: `object` -> `null`
 
 ##### `PUT` /attributes/{attributeDbId}
 
@@ -156,10 +98,57 @@ Deleted: `transactionDbId` in `query`
 
 * Changed content type : `application/json`
 
-    * Changed property `ontologyReference` (object):
-      - Nullable changed: `true` -> `false`
+    * Changed property `ontologyReference` (object -> null):
+      - Type changed: `object` -> `null`
 
-        New properties: `ontologyReferenceDbId`
+##### `PUT` /samples
+
+
+###### Return Type:
+
+Deleted response : **404**
+
+##### `POST` /search/allelematrix
+
+
+###### Request:
+
+* Changed content type : `application/json`
+
+    * Changed property `dataMatrixAbbreviations` (array -> string):
+      - Type changed: `array` -> `string`
+
+    * Changed property `dataMatrixNames` (array -> string):
+      - Type changed: `array` -> `string`
+
+##### `GET` /seedlots/{seedLotDbId}/transactions
+
+
+###### Parameters:
+
+Deleted: `transactionDbId` in `query`
+
+##### `POST` /variables
+
+
+###### Request:
+
+* Changed content type : `application/json`
+
+    Changed items (array):
+
+        * Changed property `ontologyReference` (object -> null):
+          - Type changed: `object` -> `null`
+
+##### `PUT` /variables/{observationVariableDbId}
+
+
+###### Request:
+
+* Changed content type : `application/json`
+
+    * Changed property `ontologyReference` (object -> null):
+      - Type changed: `object` -> `null`
 
 ##### `POST` /images
 
@@ -177,8 +166,8 @@ Deleted: `transactionDbId` in `query`
 
         * Changed property `imageLocation` (object)
 
-            * Changed property `geometry` (object -> null):
-              - Type changed: `object` -> `null`
+            * Changed property `geometry` (object):
+              - Discriminator property changed
 
 ##### `PUT` /images/{imageDbId}
 
@@ -194,8 +183,8 @@ Deleted: `transactionDbId` in `query`
 
     * Changed property `imageLocation` (object)
 
-        * Changed property `geometry` (object -> null):
-          - Type changed: `object` -> `null`
+        * Changed property `geometry` (object):
+          - Discriminator property changed
 
 ##### `POST` /locations
 
@@ -206,12 +195,10 @@ Deleted: `transactionDbId` in `query`
 
     Changed items (array):
 
-        New properties: `childLocationDbIds`, `parentLocationPUI`
-
         * Changed property `coordinates` (object)
 
-            * Changed property `geometry` (object -> null):
-              - Type changed: `object` -> `null`
+            * Changed property `geometry` (object):
+              - Discriminator property changed
 
 ##### `PUT` /locations/{locationDbId}
 
@@ -220,12 +207,10 @@ Deleted: `transactionDbId` in `query`
 
 * Changed content type : `application/json`
 
-    New properties: `childLocationDbIds`, `parentLocationPUI`
-
     * Changed property `coordinates` (object)
 
-        * Changed property `geometry` (object -> null):
-          - Type changed: `object` -> `null`
+        * Changed property `geometry` (object):
+          - Discriminator property changed
 
 ##### `PUT` /observations
 
@@ -243,14 +228,13 @@ Deleted response : **404**
 
     Changed items (array):
 
-        New properties: `seasonDbId`
-
-        Deleted properties: `season`
+        * Changed property `season` (object -> null):
+          - Type changed: `object` -> `null`
 
         * Changed property `geoCoordinates` (object)
 
-            * Changed property `geometry` (object -> null):
-              - Type changed: `object` -> `null`
+            * Changed property `geometry` (object):
+              - Discriminator property changed
 
 ###### Return Type:
 
@@ -270,18 +254,11 @@ Deleted response : **404**
             * Changed property `geoCoordinates` (object -> array):
               - Type changed: `object` -> `array`
 
-            * Changed property `positionCoordinateXType` (string):
-              - Nullable changed: `true` -> `null`
+            * Changed property `positionCoordinateXType` (string -> null):
+              - Type changed: `string` -> `null`
 
-            * Changed property `positionCoordinateYType` (string):
-              - Nullable changed: `true` -> `null`
-
-            * Changed property `observationLevelRelationships` (array)
-
-                Changed items (array):
-
-                    * Changed property `observationUnitDbId` (string):
-                      - Nullable changed: `true` -> `null`
+            * Changed property `positionCoordinateYType` (string -> null):
+              - Type changed: `string` -> `null`
 
 ##### `GET` /pedigree
 
@@ -290,113 +267,12 @@ Deleted response : **404**
 
 Deleted response : **404**
 
-Changed response : **200**
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (array):
-
-                New required properties:
-                - `germplasmPUI`
-
-                * Changed property `progeny` (array)
-
-                    Changed items (array):
-
-                        New properties: `childGermplasmDbId`, `childGermplasmName`, `pedigreeNodeDbId`, `pedigreeNodeName`, `pedigreeNodePUI`
-
-                        Deleted properties: `germplasmDbId`, `germplasmName`
-
-                        New required properties:
-                        - `childGermplasmDbId`
-                        - `childGermplasmName`
-
-                        Removed required properties:
-                        - `germplasmDbId`
-
-                * Changed property `parents` (array)
-
-                    Changed items (array):
-
-                        New required properties:
-                        - `germplasmName`
-
 ##### `POST` /pedigree
 
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    Changed items (array):
-
-        New required properties:
-        - `germplasmPUI`
-
-        * Changed property `progeny` (array)
-
-            Changed items (array):
-
-                New properties: `childGermplasmDbId`, `childGermplasmName`, `pedigreeNodeDbId`, `pedigreeNodeName`, `pedigreeNodePUI`
-
-                Deleted properties: `germplasmDbId`, `germplasmName`
-
-                New required properties:
-                - `childGermplasmDbId`
-                - `childGermplasmName`
-
-                Removed required properties:
-                - `germplasmDbId`
-
-        * Changed property `parents` (array)
-
-            Changed items (array):
-
-                New required properties:
-                - `germplasmName`
 
 ###### Return Type:
 
 Deleted response : **404**
-
-Changed response : **200**
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (array):
-
-                New required properties:
-                - `germplasmPUI`
-
-                * Changed property `progeny` (array)
-
-                    Changed items (array):
-
-                        New properties: `childGermplasmDbId`, `childGermplasmName`, `pedigreeNodeDbId`, `pedigreeNodeName`, `pedigreeNodePUI`
-
-                        Deleted properties: `germplasmDbId`, `germplasmName`
-
-                        New required properties:
-                        - `childGermplasmDbId`
-                        - `childGermplasmName`
-
-                        Removed required properties:
-                        - `germplasmDbId`
-
-                * Changed property `parents` (array)
-
-                    Changed items (array):
-
-                        New required properties:
-                        - `germplasmName`
 
 ##### `POST` /search/images
 
@@ -407,127 +283,8 @@ Changed response : **200**
 
     * Changed property `imageLocation` (object)
 
-        * Changed property `geometry` (object -> null):
-          - Type changed: `object` -> `null`
-
-##### `POST` /search/locations
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    * Changed property `coordinates` (object):
-      - Nullable changed: `true` -> `null`
-
-        * Changed property `geometry` (object -> null):
-          - Type changed: `object` -> `null`
-
-##### `POST` /search/pedigree
-
-
-###### Return Type:
-
-Changed response : **200**
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (array):
-
-                New required properties:
-                - `germplasmPUI`
-
-                * Changed property `progeny` (array)
-
-                    Changed items (array):
-
-                        New properties: `childGermplasmDbId`, `childGermplasmName`, `pedigreeNodeDbId`, `pedigreeNodeName`, `pedigreeNodePUI`
-
-                        Deleted properties: `germplasmDbId`, `germplasmName`
-
-                        New required properties:
-                        - `childGermplasmDbId`
-                        - `childGermplasmName`
-
-                        Removed required properties:
-                        - `germplasmDbId`
-
-                * Changed property `parents` (array)
-
-                    Changed items (array):
-
-                        New required properties:
-                        - `germplasmName`
-
-##### `GET` /search/pedigree/{searchResultsDbId}
-
-
-###### Return Type:
-
-Changed response : **200**
-
-* Changed content type : `application/json`
-
-    * Changed property `result` (object)
-
-        * Changed property `data` (array)
-
-            Changed items (array):
-
-                New required properties:
-                - `germplasmPUI`
-
-                * Changed property `progeny` (array)
-
-                    Changed items (array):
-
-                        New properties: `childGermplasmDbId`, `childGermplasmName`, `pedigreeNodeDbId`, `pedigreeNodeName`, `pedigreeNodePUI`
-
-                        Deleted properties: `germplasmDbId`, `germplasmName`
-
-                        New required properties:
-                        - `childGermplasmDbId`
-                        - `childGermplasmName`
-
-                        Removed required properties:
-                        - `germplasmDbId`
-
-                * Changed property `parents` (array)
-
-                    Changed items (array):
-
-                        New required properties:
-                        - `germplasmName`
-
-##### `POST` /variables
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    Changed items (array):
-
-        * Changed property `ontologyReference` (object):
-          - Nullable changed: `true` -> `false`
-
-            New properties: `ontologyReferenceDbId`
-
-##### `PUT` /variables/{observationVariableDbId}
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    * Changed property `ontologyReference` (object):
-      - Nullable changed: `true` -> `false`
-
-        New properties: `ontologyReferenceDbId`
+        * Changed property `geometry` (object):
+          - Discriminator property changed
 
 ##### `POST` /germplasm
 
@@ -538,16 +295,14 @@ Changed response : **200**
 
     Changed items (array):
 
-        New properties: `breedingMethodPUI`
-
         * Changed property `germplasmOrigin` (array)
 
             Changed items (array):
 
                 * Changed property `coordinates` (object)
 
-                    * Changed property `geometry` (object -> null):
-                      - Type changed: `object` -> `null`
+                    * Changed property `geometry` (object):
+                      - Discriminator property changed
 
 ##### `PUT` /germplasm/{germplasmDbId}
 
@@ -556,14 +311,12 @@ Changed response : **200**
 
 * Changed content type : `application/json`
 
-    New properties: `breedingMethodPUI`
-
     * Changed property `germplasmOrigin` (array)
 
         Changed items (array):
 
             * Changed property `coordinates` (object)
 
-                * Changed property `geometry` (object -> null):
-                  - Type changed: `object` -> `null`
+                * Changed property `geometry` (object):
+                  - Discriminator property changed
 

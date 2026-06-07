@@ -203,7 +203,9 @@ Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Serv
         "observationVariableDbId"
     ],
     "sortOrder": [
+        "asc",
         "ASC",
+        "desc",
         "DESC"
     ],
     "studyCodes": [

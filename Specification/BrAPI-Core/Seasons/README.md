@@ -257,6 +257,11 @@ Get the a single Season
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
 
 
 
@@ -345,5 +350,10 @@ Update existing Seasons
 + Response 403 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 
