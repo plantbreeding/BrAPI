@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: BrAPI-Genotyping
-  version: "2.1"
+  version: "2.2"
 paths:
   /allelematrix:
     get:
@@ -51,17 +51,16 @@ paths:
           format: int32
       - name: dataMatrixNames
         in: query
-        description: "`dataMatrixNames` is a comma separated list of names (ie 'Genotype',\
-          \ 'Read Depth' etc). This list controls which data matrices are returned\
-          \ in the response."
+        description: "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read Depth'\
+          \ etc). This list controls which data matrices are returned in the response."
         required: false
         schema:
           type: string
       - name: dataMatrixAbbreviations
         in: query
-        description: "`dataMatrixAbbreviations` is a comma separated list of abbreviations\
-          \ (ie 'GT', 'RD' etc). This list controls which data matrices are returned\
-          \ in the response."
+        description: "`dataMatrixAbbreviations` is a list of abbreviations (ie 'GT',\
+          \ 'RD' etc). This list controls which data matrices are returned in the\
+          \ response."
         required: false
         schema:
           type: string
@@ -148,8 +147,6 @@ paths:
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
-        "404":
-          $ref: "#/components/responses/404NotFound"
   /calls:
     get:
       tags:
@@ -857,6 +854,8 @@ paths:
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
     post:
       tags:
       - Samples
@@ -1090,14 +1089,14 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/CallListResponse"
-        "404":
-          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
   /maps/{mapDbId}:
     get:
       tags:
@@ -1142,14 +1141,14 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/LinkageGroupListResponse"
-        "404":
-          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
   /plates/{plateDbId}:
     get:
       tags:
@@ -1375,14 +1374,14 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/CallListResponse"
-        "404":
-          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
   /variantsets/{variantSetDbId}:
     get:
       tags:
@@ -1453,14 +1452,14 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/CallListResponse"
-        "404":
-          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
   /variantsets/{variantSetDbId}/callsets:
     get:
       tags:
@@ -1493,14 +1492,14 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/CallSetListResponse"
-        "404":
-          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
   /variantsets/{variantSetDbId}/variants:
     get:
       tags:
@@ -1527,14 +1526,14 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/VariantListResponse"
-        "404":
-          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
   /search/allelematrix:
     post:
       tags:
@@ -1872,14 +1871,14 @@ paths:
           $ref: "#/components/responses/AlleleMatrixSingleResponse"
         "202":
           $ref: "#/components/responses/202AcceptedSearchResponse"
-        "404":
-          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
   /search/calls/{searchResultsDbId}:
     get:
       tags:
@@ -1915,14 +1914,14 @@ paths:
           $ref: "#/components/responses/CallListResponse"
         "202":
           $ref: "#/components/responses/202AcceptedSearchResponse"
-        "404":
-          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
   /search/callsets/{searchResultsDbId}:
     get:
       tags:
@@ -1957,14 +1956,14 @@ paths:
           $ref: "#/components/responses/CallSetListResponse"
         "202":
           $ref: "#/components/responses/202AcceptedSearchResponse"
-        "404":
-          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
   /search/markerpositions/{searchResultsDbId}:
     get:
       tags:
@@ -2000,14 +1999,14 @@ paths:
           $ref: "#/components/responses/MarkerPositionListResponse"
         "202":
           $ref: "#/components/responses/202AcceptedSearchResponse"
-        "404":
-          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
   /search/plates/{searchResultsDbId}:
     get:
       tags:
@@ -2042,14 +2041,14 @@ paths:
           $ref: "#/components/responses/PlateListResponse"
         "202":
           $ref: "#/components/responses/202AcceptedSearchResponse"
-        "404":
-          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
   /search/references/{searchResultsDbId}:
     get:
       tags:
@@ -2084,14 +2083,14 @@ paths:
           $ref: "#/components/responses/ReferenceListResponse"
         "202":
           $ref: "#/components/responses/202AcceptedSearchResponse"
-        "404":
-          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
   /search/referencesets/{searchResultsDbId}:
     get:
       tags:
@@ -2126,14 +2125,14 @@ paths:
           $ref: "#/components/responses/ReferenceSetListResponse"
         "202":
           $ref: "#/components/responses/202AcceptedSearchResponse"
-        "404":
-          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
   /search/samples/{searchResultsDbId}:
     get:
       tags:
@@ -2168,14 +2167,14 @@ paths:
           $ref: "#/components/responses/SampleListResponse"
         "202":
           $ref: "#/components/responses/202AcceptedSearchResponse"
-        "404":
-          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
   /search/variants/{searchResultsDbId}:
     get:
       tags:
@@ -2211,14 +2210,14 @@ paths:
           $ref: "#/components/responses/VariantListResponse"
         "202":
           $ref: "#/components/responses/202AcceptedSearchResponse"
-        "404":
-          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
   /search/variantsets/{searchResultsDbId}:
     get:
       tags:
@@ -2253,14 +2252,38 @@ paths:
           $ref: "#/components/responses/VariantSetListResponse"
         "202":
           $ref: "#/components/responses/202AcceptedSearchResponse"
-        "404":
-          $ref: "#/components/responses/404NotFound"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
+  /variantsets/extract:
+    post:
+      tags:
+      - VariantSets
+      summary: Perform `extract` on `VariantSet`
+      description: Perform the `extract` action on `VariantSet`.
+      parameters:
+      - $ref: "#/components/parameters/authorizationHeader"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VariantSetsExtractRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/VariantSetSingleResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
 components:
   schemas:
     AdditionalInfo:
@@ -2373,19 +2396,21 @@ components:
           items:
             type: string
         dataMatrixAbbreviations:
-          type: string
-          description: "`dataMatrixAbbreviations` is a comma separated list of abbreviations\
-            \ (ie 'GT', 'RD' etc). This list controls which data matrices are returned\
-            \ in the response."
+          type: array
+          description: "`dataMatrixAbbreviations` is a list of abbreviations (ie 'GT',\
+            \ 'RD' etc). This list controls which data matrices are returned in the\
+            \ response."
           nullable: true
-          example: "GT,RD"
+          items:
+            type: string
         dataMatrixNames:
-          type: string
-          description: "`dataMatrixNames` is a comma separated list of names (ie 'Genotype',\
-            \ 'Read Depth' etc). This list controls which data matrices are returned\
-            \ in the response."
+          type: array
+          description: "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read\
+            \ Depth' etc). This list controls which data matrices are returned in\
+            \ the response."
           nullable: true
-          example: "Genotype,Read Depth"
+          items:
+            type: string
         dimensionCallSetPage:
           type: integer
           description: The requested page number for the CallSet dimension of the
@@ -2523,19 +2548,21 @@ components:
           items:
             type: string
         dataMatrixAbbreviations:
-          type: string
-          description: "`dataMatrixAbbreviations` is a comma separated list of abbreviations\
-            \ (ie 'GT', 'RD' etc). This list controls which data matrices are returned\
-            \ in the response."
+          type: array
+          description: "`dataMatrixAbbreviations` is a list of abbreviations (ie 'GT',\
+            \ 'RD' etc). This list controls which data matrices are returned in the\
+            \ response."
           nullable: true
-          example: "GT,RD"
+          items:
+            type: string
         dataMatrixNames:
-          type: string
-          description: "`dataMatrixNames` is a comma separated list of names (ie 'Genotype',\
-            \ 'Read Depth' etc). This list controls which data matrices are returned\
-            \ in the response."
+          type: array
+          description: "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read\
+            \ Depth' etc). This list controls which data matrices are returned in\
+            \ the response."
           nullable: true
-          example: "Genotype,Read Depth"
+          items:
+            type: string
         expandHomozygotes:
           type: boolean
           description: Should homozygotes be expanded (true) or collapsed into a single
@@ -2760,9 +2787,9 @@ components:
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
-          anyOf:
+          nullable: true
+          allOf:
           - $ref: "#/components/schemas/OntologyReference"
-          - type: "null"
         scale:
           $ref: "#/components/schemas/Scale"
         scientist:
@@ -4531,7 +4558,9 @@ components:
           items:
             type: string
         listType:
-          $ref: "#/components/schemas/ListType"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/ListType"
         programDbIds:
           type: array
           description: "A BrAPI Program represents the high level organization or\
@@ -5121,6 +5150,47 @@ components:
         \ associated observed variable (see observed variables). \nAlternatively,\
         \ it is possible to use samples for more detailed tracing of sub-plant units,\
         \ attaching the observations to them instead.\" "
+    ObservationUnitHierarchyLevelRequest:
+      type: object
+      properties:
+        programDbIds:
+          type: array
+          description: "A BrAPI Program represents the high level organization or\
+            \ group who is responsible for conducting trials and studies. Things like\
+            \ Breeding Programs and Funded Projects are considered BrAPI Programs.\
+            \ \n\nUse this parameter to only return results associated with the given\
+            \ programs. \n\nUse `GET /programs` to find the list of available programs\
+            \ on a server."
+          items:
+            type: string
+        programNames:
+          type: array
+          description: |-
+            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+
+            Use `GET /programs` to find the list of available programs on a server.
+          items:
+            type: string
+        studyDbIds:
+          type: array
+          description: List of study identifiers to search for
+          items:
+            type: string
+        studyNames:
+          type: array
+          description: List of study names to filter search results
+          items:
+            type: string
+        trialDbIds:
+          type: array
+          description: The ID which uniquely identifies a trial to search for
+          items:
+            type: string
+        trialNames:
+          type: array
+          description: The human readable name of a trial to search for
+          items:
+            type: string
     ObservationUnitRequest:
       type: object
       properties:
@@ -7545,7 +7615,64 @@ components:
     SeedLotTransactionRequest:
       type: object
       properties:
-        transactionDbIs:
+        commonCropNames:
+          type: array
+          description: "The BrAPI Common Crop Name is the simple, generalized, widely\
+            \ accepted name of the organism being researched. It is most often used\
+            \ in multi-crop systems where digital resources need to be divided at\
+            \ a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples\
+            \ of common crop names.\n\nUse this parameter to only return results associated\
+            \ with the given crops. \n\nUse `GET /commoncropnames` to find the list\
+            \ of available crops on a server."
+          items:
+            type: string
+        crossDbIds:
+          type: array
+          description: Search for Cross with this unique id
+          items:
+            type: string
+        crossNames:
+          type: array
+          description: Search for Cross with this human readable name
+          items:
+            type: string
+        germplasmDbIds:
+          type: array
+          description: List of IDs which uniquely identify germplasm to search for
+          nullable: true
+          items:
+            type: string
+        germplasmNames:
+          type: array
+          description: List of human readable names to identify germplasm to search
+            for
+          nullable: true
+          items:
+            type: string
+        programDbIds:
+          type: array
+          description: "A BrAPI Program represents the high level organization or\
+            \ group who is responsible for conducting trials and studies. Things like\
+            \ Breeding Programs and Funded Projects are considered BrAPI Programs.\
+            \ \n\nUse this parameter to only return results associated with the given\
+            \ programs. \n\nUse `GET /programs` to find the list of available programs\
+            \ on a server."
+          items:
+            type: string
+        programNames:
+          type: array
+          description: |-
+            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+
+            Use `GET /programs` to find the list of available programs on a server.
+          items:
+            type: string
+        seedLotDbIds:
+          type: array
+          description: Unique id for a seed lot on this server
+          items:
+            type: string
+        transactionDbIds:
           type: array
           description: Unique id for a Transaction that has occurred
           items:
@@ -8059,9 +8186,9 @@ components:
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
-          anyOf:
+          nullable: true
+          allOf:
           - $ref: "#/components/schemas/OntologyReference"
-          - type: "null"
         scale:
           $ref: "#/components/schemas/Scale"
         scientist:
@@ -8912,6 +9039,52 @@ components:
             type: string
       description: A VariantSet is a collection of variants and variant calls intended
         to be analyzed together.
+    VariantSetsExtractRequest:
+      type: object
+      properties:
+        callSetDbIds:
+          type: array
+          description: The CallSet to search.
+          items:
+            type: string
+        expandHomozygotes:
+          type: boolean
+          description: Should homozygotes be expanded (true) or collapsed into a single
+            occurrence (false)
+          example: true
+        sepPhased:
+          type: string
+          description: The string used as a separator for phased allele calls.
+          example: "~"
+        sepUnphased:
+          type: string
+          description: The string used as a separator for unphased allele calls.
+          example: '|'
+        studyDbIds:
+          type: array
+          description: List of study identifiers to search for
+          items:
+            type: string
+        studyNames:
+          type: array
+          description: List of study names to filter search results
+          items:
+            type: string
+        unknownString:
+          type: string
+          description: The string used as a representation for missing data.
+          example: "-"
+        variantDbIds:
+          type: array
+          description: The Variant to search.
+          items:
+            type: string
+        variantSetDbIds:
+          type: array
+          description: The VariantSet to search.
+          items:
+            type: string
+      description: Request object for extracting data subsets as new Variant Sets
     basePagination:
       required:
       - currentPage
@@ -9274,6 +9447,32 @@ components:
                 $ref: "#/components/schemas/metadata"
               result:
                 $ref: "#/components/schemas/Sample"
+    StudyObservationLevelsListResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            title: StudyObservationLevelsListResponse
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: "#/components/schemas/Context"
+              metadata:
+                $ref: "#/components/schemas/metadata"
+              result:
+                required:
+                - data
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: array
+                      items:
+                        $ref: "#/components/schemas/ObservationUnitHierarchyLevel"
     ReferenceSetListResponse:
       description: OK
       content:
@@ -9656,6 +9855,30 @@ components:
                     type: array
                     items:
                       $ref: "#/components/schemas/Reference"
+    ProgramCommonCropNameListResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            title: ProgramCommonCropNameListResponse
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: "#/components/schemas/Context"
+              metadata:
+                $ref: "#/components/schemas/metadata"
+              result:
+                required:
+                - data
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: string
     AlleleMatrixListResponse:
       description: OK
       content:
