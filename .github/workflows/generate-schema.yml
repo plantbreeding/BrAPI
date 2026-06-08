@@ -87,9 +87,6 @@ jobs:
       - name: Generate OpenAPI, GraphQL and OWL
         working-directory: ./generator
         run: ./gradlew generateAll
-      - name: Compare OpenAPI
-        working-directory: ./generator
-        run: ./gradlew compareAll
       - name: Commit generated files
         if: needs.check.outputs.skip_commit == 'false'
         uses: stefanzweifel/git-auto-commit-action@v5

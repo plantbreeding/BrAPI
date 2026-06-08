@@ -1,0 +1,90 @@
+{
+    "$defs": {
+        "VariantSetsExtractRequest": {
+            "description": "Request object for extracting data subsets as new Variant Sets",
+            "type": "object",
+            "properties": {
+                "callSetDbIds": {
+                    "description": "The CallSet to search.",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "9569cfc4",
+                        "da1e888c"
+                    ]
+                },
+                "expandHomozygotes": {
+                    "description": "Should homozygotes be expanded (true) or collapsed into a single occurrence (false)",
+                    "type": "boolean",
+                    "example": true
+                },
+                "sepPhased": {
+                    "description": "The string used as a separator for phased allele calls.",
+                    "type": "string",
+                    "example": "~"
+                },
+                "sepUnphased": {
+                    "description": "The string used as a separator for unphased allele calls.",
+                    "type": "string",
+                    "example": "|"
+                },
+                "studyDbIds": {
+                    "description": "List of study identifiers to search for",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "cf6c4bd4",
+                        "691e69d6"
+                    ]
+                },
+                "studyNames": {
+                    "description": "List of study names to filter search results",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "The First Bob Study 2017",
+                        "Wheat Yield Trial 246"
+                    ]
+                },
+                "unknownString": {
+                    "description": "The string used as a representation for missing data.",
+                    "type": "string",
+                    "example": "-"
+                },
+                "variantDbIds": {
+                    "description": "The Variant to search.",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "c80f068b",
+                        "eb7c5f50"
+                    ]
+                },
+                "variantSetDbIds": {
+                    "description": "The VariantSet to search.",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "b2903842",
+                        "dcbb8558"
+                    ]
+                }
+            },
+            "brapi-metadata": {
+                "request": true
+            }
+        }
+    },
+    "$id": "https://brapi.org/Specification/BrAPI-Schema/Requests/VariantSetsExtractRequest.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema"
+}

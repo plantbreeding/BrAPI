@@ -353,6 +353,7 @@
             "brapi-metadata": {
                 "primaryModel": true,
                 "controlledVocabularyProperties": [
+                    "observationLevels",
                     "studyType"
                 ]
             }
