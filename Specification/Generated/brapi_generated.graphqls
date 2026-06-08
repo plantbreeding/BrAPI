@@ -1476,6 +1476,8 @@ type Image {
   "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI."
   externalReferences: [ExternalReference]
   "The unique identifier of an image"
+  imageContent: String
+  "The unique identifier of an image"
   imageDbId: String
   "The name of the image file. Might be the same as 'imageName', but could be different."
   imageFileName: String
@@ -1502,10 +1504,10 @@ type Image {
   imageWidth: Int
   "The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc"
   mimeType: String
+  "A list of observation Ids this image is associated with, if applicable."
+  observationDbId: [ID]
   "The related observation unit identifier, if relevant."
   observationUnitDbIds: ID
-  "A list of observation Ids this image is associated with, if applicable."
-  observations(observationsInput: ObservationsInput, paging: PageInput): ObservationListResponse
 }
 
 type ImageListResponse {
@@ -1826,8 +1828,6 @@ type Mutation {
   createObservation(observationInput: ObservationInput): Observation
   "Create a new ObservationUnit"
   createObservationUnit(observationUnitInput: ObservationUnitInput): ObservationUnit
-  "Create a new ObservationVariable"
-  createObservationVariable(commonCropName: String, observationVariableInput: ObservationVariableInput): ObservationVariable
   "Create a new Ontology"
   createOntology(ontologyInput: OntologyInput): Ontology
   "Create a new Person"
@@ -1848,6 +1848,8 @@ type Mutation {
   createSeason(seasonInput: SeasonInput): Season
   "Create a new SeedLot"
   createSeedLot(seedLotInput: SeedLotInput): SeedLot
+  "Create a new SeedLotTransaction"
+  createSeedLotTransaction(seedLotTransactionInput: SeedLotTransactionInput): SeedLotTransaction
   "Create a new Study"
   createStudy(commonCropName: String, studyInput: StudyInput): Study
   "Create a new Trait"
@@ -1878,8 +1880,6 @@ type Mutation {
   updateObservation(observationInput: ObservationInput): Observation
   "Update the details for an existing ObservationUnit"
   updateObservationUnit(observationUnitInput: ObservationUnitInput): ObservationUnit
-  "Update the details for an existing ObservationVariable"
-  updateObservationVariable(commonCropName: String, observationVariableInput: ObservationVariableInput): ObservationVariable
   "Update the details for an existing Ontology"
   updateOntology(ontologyInput: OntologyInput): Ontology
   "Update the details for an existing Person"
@@ -1900,6 +1900,8 @@ type Mutation {
   updateSeason(seasonInput: SeasonInput): Season
   "Update the details for an existing SeedLot"
   updateSeedLot(seedLotInput: SeedLotInput): SeedLot
+  "Update the details for an existing SeedLotTransaction"
+  updateSeedLotTransaction(seedLotTransactionInput: SeedLotTransactionInput): SeedLotTransaction
   "Update the details for an existing Study"
   updateStudy(commonCropName: String, studyInput: StudyInput): Study
   "Update the details for an existing Trait"
@@ -1941,7 +1943,7 @@ type Observation {
   "The ID which uniquely identifies an observation unit"
   observationUnitDbIds: ID
   "The ID which uniquely identifies an observation variable"
-  observationVariableDbIds: ID
+  observationVariable: ObservationVariable
   "The season for this Observation"
   seasonDbIds: ID
   "The ID which uniquely identifies a study within the given database server"
@@ -1957,6 +1959,48 @@ type Observation {
 type ObservationListResponse {
   data: [Observation]
   page: PageInfo
+}
+
+type ObservationTable {
+  "The 2D matrix of observation data. ObservationVariables and other metadata are the columns, ObservationUnits are the rows."
+  data: [[String]]
+  """
+  <p>The table is REQUIRED to have the following columns</p>
+  <ul>
+    <li>observationUnitDbId - Each row is related to one Observation Unit</li>
+    <li>observationTimeStamp - Each row is has a time stamp for when the observation was taken</li>
+    <li>At least one column with an observationVariableDbId</li>
+  </ul>
+  <p>The table may have any or all of the following OPTIONAL columns. Included columns are decided by the server developer</p>
+  <ul>
+    <li>observationUnitName</li>
+    <li>studyDbId</li>
+    <li>studyName</li>
+    <li>germplasmDbId</li>
+    <li>germplasmName</li>
+    <li>positionCoordinateX</li>
+    <li>positionCoordinateY</li>
+    <li>year</li>
+  </ul>
+  <p>The table also may have any number of Observation Unit Hierarchy Level columns. For example:</p>
+  <ul>
+    <li>field</li>
+    <li>plot</li>
+    <li>sub-plot</li>
+    <li>plant</li>
+    <li>pot</li>
+    <li>block</li>
+    <li>entry</li>
+    <li>rep</li>
+  </ul>
+  <p>The JSON representation provides a pair of extra arrays for defining the headers of the table. 
+  The first array "headerRow" will always contain "observationUnitDbId" and any or all of the OPTIONAL column header names. 
+  The second array "observationVariables" contains the names and DbIds for the Observation Variables represented in the table. 
+  By appending the two arrays, you can construct the complete header row of the table. </p>
+  """
+  headerRow: [HeaderRow]
+  "The list of observation variables which have values recorded for them in the data matrix. Append to the 'headerRow' for complete header row of the table."
+  observationVariables: [ObservationVariable]
 }
 
 "A Treatment applied an Observation Unit at a given Modality/Level for a specific Factor."
@@ -2153,89 +2197,62 @@ type ObservationUnitPosition {
   positionCoordinateYType: PositionCoordinateType
 }
 
+type ObservationUnitTable {
+  "The 2D matrix of observation data. ObservationVariables and other metadata are the columns, ObservationUnits are the rows."
+  data: [[String]]
+  """
+  <p>The table is REQUIRED to have the following columns</p>
+  <ul>
+    <li>observationUnitDbId - Each row is related to one Observation Unit</li>
+    <li>At least one column with an observationVariableDbId</li>
+  </ul>
+  <p>The table may have any or all of the following OPTIONAL columns. Included columns are decided by the server developer</p>
+  <ul>
+    <li>observationUnitName</li>
+    <li>studyDbId</li>
+    <li>studyName</li>
+    <li>germplasmDbId</li>
+    <li>germplasmName</li>
+    <li>positionCoordinateX</li>
+    <li>positionCoordinateY</li>
+    <li>year</li>
+  </ul>
+  <p>The table also may have any number of Observation Unit Hierarchy Level columns. For example:</p>
+  <ul>
+    <li>field</li>
+    <li>plot</li>
+    <li>sub-plot</li>
+    <li>plant</li>
+    <li>pot</li>
+    <li>block</li>
+    <li>entry</li>
+    <li>rep</li>
+  </ul>
+  <p>The JSON representation provides a pair of extra arrays for defining the headers of the table. 
+  The first array "headerRow" will always contain "observationUnitDbId" and any or all of the OPTIONAL column header names. 
+  The second array "observationVariables" contains the names and DbIds for the Observation Variables represented in the table. 
+  By appending the two arrays, you can construct the complete header row of the table. </p>
+  """
+  headerRow: [HeaderRow]
+  "The list of observation variables which have values recorded for them in the data matrix. Append to the 'headerRow' for complete header row of the table."
+  observationVariables: [ObservationVariable]
+}
+
 type ObservationUnitsSearchResponse {
   data: [ObservationUnit]
   searchResultsDbId: String
 }
 
-type ObservationVariable implements Variable {
-  "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
-  additionalInfo: AdditionalInfo
-  "Crop name (examples: \"Maize\", \"Wheat\")"
-  commonCropName: String
-  "Indication of how trait is routinely used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])"
-  contextOfUse: [String]
-  "Variable default value. (examples: \"red\", \"2.3\", etc.)"
-  defaultValue: String
-  "A URL to the human readable documentation of an object"
-  documentationURL: String
-  "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI."
-  externalReferences: [ExternalReference]
-  "Growth stage at which measurement is made (examples: \"flowering\")"
-  growthStage: String
-  "Name of institution submitting the variable"
-  institution: String
-  "2 letter ISO 639-1 code for the language of submission of the variable."
-  language: String
-  """
-  A description of the way an Observation should be collected. 
-  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Method "estimation" or "drone image processing". 
-  """
-  methodDbIds: ID
-  """
-  Variable unique identifier
-  
-  MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.
-  """
+type ObservationVariable {
+  "Variable unique identifier"
   observationVariableDbId: String
-  """
-  Variable name (usually a short name)
-  
-  MIAPPE V1.1 (DM-84) Variable name - Name of the variable.
-  """
+  "Variable name (usually a short name)"
   observationVariableName: String
-  "The Permanent Unique Identifier of a Observation Variable, usually in the form of a URI"
-  observationVariablePUI: String
-  """
-  MIAPPE V1.1
-  
-  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology
-  
-  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-  
-  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-  
-  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).
-  """
-  ontologyReference: OntologyReference
-  """
-  A Scale describes the units and acceptable values for an ObservationVariable. 
-  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".
-  """
-  scaleDbIds: ID
-  "Name of scientist submitting the variable."
-  scientist: String
-  "Variable status. (examples: \"recommended\", \"obsolete\", \"legacy\", etc.)"
-  status: String
-  "Timestamp when the Variable was added (ISO 8601)"
-  submissionTimestamp: String
-  "Other variable names"
-  synonyms: [String]
-  """
-  A Trait describes what property is being observed. 
-  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height". 
-  """
-  traitDbIds: ID
 }
 
 type ObservationVariableListResponse {
   data: [ObservationVariable]
   page: PageInfo
-}
-
-type ObservationVariablesSearchResponse {
-  data: [ObservationVariable]
-  searchResultsDbId: String
 }
 
 type ObservationsSearchResponse {
@@ -2641,12 +2658,6 @@ type Query {
   observationUnits(observationUnitsInput: ObservationUnitsInput, paging: PageInput): ObservationUnitListResponse
   "Returns ObservationUnit objects"
   observationUnitsSearch(observationUnitInput: ObservationUnitsInput): ObservationUnitsSearchResponse
-  "Returns a ObservationVariable object by id"
-  observationVariable(commonCropName: String, observationVariableDbId: ID): ObservationVariable
-  "Returns ObservationVariable objects"
-  observationVariables(observationVariablesInput: ObservationVariablesInput, paging: PageInput): ObservationVariableListResponse
-  "Returns ObservationVariable objects"
-  observationVariablesSearch(observationVariableInput: ObservationVariablesInput): ObservationVariablesSearchResponse
   "Returns Observation objects"
   observations(observationsInput: ObservationsInput, paging: PageInput): ObservationListResponse
   "Returns Observation objects"
@@ -2713,6 +2724,12 @@ type Query {
   seasonsSearch(seasonInput: SeasonsInput): SeasonsSearchResponse
   "Returns a SeedLot object by id"
   seedLot(commonCropName: String, seedLotDbId: ID): SeedLot
+  "Returns a SeedLotTransaction object by id"
+  seedLotTransaction(commonCropName: String, seedLotTransactionDbId: ID): SeedLotTransaction
+  "Returns SeedLotTransaction objects"
+  seedLotTransactions(paging: PageInput, seedLotTransactionsInput: SeedLotTransactionsInput): SeedLotTransactionListResponse
+  "Returns SeedLotTransaction objects"
+  seedLotTransactionsSearch(seedLotTransactionInput: SeedLotTransactionsInput): SeedLotTransactionsSearchResponse
   "Returns SeedLot objects"
   seedLots(paging: PageInput, seedLotsInput: SeedLotsInput): SeedLotListResponse
   "Returns SeedLot objects"
@@ -3044,7 +3061,7 @@ type SeedLot {
   "Description the storage location"
   storageLocation: String
   "The complete history of transactions for this seed lot. This includes seed increases, seed usage (planting), and trading with other breeding programs."
-  transactions: [SeedLotTransaction]
+  transactionDbId: [ID]
   "A description of the things being counted in a SeedLot (seeds, bulbs, kg, tree, etc)"
   units: String
 }
@@ -3074,6 +3091,16 @@ type SeedLotTransaction {
   transactionTimestamp: String
   "A description of the things being transferred between SeedLots in a transaction (seeds, bulbs, kg, etc)"
   units: String
+}
+
+type SeedLotTransactionListResponse {
+  data: [SeedLotTransaction]
+  page: PageInfo
+}
+
+type SeedLotTransactionsSearchResponse {
+  data: [SeedLotTransaction]
+  searchResultsDbId: String
 }
 
 type SeedLotsSearchResponse {
@@ -3190,7 +3217,7 @@ type Study {
   
   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. 
   """
-  observationVariables(observationVariablesInput: ObservationVariablesInput, paging: PageInput): ObservationVariableListResponse
+  observationVariables(commonCropName: String, observationVariablesInput: ObservationVariablesInput, paging: PageInput): ObservationVariableListResponse
   "A program identifier to search for"
   programDbIds: ID
   "List of seasons over which this study was performed."
@@ -3500,6 +3527,8 @@ type VariantSet {
   calls(callsInput: CallsInput, paging: PageInput): CallListResponse
   "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI."
   externalReferences: [ExternalReference]
+  "Will perform a search for `Calls` which match the search criteria in `variantSetsExtractRequest`. The results of the search will be used to create a new `VariantSet` on the server. The new `VariantSet` will be returned."
+  extractDbIds: ID
   """
   The 'metadataField' indicates which types of genotyping data and metadata are available in the VariantSet. 
   <br> When possible, these field names and abbreviations should follow the VCF standard 
@@ -3695,6 +3724,28 @@ enum FileFormat {
   application_zip
   text_csv
   text_tsv
+}
+
+"valid header fields"
+enum HeaderRow {
+  block
+  entry
+  field
+  germplasmDbId
+  germplasmName
+  observationTimeStamp
+  observationUnitDbId
+  observationUnitName
+  plant
+  plot
+  positionCoordinateX
+  positionCoordinateY
+  pot
+  rep
+  studyDbId
+  studyName
+  sub_plot
+  year
 }
 
 "The type of objects that are referenced in a List"
@@ -5422,6 +5473,8 @@ input ImageInput {
   "Filter by External References"
   externalReferences: [ExternalReferenceInput]
   "The unique identifier of an image"
+  imageContent: String
+  "The unique identifier of an image"
   imageDbId: String
   "The name of the image file. Might be the same as 'imageName', but could be different."
   imageFileName: String
@@ -6283,76 +6336,10 @@ input ObservationUnitsInput {
 }
 
 input ObservationVariableInput {
-  "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
-  additionalInfo: AdditionalInfoInput
-  "Crop name (examples: \"Maize\", \"Wheat\")"
-  commonCropName: String
-  "Indication of how trait is routinely used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])"
-  contextOfUse: [String]
-  "Variable default value. (examples: \"red\", \"2.3\", etc.)"
-  defaultValue: String
-  "A URL to the human readable documentation of an object"
-  documentationURL: String
-  "Filter by External References"
-  externalReferences: [ExternalReferenceInput]
-  "Growth stage at which measurement is made (examples: \"flowering\")"
-  growthStage: String
-  "Name of institution submitting the variable"
-  institution: String
-  "2 letter ISO 639-1 code for the language of submission of the variable."
-  language: String
-  """
-  A description of the way an Observation should be collected. 
-  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Method "estimation" or "drone image processing". 
-  """
-  method: MethodInput
-  """
-  Variable unique identifier
-  
-  MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.
-  """
+  "Variable unique identifier"
   observationVariableDbId: String
-  """
-  Variable name (usually a short name)
-  
-  MIAPPE V1.1 (DM-84) Variable name - Name of the variable.
-  """
+  "Variable name (usually a short name)"
   observationVariableName: String
-  "The Permanent Unique Identifier of a Observation Variable, usually in the form of a URI"
-  observationVariablePUI: String
-  "observations"
-  observations: [ObservationInput]
-  """
-  MIAPPE V1.1
-  
-  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology
-  
-  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-  
-  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-  
-  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).
-  """
-  ontologyReference: OntologyReferenceInput
-  """
-  A Scale describes the units and acceptable values for an ObservationVariable. 
-  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".
-  """
-  scale: ScaleInput
-  "Name of scientist submitting the variable."
-  scientist: String
-  "Variable status. (examples: \"recommended\", \"obsolete\", \"legacy\", etc.)"
-  status: String
-  studies: [StudyInput]
-  "Timestamp when the Variable was added (ISO 8601)"
-  submissionTimestamp: String
-  "Other variable names"
-  synonyms: [String]
-  """
-  A Trait describes what property is being observed. 
-  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height". 
-  """
-  trait: TraitInput
 }
 
 input ObservationVariablesInput {
@@ -7554,6 +7541,45 @@ input SeedLotTransactionInput {
   units: String
 }
 
+input SeedLotTransactionsInput {
+  """
+  The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.
+  
+  Use this parameter to only return results associated with the given crops. 
+  
+  Use `GET /commoncropnames` to find the list of available crops on a server.
+  """
+  commonCropNames: [String]
+  "Search for Cross with this unique id"
+  crossDbIds: [String]
+  "Search for Cross with this human readable name"
+  crossNames: [String]
+  "List of IDs which uniquely identify germplasm to search for"
+  germplasmDbIds: [String]
+  "List of human readable names to identify germplasm to search for"
+  germplasmNames: [String]
+  """
+  A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
+  
+  Use this parameter to only return results associated with the given programs. 
+  
+  Use `GET /programs` to find the list of available programs on a server.
+  """
+  programDbIds: [String]
+  """
+  Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+  
+  Use `GET /programs` to find the list of available programs on a server.
+  """
+  programNames: [String]
+  "Unique id for a seed lot on this server"
+  seedLotDbIds: [String]
+  "Unique id for a Transaction that has occurred"
+  transactionDbIds: [String]
+  "Filter results to only include transactions directed to the specific Seed Lot (TO), away from the specific Seed Lot (FROM), or both (BOTH). The default value for this parameter is BOTH"
+  transactionDirection: TransactionDirection
+}
+
 input SeedLotsInput {
   """
   The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.
@@ -8174,6 +8200,8 @@ input VariantSetInput {
   calls: [CallInput]
   "Filter by External References"
   externalReferences: [ExternalReferenceInput]
+  "Will perform a search for `Calls` which match the search criteria in `variantSetsExtractRequest`. The results of the search will be used to create a new `VariantSet` on the server. The new `VariantSet` will be returned."
+  extract: VariantSetInput
   """
   The 'metadataField' indicates which types of genotyping data and metadata are available in the VariantSet. 
   <br> When possible, these field names and abbreviations should follow the VCF standard 
