@@ -1,3 +1,3 @@
 separateByModule: false
 supplementalSpecificationFor:
-  BrAPI-Core: generator/openapi-Supplemental-Spec-V2.1-BrAPI-Core.yaml
+  BrAPI-Core: generator/openapi-Supplemental-Spec-V2.2-BrAPI-Core.yaml

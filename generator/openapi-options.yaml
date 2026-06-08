@@ -2,7 +2,7 @@ generate: true
 descriptionFormat: TODO Description for %s
 supplementalSpecification: ''
 supplementalSpecificationFor:
-    BrAPI-Core: 'C:\Users\ps664\Documents\BrAPI\API\generator\openapi-Supplemental-Spec-V2.1-BrAPI-Core.yaml'
+    BrAPI-Core: generator/openapi-Supplemental-Spec-V2.2-BrAPI-Core.yaml
 separateByModule: true
 generateNewRequest: true
 generateNewRequestFor:
