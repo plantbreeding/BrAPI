@@ -481,12 +481,15 @@
                     "examples": [1]
                 },
                 "firstRepRand": {
-                    "description": "Is the first replication random.",
+                    "description": "A description of how the first replication is treated in the Experimental Design.",
                     "type": [
                         "null",
-                        "boolean"
+                        "string"
                     ],
-                    "examples": [true]
+                    "examples": [
+                        "First Rep in each Set Sequential",
+                        "Process like all other reps"
+                    ]
                 },
                 "experimentFactors": {
                     "description": "The factors used in the experimental design.",
