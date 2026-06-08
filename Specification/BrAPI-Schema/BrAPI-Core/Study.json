@@ -485,7 +485,10 @@
                         "null",
                         "string"
                     ],
-                    "example": "TODO"
+                    "examples": [
+                        "First Rep in each Set Sequential",
+                        "Process like all other reps"
+                    ]
                 },
                 "experimentFactors": {
                     "description": "The factors used in the experimental design.",
