@@ -1,66 +1,26 @@
 #### What's Deleted
 ---
 
-##### `GET` /commoncropnames
+##### `POST` /search/variables
 
 
-##### `POST` /delete/images
+##### `GET` /search/variables/{searchResultsDbId}
 
 
-##### `POST` /delete/observations
+##### `GET` /variables
 
 
-##### `PUT` /images/{imageDbId}/imagecontent
+##### `POST` /variables
 
 
-##### `GET` /observationlevels
+##### `GET` /variables/{observationVariableDbId}
 
 
-##### `GET` /observations/table
-
-
-##### `GET` /observationunits/table
-
-
-##### `GET` /seedlots/transactions
-
-
-##### `POST` /seedlots/transactions
-
-
-##### `GET` /serverinfo
-
-
-##### `POST` /variantsets/extract
-
-
-##### `PUT` /observations/{observationDbId}
-
-
-##### `PUT` /observationunits/{observationUnitDbId}
-
-
-##### `PUT` /calls
-
-
-##### `PUT` /plates
-
-
-##### `PUT` /pedigree
+##### `PUT` /variables/{observationVariableDbId}
 
 
 #### What's Changed
 ---
-
-##### `POST` /search/lists
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    * Changed property `listType` (string):
-      - Nullable changed: `true` -> `null`
 
 ##### `POST` /search/locations
 
@@ -72,153 +32,6 @@
     * Changed property `coordinates` (object -> null):
       - Type changed: `object` -> `null`
 
-##### `GET` /allelematrix
-
-
-###### Return Type:
-
-New response : **404**
-
-##### `POST` /attributes
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    Changed items (array):
-
-        * Changed property `ontologyReference` (object -> null):
-          - Type changed: `object` -> `null`
-
-##### `PUT` /attributes/{attributeDbId}
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    * Changed property `ontologyReference` (object -> null):
-      - Type changed: `object` -> `null`
-
-##### `PUT` /samples
-
-
-###### Return Type:
-
-Deleted response : **404**
-
-##### `POST` /search/allelematrix
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    * Changed property `dataMatrixAbbreviations` (array -> string):
-      - Type changed: `array` -> `string`
-
-    * Changed property `dataMatrixNames` (array -> string):
-      - Type changed: `array` -> `string`
-
-##### `GET` /seedlots/{seedLotDbId}/transactions
-
-
-###### Parameters:
-
-Deleted: `transactionDbId` in `query`
-
-##### `POST` /variables
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    Changed items (array):
-
-        * Changed property `ontologyReference` (object -> null):
-          - Type changed: `object` -> `null`
-
-##### `PUT` /variables/{observationVariableDbId}
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    * Changed property `ontologyReference` (object -> null):
-      - Type changed: `object` -> `null`
-
-##### `POST` /images
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    Changed items (array):
-
-        Deleted properties: `observationDbIds`
-
-        * Changed property `mimeType` (string):
-          - Pattern changed: `image/.*` -> `null`
-
-        * Changed property `imageLocation` (object)
-
-            * Changed property `geometry` (object):
-              - Discriminator property changed
-
-##### `PUT` /images/{imageDbId}
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    Deleted properties: `observationDbIds`
-
-    * Changed property `mimeType` (string):
-      - Pattern changed: `image/.*` -> `null`
-
-    * Changed property `imageLocation` (object)
-
-        * Changed property `geometry` (object):
-          - Discriminator property changed
-
-##### `POST` /locations
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    Changed items (array):
-
-        * Changed property `coordinates` (object)
-
-            * Changed property `geometry` (object):
-              - Discriminator property changed
-
-##### `PUT` /locations/{locationDbId}
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    * Changed property `coordinates` (object)
-
-        * Changed property `geometry` (object):
-          - Discriminator property changed
-
-##### `PUT` /observations
-
-
-###### Return Type:
-
-Deleted response : **404**
-
 ##### `POST` /observations
 
 
@@ -228,95 +41,18 @@ Deleted response : **404**
 
     Changed items (array):
 
-        * Changed property `season` (object -> null):
-          - Type changed: `object` -> `null`
+        New properties: `observationVariable`
 
-        * Changed property `geoCoordinates` (object)
+        Deleted properties: `observationVariableDbId`, `observationVariableName`
 
-            * Changed property `geometry` (object):
-              - Discriminator property changed
-
-###### Return Type:
-
-Deleted response : **404**
-
-##### `POST` /observationunits
+##### `PUT` /observations/{observationDbId}
 
 
 ###### Request:
 
 * Changed content type : `application/json`
 
-    Changed items (array):
+    New properties: `observationVariable`
 
-        * Changed property `observationUnitPosition` (object)
-
-            * Changed property `geoCoordinates` (object -> array):
-              - Type changed: `object` -> `array`
-
-            * Changed property `positionCoordinateXType` (string -> null):
-              - Type changed: `string` -> `null`
-
-            * Changed property `positionCoordinateYType` (string -> null):
-              - Type changed: `string` -> `null`
-
-##### `GET` /pedigree
-
-
-###### Return Type:
-
-Deleted response : **404**
-
-##### `POST` /pedigree
-
-
-###### Return Type:
-
-Deleted response : **404**
-
-##### `POST` /search/images
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    * Changed property `imageLocation` (object)
-
-        * Changed property `geometry` (object):
-          - Discriminator property changed
-
-##### `POST` /germplasm
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    Changed items (array):
-
-        * Changed property `germplasmOrigin` (array)
-
-            Changed items (array):
-
-                * Changed property `coordinates` (object)
-
-                    * Changed property `geometry` (object):
-                      - Discriminator property changed
-
-##### `PUT` /germplasm/{germplasmDbId}
-
-
-###### Request:
-
-* Changed content type : `application/json`
-
-    * Changed property `germplasmOrigin` (array)
-
-        Changed items (array):
-
-            * Changed property `coordinates` (object)
-
-                * Changed property `geometry` (object):
-                  - Discriminator property changed
+    Deleted properties: `observationVariableDbId`, `observationVariableName`
 

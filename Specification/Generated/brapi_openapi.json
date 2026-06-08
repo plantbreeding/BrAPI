@@ -7602,16 +7602,6 @@
           },
           "style" : "form"
         }, {
-          "description" : "Permanent unique identifier which references the search results",
-          "explode" : true,
-          "in" : "query",
-          "name" : "searchResultsDbId",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          },
-          "style" : "form"
-        }, {
           "description" : "Timestamp range start",
           "explode" : true,
           "in" : "query",
@@ -27500,7 +27490,7 @@
           },
           "safetyDuplicateInstitutes" : {
             "items" : {
-              "$ref" : "#/components/schemas/GermplasmMCPD_safetyDuplicateInstitutes_inner"
+              "$ref" : "#/components/schemas/GermplasmMCPD_breedingInstitutes_inner"
             },
             "nullable" : true,
             "type" : "array"
@@ -29983,7 +29973,7 @@
               "levelName" : "field"
             } ],
             "items" : {
-              "$ref" : "#/components/schemas/ObservationUnitLevelRelationship_1"
+              "$ref" : "#/components/schemas/ObservationUnitLevelRelationship"
             },
             "nullable" : true,
             "type" : "array"
@@ -30001,7 +29991,7 @@
               "levelName" : "plot"
             } ],
             "items" : {
-              "$ref" : "#/components/schemas/ObservationUnitLevel_1"
+              "$ref" : "#/components/schemas/ObservationUnitLevel"
             },
             "nullable" : true,
             "type" : "array"
@@ -30271,7 +30261,7 @@
           "observations" : {
             "description" : "All observations attached to this observation unit. \n\nDefault for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.",
             "items" : {
-              "$ref" : "#/components/schemas/Observation_1"
+              "$ref" : "#/components/schemas/Observation"
             },
             "nullable" : true,
             "type" : "array"
@@ -30566,7 +30556,7 @@
             "$ref" : "#/components/schemas/GeoJSON"
           },
           "observationLevel" : {
-            "$ref" : "#/components/schemas/ObservationUnitLevel_2"
+            "$ref" : "#/components/schemas/ObservationUnitLevel"
           },
           "observationLevelRelationships" : {
             "description" : "Observation levels indicate the granularity level at which the measurements are taken. `levelName` \ndefines the level, `levelOrder` defines where that level exists in the hierarchy of levels. \n`levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are \nat the bottom of the hierarchy (ie plant > 6). `levelCode` is an ID code for this level tag. Identify \nthis observation unit by each level of the hierarchy where it exists. \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** ",
@@ -30584,7 +30574,7 @@
               "levelOrder" : 2
             } ],
             "items" : {
-              "$ref" : "#/components/schemas/ObservationUnitLevelRelationship_1"
+              "$ref" : "#/components/schemas/ObservationUnitLevelRelationship"
             },
             "nullable" : true,
             "type" : "array"
@@ -30700,7 +30690,7 @@
               "levelName" : "field"
             } ],
             "items" : {
-              "$ref" : "#/components/schemas/ObservationUnitLevelRelationship_1"
+              "$ref" : "#/components/schemas/ObservationUnitLevelRelationship"
             },
             "nullable" : true,
             "type" : "array"
@@ -30718,7 +30708,7 @@
               "levelName" : "plot"
             } ],
             "items" : {
-              "$ref" : "#/components/schemas/ObservationUnitLevel_1"
+              "$ref" : "#/components/schemas/ObservationUnitLevel"
             },
             "nullable" : true,
             "type" : "array"
@@ -33227,7 +33217,7 @@
           "sourceGermplasm" : {
             "description" : "All known corresponding Germplasm",
             "items" : {
-              "$ref" : "#/components/schemas/Reference_sourceGermplasm_inner"
+              "$ref" : "#/components/schemas/PedigreeNodeDEP_siblings_inner"
             },
             "nullable" : true,
             "type" : "array"
@@ -33340,7 +33330,7 @@
           "sourceGermplasm" : {
             "description" : "All known corresponding Germplasm",
             "items" : {
-              "$ref" : "#/components/schemas/ReferenceSet_sourceGermplasm_inner"
+              "$ref" : "#/components/schemas/PedigreeNodeDEP_siblings_inner"
             },
             "nullable" : true,
             "type" : "array"
@@ -35390,7 +35380,7 @@
               "levelOrder" : 2
             } ],
             "items" : {
-              "$ref" : "#/components/schemas/ObservationUnitHierarchyLevel_1"
+              "$ref" : "#/components/schemas/ObservationUnitHierarchyLevel"
             },
             "nullable" : true,
             "type" : "array"
@@ -35598,7 +35588,7 @@
               "levelOrder" : 2
             } ],
             "items" : {
-              "$ref" : "#/components/schemas/ObservationUnitHierarchyLevel_1"
+              "$ref" : "#/components/schemas/ObservationUnitHierarchyLevel"
             },
             "nullable" : true,
             "type" : "array"
@@ -37809,29 +37799,6 @@
         "title" : "GeoJSON",
         "type" : "object"
       },
-      "geoJSONSearchArea" : {
-        "description" : "A GeoJSON Polygon which describes an area to search for other GeoJSON objects. All contained Points and intersecting Polygons should be returned as search results. \n\nAll coordinates are decimal values on the WGS84 geographic coordinate reference system.",
-        "example" : {
-          "geometry" : {
-            "coordinates" : [ [ [ -77.456654, 42.241133 ], [ -75.414133, 41.508282 ], [ -76.506042, 42.417373 ], [ -77.456654, 42.241133 ] ] ],
-            "type" : "Polygon"
-          },
-          "type" : "Feature"
-        },
-        "properties" : {
-          "geometry" : {
-            "$ref" : "#/components/schemas/GeoJSON_Geometry"
-          },
-          "type" : {
-            "default" : "Feature",
-            "description" : "The literal string \"Feature\"",
-            "example" : "Feature",
-            "type" : "string"
-          }
-        },
-        "title" : "GeoJSONSearchArea",
-        "type" : "object"
-      },
       "linearRing" : {
         "description" : "An array of at least four positions where the first equals the last",
         "example" : [ [ -77.456654, 42.241133, 494 ], [ -75.414133, 41.508282, 571 ], [ -76.506042, 42.417373, 123 ], [ -77.456654, 42.241133, 346 ] ],
@@ -38351,21 +38318,6 @@
         "title" : "callSetResponse",
         "type" : "object"
       },
-      "commonCropNamesResponse_result" : {
-        "properties" : {
-          "data" : {
-            "description" : "The array of crop names available on the server",
-            "example" : [ "Tomatillo", "Paw Paw" ],
-            "items" : {
-              "description" : "supported crop name",
-              "type" : "string"
-            },
-            "type" : "array"
-          }
-        },
-        "required" : [ "data" ],
-        "type" : "object"
-      },
       "commonCropNamesResponse" : {
         "properties" : {
           "@context" : {
@@ -38375,7 +38327,7 @@
             "$ref" : "#/components/schemas/metadata"
           },
           "result" : {
-            "$ref" : "#/components/schemas/commonCropNamesResponse_result"
+            "$ref" : "#/components/schemas/GermplasmAttributeCategoryListResponse_result"
           }
         },
         "required" : [ "metadata", "result" ],
@@ -39827,62 +39779,6 @@
         },
         "type" : "object"
       },
-      "ObservationUnitLevelRelationship_1" : {
-        "description" : "Observation levels indicate the granularity level at which the measurements are taken. `levelName` \ndefines the level, `levelOrder` defines where that level exists in the hierarchy of levels. \n`levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are \nat the bottom of the hierarchy (ie plant > 6). `levelCode` is an ID code for this level tag. Identify \nthis observation unit by each level of the hierarchy where it exists. \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** ",
-        "properties" : {
-          "levelCode" : {
-            "description" : "An ID code or number to represent a real thing that may or may not be an an observation unit.\n<br/>For example, if the 'levelName' is 'plot', then the 'levelCode' would be the plot number or plot barcode. If this plot is also considered an ObservationUnit, then the appropriate observationUnitDbId should also be recorded.\n<br/>If the 'levelName' is 'field', then the 'levelCode' might be something like '3' or 'F3' to indicate the third field at a research station. ",
-            "example" : "Plot_123",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "levelName" : {
-            "description" : "A name for this level \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
-            "example" : "plot",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "levelOrder" : {
-            "description" : "`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers \nare at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9). \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
-            "example" : 2,
-            "nullable" : true,
-            "type" : "integer"
-          },
-          "observationUnitDbId" : {
-            "description" : "The ID which uniquely identifies an observation unit\n<br/>If this level has on ObservationUnit associated with it, record the observationUnitDbId here. This is intended to construct a strict hierarchy of observationUnits. \n<br/>If there is no ObservationUnit associated with this level, this field can set to NULL or omitted from the response.",
-            "example" : "5ab883e9",
-            "nullable" : true,
-            "type" : "string"
-          }
-        },
-        "title" : "ObservationUnitLevelRelationship",
-        "type" : "object"
-      },
-      "ObservationUnitLevel_1" : {
-        "description" : "Observation levels indicate the granularity level at which the measurements are taken. `levelName` \ndefines the level, `levelOrder` defines where that level exists in the hierarchy of levels. \n`levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are \nat the bottom of the hierarchy (ie plant > 6). `levelCode` is an ID code for this level tag. Identify \nthis observation unit by each level of the hierarchy where it exists. \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** ",
-        "properties" : {
-          "levelCode" : {
-            "description" : "An ID code or number to represent a real thing that may or may not be an an observation unit.\n<br/>For example, if the 'levelName' is 'plot', then the 'levelCode' would be the plot number or plot barcode. If this plot is also considered an ObservationUnit, then the appropriate observationUnitDbId should also be recorded.\n<br/>If the 'levelName' is 'field', then the 'levelCode' might be something like '3' or 'F3' to indicate the third field at a research station. ",
-            "example" : "Plot_123",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "levelName" : {
-            "description" : "A name for this level \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
-            "example" : "plot",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "levelOrder" : {
-            "description" : "`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers \nare at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9). \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
-            "example" : 2,
-            "nullable" : true,
-            "type" : "integer"
-          }
-        },
-        "title" : "ObservationUnitLevel",
-        "type" : "object"
-      },
       "_search_observations_post_request" : {
         "properties" : {
           "commonCropNames" : {
@@ -39968,7 +39864,7 @@
               "levelName" : "field"
             } ],
             "items" : {
-              "$ref" : "#/components/schemas/ObservationUnitLevelRelationship_1"
+              "$ref" : "#/components/schemas/ObservationUnitLevelRelationship"
             },
             "nullable" : true,
             "type" : "array"
@@ -39986,7 +39882,7 @@
               "levelName" : "plot"
             } ],
             "items" : {
-              "$ref" : "#/components/schemas/ObservationUnitLevel_1"
+              "$ref" : "#/components/schemas/ObservationUnitLevel"
             },
             "nullable" : true,
             "type" : "array"
@@ -40404,20 +40300,6 @@
         "title" : "StudySingleResponse",
         "type" : "object"
       },
-      "studyTypesResponse_result" : {
-        "properties" : {
-          "data" : {
-            "description" : "The list of all StudyTypes available on a given server.",
-            "example" : [ "Crossing Nursery", "Yield study" ],
-            "items" : {
-              "type" : "string"
-            },
-            "type" : "array"
-          }
-        },
-        "required" : [ "data" ],
-        "type" : "object"
-      },
       "studyTypesResponse" : {
         "properties" : {
           "@context" : {
@@ -40427,7 +40309,7 @@
             "$ref" : "#/components/schemas/metadata"
           },
           "result" : {
-            "$ref" : "#/components/schemas/studyTypesResponse_result"
+            "$ref" : "#/components/schemas/GermplasmAttributeCategoryListResponse_result"
           }
         },
         "required" : [ "metadata", "result" ],
@@ -41590,29 +41472,6 @@
         },
         "type" : "object"
       },
-      "GermplasmMCPD_collectingInfo_collectingInstitutes_inner" : {
-        "properties" : {
-          "instituteAddress" : {
-            "description" : "MCPD (v2.1) (COLLINSTADDRESS) 4.1.1  Address of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled since the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.",
-            "example" : "123 Main Street, Lima, Peru, 5555",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "instituteCode" : {
-            "description" : "MCPD (v2.1) (COLLCODE) 4.  FAO WIEWS code of the institute collecting the sample. If the holding institute has collected the material, the collecting institute code (COLLCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard. Multiple values are separated by a semicolon without space.",
-            "example" : "PER001",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "instituteName" : {
-            "description" : "MCPD (v2.1) (COLLNAME) 4.1  Name of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled because the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.",
-            "example" : "The BrAPI Institute",
-            "nullable" : true,
-            "type" : "string"
-          }
-        },
-        "type" : "object"
-      },
       "GermplasmMCPD_collectingInfo_collectingSite" : {
         "description" : "Information about the location where the sample was collected",
         "nullable" : true,
@@ -41686,7 +41545,7 @@
           "collectingInstitutes" : {
             "description" : "Institutes which collected the sample",
             "items" : {
-              "$ref" : "#/components/schemas/GermplasmMCPD_collectingInfo_collectingInstitutes_inner"
+              "$ref" : "#/components/schemas/GermplasmMCPD_breedingInstitutes_inner"
             },
             "nullable" : true,
             "type" : "array"
@@ -41709,30 +41568,6 @@
         },
         "type" : "object"
       },
-      "GermplasmMCPD_donorInfo_donorInstitute" : {
-        "description" : "The identifying information for the entity acting as an accession donor\n<br> MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.\n<br> MCPD (v2.1) (DONORNAME) 22.1  Name of the donor institute (or person). This descriptor should be used only if DONORCODE can not be filled because the FAO WIEWS code for this institute is not available.",
-        "properties" : {
-          "instituteAddress" : {
-            "description" : "MCPD (v2.1) (COLLINSTADDRESS) 4.1.1  Address of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled since the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.",
-            "example" : "123 Main Street, Lima, Peru, 5555",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "instituteCode" : {
-            "description" : "MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.",
-            "example" : "PER001",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "instituteName" : {
-            "description" : "MCPD (v2.1) (DONORNAME) 22.1  Name of the donor institute (or person). This descriptor should be used only if DONORCODE can not be filled because the FAO WIEWS code for this institute is not available.",
-            "example" : "The BrAPI Institute",
-            "nullable" : true,
-            "type" : "string"
-          }
-        },
-        "type" : "object"
-      },
       "GermplasmMCPD_donorInfo" : {
         "description" : "Information about an accession donor",
         "properties" : {
@@ -41749,30 +41584,7 @@
             "type" : "string"
           },
           "donorInstitute" : {
-            "$ref" : "#/components/schemas/GermplasmMCPD_donorInfo_donorInstitute"
-          }
-        },
-        "type" : "object"
-      },
-      "GermplasmMCPD_safetyDuplicateInstitutes_inner" : {
-        "properties" : {
-          "instituteAddress" : {
-            "description" : "MCPD (v2.1) (COLLINSTADDRESS) 4.1.1  Address of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled since the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.",
-            "example" : "123 Main Street, Lima, Peru, 5555",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "instituteCode" : {
-            "description" : "MCPD (v2.1) (DUPLSITE) 25. FAO WIEWS code of the institute(s) where a safety duplicate of the accession is maintained. Follows INSTCODE standard.",
-            "example" : "PER001",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "instituteName" : {
-            "description" : "MCPD (v2.1) (DUPLINSTNAME) 25.1  Name of the institute where a safety duplicate of the accession is maintained.",
-            "example" : "The BrAPI Institute",
-            "nullable" : true,
-            "type" : "string"
+            "$ref" : "#/components/schemas/GermplasmMCPD_breedingInstitutes_inner"
           }
         },
         "type" : "object"
@@ -41862,31 +41674,6 @@
         },
         "type" : "object"
       },
-      "ObservationUnitLevel_2" : {
-        "description" : "The exact level and level code of an observation unit. \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. \n\nMIAPPE V1.1 DM-71 Observation unit type \"Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended. \nThe observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). \nAlternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead.\" ",
-        "properties" : {
-          "levelCode" : {
-            "description" : "An ID code or number to represent a real thing that may or may not be an an observation unit.\n<br/>For example, if the 'levelName' is 'plot', then the 'levelCode' would be the plot number or plot barcode. If this plot is also considered an ObservationUnit, then the appropriate observationUnitDbId should also be recorded.\n<br/>If the 'levelName' is 'field', then the 'levelCode' might be something like '3' or 'F3' to indicate the third field at a research station. ",
-            "example" : "Plot_123",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "levelName" : {
-            "description" : "A name for this level \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
-            "example" : "plot",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "levelOrder" : {
-            "description" : "`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers \nare at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9). \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
-            "example" : 2,
-            "nullable" : true,
-            "type" : "integer"
-          }
-        },
-        "title" : "ObservationUnitLevel",
-        "type" : "object"
-      },
       "ObservationUnit_observationUnitPosition" : {
         "description" : "All positional and layout information related to this Observation Unit \n\nMIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) \nor level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. \nLevels of observation must be consistent with those listed in the Study section.",
         "nullable" : true,
@@ -41902,7 +41689,7 @@
             "$ref" : "#/components/schemas/GeoJSON"
           },
           "observationLevel" : {
-            "$ref" : "#/components/schemas/ObservationUnitLevel_2"
+            "$ref" : "#/components/schemas/ObservationUnitLevel"
           },
           "observationLevelRelationships" : {
             "description" : "Observation levels indicate the granularity level at which the measurements are taken. `levelName` \ndefines the level, `levelOrder` defines where that level exists in the hierarchy of levels. \n`levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are \nat the bottom of the hierarchy (ie plant > 6). `levelCode` is an ID code for this level tag. Identify \nthis observation unit by each level of the hierarchy where it exists. \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** ",
@@ -41920,7 +41707,7 @@
               "levelOrder" : 2
             } ],
             "items" : {
-              "$ref" : "#/components/schemas/ObservationUnitLevelRelationship_1"
+              "$ref" : "#/components/schemas/ObservationUnitLevelRelationship"
             },
             "nullable" : true,
             "type" : "array"
@@ -41953,119 +41740,6 @@
           }
         },
         "type" : "object"
-      },
-      "Observation_1" : {
-        "description" : "A value assigned for a specific ObservationVariable when observing a specific ObservationUnit.",
-        "properties" : {
-          "additionalInfo" : {
-            "additionalProperties" : {
-              "type" : "string"
-            },
-            "description" : "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-            "nullable" : true,
-            "type" : "object"
-          },
-          "collector" : {
-            "description" : "The name or identifier of the entity which collected the observation",
-            "example" : "917d3ae0",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "externalReferences" : {
-            "description" : "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
-            "example" : [ {
-              "referenceId" : "doi:10.155454/12341234",
-              "referenceSource" : "DOI"
-            }, {
-              "referenceId" : "75a50e76",
-              "referenceSource" : "Remote Data Collection Upload Tool"
-            } ],
-            "items" : {
-              "$ref" : "#/components/schemas/ExternalReferences_1_inner"
-            },
-            "nullable" : true,
-            "title" : "ExternalReferences",
-            "type" : "array"
-          },
-          "geoCoordinates" : {
-            "$ref" : "#/components/schemas/GeoJSON"
-          },
-          "germplasmDbId" : {
-            "description" : "The ID which uniquely identifies a germplasm",
-            "example" : "2408ab11",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "germplasmName" : {
-            "description" : "Name of the germplasm. It can be the preferred name and does not have to be unique.",
-            "example" : "A0000003",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "observationDbId" : {
-            "description" : "The ID which uniquely identifies an observation",
-            "example" : "ef24b615",
-            "type" : "string"
-          },
-          "observationTimeStamp" : {
-            "description" : "The date and time when this observation was made",
-            "format" : "date-time",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "observationUnitDbId" : {
-            "description" : "The ID which uniquely identifies an observation unit",
-            "example" : "598111d4",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "observationUnitName" : {
-            "description" : "A human readable name for an observation unit",
-            "example" : "Plot 1",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "observationVariableDbId" : {
-            "description" : "The ID which uniquely identifies an observation variable",
-            "example" : "c403d107",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "observationVariableName" : {
-            "description" : "A human readable name for an observation variable",
-            "example" : "Plant Height in meters",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "season" : {
-            "$ref" : "#/components/schemas/Observation_season"
-          },
-          "studyDbId" : {
-            "description" : "The ID which uniquely identifies a study within the given database server",
-            "example" : "ef2829db",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "uploadedBy" : {
-            "description" : "The name or id of the user who uploaded the observation to the database system",
-            "example" : "a2f7f60b",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "value" : {
-            "description" : "The value of the data collected as an observation",
-            "example" : "2.3",
-            "nullable" : true,
-            "type" : "string"
-          }
-        },
-        "required" : [ "observationDbId" ],
-        "title" : "Observation",
-        "type" : "object",
-        "x-brapi-metadata" : {
-          "module" : "BrAPI-Phenotyping",
-          "primaryModel" : true
-        }
       },
       "ObservationUnit_treatments_inner" : {
         "properties" : {
@@ -42190,36 +41864,6 @@
           }
         },
         "required" : [ "germplasmDbId", "parentType" ],
-        "type" : "object"
-      },
-      "Reference_sourceGermplasm_inner" : {
-        "properties" : {
-          "germplasmDbId" : {
-            "description" : "The ID which uniquely identifies a `Germplasm` within the given database server",
-            "example" : "d4076594",
-            "type" : "string"
-          },
-          "germplasmName" : {
-            "description" : "The human readable name of a `Germplasm`",
-            "example" : "A0000003",
-            "type" : "string"
-          }
-        },
-        "type" : "object"
-      },
-      "ReferenceSet_sourceGermplasm_inner" : {
-        "properties" : {
-          "germplasmDbId" : {
-            "description" : "The ID which uniquely identifies a germplasm within the given database server",
-            "example" : "d4076594",
-            "type" : "string"
-          },
-          "germplasmName" : {
-            "description" : "The human readable name of a germplasm",
-            "example" : "A0000003",
-            "type" : "string"
-          }
-        },
         "type" : "object"
       },
       "SeedLot_contentMixture_inner" : {
@@ -42449,25 +42093,6 @@
             "type" : "string"
           }
         },
-        "type" : "object"
-      },
-      "ObservationUnitHierarchyLevel_1" : {
-        "description" : "Observation levels indicate the granularity level at which the measurements are taken. `levelName` \ndefines the level, `levelOrder` defines where that level exists in the hierarchy of levels. \n`levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are \nat the bottom of the hierarchy (ie plant > 6). \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
-        "properties" : {
-          "levelName" : {
-            "description" : "A name for this level \n\n**Standard Level Names: study, field, entry, rep, block, sub-block, plot, sub-plot, plant, pot, sample** \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
-            "example" : "plot",
-            "nullable" : true,
-            "type" : "string"
-          },
-          "levelOrder" : {
-            "description" : "`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers \nare at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9). \n\nFor more information on Observation Levels, please review the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Observation_Levels\">Observation Levels documentation</a>. ",
-            "example" : 2,
-            "nullable" : true,
-            "type" : "integer"
-          }
-        },
-        "title" : "ObservationUnitHierarchyLevel",
         "type" : "object"
       },
       "Trial_datasetAuthorships_inner" : {

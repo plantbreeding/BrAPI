@@ -79,12 +79,6 @@ paths:
         schema:
           type: string
         deprecated: true
-      - description: Permanent unique identifier which references the search results
-        in: query
-        name: searchResultsDbId
-        required: false
-        schema:
-          type: string
       - description: Timestamp range start
         in: query
         name: observationTimeStampRangeStart
