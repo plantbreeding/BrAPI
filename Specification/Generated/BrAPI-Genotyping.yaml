@@ -1,6 +1,58 @@
-openapi: 3.0.1
+openapi: 3.0.0
 info:
   title: BrAPI-Genotyping
+  description: "The Breeding API (BrAPI) is a Standardized REST ful Web Service API\
+    \ Specification for communicating Plant Breeding Data. BrAPI allows for easy data\
+    \ sharing between databases and tools involved in plant breeding.\n<div class=\"\
+    brapi-section\">\n    <h2 class=\"brapi-section-title\">General Reference Documentation</h2>\n\
+    \    <div class=\"gen-info-link\"><a href=\"https://plant-breeding-api.readthedocs.io/en/latest/docs/best_practices/Object_Identifiers.html\"\
+    >Identifiers</a></div>\n    <div class=\"gen-info-link\"><a href=\"https://plant-breeding-api.readthedocs.io/en/latest/docs/best_practices/Pagination.html\"\
+    >Pagination</a></div>\n    <div class=\"gen-info-link\"><a href=\"https://plant-breeding-api.readthedocs.io/en/latest/docs/best_practices/Authentication.html\"\
+    >Authentication</a></div>\n    <div class=\"gen-info-link\"><a href=\"https://plant-breeding-api.readthedocs.io/en/latest/docs/best_practices/Error_Handling.html\"\
+    >Error Handling</a></div>\n    <div class=\"gen-info-link\"><a href=\"https://plant-breeding-api.readthedocs.io/en/latest/docs/best_practices/Search_Services.html\"\
+    >Search Services</a></div>\n    <div class=\"gen-info-link\"><a href=\"https://plant-breeding-api.readthedocs.io/en/latest/docs/best_practices/best_practices_index.html\"\
+    >And More...</a></div>\n</div>\n\n<div class=\"brapi-section\">\n    <h2 class=\"\
+    brapi-section-title\">BrAPI Core</h2>\n    <div class=\"brapi-section-description\"\
+    >The BrAPI Core module contains high level entities used for organization and\
+    \ management. This includes Programs, Trials, Studies, Locations, People, and\
+    \ Lists</div>\n    <div class=\"version-number\">V2.2</div>\n    <div class=\"\
+    link-btn\"><a href=\"https://github.com/plantbreeding/API/tree/brapi-V2.2/Specification/BrAPI-Core\"\
+    >GitHub</a></div>\n    <div class=\"link-btn\"><a href=\"https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Core/2.2\"\
+    >SwaggerHub</a></div>\n    <div class=\"link-btn\"><a href=\"https://brapicore22.docs.apiary.io\"\
+    >Apiary</a></div>\n    <div class=\"stop-float\"></div>\n</div>\n\n<div class=\"\
+    brapi-section\">\n    <h2 class=\"brapi-section-title\">BrAPI Phenotyping</h2>\n\
+    \    <div class=\"brapi-section-description\">The BrAPI Phenotyping module contains\
+    \ entities related to phenotypic observations. This includes Observation Units,\
+    \ Observations, Observation Variables, Traits, Scales, Methods, and Images</div>\n\
+    \    <div class=\"version-number\">V2.2</div>\n    <div class=\"link-btn\"><a\
+    \ href=\"https://github.com/plantbreeding/API/tree/brapi-V2.2/Specification/BrAPI-Phenotyping\"\
+    >GitHub</a></div>\n    <div class=\"link-btn\"><a href=\"https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Phenotyping/2.2\"\
+    >SwaggerHub</a></div>\n    <div class=\"link-btn\"><a href=\"https://brapiphenotyping22.docs.apiary.io\"\
+    >Apiary</a></div>\n    <div class=\"stop-float\"></div>\n</div>\n\n<div class=\"\
+    current-brapi-section brapi-section\">\n    <h2 class=\"brapi-section-title\"\
+    >BrAPI Genotyping</h2>\n    <div class=\"brapi-section-description\">The BrAPI\
+    \ Genotyping module contains entities related to genotyping analysis. This includes\
+    \ Samples, Markers, Variant Sets, Variants, Call Sets, Calls, References, Reads,\
+    \ and Vendor Orders</div>\n    <div class=\"version-number\">V2.2</div>\n    <div\
+    \ class=\"link-btn\"><a href=\"https://github.com/plantbreeding/API/tree/brapi-V2.2/Specification/BrAPI-Genotyping\"\
+    >GitHub</a></div>\n    <div class=\"link-btn\"><a href=\"https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Genotyping/2.2\"\
+    >SwaggerHub</a></div>\n    <div class=\"link-btn\"><a href=\"https://brapigenotyping22.docs.apiary.io\"\
+    >Apiary</a></div>\n    <div class=\"stop-float\"></div>\n</div>\n\n<div class=\"\
+    brapi-section\">\n    <h2 class=\"brapi-section-title\">BrAPI Germplasm</h2>\n\
+    \    <div class=\"brapi-section-description\">The BrAPI Germplasm module contains\
+    \ entities related to germplasm management. This includes Germplasm, Germplasm\
+    \ Attributes, Seed Lots, Crosses, Pedigree, and Progeny</div>\n    <div class=\"\
+    version-number\">V2.2</div>\n    <div class=\"link-btn\"><a href=\"https://github.com/plantbreeding/API/tree/brapi-V2.2/Specification/BrAPI-Germplasm\"\
+    >GitHub</a></div>\n    <div class=\"link-btn\"><a href=\"https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Germplasm/2.2\"\
+    >SwaggerHub</a></div>\n    <div class=\"link-btn\"><a href=\"https://brapigermplasm22.docs.apiary.io\"\
+    >Apiary</a></div>\n    <div class=\"stop-float\"></div>\n</div>\n\n<style>\n.link-btn{\n\
+    float: left; \nmargin: 2px 10px 0 0; \npadding: 0 5px; \nborder-radius: 5px; \n\
+    background-color: #ddd;\n}\n.stop-float{\n  clear: both;\n}\n.version-number{\n\
+    \  float: left; \n  margin: 5px 10px 0 5px;\n}\n.brapi-section-title{\n  margin:\
+    \ 0 10px 0 0;\n  font-size: 20px;\n}\n.current-brapi-section{\n  font-weight:\
+    \ bolder;\n  border-radius: 5px; \n  background-color: #ddd;\n}\n.brapi-section{\n\
+    \  padding: 5px 5px; \n}\n.brapi-section-description{\n  margin: 5px 0 0 5px;\n\
+    }\n</style>"
   version: "2.2"
 paths:
   /allelematrix:
@@ -3508,15 +3560,6 @@ components:
       description: "A two dimensional array that holds allele data or associated metadata.\
         \ Each matrix should be the same size and orientation, aligned with the \"\
         callSetDbIds\" as columns and the \"variantDbIds\" as rows."
-    DataType:
-      type: string
-      description: The type of field represented in this Genotype Field. This is intended
-        to help parse the data out of JSON.
-      enum:
-      - string
-      - integer
-      - float
-      - boolean
     Dimension:
       type: string
       description: the dimension of the matrix being paginated
@@ -6406,6 +6449,15 @@ components:
             enum:
             - STANDARD
             - PROJECT
+    ProgramType:
+      type: string
+      description: |-
+        The type of program entity this object represents
+        <br/> 'STANDARD' represents a standard, permanent breeding program
+        <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding.
+      enum:
+      - STANDARD
+      - PROJECT
     Reference:
       required:
       - referenceDbId
@@ -10228,6 +10280,19 @@ components:
         pattern: ^Bearer .*$
         type: string
       example: Bearer XXXX
+    page:
+      name: page
+      in: query
+      description: |-
+        Used to request a specific page of data to be returned.
+
+        The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: integer
+      example: "0"
     pageToken:
       name: pageToken
       in: query
@@ -10243,19 +10308,6 @@ components:
       schema:
         type: string
       example: 33c27874
-    page:
-      name: page
-      in: query
-      description: |-
-        Used to request a specific page of data to be returned.
-
-        The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: integer
-      example: "0"
   securitySchemes:
     AuthorizationToken:
       type: http

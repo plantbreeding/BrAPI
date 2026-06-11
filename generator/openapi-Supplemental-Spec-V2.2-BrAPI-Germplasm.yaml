@@ -1,0 +1,111 @@
+openapi: 3.0.0
+info:
+    title: BrAPI-Germplasm
+    version: '2.2'
+    description: |-
+        The Breeding API (BrAPI) is a Standardized REST ful Web Service API Specification for communicating Plant Breeding Data. BrAPI allows for easy data sharing between databases and tools involved in plant breeding.
+        <div class="brapi-section">
+            <h2 class="brapi-section-title">General Reference Documentation</h2>
+            <div class="gen-info-link"><a href="https://plant-breeding-api.readthedocs.io/en/latest/docs/best_practices/Object_Identifiers.html">Identifiers</a></div>
+            <div class="gen-info-link"><a href="https://plant-breeding-api.readthedocs.io/en/latest/docs/best_practices/Pagination.html">Pagination</a></div>
+            <div class="gen-info-link"><a href="https://plant-breeding-api.readthedocs.io/en/latest/docs/best_practices/Authentication.html">Authentication</a></div>
+            <div class="gen-info-link"><a href="https://plant-breeding-api.readthedocs.io/en/latest/docs/best_practices/Error_Handling.html">Error Handling</a></div>
+            <div class="gen-info-link"><a href="https://plant-breeding-api.readthedocs.io/en/latest/docs/best_practices/Search_Services.html">Search Services</a></div>
+            <div class="gen-info-link"><a href="https://plant-breeding-api.readthedocs.io/en/latest/docs/best_practices/best_practices_index.html">And More...</a></div>
+        </div>
+        
+        <div class="brapi-section">
+            <h2 class="brapi-section-title">BrAPI Core</h2>
+            <div class="brapi-section-description">The BrAPI Core module contains high level entities used for organization and management. This includes Programs, Trials, Studies, Locations, People, and Lists</div>
+            <div class="version-number">V2.2</div>
+            <div class="link-btn"><a href="https://github.com/plantbreeding/API/tree/brapi-V2.2/Specification/BrAPI-Core">GitHub</a></div>
+            <div class="link-btn"><a href="https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Core/2.2">SwaggerHub</a></div>
+            <div class="link-btn"><a href="https://brapicore22.docs.apiary.io">Apiary</a></div>
+            <div class="stop-float"></div>
+        </div>
+        
+        <div class="brapi-section">
+            <h2 class="brapi-section-title">BrAPI Phenotyping</h2>
+            <div class="brapi-section-description">The BrAPI Phenotyping module contains entities related to phenotypic observations. This includes Observation Units, Observations, Observation Variables, Traits, Scales, Methods, and Images</div>
+            <div class="version-number">V2.2</div>
+            <div class="link-btn"><a href="https://github.com/plantbreeding/API/tree/brapi-V2.2/Specification/BrAPI-Phenotyping">GitHub</a></div>
+            <div class="link-btn"><a href="https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Phenotyping/2.2">SwaggerHub</a></div>
+            <div class="link-btn"><a href="https://brapiphenotyping22.docs.apiary.io">Apiary</a></div>
+            <div class="stop-float"></div>
+        </div>
+        
+        <div class="brapi-section">
+            <h2 class="brapi-section-title">BrAPI Genotyping</h2>
+            <div class="brapi-section-description">The BrAPI Genotyping module contains entities related to genotyping analysis. This includes Samples, Markers, Variant Sets, Variants, Call Sets, Calls, References, Reads, and Vendor Orders</div>
+            <div class="version-number">V2.2</div>
+            <div class="link-btn"><a href="https://github.com/plantbreeding/API/tree/brapi-V2.2/Specification/BrAPI-Genotyping">GitHub</a></div>
+            <div class="link-btn"><a href="https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Genotyping/2.2">SwaggerHub</a></div>
+            <div class="link-btn"><a href="https://brapigenotyping22.docs.apiary.io">Apiary</a></div>
+            <div class="stop-float"></div>
+        </div>
+        
+        <div class="current-brapi-section brapi-section">
+            <h2 class="brapi-section-title">BrAPI Germplasm</h2>
+            <div class="brapi-section-description">The BrAPI Germplasm module contains entities related to germplasm management. This includes Germplasm, Germplasm Attributes, Seed Lots, Crosses, Pedigree, and Progeny</div>
+            <div class="version-number">V2.2</div>
+            <div class="link-btn"><a href="https://github.com/plantbreeding/API/tree/brapi-V2.2/Specification/BrAPI-Germplasm">GitHub</a></div>
+            <div class="link-btn"><a href="https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Germplasm/2.2">SwaggerHub</a></div>
+            <div class="link-btn"><a href="https://brapigermplasm22.docs.apiary.io">Apiary</a></div>
+            <div class="stop-float"></div>
+        </div>
+        
+        <style>
+        .link-btn{
+        float: left; 
+        margin: 2px 10px 0 0; 
+        padding: 0 5px; 
+        border-radius: 5px; 
+        background-color: #ddd;
+        }
+        .stop-float{
+          clear: both;
+        }
+        .version-number{
+          float: left; 
+          margin: 5px 10px 0 5px;
+        }
+        .brapi-section-title{
+          margin: 0 10px 0 0;
+          font-size: 20px;
+        }
+        .current-brapi-section{
+          font-weight: bolder;
+          border-radius: 5px; 
+          background-color: #ddd;
+        }
+        .brapi-section{
+          padding: 5px 5px; 
+        }
+        .brapi-section-description{
+          margin: 5px 0 0 5px;
+        }
+        </style>
+security:
+    - AuthorizationToken: []
+servers:
+    - url: https://test-server.brapi.org/brapi/v2
+tags:
+    - name: Germplasm
+      description: Information about Germplasm
+    - name: Germplasm Attributes
+      description: Information about Germplasm Attributes
+    - name: Germplasm Attribute Values
+      description: Information about Germplasm Attribute Values
+    - name: Crossing Projects
+      description: Information about Crossing Projects
+    - name: Crosses
+      description: Information about Crosses
+    - name: Seed Lots
+      description: Information about Seed Lots
+components:
+    securitySchemes:
+        AuthorizationToken:
+            bearerFormat: nonce token or JWT
+            description: OAuth Bearer Token - A valid Bearer token to prove authorization
+            scheme: bearer
+            type: http

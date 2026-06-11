@@ -17,6 +17,9 @@
 # parameters, responses that are not derivable from the JSON schema).
 supplementalSpecificationFor:
     BrAPI-Core: generator/openapi-Supplemental-Spec-V2.2-BrAPI-Core.yaml
+    BrAPI-Genotyping: generator/openapi-Supplemental-Spec-V2.2-BrAPI-Genotyping.yaml
+    BrAPI-Germplasm: generator/openapi-Supplemental-Spec-V2.2-BrAPI-Germplasm.yaml
+    BrAPI-Phenotyping: generator/openapi-Supplemental-Spec-V2.2-BrAPI-Phenotyping.yaml
 separateByModule: true
 generateNewRequest: true
 
