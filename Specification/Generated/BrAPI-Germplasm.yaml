@@ -2960,12 +2960,6 @@ components:
             Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
-    Dimension:
-      type: string
-      description: the dimension of the matrix being paginated
-      enum:
-      - CALLSETS
-      - VARIANTS
     Donor:
       type: object
       properties:
@@ -7228,15 +7222,6 @@ components:
             enum:
             - STANDARD
             - PROJECT
-    ProgramType:
-      type: string
-      description: |-
-        The type of program entity this object represents
-        <br/> 'STANDARD' represents a standard, permanent breeding program
-        <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding.
-      enum:
-      - STANDARD
-      - PROJECT
     ReferenceBasesRequest:
       type: object
       properties:
@@ -10414,18 +10399,6 @@ components:
       schema:
         type: integer
       example: 1000
-    authorizationHeader:
-      name: Authorization
-      in: header
-      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
-        \ {token_string} </strong>"
-      required: false
-      style: simple
-      explode: false
-      schema:
-        pattern: ^Bearer .*$
-        type: string
-      example: Bearer XXXX
     page:
       name: page
       in: query
@@ -10439,6 +10412,18 @@ components:
       schema:
         type: integer
       example: "0"
+    authorizationHeader:
+      name: Authorization
+      in: header
+      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
+        \ {token_string} </strong>"
+      required: false
+      style: simple
+      explode: false
+      schema:
+        pattern: ^Bearer .*$
+        type: string
+      example: Bearer XXXX
     pageToken:
       name: pageToken
       in: query

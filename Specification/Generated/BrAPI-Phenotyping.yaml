@@ -2894,31 +2894,6 @@ components:
             Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
-    DataType:
-      type: string
-      description: |-
-        <p>Class of the scale, entries can be</p>
-        <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p>
-        <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p>
-        <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p>
-        <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p>
-        <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p>
-        <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p>
-        <p>"Text" - A free text is used to express the trait.</p>
-      enum:
-      - Code
-      - Date
-      - Duration
-      - Nominal
-      - Numerical
-      - Ordinal
-      - Text
-    Dimension:
-      type: string
-      description: the dimension of the matrix being paginated
-      enum:
-      - CALLSETS
-      - VARIANTS
     DocumentationLink:
       type: object
       properties:
@@ -7061,15 +7036,6 @@ components:
             enum:
             - STANDARD
             - PROJECT
-    ProgramType:
-      type: string
-      description: |-
-        The type of program entity this object represents
-        <br/> 'STANDARD' represents a standard, permanent breeding program
-        <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding.
-      enum:
-      - STANDARD
-      - PROJECT
     ReferenceBasesRequest:
       type: object
       properties:
@@ -10698,18 +10664,6 @@ components:
       schema:
         type: integer
       example: 1000
-    authorizationHeader:
-      name: Authorization
-      in: header
-      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
-        \ {token_string} </strong>"
-      required: false
-      style: simple
-      explode: false
-      schema:
-        pattern: ^Bearer .*$
-        type: string
-      example: Bearer XXXX
     page:
       name: page
       in: query
@@ -10723,6 +10677,18 @@ components:
       schema:
         type: integer
       example: "0"
+    authorizationHeader:
+      name: Authorization
+      in: header
+      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
+        \ {token_string} </strong>"
+      required: false
+      style: simple
+      explode: false
+      schema:
+        pattern: ^Bearer .*$
+        type: string
+      example: Bearer XXXX
     pageToken:
       name: pageToken
       in: query
