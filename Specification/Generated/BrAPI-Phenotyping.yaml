@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: BrAPI-Phenotyping
-  version: "2.1"
+  version: 3.0.1
 paths:
   /events:
     get:
@@ -722,6 +722,180 @@ paths:
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
+  /variables:
+    get:
+      tags:
+      - ObservationVariables
+      summary: Get a filtered list of ObservationVariable
+      description: Get a list of ObservationVariable
+      parameters:
+      - name: observationVariableDbId
+        in: query
+        description: The DbIds of Variables to search for
+        required: false
+        schema:
+          type: string
+      - name: observationVariableName
+        in: query
+        description: The names of Variables to search for
+        required: false
+        schema:
+          type: string
+      - name: observationVariablePUI
+        in: query
+        description: "The Permanent Unique Identifier of an Observation Variable,\
+          \ usually in the form of a URI"
+        required: false
+        schema:
+          type: string
+      - name: commonCropName
+        in: query
+        description: "The BrAPI Common Crop Name is the simple, generalized, widely\
+          \ accepted name of the organism being researched. It is most often used\
+          \ in multi-crop systems where digital resources need to be divided at a\
+          \ high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common\
+          \ crop names.\n\nUse this parameter to only return results associated with\
+          \ the given crops. \n\nUse `GET /commoncropnames` to find the list of available\
+          \ crops on a server."
+        required: false
+        schema:
+          type: string
+      - name: programDbId
+        in: query
+        description: "A BrAPI Program represents the high level organization or group\
+          \ who is responsible for conducting trials and studies. Things like Breeding\
+          \ Programs and Funded Projects are considered BrAPI Programs. \n\nUse this\
+          \ parameter to only return results associated with the given programs. \n\
+          \nUse `GET /programs` to find the list of available programs on a server."
+        required: false
+        schema:
+          type: string
+      - name: trialDbId
+        in: query
+        description: The ID which uniquely identifies a trial to search for
+        required: false
+        schema:
+          type: string
+      - name: studyDbId
+        in: query
+        description: "**Deprecated in v2.1** Please use `studyDbIds`. Github issue\
+          \ number #483 \n<br>The unique ID of a studies to filter on"
+        required: false
+        schema:
+          type: string
+      - name: ontologyDbId
+        in: query
+        description: List of ontology IDs to search for
+        required: false
+        schema:
+          type: string
+      - name: methodDbId
+        in: query
+        description: List of methods to filter search results
+        required: false
+        schema:
+          type: string
+      - name: methodName
+        in: query
+        description: |-
+          Human readable name for the method
+          <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation
+        required: false
+        schema:
+          type: string
+      - name: methodPUI
+        in: query
+        description: "The Permanent Unique Identifier of a Method, usually in the\
+          \ form of a URI"
+        required: false
+        schema:
+          type: string
+      - name: scaleDbId
+        in: query
+        description: The unique identifier for a Scale
+        required: false
+        schema:
+          type: string
+      - name: scaleName
+        in: query
+        description: |-
+          Name of the scale
+          <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable
+        required: false
+        schema:
+          type: string
+      - name: scalePUI
+        in: query
+        description: "The Permanent Unique Identifier of a Scale, usually in the form\
+          \ of a URI"
+        required: false
+        schema:
+          type: string
+      - name: traitClass
+        in: query
+        description: List of trait classes to filter search results
+        required: false
+        schema:
+          type: string
+      - name: traitDbId
+        in: query
+        description: The unique identifier for a Trait
+        required: false
+        schema:
+          type: string
+      - name: traitName
+        in: query
+        description: |-
+          The human readable name of a trait
+          <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation
+        required: false
+        schema:
+          type: string
+      - name: traitPUI
+        in: query
+        description: "The Permanent Unique Identifier of a Trait, usually in the form\
+          \ of a URI"
+        required: false
+        schema:
+          type: string
+      - $ref: "#/components/parameters/externalReferenceId"
+      - $ref: "#/components/parameters/externalReferenceID"
+      - $ref: "#/components/parameters/externalReferenceSource"
+      - $ref: "#/components/parameters/page"
+      - $ref: "#/components/parameters/pageSize"
+      - $ref: "#/components/parameters/authorizationHeader"
+      responses:
+        "200":
+          $ref: "#/components/responses/ObservationVariableListResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+    post:
+      tags:
+      - ObservationVariables
+      summary: Create new ObservationVariable
+      description: Add new ObservationVariable to database
+      parameters:
+      - $ref: "#/components/parameters/authorizationHeader"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/ObservationVariableNewRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/ObservationVariableListResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
   /ontologies:
     get:
       tags:
@@ -1197,6 +1371,66 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/ObservationUnitSingleResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
+  /variables/{observationVariableDbId}:
+    get:
+      tags:
+      - ObservationVariables
+      summary: Get the details of a specific ObservationVariable
+      description: Get details for a ObservationVariable
+      parameters:
+      - $ref: "#/components/parameters/authorizationHeader"
+      - name: observationVariableDbId
+        in: path
+        description: |-
+          Variable unique identifier
+
+          MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/ObservationVariableSingleResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
+    put:
+      tags:
+      - ObservationVariables
+      summary: Update the details for an existing ObservationVariable
+      description: Update the details for an existing ObservationVariable
+      parameters:
+      - $ref: "#/components/parameters/authorizationHeader"
+      - name: observationVariableDbId
+        in: path
+        description: |-
+          Variable unique identifier
+
+          MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ObservationVariableNewRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/ObservationVariableSingleResponse"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
@@ -1832,6 +2066,37 @@ paths:
           $ref: "#/components/responses/401Unauthorized"
         "403":
           $ref: "#/components/responses/403Forbidden"
+  /search/variables:
+    post:
+      tags:
+      - ObservationVariables
+      summary: Submit a search request for `ObservationVariable`
+      description: "Submit a search request for `ObservationVariable`<br/>\nSearch\
+        \ requests allow a client to send a complex query for data. However, the server\
+        \ may not respond with the search results immediately. \nIf a server needs\
+        \ more time to process the request, it might respond with a `searchResultsDbId`.\
+        \ \nUse the corresponding `GET /search/observationVariable/{searchResultsDbId}`\
+        \ to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\"\
+        \ href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\
+        >Search Services documentation</a> for additional implementation details."
+      parameters:
+      - $ref: "#/components/parameters/authorizationHeader"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ObservationVariableSearchRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/ObservationVariableListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
   /search/images/{searchResultsDbId}:
     get:
       tags:
@@ -1959,13 +2224,57 @@ paths:
           $ref: "#/components/responses/403Forbidden"
         "404":
           $ref: "#/components/responses/404NotFound"
+  /search/variables/{searchResultsDbId}:
+    get:
+      tags:
+      - ObservationVariables
+      summary: "Submit a search request for `ObservationVariable`<br/>\nSearch requests\
+        \ allow a client to send a complex query for data. However, the server may\
+        \ not respond with the search results immediately. \nIf a server needs more\
+        \ time to process the request, it might respond with a `searchResultsDbId`.\
+        \ \nUse the corresponding `GET /search/observationVariable/{searchResultsDbId}`\
+        \ to retrieve the results of the search. <br/> \nReview the <a target=\"_blank\"\
+        \ href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\
+        >Search Services documentation</a> for additional implementation details."
+      description: "Get the results of a `ObservationVariable` search request <br/>\n\
+        Clients should submit a search request using the corresponding `POST /search/observationVariable`\
+        \ endpoint.\nSearch requests allow a client to send a complex query for data.\
+        \ However, the server may not respond with the search results immediately.\
+        \ \nIf a server needs more time to process the request, it might respond with\
+        \ a `searchResultsDbId`. \nUse this endpoint to retrieve the results of the\
+        \ search. <br/> \nReview the <a target=\"_blank\" href=\"https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity\"\
+        >Search Services documentation</a> for additional implementation details."
+      parameters:
+      - name: searchResultsDbId
+        in: path
+        description: searchResultsDbId
+        required: true
+        schema:
+          type: string
+      - $ref: "#/components/parameters/page"
+      - $ref: "#/components/parameters/pageSize"
+      - $ref: "#/components/parameters/authorizationHeader"
+      responses:
+        "200":
+          $ref: "#/components/responses/ObservationVariableListResponse"
+        "202":
+          $ref: "#/components/responses/202AcceptedSearchResponse"
+        "400":
+          $ref: "#/components/responses/400BadRequest"
+        "401":
+          $ref: "#/components/responses/401Unauthorized"
+        "403":
+          $ref: "#/components/responses/403Forbidden"
+        "404":
+          $ref: "#/components/responses/404NotFound"
 components:
   schemas:
     AdditionalInfo:
-      type: string
+      type: object
       additionalProperties:
         description: A free space containing any additional information related to
           a particular object.
+        nullable: true
       description: "A free space containing any additional information related to\
         \ a particular object. A data source may provide any JSON object, unrestricted\
         \ by the BrAPI specification."
@@ -2424,6 +2733,7 @@ components:
         \ each field in a JSON object. By providing an array of context file urls,\
         \ a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information,\
         \ see https://w3c.github.io/json-ld-syntax/#the-context"
+      nullable: true
       example:
       - https://brapi.org/jsonld/context/metadata.jsonld
       items:
@@ -2534,6 +2844,25 @@ components:
             Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
+    DataType:
+      type: string
+      description: |-
+        <p>Class of the scale, entries can be</p>
+        <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p>
+        <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p>
+        <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p>
+        <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p>
+        <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p>
+        <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p>
+        <p>"Text" - A free text is used to express the trait.</p>
+      enum:
+      - Code
+      - Date
+      - Duration
+      - Nominal
+      - Numerical
+      - Ordinal
+      - Text
     Dimension:
       type: string
       description: the dimension of the matrix being paginated
@@ -3470,7 +3799,6 @@ components:
       type: string
       description: valid header fields
       enum:
-      - observationTimeStamp
       - observationUnitDbId
       - observationUnitName
       - studyDbId
@@ -4260,10 +4588,12 @@ components:
         observationUnitName:
           type: string
           nullable: true
-        observationVariable:
+        observationVariableDbId:
+          type: string
           nullable: true
-          allOf:
-          - $ref: "#/components/schemas/ObservationVariable"
+        observationVariableName:
+          type: string
+          nullable: true
         season:
           nullable: true
           allOf:
@@ -5493,16 +5823,111 @@ components:
                 description: Variable name (usually a short name)
                 example: Plant height
     ObservationVariable:
+      allOf:
+      - $ref: "#/components/schemas/ObservationVariableNewRequest"
+      - required:
+        - observationVariableDbId
+        type: object
+        properties:
+          observationVariableDbId:
+            type: string
+            description: |-
+              Variable unique identifier
+
+              MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.
+    ObservationVariableNewRequest:
+      required:
+      - method
+      - observationVariableName
+      - scale
+      - trait
       type: object
       properties:
-        observationVariableDbId:
+        additionalInfo:
+          $ref: "#/components/schemas/AdditionalInfo"
+        commonCropName:
           type: string
-          description: Variable unique identifier
-          example: 367aa1a9
+          description: "Crop name (examples: \"Maize\", \"Wheat\")"
+          nullable: true
+        contextOfUse:
+          type: array
+          description: "Indication of how trait is routinely used. (examples: [\"\
+            Trial evaluation\", \"Nursery evaluation\"])"
+          nullable: true
+          items:
+            type: string
+        defaultValue:
+          type: string
+          description: "Variable default value. (examples: \"red\", \"2.3\", etc.)"
+          nullable: true
+        documentationURL:
+          type: string
+          description: A URL to the human readable documentation of an object
+          format: uri
+          nullable: true
+        externalReferences:
+          type: array
+          description: An array of external reference ids. These are references to
+            this piece of data in an external system. Could be a simple string or
+            a URI.
+          nullable: true
+          items:
+            $ref: "#/components/schemas/ExternalReference"
+        growthStage:
+          type: string
+          description: "Growth stage at which measurement is made (examples: \"flowering\"\
+            )"
+          nullable: true
+        institution:
+          type: string
+          description: Name of institution submitting the variable
+          nullable: true
+        language:
+          type: string
+          description: 2 letter ISO 639-1 code for the language of submission of the
+            variable.
+          nullable: true
+        method:
+          $ref: "#/components/schemas/Method"
         observationVariableName:
           type: string
-          description: Variable name (usually a short name)
-          example: Plant height
+          description: |-
+            Variable name (usually a short name)
+
+            MIAPPE V1.1 (DM-84) Variable name - Name of the variable.
+        observationVariablePUI:
+          type: string
+          description: "The Permanent Unique Identifier of a Observation Variable,\
+            \ usually in the form of a URI"
+          nullable: true
+        ontologyReference:
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/OntologyReference"
+        scale:
+          $ref: "#/components/schemas/Scale"
+        scientist:
+          type: string
+          description: Name of scientist submitting the variable.
+          nullable: true
+        status:
+          type: string
+          description: "Variable status. (examples: \"recommended\", \"obsolete\"\
+            , \"legacy\", etc.)"
+          nullable: true
+        submissionTimestamp:
+          type: string
+          description: Timestamp when the Variable was added (ISO 8601)
+          format: date-time
+          nullable: true
+        synonyms:
+          type: array
+          description: Other variable names
+          nullable: true
+          items:
+            type: string
+        trait:
+          $ref: "#/components/schemas/Trait"
     ObservationVariableParameters:
       type: object
       properties:
@@ -5580,6 +6005,211 @@ components:
           description: List of ontology IDs to search for
           items:
             type: string
+        programDbIds:
+          type: array
+          description: "A BrAPI Program represents the high level organization or\
+            \ group who is responsible for conducting trials and studies. Things like\
+            \ Breeding Programs and Funded Projects are considered BrAPI Programs.\
+            \ \n\nUse this parameter to only return results associated with the given\
+            \ programs. \n\nUse `GET /programs` to find the list of available programs\
+            \ on a server."
+          items:
+            type: string
+        programNames:
+          type: array
+          description: |-
+            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+
+            Use `GET /programs` to find the list of available programs on a server.
+          items:
+            type: string
+        scaleDbIds:
+          type: array
+          description: The unique identifier for a Scale
+          items:
+            type: string
+        scaleNames:
+          type: array
+          description: |-
+            Name of the scale
+            <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable
+          items:
+            type: string
+        scalePUIs:
+          type: array
+          description: "The Permanent Unique Identifier of a Scale, usually in the\
+            \ form of a URI"
+          items:
+            type: string
+        studyDbId:
+          type: array
+          description: "**Deprecated in v2.1** Please use `studyDbIds`. Github issue\
+            \ number #483 \n<br>The unique ID of a studies to filter on"
+          deprecated: true
+          items:
+            type: string
+        studyDbIds:
+          type: array
+          description: List of study identifiers to search for
+          items:
+            type: string
+        studyNames:
+          type: array
+          description: List of study names to filter search results
+          items:
+            type: string
+        traitAttributePUIs:
+          type: array
+          description: |-
+            The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI
+            <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"
+          items:
+            type: string
+        traitAttributes:
+          type: array
+          description: "A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\"\
+            , the attribute is the observed feature (or characteristic) of the entity\
+            \ e.g., for \"grain colour\", attribute = \"colour\""
+          items:
+            type: string
+        traitClasses:
+          type: array
+          description: List of trait classes to filter search results
+          items:
+            type: string
+        traitDbIds:
+          type: array
+          description: The unique identifier for a Trait
+          items:
+            type: string
+        traitEntities:
+          type: array
+          description: "A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\"\
+            , the entity is the part of the plant that the trait refers to e.g., for\
+            \ \"grain colour\", entity = \"grain\""
+          items:
+            type: string
+        traitEntityPUIs:
+          type: array
+          description: "The Permanent Unique Identifier of a Trait Entity, usually\
+            \ in the form of a URI\n<br/>A trait can be decomposed as \"Trait\" =\
+            \ \"Entity\" + \"Attribute\", the entity is the part of the plant that\
+            \ the trait refers to e.g., for \"grain colour\", entity = \"grain\" "
+          items:
+            type: string
+        traitNames:
+          type: array
+          description: |-
+            The human readable name of a trait
+            <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation
+          items:
+            type: string
+        traitPUIs:
+          type: array
+          description: "The Permanent Unique Identifier of a Trait, usually in the\
+            \ form of a URI"
+          items:
+            type: string
+        trialDbIds:
+          type: array
+          description: The ID which uniquely identifies a trial to search for
+          items:
+            type: string
+        trialNames:
+          type: array
+          description: The human readable name of a trial to search for
+          items:
+            type: string
+    ObservationVariableSearchRequest:
+      type: object
+      properties:
+        commonCropNames:
+          type: array
+          description: "The BrAPI Common Crop Name is the simple, generalized, widely\
+            \ accepted name of the organism being researched. It is most often used\
+            \ in multi-crop systems where digital resources need to be divided at\
+            \ a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples\
+            \ of common crop names.\n\nUse this parameter to only return results associated\
+            \ with the given crops. \n\nUse `GET /commoncropnames` to find the list\
+            \ of available crops on a server."
+          items:
+            type: string
+        dataTypes:
+          type: array
+          description: List of scale data types to filter search results
+          items:
+            $ref: "#/components/schemas/TraitDataType"
+        externalReferenceIDs:
+          type: array
+          description: "**Deprecated in v2.1** Please use `externalReferenceIds`.\
+            \ Github issue number #460 \n<br>List of external reference IDs. Could\
+            \ be a simple strings or a URIs. (use with `externalReferenceSources`\
+            \ parameter)"
+          deprecated: true
+          items:
+            type: string
+        externalReferenceIds:
+          type: array
+          description: List of external reference IDs. Could be a simple strings or
+            a URIs. (use with `externalReferenceSources` parameter)
+          items:
+            type: string
+        externalReferenceSources:
+          type: array
+          description: List of identifiers for the source system or database of an
+            external reference (use with `externalReferenceIDs` parameter)
+          items:
+            type: string
+        methodDbIds:
+          type: array
+          description: List of methods to filter search results
+          items:
+            type: string
+        methodNames:
+          type: array
+          description: |-
+            Human readable name for the method
+            <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation
+          items:
+            type: string
+        methodPUIs:
+          type: array
+          description: "The Permanent Unique Identifier of a Method, usually in the\
+            \ form of a URI"
+          items:
+            type: string
+        observationVariableDbIds:
+          type: array
+          description: The DbIds of Variables to search for
+          items:
+            type: string
+        observationVariableNames:
+          type: array
+          description: The names of Variables to search for
+          items:
+            type: string
+        observationVariablePUIs:
+          type: array
+          description: "The Permanent Unique Identifier of an Observation Variable,\
+            \ usually in the form of a URI"
+          items:
+            type: string
+        ontologyDbIds:
+          type: array
+          description: List of ontology IDs to search for
+          items:
+            type: string
+        page:
+          type: integer
+          description: Which result page is requested. The page indexing starts at
+            0 (the first page is 'page'= 0). Default is `0`.
+          format: int32
+          example: 0
+        pageSize:
+          type: integer
+          description: The size of the pages to be returned. Default is `1000`.
+          format: int32
+          example: 1000
         programDbIds:
           type: array
           description: "A BrAPI Program represents the high level organization or\
@@ -6365,6 +6995,15 @@ components:
             enum:
             - STANDARD
             - PROJECT
+    ProgramType:
+      type: string
+      description: |-
+        The type of program entity this object represents
+        <br/> 'STANDARD' represents a standard, permanent breeding program
+        <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding.
+      enum:
+      - STANDARD
+      - PROJECT
     ReferenceBasesRequest:
       type: object
       properties:
@@ -8187,6 +8826,23 @@ components:
           totalCount: 10
           totalPages: 1
   responses:
+    ObservationVariableSingleResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            title: ObservationVariableSingleResponse
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: "#/components/schemas/Context"
+              metadata:
+                $ref: "#/components/schemas/metadata"
+              result:
+                $ref: "#/components/schemas/ObservationVariable"
     VariantSingleResponse:
       description: OK
       content:
@@ -8535,6 +9191,30 @@ components:
                 $ref: "#/components/schemas/metadata"
               result:
                 $ref: "#/components/schemas/ReferenceSet"
+    ObservationVariableListResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            title: ObservationVariableListResponse
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: "#/components/schemas/Context"
+              metadata:
+                $ref: "#/components/schemas/metadata"
+              result:
+                required:
+                - data
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ObservationVariable"
     CrossListResponse:
       description: OK
       content:
@@ -9957,6 +10637,19 @@ components:
         pattern: ^Bearer .*$
         type: string
       example: Bearer XXXX
+    page:
+      name: page
+      in: query
+      description: |-
+        Used to request a specific page of data to be returned.
+
+        The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: integer
+      example: "0"
     pageToken:
       name: pageToken
       in: query
@@ -9972,19 +10665,6 @@ components:
       schema:
         type: string
       example: 33c27874
-    page:
-      name: page
-      in: query
-      description: |-
-        Used to request a specific page of data to be returned.
-
-        The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: integer
-      example: "0"
   securitySchemes:
     AuthorizationToken:
       type: http

@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: BrAPI-Germplasm
-  version: "2.1"
+  version: 3.0.1
 paths:
   /breedingmethods:
     get:
@@ -1933,10 +1933,11 @@ components:
       - "62"
       - "99"
     AdditionalInfo:
-      type: string
+      type: object
       additionalProperties:
         description: A free space containing any additional information related to
           a particular object.
+        nullable: true
       description: "A free space containing any additional information related to\
         \ a particular object. A data source may provide any JSON object, unrestricted\
         \ by the BrAPI specification."
@@ -2655,6 +2656,7 @@ components:
         \ each field in a JSON object. By providing an array of context file urls,\
         \ a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information,\
         \ see https://w3c.github.io/json-ld-syntax/#the-context"
+      nullable: true
       example:
       - https://brapi.org/jsonld/context/metadata.jsonld
       items:
@@ -7208,6 +7210,15 @@ components:
             enum:
             - STANDARD
             - PROJECT
+    ProgramType:
+      type: string
+      description: |-
+        The type of program entity this object represents
+        <br/> 'STANDARD' represents a standard, permanent breeding program
+        <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding.
+      enum:
+      - STANDARD
+      - PROJECT
     ReferenceBasesRequest:
       type: object
       properties:
@@ -10390,6 +10401,19 @@ components:
         pattern: ^Bearer .*$
         type: string
       example: Bearer XXXX
+    page:
+      name: page
+      in: query
+      description: |-
+        Used to request a specific page of data to be returned.
+
+        The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: integer
+      example: "0"
     pageToken:
       name: pageToken
       in: query
@@ -10405,19 +10429,6 @@ components:
       schema:
         type: string
       example: 33c27874
-    page:
-      name: page
-      in: query
-      description: |-
-        Used to request a specific page of data to be returned.
-
-        The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: integer
-      example: "0"
   securitySchemes:
     AuthorizationToken:
       type: http

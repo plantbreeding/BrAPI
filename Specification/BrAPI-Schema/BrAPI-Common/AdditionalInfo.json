@@ -5,8 +5,12 @@
             "additionalProperties": {
                 "description": "A free space containing any additional information related to a particular object.",
                 "type": [
-                    "null",
-                    "string"
+                    "boolean",
+                    "number",
+                    "string",
+                    "array",
+                    "object",
+                    "null"
                 ]
             },
             "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
