@@ -1035,6 +1035,15 @@
                         }
                     },
                     {
+                        "name" : "generationCode",
+                        "in" : "query",
+                        "description" : "List of simple codes that denote the generation since the last generative cross.",
+                        "required" : false,
+                        "schema" : {
+                            "type" : "string"
+                        }
+                    },
+                    {
                         "name" : "species",
                         "in" : "query",
                         "description" : "List of Species names to identify germplasm",
@@ -15648,6 +15657,11 @@
                             "$ref" : "#/components/schemas/ExternalReference"
                         }
                     },
+                    "generationCode" : {
+                        "type" : "string",
+                        "description" : "The generation code is a simple code that denotes the generation since the last generative cross. There are several types of code generally used, although it is up to the implementing systems to define these. Examples: 'F1', 'BC2', 'BC1-F3', 'M'",
+                        "nullable" : true
+                    },
                     "genus" : {
                         "type" : "string",
                         "description" : "Genus name for taxon. Initial uppercase letter required.\n\nMCPD (v2.1) (GENUS) 5. Genus name for taxon. Initial uppercase letter required.\n\nMIAPPE V1.1 (DM-43) Genus - Genus name for the organism under study, according to standard scientific nomenclature.",
@@ -15842,6 +15856,14 @@
                             "type" : "string"
                         }
                     },
+                    "generationCodes" : {
+                        "type" : "array",
+                        "description" : "List of simple codes that denote the generation since the last generative cross.",
+                        "nullable" : true,
+                        "items" : {
+                            "type" : "string"
+                        }
+                    },
                     "genus" : {
                         "type" : "array",
                         "description" : "List of Genus names to identify germplasm",
@@ -16022,6 +16044,14 @@
                             "type" : "string"
                         }
                     },
+                    "generationCodes" : {
+                        "type" : "array",
+                        "description" : "List of simple codes that denote the generation since the last generative cross.",
+                        "nullable" : true,
+                        "items" : {
+                            "type" : "string"
+                        }
+                    },
                     "genus" : {
                         "type" : "array",
                         "description" : "List of Genus names to identify germplasm",
@@ -16171,6 +16201,7 @@
                 "type" : "string",
                 "description" : "valid header fields",
                 "enum" : [
+                    "observationTimeStamp",
                     "observationUnitDbId",
                     "observationUnitName",
                     "studyDbId",
@@ -28642,19 +28673,6 @@
                 },
                 "example" : "0"
             },
-            "authorizationHeader" : {
-                "name" : "Authorization",
-                "in" : "header",
-                "description" : "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer {token_string} </strong>",
-                "required" : false,
-                "style" : "simple",
-                "explode" : false,
-                "schema" : {
-                    "pattern" : "^Bearer .*$",
-                    "type" : "string"
-                },
-                "example" : "Bearer XXXX"
-            },
             "pageToken" : {
                 "name" : "pageToken",
                 "in" : "query",
@@ -28667,6 +28685,19 @@
                     "type" : "string"
                 },
                 "example" : "33c27874"
+            },
+            "authorizationHeader" : {
+                "name" : "Authorization",
+                "in" : "header",
+                "description" : "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer {token_string} </strong>",
+                "required" : false,
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                    "pattern" : "^Bearer .*$",
+                    "type" : "string"
+                },
+                "example" : "Bearer XXXX"
             }
         },
         "securitySchemes" : {

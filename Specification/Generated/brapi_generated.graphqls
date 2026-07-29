@@ -1069,6 +1069,8 @@ type Germplasm {
   donors: [Donor]
   "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI."
   externalReferences: [ExternalReference]
+  "The generation code is a simple code that denotes the generation since the last generative cross. There are several types of code generally used, although it is up to the implementing systems to define these. Examples: 'F1', 'BC2', 'BC1-F3', 'M'"
+  generationCode: String
   """
   Genus name for taxon. Initial uppercase letter required.
   
@@ -3748,6 +3750,7 @@ enum HeaderRow {
   field
   germplasmDbId
   germplasmName
+  observationTimeStamp
   observationUnitDbId
   observationUnitName
   plant
@@ -5198,6 +5201,8 @@ input GermplasmInput {
   donors: [DonorInput]
   "Filter by External References"
   externalReferences: [ExternalReferenceInput]
+  "The generation code is a simple code that denotes the generation since the last generative cross. There are several types of code generally used, although it is up to the implementing systems to define these. Examples: 'F1', 'BC2', 'BC1-F3', 'M'"
+  generationCode: String
   """
   Genus name for taxon. Initial uppercase letter required.
   
