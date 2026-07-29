@@ -97,6 +97,17 @@
                                 "Zea"
                             ]
                         },
+                        "generationCodes": {
+                            "description": "List of simple codes that denote the generation since the last generative cross.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": ["null", "array"],
+                            "example": [
+                                "F1",
+                                "BC2"
+                            ]
+                        },
                         "species": {
                             "description": "List of Species names to identify germplasm",
                             "items": {
