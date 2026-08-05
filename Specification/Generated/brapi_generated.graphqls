@@ -6344,6 +6344,10 @@ input ObservationUnitsInput {
   programNames: [String]
   "The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)"
   seasonDbIds: [String]
+  "Name of the field to sort by."
+  sortBy: SortBy
+  "Sort order direction. Ascending/Descending."
+  sortOrder: SortOrder
   "List of study identifiers to search for"
   studyDbIds: [String]
   "List of study names to filter search results"

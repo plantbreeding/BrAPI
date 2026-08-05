@@ -2602,6 +2602,50 @@
                         }
                     },
                     {
+                        "name" : "sortBy",
+                        "in" : "query",
+                        "description" : "Name of the field to sort by.",
+                        "required" : false,
+                        "schema" : {
+                            "type" : "string",
+                            "description" : "Name of the field to sort by.",
+                            "enum" : [
+                                "observationUnitDbId",
+                                "observationUnitName",
+                                "observationUnitPUI",
+                                "programDbId",
+                                "programName",
+                                "trialDbId",
+                                "trialName",
+                                "studyDbId",
+                                "studyName",
+                                "locationDbId",
+                                "locationName",
+                                "germplasmDbId",
+                                "germplasmName",
+                                "observationLevel",
+                                "positionCoordinateX",
+                                "positionCoordinateY"
+                            ]
+                        }
+                    },
+                    {
+                        "name" : "sortOrder",
+                        "in" : "query",
+                        "description" : "Sort order direction. Ascending/Descending.",
+                        "required" : false,
+                        "schema" : {
+                            "type" : "string",
+                            "description" : "Sort order direction. Ascending/Descending.",
+                            "enum" : [
+                                "ASC",
+                                "DESC",
+                                "asc",
+                                "desc"
+                            ]
+                        }
+                    },
+                    {
                         "$ref" : "#/components/parameters/externalReferenceId"
                     },
                     {
@@ -9141,6 +9185,50 @@
                         "required" : false,
                         "schema" : {
                             "type" : "string"
+                        }
+                    },
+                    {
+                        "name" : "sortBy",
+                        "in" : "query",
+                        "description" : "Name of the field to sort by.",
+                        "required" : false,
+                        "schema" : {
+                            "type" : "string",
+                            "description" : "Name of the field to sort by.",
+                            "enum" : [
+                                "observationUnitDbId",
+                                "observationUnitName",
+                                "observationUnitPUI",
+                                "programDbId",
+                                "programName",
+                                "trialDbId",
+                                "trialName",
+                                "studyDbId",
+                                "studyName",
+                                "locationDbId",
+                                "locationName",
+                                "germplasmDbId",
+                                "germplasmName",
+                                "observationLevel",
+                                "positionCoordinateX",
+                                "positionCoordinateY"
+                            ]
+                        }
+                    },
+                    {
+                        "name" : "sortOrder",
+                        "in" : "query",
+                        "description" : "Sort order direction. Ascending/Descending.",
+                        "required" : false,
+                        "schema" : {
+                            "type" : "string",
+                            "description" : "Sort order direction. Ascending/Descending.",
+                            "enum" : [
+                                "ASC",
+                                "DESC",
+                                "asc",
+                                "desc"
+                            ]
                         }
                     },
                     {
@@ -18834,6 +18922,40 @@
                             "type" : "string"
                         }
                     },
+                    "sortBy" : {
+                        "type" : "string",
+                        "description" : "Name of the field to sort by.",
+                        "nullable" : true,
+                        "enum" : [
+                            "observationUnitDbId",
+                            "observationUnitName",
+                            "observationUnitPUI",
+                            "programDbId",
+                            "programName",
+                            "trialDbId",
+                            "trialName",
+                            "studyDbId",
+                            "studyName",
+                            "locationDbId",
+                            "locationName",
+                            "germplasmDbId",
+                            "germplasmName",
+                            "observationLevel",
+                            "positionCoordinateX",
+                            "positionCoordinateY"
+                        ]
+                    },
+                    "sortOrder" : {
+                        "type" : "string",
+                        "description" : "Sort order direction. Ascending/Descending.",
+                        "nullable" : true,
+                        "enum" : [
+                            "ASC",
+                            "DESC",
+                            "asc",
+                            "desc"
+                        ]
+                    },
                     "studyDbIds" : {
                         "type" : "array",
                         "description" : "List of study identifiers to search for",
@@ -19018,6 +19140,40 @@
                         "items" : {
                             "type" : "string"
                         }
+                    },
+                    "sortBy" : {
+                        "type" : "string",
+                        "description" : "Name of the field to sort by.",
+                        "nullable" : true,
+                        "enum" : [
+                            "observationUnitDbId",
+                            "observationUnitName",
+                            "observationUnitPUI",
+                            "programDbId",
+                            "programName",
+                            "trialDbId",
+                            "trialName",
+                            "studyDbId",
+                            "studyName",
+                            "locationDbId",
+                            "locationName",
+                            "germplasmDbId",
+                            "germplasmName",
+                            "observationLevel",
+                            "positionCoordinateX",
+                            "positionCoordinateY"
+                        ]
+                    },
+                    "sortOrder" : {
+                        "type" : "string",
+                        "description" : "Sort order direction. Ascending/Descending.",
+                        "nullable" : true,
+                        "enum" : [
+                            "ASC",
+                            "DESC",
+                            "asc",
+                            "desc"
+                        ]
                     },
                     "studyDbIds" : {
                         "type" : "array",
