@@ -54,6 +54,33 @@ info:
     \  padding: 5px 5px; \n}\n.brapi-section-description{\n  margin: 5px 0 0 5px;\n\
     }\n</style>"
   version: "2.2"
+servers:
+- url: https://test-server.brapi.org/brapi/v2
+security:
+- AuthorizationToken: []
+tags:
+- name: Calls
+  description: Individual genotype allele calls
+- name: Call Sets
+  description: Each Call Set is related to one physical sample
+- name: Variants
+  description: "Information about Variants, also called Markers"
+- name: Variant Sets
+  description: "Information about Variant Sets, also called Data Sets or Allele Matrices"
+- name: Plates
+  description: Information about plates containing samples
+- name: Samples
+  description: Information about physical samples
+- name: References
+  description: Genetic sequences used for reference
+- name: Reference Sets
+  description: Collections of references
+- name: Genome Maps
+  description: Information about physical and genetic maps
+- name: Vendor
+  description: "This interface is specific to facilities that performs an external\
+    \ analysis, such as genotyping facilities. The interface should be implemented\
+    \ by that facility''s server. The breeding database is the client of this interface."
 paths:
   /allelematrix:
     get:
@@ -2339,10 +2366,11 @@ paths:
 components:
   schemas:
     AdditionalInfo:
-      type: string
+      type: object
       additionalProperties:
         description: A free space containing any additional information related to
           a particular object.
+        nullable: true
       description: "A free space containing any additional information related to\
         \ a particular object. A data source may provide any JSON object, unrestricted\
         \ by the BrAPI specification."
@@ -2839,9 +2867,7 @@ components:
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
-          nullable: true
-          allOf:
-          - $ref: "#/components/schemas/OntologyReference"
+          $ref: "#/components/schemas/OntologyReference"
         scale:
           $ref: "#/components/schemas/Scale"
         scientist:
@@ -3560,18 +3586,9 @@ components:
       description: "A two dimensional array that holds allele data or associated metadata.\
         \ Each matrix should be the same size and orientation, aligned with the \"\
         callSetDbIds\" as columns and the \"variantDbIds\" as rows."
-    DataType:
-      type: string
-      description: The type of field represented in this Genotype Field. This is intended
-        to help parse the data out of JSON.
-      enum:
-      - string
-      - integer
-      - float
-      - boolean
     Dimension:
       type: string
-      description: The dimension of the matrix being paginated
+      description: the dimension of the matrix being paginated
       enum:
       - CALLSETS
       - VARIANTS
@@ -4617,9 +4634,7 @@ components:
           items:
             type: string
         listType:
-          nullable: true
-          allOf:
-          - $ref: "#/components/schemas/ListType"
+          $ref: "#/components/schemas/ListType"
         programDbIds:
           type: array
           description: "A BrAPI Program represents the high level organization or\
@@ -4702,9 +4717,7 @@ components:
           items:
             type: string
         coordinates:
-          anyOf:
-          - $ref: "#/components/schemas/GeoJSONSearchArea"
-          - type: "null"
+          $ref: "#/components/schemas/GeoJSONSearchArea"
         countryCodes:
           type: array
           description: "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)\
@@ -6465,6 +6478,15 @@ components:
             enum:
             - STANDARD
             - PROJECT
+    ProgramType:
+      type: string
+      description: |-
+        The type of program entity this object represents
+        <br/> 'STANDARD' represents a standard, permanent breeding program
+        <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding.
+      enum:
+      - STANDARD
+      - PROJECT
     Reference:
       required:
       - referenceDbId
@@ -8245,9 +8267,7 @@ components:
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
-          nullable: true
-          allOf:
-          - $ref: "#/components/schemas/OntologyReference"
+          $ref: "#/components/schemas/OntologyReference"
         scale:
           $ref: "#/components/schemas/Scale"
         scientist:
@@ -10275,6 +10295,18 @@ components:
       schema:
         type: integer
       example: 1000
+    authorizationHeader:
+      name: Authorization
+      in: header
+      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
+        \ {token_string} </strong>"
+      required: false
+      style: simple
+      explode: false
+      schema:
+        pattern: ^Bearer .*$
+        type: string
+      example: Bearer XXXX
     page:
       name: page
       in: query
@@ -10303,18 +10335,6 @@ components:
       schema:
         type: string
       example: 33c27874
-    authorizationHeader:
-      name: Authorization
-      in: header
-      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
-        \ {token_string} </strong>"
-      required: false
-      style: simple
-      explode: false
-      schema:
-        pattern: ^Bearer .*$
-        type: string
-      example: Bearer XXXX
   securitySchemes:
     AuthorizationToken:
       type: http

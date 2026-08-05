@@ -54,6 +54,29 @@ info:
     \  padding: 5px 5px; \n}\n.brapi-section-description{\n  margin: 5px 0 0 5px;\n\
     }\n</style>"
   version: "2.2"
+servers:
+- url: https://test-server.brapi.org/brapi/v2
+security:
+- AuthorizationToken: []
+tags:
+- name: Server Info
+  description: Check the available calls on a server
+- name: Common Crop Names
+  description: List of crops supported by this server
+- name: Programs
+  description: Information about Programs
+- name: Trials
+  description: Information about Trials
+- name: Studies
+  description: Information about Studies
+- name: Locations
+  description: Information about Locations
+- name: Seasons
+  description: Information about Seasons
+- name: Lists
+  description: Create and manipulate generic lists
+- name: People
+  description: Create and manipulate information about people
 paths:
   /lists:
     get:
@@ -1848,10 +1871,11 @@ paths:
 components:
   schemas:
     AdditionalInfo:
-      type: string
+      type: object
       additionalProperties:
         description: A free space containing any additional information related to
           a particular object.
+        nullable: true
       description: "A free space containing any additional information related to\
         \ a particular object. A data source may provide any JSON object, unrestricted\
         \ by the BrAPI specification."
@@ -2105,9 +2129,7 @@ components:
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
-          nullable: true
-          allOf:
-          - $ref: "#/components/schemas/OntologyReference"
+          $ref: "#/components/schemas/OntologyReference"
         scale:
           $ref: "#/components/schemas/Scale"
         scientist:
@@ -2615,6 +2637,12 @@ components:
             the dataset presently being described to a host repository.
           nullable: true
       description: License and citation information for the data in this trial
+    Dimension:
+      type: string
+      description: the dimension of the matrix being paginated
+      enum:
+      - CALLSETS
+      - VARIANTS
     EnvironmentParameter:
       required:
       - description
@@ -3775,9 +3803,7 @@ components:
           items:
             type: string
         listType:
-          nullable: true
-          allOf:
-          - $ref: "#/components/schemas/ListType"
+          $ref: "#/components/schemas/ListType"
         programDbIds:
           type: array
           description: "A BrAPI Program represents the high level organization or\
@@ -3890,9 +3916,7 @@ components:
           items:
             type: string
         listType:
-          nullable: true
-          allOf:
-          - $ref: "#/components/schemas/ListType"
+          $ref: "#/components/schemas/ListType"
         page:
           type: integer
           description: Which result page is requested. The page indexing starts at
@@ -4101,9 +4125,7 @@ components:
           items:
             type: string
         coordinates:
-          anyOf:
-          - $ref: "#/components/schemas/GeoJSONSearchArea"
-          - type: "null"
+          $ref: "#/components/schemas/GeoJSONSearchArea"
         countryCodes:
           type: array
           description: "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)\
@@ -4213,9 +4235,7 @@ components:
           items:
             type: string
         coordinates:
-          anyOf:
-          - $ref: "#/components/schemas/GeoJSONSearchArea"
-          - type: "null"
+          $ref: "#/components/schemas/GeoJSONSearchArea"
         countryCodes:
           type: array
           description: "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)\
@@ -6052,9 +6072,10 @@ components:
         contain multiple Trials. A Trial can contain multiple Studies.
     ProgramType:
       type: string
-      description: "The type of program entity this object represents\n<br/> 'STANDARD'\
-        \ represents a standard, permanent breeding program\n<br/> 'PROJECT' represents\
-        \ a short term project, usually with a set time limit based on funding   "
+      description: |-
+        The type of program entity this object represents
+        <br/> 'STANDARD' represents a standard, permanent breeding program
+        <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding.
       enum:
       - STANDARD
       - PROJECT
@@ -7726,9 +7747,7 @@ components:
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
-          nullable: true
-          allOf:
-          - $ref: "#/components/schemas/OntologyReference"
+          $ref: "#/components/schemas/OntologyReference"
         scale:
           $ref: "#/components/schemas/Scale"
         scientist:
@@ -8315,6 +8334,31 @@ components:
           pageSize: 1000
           totalCount: 10
           totalPages: 1
+    AuthorizationDetails:
+      required:
+      - protocol
+      type: object
+      properties:
+        protocol:
+          type: string
+          description: "The preferred authorization protocol to be used on this server.\
+            \ \"Basic\" refers to a protocol where an access token is made up from\
+            \ the encoded username and password values. \"OIDC\" and \"SAML\" describe\
+            \ existing standard, well-documented, best practices. \"Custom\" denotes\
+            \ some sort of custom authorization scheme and should be reserved for\
+            \ legacy systems that can not be upgraded to modern standards for some\
+            \ reason."
+          example: OAuth
+        protocolConfigURL:
+          type: string
+          description: "A configuration document describing the details of the preferred\
+            \ authorization protocol. \"Basic\" protocols do not require a URL, \"\
+            OIDC\" uses the OIDC Discovery system, \"SAML\" uses the SAMLv2 IDP Discovery\
+            \ Service (or similar), and \"Custom\" should be a human readable web\
+            \ page describing the complete custom workflow so that it can be manually\
+            \ implemented."
+          format: url
+          example: OAuth
     Service:
       required:
       - methods
@@ -8405,6 +8449,8 @@ components:
           type: string
           description: "Physical location of this server (ie. City, Country)"
           example: USA
+        authorizationDetails:
+          $ref: "#/components/schemas/AuthorizationDetails"
         calls:
           type: array
           description: Array of available calls on this server
@@ -8943,6 +8989,18 @@ components:
       schema:
         type: integer
       example: 1000
+    authorizationHeader:
+      name: Authorization
+      in: header
+      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
+        \ {token_string} </strong>"
+      required: false
+      style: simple
+      explode: false
+      schema:
+        pattern: ^Bearer .*$
+        type: string
+      example: Bearer XXXX
     page:
       name: page
       in: query
@@ -8971,18 +9029,6 @@ components:
       schema:
         type: string
       example: 33c27874
-    authorizationHeader:
-      name: Authorization
-      in: header
-      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
-        \ {token_string} </strong>"
-      required: false
-      style: simple
-      explode: false
-      schema:
-        pattern: ^Bearer .*$
-        type: string
-      example: Bearer XXXX
   securitySchemes:
     AuthorizationToken:
       type: http
