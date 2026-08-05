@@ -54,33 +54,6 @@ info:
     \  padding: 5px 5px; \n}\n.brapi-section-description{\n  margin: 5px 0 0 5px;\n\
     }\n</style>"
   version: "2.2"
-servers:
-- url: https://test-server.brapi.org/brapi/v2
-security:
-- AuthorizationToken: []
-tags:
-- name: Observations
-  description: Retrieve and edit information about Observations
-- name: Observation Units
-  description: Retrieve and edit information about Observation Units. An Observation
-    Unit can be anything in a field you might observe as part of a Study
-- name: Observation Variables
-  description: "Retrieve and edit information about Observation Variables. An Observation\
-    \ Variable is composed by the unique combination of one Trait, one Method and\
-    \ one Scale."
-- name: Methods
-  description: Retrieve and edit information about Methods.
-- name: Traits
-  description: Retrieve and edit information about Traits.
-- name: Scales
-  description: Retrieve and edit information about Scales.
-- name: Ontologies
-  description: Retrieve and edit information about Ontologies used by a server.
-- name: Images
-  description: Retrieve and edit Images and Image meta-data
-- name: Events
-  description: "Retrieve and edit information about Events. Events can be planned\
-    \ like watering or fertilizing, or unplanned like weather or pests."
 paths:
   /events:
     get:
@@ -2349,11 +2322,10 @@ paths:
 components:
   schemas:
     AdditionalInfo:
-      type: object
+      type: string
       additionalProperties:
         description: A free space containing any additional information related to
           a particular object.
-        nullable: true
       description: "A free space containing any additional information related to\
         \ a particular object. A data source may provide any JSON object, unrestricted\
         \ by the BrAPI specification."
@@ -2607,7 +2579,9 @@ components:
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
-          $ref: "#/components/schemas/OntologyReference"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/OntologyReference"
         scale:
           $ref: "#/components/schemas/Scale"
         scientist:
@@ -2920,31 +2894,6 @@ components:
             Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
-    DataType:
-      type: string
-      description: |-
-        <p>Class of the scale, entries can be</p>
-        <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p>
-        <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p>
-        <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p>
-        <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p>
-        <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p>
-        <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p>
-        <p>"Text" - A free text is used to express the trait.</p>
-      enum:
-      - Code
-      - Date
-      - Duration
-      - Nominal
-      - Numerical
-      - Ordinal
-      - Text
-    Dimension:
-      type: string
-      description: the dimension of the matrix being paginated
-      enum:
-      - CALLSETS
-      - VARIANTS
     DocumentationLink:
       type: object
       properties:
@@ -3881,6 +3830,7 @@ components:
       type: string
       description: valid header fields
       enum:
+      - observationTimeStamp
       - observationUnitDbId
       - observationUnitName
       - studyDbId
@@ -4321,7 +4271,9 @@ components:
           items:
             type: string
         listType:
-          $ref: "#/components/schemas/ListType"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/ListType"
         programDbIds:
           type: array
           description: "A BrAPI Program represents the high level organization or\
@@ -4384,7 +4336,9 @@ components:
           items:
             type: string
         coordinates:
-          $ref: "#/components/schemas/GeoJSONSearchArea"
+          anyOf:
+          - $ref: "#/components/schemas/GeoJSONSearchArea"
+          - type: "null"
         countryCodes:
           type: array
           description: "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)\
@@ -4673,7 +4627,9 @@ components:
           type: string
           nullable: true
         season:
-          $ref: "#/components/schemas/Season"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/Season"
         studyDbId:
           type: string
           nullable: true
@@ -5465,14 +5421,18 @@ components:
             systems may use different coordinate systems.
           nullable: true
         positionCoordinateXType:
-          $ref: "#/components/schemas/PositionCoordinateType"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/PositionCoordinateType"
         positionCoordinateY:
           type: string
           description: The Y position coordinate for an observation unit. Different
             systems may use different coordinate systems.
           nullable: true
         positionCoordinateYType:
-          $ref: "#/components/schemas/PositionCoordinateType"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/PositionCoordinateType"
       description: All positional and layout information related to this Observation
         Unit
       nullable: true
@@ -5990,7 +5950,9 @@ components:
             \ usually in the form of a URI"
           nullable: true
         ontologyReference:
-          $ref: "#/components/schemas/OntologyReference"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/OntologyReference"
         scale:
           $ref: "#/components/schemas/Scale"
         scientist:
@@ -7082,15 +7044,6 @@ components:
             enum:
             - STANDARD
             - PROJECT
-    ProgramType:
-      type: string
-      description: |-
-        The type of program entity this object represents
-        <br/> 'STANDARD' represents a standard, permanent breeding program
-        <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding.
-      enum:
-      - STANDARD
-      - PROJECT
     ReferenceBasesRequest:
       type: object
       properties:
@@ -7495,7 +7448,9 @@ components:
             \ other dataTypes when applicable."
           nullable: true
         validValues:
-          $ref: "#/components/schemas/ValidValues"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/ValidValues"
       description: "A Scale describes the units and acceptable values for an ObservationVariable.\
         \ \n<br>For example, an ObservationVariable might be defined with a Trait\
         \ of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\"\
@@ -8328,7 +8283,9 @@ components:
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
-          $ref: "#/components/schemas/OntologyReference"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/OntologyReference"
         scale:
           $ref: "#/components/schemas/Scale"
         scientist:
@@ -10715,18 +10672,6 @@ components:
       schema:
         type: integer
       example: 1000
-    authorizationHeader:
-      name: Authorization
-      in: header
-      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
-        \ {token_string} </strong>"
-      required: false
-      style: simple
-      explode: false
-      schema:
-        pattern: ^Bearer .*$
-        type: string
-      example: Bearer XXXX
     page:
       name: page
       in: query
@@ -10755,6 +10700,18 @@ components:
       schema:
         type: string
       example: 33c27874
+    authorizationHeader:
+      name: Authorization
+      in: header
+      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
+        \ {token_string} </strong>"
+      required: false
+      style: simple
+      explode: false
+      schema:
+        pattern: ^Bearer .*$
+        type: string
+      example: Bearer XXXX
   securitySchemes:
     AuthorizationToken:
       type: http

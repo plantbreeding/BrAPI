@@ -25835,6 +25835,25 @@
                     }
                 ]
             },
+            "AuthorizationDetails" : {
+                "required" : [
+                    "protocol"
+                ],
+                "type" : "object",
+                "properties" : {
+                    "protocol" : {
+                        "type" : "string",
+                        "description" : "The preferred authorization protocol to be used on this server. \"Basic\" refers to a protocol where an access token is made up from the encoded username and password values. \"OIDC\" and \"SAML\" describe existing standard, well-documented, best practices. \"Custom\" denotes some sort of custom authorization scheme and should be reserved for legacy systems that can not be upgraded to modern standards for some reason.",
+                        "example" : "OAuth"
+                    },
+                    "protocolConfigURL" : {
+                        "type" : "string",
+                        "description" : "A configuration document describing the details of the preferred authorization protocol. \"Basic\" protocols do not require a URL, \"OIDC\" uses the OIDC Discovery system, \"SAML\" uses the SAMLv2 IDP Discovery Service (or similar), and \"Custom\" should be a human readable web page describing the complete custom workflow so that it can be manually implemented.",
+                        "format" : "url",
+                        "example" : "OAuth"
+                    }
+                }
+            },
             "Service" : {
                 "required" : [
                     "methods",
@@ -25944,6 +25963,9 @@
                         "type" : "string",
                         "description" : "Physical location of this server (ie. City, Country)",
                         "example" : "USA"
+                    },
+                    "authorizationDetails" : {
+                        "$ref" : "#/components/schemas/AuthorizationDetails"
                     },
                     "calls" : {
                         "type" : "array",
