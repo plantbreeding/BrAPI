@@ -146,6 +146,38 @@
                                 "Spring 2018",
                                 "Season A"
                             ]
+                        },
+                        "sortBy": {
+                            "description": "Name of the field to sort by.",
+                            "enum": [
+                                "observationUnitDbId",
+                                "observationUnitName",
+                                "observationUnitPUI",
+                                "programDbId",
+                                "programName",
+                                "trialDbId",
+                                "trialName",
+                                "studyDbId",
+                                "studyName",
+                                "locationDbId",
+                                "locationName",
+                                "germplasmDbId",
+                                "germplasmName",
+                                "observationLevel",
+                                "positionCoordinateX",
+                                "positionCoordinateY"
+                            ],
+                            "type": ["null", "string"]
+                        },
+                        "sortOrder": {
+                            "description": "Sort order direction. Ascending/Descending.",
+                            "enum": [
+                                "ASC",
+                                "DESC",
+                                "asc",
+                                "desc"
+                            ],
+                            "type": ["null", "string"]
                         }
                     }
                 }
