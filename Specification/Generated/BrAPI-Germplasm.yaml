@@ -55,6 +55,23 @@ info:
     \  padding: 5px 5px; \n}\n.brapi-section-description{\n  margin: 5px 0 0 5px;\n\
     }\n</style>"
   version: "2.2"
+servers:
+- url: https://test-server.brapi.org/brapi/v2
+security:
+- AuthorizationToken: []
+tags:
+- name: Germplasm
+  description: Information about Germplasm
+- name: Germplasm Attributes
+  description: Information about Germplasm Attributes
+- name: Germplasm Attribute Values
+  description: Information about Germplasm Attribute Values
+- name: Crossing Projects
+  description: Information about Crossing Projects
+- name: Crosses
+  description: Information about Crosses
+- name: Seed Lots
+  description: Information about Seed Lots
 paths:
   /breedingmethods:
     get:
@@ -1961,10 +1978,11 @@ components:
       - "62"
       - "99"
     AdditionalInfo:
-      type: string
+      type: object
       additionalProperties:
         description: A free space containing any additional information related to
           a particular object.
+        nullable: true
       description: "A free space containing any additional information related to\
         \ a particular object. A data source may provide any JSON object, unrestricted\
         \ by the BrAPI specification."
@@ -2218,9 +2236,7 @@ components:
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
-          nullable: true
-          allOf:
-          - $ref: "#/components/schemas/OntologyReference"
+          $ref: "#/components/schemas/OntologyReference"
         scale:
           $ref: "#/components/schemas/Scale"
         scientist:
@@ -2967,6 +2983,12 @@ components:
             Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
+    Dimension:
+      type: string
+      description: the dimension of the matrix being paginated
+      enum:
+      - CALLSETS
+      - VARIANTS
     Donor:
       type: object
       properties:
@@ -3376,9 +3398,7 @@ components:
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
-          nullable: true
-          allOf:
-          - $ref: "#/components/schemas/OntologyReference"
+          $ref: "#/components/schemas/OntologyReference"
         scale:
           $ref: "#/components/schemas/Scale"
         scientist:
@@ -5381,9 +5401,7 @@ components:
           items:
             type: string
         listType:
-          nullable: true
-          allOf:
-          - $ref: "#/components/schemas/ListType"
+          $ref: "#/components/schemas/ListType"
         programDbIds:
           type: array
           description: "A BrAPI Program represents the high level organization or\
@@ -5446,9 +5464,7 @@ components:
           items:
             type: string
         coordinates:
-          anyOf:
-          - $ref: "#/components/schemas/GeoJSONSearchArea"
-          - type: "null"
+          $ref: "#/components/schemas/GeoJSONSearchArea"
         countryCodes:
           type: array
           description: "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)\
@@ -7250,6 +7266,15 @@ components:
             enum:
             - STANDARD
             - PROJECT
+    ProgramType:
+      type: string
+      description: |-
+        The type of program entity this object represents
+        <br/> 'STANDARD' represents a standard, permanent breeding program
+        <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding.
+      enum:
+      - STANDARD
+      - PROJECT
     ReferenceBasesRequest:
       type: object
       properties:
@@ -8488,9 +8513,7 @@ components:
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
-          nullable: true
-          allOf:
-          - $ref: "#/components/schemas/OntologyReference"
+          $ref: "#/components/schemas/OntologyReference"
         scale:
           $ref: "#/components/schemas/Scale"
         scientist:
@@ -10427,6 +10450,18 @@ components:
       schema:
         type: integer
       example: 1000
+    authorizationHeader:
+      name: Authorization
+      in: header
+      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
+        \ {token_string} </strong>"
+      required: false
+      style: simple
+      explode: false
+      schema:
+        pattern: ^Bearer .*$
+        type: string
+      example: Bearer XXXX
     page:
       name: page
       in: query
@@ -10455,18 +10490,6 @@ components:
       schema:
         type: string
       example: 33c27874
-    authorizationHeader:
-      name: Authorization
-      in: header
-      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
-        \ {token_string} </strong>"
-      required: false
-      style: simple
-      explode: false
-      schema:
-        pattern: ^Bearer .*$
-        type: string
-      example: Bearer XXXX
   securitySchemes:
     AuthorizationToken:
       type: http

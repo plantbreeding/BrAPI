@@ -213,6 +213,20 @@ components:
               format: int32
               nullable: true
       description: "A Season defines a period in time. A Season is made of two parts; (1) the primary year and (2) a term which defines a segment of the year. This term could be a traditional season, like \"Spring\" or \"Summer\", or this term could be a month, like \"May\" or \"June\", or this could be an arbitrary season name which is meaningful to the breeding Program like \"PlantingTime_3\" or \"Season E\"."
+    AuthorizationDetails:
+      type: object
+      required:
+      - protocol
+      properties:
+        protocol:
+          description: The preferred authorization protocol to be used on this server. "Basic" refers to a protocol where an access token is made up from the encoded username and password values. "OIDC" and "SAML" describe existing standard, well-documented, best practices. "Custom" denotes some sort of custom authorization scheme and should be reserved for legacy systems that can not be upgraded to modern standards for some reason. 
+          type: string
+          example: OAuth
+        protocolConfigURL:
+          description: A configuration document describing the details of the preferred authorization protocol. "Basic" protocols do not require a URL, "OIDC" uses the OIDC Discovery system, "SAML" uses the SAMLv2 IDP Discovery Service (or similar), and "Custom" should be a human readable web page describing the complete custom workflow so that it can be manually implemented. 
+          type: string
+          format: url
+          example: OAuth
     Service:
       type: object
       required:
@@ -297,6 +311,8 @@ components:
           description: Physical location of this server (ie. City, Country)
           type: string
           example: USA
+        authorizationDetails:
+          $ref: '#/components/schemas/AuthorizationDetails'
         calls:
           description: Array of available calls on this server
           items:
