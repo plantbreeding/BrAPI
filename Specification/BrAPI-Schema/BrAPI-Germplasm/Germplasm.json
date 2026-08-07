@@ -200,6 +200,13 @@
                     "referencedAttribute": "germplasm",
                     "relationshipType": "one-to-one"
                 },
+                "media": {
+                    "description": "Descriptive images of a model example for a particular germplasm",
+                    "type": ["null", "array"],
+                    "items": {
+                        "$ref": "Germplasm.json#/$defs/GermplasmMedia"
+                    }
+                },
                 "pedigree": {
                     "description": "The cross name and optional selection history.\n\nMCPD (v2.1) (ANCEST) 20. Information about either pedigree or other description of ancestral information (e.g. parent variety in case of mutant or selection). For example a pedigree 'Hanna/7*Atlas//Turk/8*Atlas' or a description 'mutation found in Hanna', 'selection from Irene' or 'cross involving amongst others Hanna and Irene'.",
                     "type": [
@@ -1011,6 +1018,28 @@
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": false
+            }
+        },
+        "GermplasmMedia":{
+            "title": "GermplasmMedia",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
+            },
+            "description": "Descriptive images of a model example for a particular germplasm",
+            "properties": {
+                "image": {
+                    "description": "associated image reference",
+                    "$ref": "../BrAPI-Phenotyping/Image.json#/$defs/Image",
+                    "relationshipType": "one-to-one",
+                    "referencedAttribute": "germplasmMedia"
+                },
+                "imageURL": {
+                    "descritpion": "URL of the image file",
+                    "type": ["null", "string"],
+                    "format": "url",
+                    "examples": ["http://foo.bar/baz.png"]
+                }
             }
         }
     },

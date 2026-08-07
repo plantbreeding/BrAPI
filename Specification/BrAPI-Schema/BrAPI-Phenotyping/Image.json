@@ -135,6 +135,12 @@
                     "referencedAttribute": "images",
                     "relationshipType": "one-to-many",
                     "type": ["null", "array"]
+                },
+                "germplasmMedia": {
+                    "description": "A list of observation Ids this image is associated with, if applicable.",
+                    "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/GermplasmMedia",
+                    "referencedAttribute": "image",
+                    "relationshipType": "one-to-one"
                 }
             },
             "required": [
