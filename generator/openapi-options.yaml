@@ -41,6 +41,10 @@ properties:
         linkPropertyFor:
             Observation:
                 uploadedByPerson: false
+            GermplasmMedia:
+                image: false
     linkTypeFor:
         Person:
             observations: none
+        Image:
+            germplasmMedia: none
