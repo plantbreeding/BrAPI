@@ -1114,6 +1114,8 @@ type Germplasm {
   instituteName: String
   "The mulit-crop passport descriptors (MCPD) for this germplasm"
   mcpd: GermplasmMCPD
+  "Descriptive images of a model example for a particular germplasm"
+  media: [GermplasmMedia]
   """
   The cross name and optional selection history.
   
@@ -1416,6 +1418,13 @@ type GermplasmMCPD {
   subtaxonAuthority: String
 }
 
+"Descriptive images of a model example for a particular germplasm"
+type GermplasmMedia {
+  "associated image reference"
+  imageDbIds: ID
+  imageURL: String
+}
+
 "Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm."
 type GermplasmOrigin {
   "Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown."
@@ -1477,6 +1486,8 @@ type Image {
   descriptiveOntologyTerms: [String]
   "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI."
   externalReferences: [ExternalReference]
+  "A list of observation Ids this image is associated with, if applicable."
+  germplasmMedia: GermplasmMedia
   "The unique identifier of an image"
   imageContent: String
   "The unique identifier of an image"
@@ -5246,6 +5257,8 @@ input GermplasmInput {
   instituteName: String
   "The mulit-crop passport descriptors (MCPD) for this germplasm"
   mcpd: GermplasmMCPDInput
+  "Descriptive images of a model example for a particular germplasm"
+  media: [GermplasmMediaInput]
   "observationUnits"
   observationUnits: [ObservationUnitInput]
   "observations"
@@ -5433,6 +5446,13 @@ input GermplasmMCPDInput {
   subtaxonAuthority: String
 }
 
+"Descriptive images of a model example for a particular germplasm"
+input GermplasmMediaInput {
+  "associated image reference"
+  image: ImageInput
+  imageURL: String
+}
+
 "Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm."
 input GermplasmOriginInput {
   "Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown."
@@ -5491,6 +5511,8 @@ input ImageInput {
   descriptiveOntologyTerms: [String]
   "Filter by External References"
   externalReferences: [ExternalReferenceInput]
+  "A list of observation Ids this image is associated with, if applicable."
+  germplasmMedia: GermplasmMediaInput
   "The unique identifier of an image"
   imageContent: String
   "The unique identifier of an image"

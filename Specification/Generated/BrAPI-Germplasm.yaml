@@ -4525,6 +4525,22 @@ components:
         \ of a particular Germplasm. Note a Germplasm is unique and noteworthy, so\
         \ a Cross may or may not create a new Germplasm, since not every Cross is\
         \ unique or noteworthy."
+    GermplasmMedia:
+      type: object
+      properties:
+        imageDbId:
+          type: string
+        imageName:
+          type: string
+        imagePUI:
+          type: string
+        imageURL:
+          type: string
+          description: "imageURL: string"
+          format: url
+          nullable: true
+          example: http://foo.bar/baz.png
+      description: Descriptive images of a model example for a particular germplasm
     GermplasmNewRequest:
       required:
       - commonCropName
@@ -4701,6 +4717,12 @@ components:
           type: string
           description: The name of the institute that maintains the material
           nullable: true
+        media:
+          type: array
+          description: Descriptive images of a model example for a particular germplasm
+          nullable: true
+          items:
+            $ref: "#/components/schemas/GermplasmMedia"
         pedigree:
           type: string
           description: |-
