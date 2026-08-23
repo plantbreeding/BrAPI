@@ -113,6 +113,7 @@ components:
             
             MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study
           type: string
+          nullable: true
           example: This is a yield study for Spring 2018
         studyName:
           description: |-
