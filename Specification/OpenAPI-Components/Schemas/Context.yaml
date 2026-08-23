@@ -1,13 +1,16 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
     Context: 
       title: context
-      type: array
+      nullable: true
+      type: 
+      - array
+      - null
       description: |-
         The JSON-LD Context is used to provide JSON-LD definitions to each field in a JSON object. By providing an array of context file urls, a BrAPI response object becomes JSON-LD compatible.  
         

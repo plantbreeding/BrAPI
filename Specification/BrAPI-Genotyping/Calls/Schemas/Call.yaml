@@ -18,6 +18,7 @@ components:
       required:
       - callSetDbId
       - variantDbId
+      - variantName
       - variantSetDbId
       properties:
         additionalInfo:

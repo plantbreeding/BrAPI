@@ -57,6 +57,7 @@ components:
             <br/> 'STANDARD' represents a standard, permenant breeding program
             <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   
           type: string
+          nullable: true
           enum:
           - STANDARD
           - PROJECT

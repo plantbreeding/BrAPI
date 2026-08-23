@@ -91,7 +91,7 @@
                         "listType": {
                             "anyOf": [
                                 {"$ref": "../BrAPI-Core/ListType.json#/$defs/ListType"},
-                                {"type": "string"}
+                                {"type": "null"}
                             ]
                         }
                     }

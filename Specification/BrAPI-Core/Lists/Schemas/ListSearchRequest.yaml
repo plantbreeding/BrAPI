@@ -69,7 +69,6 @@ components:
               type: string
             example: ['USER', 'SYSTEM', 'EXTERNAL']
           listType:
-            anyOf:
-              - $ref: "#/components/schemas/ListTypes"
-              - type: "null"
+            $ref: "#/components/schemas/ListTypes"
+            nullable: true
 

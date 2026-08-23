@@ -380,8 +380,7 @@
                 "reference": {
                     "description": "Germplasm associated with a reference",
                     "$ref": "../BrAPI-Genotyping/Reference.json#/$defs/Reference",
-                    "relationshipType": "many-to-one",
-                    "referencedAttribute": "sourceGermplasm"
+                    "relationshipType": "many-to-one"
                 },
                 "referenceSet": {
                     "description": "Germplasm associated with a reference",
