@@ -56,18 +56,21 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "This is a list of germplasm I would like to investigate next season"
                 },
                 "listName": {
                     "description": "Human readable name of a List",
-                    "type": "string"
+                    "type": "string",
+                    "example": "MyGermplasm_Sept_2020"
                 },
                 "listOwnerName": {
                     "description": "Human readable name of a List Owner. (usually a user or person)",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Bob Robertson"
                 },
                 "listOwnerPerson": {
                     "$ref": "Person.json#/$defs/Person",
@@ -80,14 +83,16 @@
                     "type": [
                         "null",
                         "integer"
-                    ]
+                    ],
+                    "example": 53
                 },
                 "listSource": {
                     "description": "The description of where a List originated from",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "GeneBank Repository 1.3"
                 },
                 "listType": {
                     "description": "A flag to indicate the type of objects that are referenced in a List",

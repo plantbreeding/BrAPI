@@ -60,7 +60,7 @@ components:
           type:
             - string
             - 'null'
-          example: 71 Pilgrim Avenue Chevy Chase MD 20815
+          example: 123 First Street, Townsville, AB 12345, USA
         instituteName:
           description: |-
             The full name of the institute at a particular Location

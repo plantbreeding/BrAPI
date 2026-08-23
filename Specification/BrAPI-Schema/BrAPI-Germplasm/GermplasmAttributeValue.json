@@ -63,7 +63,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Present"
                 }
             },
             "required": [

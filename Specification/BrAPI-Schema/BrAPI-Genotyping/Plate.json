@@ -25,11 +25,13 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "11223344"
                 },
                 "plateDbId": {
                     "description": "The ID which uniquely identifies a `Plate`",
-                    "type": "string"
+                    "type": "string",
+                    "example": "a106467f"
                 },
                 "plateFormat": {
                     "description": "Enum for plate formats, usually \"PLATE_96\" for a 96 well plate or \"TUBES\" for plateless format",
@@ -45,7 +47,8 @@
                 },
                 "plateName": {
                     "description": "A human readable name for a `Plate`",
-                    "type": "string"
+                    "type": "string",
+                    "example": "Plate_123_XYZ"
                 },
                 "program": {
                     "description": "The ID which uniquely identifies a `Program` within the given database server",
@@ -72,7 +75,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "TISSUE"
                 },
                 "study": {
                     "description": "The ID which uniquely identifies a `Study` within the given database server",
