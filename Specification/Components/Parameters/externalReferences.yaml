@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   parameters:
@@ -9,7 +9,7 @@ components:
       deprecated: true
       name: externalReferenceID
       description:  |-
-        **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460 
+        **Deprecated in v2.1** Please use `externalReferenceId`. Github issue number #460
         <br>An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
       in: query
       required: false

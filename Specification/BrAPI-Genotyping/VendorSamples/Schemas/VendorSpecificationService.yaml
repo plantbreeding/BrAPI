@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -13,9 +13,10 @@ components:
       properties:
         serviceDescription:
           description: Description of the vendor platform
-          type: string
-          nullable: true
-          example: A combined DNA extract and Sequencing process using technology and science. Lots of automated pipet machines. 
+          type:
+            - string
+            - 'null'
+          example: A combined DNA extract and Sequencing process using technology and science. Lots of automated pipet machines.
         serviceId:
           description: Unique identifier for this service
           type: string
@@ -29,26 +30,29 @@ components:
           enum:
           - FIXED
           - DISCOVERABLE
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: FIXED
         servicePlatformName:
           description: The technology platform used by this service
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: RNA-seq
         specificRequirements:
           description: Additional arbitrary requirements for a particular platform
-          type: array
-          nullable: true
+          type:
+            - array
+            - 'null'
           items:
             type: object
             properties:
               key:
-                description: The key of a key-value entry in a map of Vendor specific requirements 
+                description: The key of a key-value entry in a map of Vendor specific requirements
                 type: string
               description:
-                description: The value of a key-value entry in a map of Vendor specific requirements 
+                description: The value of a key-value entry in a map of Vendor specific requirements
                 type: string
           example:
           - key: genus

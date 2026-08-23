@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -12,27 +12,32 @@ components:
           additionalProperties:
             type: string
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-          type: object
-          nullable: true
+          type:
+            - object
+            - 'null'
         crossingProjectDbId:
           description: the unique identifier for a crossing project
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 696d7c92
-        crossingProjectName: 
+        crossingProjectName:
           description: the human readable name for a crossing project
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: my_Crosses_2018
-        plannedCrossName: 
+        plannedCrossName:
           description: the human readable name for a planned cross
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: my_Crosses_2018_01
-        crossType: 
+        crossType:
           description: the type of cross
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           enum:
           - BIPARENTAL
           - SELF
@@ -42,22 +47,25 @@ components:
           - BULK_OPEN_POLLINATED
           - DOUBLE_HAPLOID
           example: BIPARENTAL
-        status: 
+        status:
           description: The status of this planned cross. Is it waiting to be performed ('TODO'), has it been completed successfully ('DONE'), or has it not been done on purpose ('SKIPPED').
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           enum:
           - TODO
           - DONE
           - SKIPPED
           example: TODO
-        parent1: 
-          $ref: '#/components/schemas/CrossParent'
-          nullable: true
-        parent2: 
-          $ref: '#/components/schemas/CrossParent'
-          nullable: true
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
-          
+        parent1:
+          anyOf:
+            - $ref: '#/components/schemas/CrossParent'
+            - type: 'null'
+        parent2:
+          anyOf:
+            - $ref: '#/components/schemas/CrossParent'
+            - type: 'null'
+        externalReferences:
+          anyOf:
+            - $ref: '#/components/schemas/ExternalReferences'
+            - type: 'null'

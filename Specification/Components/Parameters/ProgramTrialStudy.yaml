@@ -1,14 +1,14 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   parameters:
     programDbId:
       name: programDbId
       description: |-
-        Use this parameter to only return results associated with the given `Program` unique identifier. 
+        Use this parameter to only return results associated with the given `Program` unique identifier.
         <br/>Use `GET /programs` to find the list of available `Programs` on a server.
       in: query
       required: false
@@ -17,7 +17,7 @@ components:
     programName:
       name: programName
       description: |-
-        Use this parameter to only return results associated with the given `Program` by its human readable name. 
+        Use this parameter to only return results associated with the given `Program` by its human readable name.
         <br/>Use `GET /programs` to find the list of available `Programs` on a server.
       in: query
       required: false
@@ -26,7 +26,7 @@ components:
     trialDbId:
       name: trialDbId
       description: |-
-        Use this parameter to only return results associated with the given `Trial` unique identifier. 
+        Use this parameter to only return results associated with the given `Trial` unique identifier.
         <br/>Use `GET /trials` to find the list of available `Trials` on a server.
       in: query
       required: false
@@ -35,7 +35,7 @@ components:
     trialName:
       name: trialName
       description: |-
-        Use this parameter to only return results associated with the given `Trial` by its human readable name. 
+        Use this parameter to only return results associated with the given `Trial` by its human readable name.
         <br/>Use `GET /trials` to find the list of available `Trials` on a server.
       in: query
       required: false
@@ -44,7 +44,7 @@ components:
     studyDbId:
       name: studyDbId
       description: |-
-        Use this parameter to only return results associated with the given `Study` unique identifier. 
+        Use this parameter to only return results associated with the given `Study` unique identifier.
         <br/>Use `GET /studies` to find the list of available `Studies` on a server.
       in: query
       required: false
@@ -53,7 +53,7 @@ components:
     studyName:
       name: studyName
       description: |-
-        Use this parameter to only return results associated with the given `Study` by its human readable name. 
+        Use this parameter to only return results associated with the given `Study` by its human readable name.
         <br/>Use `GET /studies` to find the list of available `Studies` on a server.
       in: query
       required: false

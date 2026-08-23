@@ -1,26 +1,26 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
   /crosses:
     get:
       summary: Get a filtered list of Cross entities
-      description: Get a filtered list of Cross entities. 
+      description: Get a filtered list of Cross entities.
       parameters:
-      - name: crossingProjectDbId 
+      - name: crossingProjectDbId
         description: Search for Crossing Projects with this unique id
         in: query
         required: false
         schema:
           type: string
-      - name: crossingProjectName 
+      - name: crossingProjectName
         description: The human readable name for a crossing project
         in: query
         required: false
         schema:
           type: string
-      - name: crossDbId 
+      - name: crossDbId
         description: Search for Cross with this unique id
         in: query
         required: false
@@ -61,7 +61,7 @@ paths:
           application/json:
             schema:
               type: array
-              items: 
+              items:
                 $ref: '#/components/schemas/CrossNewRequest'
       responses:
         '200':
@@ -90,20 +90,20 @@ paths:
               example:
                 '<crossDbId_1>':
                   additionalInfo: {}
-                  crossAttributes: 
+                  crossAttributes:
                   - crossAttributeName: string
                     crossAttributeValue: string
                   crossName: my_Crosses_2018_01
                   crossType: BIPARENTAL
                   crossingProjectDbId: 696d7c92
                   crossingProjectName: my_Crosses_2018
-                  parent1: 
+                  parent1:
                     germplasmDbId: d34b10c3
                     germplasmName: TME_419
                     observationUnitDbId: 3f0a1798
                     observationUnitName: my_Plot_9001
                     parentType: FEMALE
-                  parent2: 
+                  parent2:
                     germplasmDbId: 776a609c
                     germplasmName: TME_419
                     observationUnitDbId: 2e1926a7
@@ -112,20 +112,20 @@ paths:
                   pollinationTimeStamp: '2019-08-15T18:49:00.327Z'
                 '<crossDbId_2>':
                   additionalInfo: {}
-                  crossAttributes: 
+                  crossAttributes:
                   - crossAttributeName: string
                     crossAttributeValue: string
                   crossName: my_Crosses_2018_02
                   crossType: BIPARENTAL
                   crossingProjectDbId: 696d7c92
                   crossingProjectName: my_Crosses_2018
-                  parent1: 
+                  parent1:
                     germplasmDbId: c43a2fd2
                     germplasmName: TME_419
                     observationUnitDbId: 3f2a37b8
                     observationUnitName: my_Plot_9013
                     parentType: FEMALE
-                  parent2: 
+                  parent2:
                     germplasmDbId: 124b10ad
                     germplasmName: TME_419
                     observationUnitDbId: 27194637
@@ -171,4 +171,3 @@ components:
             type: object
       description: OK
       headers: {}
-    

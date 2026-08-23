@@ -1,13 +1,13 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
   /ontologies:
     get:
       summary: Get a filtered list of Ontologies
       description: |-
-        Retrieve a list of ontologies available in the system. 
+        Retrieve a list of ontologies available in the system.
         Each Ontology record describes the metadata of an existing ontology, it does not include all the terms that are part of that ontology.
       parameters:
       - description: The human readable identifier for an ontology definition

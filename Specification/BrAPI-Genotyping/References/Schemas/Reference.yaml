@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -20,11 +20,13 @@ components:
           additionalProperties:
             type: string
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-          type: object
-          nullable: true
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
+          type:
+            - object
+            - 'null'
+        externalReferences:
+          anyOf:
+            - $ref: '#/components/schemas/ExternalReferences'
+            - type: 'null'
         referenceDbId:
           description: The unique identifier for a `Reference`
           type: string
@@ -35,34 +37,40 @@ components:
           example: Chromosome 2
         referenceSetDbId:
           description: The unique identifier for a `ReferenceSet`
-          type: string
+          type:
+            - string
+            - 'null'
           example: c1ecfef1
-          nullable: true
         referenceSetName:
           description: The human readable name of a `ReferenceSet`
-          type: string
+          type:
+            - string
+            - 'null'
           example: The Best Assembly Ever
-          nullable: true
         isDerived:
           description: A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.
           format: boolean
-          type: boolean
-          nullable: true
+          type:
+            - boolean
+            - 'null'
           example: false
         length:
           description: The length of this `Reference` sequence.
-          type: integer
-          nullable: true
+          type:
+            - integer
+            - 'null'
           example: 50000000
         md5checksum:
           description: The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: c2365e900c81a89cf74d83dab60df146
         sourceGermplasm:
           description: All known corresponding Germplasm
-          type: array
-          nullable: true
+          type:
+            - array
+            - 'null'
           items:
             type: object
             properties:
@@ -78,26 +86,31 @@ components:
           description: All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.
           items:
             type: string
-          type: array
-          nullable: true
+          type:
+            - array
+            - 'null'
           example: ["GCF_000001405.26"]
         sourceDivergence:
           description: The `sourceDivergence` is the fraction of non-indel bases that do not match the `Reference` this message was derived from.
           format: float
-          nullable: true
-          type: number
+          type:
+            - number
+            - 'null'
           example: 0.01
         sourceURI:
           description: The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: https://wiki.brapi.org/files/demo.fast
         commonCropName:
-          description: Common name for the crop 
-          type: string
-          nullable: true
+          description: Common name for the crop
+          type:
+            - string
+            - 'null'
           example: Maize
         species:
-          $ref: '#/components/schemas/OntologyTerm'
-          nullable: true
+          anyOf:
+            - $ref: '#/components/schemas/OntologyTerm'
+            - type: 'null'
 

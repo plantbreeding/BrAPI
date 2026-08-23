@@ -1,11 +1,11 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
-    SearchRequestParametersVariableBaseClass: 
+    SearchRequestParametersVariableBaseClass:
       allOf:
       - $ref: '#/components/schemas/SearchRequestParametersPaging'
       - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'
@@ -15,9 +15,9 @@ components:
       - $ref: '#/components/schemas/SearchRequestParametersStudies'
       - type: object
         properties:
-          studyDbId:  
+          studyDbId:
             description: |-
-              **Deprecated in v2.1** Please use `studyDbIds`. Github issue number #483 
+              **Deprecated in v2.1** Please use `studyDbIds`. Github issue number #483
               <br>The unique ID of a studies to filter on
             deprecated: true
             type: array
@@ -59,7 +59,7 @@ components:
             type: array
             example: ['a13ecffa', '7e1afe4f']
           scaleNames:
-            description: |- 
+            description: |-
               Name of the scale
               <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable
             items:
@@ -128,7 +128,7 @@ components:
           traitEntityPUIs:
             description: |-
               The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI
-              <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain" 
+              <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"
             items:
               type: string
             type: array

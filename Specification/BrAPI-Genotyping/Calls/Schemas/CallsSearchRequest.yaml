@@ -1,53 +1,60 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
-    CallsSearchRequest: 
+    CallsSearchRequest:
       allOf:
       - $ref: '#/components/schemas/SearchRequestParametersTokenPaging'
       - type: object
         properties:
           callSetDbIds:
-            description: A list of IDs which uniquely identify `CallSets` within the given database server 
-            type: array
-            nullable: true
+            description: A list of IDs which uniquely identify `CallSets` within the given database server
+            type:
+              - array
+              - 'null'
             items:
               type: string
             example: [ 'a03202ec', '274e4f63' ]
-          variantDbIds: 
-            description: A list of IDs which uniquely identify `Variant` within the given database server 
-            type: array
-            nullable: true
+          variantDbIds:
+            description: A list of IDs which uniquely identify `Variant` within the given database server
+            type:
+              - array
+              - 'null'
             items:
               type: string
             example: [ 'bba0b258', 'ff97d4f0' ]
-          variantSetDbIds: 
-            description: A list of IDs which uniquely identify `VariantSets` within the given database server 
-            type: array
-            nullable: true
+          variantSetDbIds:
+            description: A list of IDs which uniquely identify `VariantSets` within the given database server
+            type:
+              - array
+              - 'null'
             items:
               type: string
             example: [ '407c0508', '49e24dfc' ]
           expandHomozygotes:
             description: Should homozygotes be expanded (true) or collapsed into a single occurrence (false)
-            type: boolean
-            nullable: true
+            type:
+              - boolean
+              - 'null'
             example: true
           sepPhased:
             description: The string used as a separator for phased allele calls.
-            type: string
-            nullable: true
+            type:
+              - string
+              - 'null'
             example: '|'
           sepUnphased:
             description: The string used as a separator for unphased allele calls.
-            type: string
-            nullable: true
+            type:
+              - string
+              - 'null'
             example: '/'
           unknownString:
             description: The string used as a representation for missing data.
-            type: string
-            nullable: true
+            type:
+              - string
+              - 'null'
             example: '.'

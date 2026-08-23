@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
   /seedlots:
     get:
@@ -13,8 +13,8 @@ paths:
         in: query
         required: false
         schema:
-          type: string 
-      - name: crossDbId 
+          type: string
+      - name: crossDbId
         description: Search for Cross with this unique id
         in: query
         required: false
@@ -57,7 +57,7 @@ paths:
           application/json:
             schema:
               type: array
-              items: 
+              items:
                 $ref: '#/components/schemas/SeedLotNewRequest'
       responses:
         '200':
@@ -98,4 +98,4 @@ components:
             - result
       description: OK
       headers: {}
-    
+

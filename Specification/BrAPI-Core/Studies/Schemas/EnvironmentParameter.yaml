@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -10,14 +10,15 @@ components:
         parameterName:
           description: |-
             Name of the environment parameter constant within the experiment
-            
-            MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. 
+
+            MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment.
           type: string
           example: soil type
         parameterPUI:
           description: URI pointing to an ontology class for the parameter
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: PECO:0007155
         description:
           description: Human-readable value of the environment parameter (defined above) constant within the experiment
@@ -26,25 +27,29 @@ components:
         value:
           description: |-
             Numerical or categorical value
-            
+
             MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: clay soil
         valuePUI:
           description: URI pointing to an ontology class for the parameter value
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: ENVO:00002262
         unit:
           description: Unit of the value for this parameter
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: pH
         unitPUI:
           description: URI pointing to an ontology class for the unit
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: PECO:0007059
       required:
       - parameterName

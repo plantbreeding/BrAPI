@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   parameters:
@@ -14,9 +14,9 @@ components:
         type: string
     preview:
       name: preview
-      description: |- 
+      description: |-
             Default Value = false
-            <br/>If 'preview' is set to true, then the server should return with the "dataMatrices" field as null or empty. All other data fields should be returned normally. 
+            <br/>If 'preview' is set to true, then the server should return with the "dataMatrices" field as null or empty. All other data fields should be returned normally.
             This is intended to be a preview and give the client a sense of how large the matrix returned will be
             <br/>If 'preview' is set to false or not set (default), then the server should return all the matrix data as requested.
       in: query
@@ -43,21 +43,21 @@ components:
         type: string
     callSetDbId:
       name: callSetDbId
-      description: The ID which uniquely identifies a `CallSet` within the given database server 
+      description: The ID which uniquely identifies a `CallSet` within the given database server
       in: query
       required: false
       schema:
         type: string
     variantDbId:
       name: variantDbId
-      description: The ID which uniquely identifies a `Variant` within the given database server 
+      description: The ID which uniquely identifies a `Variant` within the given database server
       in: query
       required: false
       schema:
         type: string
     variantSetDbId:
       name: variantSetDbId
-      description: The ID which uniquely identifies a `VariantSet` within the given database server 
+      description: The ID which uniquely identifies a `VariantSet` within the given database server
       in: query
       required: false
       schema:
@@ -76,14 +76,14 @@ components:
       required: false
       schema:
         type: string
-    sepPhased: 
+    sepPhased:
       name: sepPhased
       description: The string to use as a separator for phased allele calls
       in: query
       required: false
       schema:
         type: string
-    sepUnphased: 
+    sepUnphased:
       name: sepUnphased
       description: The string to use as a separator for unphased allele calls
       in: query
@@ -94,7 +94,7 @@ components:
       name: positionRange
       description: |-
         The position range to search
-        <br/> Uses the format "contig:start-end" where "contig" is the chromosome or contig name, "start" is  
+        <br/> Uses the format "contig:start-end" where "contig" is the chromosome or contig name, "start" is
         the starting position of the range, and "end" is the ending position of the range
         <br> Example: CRHOM_1:12000-14000
       in: query

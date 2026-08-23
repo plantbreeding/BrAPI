@@ -1,14 +1,14 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
   /lists:
     get:
       summary: Get filtered set of generic lists
       description: Get filtered set of generic lists
       parameters:
-      - description: A flag to indicate the type of objects that are referenced in a List 
+      - description: A flag to indicate the type of objects that are referenced in a List
         in: query
         name: listType
         required: false
@@ -102,4 +102,4 @@ components:
             type: object
       description: OK
       headers: {}
-    
+

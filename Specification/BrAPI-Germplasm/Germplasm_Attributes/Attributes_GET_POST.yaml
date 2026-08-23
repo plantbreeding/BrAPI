@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
   /attributes:
     get:
@@ -71,7 +71,7 @@ paths:
           application/json:
             schema:
               type: array
-              items: 
+              items:
                 $ref: '#/components/schemas/GermplasmAttributeNewRequest'
       responses:
         '200':
@@ -112,4 +112,4 @@ components:
             - result
       description: OK
       headers: {}
-    
+

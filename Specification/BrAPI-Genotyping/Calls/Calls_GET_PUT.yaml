@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
   /calls:
     get:
@@ -10,19 +10,19 @@ paths:
         Gets a filtered list of `Call` JSON objects.
       parameters:
         - name: callSetDbId
-          description: The ID which uniquely identifies a `CallSet` within the given database server 
+          description: The ID which uniquely identifies a `CallSet` within the given database server
           in: query
           required: false
           schema:
             type: string
         - name: variantDbId
-          description: The ID which uniquely identifies a `Variant` within the given database server 
+          description: The ID which uniquely identifies a `Variant` within the given database server
           in: query
           required: false
           schema:
             type: string
         - name: variantSetDbId
-          description: The ID which uniquely identifies a `VariantSet` within the given database server 
+          description: The ID which uniquely identifies a `VariantSet` within the given database server
           in: query
           required: false
           schema:
@@ -67,15 +67,15 @@ paths:
       tags:
         - Calls
     put:
-      summary: Update existing `Calls` with new genotype value or metadata 
+      summary: Update existing `Calls` with new genotype value or metadata
       description: |-
         Update existing `Calls` with new genotype value or metadata
-        <br/>Implementation Note - 
-        <br/>A `Call` object does not have a DbId of its own. It is defined by the unique combination of 
-        `callSetDbId`, `variantDbId`, and `variantSetDbId`. These three fields MUST be present for every 
-        `call` update request. This endpoint should not allow these fields to be modified for a given 
+        <br/>Implementation Note -
+        <br/>A `Call` object does not have a DbId of its own. It is defined by the unique combination of
+        `callSetDbId`, `variantDbId`, and `variantSetDbId`. These three fields MUST be present for every
+        `call` update request. This endpoint should not allow these fields to be modified for a given
         `call`. Modifying these fields in the database is effectively moving a cell to a different location
-        in the genotype matrix. This action is dangerous and can cause data collisions.     
+        in the genotype matrix. This action is dangerous and can cause data collisions.
       parameters:
         - $ref: '#/components/parameters/authorizationHeader'
       requestBody:

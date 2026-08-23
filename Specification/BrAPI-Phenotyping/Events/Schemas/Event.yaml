@@ -1,12 +1,12 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
     Event:
-      type: object 
+      type: object
       x-brapi-metadata:
         primaryModel: true
         module: BrAPI-Phenotyping
@@ -14,7 +14,7 @@ components:
       description: |-
           An event is discrete occurrence at a particular time in the experiment. Events may be the realization of Treatments or parts of Treatments, or may be confounding to Treatments.
           <br> ICASA Management Events allow for the following types -> planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other
-      required: 
+      required:
       - eventDbId
       - eventType
       properties:
@@ -22,8 +22,9 @@ components:
           additionalProperties:
             type: string
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-          type: object
-          nullable: true
+          type:
+            - object
+            - 'null'
         eventDbId:
           description: Internal database identifier
           type: string
@@ -40,37 +41,43 @@ components:
             An identifier for this event type, in the form of an ontology class reference
             <br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other
             <br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 4e7d691e
-        eventDescription: 
+        eventDescription:
           description: |-
             A detailed, human-readable description of this event
-            <br/>MIAPPE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. 
-          type: string
-          nullable: true
+            <br/>MIAPPE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event.
+          type:
+            - string
+            - 'null'
           example: A set of plots was watered
-        studyDbId: 
+        studyDbId:
           description: The study in which the event occurred
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 2cc2001f
-        studyName: 
+        studyName:
           description: The human readable name of a study
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 2cc2001f
-        observationUnitDbIds: 
+        observationUnitDbIds:
           description: A list of the affected observation units. If this parameter is not given, it is understood that the event affected all units in the study
           items:
             type: string
-          type: array
-          nullable: true
+          type:
+            - array
+            - 'null'
           example: ['8439eaff', 'd7682e7a', '305ae51c']
         eventDateRange:
           description: An object describing when a particular Event has taken place. An Event can occur at one or more discrete time points (`discreteDates`) or an event can happen continuously over a longer period of time (`startDate`, `endDate`)
-          type: object
-          nullable: true
+          type:
+            - object
+            - 'null'
           properties:
             discreteDates:
               description: |-
@@ -79,105 +86,119 @@ components:
               items:
                 format: date-time
                 type: string
-              type: array
-              nullable: true
+              type:
+                - array
+                - 'null'
               example: ['2018-10-08T18:15:11Z', '2018-11-09T18:16:12Z', '2018-11-19T18:16:12Z']
             startDate:
               description: |-
                 The beginning of a continuous or regularly repetitive event
                 <br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.
               format: date-time
-              type: string
-              nullable: true
+              type:
+                - string
+                - 'null'
               example: '2018-10-08T18:15:11Z'
             endDate:
               description: |-
                 The end of a continuous or regularly repetitive event
                 <br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.
               format: date-time
-              type: string
-              nullable: true
+              type:
+                - string
+                - 'null'
               example: '2018-10-08T18:15:11Z'
         date:
           deprecated: true
           description: |-
-            **Deprecated in v2.1** Please use `eventDateRange.discreteDates`. Github issue number #440             
+            **Deprecated in v2.1** Please use `eventDateRange.discreteDates`. Github issue number #440
             <br>A list of dates when the event occurred
             <br>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.
           items:
             format: date-time
             type: string
-          type: array
-          nullable: true
+          type:
+            - array
+            - 'null'
           example: ['2018-10-08T18:15:11Z', '2018-11-09T18:16:12Z']
-        eventParameters: 
+        eventParameters:
           description: A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI
-          type: array
-          nullable: true
-          items: 
+          type:
+            - array
+            - 'null'
+          items:
             type: object
             properties:
               name:
                 description: |-
                   The full name of an event parameter
                   <br>ICASA "Variable_Name"
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
                 example: tillage_implement
               code:
                 description: |-
                   The shortened code name of an event parameter
                   <br>ICASA "Code_Display"
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
                 example: tiimp
               units:
                 description: |-
-                  The units or data type of the 'value'. 
-                  <br>If the 'value' comes from a standardized vocabulary or an encoded list of values, then 'unit' should be 'code'. 
-                  <br>If the 'value' IS NOT a number, then 'unit' should specify a data type eg. 'text', 'boolean', 'date', etc. 
+                  The units or data type of the 'value'.
+                  <br>If the 'value' comes from a standardized vocabulary or an encoded list of values, then 'unit' should be 'code'.
+                  <br>If the 'value' IS NOT a number, then 'unit' should specify a data type eg. 'text', 'boolean', 'date', etc.
                   <br>If the value IS a number, then 'unit' should specify the units used eg. 'ml', 'cm', etc
                   <br>ICASA "Unit_or_type"
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
                 example: code
               value:
                 description: The single value of this event parameter. This single value is accurate for all the dates in the date range. If 'value' is populated then 'valuesByDate' should NOT be populated.
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
                 example: TI001
               valuesByDate:
                 description: An array of values corresponding to each timestamp in the 'discreteDates' array of this event. The 'valuesByDate' array should exactly match the size of the 'discreteDates' array. If 'valuesByDate' is populated then 'value' should NOT be populated.
-                type: array
-                nullable: true
+                type:
+                  - array
+                  - 'null'
                 items:
                   type: string
                 example: ['20', '50', '40']
               description:
                 description: A human readable description of this event parameter. This description is usually associated with the 'name' and 'code' of an event parameter.
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
                 example: Implement or tool used for tillage
               valueDescription:
                 description: If the event parameter 'unit' field is 'code', then use 'valueDescription' to add a human readable description to the value.
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
                 example: Standard V-Ripper (TI001)
               key:
                 deprecated: true
                 description: |-
-                  **Deprecated in v2.1** Please use `name`. Github issue number #440             
+                  **Deprecated in v2.1** Please use `name`. Github issue number #440
                   <br>Specifies the relationship between the event and the given property. E.g. fertilizer, operator
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
                 example: operator
               rdfValue:
                 deprecated: true
                 description: |-
-                  **Deprecated in v2.1** Please use `code`. Github issue number #440             
+                  **Deprecated in v2.1** Please use `code`. Github issue number #440
                   <brThe type of the value given above, e.g. http://xmlns.com/foaf/0.1/Agent
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
                 example: http://xmlns.com/foaf/0.1/Agent
           example:
           - name: "tillage_implement"

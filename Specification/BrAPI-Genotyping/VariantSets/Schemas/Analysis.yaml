@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -11,39 +11,46 @@ components:
       properties:
         created:
           description: The time at which this record was created, in ISO 8601 format.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           format: date-time
         description:
           description: A human readable description of the analysis
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: This is a formal description of a QC methodology. Blah blah blah ...
         analysisDbId:
           description: Unique identifier for this analysis description
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 6191a6bd
         analysisName:
           description: A human readable name for this analysis
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Standard QC
         software:
           description: The software run to generate this analysis.
           items:
             type: string
-          type: array
-          nullable: true
+          type:
+            - array
+            - 'null'
           example: [ 'https://github.com/genotyping/QC' ]
         type:
           description: The type of analysis.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: QC
         updated:
           description: The time at which this record was last updated, in ISO 8601 format.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           format: date-time
 

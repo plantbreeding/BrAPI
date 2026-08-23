@@ -1,29 +1,29 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
-    SearchRequestParametersExternalReferences: 
+    SearchRequestParametersExternalReferences:
       type: object
       properties:
-        externalReferenceIDs: 
+        externalReferenceIDs:
           deprecated: true
           description:  |-
-            **Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460 
+            **Deprecated in v2.1** Please use `externalReferenceIds`. Github issue number #460
             <br>List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)
           items:
             type: string
           type: array
           example: ['doi:10.155454/12341234', '14a19841']
-        externalReferenceIds: 
+        externalReferenceIds:
           description: List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)
           items:
             type: string
           type: array
           example: ['doi:10.155454/12341234', '14a19841']
-        externalReferenceSources: 
+        externalReferenceSources:
           description: List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)
           items:
             type: string

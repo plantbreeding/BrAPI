@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -11,18 +11,20 @@ components:
       properties:
         dataFormat:
           description: dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           enum:
           - DartSeq
           - VCF
           - Hapmap
           - tabular
-          - JSON 
+          - JSON
         fileFormat:
           description: fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           enum:
           - text/csv
           - text/tsv
@@ -31,27 +33,32 @@ components:
           - application/json
         fileURL:
           description: A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           format: uri
-        expandHomozygotes: 
+        expandHomozygotes:
           description: Should homozygotes be expanded (true) or collapsed into a single occurrence (false)
-          type: boolean
-          nullable: true
+          type:
+            - boolean
+            - 'null'
           example: true
         sepPhased:
           description: The string used as a separator for phased allele calls.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: '|'
         sepUnphased:
           description: The string used as a separator for unphased allele calls.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: '/'
         unknownString:
           description: The string used as a representation for missing data.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: '.'
 

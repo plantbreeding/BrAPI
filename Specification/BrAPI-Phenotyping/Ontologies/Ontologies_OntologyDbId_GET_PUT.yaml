@@ -1,17 +1,17 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
   /ontologies/{ontologyDbId}:
     get:
       summary: Get a specific Ontology record by its ontologyDbId
       description: |-
-        Use this endpoint to retrieve a specific Ontology record by its ontologyDbId. 
+        Use this endpoint to retrieve a specific Ontology record by its ontologyDbId.
         Each Ontology record describes the metadata of an existing ontology, it does not include all the terms that are part of that ontology.
       parameters:
       - description: |-
-          The unique identifier for an ontology definition. Use this parameter to filter results based on a specific ontology 
+          The unique identifier for an ontology definition. Use this parameter to filter results based on a specific ontology
 
           Use `GET /ontologies` to find the list of available ontologies on a server.
         in: path
@@ -36,11 +36,11 @@ paths:
     put:
       summary: Update a specific Ontology record
       description: |-
-        Use this endpoint to update a specific Ontology record. 
+        Use this endpoint to update a specific Ontology record.
         Each Ontology record describes the metadata of an existing ontology, it does not include all the terms that are part of that ontology.
       parameters:
       - description: |-
-          The unique identifier for an ontology definition. Use this parameter to filter results based on a specific ontology 
+          The unique identifier for an ontology definition. Use this parameter to filter results based on a specific ontology
 
           Use `GET /ontologies` to find the list of available ontologies on a server.
         in: path

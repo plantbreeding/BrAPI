@@ -1,7 +1,7 @@
-info: 
+info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -9,11 +9,12 @@ components:
       allOf:
       - $ref: '#/components/schemas/ListBaseFields'
       - type: object
-        properties: 
+        properties:
           data:
             description: The array of DbIds of the BrAPI objects contained in a List
-            type: array
-            nullable: true
+            type:
+              - array
+              - 'null'
             items:
               type: string
             example: ['758a78c0', '2c78f9ee']

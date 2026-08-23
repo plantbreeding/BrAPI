@@ -1,65 +1,73 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
-    LocationNewRequest: 
+    LocationNewRequest:
       type: object
       required:
       - locationName
-      properties: 
+      properties:
         abbreviation:
           description: A shortened version of the human readable name for a Location
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: L1
         additionalInfo:
           additionalProperties:
             type: string
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-          type: object
-          nullable: true
+          type:
+            - object
+            - 'null'
           example: {}
         coordinateUncertainty:
           description: Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: '20'
         countryCode:
           description: |-
             [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec
             <br/> MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.'
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: PER
         countryName:
           description: |-
             The full name of the country where a Location is located
             <br/> MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Peru
         documentationURL:
           description: A URL to the human readable documentation of an object
           format: uri
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: https://brapi.org
         instituteAddress:
           description: |-
             The street address of the institute at a particular Location
             <br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 71 Pilgrim Avenue Chevy Chase MD 20815
         instituteName:
           description: |-
             The full name of the institute at a particular Location
             <br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Plant Science Institute
         locationName:
           description: |-
@@ -70,59 +78,70 @@ components:
         parentLocationDbId:
           description: |-
             The unique identifier for a Location
-            <br/> The Parent Location defines the encompassing Location that a smaller Location belongs to. 
+            <br/> The Parent Location defines the encompassing Location that a smaller Location belongs to.
             For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 0a93f7d8
         parentLocationName:
           description: |-
             A human readable name for a location
-            <br/> The Parent Location defines the encompassing Location that a smaller Location belongs to.  
+            <br/> The Parent Location defines the encompassing Location that a smaller Location belongs to.
             For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Field Station Alpha
         locationType:
           description: A short description of a type of Location (ex. Field Station, Breeding Location, Storage Location, etc)
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Field Station
         siteStatus:
           description: Description of the accessibility of the location (ex. Public, Private)
-          type: string
+          type:
+            - string
+            - 'null'
           example: Private
-          nullable: true
         coordinateDescription:
           description: Describes the precision and landmarks of the coordinate values used for a Location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: North East corner of greenhouse
         slope:
           description: Describes the approximate slope (height/distance) of a Location.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: '0'
         exposure:
           description: Describes the level of protection/exposure for things like sun light and wind at a particular Location
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Structure, no exposure
         environmentType:
           description: Describes the general type of environment of a Location. (ex. forest, field, nursery, etc)
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Nursery
         topography:
           description: Describes the topography of the land at a Location. (ex. Plateau, Cirque, Hill, Valley, etc)
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Valley
         coordinates:
-          $ref: '#/components/schemas/geoJSON'
-          nullable: true
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
-          
+          anyOf:
+            - $ref: '#/components/schemas/geoJSON'
+            - type: 'null'
+        externalReferences:
+          anyOf:
+            - $ref: '#/components/schemas/ExternalReferences'
+            - type: 'null'
+
 

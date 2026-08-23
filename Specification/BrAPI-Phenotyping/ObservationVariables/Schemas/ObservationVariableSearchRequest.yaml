@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -9,4 +9,3 @@ components:
       allOf:
       - $ref: '#/components/schemas/SearchRequestParametersVariableBaseClass'
       - $ref: '#/components/schemas/SearchRequestParametersObservationVariables'
-  

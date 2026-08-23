@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -17,40 +17,45 @@ components:
             description: A list of shortened human readable names for a set of Programs
             items:
               type: string
-            type: array
-            nullable: true
+            type:
+              - array
+              - 'null'
             example: ['P1', 'P2']
           leadPersonDbIds:
             description: The person DbIds of the program leader to search for
             items:
               type: string
-            type: array
-            nullable: true
+            type:
+              - array
+              - 'null'
             example: ['d8bd96c7', 'a2b9c8e7']
           leadPersonNames:
             description: The names of the program leader to search for
             items:
               type: string
-            type: array
-            nullable: true
+            type:
+              - array
+              - 'null'
             example: ['Bob Robertson', 'Rob Robertson']
           objectives:
             description: A program objective to search for
             items:
               type: string
-            type: array
-            nullable: true
+            type:
+              - array
+              - 'null'
             example: ['Objective Code One', 'This is a longer objective search query']
           programTypes:
             description: |-
               The type of program entity this object represents
               <br/> 'STANDARD' represents a standard, permenant breeding program
-              <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding 
+              <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding
             items:
               type: string
               enum:
               - STANDARD
               - PROJECT
-            type: array
-            nullable: true
+            type:
+              - array
+              - 'null'
             example: ['STANDARD', 'PROJECT']

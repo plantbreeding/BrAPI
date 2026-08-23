@@ -1,18 +1,18 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
-    SearchRequestParametersPrograms: 
+    SearchRequestParametersPrograms:
       type: object
       properties:
         programDbIds:
           description: |-
-            A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
+            A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs.
 
-            Use this parameter to only return results associated with the given programs. 
+            Use this parameter to only return results associated with the given programs.
 
             Use `GET /programs` to find the list of available programs on a server.
           items:

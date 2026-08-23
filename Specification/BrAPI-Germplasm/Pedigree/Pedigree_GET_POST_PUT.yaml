@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
   /pedigree:
     get:
@@ -9,7 +9,7 @@ paths:
       description: Get a filtered list of pedigree nodes which represent a subset of a pedigree tree
       parameters:
       - name: accessionNumber
-        description: |- 
+        description: |-
             The unique identifier for a material or germplasm within a genebank
 
             MCPD (v2.1) (ACCENUMB) 2. This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection (e.g. "PI 113869").
@@ -47,7 +47,7 @@ paths:
         required: false
         schema:
           type: string
-      - name: synonym 
+      - name: synonym
         description: An alternative name or ID used to reference this germplasm
         in: query
         required: false
@@ -71,7 +71,7 @@ paths:
         required: false
         schema:
           type: boolean
-      - description: Recursively include ALL of the nodes present in this pedigree tree. 
+      - description: Recursively include ALL of the nodes present in this pedigree tree.
         in: query
         name: includeFullTree
         required: false
@@ -125,7 +125,7 @@ paths:
           application/json:
             schema:
               type: array
-              items: 
+              items:
                 $ref: '#/components/schemas/PedigreeNode'
       responses:
         '200':
@@ -171,7 +171,7 @@ paths:
                   progeny:  [{ germplasmDbId: c66ddf14, germplasmName: A0006842, parentType: FEMALE },
                              { germplasmDbId: 3a548793, germplasmName: A0037593, parentType: FEMALE },
                              { germplasmDbId: <germplasmDbId_2>, germplasmName: A0031485, parentType: MALE }]
-                '<germplasmDbId_2>': 
+                '<germplasmDbId_2>':
                   germplasmName: A0031485
                   germplasmDbId: <germplasmDbId_2>
                   germplasmPUI: http://pui.per/accession/A0000003

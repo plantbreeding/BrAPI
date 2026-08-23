@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -9,8 +9,9 @@ components:
       properties:
         abbreviation:
           description: A shortened version of the human readable name for a Breeding Method
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: MB
         breedingMethodDbId:
           description: the unique identifier for this breeding method
@@ -18,13 +19,15 @@ components:
           example: ffcce7ef
         breedingMethodName:
           description: human readable name of the breeding method
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Male Backcross
         description:
           description: human readable description of the breeding method
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Backcross to recover a specific gene.
       required:
       - breedingMethodDbId

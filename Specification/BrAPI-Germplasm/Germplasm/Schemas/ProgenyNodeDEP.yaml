@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -13,8 +13,9 @@ components:
       properties:
         germplasmName:
           description: A human readable name for a germplasm
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: A0021004
         germplasmDbId:
           description: The ID which uniquely identifies a germplasm
@@ -23,20 +24,21 @@ components:
         progeny:
           description: List of germplasm entities which are direct children of this germplasm
           items:
-            required: 
+            required:
             - germplasmDbId
             - parentType
             properties:
               germplasmName:
                 description: The human readable name of a progeny germplasm
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
                 example: A0021011
               germplasmDbId:
                 description: The unique identifier of a progeny germplasm
                 type: string
                 example: e8d5dad7
-              parentType: 
+              parentType:
                 $ref: '#/components/schemas/ParentTypeDEP'
             type: object
           type: array

@@ -1,9 +1,9 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
-  /markerpositions: 
+  /markerpositions:
     get:
       summary: Get marker position info
       description: Get marker position information, based on Map, Linkage Group, and Marker ID
@@ -29,13 +29,13 @@ paths:
         schema:
           type: string
       - name: minPosition
-        description: The minimum position 
+        description: The minimum position
         in: query
         required: false
         schema:
           type: integer
       - name: maxPosition
-        description: The maximum position 
+        description: The maximum position
         in: query
         required: false
         schema:
@@ -57,8 +57,8 @@ paths:
 components:
   responses:
     MarkerPositionListResponse:
-      content: 
-        application/json: 
+      content:
+        application/json:
           schema:
             title: MarkerPositionListResponse
             type: object

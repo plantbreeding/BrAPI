@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -15,28 +15,32 @@ components:
             description: List of Germplasm Attribute IDs to search for
             items:
               type: string
-            type: array
-            nullable: true
+            type:
+              - array
+              - 'null'
             example: ['2ef15c9f', '318e7f7d']
           attributeNames:
             description: List of human readable Germplasm Attribute names to search for
             items:
               type: string
-            type: array
-            nullable: true
+            type:
+              - array
+              - 'null'
             example: ['Plant Height 1', 'Root Color']
           attributePUIs:
             description: The Permanent Unique Identifier of an Attribute, usually in the form of a URI
             items:
               type: string
-            type: array
-            nullable: true
+            type:
+              - array
+              - 'null'
             example: ['http://my-traits.com/trait/CO_123:0008012', 'http://my-traits.com/trait/CO_123:0007261']
           attributeCategories:
             description: General category for the attribute. very similar to Trait class.
             items:
               type: string
-            type: array
-            nullable: true
+            type:
+              - array
+              - 'null'
             example: ['Morphological', 'Physical']
-  
+

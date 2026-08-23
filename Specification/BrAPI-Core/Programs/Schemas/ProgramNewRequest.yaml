@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -12,40 +12,47 @@ components:
       properties:
         abbreviation:
           description: A shortened version of the human readable name for a Program
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: P1
         additionalInfo:
           additionalProperties:
             type: string
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-          type: object
-          nullable: true
+          type:
+            - object
+            - 'null'
         commonCropName:
           description: Common name for the crop which this program is for
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Tomatillo
         documentationURL:
           description: A URL to the human readable documentation of an object
           format: uri
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: https://wiki.brapi.org
         leadPersonDbId:
           description: The unique identifier of the program leader
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: fe6f5c50
         leadPersonName:
           description: The name of the program leader
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Bob Robertson
         objective:
           description: The primary objective of the program
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Make a better tomatillo
         programName:
           description: Human readable name of the program
@@ -55,20 +62,23 @@ components:
           description: |-
             The type of program entity this object represents
             <br/> 'STANDARD' represents a standard, permenant breeding program
-            <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   
-          type: string
-          nullable: true
+            <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding
+          type:
+            - string
+            - 'null'
           enum:
           - STANDARD
           - PROJECT
           example: STANDARD
         fundingInformation:
           description: Information describing the grant or funding source for this program
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 'EU: FP7-244374'
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
-          
+        externalReferences:
+          anyOf:
+            - $ref: '#/components/schemas/ExternalReferences'
+            - type: 'null'
+
 

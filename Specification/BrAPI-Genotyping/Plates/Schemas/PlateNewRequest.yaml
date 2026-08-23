@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -14,21 +14,24 @@ components:
           additionalProperties:
             type: string
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-          type: object
-          nullable: true
+          type:
+            - object
+            - 'null'
         plateName:
           description: A human readable name for a `Plate`
           type: string
           example: Plate_123_XYZ
         plateBarcode:
           description: A unique identifier physically attached to a `Plate`
-          type: string
+          type:
+            - string
+            - 'null'
           example: '11223344'
-          nullable: true
         sampleType:
           description: The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           enum:
           - DNA
           - RNA
@@ -37,24 +40,29 @@ components:
           example: TISSUE
         studyDbId:
           description: The ID which uniquely identifies a `Study` within the given database server
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 64bd6bf9
-        trialDbId: 
+        trialDbId:
           description: The ID which uniquely identifies a `Trial` within the given database server
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: d34c5349
-        programDbId: 
+        programDbId:
           description: The ID which uniquely identifies a `Program` within the given database server
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: bd748e00
         plateFormat:
-          $ref: '#/components/schemas/PlateFormat'
-          nullable: true
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
-          
+          anyOf:
+            - $ref: '#/components/schemas/PlateFormat'
+            - type: 'null'
+        externalReferences:
+          anyOf:
+            - $ref: '#/components/schemas/ExternalReferences'
+            - type: 'null'
+
 

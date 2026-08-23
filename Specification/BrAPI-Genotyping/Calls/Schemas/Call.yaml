@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -25,8 +25,9 @@ components:
           additionalProperties:
             type: string
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-          type: object
-          nullable: true
+          type:
+            - object
+            - 'null'
         callSetDbId:
           description: |-
             The ID of the call set this variant call belongs to.
@@ -46,14 +47,14 @@ components:
           description: The name of the variant this call belongs to.
           type: string
           example: Marker A
-        variantSetDbId: 
+        variantSetDbId:
           description: The unique identifier for a VariantSet
           type: string
           example: 87a6ac1e
         variantSetName:
           description: The human readable name for a VariantSet
           type: string
-          example: Maize QC DataSet 002334 
+          example: Maize QC DataSet 002334
         genotypeValue:
           description: The value of this genotype call
           type: string
@@ -91,7 +92,7 @@ components:
                 example: '45.2'
         phaseSet:
           description: |-
-            If this field is populated, this variant call's genotype ordering implies the phase of the bases and 
+            If this field is populated, this variant call's genotype ordering implies the phase of the bases and
             is consistent with any other variant calls on the same contig which have the same phase set string.
           type: string
           example: 6410afc5
@@ -100,7 +101,7 @@ components:
         genotype_likelihood:
           deprecated: true
           description: |-
-            **Deprecated in v2.1** Please use `genotypeMetadata`. Github issue number #491             
+            **Deprecated in v2.1** Please use `genotypeMetadata`. Github issue number #491
             <br>The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data | genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.
           items:
             format: double

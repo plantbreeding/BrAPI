@@ -1,37 +1,39 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
     GermplasmOrigin:
       description: |-
-        MIAPPE V1.1 (DM-52) 
-        
-        MIAPPE V1.1 (DM-53) 
-        
-        MIAPPE V1.1 (DM-54) 
-        
+        MIAPPE V1.1 (DM-52)
+
+        MIAPPE V1.1 (DM-53)
+
+        MIAPPE V1.1 (DM-54)
+
         MIAPPE V1.1 (DM-55)
-        
-        MCPD (v2.1) (COORDUNCERT) 15.5 
-        
-        MCPD (v2.1) (ELEVATION) 16. 
-        
-        MCPD (v2.1) (GEOREFMETH) 15.7 
-        
-        MCPD (v2.1) (DECLATITUDE) 15.1 
-        
-        MCPD (v2.1) (DECLONGITUDE) 15.3 
+
+        MCPD (v2.1) (COORDUNCERT) 15.5
+
+        MCPD (v2.1) (ELEVATION) 16.
+
+        MCPD (v2.1) (GEOREFMETH) 15.7
+
+        MCPD (v2.1) (DECLATITUDE) 15.1
+
+        MCPD (v2.1) (DECLONGITUDE) 15.3
       type: object
       properties:
         coordinateUncertainty:
           description: Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.
-          type: string
+          type:
+            - string
+            - 'null'
           example: '20'
-          nullable: true
         coordinates:
-          $ref: '#/components/schemas/geoJSON'
-          nullable: true
+          anyOf:
+            - $ref: '#/components/schemas/geoJSON'
+            - type: 'null'
 

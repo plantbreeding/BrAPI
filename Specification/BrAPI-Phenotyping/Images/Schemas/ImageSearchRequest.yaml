@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -18,13 +18,13 @@ components:
             type: array
             items:
               type: string
-            example: ['doi:10.1002/0470841559', 'Red', 'ncbi:0300294'] 
+            example: ['doi:10.1002/0470841559', 'Red', 'ncbi:0300294']
           imageFileNames:
             description: Image file names to search for.
             items:
               type: string
             type: array
-            example: ['image_01032019.jpg', 'picture_field_1234.jpg'] 
+            example: ['image_01032019.jpg', 'picture_field_1234.jpg']
           imageFileSizeMax:
             description: A maximum image file size to search for.
             type: integer
@@ -78,7 +78,7 @@ components:
               type: string
             type: array
             example: ['47326456', 'fc9823ac']
-          imageDbIds: 
+          imageDbIds:
             description: A list of image Ids to search for
             items:
               type: string

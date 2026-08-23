@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
   /locations:
     get:
@@ -34,7 +34,7 @@ paths:
       - name: parentLocationDbId
         description: |-
           The unique identifier for a Location
-          <br/> The Parent Location defines the encompassing location that this location belongs to. 
+          <br/> The Parent Location defines the encompassing location that this location belongs to.
           For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.
         in: query
         required: false
@@ -43,7 +43,7 @@ paths:
       - name: parentLocationName
         description: |-
           A human readable name for a location
-          <br/> The Parent Location defines the encompassing location that this location belongs to. 
+          <br/> The Parent Location defines the encompassing location that this location belongs to.
           For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.
         in: query
         required: false
@@ -81,7 +81,7 @@ paths:
           application/json:
             schema:
               type: array
-              items: 
+              items:
                 $ref: '#/components/schemas/LocationNewRequest'
       responses:
         '200':
@@ -122,4 +122,4 @@ components:
             - result
       description: OK
       headers: {}
-  
+

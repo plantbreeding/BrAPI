@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -12,25 +12,29 @@ components:
       properties:
         seasonName:
           description: Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Spring
         season:
           deprecated: true
           description: |-
-            **Deprecated in v2.1** Please use `seasonName`. Github issue number #456 
+            **Deprecated in v2.1** Please use `seasonName`. Github issue number #456
             <br>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Spring
         seasonDbId:
           description: The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Spring_2018
         year:
           description: The 4 digit year of the season.
-          type: integer
-          nullable: true
+          type:
+            - integer
+            - 'null'
           example: 2018
 

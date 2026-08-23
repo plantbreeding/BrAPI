@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -12,115 +12,135 @@ components:
       properties:
         active:
           description: A flag to indicate if a Trial is currently active and ongoing
-          type: boolean
-          nullable: true
+          type:
+            - boolean
+            - 'null'
           example: true
         additionalInfo:
           additionalProperties:
             type: string
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-          type: object
-          nullable: true
+          type:
+            - object
+            - 'null'
         commonCropName:
           description: Common name for the crop associated with this trial
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Wheat
         contacts:
           description: List of contact entities associated with this trial
           items:
             $ref: '#/components/schemas/Contact'
-          type: array
-          nullable: true
+          type:
+            - array
+            - 'null'
         datasetAuthorships:
           description: License and citation information for the data in this trial
           items:
             properties:
               datasetPUI:
                 description: The DOI or other permanent unique identifier for this published dataset
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
                 example: doi:10.15454/312953986E3
               license:
                 description: MIAPPE V1.1 (DM-7) License - License for the reuse of the data associated with this investigation. The Creative Commons licenses cover most use cases and are recommended.
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
                 example: https://CreativeCommons.org/licenses/by/4.0
               submissionDate:
                 description: MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
                 format: date
               publicReleaseDate:
                 description: MIAPPE V1.1 (DM-6) Public release date - Date of first public release of the dataset presently being described.
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
                 format: date
             type: object
-          type: array
-          nullable: true
+          type:
+            - array
+            - 'null'
         documentationURL:
           description: A URL to the human readable documentation of an object
           format: uri
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: https://wiki.brapi.org
         endDate:
           description: The date this trial ends
           format: date
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
         programDbId:
           description: A program identifier to search for
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 673f378a
         programName:
           description: Human readable name of the program
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Tomatillo_Breeding_Program
         publications:
           description: MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.
-          type: array
-          nullable: true
-          items: 
+          type:
+            - array
+            - 'null'
+          items:
             type: object
             properties:
               publicationPUI:
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
                 example: doi:10.15454/312953986E3
               publicationReference:
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
                 example: Selby, BrAPI - An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190
         startDate:
           description: The date this trial started
           format: date
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
         trialName:
           description: |-
             The human readable name of a trial
-            
+
             MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.
           type: string
           example: Peru Yield Trial 1
         trialDescription:
           description: |-
             The human readable description of a trial
-            
+
             MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: General drought resistance trial initiated in Peru before duplication in Africa
         trialPUI:
           description: A permanent identifier for a trial. Could be DOI or other URI formatted identifier.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: https://doi.org/101093190
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
-          
+        externalReferences:
+          anyOf:
+            - $ref: '#/components/schemas/ExternalReferences'
+            - type: 'null'
+

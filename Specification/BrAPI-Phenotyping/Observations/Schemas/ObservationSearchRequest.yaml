@@ -1,11 +1,11 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
-    ObservationSearchRequest: 
+    ObservationSearchRequest:
       allOf:
       - $ref: '#/components/schemas/SearchRequestParametersPaging'
       - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'
@@ -22,22 +22,25 @@ components:
             description: The unique id of an Observation
             items:
               type: string
-            type: array
-            nullable: true
+            type:
+              - array
+              - 'null'
             example: ['6a4a59d8', '3ff067e0']
-          observationUnitDbIds: 
+          observationUnitDbIds:
             description: The unique id of an Observation Unit
             items:
               type: string
-            type: array
-            nullable: true
-            example: ['76f559b5', '066bc5d3'] 
-          observationLevels: 
+            type:
+              - array
+              - 'null'
+            example: ['76f559b5', '066bc5d3']
+          observationLevels:
             description: Searches for values in ObservationUnit->observationUnitPosition->observationLevel
-            type: array
-            nullable: true
+            type:
+              - array
+              - 'null'
             items:
-              $ref: '#/components/schemas/ObservationUnitLevel' 
+              $ref: '#/components/schemas/ObservationUnitLevel'
             example:
               - levelName: plot
                 levelCode: Plot_123
@@ -45,30 +48,34 @@ components:
                 levelCode: Plot_456
               - levelName: plot
                 levelCode: Plot_789
-          observationLevelRelationships: 
+          observationLevelRelationships:
             description: Searches for values in ObservationUnit->observationUnitPosition->observationLevelRelationships
-            type: array
-            nullable: true
-            items: 
+            type:
+              - array
+              - 'null'
+            items:
               $ref: '#/components/schemas/ObservationUnitLevelRelationship'
-            example: 
+            example:
               - levelName: field
                 levelCode: Field_1
           observationTimeStampRangeEnd:
             description: Timestamp range end
             format: date-time
-            type: string
-            nullable: true
+            type:
+              - string
+              - 'null'
           observationTimeStampRangeStart:
             description: Timestamp range start
             format: date-time
-            type: string
-            nullable: true
-          seasonDbIds: 
+            type:
+              - string
+              - 'null'
+          seasonDbIds:
             description: The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
             items:
               type: string
-            type: array
-            nullable: true
+            type:
+              - array
+              - 'null'
             example: ['Spring 2018', 'Season A']
-  
+

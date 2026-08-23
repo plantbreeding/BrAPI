@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
   /observationunits:
     get:
@@ -33,9 +33,9 @@ paths:
         schema:
           type: string
       - description: |-
-          Use this parameter to include a list of observations embedded in each ObservationUnit object. 
-          
-          CAUTION - Use this parameter at your own risk. It may return large, unpaginated lists of observation data. Only set this value to True if you are sure you need to. 
+          Use this parameter to include a list of observations embedded in each ObservationUnit object.
+
+          CAUTION - Use this parameter at your own risk. It may return large, unpaginated lists of observation data. Only set this value to True if you are sure you need to.
         in: query
         name: includeObservations
         required: false
@@ -46,7 +46,7 @@ paths:
       - $ref: '#/components/parameters/observationUnitLevelCode'
       - $ref: '#/components/parameters/observationUnitLevelRelationshipName'
       - $ref: '#/components/parameters/observationUnitLevelRelationshipOrder'
-      - $ref: '#/components/parameters/observationUnitLevelRelationshipCode' 
+      - $ref: '#/components/parameters/observationUnitLevelRelationshipCode'
       - $ref: '#/components/parameters/observationUnitLevelRelationshipDbId'
       - $ref: '#/components/parameters/commonCropName'
       - $ref: '#/components/parameters/programDbId'
@@ -96,9 +96,9 @@ paths:
     put:
       summary: Update a set of Observation Units
       description: |-
-        Update a set of Observation Units 
-        
-        Note - In strictly typed languages, this structure can be represented as a Map or Dictionary of objects and parsed directly to JSON. 
+        Update a set of Observation Units
+
+        Note - In strictly typed languages, this structure can be represented as a Map or Dictionary of objects and parsed directly to JSON.
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
@@ -108,8 +108,8 @@ paths:
               type: object
               additionalProperties:
                 $ref: '#/components/schemas/ObservationUnitNewRequest'
-              example: 
-                '<observationUnitDbId_1>': 
+              example:
+                '<observationUnitDbId_1>':
                   additionalInfo: {}
                   externalReferences:
                   - referenceID: doi:10.155454/12341234
@@ -154,8 +154,8 @@ paths:
                   - factor: fertilizer
                     modality: low fertilizer
                   trialDbId: 776a609c
-                  trialName: Purple Tomato                  
-                '<observationUnitDbId_2>': 
+                  trialName: Purple Tomato
+                '<observationUnitDbId_2>':
                   additionalInfo: {}
                   externalReferences:
                   - referenceID: doi:10.155454/12341234
@@ -179,7 +179,7 @@ paths:
                       levelCode: Plot_123
                     observationLevelRelationships:
                     - levelCode: Field_1
-                      levelName: field 
+                      levelName: field
                       levelOrder: 0
                     - levelCode: Block_12
                       levelName: block
@@ -190,11 +190,11 @@ paths:
                     positionCoordinateX: '74'
                     positionCoordinateXType: GRID_COL
                     positionCoordinateY: '03'
-                    positionCoordinateYType: GRID_ROW 
+                    positionCoordinateYType: GRID_ROW
                   programDbId: 2d763a7a
                   programName: The Perfect Breeding Program
                   seedLotDbId: 261ecb09
-                  studyDbId: 9865addc 
+                  studyDbId: 9865addc
                   studyName: Purple_Tomato_1
                   treatments:
                   - factor: fertilizer
@@ -240,5 +240,4 @@ components:
             - result
       description: OK
       headers: {}
-    
-      
+

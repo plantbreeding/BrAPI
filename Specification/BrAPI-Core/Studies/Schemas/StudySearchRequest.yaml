@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -20,15 +20,17 @@ components:
         properties:
           active:
             description: A flag to indicate if a Study is currently active and ongoing
-            type: boolean
-            nullable: true
+            type:
+              - boolean
+              - 'null'
             example: true
-          seasonDbIds: 
+          seasonDbIds:
             description: The ID which uniquely identifies a season
             items:
               type: string
-            type: array
-            nullable: true
+            type:
+              - array
+              - 'null'
             example: ['Harvest Two 2017', 'Summer 2018']
           sortBy:
             description: Name of one of the fields within the study object on which results can be sorted
@@ -44,8 +46,9 @@ components:
             - programName
             - germplasmDbId
             - observationVariableDbId
-            type: string
-            nullable: true
+            type:
+              - string
+              - 'null'
           sortOrder:
             description: Order results should be sorted. ex. "ASC" or "DESC"
             enum:
@@ -53,26 +56,30 @@ components:
             - ASC
             - desc
             - DESC
-            type: string
-            nullable: true
+            type:
+              - string
+              - 'null'
           studyTypes:
             description: The type of study being performed. ex. "Yield Trial", etc
             items:
               type: string
-            type: array
-            nullable: true
+            type:
+              - array
+              - 'null'
             example: ['Yield Trial', 'Disease Resistance Trial']
           studyCodes:
             description: A short human readable code for a study
             items:
               type: string
-            type: array
-            nullable: true
+            type:
+              - array
+              - 'null'
             example: ['Grape_Yield_Spring_2018', 'Walnut_Kenya']
           studyPUIs:
             description: Permanent unique identifier associated with study data. For example, a URI or DOI
-            type: array
-            nullable: true
+            type:
+              - array
+              - 'null'
             items:
               type: string
             example: ['doi:10.155454/12349537312', 'https://pui.per/d8dd35e1']
