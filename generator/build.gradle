@@ -4,7 +4,7 @@ plugins {
 
 ext {
   javaMainClass = 'org.brapi.schematools.cli.BrAPICommand'
-  brapiSchemaToolsVersion = '0.85.0'
+  brapiSchemaToolsVersion = '0.86.0'
 }
 
 repositories {
