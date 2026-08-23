@@ -7,6 +7,18 @@ import json
 import dereferenceAll
 import re
 
+def primaryType(schema):
+	typeValue = schema.get('type', '')
+	if isinstance(typeValue, list):
+		return next((item for item in typeValue if item != 'null'), '')
+	return typeValue
+
+def displayType(schema):
+	typeValue = schema.get('type', '')
+	if isinstance(typeValue, list):
+		return ' | '.join(typeValue)
+	return typeValue
+
 def buildStringExample(fieldName, strSchema):
 	strExample = ''
 	if('enum' in strSchema):
@@ -30,15 +42,16 @@ def buildArrayExample(fieldName, schema):
 	elif 'items' in schema:
 		itemSchema = schema['items']
 		if ('type' in itemSchema):
-			if (itemSchema['type'] == 'string'):
+			itemType = primaryType(itemSchema)
+			if (itemType == 'string'):
 				print('WARNING: generic String List example generated, example missing from spec in ' + fieldName)
 				arr = [fieldName + '1', fieldName + '2']
-			elif (itemSchema['type'] == 'int'):
+			elif (itemType == 'int'):
 				print('WARNING: generic Int List example generated, example missing from spec in ' + fieldName)
 				arr = [1, 2]
-			elif (itemSchema['type'] == 'array'):
+			elif (itemType == 'array'):
 				arr.append(buildArrayExample(fieldName, itemSchema))
-			elif (itemSchema['type'] == 'object'):
+			elif (itemType == 'object'):
 				arr.append(buildObjectExample(itemSchema))
 		elif ('properties' in itemSchema):
 			arr.append(buildObjectExample(itemSchema))
@@ -57,14 +70,15 @@ def buildObjectExample(schema):
 			if ('example' in fieldObj):
 				example[fieldName] = fieldObj['example']
 			elif ('type' in fieldObj):
-				if (fieldObj['type'] == 'string'):
+				fieldType = primaryType(fieldObj)
+				if (fieldType == 'string'):
 					example[fieldName] = buildStringExample(fieldName, fieldObj)
-				elif (fieldObj['type'] == 'integer'):
+				elif (fieldType == 'integer'):
 					example[fieldName] = 0
 					print('WARNING: generic Int example generated, example missing from spec in ' + fieldName)
-				elif (fieldObj['type'] == 'array'):
+				elif (fieldType == 'array'):
 					example[fieldName] = buildArrayExample(fieldName, fieldObj)
-				elif (fieldObj['type'] == 'object'):
+				elif (fieldType == 'object'):
 					example[fieldName] = buildObjectExample(fieldObj)
 			elif ('properties' in fieldObj):
 				example[fieldName] = buildObjectExample(fieldObj)
@@ -116,7 +130,7 @@ def buildParametersList(params):
 		else:
 			parametersStr += ' (Optional, '
 		
-		parametersStr += param['type'] + ') ... ' if 'type' in param else ') ... '
+		parametersStr += displayType(param) + ') ... ' if 'type' in param else ') ... '
 		parametersStr += re.sub(r'\n', '', param['description']) if 'description' in param else ''
 		parametersStr += '\n'
 	
@@ -132,9 +146,10 @@ def buildRequestBody(requestBody):
 				example = ''
 				
 				if 'type' in schema:
-					if 'object' == schema['type']:
+					schemaType = primaryType(schema)
+					if 'object' == schemaType:
 						example = buildObjectExample(schema)
-					elif 'array' == schema['type']:
+					elif 'array' == schemaType:
 						example = buildArrayExample('request', schema)
 		
 				requestBodyStr += ' \n+ Request (application/json)\n```\n' 
@@ -211,12 +226,14 @@ def buildObjectTableRow(schema, parentPrefix = ''):
 				type = ''
 				desc = ''
 				
-				if 'type' in schema['properties'][prop]:
-					type = schema['properties'][prop]['type']
+				propertySchema = schema['properties'][prop]
+				propertyType = primaryType(propertySchema)
+				if 'type' in propertySchema:
+					type = displayType(propertySchema)
 					if 'format' in schema['properties'][prop]:
 						type += '<br>(' + schema['properties'][prop]['format'] + ')'
-				if type == 'array' and 'type' in schema['properties'][prop]['items']:
-					type += '[' +  schema['properties'][prop]['items']['type'] + ']'
+				if propertyType == 'array' and 'type' in propertySchema['items']:
+					type += '[' + displayType(propertySchema['items']) + ']'
 				if prop in requiredProps:
 					type += '<br><span style="font-size: smaller; color: red;">(Required)</span>'
 				
@@ -235,9 +252,9 @@ def buildObjectTableRow(schema, parentPrefix = ''):
 					
 				row += '<tr><td>' + field + '</td><td>' + type + '</td><td>' + desc + '</td></tr>\n'
 				
-				if type == 'object' and 'properties' in schema['properties'][prop]:
+				if propertyType == 'object' and 'properties' in propertySchema:
 					row += buildObjectTableRow(schema['properties'][prop], nextParentPrefix)
-				elif type[:5] == 'array' and 'properties' in schema['properties'][prop]['items']:
+				elif propertyType == 'array' and 'properties' in propertySchema['items']:
 					row += buildObjectTableRow(schema['properties'][prop]['items'], nextParentPrefix)
 	elif 'items' in schema:
 		row += buildObjectTableRow(schema['items'], parentPrefix)
