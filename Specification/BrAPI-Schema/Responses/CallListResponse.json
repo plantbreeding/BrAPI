@@ -52,7 +52,8 @@
                 }
             },
             "brapi-metadata": {
-                "response": true
+                "response": true,
+                "tokenPagination": true
             }
         }
     },
