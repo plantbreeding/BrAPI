@@ -5,6 +5,12 @@ get:
     Call: true
     Variant: true
 properties:
+  linkTypeFor:
+    ReferenceSet:
+      sourceGermplasm: embedded
+      references: none
+      variants: none
+      variantSets: none
   embeddedPrimaryIdOptionalFor:
     GermplasmAttribute:
       method: true
