@@ -1,2 +1,10 @@
 supplementalSpecificationFor:
   BrAPI-Core: generator/openapi-Supplemental-Spec-V2.1-BrAPI-Core.yaml
+properties:
+  embeddedPrimaryIdOptionalFor:
+    GermplasmAttribute:
+      method: true
+      trait: true
+    ObservationVariable:
+      method: true
+      trait: true
