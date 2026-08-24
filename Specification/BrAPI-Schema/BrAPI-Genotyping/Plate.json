@@ -120,6 +120,7 @@
                 }
             },
             "required": [
+                "plateDbId",
                 "plateName"
             ],
             "title": "Plate",

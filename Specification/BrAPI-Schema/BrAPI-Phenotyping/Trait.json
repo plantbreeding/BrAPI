@@ -131,6 +131,7 @@
                 }
             },
             "required": [
+                "traitDbId",
                 "traitName"
             ],
             "title": "Trait",

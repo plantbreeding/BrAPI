@@ -13,6 +13,14 @@
                         "string"
                     ]
                 },
+                "season": {
+                    "deprecated": true,
+                    "description": "**Deprecated in v2.1** Please use `seasonName`. Github issue number #456\n<br>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.",
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
                 "year": {
                     "description": "The 4 digit year of the season.",
                     "type": [
