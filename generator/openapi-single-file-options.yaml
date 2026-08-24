@@ -1,5 +1,9 @@
 separateByModule: false
 supplementalSpecification: generator/openapi-Supplemental-Spec-V2.1-BrAPI-Core.yaml
+get:
+  subPathPagedToken:
+    Call: true
+    Variant: true
 properties:
   embeddedPrimaryIdOptionalFor:
     GermplasmAttribute:

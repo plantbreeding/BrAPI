@@ -1,58 +1,57 @@
-#### What's Deleted
----
-
-##### `POST` /search/variables
-
-
-##### `GET` /search/variables/{searchResultsDbId}
-
-
-##### `GET` /variables
-
-
-##### `POST` /variables
-
-
-##### `GET` /variables/{observationVariableDbId}
-
-
-##### `PUT` /variables/{observationVariableDbId}
-
-
 #### What's Changed
 ---
 
-##### `POST` /search/locations
+##### `GET` /observationunits/{observationUnitDbId}
 
 
-###### Request:
+###### Return Type:
 
-* Changed content type : `application/json`
-
-    * Changed property `coordinates` (object -> null):
-      - Type changed: `object` -> `null`
-
-##### `POST` /observations
-
-
-###### Request:
+Changed response : **200**
 
 * Changed content type : `application/json`
 
-    Changed items (array):
+    * Changed property `result`
 
-        New properties: `observationVariable`
+        Deleted properties: `observations`
 
-        Deleted properties: `observationVariableDbId`, `observationVariableName`
-
-##### `PUT` /observations/{observationDbId}
+##### `PUT` /observationunits/{observationUnitDbId}
 
 
-###### Request:
+###### Return Type:
+
+Changed response : **200**
 
 * Changed content type : `application/json`
 
-    New properties: `observationVariable`
+    * Changed property `result`
 
-    Deleted properties: `observationVariableDbId`, `observationVariableName`
+        Deleted properties: `observations`
+
+##### `GET` /referencesets/{referenceSetDbId}
+
+
+###### Return Type:
+
+Changed response : **200**
+
+* Changed content type : `application/json`
+
+    * Changed property `result`
+
+        New properties: `referencesDbId`, `referencesName`, `sourceGermplasmDbIds`, `variantDbIds`, `variantSetDbIds`
+
+        Deleted properties: `sourceGermplasm`
+
+##### `GET` /samples/{sampleDbId}
+
+
+###### Return Type:
+
+Changed response : **200**
+
+* Changed content type : `application/json`
+
+    * Changed property `result`
+
+        New properties: `sampleDbId`
 
