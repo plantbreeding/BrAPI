@@ -76,13 +76,13 @@
                     "example": "m"
                 },
                 "validValues": {
-                    "relationshipType": "one-to-one",
-                    "referencedAttribute": "scale",
-                    "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/ValidValues",
-                    "title": "ValidValues",
-                    "type": [
-                        "null",
-                        "array"
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/ValidValues"
+                        },
+                        {
+                            "type": "null"
+                        }
                     ]
                 }
             },
@@ -122,6 +122,15 @@
                     ],
                     "example": "9999"
                 },
+                "max": {
+                    "deprecated": true,
+                    "description": "**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450\n<br>Maximum value for numerical scales. Typically used for data capture control and QC.",
+                    "type": [
+                        "null",
+                        "integer"
+                    ],
+                    "example": 9999
+                },
                 "minimumValue": {
                     "description": "Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.",
                     "type": [
@@ -130,11 +139,14 @@
                     ],
                     "example": "2"
                 },
-                "scale": {
-                    "description": "associated scale",
-                    "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/Scale",
-                    "relationshipType": "many-to-one",
-                    "referencedAttribute": "validValues"
+                "min": {
+                    "deprecated": true,
+                    "description": "**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450\n<br>Minimum value for numerical scales. Typically used for data capture control and QC.",
+                    "type": [
+                        "null",
+                        "integer"
+                    ],
+                    "example": 2
                 }
             },
             "title": "ValidValues",
