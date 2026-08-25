@@ -4,3 +4,7 @@ getWithId:
   embeddedResponsePropertiesFor:
     ObservationUnit:
       observations: true
+put:
+  embeddedResponsePropertiesFor:
+    ObservationUnit:
+      observations: true
