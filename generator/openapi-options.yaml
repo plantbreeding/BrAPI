@@ -1,20 +1,6 @@
 supplementalSpecificationFor:
   BrAPI-Core: generator/openapi-Supplemental-Spec-V2.1-BrAPI-Core.yaml
-get:
-  subPathPagedToken:
-    Call: true
-    Variant: true
-properties:
-  linkTypeFor:
-    ReferenceSet:
-      sourceGermplasm: embedded
-      references: none
-      variants: none
-      variantSets: none
-  embeddedPrimaryIdOptionalFor:
-    GermplasmAttribute:
-      method: true
-      trait: true
-    ObservationVariable:
-      method: true
-      trait: true
+getWithId:
+  embeddedResponsePropertiesFor:
+    ObservationUnit:
+      observations: true
