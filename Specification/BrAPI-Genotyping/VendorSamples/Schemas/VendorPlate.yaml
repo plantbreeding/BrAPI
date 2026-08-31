@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -10,20 +10,24 @@ components:
       properties:
         clientPlateBarcode:
           description: (Optional) The value of the bar code attached to this plate
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 31dd5787
         clientPlateId:
           description: The ID which uniquely identifies this plate to the client making the request
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 0ad6c0ef
         sampleSubmissionFormat:
-          $ref: '#/components/schemas/PlateFormat'
-          nullable: true
+          anyOf:
+            - $ref: '#/components/schemas/PlateFormat'
+            - type: 'null'
         samples:
           items:
             $ref: '#/components/schemas/VendorSample'
-          type: array
-          nullable: true
+          type:
+            - array
+            - 'null'
 

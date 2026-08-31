@@ -1,24 +1,26 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
-    SearchRequestParametersGermplasm: 
+    SearchRequestParametersGermplasm:
       type: object
       properties:
         germplasmDbIds:
           description: List of IDs which uniquely identify germplasm to search for
           items:
             type: string
-          type: array
-          nullable: true
+          type:
+            - array
+            - 'null'
           example: ['e9c6edd7', '1b1df4a6']
         germplasmNames:
           description: List of human readable names to identify germplasm to search for
           items:
             type: string
-          type: array
-          nullable: true
+          type:
+            - array
+            - 'null'
           example: ['A0000003', 'A0000477']

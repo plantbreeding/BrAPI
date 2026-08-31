@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
   /variables:
     get:
@@ -63,7 +63,7 @@ paths:
           $ref: '#/components/responses/403Forbidden'
       tags:
       - Observation Variables
-    post: 
+    post:
       summary: Add new Observation Variables
       description: Add new Observation Variables to the system.
       parameters:
@@ -114,5 +114,4 @@ components:
             - result
       description: OK
       headers: {}
-      
-      
+

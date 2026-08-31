@@ -1,26 +1,26 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
   /crossingprojects:
     get:
       summary: Get a filtered list of Crossing Projects
-      description: Get a filtered list of Crossing Projects. 
+      description: Get a filtered list of Crossing Projects.
       parameters:
-      - name: crossingProjectDbId 
+      - name: crossingProjectDbId
         description: Search for Crossing Projects with this unique id
         in: query
         required: false
         schema:
           type: string
-      - name: crossingProjectName 
+      - name: crossingProjectName
         description: The human readable name for a crossing project
         in: query
         required: false
         schema:
           type: string
-      - name: includePotentialParents 
+      - name: includePotentialParents
         description: If the parameter 'includePotentialParents' is false, the array 'potentialParents' should be empty, null, or excluded from the response object.
         in: query
         required: false
@@ -55,7 +55,7 @@ paths:
           application/json:
             schema:
               type: array
-              items: 
+              items:
                 $ref: '#/components/schemas/CrossingProjectNewRequest'
       responses:
         '200':

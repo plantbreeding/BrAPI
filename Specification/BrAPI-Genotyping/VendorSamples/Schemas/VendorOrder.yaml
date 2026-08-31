@@ -1,11 +1,11 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
-    VendorOrder: 
+    VendorOrder:
       description: The details of a vendor order
       type: object
       required:
@@ -13,7 +13,7 @@ components:
       - numberOfSamples
       - orderId
       - serviceIds
-      properties: 
+      properties:
         clientId:
           description: A unique, alpha-numeric ID which identifies the client to the vendor. Used to connect the order to the correct billing and contact info.
           type: string
@@ -30,8 +30,9 @@ components:
           additionalProperties:
             type: string
           description: A map of additional data required by the requested service. This includes things like Volume and Concentration.
-          type: object
-          nullable: true
+          type:
+            - object
+            - 'null'
           example:
             genus: Zea
             species: mays
@@ -39,8 +40,8 @@ components:
             extractDNA: 'true'
         serviceIds:
           description: |-
-            A list of unique, alpha-numeric ID which identify the requested services to be applied to this order. 
-            A Vendor Service defines what platform, technology, and markers will be used. 
+            A list of unique, alpha-numeric ID which identify the requested services to be applied to this order.
+            A Vendor Service defines what platform, technology, and markers will be used.
             A list of available service IDs can be retrieved from the Vendor Specs.
           items:
             type: string

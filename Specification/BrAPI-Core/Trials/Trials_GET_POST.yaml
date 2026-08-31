@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
   /trials:
     get:
@@ -29,15 +29,15 @@ paths:
       - name: searchDateRangeStart
         description: |-
             The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.
-            
+
             Return a Trial entity if any of the following cases are true
-            
-            - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null 
-            
+
+            - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null
+
             - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`
-            
+
             - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null
-            
+
             - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
         in: query
         required: false
@@ -47,15 +47,15 @@ paths:
       - name: searchDateRangeEnd
         description: |-
             The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.
-            
+
             Return a Trial entity if any of the following cases are true
-            
-            - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null 
-            
+
+            - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null
+
             - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`
-            
+
             - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null
-            
+
             - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
         in: query
         required: false
@@ -98,7 +98,7 @@ paths:
       - $ref: '#/components/parameters/trialDbId'
       - $ref: '#/components/parameters/trialName'
       - $ref: '#/components/parameters/studyDbId'
-      - $ref: '#/components/parameters/externalReferenceID' 
+      - $ref: '#/components/parameters/externalReferenceID'
       - $ref: '#/components/parameters/externalReferenceId'
       - $ref: '#/components/parameters/externalReferenceSource'
       - $ref: '#/components/parameters/page'
@@ -125,7 +125,7 @@ paths:
           application/json:
             schema:
               type: array
-              items: 
+              items:
                 $ref: '#/components/schemas/TrialNewRequest'
       responses:
         '200':

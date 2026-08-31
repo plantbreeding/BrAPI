@@ -29,7 +29,8 @@
                     "type": [
                         "null",
                         "integer"
-                    ]
+                    ],
+                    "example": 2
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
@@ -55,30 +56,33 @@
                 },
                 "scaleName": {
                     "description": "Name of the scale\n<br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable",
-                    "type": "string"
+                    "type": "string",
+                    "example": "Meters"
                 },
                 "scalePUI": {
                     "description": "The Permanent Unique Identifier of a Scale, usually in the form of a URI",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "http://my-traits.com/trait/CO_123:0000112"
                 },
                 "units": {
                     "description": "This field can be used to describe the units used for this scale. This should be the abbreviated \nform of the units, intended to be displayed with every value using this scale. Usually this only \napplies when `dataType` is Numeric, but could also be included for other dataTypes when applicable.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "m"
                 },
                 "validValues": {
-                    "relationshipType": "one-to-one",
-                    "referencedAttribute": "scale",
-                    "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/ValidValues",
-                    "title": "ValidValues",
-                    "type": [
-                        "null",
-                        "array"
+                    "anyOf": [
+                        {
+                            "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/ValidValues"
+                        },
+                        {
+                            "type": "null"
+                        }
                     ]
                 }
             },
@@ -115,20 +119,34 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "9999"
+                },
+                "max": {
+                    "deprecated": true,
+                    "description": "**Deprecated in v2.1** Please use `maximumValue`. Github issue number #450\n<br>Maximum value for numerical scales. Typically used for data capture control and QC.",
+                    "type": [
+                        "null",
+                        "integer"
+                    ],
+                    "example": 9999
                 },
                 "minimumValue": {
                     "description": "Minimum value for numerical, date, and time scales. Typically used for data capture control and QC.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "2"
                 },
-                "scale": {
-                    "description": "associated scale",
-                    "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/Scale",
-                    "relationshipType": "many-to-one",
-                    "referencedAttribute": "validValues"
+                "min": {
+                    "deprecated": true,
+                    "description": "**Deprecated in v2.1** Please use `minimumValue`. Github issue number #450\n<br>Minimum value for numerical scales. Typically used for data capture control and QC.",
+                    "type": [
+                        "null",
+                        "integer"
+                    ],
+                    "example": 2
                 }
             },
             "title": "ValidValues",

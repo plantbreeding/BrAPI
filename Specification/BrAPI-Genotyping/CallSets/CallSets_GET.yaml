@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
   /callsets:
     get:
@@ -9,7 +9,7 @@ paths:
       description: Gets a filtered list of `CallSet` JSON objects.
       parameters:
       - name: callSetDbId
-        description: The ID which uniquely identifies a `CallSet` within the given database server 
+        description: The ID which uniquely identifies a `CallSet` within the given database server
         in: query
         required: false
         schema:
@@ -21,7 +21,7 @@ paths:
         schema:
           type: string
       - name: variantSetDbId
-        description: The ID which uniquely identifies a `VariantSet` within the given database server 
+        description: The ID which uniquely identifies a `VariantSet` within the given database server
         in: query
         required: false
         schema:

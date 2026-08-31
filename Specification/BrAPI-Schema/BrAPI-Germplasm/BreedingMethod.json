@@ -44,7 +44,7 @@
                 "pedigreeNodes": {
                     "title": "pedigreeNodes",
                     "description": "pedigreeNodes",
-                    "referencedAttribute": "germplasm",
+                    "referencedAttribute": "breedingMethod",
                     "relationshipType": "one-to-many",
                     "items": {
                         "$ref": "PedigreeNode.json#/$defs/PedigreeNode",

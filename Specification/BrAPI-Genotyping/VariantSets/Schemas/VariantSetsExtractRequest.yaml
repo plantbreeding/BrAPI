@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -11,19 +11,19 @@ components:
       - type: object
         description: Request object for extracting data subsets as new Variant Sets
         properties:
-          callSetDbIds: 
+          callSetDbIds:
             description: The CallSet to search.
             type: array
             items:
               type: string
             example: ['9569cfc4', 'da1e888c']
-          variantDbIds: 
+          variantDbIds:
             description: The Variant to search.
             type: array
             items:
               type: string
             example: ['c80f068b', 'eb7c5f50']
-          variantSetDbIds: 
+          variantSetDbIds:
             description: The VariantSet to search.
             type: array
             items:

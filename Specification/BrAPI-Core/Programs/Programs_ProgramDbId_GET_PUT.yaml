@@ -1,12 +1,12 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
   /programs/{programDbId}:
     get:
       summary: Get a breeding Program by Id
-      description: Get a single breeding Program by Id. This can be used to quickly get the details of a Program when you have the Id from another entity. 
+      description: Get a single breeding Program by Id. This can be used to quickly get the details of a Program when you have the Id from another entity.
       parameters:
       - name: programDbId
         description: Filter by the common crop name. Exact match.
@@ -30,7 +30,7 @@ paths:
       - Programs
     put:
       summary: Update an existing Program
-      description: Update the details of an existing breeding Program. 
+      description: Update the details of an existing breeding Program.
       parameters:
       - name: programDbId
         description: Filter by the common crop name. Exact match.

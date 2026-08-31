@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -11,12 +11,14 @@ components:
       properties:
         term:
           description: Ontology term - the label of the ontology term the termId is pointing to.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: sonic hedgehog
-        termURI: 
+        termURI:
           description: Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: MGI:MGI:98297
 

@@ -1,15 +1,15 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   responses:
-    202AcceptedSearchResponse: 
+    202AcceptedSearchResponse:
       description: Accepted
       headers: {}
       content:
-        application/json: 
+        application/json:
           schema:
             title: 202AcceptedSearchResponse
             type: object

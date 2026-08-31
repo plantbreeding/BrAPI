@@ -1,11 +1,11 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
-    GenomeMap: 
+    GenomeMap:
       type: object
       x-brapi-metadata:
         primaryModel: true
@@ -22,12 +22,14 @@ components:
           additionalProperties:
             type: string
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-          type: object
-          nullable: true
+          type:
+            - object
+            - 'null'
         comments:
           description: Additional comments about a `GenomeMap`
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Comments about this map
         commonCropName:
           description: The common name of the `Crop`
@@ -36,13 +38,15 @@ components:
         documentationURL:
           description: A URL to the human readable documentation of an object
           format: uri
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: https://brapi.org
         linkageGroupCount:
           description: The number of linkage groups present in a `GenomeMap`
-          type: integer
-          nullable: true
+          type:
+            - integer
+            - 'null'
           example: 5
         mapDbId:
           description: The ID which uniquely identifies a `GenomeMap`
@@ -50,8 +54,9 @@ components:
           example: 142cffd5
         mapPUI:
           description: The DOI or other permanent identifier for a `GenomeMap`
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: doi:10.3207/2959859860
         mapName:
           description: A human readable name for a `GenomeMap`
@@ -59,18 +64,21 @@ components:
           example: Genome Map 1
         markerCount:
           description: The number of markers present in a `GenomeMap`
-          type: integer
-          nullable: true
+          type:
+            - integer
+            - 'null'
           example: 1100
         publishedDate:
           description: The date this `GenomeMap` was published
           format: date-time
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
         scientificName:
           description: Full scientific binomial format name. This includes Genus, Species, and Sub-species
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Zea mays
         type:
           description: The type of map this represents, usually "Genetic" or "Physical"
@@ -78,7 +86,8 @@ components:
           example: Genetic
         unit:
           description: The units used to describe the data in a `GenomeMap`
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: cM
 

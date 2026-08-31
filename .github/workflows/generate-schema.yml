@@ -14,6 +14,7 @@ jobs:
       skip_job: ${{ steps.skip.outputs.skip_job }}
       skip_commit: ${{ steps.check-tag.outputs.skip_commit }}
       commit_message: ${{ steps.check-tag.outputs.commit_message }}
+      enforce_comparison: ${{ steps.check-tag.outputs.enforce_comparison }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4      
@@ -30,6 +31,8 @@ jobs:
       - name: Check Branch with Regex
         id: check-tag
         run: |
+          regex="^refs/heads/brapi-V[0-9]+\.[0-9]+$"
+
           # Always commit if manually triggered
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             echo "skip_commit=false" >> "$GITHUB_OUTPUT"
@@ -37,7 +40,6 @@ jobs:
             echo "Manual trigger - WILL commit generated files"
           else
             # Otherwise, only commit on release branches
-            regex="^refs/heads/brapi-V[0-9]+\.[0-9]+$"
             if [[ "${{ github.ref }}" =~ $regex ]]; then
               echo "skip_commit=false" >> "$GITHUB_OUTPUT"
               echo "commit_message=Apply automatic changes" >> "$GITHUB_OUTPUT"
@@ -47,6 +49,12 @@ jobs:
               echo "commit_message=" >> "$GITHUB_OUTPUT"
               echo "Normal branch - Will NOT commit of generated files"
             fi
+          fi
+
+          if [[ "${{ github.ref }}" == "refs/heads/develop" || "${{ github.ref }}" =~ $regex ]]; then
+            echo "enforce_comparison=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "enforce_comparison=true" >> "$GITHUB_OUTPUT"
           fi
   generate:
     runs-on: ubuntu-latest
@@ -90,6 +98,23 @@ jobs:
       - name: Compare OpenAPI
         working-directory: ./generator
         run: ./gradlew compareAll
+      - name: Enforce OpenAPI comparison
+        if: always() && needs.check.outputs.enforce_comparison == 'true'
+        run: |
+          report="Specification/Generated/brapi_openapi_comparison.md"
+          if [[ ! -f "$report" ]]; then
+            echo "OpenAPI comparison report was not generated."
+            exit 1
+          fi
+
+          echo "::group::OpenAPI comparison"
+          cat "$report"
+          echo "::endgroup::"
+
+          if grep -q '^##### ' "$report"; then
+            echo "OpenAPI comparison found differences on a non-release branch."
+            exit 1
+          fi
       - name: Commit generated files
         if: needs.check.outputs.skip_commit == 'false'
         uses: stefanzweifel/git-auto-commit-action@v5

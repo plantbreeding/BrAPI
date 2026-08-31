@@ -1,34 +1,38 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
     PedigreeNodeDEP:
       type: object
-      required: 
+      required:
       - germplasmDbId
       properties:
         crossingProjectDbId:
           description: The crossing project used to generate this germplasm
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 625e745a
         crossingYear:
           description: The year the parents were originally crossed
-          type: integer
-          nullable: true
+          type:
+            - integer
+            - 'null'
           example: 2005
         germplasmName:
           description: A human readable name for a germplasm
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: A0021004
         familyCode:
           description: The code representing the family
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: F0000203
         germplasmDbId:
           description: The ID which uniquely identifies a germplasm
@@ -36,13 +40,15 @@ components:
           example: 1098ebaf
         pedigree:
           description: The string representation of the pedigree in PURDY notation.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: A0000001/A0000002
         parents:
           description: List of parent nodes in the pedigree tree.
-          type: array
-          nullable: true
+          type:
+            - array
+            - 'null'
           items:
             type: object
             properties:
@@ -52,8 +58,9 @@ components:
                 example: a55847ed
               germplasmName:
                 description: the human readable name of the parent of this germplasm
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
                 example: A0000592
               parentType:
                 $ref: '#/components/schemas/ParentTypeDEP'
@@ -66,8 +73,9 @@ components:
             parentType: FEMALE
         siblings:
           description: List of sibling germplasm
-          type: array
-          nullable: true
+          type:
+            - array
+            - 'null'
           items:
             type: object
             properties:
@@ -77,7 +85,7 @@ components:
               germplasmDbId:
                 description: the germplasm DbId of the sibling
                 type: string
-          example: 
+          example:
           - germplasmName: A0021005
             germplasmDbId: 334f53a3
           - germplasmName: A0021006

@@ -1,14 +1,14 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
   /crossingprojects/{crossingProjectDbId}:
     get:
       summary: Get a filtered list of Crossing Projects
-      description: Get a filtered list of Crossing Projects. 
+      description: Get a filtered list of Crossing Projects.
       parameters:
-      - name: crossingProjectDbId 
+      - name: crossingProjectDbId
         description: The unique identifier for a crossing project
         in: path
         required: true
@@ -32,7 +32,7 @@ paths:
       summary: Update an existing Crossing Project
       description: Update an existing Crossing Project entity on this server
       parameters:
-      - name: crossingProjectDbId 
+      - name: crossingProjectDbId
         description: Search for Crossing Projects with this unique id
         in: path
         required: true

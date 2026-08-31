@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -9,7 +9,7 @@ components:
       deprecated: true
       type: object
       description: |-
-        **Deprecated in v2.1** Please use `genotypeValue` or `genotypeMetadata`. Github issue number #491             
+        **Deprecated in v2.1** Please use `genotypeValue` or `genotypeMetadata`. Github issue number #491
         <br>`ListValue` is a wrapper around a repeated field of values.
         <br>The JSON representation for `ListValue` is JSON array.
       properties:
@@ -17,7 +17,7 @@ components:
           type: array
           deprecated: true
           description: |-
-            **Deprecated in v2.1** Please use `genotypeValue` or `genotypeMetadata`. Github issue number #491             
+            **Deprecated in v2.1** Please use `genotypeValue` or `genotypeMetadata`. Github issue number #491
             <br>Repeated field of dynamically typed values.
           items:
             oneOf:

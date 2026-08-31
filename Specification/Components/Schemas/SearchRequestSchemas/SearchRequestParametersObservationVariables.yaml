@@ -1,11 +1,11 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
-    SearchRequestParametersObservationVariables: 
+    SearchRequestParametersObservationVariables:
       type: object
       properties:
         observationVariableDbIds:
@@ -14,7 +14,7 @@ components:
             type: string
           type: array
           example: ['a646187d', '6d23513b']
-        observationVariableNames: 
+        observationVariableNames:
           description: The names of Variables to search for
           items:
             type: string

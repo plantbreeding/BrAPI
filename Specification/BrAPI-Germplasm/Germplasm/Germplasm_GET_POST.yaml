@@ -1,22 +1,22 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
   /germplasm:
     get:
       summary: Get a filtered list of Germplasm
       description: |-
         Addresses these needs
-        
-        - General germplasm search mechanism that accepts POST for complex queries 
-        
-        - Possibility to search germplasm by more parameters than those allowed by the existing germplasm search 
-        
+
+        - General germplasm search mechanism that accepts POST for complex queries
+
+        - Possibility to search germplasm by more parameters than those allowed by the existing germplasm search
+
         - Possibility to get MCPD details by PUID rather than dbId
       parameters:
       - name: accessionNumber
-        description: |- 
+        description: |-
             The unique identifier for a material or germplasm within a genebank
 
             MCPD (v2.1) (ACCENUMB) 2. This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection (e.g. "PI 113869").
@@ -48,7 +48,7 @@ paths:
         required: false
         schema:
           type: string
-      - name: synonym 
+      - name: synonym
         description: Alternative name or ID used to reference this germplasm
         in: query
         required: false
@@ -100,7 +100,7 @@ paths:
           application/json:
             schema:
               type: array
-              items: 
+              items:
                 $ref: '#/components/schemas/GermplasmNewRequest'
       responses:
         '200':

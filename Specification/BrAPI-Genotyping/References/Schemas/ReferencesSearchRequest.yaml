@@ -1,11 +1,11 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
-    ReferencesSearchRequest: 
+    ReferencesSearchRequest:
       allOf:
       - $ref: '#/components/schemas/SearchRequestParametersPaging'
       - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'
@@ -17,47 +17,54 @@ components:
       - type: object
         properties:
           accessions:
-            type: array
-            nullable: true
+            type:
+              - array
+              - 'null'
             description: If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).
-            items: 
+            items:
               type: string
-            example: ['A0009283','A0006657'] 
+            example: ['A0009283','A0006657']
           md5checksums:
-            type: array
-            nullable: true
+            type:
+              - array
+              - 'null'
             description: If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match).
-            items: 
+            items:
               type: string
             example: ['c2365e900c81a89cf74d83dab60df146']
           referenceDbIds:
-            type: array
-            nullable: true
-            description: A list of IDs which uniquely identify `References` within the given database server 
-            items: 
+            type:
+              - array
+              - 'null'
+            description: A list of IDs which uniquely identify `References` within the given database server
+            items:
               type: string
             example: ['04c83ea7', 'd0998a34']
           referenceSetDbIds:
-            type: array
-            nullable: true
-            description: A list of IDs which uniquely identify `ReferenceSets` within the given database server 
-            items: 
+            type:
+              - array
+              - 'null'
+            description: A list of IDs which uniquely identify `ReferenceSets` within the given database server
+            items:
               type: string
             example: ['32a19dd7', '2c182c18']
           isDerived:
             description: A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.
             format: boolean
-            type: boolean
-            nullable: true
+            type:
+              - boolean
+              - 'null'
           minLength:
             description: The minimum length of this `References` sequence.
-            type: integer
-            nullable: true
+            type:
+              - integer
+              - 'null'
             example: 4000
           maxLength:
             description: The minimum length of this `References` sequence.
-            type: integer
-            nullable: true
+            type:
+              - integer
+              - 'null'
             example: 90000
-            
+
 

@@ -1,15 +1,15 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
     MethodBaseClass:
       type: object
       description: |-
-        A description of the way an Observation should be collected. 
-        <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Method "estimation" or "drone image processing". 
+        A description of the way an Observation should be collected.
+        <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Method "estimation" or "drone image processing".
       required:
       - methodName
       properties:
@@ -17,24 +17,28 @@ components:
           additionalProperties:
             type: string
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-          type: object
-          nullable: true
+          type:
+            - object
+            - 'null'
         methodClass:
           description: 'Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)'
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Measurement
         description:
           description: |-
             Method description
             <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: A measuring tape was used
         formula:
           description: For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: a^2 + b^2 = c^2
         methodName:
           description: |-
@@ -44,8 +48,9 @@ components:
           example: Measuring Tape
         methodPUI:
           description: The Permanent Unique Identifier of a Method, usually in the form of a URI
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: http://my-traits.com/trait/CO_123:0000212
         ontologyReference:
           $ref: '#/components/schemas/OntologyReference'
@@ -53,10 +58,12 @@ components:
           description: |-
             Bibliographical reference describing the method.
             <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Smith, 1893, Really Cool Paper, Popular Journal
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
+        externalReferences:
+          anyOf:
+            - $ref: '#/components/schemas/ExternalReferences'
+            - type: 'null'
 

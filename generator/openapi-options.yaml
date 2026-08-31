@@ -1,2 +1,10 @@
 supplementalSpecificationFor:
   BrAPI-Core: generator/openapi-Supplemental-Spec-V2.1-BrAPI-Core.yaml
+getWithId:
+  embeddedResponsePropertiesFor:
+    ObservationUnit:
+      observations: true
+put:
+  embeddedResponsePropertiesFor:
+    ObservationUnit:
+      observations: true

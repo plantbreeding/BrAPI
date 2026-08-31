@@ -1,16 +1,16 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
   /germplasm/{germplasmDbId}/progeny:
     get:
       deprecated: true
       summary: |-
-        **Deprecated in v2.1** Please use `GET /pedigree?germplasmDbId={germplasmDbId}`. Github issue number #481 
+        **Deprecated in v2.1** Please use `GET /pedigree?germplasmDbId={germplasmDbId}`. Github issue number #481
         <br/> Get the progeny details of a specific Germplasm
       description: |-
-        **Deprecated in v2.1** Please use `GET /pedigree?germplasmDbId={germplasmDbId}`. Github issue number #481 
+        **Deprecated in v2.1** Please use `GET /pedigree?germplasmDbId={germplasmDbId}`. Github issue number #481
         <br/> Get the germplasmDbIds for all the Progeny of a particular germplasm.
         <br/> Implementation Notes
         <br/> - Regarding the ''parentType'' field in the progeny object. Given a germplasm A having a progeny B and C, ''parentType'' for progeny B refers to the ''parentType'' of A toward B.

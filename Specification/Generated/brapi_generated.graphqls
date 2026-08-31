@@ -1757,8 +1757,6 @@ type Mutation {
   createObservation(observationInput: ObservationInput): Observation
   "Create a new ObservationUnit"
   createObservationUnit(observationUnitInput: ObservationUnitInput): ObservationUnit
-  "Create a new ObservationVariable"
-  createObservationVariable(commonCropName: String, observationVariableInput: ObservationVariableInput): ObservationVariable
   "Create a new Ontology"
   createOntology(ontologyInput: OntologyInput): Ontology
   "Create a new Person"
@@ -1811,8 +1809,6 @@ type Mutation {
   updateObservation(observationInput: ObservationInput): Observation
   "Update the details for an existing ObservationUnit"
   updateObservationUnit(observationUnitInput: ObservationUnitInput): ObservationUnit
-  "Update the details for an existing ObservationVariable"
-  updateObservationVariable(commonCropName: String, observationVariableInput: ObservationVariableInput): ObservationVariable
   "Update the details for an existing Ontology"
   updateOntology(ontologyInput: OntologyInput): Ontology
   "Update the details for an existing Person"
@@ -1876,7 +1872,7 @@ type Observation {
   "The ID which uniquely identifies an observation unit"
   observationUnitDbIds: ID
   "The ID which uniquely identifies an observation variable"
-  observationVariableDbIds: ID
+  observationVariable: ObservationVariable
   "The season for this Observation"
   seasonDbIds: ID
   "The ID which uniquely identifies a study within the given database server"
@@ -2184,11 +2180,6 @@ type ObservationVariable {
 type ObservationVariableListResponse {
   data: [ObservationVariable]
   page: PageInfo
-}
-
-type ObservationVariablesSearchResponse {
-  data: [ObservationVariable]
-  searchResultsDbId: String
 }
 
 type ObservationsSearchResponse {
@@ -2572,12 +2563,6 @@ type Query {
   observationUnits(observationUnitsInput: ObservationUnitsInput, paging: PageInput): ObservationUnitListResponse
   "Returns ObservationUnit objects"
   observationUnitsSearch(observationUnitInput: ObservationUnitsInput): ObservationUnitsSearchResponse
-  "Returns a ObservationVariable object by id"
-  observationVariable(commonCropName: String, observationVariableDbId: ID): ObservationVariable
-  "Returns ObservationVariable objects"
-  observationVariables(observationVariablesInput: ObservationVariablesInput, paging: PageInput): ObservationVariableListResponse
-  "Returns ObservationVariable objects"
-  observationVariablesSearch(observationVariableInput: ObservationVariablesInput): ObservationVariablesSearchResponse
   "Returns Observation objects"
   observations(observationsInput: ObservationsInput, paging: PageInput): ObservationListResponse
   "Returns Observation objects"
@@ -3137,7 +3122,7 @@ type Study {
   
   This list is intended to be the wishlist of variables to collect in this study. It may or may not match the set of variables used in the collected observation records. 
   """
-  observationVariables(observationVariablesInput: ObservationVariablesInput, paging: PageInput): ObservationVariableListResponse
+  observationVariables(commonCropName: String, observationVariablesInput: ObservationVariablesInput, paging: PageInput): ObservationVariableListResponse
   "List of seasons over which this study was performed."
   seasons: [String]
   """
@@ -3743,7 +3728,7 @@ enum PositionCoordinateType {
 """
 The type of program entity this object represents
 <br/> 'STANDARD' represents a standard, permanent breeding program
-<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding.
+<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   
 """
 enum ProgramType {
   PROJECT
@@ -6181,76 +6166,10 @@ input ObservationUnitsInput {
 }
 
 input ObservationVariableInput {
-  "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
-  additionalInfo: AdditionalInfoInput
-  "Crop name (examples: \"Maize\", \"Wheat\")"
-  commonCropName: String
-  "Indication of how trait is routinely used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])"
-  contextOfUse: [String]
-  "Variable default value. (examples: \"red\", \"2.3\", etc.)"
-  defaultValue: String
-  "A URL to the human readable documentation of an object"
-  documentationURL: String
-  "Filter by External References"
-  externalReferences: [ExternalReferenceInput]
-  "Growth stage at which measurement is made (examples: \"flowering\")"
-  growthStage: String
-  "Name of institution submitting the variable"
-  institution: String
-  "2 letter ISO 639-1 code for the language of submission of the variable."
-  language: String
-  """
-  A description of the way an Observation should be collected. 
-  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Method "estimation" or "drone image processing". 
-  """
-  method: MethodInput
-  """
-  Variable unique identifier
-  
-  MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.
-  """
+  "Variable unique identifier"
   observationVariableDbId: String
-  """
-  Variable name (usually a short name)
-  
-  MIAPPE V1.1 (DM-84) Variable name - Name of the variable.
-  """
+  "Variable name (usually a short name)"
   observationVariableName: String
-  "The Permanent Unique Identifier of a Observation Variable, usually in the form of a URI"
-  observationVariablePUI: String
-  "observations"
-  observations: [ObservationInput]
-  """
-  MIAPPE V1.1
-  
-  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology
-  
-  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-  
-  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-  
-  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).
-  """
-  ontologyReference: OntologyReferenceInput
-  """
-  A Scale describes the units and acceptable values for an ObservationVariable. 
-  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".
-  """
-  scale: ScaleInput
-  "Name of scientist submitting the variable."
-  scientist: String
-  "Variable status. (examples: \"recommended\", \"obsolete\", \"legacy\", etc.)"
-  status: String
-  studies: [StudyInput]
-  "Timestamp when the Variable was added (ISO 8601)"
-  submissionTimestamp: String
-  "Other variable names"
-  synonyms: [String]
-  """
-  A Trait describes what property is being observed. 
-  <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height". 
-  """
-  trait: TraitInput
 }
 
 input ObservationVariablesInput {

@@ -2341,7 +2341,7 @@ paths:
 components:
   schemas:
     AdditionalInfo:
-      type: boolean
+      type: string
       additionalProperties:
         description: A free space containing any additional information related to
           a particular object.
@@ -3401,7 +3401,6 @@ components:
         \ each field in a JSON object. By providing an array of context file urls,\
         \ a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information,\
         \ see https://w3c.github.io/json-ld-syntax/#the-context"
-      nullable: true
       example:
       - https://brapi.org/jsonld/context/metadata.jsonld
       items:
@@ -6460,15 +6459,6 @@ components:
             enum:
             - STANDARD
             - PROJECT
-    ProgramType:
-      type: string
-      description: |-
-        The type of program entity this object represents
-        <br/> 'STANDARD' represents a standard, permanent breeding program
-        <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding.
-      enum:
-      - STANDARD
-      - PROJECT
     Reference:
       required:
       - referenceDbId
@@ -10272,19 +10262,6 @@ components:
       schema:
         type: integer
       example: 1000
-    page:
-      name: page
-      in: query
-      description: |-
-        Used to request a specific page of data to be returned.
-
-        The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: integer
-      example: "0"
     authorizationHeader:
       name: Authorization
       in: header
@@ -10312,6 +10289,19 @@ components:
       schema:
         type: string
       example: 33c27874
+    page:
+      name: page
+      in: query
+      description: |-
+        Used to request a specific page of data to be returned.
+
+        The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: integer
+      example: "0"
   securitySchemes:
     AuthorizationToken:
       type: http

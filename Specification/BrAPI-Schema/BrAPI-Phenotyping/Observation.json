@@ -12,7 +12,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "917d3ae0"
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
@@ -55,7 +56,8 @@
                 },
                 "observationDbId": {
                     "description": "The ID which uniquely identifies an observation",
-                    "type": "string"
+                    "type": "string",
+                    "example": "ef24b615"
                 },
                 "observationTimeStamp": {
                     "description": "The date and time when this observation was made",
@@ -96,7 +98,7 @@
                     "relationshipType": "many-to-one",
                     "anyOf": [
                         {
-                            "$ref": "../BrAPI-Core/Season.json#/$defs/Season"
+                            "$ref": "Observation.json#/$defs/SeasonObs"
                         },
                         {
                             "type": "null"
@@ -121,14 +123,16 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "a2f7f60b"
                 },
                 "value": {
                     "description": "The value of the data collected as an observation",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "2.3"
                 },
                 "images": {
                     "title": "images",
@@ -153,6 +157,51 @@
             "type": "object",
             "brapi-metadata": {
                 "primaryModel": true
+            }
+        },
+        "SeasonObs": {
+            "properties": {
+                "seasonName": {
+                    "description": "Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.",
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "example": "Spring"
+                },
+                "season": {
+                    "deprecated": true,
+                    "description": "**Deprecated in v2.1** Please use `seasonName`. Github issue number #456\n<br>Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.",
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "example": "Spring"
+                },
+                "seasonDbId": {
+                    "description": "The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'",
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "example": "Spring_2018"
+                },
+                "year": {
+                    "description": "The 4 digit year of the season.",
+                    "type": [
+                        "null",
+                        "integer"
+                    ],
+                    "example": 2018
+                }
+            },
+            "required": [
+                "seasonDbId"
+            ],
+            "title": "SeasonObs",
+            "type": "object",
+            "brapi-metadata": {
+                "primaryModel": false
             }
         },
         "ObservationTable": {

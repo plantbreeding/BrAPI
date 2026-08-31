@@ -1,34 +1,34 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
-    geoJSON: 
+    geoJSON:
       title: GeoJSON
       type: object
       description: |-
         One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
-        
+
         Copied from RFC 7946 Section 3.1.1
-        
+
         A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
         easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
       properties:
         geometry:
           title: GeoJSON Geometry
           type: object
-          description: A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed. 
-          oneOf: 
+          description: A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.
+          oneOf:
           - $ref: '#/components/schemas/pointGeometry'
           - $ref: '#/components/schemas/polygonGeometry'
-          discriminator: 
+          discriminator:
             propertyName: type
             mapping:
               Point: '#/components/schemas/pointGeometry'
               Polygon: '#/components/schemas/polygonGeometry'
-          example: 
+          example:
             coordinates: [ -76.506042, 42.417373, 123 ]
             type: Point
         type:
@@ -40,7 +40,7 @@ components:
       type: object
       description: |-
         Copied from RFC 7946 Section 3.1.1
-        
+
         A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
         easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
       required:
@@ -54,20 +54,20 @@ components:
           default: Point
           example: Point
           description: The literal string "Point"
-    polygonGeometry: 
+    polygonGeometry:
       type: object
       description: |-
-        An array of Linear Rings. Each Linear Ring is an array of Points. 
-        
+        An array of Linear Rings. Each Linear Ring is an array of Points.
+
         A Point is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
         easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
       required:
       - type
       - coordinates
-      properties: 
+      properties:
         coordinates:
           $ref: '#/components/schemas/polygon'
-        type: 
+        type:
           type: string
           default: Polygon
           example: Polygon

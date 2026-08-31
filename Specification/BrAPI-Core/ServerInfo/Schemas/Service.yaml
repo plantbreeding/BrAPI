@@ -1,11 +1,11 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
-    Service: 
+    Service:
       type: object
       required:
       - service
@@ -24,8 +24,8 @@ components:
           example: ['application/json']
         dataTypes:
           description:  |-
-            **Deprecated in v2.1** Please use `contentTypes`. Github issue number #443 
-            <br/>The possible data formats returned by the available call 
+            **Deprecated in v2.1** Please use `contentTypes`. Github issue number #443
+            <br/>The possible data formats returned by the available call
           deprecated: true
           items:
             $ref: '#/components/schemas/ContentTypes'

@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ""
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -15,7 +15,7 @@ components:
             type: array
             items:
               type: string
-          example: 
+          example:
           - ["2019-09-10T18:13:27.223Z","f3a8a3db","Plant Alpha",  "0fe3e48b","2017 Plant Study","06307ec0","A0043001","76.50106681","42.44409301","2017","Field_1","Plot_11","SubPlot_111","Plant_1111","Pot_1111","Block_11","Entry_11","Rep_11","25.3","", "",""]
           - ["2019-09-10T18:14:27.223Z","f3a8a3db","Plant Alpha",  "0fe3e48b","2017 Plant Study","06307ec0","A0043001","76.50106681","42.44409301","2017","Field_1","Plot_11","SubPlot_111","Plant_1111","Pot_1111","Block_11","Entry_11","Rep_11","",    "3","",""]
           - ["2019-09-10T18:15:54.868Z","05d1b011","Plant Beta",   "0fe3e48b","2017 Plant Study","59d435cd","A0043002","76.50106683","42.44409301","2017","Field_1","Plot_11","SubPlot_112","Plant_1122","Pot_1122","Block_11","Entry_11","Rep_12","27.9","", "",""]
@@ -54,9 +54,9 @@ components:
               <li>entry</li>
               <li>rep</li>
             </ul>
-            <p>The JSON representation provides a pair of extra arrays for defining the headers of the table. 
-            The first array "headerRow" will always contain "observationUnitDbId" and any or all of the OPTIONAL column header names. 
-            The second array "observationVariables" contains the names and DbIds for the Observation Variables represented in the table. 
+            <p>The JSON representation provides a pair of extra arrays for defining the headers of the table.
+            The first array "headerRow" will always contain "observationUnitDbId" and any or all of the OPTIONAL column header names.
+            The second array "observationVariables" contains the names and DbIds for the Observation Variables represented in the table.
             By appending the two arrays, you can construct the complete header row of the table. </p>
           items:
             description: valid header fields
@@ -81,7 +81,7 @@ components:
             - rep
             type: string
           type: array
-          example: 
+          example:
             - observationTimeStamp
             - observationUnitDbId
             - observationUnitName
@@ -114,13 +114,13 @@ components:
                 description: Variable name (usually a short name)
                 type: string
                 example: Plant height
-          example: 
-          - observationVariableDbId: 367aa1a9 
+          example:
+          - observationVariableDbId: 367aa1a9
             observationVariableName: Plant height
-          - observationVariableDbId: 2acb934c 
+          - observationVariableDbId: 2acb934c
             observationVariableName: Carotenoid
-          - observationVariableDbId: 85a21ce1 
+          - observationVariableDbId: 85a21ce1
             observationVariableName: Root color
-          - observationVariableDbId: 46f590e5 
+          - observationVariableDbId: 46f590e5
             observationVariableName: Virus severity
 

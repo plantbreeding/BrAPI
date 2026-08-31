@@ -7,8 +7,8 @@ components:
   parameters:
     authorizationHeader:
       description: |-
-        HTTP HEADER - Token used for Authorization 
-        
+        HTTP HEADER - Token used for Authorization
+
         <strong> Bearer {token_string} </strong>
       example: Bearer XXXX
       in: header

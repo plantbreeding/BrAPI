@@ -1,13 +1,13 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
   /studies/{studyDbId}:
     get:
       description: |-
         Retrieve the information of the study required for field data collection
-        
+
         An additionalInfo field was added to provide a controlled vocabulary for less common data fields.
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
@@ -80,4 +80,3 @@ components:
             type: object
       description: OK
       headers: {}
-      

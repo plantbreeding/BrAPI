@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -17,31 +17,35 @@ components:
       - type: object
         properties:
           accessions:
-            type: array
-            nullable: true
+            type:
+              - array
+              - 'null'
             description: If set, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).
-            items: 
+            items:
               type: string
-            example: ['A0009283','A0006657'] 
+            example: ['A0009283','A0006657']
           assemblyPUIs:
-            type: array
-            nullable: true
+            type:
+              - array
+              - 'null'
             description: If set, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).
-            items: 
+            items:
               type: string
             example: ['doi:10.15454/312953986E3', 'doi:10.15454/312953986E3']
-          md5checksums: 
-            type: array
-            nullable: true
+          md5checksums:
+            type:
+              - array
+              - 'null'
             description: If set, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match).
-            items: 
+            items:
               type: string
             example: ['c2365e900c81a89cf74d83dab60df146']
           referenceSetDbIds:
-            type: array
-            nullable: true
+            type:
+              - array
+              - 'null'
             description: The `ReferenceSets` to search.
-            items: 
+            items:
               type: string
             example: ['32a19dd7', '2c182c18']
 

@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
   /images:
     get:
@@ -11,10 +11,10 @@ paths:
 
         Implementation Notes
 
-        - ''imageURL'' should be a complete URL describing the location of the image. There is no BrAPI call for 
+        - ''imageURL'' should be a complete URL describing the location of the image. There is no BrAPI call for
         retrieving the image content, so it could be on a different path, or a different host.
 
-        - ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive 
+        - ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive
         words, or ontology references, or full ontology URI''s.
       parameters:
       - description: The unique identifier for a image
@@ -72,22 +72,22 @@ paths:
         Create new image metadata records
 
         Implementation Notes
-        
+
         - This endpoint should be implemented with 'PUT /images/{imageDbId}/imagecontent' for full image upload capability
 
-        - ''imageURL'' should be a complete URL describing the location of the image. There is no BrAPI call for retrieving 
+        - ''imageURL'' should be a complete URL describing the location of the image. There is no BrAPI call for retrieving
         the image content, so it could be on a different path, or a different host.
 
-        - ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or 
+        - ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or
         ontology references, or full ontology URI's.
 
-        - The '/images' calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON 
+        - The '/images' calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON
         only supports two of the possible geometries; Points and Polygons.
 
         - With most images, the Point geometry should be used, and it should indicate the longitude and latitude of the camera.
 
-        - For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and 
-        latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the 
+        - For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and
+        latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the
         image content.
 
         An example use case is available on the BrAPI Wiki -> https://wiki.brapi.org/index.php/Image_Upload
@@ -139,4 +139,4 @@ components:
             - result
       description: OK
       headers: {}
-      
+

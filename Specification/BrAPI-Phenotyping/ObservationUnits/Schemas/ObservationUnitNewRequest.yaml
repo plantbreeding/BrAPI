@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -12,105 +12,125 @@ components:
           additionalProperties:
             type: string
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-          type: object
-          nullable: true
+          type:
+            - object
+            - 'null'
         germplasmDbId:
           description: The ID which uniquely identifies a germplasm
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: e9d9ed57
         germplasmName:
           description: Name of the germplasm. It can be the preferred name and does not have to be unique.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: A0000001
         seedLotDbId:
           description: The unique identifier for the originating Seed Lot
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 261ecb09
         seedLotName:
-          description: A human readable name for the originating Seed Lot 
-          type: string
-          nullable: true
+          description: A human readable name for the originating Seed Lot
+          type:
+            - string
+            - 'null'
           example: Seed Lot Alpha
         crossDbId:
           description: the unique identifier for a cross
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: d105fd6f
-        crossName: 
+        crossName:
           description: the human readable name for a cross
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: my_Crosses_2018_01
         locationDbId:
           description: The ID which uniquely identifies a location, associated with this study
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 0e208b20
         locationName:
           description: The human readable name of a location associated with this study
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Field Station Alpha
         observationUnitName:
           description: A human readable name for an observation unit
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Plot 1
         observationUnitPUI:
           description: |-
             A Permanent Unique Identifier for an observation unit
-            
+
             MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: http://pui.per/plot/1a9afc14
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
+        externalReferences:
+          anyOf:
+            - $ref: '#/components/schemas/ExternalReferences'
+            - type: 'null'
         observationUnitPosition:
-          $ref: '#/components/schemas/ObservationUnitPosition'
-          nullable: true
+          anyOf:
+            - $ref: '#/components/schemas/ObservationUnitPosition'
+            - type: 'null'
         programDbId:
           description: The ID which uniquely identifies a program
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 2d763a7a
         programName:
           description: The human readable name of a program
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: The Perfect Breeding Program
         studyDbId:
           description: The ID which uniquely identifies a study within the given database server
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 9865addc
         studyName:
           description: The human readable name for a study
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Purple_Tomato_1
         treatments:
           description: |-
             List of treatments applied to an observation unit.
-            
+
             MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.
           items:
             $ref: '#/components/schemas/ObservationTreatment'
-          type: array
-          nullable: true
+          type:
+            - array
+            - 'null'
         trialDbId:
           description: The ID which uniquely identifies a trial
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 776a609c
         trialName:
           description: The human readable name of a trial
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Purple Tomato
-          
+
 

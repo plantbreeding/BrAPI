@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -14,42 +14,49 @@ components:
           additionalProperties:
             type: string
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-          type: object
-          nullable: true
+          type:
+            - object
+            - 'null'
         germplasmDbId:
           description: The ID which uniquely identifies a `Germplasm`
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 7e08d538
         sampleDescription:
           description: |-
             Description of a `Sample`
             <br>MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: This sample was taken from the root of a tree
         observationUnitDbId:
           description: The ID which uniquely identifies an `ObservationUnit`
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 073a3ce5
         plateDbId:
           description: The ID which uniquely identifies a `Plate` of `Sample`
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 2dce16d1
         plateName:
           description: The human readable name of a `Plate`
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Plate_alpha_20191022
         sampleTimestamp:
           description: |-
             The date and time a `Sample` was collected from the field
             <br> MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested
           format: date-time
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
         sampleName:
           description: The human readable name of the `Sample`
           type: string
@@ -57,70 +64,82 @@ components:
         samplePUI:
           description: |-
             A permanent unique identifier for the `Sample` (DOI, URL, UUID, etc)
-            <br> MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. 
-          type: string
-          nullable: true
+            <br> MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible.
+          type:
+            - string
+            - 'null'
           example: doi:10.15454/312953986E3
         sampleBarcode:
           description: A unique identifier physically attached to the `Sample`
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 3a027b59
         sampleType:
           description: The type of `Sample` taken. ex. 'DNA', 'RNA', 'Tissue', etc
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Tissue
         column:
           description: The Column identifier for this `Sample` location in the `Plate`
-          type: integer
-          nullable: true
+          type:
+            - integer
+            - 'null'
           minimum: 1
           maximum: 12
           example: 6
         row:
           description: The Row identifier for this `Sample` location in the `Plate`
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: B
         well:
           description: The Well identifier for this `Sample` location in the `Plate`. Usually a concatenation of Row and Column, or just a number if the `Samples` are not part of an ordered `Plate`.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: B6
         studyDbId:
           description: The ID which uniquely identifies a `Study` within the given database server
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 64bd6bf9
-        trialDbId: 
+        trialDbId:
           description: The ID which uniquely identifies a `Trial` within the given database server
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: d34c5349
-        programDbId: 
+        programDbId:
           description: The ID which uniquely identifies a `Program` within the given database server
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: bd748e00
-        sampleGroupDbId: 
+        sampleGroupDbId:
           description: The ID which uniquely identifies a group of `Samples`
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 8524b436
         takenBy:
           description: The name or identifier of the entity which took the `Sample` from the field
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Bob
         tissueType:
           description: |-
             The type of tissue sampled. ex. 'Leaf', 'Root', etc.
             <br> MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: Root
-        externalReferences: 
+        externalReferences:
           $ref: '#/components/schemas/ExternalReferences'
-          
+
 

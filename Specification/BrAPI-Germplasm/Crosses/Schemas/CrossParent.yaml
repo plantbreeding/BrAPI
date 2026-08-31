@@ -1,34 +1,38 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
     CrossParent:
       type: object
       properties:
-        germplasmDbId: 
+        germplasmDbId:
           description: the unique identifier for a germplasm
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: d34b10c3
-        germplasmName: 
+        germplasmName:
           description: the human readable name for a germplasm
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: TME_419
-        observationUnitDbId: 
+        observationUnitDbId:
           description: the unique identifier for an observation unit
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 2e1926a7
-        observationUnitName: 
+        observationUnitName:
           description: the human readable name for an observation unit
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: my_Plot_9001
-        parentType: 
+        parentType:
           description: The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.
           enum:
           - MALE

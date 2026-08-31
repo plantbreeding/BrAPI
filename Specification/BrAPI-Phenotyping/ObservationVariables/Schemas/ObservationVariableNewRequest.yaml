@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -13,14 +13,15 @@ components:
           observationVariableName:
             description: |-
               Human readable name of an Observation Variable
-              
+
               MIAPPE V1.1 (DM-84) Variable name - Name of the variable.
             type: string
             example: Variable Name
           observationVariablePUI:
             description: The Permanent Unique Identifier of a Observation Variable, usually in the form of a URI
-            type: string
-            nullable: true
+            type:
+              - string
+              - 'null'
             example: http://my-traits.com/trait/CO_123:0009012
         required:
         - observationVariableName

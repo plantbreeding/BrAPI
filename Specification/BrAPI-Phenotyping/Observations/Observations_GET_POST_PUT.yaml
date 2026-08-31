@@ -1,15 +1,15 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
   /observations:
-    get: 
-      summary: Get a filtered set of Observations 
+    get:
+      summary: Get a filtered set of Observations
       description: |-
-        Retrieve all observations where there are measurements for the given observation variables. 
+        Retrieve all observations where there are measurements for the given observation variables.
 
-        observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:ss+hhmm 
+        observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:ss+hhmm
       parameters:
       - description: The unique ID of an Observation
         in: query
@@ -22,13 +22,13 @@ paths:
         name: observationUnitDbId
         required: false
         schema:
-          type: string 
+          type: string
       - description: The unique ID of an observation variable
         in: query
         name: observationVariableDbId
         required: false
         schema:
-          type: string 
+          type: string
       - description: The unique ID of a location where these observations were collected
         in: query
         name: locationDbId
@@ -111,13 +111,13 @@ paths:
       tags:
       - Observations
     put:
-      summary: Update multiple Observation entities 
+      summary: Update multiple Observation entities
       description: |-
-        Update multiple Observation entities simultaneously with a single call 
-        
-        Include as many `observationDbIds` in the request as needed. 
-        
-        Note - In strictly typed languages, this structure can be represented as a Map or Dictionary of objects and parsed directly from JSON. 
+        Update multiple Observation entities simultaneously with a single call
+
+        Include as many `observationDbIds` in the request as needed.
+
+        Note - In strictly typed languages, this structure can be represented as a Map or Dictionary of objects and parsed directly from JSON.
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
@@ -209,4 +209,4 @@ components:
             - result
       description: OK
       headers: {}
-      
+

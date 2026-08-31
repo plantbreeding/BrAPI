@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -20,7 +20,7 @@ components:
           studyDbId:
             description: |-
               The ID which uniquely identifies a study within the given database server
-              
+
               MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.
             type: string
             example: 175ac75a

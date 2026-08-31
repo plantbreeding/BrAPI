@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -22,32 +22,37 @@ components:
             <br>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.
           items:
             type: string
-          type: array
-          nullable: true
+          type:
+            - array
+            - 'null'
           example: ['T', 'TAC']
         alternateBases:
           description: The bases that appear instead of the reference bases. Multiple alternate alleles are possible.
           items:
             type: string
-          type: array
-          nullable: true
+          type:
+            - array
+            - 'null'
           example: ['T', 'TAC']
         additionalInfo:
           additionalProperties:
             type: string
           description: A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.
-          type: object
-          nullable: true
-        externalReferences: 
-          $ref: '#/components/schemas/ExternalReferences'
-          nullable: true
+          type:
+            - object
+            - 'null'
+        externalReferences:
+          anyOf:
+            - $ref: '#/components/schemas/ExternalReferences'
+            - type: 'null'
         ciend:
           items:
             type: integer
           description: Similar to "cipos", but for the variant's end position (which is derived from start + svlen).
           example: [ -1000, 0 ]
-          type: array
-          nullable: true
+          type:
+            - array
+            - 'null'
         cipos:
           items:
             type: integer
@@ -58,101 +63,118 @@ components:
             2 signed integers which are added to the start position.
             Based on the use in VCF v4.2
           example: [ -12000, 1000 ]
-          type: array
-          nullable: true
+          type:
+            - array
+            - 'null'
         created:
           description: The timestamp when this variant was created.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           format: date-time
         end:
           description: |-
             This field is optional and may be ignored if there is no relevant map or reference to be associated with.
-            <br>The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated 
+            <br>The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated
             by `start + referenceBases.length`.
-          type: integer
-          nullable: true
+          type:
+            - integer
+            - 'null'
           example: 518
         filtersApplied:
           description: True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.
           format: boolean
-          type: boolean
-          nullable: true
+          type:
+            - boolean
+            - 'null'
           example: True
         filtersFailed:
           description: Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.
           items:
             type: string
-          type: array
-          nullable: true
+          type:
+            - array
+            - 'null'
           example: ['d629a669', '3f14f578']
         filtersPassed:
           description: True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.
           format: boolean
-          type: boolean
-          nullable: true
+          type:
+            - boolean
+            - 'null'
           example: True
         variantDbId:
           description: The ID which uniquely identifies a `Variant`
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 628e89c5
         variantNames:
           description: A human readable name associated with a `Variant`
           items:
             type: string
-          type: array
-          nullable: true
+          type:
+            - array
+            - 'null'
           example: ['RefSNP_ID_1', '06ea312e']
         referenceDbId:
           description: The unique identifier for a Reference
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: fc0a81d0
         referenceName:
           description: The reference on which this variant occurs. (e.g. `chr_20` or `X`)
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: chr_20
         referenceBases:
           description: The reference bases for this variant. They start at the given start position.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: A
         referenceSetDbId:
           description: The unique identifier for a ReferenceSet
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: c1ecfef1
         referenceSetName:
           description: The human readable name of the ReferenceSet
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: The Best Assembly Ever
         start:
           description: |-
             This field is optional and may be ignored if there is no relevant map or reference to be associated with.
-            <br> The start position at which this variant occurs (0-based). This corresponds to the first base of the string 
-            of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning 
+            <br> The start position at which this variant occurs (0-based). This corresponds to the first base of the string
+            of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning
             the join of circular genomes are represented as two variants one on each side of the join (position 0).
-          type: integer
-          nullable: true
+          type:
+            - integer
+            - 'null'
           example: 500
         svlen:
           description: Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2
-          type: integer
-          nullable: true
+          type:
+            - integer
+            - 'null'
           example: 1500
         updated:
           description: The time at which this variant was last updated.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           format: date-time
         variantSetDbIds:
           description: An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.
-          type: array
-          nullable: true
-          items: 
+          type:
+            - array
+            - 'null'
+          items:
             type: string
           example: ['c8ae400b', 'ef2c204b']
         variantType:
@@ -161,6 +183,7 @@ components:
             Examples:
               DUP  : duplication of sequence following "start"
               DEL  : deletion of sequence following "start"
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: DUP

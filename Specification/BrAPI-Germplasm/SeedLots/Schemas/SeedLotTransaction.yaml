@@ -1,7 +1,7 @@
-info: 
+info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
@@ -14,7 +14,7 @@ components:
           module: BrAPI-Germplasm
         title: SeedLotTransaction
         description: The record of an event where material was moved in or out of a particular SeedLot
-        properties: 
+        properties:
           transactionDbId:
             description: Unique DbId for the Seed Lot Transaction
             type: string

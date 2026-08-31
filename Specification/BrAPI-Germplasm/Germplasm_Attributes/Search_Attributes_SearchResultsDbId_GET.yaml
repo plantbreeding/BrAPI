@@ -1,7 +1,7 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths:
   /search/attributes/{searchResultsDbId}:
     get:
@@ -9,9 +9,9 @@ paths:
       description: |-
         Get the results of a Germplasm `Attributes` search request <br/>
         Clients should submit a search request using the corresponding `POST /search/attributes` endpoint.
-        Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
-        If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
-        Use this endpoint to retrieve the results of the search. <br/> 
+        Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately.
+        If a server needs more time to process the request, it might respond with a `searchResultsDbId`.
+        Use this endpoint to retrieve the results of the search. <br/>
         Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
       parameters:
       - $ref: '#/components/parameters/searchResultsDbId'
@@ -19,8 +19,8 @@ paths:
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
-        '202': 
-          $ref: '#/components/responses/202AcceptedSearchResponse' 
+        '202':
+          $ref: '#/components/responses/202AcceptedSearchResponse'
         '200':
           $ref: '#/components/responses/GermplasmAttributeListResponse'
         '400':

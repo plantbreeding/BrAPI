@@ -1,20 +1,20 @@
 info:
   title: BrAPI
   version: ''
-openapi: 3.0.0
+openapi: 3.1.0
 paths: {}
 components:
   schemas:
     OntologyReference:
       description: |-
         MIAPPE V1.1
-        
+
         (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology
-        
+
         (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-        
+
         (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).
-        
+
         (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).
       type: object
       required:
@@ -23,8 +23,9 @@ components:
       properties:
         documentationLinks:
           description: links to various ontology documentation
-          type: array
-          nullable: true
+          type:
+            - array
+            - 'null'
           items:
             type: object
             properties:
@@ -49,7 +50,8 @@ components:
           example: The Crop Ontology
         version:
           description: Ontology version (no specific format)
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           example: 7.2.3
 
