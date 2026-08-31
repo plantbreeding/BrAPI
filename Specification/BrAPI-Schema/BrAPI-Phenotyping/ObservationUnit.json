@@ -62,21 +62,24 @@
                 },
                 "observationUnitDbId": {
                     "description": "The ID which uniquely identifies an observation unit\n\nMIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. ",
-                    "type": "string"
+                    "type": "string",
+                    "example": "8c67503c"
                 },
                 "observationUnitName": {
                     "description": "A human readable name for an observation unit",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Plot 1"
                 },
                 "observationUnitPUI": {
                     "description": "A Permanent Unique Identifier for an observation unit\n\nMIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "http://pui.per/plot/1a9afc14"
                 },
                 "observationUnitPosition": {
                     "description": "All positional and layout information related to this Observation Unit \n\nMIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) \nor level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. \nLevels of observation must be consistent with those listed in the Study section.",
@@ -235,17 +238,7 @@
                 },
                 "geoCoordinates": {
                     "description": "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.\n\nCopied from RFC 7946 Section 3.1.1\n\nA position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or\neasting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.",
-                    "relationshipType": "one-to-many",
-                    "referencedAttribute": "observationUnit",
-                    "items": {
-                        "$ref": "../BrAPI-Common/GeoJSON.json#/$defs/GeoJSON",
-                        "description": "A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed."
-                    },
-                    "title": "GeoJSON",
-                    "type": [
-                        "null",
-                        "array"
-                    ]
+                    "$ref": "../BrAPI-Common/GeoJSON.json#/$defs/GeoJSON"
                 },
                 "observationLevel": {
                     "$ref": "../BrAPI-Phenotyping/ObservationUnitLevel.json#/$defs/ObservationUnitLevel",

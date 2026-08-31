@@ -24,7 +24,10 @@ separateByModule: false
 # are not derivable from the JSON schema). Applied globally rather than
 # per-module because separateByModule is false.
 supplementalSpecification: generator/openapi-Supplemental-Spec-V2.2-BrAPI-Core.yaml
-
+getWithId:
+    embeddedResponsePropertiesFor:
+        ObservationUnit:
+            observations: true
 # Season needs a *NewRequest schema (default behaviour for Season is to skip it).
 generateNewRequestFor:
     Season: true
@@ -37,7 +40,9 @@ put:
         Call: false
         PedigreeNode: false
         Plate: false
-
+    embeddedResponsePropertiesFor:
+        ObservationUnit:
+            observations: true
 properties:
     pui:
         linkPropertyFor:

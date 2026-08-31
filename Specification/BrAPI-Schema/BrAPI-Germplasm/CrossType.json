@@ -12,7 +12,8 @@
                 "DOUBLE_HAPLOID"
             ],
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "example": "BIPARENTAL"
         }
     },
     "$id": "https://brapi.org/Specification/BrAPI-Schema/BrAPI-Germplasm/CrossType.json",
