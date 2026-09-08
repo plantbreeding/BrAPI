@@ -27,6 +27,14 @@
                         "string"
                     ]
                 },
+                "type": {
+                    "description": "The specific type of Breeding Method. Ex: 'Generative', 'Maintenance', or 'Derivative'.",
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "examples": ["Generative", "Maintenance", "Derivative"]
+                },
                 "germplasm": {
                     "title": "germplasm",
                     "description": "germplasm",
