@@ -133,7 +133,6 @@
                 "germplasm": {
                     "$ref": "Germplasm.json#/$defs/Germplasm",
                     "description": "The parent germplasm",
-                    "referencedAttribute": "progenyPedigreeNodes",
                     "relationshipType": "many-to-one"
                 },
                 "parentType": {
@@ -163,7 +162,6 @@
                 "germplasm": {
                     "$ref": "Germplasm.json#/$defs/Germplasm",
                     "description": "The child germplasm",
-                    "referencedAttribute": "parentPedigreeNodes",
                     "relationshipType": "many-to-one"
                 },
                 "parentType": {
@@ -174,7 +172,7 @@
                     "description": "associated pedigreeNode",
                     "$ref": "../BrAPI-Germplasm/PedigreeNode.json#/$defs/PedigreeNode",
                     "relationshipType": "many-to-one",
-                    "referencedAttribute": "parents"
+                    "referencedAttribute": "progeny"
                 }
             },
             "required": [

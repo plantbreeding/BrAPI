@@ -26,7 +26,10 @@ generateNewRequest: true
 # Season needs a *NewRequest schema (default behaviour for Season is to skip it).
 generateNewRequestFor:
     Season: true
-
+getWithId:
+    embeddedResponsePropertiesFor:
+        ObservationUnit:
+            observations: true
 # These three types currently override the default behaviour to *not* generate
 # a PUT endpoint. Review whether this is still desired — the defaults have
 # been updated to enable PUT for them (see /calls.put, /pedigree.put, /plates.put).
@@ -35,7 +38,9 @@ put:
         Call: false
         PedigreeNode: false
         Plate: false
-
+    embeddedResponsePropertiesFor:
+        ObservationUnit:
+            observations: true
 properties:
     pui:
         linkPropertyFor:

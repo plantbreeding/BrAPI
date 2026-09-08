@@ -12,18 +12,21 @@
                     "properties": {
                         "observationVariableDbId": {
                             "description": "Variable unique identifier\n\nMIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.",
-                            "type": "string"
+                            "type": "string",
+                            "example": "b9b7edd1"
                         },
                         "observationVariableName": {
                             "description": "Variable name (usually a short name)\n\nMIAPPE V1.1 (DM-84) Variable name - Name of the variable.",
-                            "type": "string"
+                            "type": "string",
+                            "example": "Variable Name"
                         },
                         "observationVariablePUI": {
                             "description": "The Permanent Unique Identifier of a Observation Variable, usually in the form of a URI",
                             "type": [
                                 "null",
                                 "string"
-                            ]
+                            ],
+                            "example": "http://my-traits.com/trait/CO_123:0009012"
                         },
                         "studies": {
                             "title": "Studies",
