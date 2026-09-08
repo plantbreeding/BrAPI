@@ -279,6 +279,8 @@ type BreedingMethod {
   breedingMethodName: String
   "human readable description of the breeding method"
   description: String
+  "The specific type of Breeding Method. Ex: 'Generative', 'Maintenance', or 'Derivative'."
+  type: String
 }
 
 type BreedingMethodListResponse {
@@ -4002,6 +4004,8 @@ input BreedingMethodInput {
   germplasm: [GermplasmInput]
   "pedigreeNodes"
   pedigreeNodes: [PedigreeNodeInput]
+  "The specific type of Breeding Method. Ex: 'Generative', 'Maintenance', or 'Derivative'."
+  type: String
 }
 
 """

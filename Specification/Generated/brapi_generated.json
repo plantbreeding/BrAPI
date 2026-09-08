@@ -12764,6 +12764,11 @@
                         "type" : "string",
                         "description" : "human readable description of the breeding method",
                         "nullable" : true
+                    },
+                    "type" : {
+                        "type" : "string",
+                        "description" : "The specific type of Breeding Method. Ex: 'Generative', 'Maintenance', or 'Derivative'.",
+                        "nullable" : true
                     }
                 },
                 "description" : "The techniques and protocol used to produce a Cross or Germplasm"
