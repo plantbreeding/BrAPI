@@ -55,6 +55,23 @@ info:
     \  padding: 5px 5px; \n}\n.brapi-section-description{\n  margin: 5px 0 0 5px;\n\
     }\n</style>"
   version: "2.2"
+servers:
+- url: https://test-server.brapi.org/brapi/v2
+security:
+- AuthorizationToken: []
+tags:
+- name: Germplasm
+  description: Information about Germplasm
+- name: Germplasm Attributes
+  description: Information about Germplasm Attributes
+- name: Germplasm Attribute Values
+  description: Information about Germplasm Attribute Values
+- name: Crossing Projects
+  description: Information about Crossing Projects
+- name: Crosses
+  description: Information about Crosses
+- name: Seed Lots
+  description: Information about Seed Lots
 paths:
   /breedingmethods:
     get:
@@ -94,6 +111,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -104,30 +122,35 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: crossingProjectDbId
         in: query
         description: Search for Crossing Projects with this unique id
         required: false
         schema:
           type: string
+          nullable: false
       - name: crossingProjectName
         in: query
         description: The human readable name for a crossing project
         required: false
         schema:
           type: string
+          nullable: false
       - name: crossDbId
         in: query
         description: Search for Cross with this unique id
         required: false
         schema:
           type: string
+          nullable: false
       - name: crossName
         in: query
         description: Search for Cross with this human readable name
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -157,11 +180,12 @@ paths:
               type: object
               additionalProperties:
                 $ref: "#/components/schemas/CrossNewRequest"
-              example: "{<crossDbId>_1={additionalInfo={}, crossAttributes=[{}], crossDbId=15187888,\
-                \ crossName=15a57676, crossType={}, crossingProject={}, externalReferences=[{}],\
-                \ parent1={}, parent2={}, plannedCross={}, pollinationTimeStamp=2020-08-12T18:10:40.413Z,\
-                \ pollinationEvents=[{}], observationUnits=[{}]}, <crossDbId>_2={additionalInfo={},\
-                \ crossAttributes=[{}], crossDbId=15187889, crossName=15a57677, crossType={},\
+              example: "{<crossDbId>_1={additionalInfo={}, crossAttributes=[{}], crossDbId=d105fd6f,\
+                \ crossName=my_Crosses_2018_01, crossType={}, crossingProject={},\
+                \ externalReferences=[{}], parent1={}, parent2={}, plannedCross={},\
+                \ pollinationTimeStamp=2020-08-12T18:10:40.413Z, pollinationEvents=[{}],\
+                \ observationUnits=[{}]}, <crossDbId>_2={additionalInfo={}, crossAttributes=[{}],\
+                \ crossDbId=d105fd6f, crossName=my_Crosses_2018_01, crossType={},\
                 \ crossingProject={}, externalReferences=[{}], parent1={}, parent2={},\
                 \ plannedCross={}, pollinationTimeStamp=2020-08-12T18:10:40.413Z,\
                 \ pollinationEvents=[{}], observationUnits=[{}]}}"
@@ -216,6 +240,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -226,18 +251,21 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: crossingProjectDbId
         in: query
         description: Search for Crossing Projects with this unique id
         required: false
         schema:
           type: string
+          nullable: false
       - name: crossingProjectName
         in: query
         description: The human readable name for a crossing project
         required: false
         schema:
           type: string
+          nullable: false
       - name: includePotentialParents
         in: query
         description: "If the parameter 'includePotentialParents' is false, the array\
@@ -246,6 +274,7 @@ paths:
         required: false
         schema:
           type: boolean
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -303,12 +332,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: germplasmDbId
         in: query
         description: List of IDs which uniquely identify germplasm to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: germplasmName
         in: query
         description: List of human readable names to identify germplasm to search
@@ -316,6 +347,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -326,24 +358,28 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: studyDbId
         in: query
         description: List of study identifiers to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: trialDbId
         in: query
         description: The ID which uniquely identifies a trial to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: germplasmPUI
         in: query
         description: List of Permanent Unique Identifiers to identify germplasm
         required: false
         schema:
           type: string
+          nullable: false
       - name: accessionNumber
         in: query
         description: |-
@@ -353,6 +389,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: collection
         in: query
         description: A specific panel/collection/population name this germplasm belongs
@@ -360,6 +397,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: binomialName
         in: query
         description: List of the full binomial name (scientific name) to identify
@@ -367,12 +405,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: genus
         in: query
         description: List of Genus names to identify germplasm
         required: false
         schema:
           type: string
+          nullable: false
       - name: generationCode
         in: query
         description: List of simple codes that denote the generation since the last
@@ -380,30 +420,35 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: species
         in: query
         description: List of Species names to identify germplasm
         required: false
         schema:
           type: string
+          nullable: false
       - name: synonym
         in: query
         description: List of alternative names or IDs used to reference this germplasm
         required: false
         schema:
           type: string
+          nullable: false
       - name: parentDbId
         in: query
         description: Search for Germplasm with these parents
         required: false
         schema:
           type: string
+          nullable: false
       - name: progenyDbId
         in: query
         description: Search for Germplasm with these children
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -455,6 +500,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: commonCropName
         in: query
         description: "The BrAPI Common Crop Name is the simple, generalized, widely\
@@ -467,6 +513,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -477,12 +524,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: methodDbId
         in: query
         description: List of methods to filter search results
         required: false
         schema:
           type: string
+          nullable: false
       - name: methodName
         in: query
         description: |-
@@ -491,6 +540,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: methodPUI
         in: query
         description: "The Permanent Unique Identifier of a Method, usually in the\
@@ -498,12 +548,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: scaleDbId
         in: query
         description: The unique identifier for a Scale
         required: false
         schema:
           type: string
+          nullable: false
       - name: scaleName
         in: query
         description: |-
@@ -512,6 +564,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: scalePUI
         in: query
         description: "The Permanent Unique Identifier of a Scale, usually in the form\
@@ -519,12 +572,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: traitDbId
         in: query
         description: The unique identifier for a Trait
         required: false
         schema:
           type: string
+          nullable: false
       - name: traitName
         in: query
         description: |-
@@ -533,6 +588,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: traitPUI
         in: query
         description: "The Permanent Unique Identifier of a Trait, usually in the form\
@@ -540,18 +596,21 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: attributeDbId
         in: query
         description: List of Germplasm Attribute IDs to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: attributeName
         in: query
         description: List of human readable Germplasm Attribute names to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: attributePUI
         in: query
         description: "The Permanent Unique Identifier of an Attribute, usually in\
@@ -559,12 +618,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: attributeCategory
         in: query
         description: General category for the attribute. very similar to Trait class.
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -622,12 +683,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: germplasmDbId
         in: query
         description: List of IDs which uniquely identify germplasm to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -638,24 +701,28 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: attributeValueDbId
         in: query
         description: List of Germplasm Attribute Value IDs to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: attributeDbId
         in: query
         description: List of Germplasm Attribute IDs to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: attributeName
         in: query
         description: List of human readable Germplasm Attribute names to search for
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -713,12 +780,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: germplasmDbId
         in: query
         description: List of IDs which uniquely identify germplasm to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: germplasmName
         in: query
         description: List of human readable names to identify germplasm to search
@@ -726,6 +795,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -736,24 +806,28 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: studyDbId
         in: query
         description: List of study identifiers to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: trialDbId
         in: query
         description: The ID which uniquely identifies a trial to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: germplasmPUI
         in: query
         description: List of Permanent Unique Identifiers to identify germplasm
         required: false
         schema:
           type: string
+          nullable: false
       - name: accessionNumber
         in: query
         description: |-
@@ -763,6 +837,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: collection
         in: query
         description: A specific panel/collection/population name this germplasm belongs
@@ -770,12 +845,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: familyCode
         in: query
         description: A familyCode representing the family this germplasm belongs to.
         required: false
         schema:
           type: string
+          nullable: false
       - name: binomialName
         in: query
         description: List of the full binomial name (scientific name) to identify
@@ -783,24 +860,28 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: genus
         in: query
         description: List of Genus names to identify germplasm
         required: false
         schema:
           type: string
+          nullable: false
       - name: species
         in: query
         description: List of Species names to identify germplasm
         required: false
         schema:
           type: string
+          nullable: false
       - name: synonym
         in: query
         description: List of alternative names or IDs used to reference this germplasm
         required: false
         schema:
           type: string
+          nullable: false
       - name: includeParents
         in: query
         description: "If this parameter is true, include the array of parents in the\
@@ -808,6 +889,7 @@ paths:
         required: false
         schema:
           type: boolean
+          nullable: false
       - name: includeSiblings
         in: query
         description: "If this parameter is true, include the array of siblings in\
@@ -815,6 +897,7 @@ paths:
         required: false
         schema:
           type: boolean
+          nullable: false
       - name: includeProgeny
         in: query
         description: "If this parameter is true, include the array of progeny in the\
@@ -822,6 +905,7 @@ paths:
         required: false
         schema:
           type: boolean
+          nullable: false
       - name: includeFullTree
         in: query
         description: "If this parameter is true, recursively include ALL of the nodes\
@@ -829,6 +913,7 @@ paths:
         required: false
         schema:
           type: boolean
+          nullable: false
       - name: pedigreeDepth
         in: query
         description: "Recursively include this number of levels up the tree in the\
@@ -837,6 +922,7 @@ paths:
         schema:
           type: integer
           format: int32
+          nullable: false
       - name: progenyDepth
         in: query
         description: "Recursively include this number of levels down the tree in the\
@@ -845,6 +931,7 @@ paths:
         schema:
           type: integer
           format: int32
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -906,6 +993,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -916,30 +1004,35 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: crossingProjectDbId
         in: query
         description: Search for Crossing Projects with this unique id
         required: false
         schema:
           type: string
+          nullable: false
       - name: crossingProjectName
         in: query
         description: The human readable name for a crossing project
         required: false
         schema:
           type: string
+          nullable: false
       - name: plannedCrossDbId
         in: query
         description: Search for Planned Cross with this unique id
         required: false
         schema:
           type: string
+          nullable: false
       - name: plannedCrossName
         in: query
         description: Search for Planned Cross with this human readable name
         required: false
         schema:
           type: string
+          nullable: false
       - name: status
         in: query
         description: "The status of this planned cross. Is it waiting to be performed\
@@ -948,6 +1041,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
           enum:
           - TODO
           - DONE
@@ -981,11 +1075,12 @@ paths:
               type: object
               additionalProperties:
                 $ref: "#/components/schemas/PlannedCrossNewRequest"
-              example: "{<plannedCrossDbId>_1={additionalInfo={}, crossType={}, crossingProject={},\
-                \ externalReferences=[{}], parent1={}, parent2={}, plannedCrossDbId=47edd16c,\
-                \ plannedCrossName=487acf5a, status={}, crosses=[{}]}, <plannedCrossDbId>_2={additionalInfo={},\
-                \ crossType={}, crossingProject={}, externalReferences=[{}], parent1={},\
-                \ parent2={}, plannedCrossDbId=47edd16d, plannedCrossName=487acf5b,\
+              example: "{<plannedCrossDbId>_1={additionalInfo={}, crossType=BIPARENTAL,\
+                \ crossingProject={}, externalReferences=[{}], parent1={}, parent2={},\
+                \ plannedCrossDbId=47edd16c, plannedCrossName=my_Crosses_2018_01,\
+                \ status={}, crosses=[{}]}, <plannedCrossDbId>_2={additionalInfo={},\
+                \ crossType=BIPARENTAL, crossingProject={}, externalReferences=[{}],\
+                \ parent1={}, parent2={}, plannedCrossDbId=47edd16d, plannedCrossName=my_Crosses_2018_01,\
                 \ status={}, crosses=[{}]}}"
       responses:
         "200":
@@ -1038,12 +1133,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: germplasmDbId
         in: query
         description: List of IDs which uniquely identify germplasm to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: germplasmName
         in: query
         description: List of human readable names to identify germplasm to search
@@ -1051,6 +1148,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -1061,24 +1159,28 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: seedLotDbId
         in: query
         description: Unique id for a seed lot on this server
         required: false
         schema:
           type: string
+          nullable: false
       - name: crossDbId
         in: query
         description: Search for Cross with this unique id
         required: false
         schema:
           type: string
+          nullable: false
       - name: crossName
         in: query
         description: Search for Cross with this human readable name
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -1136,12 +1238,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: germplasmDbId
         in: query
         description: List of IDs which uniquely identify germplasm to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: germplasmName
         in: query
         description: List of human readable names to identify germplasm to search
@@ -1149,6 +1253,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -1159,30 +1264,35 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: seedLotDbId
         in: query
         description: Unique id for a seed lot on this server
         required: false
         schema:
           type: string
+          nullable: false
       - name: crossDbId
         in: query
         description: Search for Cross with this unique id
         required: false
         schema:
           type: string
+          nullable: false
       - name: crossName
         in: query
         description: Search for Cross with this human readable name
         required: false
         schema:
           type: string
+          nullable: false
       - name: transactionDbId
         in: query
         description: Unique id for a Transaction that has occurred
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -1425,7 +1535,7 @@ paths:
         in: path
         description: The ID which uniquely identifies this attribute within the given
           database server
-        required: false
+        required: true
         schema:
           type: string
       responses:
@@ -1450,7 +1560,7 @@ paths:
         in: path
         description: The ID which uniquely identifies this attribute within the given
           database server
-        required: false
+        required: true
         schema:
           type: string
       requestBody:
@@ -1481,7 +1591,7 @@ paths:
         in: path
         description: The ID which uniquely identifies this attribute value within
           the given database server
-        required: false
+        required: true
         schema:
           type: string
       responses:
@@ -1506,7 +1616,7 @@ paths:
         in: path
         description: The ID which uniquely identifies this attribute value within
           the given database server
-        required: false
+        required: true
         schema:
           type: string
       requestBody:
@@ -1598,6 +1708,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: transactionDirection
         in: query
         description: "Filter results to only include transactions directed to the\
@@ -1609,6 +1720,7 @@ paths:
           description: "Filter results to only include transactions directed to the\
             \ specific Seed Lot (TO), away from the specific Seed Lot (FROM), or both\
             \ (BOTH). The default value for this parameter is BOTH"
+          nullable: false
           enum:
           - TO
           - FROM
@@ -1961,10 +2073,11 @@ components:
       - "62"
       - "99"
     AdditionalInfo:
-      type: string
+      type: object
       additionalProperties:
         description: A free space containing any additional information related to
           a particular object.
+        nullable: true
       description: "A free space containing any additional information related to\
         \ a particular object. A data source may provide any JSON object, unrestricted\
         \ by the BrAPI specification."
@@ -2144,6 +2257,7 @@ components:
             type: string
     Attribute:
       required:
+      - attributeDbId
       - attributeName
       - method
       - scale
@@ -2151,7 +2265,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         attributeCategory:
           type: string
           description: General category for the attribute. very similar to Trait class.
@@ -2177,6 +2293,7 @@ components:
           type: string
           description: "Crop name (examples: \"Maize\", \"Wheat\")"
           nullable: true
+          example: Maize
         contextOfUse:
           type: array
           description: "Indication of how trait is routinely used. (examples: [\"\
@@ -2188,11 +2305,13 @@ components:
           type: string
           description: "Variable default value. (examples: \"red\", \"2.3\", etc.)"
           nullable: true
+          example: "2.0"
         documentationURL:
           type: string
           description: A URL to the human readable documentation of an object
           format: uri
           nullable: true
+          example: https://wiki.brapi.org/documentation.html
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -2206,15 +2325,18 @@ components:
           description: "Growth stage at which measurement is made (examples: \"flowering\"\
             )"
           nullable: true
+          example: flowering
         institution:
           type: string
           description: Name of institution submitting the variable
           nullable: true
+          example: The BrAPI Institute
         language:
           type: string
           description: 2 letter ISO 639-1 code for the language of submission of the
             variable.
           nullable: true
+          example: en
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
@@ -2227,11 +2349,13 @@ components:
           type: string
           description: Name of scientist submitting the variable.
           nullable: true
+          example: Dr. Bob Robertson
         status:
           type: string
           description: "Variable status. (examples: \"recommended\", \"obsolete\"\
             , \"legacy\", etc.)"
           nullable: true
+          example: recommended
         submissionTimestamp:
           type: string
           description: Timestamp when the Variable was added (ISO 8601)
@@ -2698,6 +2822,7 @@ components:
           crossDbId:
             type: string
             description: the unique identifier for a cross
+            example: d105fd6f
         description: The identifiers and metadata represent that specific organisms
           have mated to produce offspring with particular traits or genes. The offspring
           of a Cross might be developed into a Germplasm if the desired traits are
@@ -2720,7 +2845,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         crossAttributes:
           type: array
           description: Set of custom attributes associated with a cross
@@ -2731,8 +2858,11 @@ components:
           type: string
           description: the human readable name for a cross
           nullable: true
+          example: my_Crosses_2018_01
         crossType:
-          $ref: "#/components/schemas/CrossType"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/CrossType"
         crossingProjectDbId:
           type: string
           nullable: true
@@ -2747,9 +2877,13 @@ components:
           items:
             $ref: "#/components/schemas/ExternalReference"
         parent1:
-          $ref: "#/components/schemas/CrossParent"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/CrossParent"
         parent2:
-          $ref: "#/components/schemas/CrossParent"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/CrossParent"
         plannedCrossDbId:
           type: string
           nullable: true
@@ -2883,18 +3017,24 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         commonCropName:
           type: string
           description: the common name of a crop (for multi-crop systems)
           nullable: true
+          example: Cassava
         crossingProjectDescription:
           type: string
           description: the description for a crossing project
           nullable: true
+          example: Crosses between germplasm X and germplasm Y in male nursery study
+            X_2018 and female nursery study Y_2018
         crossingProjectName:
           type: string
           description: The human readable name for a crossing project
+          example: Crosses_2018
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -2967,6 +3107,12 @@ components:
             Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
+    Dimension:
+      type: string
+      description: the dimension of the matrix being paginated
+      enum:
+      - CALLSETS
+      - VARIANTS
     Donor:
       type: object
       properties:
@@ -3170,7 +3316,8 @@ components:
       nullable: true
     GeoJSONGeometry:
       type: object
-      nullable: true
+      discriminator:
+        propertyName: type
       oneOf:
       - required:
         - coordinates
@@ -3284,6 +3431,7 @@ components:
               \ plant ID, inventory lot ID, etc. This material identification is different\
               \ from a BiosampleID which corresponds to Observation Unit or Samples\
               \ sections below."
+            example: d4076594
         description: "The conceptual identifiers and metadata describing a genetically\
           \ unique organism that is noteworthy in some way. Depending on context,\
           \ a Germplasm might be synonymous with Accession, Line, or Genotype. Note\
@@ -3295,7 +3443,9 @@ components:
     GermplasmAttribute:
       allOf:
       - $ref: "#/components/schemas/GermplasmAttributeNewRequest"
-      - type: object
+      - required:
+        - attributeDbId
+        type: object
         properties:
           attributeDbId:
             type: string
@@ -3313,7 +3463,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         attributeCategory:
           type: string
           description: General category for the attribute. very similar to Trait class.
@@ -3335,6 +3487,7 @@ components:
           type: string
           description: "Crop name (examples: \"Maize\", \"Wheat\")"
           nullable: true
+          example: Maize
         contextOfUse:
           type: array
           description: "Indication of how trait is routinely used. (examples: [\"\
@@ -3346,11 +3499,13 @@ components:
           type: string
           description: "Variable default value. (examples: \"red\", \"2.3\", etc.)"
           nullable: true
+          example: "2.0"
         documentationURL:
           type: string
           description: A URL to the human readable documentation of an object
           format: uri
           nullable: true
+          example: https://wiki.brapi.org/documentation.html
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -3364,17 +3519,85 @@ components:
           description: "Growth stage at which measurement is made (examples: \"flowering\"\
             )"
           nullable: true
+          example: flowering
         institution:
           type: string
           description: Name of institution submitting the variable
           nullable: true
+          example: The BrAPI Institute
         language:
           type: string
           description: 2 letter ISO 639-1 code for the language of submission of the
             variable.
           nullable: true
+          example: en
         method:
-          $ref: "#/components/schemas/Method"
+          required:
+          - methodName
+          type: object
+          properties:
+            additionalInfo:
+              nullable: true
+              allOf:
+              - $ref: "#/components/schemas/AdditionalInfo"
+            bibliographicalReference:
+              type: string
+              description: |-
+                Bibliographical reference describing the method.
+                <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.
+              nullable: true
+              example: "Smith, 1893, Really Cool Paper, Popular Journal"
+            description:
+              type: string
+              description: |-
+                Method description
+                <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)
+              nullable: true
+              example: A measuring tape was used
+            externalReferences:
+              type: array
+              description: An array of external reference ids. These are references
+                to this piece of data in an external system. Could be a simple string
+                or a URI.
+              nullable: true
+              items:
+                $ref: "#/components/schemas/ExternalReference"
+            formula:
+              type: string
+              description: "For computational methods i.e., when the method consists\
+                \ in assessing the trait by computing measurements, write the generic\
+                \ formula used for the calculation"
+              nullable: true
+              example: a^2 + b^2 = c^2
+            methodClass:
+              type: string
+              description: "Method class (examples: \"Measurement\", \"Counting\"\
+                , \"Estimation\", \"Computation\", etc.)"
+              nullable: true
+              example: Measurement
+            methodDbId:
+              type: string
+              description: Method unique identifier
+              nullable: true
+            methodName:
+              type: string
+              description: |-
+                Human readable name for the method
+                <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation
+              example: Measuring Tape
+            methodPUI:
+              type: string
+              description: "The Permanent Unique Identifier of a Method, usually in\
+                \ the form of a URI"
+              nullable: true
+              example: http://my-traits.com/trait/CO_123:0000212
+            ontologyReference:
+              $ref: "#/components/schemas/OntologyReference"
+          description: "A description of the way an Observation should be collected.\
+            \ \n<br>For example, an ObservationVariable might be defined with a Trait\
+            \ of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\"\
+            . This variable would be distinct from a variable with the Method \"estimation\"\
+            \ or \"drone image processing\". "
         ontologyReference:
           nullable: true
           allOf:
@@ -3385,11 +3608,13 @@ components:
           type: string
           description: Name of scientist submitting the variable.
           nullable: true
+          example: Dr. Bob Robertson
         status:
           type: string
           description: "Variable status. (examples: \"recommended\", \"obsolete\"\
             , \"legacy\", etc.)"
           nullable: true
+          example: recommended
         submissionTimestamp:
           type: string
           description: Timestamp when the Variable was added (ISO 8601)
@@ -3402,7 +3627,112 @@ components:
           items:
             type: string
         trait:
-          $ref: "#/components/schemas/Trait"
+          required:
+          - traitName
+          type: object
+          properties:
+            additionalInfo:
+              nullable: true
+              allOf:
+              - $ref: "#/components/schemas/AdditionalInfo"
+            alternativeAbbreviations:
+              type: array
+              description: "A list of shortened, human readable, names for a Trait.\
+                \ These abbreviations are acceptable alternatives to the mainAbbreviation\
+                \ and do not need to follow any formatting convention."
+              nullable: true
+              items:
+                type: string
+            attribute:
+              type: string
+              description: "A trait can be decomposed as \"Trait\" = \"Entity\" +\
+                \ \"Attribute\", the attribute is the observed feature (or characteristic)\
+                \ of the entity e.g., for \"grain colour\", attribute = \"colour\""
+              nullable: true
+              example: height
+            attributePUI:
+              type: string
+              description: |-
+                The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI
+                <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"
+              nullable: true
+              example: http://my-traits.com/trait/PO:00012345
+            entity:
+              type: string
+              description: "A trait can be decomposed as \"Trait\" = \"Entity\" +\
+                \ \"Attribute\", the entity is the part of the plant that the trait\
+                \ refers to e.g., for \"grain colour\", entity = \"grain\""
+              nullable: true
+              example: Stalk
+            entityPUI:
+              type: string
+              description: "The Permanent Unique Identifier of a Trait Entity, usually\
+                \ in the form of a URI\n<br/>A Trait can be decomposed as \"Trait\"\
+                \ = \"Entity\" + \"Attribute\", the Entity is the part of the plant\
+                \ that the trait refers to e.g., for \"grain colour\", entity = \"\
+                grain\" "
+              nullable: true
+              example: http://my-traits.com/trait/PATO:00098765
+            externalReferences:
+              type: array
+              description: An array of external reference ids. These are references
+                to this piece of data in an external system. Could be a simple string
+                or a URI.
+              nullable: true
+              items:
+                $ref: "#/components/schemas/ExternalReference"
+            mainAbbreviation:
+              type: string
+              description: A shortened version of the human readable name for a Trait
+              nullable: true
+              example: PH
+            ontologyReference:
+              $ref: "#/components/schemas/OntologyReference"
+            status:
+              type: string
+              description: "Trait status (examples: \"recommended\", \"obsolete\"\
+                , \"legacy\", etc.)"
+              nullable: true
+              example: recommended
+            synonyms:
+              type: array
+              description: Other trait names
+              nullable: true
+              items:
+                type: string
+            traitClass:
+              type: string
+              description: |-
+                A classification to describe the type of trait and the context it should be considered in.
+                <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.
+              nullable: true
+              example: phenological
+            traitDbId:
+              type: string
+              description: The ID which uniquely identifies a trait
+              nullable: true
+            traitDescription:
+              type: string
+              description: The description of a trait
+              nullable: true
+              example: The height of the plant
+            traitName:
+              type: string
+              description: |-
+                The human readable name of a trait
+                <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation
+              example: Height
+            traitPUI:
+              type: string
+              description: "The Permanent Unique Identifier of a Trait, usually in\
+                \ the form of a URI"
+              nullable: true
+              example: http://my-traits.com/trait/CO_123:0000012
+          description: "A Trait describes what property is being observed. \n<br>For\
+            \ example, an ObservationVariable might be defined with a Trait of \"\
+            plant height\", a Scale of \"meters\", and a Method of \"tape measure\"\
+            . This variable would be distinct from a variable with the Trait \"Leaf\
+            \ length\" or \"Flower height\". "
       description: "The Trait-Method-Scale definition for a variable, specifically\
         \ variables related to Germplasm. Similar to an ObservationVariable, but related\
         \ to a Germplasm instead of an ObservationUnit"
@@ -3836,7 +4166,9 @@ components:
     GermplasmAttributeValue:
       allOf:
       - $ref: "#/components/schemas/GermplasmAttributeValueNewRequest"
-      - type: object
+      - required:
+        - attributeValueDbId
+        type: object
         properties:
           attributeValueDbId:
             type: string
@@ -3851,7 +4183,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         attributeDbId:
           type: string
           nullable: true
@@ -3882,6 +4216,7 @@ components:
           type: string
           description: The value of this attribute for a given germplasm
           nullable: true
+          example: Present
       description: "The value recorded for a particular Trait/Attribute and a particular\
         \ Germplasm. Similar to an Observation value, but more concrete, applying\
         \ to the whole Germplasm instead of a single ObservationUnit."
@@ -4532,8 +4867,6 @@ components:
           type: string
         imageName:
           type: string
-        imagePUI:
-          type: string
         imageURL:
           type: string
           description: "imageURL: string"
@@ -4555,6 +4888,7 @@ components:
 
             MCPD (v2.1) (ACCENUMB) 2. This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection (e.g. "PI 113869").
           nullable: true
+          example: A0000003
         acquisitionDate:
           type: string
           description: "The date a material or germplasm was acquired by the genebank\
@@ -4564,7 +4898,9 @@ components:
             \ or \"00\" [double zero]."
           nullable: true
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         biologicalStatusOfAccessionCode:
           type: string
           description: "MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can\
@@ -4582,6 +4918,7 @@ components:
             \ (conventional breeding methods) \n600) GMO (by genetic engineering)\
             \ \n999) Other (Elaborate in REMARKS field)"
           nullable: true
+          example: "420"
           enum:
           - "100"
           - "110"
@@ -4608,6 +4945,7 @@ components:
           type: string
           description: Supplemental text description for 'biologicalStatusOfAccessionCode'
           nullable: true
+          example: Genetic stock
         breedingMethodDbId:
           type: string
           nullable: true
@@ -4619,10 +4957,12 @@ components:
           description: A specific panel/collection/population name this germplasm
             belongs to.
           nullable: true
+          example: Rice Diversity Panel 1 (RDP1)
         commonCropName:
           type: string
           description: "Common name for the crop \n\nMCPD (v2.1) (CROPNAME) 10. Common\
             \ name of the crop. Example: \"malting barley\", \"mas\"."
+          example: Maize
         countryOfOriginCode:
           type: string
           description: "3-letter ISO 3166-1 code of the country in which the sample\
@@ -4633,15 +4973,18 @@ components:
             \ etc.). Note- Descriptors 14 to 16 below should be completed accordingly\
             \ only if it was \"collected\"."
           nullable: true
+          example: BES
         defaultDisplayName:
           type: string
           description: Human readable name used for display purposes
           nullable: true
+          example: A0000003
         documentationURL:
           type: string
           description: A URL to the human readable documentation of an object
           format: uri
           nullable: true
+          example: https://wiki.brapi.org
         donors:
           type: array
           description: List of donor institutes
@@ -4672,12 +5015,14 @@ components:
 
             MIAPPE V1.1 (DM-43) Genus - Genus name for the organism under study, according to standard scientific nomenclature.
           nullable: true
+          example: Aspergillus
         germplasmName:
           type: string
           description: |-
             Name of the germplasm. It can be the preferred name and does not have to be unique.
 
             MCPD (v2.1) (ACCENAME) 11. Either a registered or other designation given to the material received, other than the donors accession number (23) or collecting number (3). First letter uppercase. Multiple names are separated by a semicolon without space.
+          example: A0000003
         germplasmOrigin:
           type: array
           description: "Information for material (orchard, natural sites, ...). Geographic\
@@ -4696,12 +5041,15 @@ components:
             MIAPPE V1.1 (DM-51) Material source DOI - Digital Object Identifier (DOI) of the material source
 
             MCPD (v2.1) (PUID) 0. Any persistent, unique identifier assigned to the accession so it can be unambiguously referenced at the global level and the information associated with it harvested through automated means. Report one PUID for each accession. The Secretariat of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) is facilitating the assignment of a persistent unique identifier (PUID), in the form of a DOI, to PGRFA at the accession level. Genebanks not applying a true PUID to their accessions should use, and request recipients to use, the concatenation of INSTCODE, ACCENUMB, and GENUS as a globally unique identifier similar in most respects to the PUID whenever they exchange information on accessions with third parties.
+          example: http://pui.per/accession/A0000003
         germplasmPreprocessing:
           type: string
           description: "Description of any process or treatment applied uniformly\
             \ to the germplasm, prior to the study itself. Can be provided as free\
             \ text or as an accession number from a suitable controlled vocabulary."
           nullable: true
+          example: "EO:0007210; transplanted from study 2351 observation unit ID:\
+            \ pot:894"
         instituteCode:
           type: string
           description: "The code for the institute that maintains the material. \n\
@@ -4713,10 +5061,12 @@ components:
             \ Code, or for those with \"obsolete\" codes, see \"Common formatting\
             \ rules (v)\"."
           nullable: true
+          example: PER001
         instituteName:
           type: string
           description: The name of the institute that maintains the material
           nullable: true
+          example: The BrAPI Institute
         media:
           type: array
           description: Descriptive images of a model example for a particular germplasm
@@ -4730,12 +5080,14 @@ components:
 
             MCPD (v2.1) (ANCEST) 20. Information about either pedigree or other description of ancestral information (e.g. parent variety in case of mutant or selection). For example a pedigree 'Hanna/7*Atlas//Turk/8*Atlas' or a description 'mutation found in Hanna', 'selection from Irene' or 'cross involving amongst others Hanna and Irene'.
           nullable: true
+          example: A0000001/A0000002
         seedSource:
           type: string
           description: |-
             An identifier for the source of the biological material
             <br/>MIAPPE V1.1 (DM-50) Material source ID (Holding institute/stock centre, accession) - An identifier for the source of the biological material, in the form of a key-value pair comprising the name/identifier of the repository from which the material was sourced plus the accession number of the repository for that material. Where an accession number has not been assigned, but the material has been derived from the crossing of known accessions, the material can be defined as follows: "mother_accession X father_accession", or, if father is unknown, as "mother_accession X UNKNOWN". For in situ material, the region of provenance may be used when an accession is not available.
           nullable: true
+          example: INRA:095115_inra
         seedSourceDescription:
           type: string
           description: |-
@@ -4743,6 +5095,8 @@ components:
 
             MIAPPE V1.1 (DM-56) Material source description - Description of the material source
           nullable: true
+          example: Branches were collected from a 10-year-old tree growing in a progeny
+            trial established in a loamy brown earth soil.
         species:
           type: string
           description: "Specific epithet portion of the scientific name in lowercase\
@@ -4752,12 +5106,14 @@ components:
             \ specific epithet) for the organism under study, according to standard\
             \ scientific nomenclature."
           nullable: true
+          example: fructus
         speciesAuthority:
           type: string
           description: "The authority organization responsible for tracking and maintaining\
             \ the species name \n\nMCPD (v2.1) (SPAUTHOR) 7. Provide the authority\
             \ for the species name."
           nullable: true
+          example: "Smith, 1822"
         storageTypes:
           type: array
           description: The type of storage this germplasm is kept in at a genebank.
@@ -4773,6 +5129,7 @@ components:
 
             MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).
           nullable: true
+          example: Aspergillus fructus A
         subtaxaAuthority:
           type: string
           description: |-
@@ -4780,6 +5137,7 @@ components:
 
             MCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level.
           nullable: true
+          example: "Smith, 1822"
         synonyms:
           type: array
           description: |-
@@ -4815,7 +5173,9 @@ components:
             the value empty if the uncertainty is unknown.
           nullable: true
         coordinates:
-          $ref: "#/components/schemas/GeoJSON"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/GeoJSON"
       description: "Information for material (orchard, natural sites, ...). Geographic\
         \ identification of the plants from which seeds or cutting have been taken\
         \ to produce that germplasm."
@@ -5468,9 +5828,9 @@ components:
           items:
             type: string
         coordinates:
-          anyOf:
+          nullable: true
+          allOf:
           - $ref: "#/components/schemas/GeoJSONSearchArea"
-          - type: "null"
         countryCodes:
           type: array
           description: "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)\
@@ -6427,7 +6787,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         breedingMethodDbId:
           type: string
           nullable: true
@@ -6976,9 +7338,13 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         crossType:
-          $ref: "#/components/schemas/CrossType"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/CrossType"
         crossingProjectDbId:
           type: string
           nullable: true
@@ -6994,13 +7360,18 @@ components:
           items:
             $ref: "#/components/schemas/ExternalReference"
         parent1:
-          $ref: "#/components/schemas/CrossParent"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/CrossParent"
         parent2:
-          $ref: "#/components/schemas/CrossParent"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/CrossParent"
         plannedCrossName:
           type: string
           description: the human readable name for a planned cross
           nullable: true
+          example: my_Crosses_2018_01
         status:
           type: string
           description: "The status of this planned cross. Is it waiting to be performed\
@@ -7302,6 +7673,15 @@ components:
             enum:
             - STANDARD
             - PROJECT
+    ProgramType:
+      type: string
+      description: |-
+        The type of program entity this object represents
+        <br/> 'STANDARD' represents a standard, permanent breeding program
+        <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding.
+      enum:
+      - STANDARD
+      - PROJECT
     ReferenceBasesRequest:
       type: object
       properties:
@@ -7715,6 +8095,7 @@ components:
           seedLotDbId:
             type: string
             description: Unique DbId for the Seed Lot
+            example: 261ecb09
         description: "A SeedLot, also known as an InventoryLot, is a collection of\
           \ starting material (seeds, bulbs, root-stock, etc) for a particular Germplasm.\
           \ The amount of material available for each Germplasm can be increased by\
@@ -7726,12 +8107,15 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         amount:
           type: number
           description: "The current balance of the amount of material in a SeedLot.\
             \ Could be a count (seeds, bulbs, etc) or a weight (kg of seed)."
           nullable: true
+          example: 561
         contentMixture:
           type: array
           description: "The mixture of germplasm present in the seed lot.\n<br/>\n\
@@ -7780,23 +8164,28 @@ components:
           type: string
           description: A general description of this Seed Lot
           nullable: true
+          example: This is a description of a seed lot
         seedLotName:
           type: string
           description: A human readable name for this Seed Lot
+          example: Seed Lot Alpha
         sourceCollection:
           type: string
           description: "The description of the source where this material was originally\
             \ collected (wild, nursery, etc)"
           nullable: true
+          example: nursery
         storageLocation:
           type: string
           description: Description the storage location
           nullable: true
+          example: "The storage location is an massive, underground, bunker."
         units:
           type: string
           description: "A description of the things being counted in a SeedLot (seeds,\
             \ bulbs, kg, tree, etc)"
           nullable: true
+          example: seeds
       description: "A SeedLot, also known as an InventoryLot, is a collection of starting\
         \ material (seeds, bulbs, root-stock, etc) for a particular Germplasm. The\
         \ amount of material available for each Germplasm can be increased by seed\
@@ -7877,12 +8266,15 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         amount:
           type: number
           description: "The number of units being transferred between SeedLots. Could\
             \ be a count (seeds, bulbs, etc) or a weight (kg of seed)."
           nullable: true
+          example: 45
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -7901,6 +8293,7 @@ components:
           type: string
           description: A general description of this Seed Lot Transaction
           nullable: true
+          example: f9cd88d2
         transactionTimestamp:
           type: string
           description: The time stamp for when the transaction occurred
@@ -7911,6 +8304,7 @@ components:
           description: "A description of the things being transferred between SeedLots\
             \ in a transaction (seeds, bulbs, kg, etc)"
           nullable: true
+          example: seeds
       description: The record of an event where material was moved in or out of a
         particular SeedLot
     SeedLotTransactionRequest:
@@ -8494,11 +8888,14 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         commonCropName:
           type: string
           description: "Crop name (examples: \"Maize\", \"Wheat\")"
           nullable: true
+          example: Maize
         contextOfUse:
           type: array
           description: "Indication of how trait is routinely used. (examples: [\"\
@@ -8510,11 +8907,13 @@ components:
           type: string
           description: "Variable default value. (examples: \"red\", \"2.3\", etc.)"
           nullable: true
+          example: "2.0"
         documentationURL:
           type: string
           description: A URL to the human readable documentation of an object
           format: uri
           nullable: true
+          example: https://wiki.brapi.org/documentation.html
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -8528,15 +8927,18 @@ components:
           description: "Growth stage at which measurement is made (examples: \"flowering\"\
             )"
           nullable: true
+          example: flowering
         institution:
           type: string
           description: Name of institution submitting the variable
           nullable: true
+          example: The BrAPI Institute
         language:
           type: string
           description: 2 letter ISO 639-1 code for the language of submission of the
             variable.
           nullable: true
+          example: en
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
@@ -8549,11 +8951,13 @@ components:
           type: string
           description: Name of scientist submitting the variable.
           nullable: true
+          example: Dr. Bob Robertson
         status:
           type: string
           description: "Variable status. (examples: \"recommended\", \"obsolete\"\
             , \"legacy\", etc.)"
           nullable: true
+          example: recommended
         submissionTimestamp:
           type: string
           description: Timestamp when the Variable was added (ISO 8601)
@@ -10089,7 +10493,7 @@ components:
               '@context':
                 $ref: "#/components/schemas/Context"
               metadata:
-                $ref: "#/components/schemas/metadata"
+                $ref: "#/components/schemas/metadataTokenPagination"
               result:
                 required:
                 - data
@@ -10217,7 +10621,7 @@ components:
               '@context':
                 $ref: "#/components/schemas/Context"
               metadata:
-                $ref: "#/components/schemas/metadata"
+                $ref: "#/components/schemas/metadataTokenPagination"
               result:
                 required:
                 - data
@@ -10479,6 +10883,18 @@ components:
       schema:
         type: integer
       example: 1000
+    authorizationHeader:
+      name: Authorization
+      in: header
+      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
+        \ {token_string} </strong>"
+      required: false
+      style: simple
+      explode: false
+      schema:
+        pattern: ^Bearer .*$
+        type: string
+      example: Bearer XXXX
     page:
       name: page
       in: query
@@ -10507,18 +10923,6 @@ components:
       schema:
         type: string
       example: 33c27874
-    authorizationHeader:
-      name: Authorization
-      in: header
-      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
-        \ {token_string} </strong>"
-      required: false
-      style: simple
-      explode: false
-      schema:
-        pattern: ^Bearer .*$
-        type: string
-      example: Bearer XXXX
   securitySchemes:
     AuthorizationToken:
       type: http

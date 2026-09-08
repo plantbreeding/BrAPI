@@ -460,8 +460,6 @@ type Contact {
   orcid: String
   "Unique ID for a person"
   personDbId: String
-  "The full name of a person"
-  personName: String
   "phone number of this person"
   phoneNumber: String
   programDbId: [ID]
@@ -2179,7 +2177,7 @@ type ObservationUnitPosition {
   A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
   easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
   """
-  geoCoordinates: [GeoJSON]
+  geoCoordinates: GeoJSON
   """
   The exact level and level code of an observation unit. 
   
@@ -2450,8 +2448,6 @@ type Person {
   orcid: String
   "Unique ID for a person"
   personDbId: String
-  "The full name of a person"
-  personName: String
   "phone number of this person"
   phoneNumber: String
   """
@@ -3761,7 +3757,6 @@ enum HeaderRow {
   field
   germplasmDbId
   germplasmName
-  observationTimeStamp
   observationUnitDbId
   observationUnitName
   plant
@@ -3853,7 +3848,7 @@ enum PositionCoordinateType {
 """
 The type of program entity this object represents
 <br/> 'STANDARD' represents a standard, permanent breeding program
-<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   
+<br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding.
 """
 enum ProgramType {
   PROJECT
@@ -4226,8 +4221,6 @@ input ContactInput {
   orcid: String
   "Unique ID for a person"
   personDbId: String
-  "The full name of a person"
-  personName: String
   "phone number of this person"
   phoneNumber: String
   programs: [ProgramInput]
@@ -6233,7 +6226,7 @@ input ObservationUnitPositionInput {
   A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
   easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
   """
-  geoCoordinates: [GeoJSONInput]
+  geoCoordinates: GeoJSONInput
   """
   The exact level and level code of an observation unit. 
   
@@ -6927,8 +6920,6 @@ input PersonInput {
   orcid: String
   "Unique ID for a person"
   personDbId: String
-  "The full name of a person"
-  personName: String
   "phone number of this person"
   phoneNumber: String
   programs: [ProgramInput]

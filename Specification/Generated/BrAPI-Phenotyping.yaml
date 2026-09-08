@@ -54,6 +54,33 @@ info:
     \  padding: 5px 5px; \n}\n.brapi-section-description{\n  margin: 5px 0 0 5px;\n\
     }\n</style>"
   version: "2.2"
+servers:
+- url: https://test-server.brapi.org/brapi/v2
+security:
+- AuthorizationToken: []
+tags:
+- name: Observations
+  description: Retrieve and edit information about Observations
+- name: Observation Units
+  description: Retrieve and edit information about Observation Units. An Observation
+    Unit can be anything in a field you might observe as part of a Study
+- name: Observation Variables
+  description: "Retrieve and edit information about Observation Variables. An Observation\
+    \ Variable is composed by the unique combination of one Trait, one Method and\
+    \ one Scale."
+- name: Methods
+  description: Retrieve and edit information about Methods.
+- name: Traits
+  description: Retrieve and edit information about Traits.
+- name: Scales
+  description: Retrieve and edit information about Scales.
+- name: Ontologies
+  description: Retrieve and edit information about Ontologies used by a server.
+- name: Images
+  description: Retrieve and edit Images and Image meta-data
+- name: Events
+  description: "Retrieve and edit information about Events. Events can be planned\
+    \ like watering or fertilizing, or unplanned like weather or pests."
 paths:
   /events:
     get:
@@ -68,24 +95,28 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitDbId
         in: query
         description: The ID which uniquely identifies an observation unit.
         required: false
         schema:
           type: string
+          nullable: false
       - name: eventDbId
         in: query
         description: Filter based on an Event DbId.
         required: false
         schema:
           type: string
+          nullable: false
       - name: eventType
         in: query
         description: Filter based on an Event Type
         required: false
         schema:
           type: string
+          nullable: false
       - name: dateRangeStart
         in: query
         description: Filter based on an Event start date.
@@ -93,6 +124,7 @@ paths:
         schema:
           type: string
           format: date-time
+          nullable: false
       - name: dateRangeEnd
         in: query
         description: Filter based on an Event start date.
@@ -100,6 +132,7 @@ paths:
         schema:
           type: string
           format: date-time
+          nullable: false
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
       - $ref: "#/components/parameters/authorizationHeader"
@@ -131,6 +164,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -141,6 +175,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: descriptiveOntologyTerm
         in: query
         description: "A list of terms to formally describe the image to search for.\
@@ -149,12 +184,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: imageName
         in: query
         description: Human readable names to search for.
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationDbId
         in: query
         description: A list of observation Ids this image is associated with to search
@@ -162,18 +199,21 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: imageDbId
         in: query
         description: A list of image Ids to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitDbId
         in: query
         description: A set of observation unit identifiers to search for.
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -231,6 +271,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: ontologyDbId
         in: query
         description: "The unique identifier for an ontology definition. Use this parameter\
@@ -239,6 +280,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -249,18 +291,21 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: methodDbId
         in: query
         description: The unique identifier for a method.
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationVariableDbId
         in: query
         description: The unique identifier for an observation variable.
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -318,24 +363,28 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: germplasmDbId
         in: query
         description: List of IDs which uniquely identify germplasm to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: locationDbId
         in: query
         description: The location ids to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationVariableDbId
         in: query
         description: The DbIds of Variables to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -346,30 +395,35 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: studyDbId
         in: query
         description: List of study identifiers to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: trialDbId
         in: query
         description: The ID which uniquely identifies a trial to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationDbId
         in: query
         description: The unique id of an Observation
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitDbId
         in: query
         description: The unique id of an Observation Unit
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelName
         in: query
         description: "The Observation Unit Level. Returns only the observation unit\
@@ -381,6 +435,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelOrder
         in: query
         description: "The Observation Unit Level Order Number. Returns only the observation\
@@ -391,6 +446,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelCode
         in: query
         description: "The Observation Unit Level Code. This parameter should be used\
@@ -402,6 +458,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelRelationshipName
         in: query
         description: "The Observation Unit Level Relationship is a connection that\
@@ -417,6 +474,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelRelationshipOrder
         in: query
         description: "The Observation Unit Level Order Number. \n<br/>Returns only\
@@ -427,6 +485,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelRelationshipCode
         in: query
         description: "The Observation Unit Level Code. \n<br/>This parameter should\
@@ -438,6 +497,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelRelationshipDbId
         in: query
         description: "The observationUnitDbId associated with a particular level and\
@@ -449,6 +509,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationTimeStampRangeEnd
         in: query
         description: Timestamp range end
@@ -456,6 +517,7 @@ paths:
         schema:
           type: string
           format: date-time
+          nullable: false
       - name: observationTimeStampRangeStart
         in: query
         description: Timestamp range start
@@ -463,6 +525,7 @@ paths:
         schema:
           type: string
           format: date-time
+          nullable: false
       - name: seasonDbId
         in: query
         description: "The year or Phenotyping campaign of a multi-annual study (trees,\
@@ -470,6 +533,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -499,15 +563,15 @@ paths:
               type: object
               additionalProperties:
                 $ref: "#/components/schemas/ObservationNewRequest"
-              example: "{<observationDbId>_1={additionalInfo={}, collector=1835c514,\
-                \ externalReferences=[{}], geoCoordinates={}, germplasm={}, observationDbId=5cbd4c1c,\
+              example: "{<observationDbId>_1={additionalInfo={}, collector=917d3ae0,\
+                \ externalReferences=[{}], geoCoordinates={}, germplasm={}, observationDbId=ef24b615,\
                 \ observationTimeStamp=2020-08-12T18:10:40.413Z, observationUnit={},\
                 \ observationVariable={}, season={}, study={}, uploadedByPerson={},\
-                \ uploadedBy=3fc74c0a, value=4ee59cb0, images=[{}]}, <observationDbId>_2={additionalInfo={},\
-                \ collector=1835c515, externalReferences=[{}], geoCoordinates={},\
-                \ germplasm={}, observationDbId=5cbd4c1d, observationTimeStamp=2020-08-12T18:10:40.413Z,\
+                \ uploadedBy=a2f7f60b, value=2.3, images=[{}]}, <observationDbId>_2={additionalInfo={},\
+                \ collector=917d3ae0, externalReferences=[{}], geoCoordinates={},\
+                \ germplasm={}, observationDbId=ef24b615, observationTimeStamp=2020-08-12T18:10:40.413Z,\
                 \ observationUnit={}, observationVariable={}, season={}, study={},\
-                \ uploadedByPerson={}, uploadedBy=3fc74c0b, value=4ee59cb1, images=[{}]}}"
+                \ uploadedByPerson={}, uploadedBy=a2f7f60b, value=2.3, images=[{}]}}"
       responses:
         "200":
           $ref: "#/components/responses/ObservationListResponse"
@@ -563,24 +627,28 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: germplasmDbId
         in: query
         description: List of IDs which uniquely identify germplasm to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: locationDbId
         in: query
         description: The location ids to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: studyDbId
         in: query
         description: List of study identifiers to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -591,24 +659,28 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: trialDbId
         in: query
         description: The ID which uniquely identifies a trial to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitDbId
         in: query
         description: The unique id of an observation unit
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitName
         in: query
         description: The human readable identifier for an Observation Unit
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelName
         in: query
         description: "The Observation Unit Level. Returns only the observation unit\
@@ -620,6 +692,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelOrder
         in: query
         description: "The Observation Unit Level Order Number. Returns only the observation\
@@ -630,6 +703,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelCode
         in: query
         description: "The Observation Unit Level Code. This parameter should be used\
@@ -641,6 +715,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelRelationshipName
         in: query
         description: "The Observation Unit Level Relationship is a connection that\
@@ -656,6 +731,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelRelationshipOrder
         in: query
         description: "The Observation Unit Level Order Number. \n<br/>Returns only\
@@ -666,6 +742,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelRelationshipCode
         in: query
         description: "The Observation Unit Level Code. \n<br/>This parameter should\
@@ -677,6 +754,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelRelationshipDbId
         in: query
         description: "The observationUnitDbId associated with a particular level and\
@@ -688,6 +766,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: includeObservations
         in: query
         description: "Use this parameter to include a list of observations embedded\
@@ -697,6 +776,7 @@ paths:
         required: false
         schema:
           type: boolean
+          nullable: false
       - name: seasonDbId
         in: query
         description: "The year or Phenotyping campaign of a multi-annual study (trees,\
@@ -704,6 +784,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: sortBy
         in: query
         description: Name of the field to sort by.
@@ -711,6 +792,7 @@ paths:
         schema:
           type: string
           description: Name of the field to sort by.
+          nullable: false
           enum:
           - observationUnitDbId
           - observationUnitName
@@ -735,6 +817,7 @@ paths:
         schema:
           type: string
           description: Sort order direction. Ascending/Descending.
+          nullable: false
           enum:
           - ASC
           - DESC
@@ -770,14 +853,14 @@ paths:
               additionalProperties:
                 $ref: "#/components/schemas/ObservationUnitNewRequest"
               example: "{<observationUnitDbId>_1={additionalInfo={}, cross={}, externalReferences=[{}],\
-                \ germplasm={}, location={}, observationUnitDbId=59ce1af8, observationUnitName=5a5b18e6,\
-                \ observationUnitPUI=491c6d6d, observationUnitPosition={}, program={},\
-                \ seedLot={}, study={}, treatments=[{}], trial={}, samples=[{}], events=[{}],\
-                \ images=[{}], observations=[{}]}, <observationUnitDbId>_2={additionalInfo={},\
-                \ cross={}, externalReferences=[{}], germplasm={}, location={}, observationUnitDbId=59ce1af9,\
-                \ observationUnitName=5a5b18e7, observationUnitPUI=491c6d6e, observationUnitPosition={},\
+                \ germplasm={}, location={}, observationUnitDbId=8c67503c, observationUnitName=Plot\
+                \ 1, observationUnitPUI=http://pui.per/plot/1a9afc14, observationUnitPosition={},\
                 \ program={}, seedLot={}, study={}, treatments=[{}], trial={}, samples=[{}],\
-                \ events=[{}], images=[{}], observations=[{}]}}"
+                \ events=[{}], images=[{}], observations=[{}]}, <observationUnitDbId>_2={additionalInfo={},\
+                \ cross={}, externalReferences=[{}], germplasm={}, location={}, observationUnitDbId=8c67503c,\
+                \ observationUnitName=Plot 1, observationUnitPUI=http://pui.per/plot/1a9afc14,\
+                \ observationUnitPosition={}, program={}, seedLot={}, study={}, treatments=[{}],\
+                \ trial={}, samples=[{}], events=[{}], images=[{}], observations=[{}]}}"
       responses:
         "200":
           $ref: "#/components/responses/ObservationUnitListResponse"
@@ -823,12 +906,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationVariableName
         in: query
         description: The names of Variables to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationVariablePUI
         in: query
         description: "The Permanent Unique Identifier of an Observation Variable,\
@@ -836,6 +921,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: commonCropName
         in: query
         description: "The BrAPI Common Crop Name is the simple, generalized, widely\
@@ -848,6 +934,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -858,12 +945,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: trialDbId
         in: query
         description: The ID which uniquely identifies a trial to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: studyDbId
         in: query
         description: "**Deprecated in v2.1** Please use `studyDbIds`. Github issue\
@@ -871,18 +960,21 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: ontologyDbId
         in: query
         description: List of ontology IDs to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: methodDbId
         in: query
         description: List of methods to filter search results
         required: false
         schema:
           type: string
+          nullable: false
       - name: methodName
         in: query
         description: |-
@@ -891,6 +983,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: methodPUI
         in: query
         description: "The Permanent Unique Identifier of a Method, usually in the\
@@ -898,12 +991,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: scaleDbId
         in: query
         description: The unique identifier for a Scale
         required: false
         schema:
           type: string
+          nullable: false
       - name: scaleName
         in: query
         description: |-
@@ -912,6 +1007,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: scalePUI
         in: query
         description: "The Permanent Unique Identifier of a Scale, usually in the form\
@@ -919,18 +1015,21 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: traitClass
         in: query
         description: List of trait classes to filter search results
         required: false
         schema:
           type: string
+          nullable: false
       - name: traitDbId
         in: query
         description: The unique identifier for a Trait
         required: false
         schema:
           type: string
+          nullable: false
       - name: traitName
         in: query
         description: |-
@@ -939,6 +1038,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: traitPUI
         in: query
         description: "The Permanent Unique Identifier of a Trait, usually in the form\
@@ -946,6 +1046,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -999,12 +1100,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: ontologyName
         in: query
         description: The human readable identifier for an ontology definition.
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
       - $ref: "#/components/parameters/authorizationHeader"
@@ -1059,6 +1162,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: ontologyDbId
         in: query
         description: "The unique identifier for an ontology definition. Use this parameter\
@@ -1067,6 +1171,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -1077,18 +1182,21 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: scaleDbId
         in: query
         description: The unique identifier for a scale.
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationVariableDbId
         in: query
         description: The unique identifier for an observation variable.
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -1146,6 +1254,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: ontologyDbId
         in: query
         description: "The unique identifier for an ontology definition. Use this parameter\
@@ -1154,6 +1263,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -1164,18 +1274,21 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: traitDbId
         in: query
         description: The unique identifier for a trait.
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationVariableDbId
         in: query
         description: The unique identifier for an observation variable.
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -1426,7 +1539,31 @@ paths:
           type: string
       responses:
         "200":
-          $ref: "#/components/responses/ObservationUnitSingleResponse"
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: ObservationUnitSingleResponseGet
+                required:
+                - metadata
+                - result
+                type: object
+                properties:
+                  '@context':
+                    $ref: "#/components/schemas/Context"
+                  metadata:
+                    $ref: "#/components/schemas/metadata"
+                  result:
+                    allOf:
+                    - $ref: "#/components/schemas/ObservationUnit"
+                    - type: object
+                      properties:
+                        observations:
+                          type: array
+                          description: observations
+                          nullable: true
+                          items:
+                            $ref: "#/components/schemas/Observation"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
@@ -1458,7 +1595,31 @@ paths:
               $ref: "#/components/schemas/ObservationUnitNewRequest"
       responses:
         "200":
-          $ref: "#/components/responses/ObservationUnitSingleResponse"
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: ObservationUnitSingleResponsePut
+                required:
+                - metadata
+                - result
+                type: object
+                properties:
+                  '@context':
+                    $ref: "#/components/schemas/Context"
+                  metadata:
+                    $ref: "#/components/schemas/metadata"
+                  result:
+                    allOf:
+                    - $ref: "#/components/schemas/ObservationUnit"
+                    - type: object
+                      properties:
+                        observations:
+                          type: array
+                          description: observations
+                          nullable: true
+                          items:
+                            $ref: "#/components/schemas/Observation"
         "400":
           $ref: "#/components/responses/400BadRequest"
         "401":
@@ -1648,7 +1809,7 @@ paths:
       - name: traitDbId
         in: path
         description: The ID which uniquely identifies a trait
-        required: false
+        required: true
         schema:
           type: string
       responses:
@@ -1672,7 +1833,7 @@ paths:
       - name: traitDbId
         in: path
         description: The ID which uniquely identifies a trait
-        required: false
+        required: true
         schema:
           type: string
       requestBody:
@@ -1748,18 +1909,21 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: locationDbId
         in: query
         description: The location ids to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationVariableDbId
         in: query
         description: The DbIds of Variables to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -1770,24 +1934,28 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: studyDbId
         in: query
         description: List of study identifiers to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: trialDbId
         in: query
         description: The ID which uniquely identifies a trial to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitDbId
         in: query
         description: The unique id of an Observation Unit
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationLevel
         in: query
         description: Searches for values in ObservationUnit->observationUnitPosition->observationLevel
@@ -1805,6 +1973,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelOrder
         in: query
         description: "The Observation Unit Level Order Number. Returns only the observation\
@@ -1815,6 +1984,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelCode
         in: query
         description: "The Observation Unit Level Code. This parameter should be used\
@@ -1826,6 +1996,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelRelationshipName
         in: query
         description: "The Observation Unit Level Relationship is a connection that\
@@ -1841,6 +2012,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelRelationshipOrder
         in: query
         description: "The Observation Unit Level Order Number. \n<br/>Returns only\
@@ -1851,6 +2023,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelRelationshipCode
         in: query
         description: "The Observation Unit Level Code. \n<br/>This parameter should\
@@ -1862,6 +2035,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelRelationshipDbId
         in: query
         description: "The observationUnitDbId associated with a particular level and\
@@ -1873,6 +2047,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationTimeStampRangeEnd
         in: query
         description: Timestamp range end
@@ -1880,6 +2055,7 @@ paths:
         schema:
           type: string
           format: date-time
+          nullable: false
       - name: observationTimeStampRangeStart
         in: query
         description: Timestamp range start
@@ -1887,6 +2063,7 @@ paths:
         schema:
           type: string
           format: date-time
+          nullable: false
       - name: seasonDbId
         in: query
         description: "The year or Phenotyping campaign of a multi-annual study (trees,\
@@ -1894,6 +2071,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/acceptHeader"
       - $ref: "#/components/parameters/authorizationHeader"
       responses:
@@ -1919,24 +2097,28 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: locationDbId
         in: query
         description: The location ids to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: studyDbId
         in: query
         description: List of study identifiers to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationVariableDbId
         in: query
         description: The DbIds of Variables to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -1947,18 +2129,21 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: trialDbId
         in: query
         description: The ID which uniquely identifies a trial to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitDbId
         in: query
         description: The unique id of an observation unit
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationLevel
         in: query
         description: Searches for values in ObservationUnit->observationUnitPosition->observationLevel
@@ -1976,6 +2161,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelOrder
         in: query
         description: "The Observation Unit Level Order Number. Returns only the observation\
@@ -1986,6 +2172,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelCode
         in: query
         description: "The Observation Unit Level Code. This parameter should be used\
@@ -1997,6 +2184,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelRelationshipName
         in: query
         description: "The Observation Unit Level Relationship is a connection that\
@@ -2012,6 +2200,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelRelationshipOrder
         in: query
         description: "The Observation Unit Level Order Number. \n<br/>Returns only\
@@ -2022,6 +2211,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelRelationshipCode
         in: query
         description: "The Observation Unit Level Code. \n<br/>This parameter should\
@@ -2033,6 +2223,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitLevelRelationshipDbId
         in: query
         description: "The observationUnitDbId associated with a particular level and\
@@ -2044,6 +2235,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: seasonDbId
         in: query
         description: "The year or Phenotyping campaign of a multi-annual study (trees,\
@@ -2051,6 +2243,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: sortBy
         in: query
         description: Name of the field to sort by.
@@ -2058,6 +2251,7 @@ paths:
         schema:
           type: string
           description: Name of the field to sort by.
+          nullable: false
           enum:
           - observationUnitDbId
           - observationUnitName
@@ -2082,6 +2276,7 @@ paths:
         schema:
           type: string
           description: Sort order direction. Ascending/Descending.
+          nullable: false
           enum:
           - ASC
           - DESC
@@ -2394,10 +2589,11 @@ paths:
 components:
   schemas:
     AdditionalInfo:
-      type: string
+      type: object
       additionalProperties:
         description: A free space containing any additional information related to
           a particular object.
+        nullable: true
       description: "A free space containing any additional information related to\
         \ a particular object. A data source may provide any JSON object, unrestricted\
         \ by the BrAPI specification."
@@ -2577,6 +2773,7 @@ components:
             type: string
     Attribute:
       required:
+      - attributeDbId
       - attributeName
       - method
       - scale
@@ -2584,7 +2781,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         attributeCategory:
           type: string
           description: General category for the attribute. very similar to Trait class.
@@ -2610,6 +2809,7 @@ components:
           type: string
           description: "Crop name (examples: \"Maize\", \"Wheat\")"
           nullable: true
+          example: Maize
         contextOfUse:
           type: array
           description: "Indication of how trait is routinely used. (examples: [\"\
@@ -2621,11 +2821,13 @@ components:
           type: string
           description: "Variable default value. (examples: \"red\", \"2.3\", etc.)"
           nullable: true
+          example: "2.0"
         documentationURL:
           type: string
           description: A URL to the human readable documentation of an object
           format: uri
           nullable: true
+          example: https://wiki.brapi.org/documentation.html
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -2639,15 +2841,18 @@ components:
           description: "Growth stage at which measurement is made (examples: \"flowering\"\
             )"
           nullable: true
+          example: flowering
         institution:
           type: string
           description: Name of institution submitting the variable
           nullable: true
+          example: The BrAPI Institute
         language:
           type: string
           description: 2 letter ISO 639-1 code for the language of submission of the
             variable.
           nullable: true
+          example: en
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
@@ -2660,11 +2865,13 @@ components:
           type: string
           description: Name of scientist submitting the variable.
           nullable: true
+          example: Dr. Bob Robertson
         status:
           type: string
           description: "Variable status. (examples: \"recommended\", \"obsolete\"\
             , \"legacy\", etc.)"
           nullable: true
+          example: recommended
         submissionTimestamp:
           type: string
           description: Timestamp when the Variable was added (ISO 8601)
@@ -2966,6 +3173,31 @@ components:
             Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
+    DataType:
+      type: string
+      description: |-
+        <p>Class of the scale, entries can be</p>
+        <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p>
+        <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p>
+        <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p>
+        <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p>
+        <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p>
+        <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p>
+        <p>"Text" - A free text is used to express the trait.</p>
+      enum:
+      - Code
+      - Date
+      - Duration
+      - Nominal
+      - Numerical
+      - Ordinal
+      - Text
+    Dimension:
+      type: string
+      description: the dimension of the matrix being paginated
+      enum:
+      - CALLSETS
+      - VARIANTS
     DocumentationLink:
       type: object
       properties:
@@ -3005,7 +3237,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         date:
           type: array
           description: |-
@@ -3018,7 +3252,9 @@ components:
             type: string
             format: date-time
         eventDateRange:
-          $ref: "#/components/schemas/EventDateRange"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/EventDateRange"
         eventDbId:
           type: string
           description: Internal database identifier
@@ -3337,7 +3573,8 @@ components:
       nullable: true
     GeoJSONGeometry:
       type: object
-      nullable: true
+      discriminator:
+        propertyName: type
       oneOf:
       - required:
         - coordinates
@@ -3902,7 +4139,6 @@ components:
       type: string
       description: valid header fields
       enum:
-      - observationTimeStamp
       - observationUnitDbId
       - observationUnitName
       - studyDbId
@@ -3936,16 +4172,20 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         copyright:
           type: string
           description: The copyright information of this image. Example 'Copyright
             2018 Bob Robertson'
           nullable: true
+          example: Copyright 2018 Bob Robertson
         description:
           type: string
           description: The human readable description of an image.
           nullable: true
+          example: This is a picture of a tomato
         descriptiveOntologyTerms:
           type: array
           description: "A list of terms to formally describe the image. Each item\
@@ -3966,23 +4206,29 @@ components:
           description: "The name of the image file. Might be the same as 'imageName',\
             \ but could be different."
           nullable: true
+          example: image_0000231.jpg
         imageFileSize:
           type: integer
           description: The size of the image in Bytes.
           format: int32
           nullable: true
+          example: 50000
         imageHeight:
           type: integer
           description: The height of the image in Pixels.
           format: int32
           nullable: true
+          example: 550
         imageLocation:
-          $ref: "#/components/schemas/GeoJSON"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/GeoJSON"
         imageName:
           type: string
           description: "The human readable name of an image. Might be the same as\
             \ 'imageFileName', but could be different."
           nullable: true
+          example: Tomato Image 1
         imageTimeStamp:
           type: string
           description: The date and time the image was taken
@@ -3993,17 +4239,20 @@ components:
           description: "The complete, absolute URI path to the image file. Images\
             \ might be stored on a different host or path than the BrAPI web server."
           nullable: true
+          example: https://wiki.brapi.org/images/tomato
         imageWidth:
           type: integer
           description: The width of the image in Pixels.
           format: int32
           nullable: true
+          example: 700
         mimeType:
           pattern: image/.*
           type: string
           description: "The file type of the image. Examples 'image/jpeg', 'image/png',\
             \ 'image/svg', etc"
           nullable: true
+          example: image/jpeg
         observationDbIds:
           type: array
           description: "A list of observation Ids this image is associated with, if\
@@ -4408,9 +4657,9 @@ components:
           items:
             type: string
         coordinates:
-          anyOf:
+          nullable: true
+          allOf:
           - $ref: "#/components/schemas/GeoJSONSearchArea"
-          - type: "null"
         countryCodes:
           type: array
           description: "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)\
@@ -4546,19 +4795,23 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         bibliographicalReference:
           type: string
           description: |-
             Bibliographical reference describing the method.
             <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.
           nullable: true
+          example: "Smith, 1893, Really Cool Paper, Popular Journal"
         description:
           type: string
           description: |-
             Method description
             <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)
           nullable: true
+          example: A measuring tape was used
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -4573,21 +4826,25 @@ components:
             \ assessing the trait by computing measurements, write the generic formula\
             \ used for the calculation"
           nullable: true
+          example: a^2 + b^2 = c^2
         methodClass:
           type: string
           description: "Method class (examples: \"Measurement\", \"Counting\", \"\
             Estimation\", \"Computation\", etc.)"
           nullable: true
+          example: Measurement
         methodName:
           type: string
           description: |-
             Human readable name for the method
             <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation
+          example: Measuring Tape
         methodPUI:
           type: string
           description: "The Permanent Unique Identifier of a Method, usually in the\
             \ form of a URI"
           nullable: true
+          example: http://my-traits.com/trait/CO_123:0000212
         ontologyReference:
           $ref: "#/components/schemas/OntologyReference"
       description: "A description of the way an Observation should be collected. \n\
@@ -4654,17 +4911,21 @@ components:
           observationDbId:
             type: string
             description: The ID which uniquely identifies an observation
+            example: ef24b615
         description: A value assigned for a specific ObservationVariable when observing
           a specific ObservationUnit.
     ObservationNewRequest:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         collector:
           type: string
           description: The name or identifier of the entity which collected the observation
           nullable: true
+          example: 917d3ae0
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -4674,7 +4935,9 @@ components:
           items:
             $ref: "#/components/schemas/ExternalReference"
         geoCoordinates:
-          $ref: "#/components/schemas/GeoJSON"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/GeoJSON"
         germplasmDbId:
           type: string
           nullable: true
@@ -4711,6 +4974,7 @@ components:
             \ `uploadedByPersonName`. Github issue number #582 <br> The name or id\
             \ of the user who uploaded the observation to the database system"
           nullable: true
+          example: a2f7f60b
         uploadedByPersonDbId:
           type: string
           nullable: true
@@ -4721,6 +4985,7 @@ components:
           type: string
           description: The value of the data collected as an observation
           nullable: true
+          example: "2.3"
       description: A value assigned for a specific ObservationVariable when observing
         a specific ObservationUnit.
     ObservationRequest:
@@ -5199,6 +5464,7 @@ components:
               MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify\
               \ the observation unit in data files containing the values observed\
               \ or measured on that unit. Must be locally unique. "
+            example: 8c67503c
         description: "A representation of the physical entity being observed during\
           \ a phenotype data collection process. Typically, this is a Plot or a Plant,\
           \ but it could include things like Fields, Blocks, or Samples."
@@ -5368,7 +5634,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         crossDbId:
           type: string
           nullable: true
@@ -5399,6 +5667,7 @@ components:
           type: string
           description: A human readable name for an observation unit
           nullable: true
+          example: Plot 1
         observationUnitPUI:
           type: string
           description: |-
@@ -5406,8 +5675,11 @@ components:
 
             MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.
           nullable: true
+          example: http://pui.per/plot/1a9afc14
         observationUnitPosition:
-          $ref: "#/components/schemas/ObservationUnitPosition"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/ObservationUnitPosition"
         programDbId:
           type: string
           nullable: true
@@ -5458,17 +5730,9 @@ components:
           - TEST
           - FILLER
         geoCoordinates:
-          type: array
-          description: |-
-            One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
-
-            Copied from RFC 7946 Section 3.1.1
-
-            A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
-            easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
           nullable: true
-          items:
-            $ref: "#/components/schemas/GeoJSON"
+          allOf:
+          - $ref: "#/components/schemas/GeoJSON"
         observationLevel:
           $ref: "#/components/schemas/ObservationUnitLevel"
         observationLevelRelationships:
@@ -6016,6 +6280,7 @@ components:
               Variable unique identifier
 
               MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.
+            example: b9b7edd1
     ObservationVariableNewRequest:
       required:
       - method
@@ -6025,11 +6290,14 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         commonCropName:
           type: string
           description: "Crop name (examples: \"Maize\", \"Wheat\")"
           nullable: true
+          example: Maize
         contextOfUse:
           type: array
           description: "Indication of how trait is routinely used. (examples: [\"\
@@ -6041,11 +6309,13 @@ components:
           type: string
           description: "Variable default value. (examples: \"red\", \"2.3\", etc.)"
           nullable: true
+          example: "2.0"
         documentationURL:
           type: string
           description: A URL to the human readable documentation of an object
           format: uri
           nullable: true
+          example: https://wiki.brapi.org/documentation.html
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -6059,28 +6329,98 @@ components:
           description: "Growth stage at which measurement is made (examples: \"flowering\"\
             )"
           nullable: true
+          example: flowering
         institution:
           type: string
           description: Name of institution submitting the variable
           nullable: true
+          example: The BrAPI Institute
         language:
           type: string
           description: 2 letter ISO 639-1 code for the language of submission of the
             variable.
           nullable: true
+          example: en
         method:
-          $ref: "#/components/schemas/Method"
+          required:
+          - methodName
+          type: object
+          properties:
+            additionalInfo:
+              nullable: true
+              allOf:
+              - $ref: "#/components/schemas/AdditionalInfo"
+            bibliographicalReference:
+              type: string
+              description: |-
+                Bibliographical reference describing the method.
+                <br/>MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.
+              nullable: true
+              example: "Smith, 1893, Really Cool Paper, Popular Journal"
+            description:
+              type: string
+              description: |-
+                Method description
+                <br/>MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)
+              nullable: true
+              example: A measuring tape was used
+            externalReferences:
+              type: array
+              description: An array of external reference ids. These are references
+                to this piece of data in an external system. Could be a simple string
+                or a URI.
+              nullable: true
+              items:
+                $ref: "#/components/schemas/ExternalReference"
+            formula:
+              type: string
+              description: "For computational methods i.e., when the method consists\
+                \ in assessing the trait by computing measurements, write the generic\
+                \ formula used for the calculation"
+              nullable: true
+              example: a^2 + b^2 = c^2
+            methodClass:
+              type: string
+              description: "Method class (examples: \"Measurement\", \"Counting\"\
+                , \"Estimation\", \"Computation\", etc.)"
+              nullable: true
+              example: Measurement
+            methodDbId:
+              type: string
+              description: Method unique identifier
+              nullable: true
+            methodName:
+              type: string
+              description: |-
+                Human readable name for the method
+                <br/>MIAPPE V1.1 (DM-88) Method  Name of the method of observation
+              example: Measuring Tape
+            methodPUI:
+              type: string
+              description: "The Permanent Unique Identifier of a Method, usually in\
+                \ the form of a URI"
+              nullable: true
+              example: http://my-traits.com/trait/CO_123:0000212
+            ontologyReference:
+              $ref: "#/components/schemas/OntologyReference"
+          description: "A description of the way an Observation should be collected.\
+            \ \n<br>For example, an ObservationVariable might be defined with a Trait\
+            \ of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\"\
+            . This variable would be distinct from a variable with the Method \"estimation\"\
+            \ or \"drone image processing\". "
         observationVariableName:
           type: string
           description: |-
             Variable name (usually a short name)
 
             MIAPPE V1.1 (DM-84) Variable name - Name of the variable.
+          example: Variable Name
         observationVariablePUI:
           type: string
           description: "The Permanent Unique Identifier of a Observation Variable,\
             \ usually in the form of a URI"
           nullable: true
+          example: http://my-traits.com/trait/CO_123:0009012
         ontologyReference:
           nullable: true
           allOf:
@@ -6091,11 +6431,13 @@ components:
           type: string
           description: Name of scientist submitting the variable.
           nullable: true
+          example: Dr. Bob Robertson
         status:
           type: string
           description: "Variable status. (examples: \"recommended\", \"obsolete\"\
             , \"legacy\", etc.)"
           nullable: true
+          example: recommended
         submissionTimestamp:
           type: string
           description: Timestamp when the Variable was added (ISO 8601)
@@ -6108,7 +6450,112 @@ components:
           items:
             type: string
         trait:
-          $ref: "#/components/schemas/Trait"
+          required:
+          - traitName
+          type: object
+          properties:
+            additionalInfo:
+              nullable: true
+              allOf:
+              - $ref: "#/components/schemas/AdditionalInfo"
+            alternativeAbbreviations:
+              type: array
+              description: "A list of shortened, human readable, names for a Trait.\
+                \ These abbreviations are acceptable alternatives to the mainAbbreviation\
+                \ and do not need to follow any formatting convention."
+              nullable: true
+              items:
+                type: string
+            attribute:
+              type: string
+              description: "A trait can be decomposed as \"Trait\" = \"Entity\" +\
+                \ \"Attribute\", the attribute is the observed feature (or characteristic)\
+                \ of the entity e.g., for \"grain colour\", attribute = \"colour\""
+              nullable: true
+              example: height
+            attributePUI:
+              type: string
+              description: |-
+                The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI
+                <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"
+              nullable: true
+              example: http://my-traits.com/trait/PO:00012345
+            entity:
+              type: string
+              description: "A trait can be decomposed as \"Trait\" = \"Entity\" +\
+                \ \"Attribute\", the entity is the part of the plant that the trait\
+                \ refers to e.g., for \"grain colour\", entity = \"grain\""
+              nullable: true
+              example: Stalk
+            entityPUI:
+              type: string
+              description: "The Permanent Unique Identifier of a Trait Entity, usually\
+                \ in the form of a URI\n<br/>A Trait can be decomposed as \"Trait\"\
+                \ = \"Entity\" + \"Attribute\", the Entity is the part of the plant\
+                \ that the trait refers to e.g., for \"grain colour\", entity = \"\
+                grain\" "
+              nullable: true
+              example: http://my-traits.com/trait/PATO:00098765
+            externalReferences:
+              type: array
+              description: An array of external reference ids. These are references
+                to this piece of data in an external system. Could be a simple string
+                or a URI.
+              nullable: true
+              items:
+                $ref: "#/components/schemas/ExternalReference"
+            mainAbbreviation:
+              type: string
+              description: A shortened version of the human readable name for a Trait
+              nullable: true
+              example: PH
+            ontologyReference:
+              $ref: "#/components/schemas/OntologyReference"
+            status:
+              type: string
+              description: "Trait status (examples: \"recommended\", \"obsolete\"\
+                , \"legacy\", etc.)"
+              nullable: true
+              example: recommended
+            synonyms:
+              type: array
+              description: Other trait names
+              nullable: true
+              items:
+                type: string
+            traitClass:
+              type: string
+              description: |-
+                A classification to describe the type of trait and the context it should be considered in.
+                <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.
+              nullable: true
+              example: phenological
+            traitDbId:
+              type: string
+              description: The ID which uniquely identifies a trait
+              nullable: true
+            traitDescription:
+              type: string
+              description: The description of a trait
+              nullable: true
+              example: The height of the plant
+            traitName:
+              type: string
+              description: |-
+                The human readable name of a trait
+                <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation
+              example: Height
+            traitPUI:
+              type: string
+              description: "The Permanent Unique Identifier of a Trait, usually in\
+                \ the form of a URI"
+              nullable: true
+              example: http://my-traits.com/trait/CO_123:0000012
+          description: "A Trait describes what property is being observed. \n<br>For\
+            \ example, an ObservationVariable might be defined with a Trait of \"\
+            plant height\", a Scale of \"meters\", and a Method of \"tape measure\"\
+            . This variable would be distinct from a variable with the Trait \"Leaf\
+            \ length\" or \"Flower height\". "
     ObservationVariableParameters:
       type: object
       properties:
@@ -6524,36 +6971,45 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         authors:
           type: string
           description: Ontology's list of authors (no specific format)
           nullable: true
+          example: "Bob Robertson, Rob Robertson"
         copyright:
           type: string
           description: Ontology copyright
           nullable: true
+          example: "Copyright 1987, Bob Robertson"
         description:
           type: string
           description: Human readable description of Ontology
           nullable: true
+          example: This is an example ontology that does not exist
         documentationURL:
           type: string
           description: A URL to the human readable documentation of an object
           format: uri
           nullable: true
+          example: https://wiki.brapi.org/ontology
         licence:
           type: string
           description: Ontology licence
           nullable: true
+          example: MIT Open source licence
         ontologyName:
           type: string
           description: Ontology name
           nullable: true
+          example: The Official Ontology
         version:
           type: string
           description: Ontology version (no specific format)
           nullable: true
+          example: V1.3.2
       description: The identifier and metadata needed to reference an external controlled
         vocabulary
     OntologyParameters:
@@ -7176,6 +7632,15 @@ components:
             enum:
             - STANDARD
             - PROJECT
+    ProgramType:
+      type: string
+      description: |-
+        The type of program entity this object represents
+        <br/> 'STANDARD' represents a standard, permanent breeding program
+        <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding.
+      enum:
+      - STANDARD
+      - PROJECT
     ReferenceBasesRequest:
       type: object
       properties:
@@ -7525,7 +7990,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         dataType:
           type: string
           description: |-
@@ -7551,6 +8018,7 @@ components:
           description: "For numerical, number of decimal places to be reported"
           format: int32
           nullable: true
+          example: 2
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -7566,11 +8034,13 @@ components:
           description: |-
             Name of the scale
             <br/>MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable
+          example: Meters
         scalePUI:
           type: string
           description: "The Permanent Unique Identifier of a Scale, usually in the\
             \ form of a URI"
           nullable: true
+          example: http://my-traits.com/trait/CO_123:0000112
         units:
           type: string
           description: "This field can be used to describe the units used for this\
@@ -7579,6 +8049,7 @@ components:
             \ \napplies when `dataType` is Numeric, but could also be included for\
             \ other dataTypes when applicable."
           nullable: true
+          example: m
         validValues:
           nullable: true
           allOf:
@@ -8004,7 +8475,9 @@ components:
     Trait:
       allOf:
       - $ref: "#/components/schemas/TraitNewRequest"
-      - type: object
+      - required:
+        - traitDbId
+        type: object
         properties:
           traitDbId:
             type: string
@@ -8040,7 +8513,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         alternativeAbbreviations:
           type: array
           description: "A list of shortened, human readable, names for a Trait. These\
@@ -8055,18 +8530,21 @@ components:
             , the attribute is the observed feature (or characteristic) of the entity\
             \ e.g., for \"grain colour\", attribute = \"colour\""
           nullable: true
+          example: height
         attributePUI:
           type: string
           description: |-
             The Permanent Unique Identifier of a Trait Attribute, usually in the form of a URI
             <br/>A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"
           nullable: true
+          example: http://my-traits.com/trait/PO:00012345
         entity:
           type: string
           description: "A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\"\
             , the entity is the part of the plant that the trait refers to e.g., for\
             \ \"grain colour\", entity = \"grain\""
           nullable: true
+          example: Stalk
         entityPUI:
           type: string
           description: "The Permanent Unique Identifier of a Trait Entity, usually\
@@ -8074,6 +8552,7 @@ components:
             \ \"Entity\" + \"Attribute\", the Entity is the part of the plant that\
             \ the trait refers to e.g., for \"grain colour\", entity = \"grain\" "
           nullable: true
+          example: http://my-traits.com/trait/PATO:00098765
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -8086,6 +8565,7 @@ components:
           type: string
           description: A shortened version of the human readable name for a Trait
           nullable: true
+          example: PH
         ontologyReference:
           $ref: "#/components/schemas/OntologyReference"
         status:
@@ -8093,6 +8573,7 @@ components:
           description: "Trait status (examples: \"recommended\", \"obsolete\", \"\
             legacy\", etc.)"
           nullable: true
+          example: recommended
         synonyms:
           type: array
           description: Other trait names
@@ -8105,20 +8586,24 @@ components:
             A classification to describe the type of trait and the context it should be considered in.
             <br/> examples- "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.
           nullable: true
+          example: phenological
         traitDescription:
           type: string
           description: The description of a trait
           nullable: true
+          example: The height of the plant
         traitName:
           type: string
           description: |-
             The human readable name of a trait
             <br/>MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation
+          example: Height
         traitPUI:
           type: string
           description: "The Permanent Unique Identifier of a Trait, usually in the\
             \ form of a URI"
           nullable: true
+          example: http://my-traits.com/trait/CO_123:0000012
       description: "A Trait describes what property is being observed. \n<br>For example,\
         \ an ObservationVariable might be defined with a Trait of \"plant height\"\
         , a Scale of \"meters\", and a Method of \"tape measure\". This variable would\
@@ -8336,11 +8821,13 @@ components:
           description: "Maximum value for numerical, date, and time scales. Typically\
             \ used for data capture control and QC."
           nullable: true
+          example: "9999"
         minimumValue:
           type: string
           description: "Minimum value for numerical, date, and time scales. Typically\
             \ used for data capture control and QC."
           nullable: true
+          example: "2"
         scaleDbId:
           type: string
         scaleName:
@@ -8369,11 +8856,14 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         commonCropName:
           type: string
           description: "Crop name (examples: \"Maize\", \"Wheat\")"
           nullable: true
+          example: Maize
         contextOfUse:
           type: array
           description: "Indication of how trait is routinely used. (examples: [\"\
@@ -8385,11 +8875,13 @@ components:
           type: string
           description: "Variable default value. (examples: \"red\", \"2.3\", etc.)"
           nullable: true
+          example: "2.0"
         documentationURL:
           type: string
           description: A URL to the human readable documentation of an object
           format: uri
           nullable: true
+          example: https://wiki.brapi.org/documentation.html
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -8403,15 +8895,18 @@ components:
           description: "Growth stage at which measurement is made (examples: \"flowering\"\
             )"
           nullable: true
+          example: flowering
         institution:
           type: string
           description: Name of institution submitting the variable
           nullable: true
+          example: The BrAPI Institute
         language:
           type: string
           description: 2 letter ISO 639-1 code for the language of submission of the
             variable.
           nullable: true
+          example: en
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
@@ -8424,11 +8919,13 @@ components:
           type: string
           description: Name of scientist submitting the variable.
           nullable: true
+          example: Dr. Bob Robertson
         status:
           type: string
           description: "Variable status. (examples: \"recommended\", \"obsolete\"\
             , \"legacy\", etc.)"
           nullable: true
+          example: recommended
         submissionTimestamp:
           type: string
           description: Timestamp when the Variable was added (ISO 8601)
@@ -10327,7 +10824,7 @@ components:
               '@context':
                 $ref: "#/components/schemas/Context"
               metadata:
-                $ref: "#/components/schemas/metadata"
+                $ref: "#/components/schemas/metadataTokenPagination"
               result:
                 required:
                 - data
@@ -10479,7 +10976,7 @@ components:
               '@context':
                 $ref: "#/components/schemas/Context"
               metadata:
-                $ref: "#/components/schemas/metadata"
+                $ref: "#/components/schemas/metadataTokenPagination"
               result:
                 required:
                 - data
@@ -10546,7 +11043,7 @@ components:
               metadata:
                 $ref: "#/components/schemas/metadata"
               result:
-                $ref: "#/components/schemas/Observation"
+                $ref: "#/components/schemas/ObservationTable"
         text/csv:
           schema:
             type: string
@@ -10634,7 +11131,7 @@ components:
               metadata:
                 $ref: "#/components/schemas/metadata"
               result:
-                $ref: "#/components/schemas/ObservationUnit"
+                $ref: "#/components/schemas/ObservationUnitTable"
         text/csv:
           schema:
             type: string
@@ -10804,6 +11301,18 @@ components:
       schema:
         type: integer
       example: 1000
+    authorizationHeader:
+      name: Authorization
+      in: header
+      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
+        \ {token_string} </strong>"
+      required: false
+      style: simple
+      explode: false
+      schema:
+        pattern: ^Bearer .*$
+        type: string
+      example: Bearer XXXX
     page:
       name: page
       in: query
@@ -10832,18 +11341,6 @@ components:
       schema:
         type: string
       example: 33c27874
-    authorizationHeader:
-      name: Authorization
-      in: header
-      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
-        \ {token_string} </strong>"
-      required: false
-      style: simple
-      explode: false
-      schema:
-        pattern: ^Bearer .*$
-        type: string
-      example: Bearer XXXX
   securitySchemes:
     AuthorizationToken:
       type: http

@@ -54,6 +54,33 @@ info:
     \  padding: 5px 5px; \n}\n.brapi-section-description{\n  margin: 5px 0 0 5px;\n\
     }\n</style>"
   version: "2.2"
+servers:
+- url: https://test-server.brapi.org/brapi/v2
+security:
+- AuthorizationToken: []
+tags:
+- name: Calls
+  description: Individual genotype allele calls
+- name: Call Sets
+  description: Each Call Set is related to one physical sample
+- name: Variants
+  description: "Information about Variants, also called Markers"
+- name: Variant Sets
+  description: "Information about Variant Sets, also called Data Sets or Allele Matrices"
+- name: Plates
+  description: Information about plates containing samples
+- name: Samples
+  description: Information about physical samples
+- name: References
+  description: Genetic sequences used for reference
+- name: Reference Sets
+  description: Collections of references
+- name: Genome Maps
+  description: Information about physical and genetic maps
+- name: Vendor
+  description: "This interface is specific to facilities that performs an external\
+    \ analysis, such as genotyping facilities. The interface should be implemented\
+    \ by that facility''s server. The breeding database is the client of this interface."
 paths:
   /allelematrix:
     get:
@@ -73,6 +100,7 @@ paths:
         required: false
         schema:
           type: boolean
+          nullable: false
       - name: dimensionVariantPage
         in: query
         description: The requested page number for the Variant dimension of the matrix
@@ -80,6 +108,7 @@ paths:
         schema:
           type: integer
           format: int32
+          nullable: false
       - name: dimensionVariantPageSize
         in: query
         description: The requested page size for the Variant dimension of the matrix
@@ -87,6 +116,7 @@ paths:
         schema:
           type: integer
           format: int32
+          nullable: false
       - name: dimensionCallSetPage
         in: query
         description: The requested page number for the CallSet dimension of the matrix
@@ -94,6 +124,7 @@ paths:
         schema:
           type: integer
           format: int32
+          nullable: false
       - name: dimensionCallSetPageSize
         in: query
         description: The requested page size for the CallSet dimension of the matrix
@@ -101,6 +132,7 @@ paths:
         schema:
           type: integer
           format: int32
+          nullable: false
       - name: dataMatrixNames
         in: query
         description: "`dataMatrixNames` is a list of names (ie 'Genotype', 'Read Depth'\
@@ -108,6 +140,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: dataMatrixAbbreviations
         in: query
         description: "`dataMatrixAbbreviations` is a list of abbreviations (ie 'GT',\
@@ -116,6 +149,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: positionRange
         in: query
         description: "The postion range to search\n<br/>\nUses the format \"<chrom>:<start>-<end>\"\
@@ -124,18 +158,21 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: germplasmName
         in: query
         description: A list of human readable `Germplasm` names
         required: false
         schema:
           type: string
+          nullable: false
       - name: germplasmPUI
         in: query
         description: A list of permanent unique identifiers associated with `Germplasm`
         required: false
         schema:
           type: string
+          nullable: false
       - name: germplasmDbId
         in: query
         description: A list of IDs which uniquely identify `Germplasm` within the
@@ -143,6 +180,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: callSetDbId
         in: query
         description: A list of IDs which uniquely identify `CallSets` within the given
@@ -150,6 +188,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: variantDbId
         in: query
         description: A list of IDs which uniquely identify `Variants` within the given
@@ -157,6 +196,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: variantSetDbId
         in: query
         description: A list of IDs which uniquely identify `VariantSets` within the
@@ -164,6 +204,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: expandHomozygotes
         in: query
         description: Should homozygotes be expanded (true) or collapsed into a single
@@ -171,24 +212,28 @@ paths:
         required: false
         schema:
           type: boolean
+          nullable: false
       - name: sepPhased
         in: query
         description: The string used as a separator for phased allele calls.
         required: false
         schema:
           type: string
+          nullable: false
       - name: sepUnphased
         in: query
         description: The string used as a separator for unphased allele calls.
         required: false
         schema:
           type: string
+          nullable: false
       - name: unknownString
         in: query
         description: The string used as a representation for missing data.
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/authorizationHeader"
       responses:
         "200":
@@ -213,6 +258,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: variantDbId
         in: query
         description: A list of IDs which uniquely identify `Variant` within the given
@@ -220,6 +266,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: variantSetDbId
         in: query
         description: A list of IDs which uniquely identify `VariantSets` within the
@@ -227,6 +274,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: expandHomozygotes
         in: query
         description: Should homozygotes be expanded (true) or collapsed into a single
@@ -234,24 +282,28 @@ paths:
         required: false
         schema:
           type: boolean
+          nullable: false
       - name: sepPhased
         in: query
         description: The string used as a separator for phased allele calls.
         required: false
         schema:
           type: string
+          nullable: false
       - name: sepUnphased
         in: query
         description: The string used as a separator for unphased allele calls.
         required: false
         schema:
           type: string
+          nullable: false
       - name: unknownString
         in: query
         description: The string used as a representation for missing data.
         required: false
         schema:
           type: string
+          nullable: false
       - name: pageToken
         in: query
         description: |-
@@ -261,7 +313,7 @@ paths:
         required: false
         schema:
           type: string
-      - $ref: "#/components/parameters/pageToken"
+          nullable: false
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
       - $ref: "#/components/parameters/authorizationHeader"
@@ -287,6 +339,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: sampleDbId
         in: query
         description: A list of IDs which uniquely identify `Samples` within the given
@@ -294,6 +347,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: callSetDbId
         in: query
         description: A list of IDs which uniquely identify `CallSets` within the given
@@ -301,12 +355,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: callSetName
         in: query
         description: A list of human readable names associated with `CallSets`
         required: false
         schema:
           type: string
+          nullable: false
       - name: variantSetDbId
         in: query
         description: A list of IDs which uniquely identify `VariantSets` within the
@@ -314,6 +370,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -348,6 +405,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -358,30 +416,35 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: studyDbId
         in: query
         description: List of study identifiers to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: trialDbId
         in: query
         description: The ID which uniquely identifies a trial to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: mapDbId
         in: query
         description: The ID which uniquely identifies a `GenomeMap`
         required: false
         schema:
           type: string
+          nullable: false
       - name: mapPUI
         in: query
         description: The DOI or other permanent identifier for a `GenomeMap`
         required: false
         schema:
           type: string
+          nullable: false
       - name: scientificName
         in: query
         description: "Full scientific binomial format name. This includes Genus, Species,\
@@ -389,12 +452,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: type
         in: query
         description: "The type of map, usually \"Genetic\" or \"Physical\""
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
       - $ref: "#/components/parameters/authorizationHeader"
@@ -421,12 +486,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: linkageGroupName
         in: query
         description: A list of Uniquely Identifiable linkage group names
         required: false
         schema:
           type: string
+          nullable: false
       - name: variantDbId
         in: query
         description: A list of IDs which uniquely identify `Variants` within the given
@@ -434,6 +501,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: minPosition
         in: query
         description: The minimum position of markers in a given map
@@ -441,6 +509,7 @@ paths:
         schema:
           type: integer
           format: int32
+          nullable: false
       - name: maxPosition
         in: query
         description: The maximum position of markers in a given map
@@ -448,6 +517,7 @@ paths:
         schema:
           type: integer
           format: int32
+          nullable: false
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
       - $ref: "#/components/parameters/authorizationHeader"
@@ -479,12 +549,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: germplasmDbId
         in: query
         description: List of IDs which uniquely identify germplasm to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -495,54 +567,63 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: studyDbId
         in: query
         description: List of study identifiers to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: trialDbId
         in: query
         description: The ID which uniquely identifies a trial to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitDbId
         in: query
         description: The ID which uniquely identifies an observation unit
         required: false
         schema:
           type: string
+          nullable: false
       - name: plateDbId
         in: query
         description: The ID which uniquely identifies a plate of samples
         required: false
         schema:
           type: string
+          nullable: false
       - name: plateName
         in: query
         description: The human readable name of a plate of samples
         required: false
         schema:
           type: string
+          nullable: false
       - name: sampleDbId
         in: query
         description: The ID which uniquely identifies a sample
         required: false
         schema:
           type: string
+          nullable: false
       - name: sampleName
         in: query
         description: The human readable name of the sample
         required: false
         schema:
           type: string
+          nullable: false
       - name: sampleGroupDbId
         in: query
         description: The unique identifier for a group of related Samples
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -600,6 +681,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -610,18 +692,21 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: studyDbId
         in: query
         description: List of study identifiers to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: trialDbId
         in: query
         description: The ID which uniquely identifies a trial to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: accession
         in: query
         description: "If specified, return the references for which the `accession`\
@@ -629,6 +714,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: md5checksum
         in: query
         description: "If specified, return the references for which the `md5checksum`\
@@ -636,6 +722,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: referenceDbId
         in: query
         description: A list of IDs which uniquely identify `References` within the
@@ -643,6 +730,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: referenceSetDbId
         in: query
         description: A list of IDs which uniquely identify `ReferenceSets` within
@@ -650,6 +738,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: isDerived
         in: query
         description: "A sequence X is said to be derived from source sequence Y, if\
@@ -661,6 +750,7 @@ paths:
         schema:
           type: boolean
           format: boolean
+          nullable: false
       - name: minLength
         in: query
         description: The minimum length of this `References` sequence.
@@ -668,6 +758,7 @@ paths:
         schema:
           type: integer
           format: int32
+          nullable: false
       - name: maxLength
         in: query
         description: The minimum length of this `References` sequence.
@@ -675,6 +766,7 @@ paths:
         schema:
           type: integer
           format: int32
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -709,6 +801,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -719,18 +812,21 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: studyDbId
         in: query
         description: List of study identifiers to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: trialDbId
         in: query
         description: The ID which uniquely identifies a trial to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: accession
         in: query
         description: "If set, return the reference sets for which the `accession`\
@@ -738,6 +834,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: assemblyPUI
         in: query
         description: "If set, return the reference sets for which the `assemblyId`\
@@ -745,6 +842,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: md5checksum
         in: query
         description: "If set, return the reference sets for which the `md5checksum`\
@@ -752,12 +850,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: referenceSetDbId
         in: query
         description: The `ReferenceSets` to search.
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -792,12 +892,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: germplasmDbId
         in: query
         description: List of IDs which uniquely identify germplasm to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -808,54 +910,63 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: studyDbId
         in: query
         description: List of study identifiers to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: trialDbId
         in: query
         description: The ID which uniquely identifies a trial to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationUnitDbId
         in: query
         description: The ID which uniquely identifies an `ObservationUnit`
         required: false
         schema:
           type: string
+          nullable: false
       - name: plateDbId
         in: query
         description: The ID which uniquely identifies a `Plate` of `Samples`
         required: false
         schema:
           type: string
+          nullable: false
       - name: plateName
         in: query
         description: The human readable name of a `Plate` of `Samples`
         required: false
         schema:
           type: string
+          nullable: false
       - name: sampleDbId
         in: query
         description: The ID which uniquely identifies a `Sample`
         required: false
         schema:
           type: string
+          nullable: false
       - name: sampleName
         in: query
         description: The human readable name of the `Sample`
         required: false
         schema:
           type: string
+          nullable: false
       - name: sampleGroupDbId
         in: query
         description: The unique identifier for a group of related `Samples`
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -885,18 +996,20 @@ paths:
               type: object
               additionalProperties:
                 $ref: "#/components/schemas/SampleNewRequest"
-              example: "{<sampleDbId>_1={additionalInfo={}, callSets=[{}], column=10,\
+              example: "{<sampleDbId>_1={additionalInfo={}, callSets=[{}], column=6,\
                 \ externalReferences=[{}], germplasm={}, observationUnit={}, plate={},\
-                \ program={}, row=00358167, sampleBarcode=6a6db74b, sampleDescription=3388964f,\
-                \ sampleDbId=079d6d5e, sampleGroupDbId=2455eef3, sampleName=082a6b4c,\
-                \ samplePUI=08863647, sampleTimestamp=2020-08-12T18:10:40.413Z, sampleType=0889ec7d,\
-                \ study={}, takenBy=599da043, tissueType=4d105e22, trial={}, well=06bc78f3},\
-                \ <sampleDbId>_2={additionalInfo={}, callSets=[{}], column=20, externalReferences=[{}],\
-                \ germplasm={}, observationUnit={}, plate={}, program={}, row=00358168,\
-                \ sampleBarcode=6a6db74c, sampleDescription=33889650, sampleDbId=079d6d5f,\
-                \ sampleGroupDbId=2455eef4, sampleName=082a6b4d, samplePUI=08863648,\
-                \ sampleTimestamp=2020-08-12T18:10:40.413Z, sampleType=0889ec7e, study={},\
-                \ takenBy=599da044, tissueType=4d105e23, trial={}, well=06bc78f4}}"
+                \ program={}, row=B, sampleBarcode=3a027b59, sampleDescription=This\
+                \ sample was taken from the root of a tree, sampleDbId=cd06a61d, sampleGroupDbId=2455eef3,\
+                \ sampleName=Sample_alpha_20191022, samplePUI=doi:10.15454/312953986E3,\
+                \ sampleTimestamp=2020-08-12T18:10:40.413Z, sampleType=Tissue, study={},\
+                \ takenBy=Bob, tissueType=Root, trial={}, well=B6}, <sampleDbId>_2={additionalInfo={},\
+                \ callSets=[{}], column=6, externalReferences=[{}], germplasm={},\
+                \ observationUnit={}, plate={}, program={}, row=B, sampleBarcode=3a027b59,\
+                \ sampleDescription=This sample was taken from the root of a tree,\
+                \ sampleDbId=cd06a61d, sampleGroupDbId=2455eef4, sampleName=Sample_alpha_20191022,\
+                \ samplePUI=doi:10.15454/312953986E3, sampleTimestamp=2020-08-12T18:10:40.413Z,\
+                \ sampleType=Tissue, study={}, takenBy=Bob, tissueType=Root, trial={},\
+                \ well=B6}}"
       responses:
         "200":
           $ref: "#/components/responses/SampleListResponse"
@@ -946,24 +1059,28 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: referenceSetDbId
         in: query
         description: The unique identifier representing a genotype `ReferenceSet`
         required: false
         schema:
           type: string
+          nullable: false
       - name: variantDbId
         in: query
         description: A list of IDs which uniquely identify `Variants`
         required: false
         schema:
           type: string
+          nullable: false
       - name: variantSetDbId
         in: query
         description: A list of IDs which uniquely identify `VariantSets`
         required: false
         schema:
           type: string
+          nullable: false
       - name: pageToken
         in: query
         description: |-
@@ -973,10 +1090,10 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
-      - $ref: "#/components/parameters/pageToken"
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
       - $ref: "#/components/parameters/authorizationHeader"
@@ -1008,6 +1125,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -1018,42 +1136,49 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: studyDbId
         in: query
         description: List of study identifiers to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: studyName
         in: query
         description: List of study names to filter search results
         required: false
         schema:
           type: string
+          nullable: false
       - name: callSetDbId
         in: query
         description: The unique identifier representing a CallSet
         required: false
         schema:
           type: string
+          nullable: false
       - name: variantDbId
         in: query
         description: The unique identifier representing a Variant
         required: false
         schema:
           type: string
+          nullable: false
       - name: variantSetDbId
         in: query
         description: The unique identifier representing a VariantSet
         required: false
         schema:
           type: string
+          nullable: false
       - name: referenceSetDbId
         in: query
         description: The unique identifier representing a genotype ReferenceSet
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -1116,24 +1241,28 @@ paths:
         required: false
         schema:
           type: boolean
+          nullable: false
       - name: sepPhased
         in: query
         description: The string used as a separator for phased allele calls.
         required: false
         schema:
           type: string
+          nullable: false
       - name: sepUnphased
         in: query
         description: The string used as a separator for unphased allele calls.
         required: false
         schema:
           type: string
+          nullable: false
       - name: unknownString
         in: query
         description: The string used as a representation for missing data.
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
       - $ref: "#/components/parameters/pageToken"
@@ -1212,7 +1341,7 @@ paths:
       - name: plateDbId
         in: path
         description: The ID which uniquely identifies a `Plate`
-        required: false
+        required: true
         schema:
           type: string
       responses:
@@ -1269,6 +1398,7 @@ paths:
         schema:
           type: integer
           format: int32
+          nullable: false
       - name: end
         in: query
         description: "The end position (0-based, exclusive) of this query. Defaults\
@@ -1277,6 +1407,7 @@ paths:
         schema:
           type: integer
           format: int32
+          nullable: false
       - name: pageToken
         in: query
         description: |-
@@ -1286,6 +1417,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/authorizationHeader"
       - name: referenceDbId
         in: path
@@ -1342,7 +1474,7 @@ paths:
         description: |-
           The ID which uniquely identifies a `Sample`
           <br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.
-        required: false
+        required: true
         schema:
           type: string
       responses:
@@ -1401,24 +1533,28 @@ paths:
         required: false
         schema:
           type: boolean
+          nullable: false
       - name: sepPhased
         in: query
         description: The string used as a separator for phased allele calls.
         required: false
         schema:
           type: string
+          nullable: false
       - name: sepUnphased
         in: query
         description: The string used as a separator for unphased allele calls.
         required: false
         schema:
           type: string
+          nullable: false
       - name: unknownString
         in: query
         description: The string used as a representation for missing data.
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
       - $ref: "#/components/parameters/pageToken"
@@ -1479,24 +1615,28 @@ paths:
         required: false
         schema:
           type: boolean
+          nullable: false
       - name: sepPhased
         in: query
         description: The string used as a separator for phased allele calls.
         required: false
         schema:
           type: string
+          nullable: false
       - name: sepUnphased
         in: query
         description: The string used as a separator for unphased allele calls.
         required: false
         schema:
           type: string
+          nullable: false
       - name: unknownString
         in: query
         description: The string used as a representation for missing data.
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
       - $ref: "#/components/parameters/pageToken"
@@ -1532,12 +1672,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: callSetName
         in: query
         description: A list of human readable names associated with `CallSets`
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
       - $ref: "#/components/parameters/authorizationHeader"
@@ -1571,6 +1713,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
       - $ref: "#/components/parameters/pageToken"
@@ -2339,10 +2482,11 @@ paths:
 components:
   schemas:
     AdditionalInfo:
-      type: string
+      type: object
       additionalProperties:
         description: A free space containing any additional information related to
           a particular object.
+        nullable: true
       description: "A free space containing any additional information related to\
         \ a particular object. A data source may provide any JSON object, unrestricted\
         \ by the BrAPI specification."
@@ -2354,7 +2498,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         callSetDbIds:
           type: array
           description: "A list of unique identifiers for the CallSets contained in\
@@ -2765,6 +2911,7 @@ components:
         \ about the methodology used."
     Attribute:
       required:
+      - attributeDbId
       - attributeName
       - method
       - scale
@@ -2772,7 +2919,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         attributeCategory:
           type: string
           description: General category for the attribute. very similar to Trait class.
@@ -2798,6 +2947,7 @@ components:
           type: string
           description: "Crop name (examples: \"Maize\", \"Wheat\")"
           nullable: true
+          example: Maize
         contextOfUse:
           type: array
           description: "Indication of how trait is routinely used. (examples: [\"\
@@ -2809,11 +2959,13 @@ components:
           type: string
           description: "Variable default value. (examples: \"red\", \"2.3\", etc.)"
           nullable: true
+          example: "2.0"
         documentationURL:
           type: string
           description: A URL to the human readable documentation of an object
           format: uri
           nullable: true
+          example: https://wiki.brapi.org/documentation.html
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -2827,15 +2979,18 @@ components:
           description: "Growth stage at which measurement is made (examples: \"flowering\"\
             )"
           nullable: true
+          example: flowering
         institution:
           type: string
           description: Name of institution submitting the variable
           nullable: true
+          example: The BrAPI Institute
         language:
           type: string
           description: 2 letter ISO 639-1 code for the language of submission of the
             variable.
           nullable: true
+          example: en
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
@@ -2848,11 +3003,13 @@ components:
           type: string
           description: Name of scientist submitting the variable.
           nullable: true
+          example: Dr. Bob Robertson
         status:
           type: string
           description: "Variable status. (examples: \"recommended\", \"obsolete\"\
             , \"legacy\", etc.)"
           nullable: true
+          example: recommended
         submissionTimestamp:
           type: string
           description: Timestamp when the Variable was added (ISO 8601)
@@ -2924,11 +3081,14 @@ components:
       required:
       - callSetDbId
       - variantDbId
+      - variantName
       - variantSetDbId
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         callSetDbId:
           type: string
         callSetName:
@@ -3102,7 +3262,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         callSetDbId:
           type: string
           description: The ID which uniquely identifies a CallSet within the given
@@ -3560,18 +3722,9 @@ components:
       description: "A two dimensional array that holds allele data or associated metadata.\
         \ Each matrix should be the same size and orientation, aligned with the \"\
         callSetDbIds\" as columns and the \"variantDbIds\" as rows."
-    DataType:
-      type: string
-      description: The type of field represented in this Genotype Field. This is intended
-        to help parse the data out of JSON.
-      enum:
-      - string
-      - integer
-      - float
-      - boolean
     Dimension:
       type: string
-      description: The dimension of the matrix being paginated
+      description: the dimension of the matrix being paginated
       enum:
       - CALLSETS
       - VARIANTS
@@ -3671,7 +3824,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         comments:
           type: string
           description: Additional comments about a `GenomeMap`
@@ -3846,7 +4001,8 @@ components:
       nullable: true
     GeoJSONGeometry:
       type: object
-      nullable: true
+      discriminator:
+        propertyName: type
       oneOf:
       - required:
         - coordinates
@@ -4521,7 +4677,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         linkageGroupName:
           type: string
           description: The Uniquely Identifiable name of a `LinkageGroup` <br> This
@@ -4702,9 +4860,9 @@ components:
           items:
             type: string
         coordinates:
-          anyOf:
+          nullable: true
+          allOf:
           - $ref: "#/components/schemas/GeoJSONSearchArea"
-          - type: "null"
         countryCodes:
           type: array
           description: "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)\
@@ -4787,7 +4945,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         linkageGroupName:
           type: string
           description: |-
@@ -6079,11 +6239,14 @@ components:
     Plate:
       allOf:
       - $ref: "#/components/schemas/PlateNewRequest"
-      - type: object
+      - required:
+        - plateDbId
+        type: object
         properties:
           plateDbId:
             type: string
             description: The ID which uniquely identifies a `Plate`
+            example: a106467f
         description: "A Plate represents the metadata for a collection of Samples.\
           \ The physical Plate being represented might be a plastic tray full of Samples,\
           \ or a group of Samples stored in individual containers ie bags, test tubes,\
@@ -6103,7 +6266,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -6116,6 +6281,7 @@ components:
           type: string
           description: A unique identifier physically attached to a `Plate`
           nullable: true
+          example: "11223344"
         plateFormat:
           type: string
           description: "Enum for plate formats, usually \"PLATE_96\" for a 96 well\
@@ -6127,6 +6293,7 @@ components:
         plateName:
           type: string
           description: A human readable name for a `Plate`
+          example: Plate_123_XYZ
         programDbId:
           type: string
           nullable: true
@@ -6134,6 +6301,7 @@ components:
           type: string
           description: "The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc"
           nullable: true
+          example: TISSUE
           enum:
           - DNA
           - RNA
@@ -6495,6 +6663,15 @@ components:
             enum:
             - STANDARD
             - PROJECT
+    ProgramType:
+      type: string
+      description: |-
+        The type of program entity this object represents
+        <br/> 'STANDARD' represents a standard, permanent breeding program
+        <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding.
+      enum:
+      - STANDARD
+      - PROJECT
     Reference:
       required:
       - referenceDbId
@@ -6502,7 +6679,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         commonCropName:
           type: string
           description: Common name for the crop
@@ -6904,7 +7083,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         assemblyPUI:
           type: string
           description: "The remaining information is about the source of the sequences\
@@ -6945,10 +7126,6 @@ components:
         referenceSetName:
           type: string
           description: The human readable name of a ReferenceSet
-        referencesDbId:
-          type: string
-        referencesName:
-          type: string
         sourceAccessions:
           type: array
           description: "All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ)\
@@ -6956,30 +7133,18 @@ components:
           nullable: true
           items:
             type: string
-        sourceGermplasmDbIds:
+        sourceGermplasm:
           type: array
           description: All known corresponding Germplasm
           nullable: true
           items:
-            type: string
+            $ref: "#/components/schemas/Germplasm"
         sourceURI:
           type: string
           description: Specifies a FASTA format file/string.
           nullable: true
         species:
           $ref: "#/components/schemas/OntologyTerm"
-        variantDbIds:
-          type: array
-          description: variants
-          nullable: true
-          items:
-            type: string
-        variantSetDbIds:
-          type: array
-          description: variantSets
-          nullable: true
-          items:
-            type: string
       description: "A `ReferenceSet` is a set of `Reference` s which typically comprise\
         \ a reference assembly, such as `GRCH_38`. A `ReferenceSet` defines a common\
         \ coordinate space for comparing reference-aligned experimental data."
@@ -7205,7 +7370,9 @@ components:
     Sample:
       allOf:
       - $ref: "#/components/schemas/SampleNewRequest"
-      - type: object
+      - required:
+        - sampleDbId
+        type: object
         properties:
           sampleDbId:
             type: string
@@ -7213,6 +7380,7 @@ components:
               The ID which uniquely identifies a `Sample`
               <br> MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.
             nullable: true
+            example: cd06a61d
         description: "The identifiers and metadata associated with a physical piece\
           \ of biological material collected from the field for external analysis.\
           \ A Sample can take many forms (leaf clipping, seed, DNA, etc) and might\
@@ -7223,12 +7391,15 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         column:
           type: integer
           description: The Column identifier for this `Sample` location in the `Plate`
           format: int32
           nullable: true
+          example: 6
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -7255,16 +7426,19 @@ components:
           type: string
           description: The Row identifier for this `Sample` location in the `Plate`
           nullable: true
+          example: B
         sampleBarcode:
           type: string
           description: A unique identifier physically attached to the `Sample`
           nullable: true
+          example: 3a027b59
         sampleDescription:
           type: string
           description: |-
             Description of a `Sample`
             <br>MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.
           nullable: true
+          example: This sample was taken from the root of a tree
         sampleGroupDbId:
           type: string
           description: The ID which uniquely identifies a group of `Samples`
@@ -7272,6 +7446,7 @@ components:
         sampleName:
           type: string
           description: The human readable name of the `Sample`
+          example: Sample_alpha_20191022
         samplePUI:
           type: string
           description: "A permanent unique identifier for the `Sample` (DOI, URL,\
@@ -7281,6 +7456,7 @@ components:
             \ to the EBI Biosamples repository is recommended. URI are recommended\
             \ when possible. "
           nullable: true
+          example: doi:10.15454/312953986E3
         sampleTimestamp:
           type: string
           description: |-
@@ -7292,6 +7468,7 @@ components:
           type: string
           description: "The type of `Sample` taken. ex. 'DNA', 'RNA', 'Tissue', etc"
           nullable: true
+          example: Tissue
         studyDbId:
           type: string
           nullable: true
@@ -7300,12 +7477,14 @@ components:
           description: The name or identifier of the entity which took the `Sample`
             from the field
           nullable: true
+          example: Bob
         tissueType:
           type: string
           description: |-
             The type of tissue sampled. ex. 'Leaf', 'Root', etc.
             <br> MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).
           nullable: true
+          example: Root
         trialDbId:
           type: string
           nullable: true
@@ -7315,6 +7494,7 @@ components:
             \ Usually a concatenation of Row and Column, or just a number if the `Samples`\
             \ are not part of an ordered `Plate`."
           nullable: true
+          example: B6
       description: "The identifiers and metadata associated with a physical piece\
         \ of biological material collected from the field for external analysis. A\
         \ Sample can take many forms (leaf clipping, seed, DNA, etc) and might be\
@@ -8229,11 +8409,14 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         commonCropName:
           type: string
           description: "Crop name (examples: \"Maize\", \"Wheat\")"
           nullable: true
+          example: Maize
         contextOfUse:
           type: array
           description: "Indication of how trait is routinely used. (examples: [\"\
@@ -8245,11 +8428,13 @@ components:
           type: string
           description: "Variable default value. (examples: \"red\", \"2.3\", etc.)"
           nullable: true
+          example: "2.0"
         documentationURL:
           type: string
           description: A URL to the human readable documentation of an object
           format: uri
           nullable: true
+          example: https://wiki.brapi.org/documentation.html
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -8263,15 +8448,18 @@ components:
           description: "Growth stage at which measurement is made (examples: \"flowering\"\
             )"
           nullable: true
+          example: flowering
         institution:
           type: string
           description: Name of institution submitting the variable
           nullable: true
+          example: The BrAPI Institute
         language:
           type: string
           description: 2 letter ISO 639-1 code for the language of submission of the
             variable.
           nullable: true
+          example: en
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
@@ -8284,11 +8472,13 @@ components:
           type: string
           description: Name of scientist submitting the variable.
           nullable: true
+          example: Dr. Bob Robertson
         status:
           type: string
           description: "Variable status. (examples: \"recommended\", \"obsolete\"\
             , \"legacy\", etc.)"
           nullable: true
+          example: recommended
         submissionTimestamp:
           type: string
           description: Timestamp when the Variable was added (ISO 8601)
@@ -8467,7 +8657,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         alternateBases:
           type: array
           description: The bases that appear instead of the reference bases. Multiple
@@ -8881,7 +9073,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         analysis:
           type: array
           description: Set of Analysis descriptors for this VariantSet
@@ -9782,7 +9976,7 @@ components:
               '@context':
                 $ref: "#/components/schemas/Context"
               metadata:
-                $ref: "#/components/schemas/metadata"
+                $ref: "#/components/schemas/metadataTokenPagination"
               result:
                 required:
                 - data
@@ -10006,7 +10200,7 @@ components:
               '@context':
                 $ref: "#/components/schemas/Context"
               metadata:
-                $ref: "#/components/schemas/metadata"
+                $ref: "#/components/schemas/metadataTokenPagination"
               result:
                 required:
                 - data
@@ -10305,6 +10499,18 @@ components:
       schema:
         type: integer
       example: 1000
+    authorizationHeader:
+      name: Authorization
+      in: header
+      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
+        \ {token_string} </strong>"
+      required: false
+      style: simple
+      explode: false
+      schema:
+        pattern: ^Bearer .*$
+        type: string
+      example: Bearer XXXX
     page:
       name: page
       in: query
@@ -10333,18 +10539,6 @@ components:
       schema:
         type: string
       example: 33c27874
-    authorizationHeader:
-      name: Authorization
-      in: header
-      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
-        \ {token_string} </strong>"
-      required: false
-      style: simple
-      explode: false
-      schema:
-        pattern: ^Bearer .*$
-        type: string
-      example: Bearer XXXX
   securitySchemes:
     AuthorizationToken:
       type: http

@@ -54,6 +54,29 @@ info:
     \  padding: 5px 5px; \n}\n.brapi-section-description{\n  margin: 5px 0 0 5px;\n\
     }\n</style>"
   version: "2.2"
+servers:
+- url: https://test-server.brapi.org/brapi/v2
+security:
+- AuthorizationToken: []
+tags:
+- name: Server Info
+  description: Check the available calls on a server
+- name: Common Crop Names
+  description: List of crops supported by this server
+- name: Programs
+  description: Information about Programs
+- name: Trials
+  description: Information about Trials
+- name: Studies
+  description: Information about Studies
+- name: Locations
+  description: Information about Locations
+- name: Seasons
+  description: Information about Seasons
+- name: Lists
+  description: Create and manipulate generic lists
+- name: People
+  description: Create and manipulate information about people
 paths:
   /lists:
     get:
@@ -74,6 +97,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -84,6 +108,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: listDbId
         in: query
         description: An array of primary database identifiers to identify a set of
@@ -91,12 +116,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: listName
         in: query
         description: An array of human readable names to identify a set of Lists
         required: false
         schema:
           type: string
+          nullable: false
       - name: listSource
         in: query
         description: "An array of terms identifying lists from different sources (ie\
@@ -104,6 +131,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: listType
         in: query
         required: false
@@ -166,18 +194,21 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: locationDbId
         in: query
         description: The location ids to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: locationName
         in: query
         description: A human readable names to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -188,6 +219,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: locationType
         in: query
         description: "The type of location this represents (ex. Breeding Location,\
@@ -195,6 +227,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: parentLocationDbId
         in: query
         description: "The unique identifier for a Location\n<br/> The Parent Location\
@@ -204,6 +237,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: parentLocationName
         in: query
         description: "A human readable name for a location\n<br/> The Parent Location\
@@ -213,6 +247,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -270,6 +305,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -280,24 +316,28 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: firstName
         in: query
         description: Persons first name
         required: false
         schema:
           type: string
+          nullable: false
       - name: lastName
         in: query
         description: Persons last name
         required: false
         schema:
           type: string
+          nullable: false
       - name: personDbId
         in: query
         description: Unique ID for this person
         required: false
         schema:
           type: string
+          nullable: false
       - name: userID
         in: query
         description: A systems user ID associated with this person. Different from
@@ -305,6 +345,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -362,6 +403,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -372,6 +414,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: programName
         in: query
         description: |-
@@ -381,12 +424,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: abbreviation
         in: query
         description: A list of shortened human readable names for a set of Programs
         required: false
         schema:
           type: string
+          nullable: false
       - name: programType
         in: query
         description: "The type of program entity this object represents\n<br/> 'STANDARD'\
@@ -399,6 +444,7 @@ paths:
             The type of program entity this object represents
             <br/> 'STANDARD' represents a standard, permanent breeding program
             <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding.
+          nullable: false
           enum:
           - STANDARD
           - PROJECT
@@ -454,6 +500,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: season
         in: query
         description: The term to describe a given season. Example "Spring" OR "May"
@@ -461,6 +508,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: seasonName
         in: query
         description: The term to describe a given season. Example "Spring" OR "May"
@@ -468,6 +516,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: year
         in: query
         description: The 4 digit year of a season. Example 2017
@@ -475,6 +524,7 @@ paths:
         schema:
           type: integer
           format: int32
+          nullable: false
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
       - $ref: "#/components/parameters/authorizationHeader"
@@ -529,18 +579,21 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: germplasmDbId
         in: query
         description: List of IDs which uniquely identify germplasm to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: locationDbId
         in: query
         description: The location ids to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -551,54 +604,63 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: studyDbId
         in: query
         description: List of study identifiers to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: studyName
         in: query
         description: List of study names to filter search results
         required: false
         schema:
           type: string
+          nullable: false
       - name: trialDbId
         in: query
         description: The ID which uniquely identifies a trial to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: observationVariableDbId
         in: query
         description: The DbIds of Variables to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: active
         in: query
         description: A flag to indicate if a Study is currently active and ongoing
         required: false
         schema:
           type: boolean
+          nullable: false
       - name: seasonDbId
         in: query
         description: The ID which uniquely identifies a season
         required: false
         schema:
           type: string
+          nullable: false
       - name: studyType
         in: query
         description: "The type of study being performed. ex. \"Yield Trial\", etc"
         required: false
         schema:
           type: string
+          nullable: false
       - name: studyCode
         in: query
         description: A short human readable code for a study
         required: false
         schema:
           type: string
+          nullable: false
       - name: studyPUI
         in: query
         description: "Permanent unique identifier associated with study data. For\
@@ -606,6 +668,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: sortBy
         in: query
         description: Name of the field to sort by.
@@ -613,6 +676,7 @@ paths:
         schema:
           type: string
           description: Name of the field to sort by.
+          nullable: false
           enum:
           - studyDbId
           - trialDbId
@@ -632,6 +696,7 @@ paths:
         schema:
           type: string
           description: Sort order direction. Ascending/Descending.
+          nullable: false
           enum:
           - ASC
           - DESC
@@ -694,12 +759,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: locationDbId
         in: query
         description: The location ids to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -710,30 +777,35 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: studyDbId
         in: query
         description: List of study identifiers to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: trialDbId
         in: query
         description: The ID which uniquely identifies a trial to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: trialName
         in: query
         description: The human readable name of a trial to search for
         required: false
         schema:
           type: string
+          nullable: false
       - name: active
         in: query
         description: A flag to indicate if a Trial is currently active and ongoing
         required: false
         schema:
           type: boolean
+          nullable: false
       - name: contactDbId
         in: query
         description: "**Deprecated in v2.2** Please use `contactPersonDbIds`. Github\
@@ -741,12 +813,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: contactPersonDbId
         in: query
         description: List of contact entities associated with this trial
         required: false
         schema:
           type: string
+          nullable: false
       - name: searchDateRangeStart
         in: query
         description: "The start of the overlapping search date range. `searchDateRangeStart`\
@@ -761,6 +835,7 @@ paths:
         schema:
           type: string
           format: date
+          nullable: false
       - name: searchDateRangeEnd
         in: query
         description: "The end of the overlapping search date range. `searchDateRangeStart`\
@@ -775,6 +850,7 @@ paths:
         schema:
           type: string
           format: date
+          nullable: false
       - name: trialPUI
         in: query
         description: A permanent identifier for a trial. Could be DOI or other URI
@@ -782,6 +858,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: sortBy
         in: query
         description: Name of the field to sort by.
@@ -789,6 +866,7 @@ paths:
         schema:
           type: string
           description: Name of the field to sort by.
+          nullable: false
           enum:
           - trialDbId
           - trialName
@@ -804,6 +882,7 @@ paths:
         schema:
           type: string
           description: Sort order direction. Ascending/Descending.
+          nullable: false
           enum:
           - ASC
           - DESC
@@ -870,8 +949,8 @@ paths:
     get:
       tags:
       - Studies
-      summary: Get the observationLevelses of Study
-      description: List all available Study observationLevelses
+      summary: Get the observationLevels of Study
+      description: List all available Study observationLevels
       parameters:
       - name: studyDbId
         in: query
@@ -879,6 +958,7 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: programDbId
         in: query
         description: "A BrAPI Program represents the high level organization or group\
@@ -889,12 +969,14 @@ paths:
         required: false
         schema:
           type: string
+          nullable: false
       - name: trialDbId
         in: query
         description: The ID which uniquely identifies a trial to search for
         required: false
         schema:
           type: string
+          nullable: false
       - $ref: "#/components/parameters/page"
       - $ref: "#/components/parameters/pageSize"
       - $ref: "#/components/parameters/authorizationHeader"
@@ -1848,10 +1930,11 @@ paths:
 components:
   schemas:
     AdditionalInfo:
-      type: string
+      type: object
       additionalProperties:
         description: A free space containing any additional information related to
           a particular object.
+        nullable: true
       description: "A free space containing any additional information related to\
         \ a particular object. A data source may provide any JSON object, unrestricted\
         \ by the BrAPI specification."
@@ -2031,6 +2114,7 @@ components:
             type: string
     Attribute:
       required:
+      - attributeDbId
       - attributeName
       - method
       - scale
@@ -2038,7 +2122,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         attributeCategory:
           type: string
           description: General category for the attribute. very similar to Trait class.
@@ -2064,6 +2150,7 @@ components:
           type: string
           description: "Crop name (examples: \"Maize\", \"Wheat\")"
           nullable: true
+          example: Maize
         contextOfUse:
           type: array
           description: "Indication of how trait is routinely used. (examples: [\"\
@@ -2075,11 +2162,13 @@ components:
           type: string
           description: "Variable default value. (examples: \"red\", \"2.3\", etc.)"
           nullable: true
+          example: "2.0"
         documentationURL:
           type: string
           description: A URL to the human readable documentation of an object
           format: uri
           nullable: true
+          example: https://wiki.brapi.org/documentation.html
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -2093,15 +2182,18 @@ components:
           description: "Growth stage at which measurement is made (examples: \"flowering\"\
             )"
           nullable: true
+          example: flowering
         institution:
           type: string
           description: Name of institution submitting the variable
           nullable: true
+          example: The BrAPI Institute
         language:
           type: string
           description: 2 letter ISO 639-1 code for the language of submission of the
             variable.
           nullable: true
+          example: en
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
@@ -2114,11 +2206,13 @@ components:
           type: string
           description: Name of scientist submitting the variable.
           nullable: true
+          example: Dr. Bob Robertson
         status:
           type: string
           description: "Variable status. (examples: \"recommended\", \"obsolete\"\
             , \"legacy\", etc.)"
           nullable: true
+          example: recommended
         submissionTimestamp:
           type: string
           description: Timestamp when the Variable was added (ISO 8601)
@@ -2302,7 +2396,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         contactDbId:
           type: string
           description: |-
@@ -2313,6 +2409,7 @@ components:
           type: string
           description: description of this person
           nullable: true
+          example: Bob likes pina coladas and getting caught in the rain.
         email:
           type: string
           description: |-
@@ -2324,6 +2421,7 @@ components:
           type: string
           description: email address for this person
           nullable: true
+          example: bob@bob.com
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -2336,6 +2434,7 @@ components:
           type: string
           description: Persons first name
           nullable: true
+          example: Bob
         instituteName:
           type: string
           description: |-
@@ -2347,6 +2446,7 @@ components:
           type: string
           description: Persons last name
           nullable: true
+          example: Robertson
         listDbIds:
           type: array
           description: ""
@@ -2357,10 +2457,12 @@ components:
           type: string
           description: physical address of this person
           nullable: true
+          example: "123 Street Ave, City, State, Country"
         middleName:
           type: string
           description: Persons middle name
           nullable: true
+          example: Danger
         name:
           type: string
           description: |-
@@ -2384,14 +2486,12 @@ components:
         personDbId:
           type: string
           description: Unique ID for a person
-        personName:
-          type: string
-          description: The full name of a person
-          nullable: true
+          example: 14340a54
         phoneNumber:
           type: string
           description: phone number of this person
           nullable: true
+          example: +1-555-555-5555
         programDbIds:
           type: array
           description: ""
@@ -2410,6 +2510,7 @@ components:
           description: A systems user ID associated with this person. Different from
             personDbId because you could have a person who is not a user of the system.
           nullable: true
+          example: bob-23
     ContentTypes:
       type: string
       enum:
@@ -2598,12 +2699,14 @@ components:
           description: The DOI or other permanent unique identifier for this published
             dataset
           nullable: true
+          example: doi:10.15454/312953986E3
         license:
           type: string
           description: MIAPPE V1.1 (DM-7) License - License for the reuse of the data
             associated with this investigation. The Creative Commons licenses cover
             most use cases and are recommended.
           nullable: true
+          example: https://CreativeCommons.org/licenses/by/4.0
         publicReleaseDate:
           type: string
           description: MIAPPE V1.1 (DM-6) Public release date - Date of first public
@@ -2615,6 +2718,12 @@ components:
             the dataset presently being described to a host repository.
           nullable: true
       description: License and citation information for the data in this trial
+    Dimension:
+      type: string
+      description: the dimension of the matrix being paginated
+      enum:
+      - CALLSETS
+      - VARIANTS
     EnvironmentParameter:
       required:
       - description
@@ -2753,6 +2862,10 @@ components:
             \ several studies, the experimental design can be \"unknown\"/\"NA\",\
             \ \"aggregated/reduced data\", or simply 'none'."
           nullable: true
+          example: "Lines were repeated twice at each location using a complete block\
+            \ design. In order to limit competition effects, each block was organized\
+            \ into four sub-blocks corresponding to earliest groups based on a prior\
+            \ information."
         experimentFactors:
           type: array
           description: The factors used in the experimental design.
@@ -2927,7 +3040,8 @@ components:
       nullable: true
     GeoJSONGeometry:
       type: object
-      nullable: true
+      discriminator:
+        propertyName: type
       oneOf:
       - required:
         - coordinates
@@ -3496,11 +3610,13 @@ components:
           description: "MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth\
             \ facility in which the study was carried out, in the form of an accession\
             \ number from the Crop Ontology."
+          example: CO_715:0000162
         description:
           type: string
           description: MIAPPE V1.1 (DM-26) Description of growth facility - Short
             description of the facility in which the study was carried out.
           nullable: true
+          example: "field environment condition, greenhouse"
       description: Short description of the facility in which the study was carried
         out.
       nullable: true
@@ -3626,6 +3742,7 @@ components:
           type: string
           description: The version of the update.
           nullable: true
+          example: 1.2.3
       description: The date and time when this study was last modified
       nullable: true
     List:
@@ -3649,7 +3766,9 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         data:
           type: array
           description: The array of DbIds of the BrAPI objects contained in a List
@@ -3678,13 +3797,16 @@ components:
           type: string
           description: Description of a List
           nullable: true
+          example: This is a list of germplasm I would like to investigate next season
         listName:
           type: string
           description: Human readable name of a List
+          example: MyGermplasm_Sept_2020
         listOwnerName:
           type: string
           description: Human readable name of a List Owner. (usually a user or person)
           nullable: true
+          example: Bob Robertson
         listOwnerPersonDbId:
           type: string
         listSize:
@@ -3692,10 +3814,12 @@ components:
           description: The number of elements in a List
           format: int32
           nullable: true
+          example: 53
         listSource:
           type: string
           description: The description of where a List originated from
           nullable: true
+          example: GeneBank Repository 1.3
         listType:
           $ref: "#/components/schemas/ListType"
       description: "A List represents a collection of other BrAPI data objects. Typically\
@@ -3950,6 +4074,7 @@ components:
           locationDbId:
             type: string
             description: The unique identifier for a Location
+            example: 3cfdd67d
         description: "A geographic Location on earth. This is usually used to describe\
           \ the general area where an experiment took place. For example, a natural\
           \ site, an experimental field, a greenhouse, a phenotyping facility, etc."
@@ -3962,48 +4087,60 @@ components:
           type: string
           description: A shortened version of the human readable name for a Location
           nullable: true
+          example: L1
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         coordinateDescription:
           type: string
           description: "Describes the precision and landmarks of the coordinate values\
             \ used for a Location. (ex. the site, the nearest town, a 10 kilometers\
             \ radius circle, +/- 20 meters, etc)"
           nullable: true
+          example: North East corner of greenhouse
         coordinateUncertainty:
           type: string
           description: Uncertainty associated with the coordinates in meters. Leave
             the value empty if the uncertainty is unknown.
           nullable: true
+          example: "20"
         coordinates:
-          $ref: "#/components/schemas/GeoJSON"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/GeoJSON"
         countryCode:
           type: string
           description: |-
             [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec
             <br/> MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.'
           nullable: true
+          example: PER
         countryName:
           type: string
           description: |-
             The full name of the country where a Location is located
             <br/> MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.
           nullable: true
+          example: Peru
         documentationURL:
           type: string
           description: A URL to the human readable documentation of an object
           format: uri
           nullable: true
+          example: https://brapi.org
         environmentType:
           type: string
           description: "Describes the general type of environment of a Location. (ex.\
             \ forest, field, nursery, etc)"
           nullable: true
+          example: Nursery
         exposure:
           type: string
           description: Describes the level of protection/exposure for things like
             sun light and wind at a particular Location
           nullable: true
+          example: "Structure, no exposure"
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -4018,22 +4155,26 @@ components:
             The street address of the institute at a particular Location
             <br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.
           nullable: true
+          example: "123 First Street, Townsville, AB 12345, USA"
         instituteName:
           type: string
           description: |-
             The full name of the institute at a particular Location
             <br/> MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.
           nullable: true
+          example: Plant Science Institute
         locationName:
           type: string
           description: |-
             A human readable name for a Location
             <br/> MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.
+          example: Location 1
         locationType:
           type: string
           description: "A short description of a type of Location (ex. Field Station,\
             \ Breeding Location, Storage Location, etc)"
           nullable: true
+          example: Field Station
         parentLocationDbId:
           type: string
           nullable: true
@@ -4045,15 +4186,18 @@ components:
           description: "Description of the accessibility of the location (ex. Public,\
             \ Private)"
           nullable: true
+          example: Private
         slope:
           type: string
           description: Describes the approximate slope (height/distance) of a Location.
           nullable: true
+          example: "0"
         topography:
           type: string
           description: "Describes the topography of the land at a Location. (ex. Plateau,\
             \ Cirque, Hill, Valley, etc)"
           nullable: true
+          example: Valley
       description: "A geographic Location on earth. This is usually used to describe\
         \ the general area where an experiment took place. For example, a natural\
         \ site, an experimental field, a greenhouse, a phenotyping facility, etc."
@@ -4101,9 +4245,9 @@ components:
           items:
             type: string
         coordinates:
-          anyOf:
+          nullable: true
+          allOf:
           - $ref: "#/components/schemas/GeoJSONSearchArea"
-          - type: "null"
         countryCodes:
           type: array
           description: "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)\
@@ -4213,9 +4357,9 @@ components:
           items:
             type: string
         coordinates:
-          anyOf:
+          nullable: true
+          allOf:
           - $ref: "#/components/schemas/GeoJSONSearchArea"
-          - type: "null"
         countryCodes:
           type: array
           description: "[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)\
@@ -5364,6 +5508,7 @@ components:
           personDbId:
             type: string
             description: Unique ID for a person
+            example: 14340a54
         description: "A generic object used to maintain the metadata needed to describe\
           \ a human. The Person might be a software user, a field technician, or a\
           \ primary contact for a Program."
@@ -5371,15 +5516,19 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         description:
           type: string
           description: description of this person
           nullable: true
+          example: Bob likes pina coladas and getting caught in the rain.
         emailAddress:
           type: string
           description: email address for this person
           nullable: true
+          example: bob@bob.com
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -5392,6 +5541,7 @@ components:
           type: string
           description: Persons first name
           nullable: true
+          example: Bob
         instituteName:
           type: string
           description: |-
@@ -5403,14 +5553,17 @@ components:
           type: string
           description: Persons last name
           nullable: true
+          example: Robertson
         mailingAddress:
           type: string
           description: physical address of this person
           nullable: true
+          example: "123 Street Ave, City, State, Country"
         middleName:
           type: string
           description: Persons middle name
           nullable: true
+          example: Danger
         orcid:
           type: string
           description: |-
@@ -5418,14 +5571,11 @@ components:
 
             MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.
           nullable: true
-        personName:
-          type: string
-          description: The full name of a person
-          nullable: true
         phoneNumber:
           type: string
           description: phone number of this person
           nullable: true
+          example: +1-555-555-5555
         type:
           type: string
           description: |-
@@ -5438,6 +5588,7 @@ components:
           description: A systems user ID associated with this person. Different from
             personDbId because you could have a person who is not a user of the system.
           nullable: true
+          example: bob-23
       description: "A generic object used to maintain the metadata needed to describe\
         \ a human. The Person might be a software user, a field technician, or a primary\
         \ contact for a Program."
@@ -5818,6 +5969,7 @@ components:
           programDbId:
             type: string
             description: The ID which uniquely identifies the program
+            example: f60f15b2
         description: A BrAPI Program represents the high level organization or group
           who is responsible for conducting trials and studies. Things like Breeding
           Programs and Funded Projects are considered BrAPI Programs. A Program can
@@ -5831,17 +5983,22 @@ components:
           type: string
           description: A shortened version of the human readable name for a Program
           nullable: true
+          example: P1
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         commonCropName:
           type: string
           description: Common name for the crop which this program is for
           nullable: true
+          example: Tomatillo
         documentationURL:
           type: string
           description: A URL to the human readable documentation of an object
           format: uri
           nullable: true
+          example: https://wiki.brapi.org
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -5855,6 +6012,7 @@ components:
           description: Information describing the grant or funding source for this
             program
           nullable: true
+          example: "EU: FP7-244374"
         leadPersonDbId:
           type: string
           nullable: true
@@ -5865,15 +6023,19 @@ components:
           type: string
           description: The primary objective of the program
           nullable: true
+          example: Make a better tomatillo
         programName:
           type: string
           description: Human readable name of the program
+          example: Tomatillo_Breeding_Program
         programType:
           type: string
           description: "The type of program entity this object represents\n<br/> 'STANDARD'\
             \ represents a standard, permanent breeding program\n<br/> 'PROJECT' represents\
             \ a short term project, usually with a set time limit based on funding\
             \   "
+          nullable: true
+          example: STANDARD
           enum:
           - STANDARD
           - PROJECT
@@ -6082,9 +6244,10 @@ components:
         contain multiple Trials. A Trial can contain multiple Studies.
     ProgramType:
       type: string
-      description: "The type of program entity this object represents\n<br/> 'STANDARD'\
-        \ represents a standard, permanent breeding program\n<br/> 'PROJECT' represents\
-        \ a short term project, usually with a set time limit based on funding   "
+      description: |-
+        The type of program entity this object represents
+        <br/> 'STANDARD' represents a standard, permanent breeding program
+        <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding.
       enum:
       - STANDARD
       - PROJECT
@@ -6095,10 +6258,13 @@ components:
           type: string
           description: The permanent unique identifier of the publication.
           nullable: true
+          example: doi:10.15454/312953986E3
         publicationReference:
           type: string
           description: The publication reference.
           nullable: true
+          example: "Selby, BrAPI - An application programming interface for plant\
+            \ breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190"
       description: MIAPPE V1.1 (DM-9) Associated publication - An identifier for a
         literature publication where the investigation is described. Use of DOIs is
         recommended.
@@ -6713,6 +6879,7 @@ components:
               The ID which uniquely identifies a study within the given database server
 
               MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.
+            example: 175ac75a
         description: A Study represents an experiment that has taken place at a single
           location. The Study contains metadata about the parameters and design of
           the experiment. It can also be used to group results and data sets generated
@@ -6726,12 +6893,16 @@ components:
           type: boolean
           description: A flag to indicate if a Study is currently active and ongoing
           nullable: true
+          example: true
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         commonCropName:
           type: string
           description: Common name for the crop associated with this study
           nullable: true
+          example: Grape
         contacts:
           type: array
           description: List of contact entities associated with this study
@@ -6743,6 +6914,8 @@ components:
           description: MIAPPE V1.1 (DM-28) Cultural practices - General description
             of the cultural practices of the study.
           nullable: true
+          example: Irrigation was applied according needs during summer to prevent
+            water stress.
         dataLinks:
           type: array
           description: "List of links to extra data files associated with this study.\
@@ -6755,6 +6928,7 @@ components:
           description: A URL to the human readable documentation of an object
           format: uri
           nullable: true
+          example: https://wiki.brapi.org
         endDate:
           type: string
           description: |-
@@ -6773,7 +6947,9 @@ components:
           items:
             $ref: "#/components/schemas/EnvironmentParameter"
         experimentalDesign:
-          $ref: "#/components/schemas/ExperimentalDesign"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/ExperimentalDesign"
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -6783,13 +6959,18 @@ components:
           items:
             $ref: "#/components/schemas/ExternalReference"
         growthFacility:
-          $ref: "#/components/schemas/GrowthFacility"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/GrowthFacility"
         lastUpdate:
-          $ref: "#/components/schemas/LastUpdate"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/LastUpdate"
         license:
           type: string
           description: The usage license associated with the study data
           nullable: true
+          example: MIT License
         locationDbId:
           type: string
           nullable: true
@@ -6815,6 +6996,9 @@ components:
           description: MIAPPE V1.1 (DM-25) Observation unit description - General
             description of the observation units in the study.
           nullable: true
+          example: Observation units consisted in individual plots themselves consisting
+            of a row of 15 plants at a density of approximately six plants per square
+            meter.
         observationVariableDbIds:
           type: array
           description: "The list of Observation Variables being used in this study.\
@@ -6847,12 +7031,15 @@ components:
           type: string
           description: A short human readable code for a study
           nullable: true
+          example: Grape_Yield_Spring_2018
         studyDescription:
           type: string
           description: |-
             The description of this study
 
             MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study
+          nullable: true
+          example: This is a yield study for Spring 2018
         studyName:
           type: string
           description: |-
@@ -6860,15 +7047,18 @@ components:
 
             MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study
           nullable: true
+          example: INRA's Walnut Genetic Resources Observation at Kenya
         studyPUI:
           type: string
           description: "A permanent unique identifier associated with this study data.\
             \ For example, a URI or DOI"
           nullable: true
+          example: doi:10.155454/12349537312
         studyType:
           type: string
           description: "The type of study being performed. ex. \"Yield Trial\", etc"
           nullable: true
+          example: Phenotyping
         trialDbId:
           type: string
         trialName:
@@ -7332,6 +7522,7 @@ components:
               The ID which uniquely identifies a trial
 
               MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.
+            example: 1883b402
         description: "A Trial represents a collection of Study objects, and the metadata\
           \ associated with that collection. A Trial could represent a multi-location\
           \ experiment, and could contain information related to publications and\
@@ -7345,12 +7536,16 @@ components:
           type: boolean
           description: A flag to indicate if a Trial is currently active and ongoing
           nullable: true
+          example: true
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         commonCropName:
           type: string
           description: Common name for the crop associated with this trial
           nullable: true
+          example: Wheat
         contacts:
           type: array
           description: List of contact entities associated with this trial
@@ -7368,6 +7563,7 @@ components:
           description: A URL to the human readable documentation of an object
           format: uri
           nullable: true
+          example: https://wiki.brapi.org
         endDate:
           type: string
           description: The date this trial ends
@@ -7405,17 +7601,21 @@ components:
 
             MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.
           nullable: true
+          example: General drought resistance trial initiated in Peru before duplication
+            in Africa
         trialName:
           type: string
           description: |-
             The human readable name of a trial
 
             MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.
+          example: Peru Yield Trial 1
         trialPUI:
           type: string
           description: A permanent identifier for a trial. Could be DOI or other URI
             formatted identifier.
           nullable: true
+          example: https://doi.org/101093190
       description: "A Trial represents a collection of Study objects, and the metadata\
         \ associated with that collection. A Trial could represent a multi-location\
         \ experiment, and could contain information related to publications and data\
@@ -7710,11 +7910,14 @@ components:
       type: object
       properties:
         additionalInfo:
-          $ref: "#/components/schemas/AdditionalInfo"
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/AdditionalInfo"
         commonCropName:
           type: string
           description: "Crop name (examples: \"Maize\", \"Wheat\")"
           nullable: true
+          example: Maize
         contextOfUse:
           type: array
           description: "Indication of how trait is routinely used. (examples: [\"\
@@ -7726,11 +7929,13 @@ components:
           type: string
           description: "Variable default value. (examples: \"red\", \"2.3\", etc.)"
           nullable: true
+          example: "2.0"
         documentationURL:
           type: string
           description: A URL to the human readable documentation of an object
           format: uri
           nullable: true
+          example: https://wiki.brapi.org/documentation.html
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -7744,15 +7949,18 @@ components:
           description: "Growth stage at which measurement is made (examples: \"flowering\"\
             )"
           nullable: true
+          example: flowering
         institution:
           type: string
           description: Name of institution submitting the variable
           nullable: true
+          example: The BrAPI Institute
         language:
           type: string
           description: 2 letter ISO 639-1 code for the language of submission of the
             variable.
           nullable: true
+          example: en
         method:
           $ref: "#/components/schemas/Method"
         ontologyReference:
@@ -7765,11 +7973,13 @@ components:
           type: string
           description: Name of scientist submitting the variable.
           nullable: true
+          example: Dr. Bob Robertson
         status:
           type: string
           description: "Variable status. (examples: \"recommended\", \"obsolete\"\
             , \"legacy\", etc.)"
           nullable: true
+          example: recommended
         submissionTimestamp:
           type: string
           description: Timestamp when the Variable was added (ISO 8601)
@@ -8805,7 +9015,7 @@ components:
               '@context':
                 $ref: "#/components/schemas/Context"
               metadata:
-                $ref: "#/components/schemas/metadata"
+                $ref: "#/components/schemas/metadataTokenPagination"
               result:
                 required:
                 - data
@@ -9000,6 +9210,18 @@ components:
       schema:
         type: integer
       example: 1000
+    authorizationHeader:
+      name: Authorization
+      in: header
+      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
+        \ {token_string} </strong>"
+      required: false
+      style: simple
+      explode: false
+      schema:
+        pattern: ^Bearer .*$
+        type: string
+      example: Bearer XXXX
     page:
       name: page
       in: query
@@ -9028,18 +9250,6 @@ components:
       schema:
         type: string
       example: 33c27874
-    authorizationHeader:
-      name: Authorization
-      in: header
-      description: "HTTP HEADER - Token used for Authorization \n\n<strong> Bearer\
-        \ {token_string} </strong>"
-      required: false
-      style: simple
-      explode: false
-      schema:
-        pattern: ^Bearer .*$
-        type: string
-      example: Bearer XXXX
   securitySchemes:
     AuthorizationToken:
       type: http
