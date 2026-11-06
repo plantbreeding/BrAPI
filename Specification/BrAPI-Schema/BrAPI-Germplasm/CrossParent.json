@@ -1,15 +1,18 @@
 {
     "$defs": {
         "CrossParent": {
-            "nullable" : true,
+            "nullable": true,
             "properties": {
                 "germplasm": {
                     "description": "the germplasm of the cross parent",
-					"relationshipType": "one-to-one",
+                    "relationshipType": "one-to-one",
                     "$ref": "Germplasm.json#/$defs/Germplasm",
                     "type": [
                         "null",
                         "string"
+                    ],
+                    "examples": [
+                        "Germplasm ID XYZ"
                     ]
                 },
                 "observationUnit": {
@@ -19,6 +22,9 @@
                     "type": [
                         "null",
                         "string"
+                    ],
+                    "examples": [
+                        "Unit_ABC"
                     ]
                 },
                 "parentType": {

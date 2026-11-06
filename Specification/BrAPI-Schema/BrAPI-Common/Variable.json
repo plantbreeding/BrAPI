@@ -16,7 +16,8 @@
                     "example": "Maize"
                 },
                 "contextOfUse": {
-                    "description": "Indication of how trait is routinely used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])",
+                    "deprecated": true,
+                    "description": "**Deprecated in v2.2** Please use `variableCategory` instead.\n Indicates how a given variable is typically used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])",
                     "items": {
                         "type": "string"
                     },
@@ -102,7 +103,6 @@
                     "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/Scale"
                 },
                 "scientist": {
-                    "description": "Name of scientist submitting the variable.",
                     "type": [
                         "null",
                         "string"
@@ -123,6 +123,22 @@
                     "type": [
                         "null",
                         "string"
+                    ],
+                    "example": "2017-06-16T20:47:23Z"
+                },
+                "variableCategory": {
+                    "description": "Defines the broad category of the variable, allowing for groupings such as phenotyping, environmental, or germplasm attributes.",
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "examples": [
+                        "phenotyping",
+                        "Trial evaluation",
+                        "Nursery evaluation",
+                        "Germplasm Attributes",
+                        "Environmental",
+                        "Morphological"
                     ]
                 },
                 "synonyms": {

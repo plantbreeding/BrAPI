@@ -14,7 +14,8 @@
                             "type": [
                                 "null",
                                 "string"
-                            ]
+                            ],
+                            "example": "F3"
                         }
                     }
                 }

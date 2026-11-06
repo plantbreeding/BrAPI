@@ -5,7 +5,7 @@
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
                     "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
-					"relationshipType": "one-to-one"
+                    "relationshipType": "one-to-one"
                 },
                 "date": {
                     "description": "**Deprecated in v2.1** Please use `eventDateRange.discreteDates`. Github issue number #440\n<br>A list of dates when the event occurred\n<br>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
@@ -18,7 +18,10 @@
                         "null",
                         "array"
                     ],
-                    "examples" : ["2018-10-08T18:15:11Z", "2018-11-09T18:16:12Z"]
+                    "examples": [
+                        "2018-10-08T18:15:11Z",
+                        "2018-11-09T18:16:12Z"
+                    ]
                 },
                 "eventDateRange": {
                     "description": "An object describing when a particular Event has taken place. An Event can occur at one or more discrete time points (`discreteDates`) or an event can happen continuously over a longer period of time (`startDate`, `endDate`)",
@@ -26,14 +29,16 @@
                 },
                 "eventDbId": {
                     "description": "Internal database identifier",
-                    "type": "string"
+                    "type": "string",
+                    "example": "UUID-12345"
                 },
                 "eventDescription": {
                     "description": "A detailed, human-readable description of this event\n<br/>MIAPPE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. ",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Fertilizer application of 100kg of nitrogen."
                 },
                 "eventParameters": {
                     "description": "A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI",
@@ -47,18 +52,27 @@
                     "type": [
                         "null",
                         "array"
+                    ],
+                    "example": [
+                        {
+                            "code": "tiimp",
+                            "name": "Tillage Implement",
+                            "value": "John Deere 8300"
+                        }
                     ]
                 },
                 "eventType": {
                     "description": "An identifier for this event type, in the form of an ontology class reference\n<br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other\n<br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).",
-                    "type": "string"
+                    "type": "string",
+                    "example": "planting"
                 },
                 "eventTypeDbId": {
                     "description": "An identifier for this event type, in the form of an ontology class reference\n<br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other\n<br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "event_type_db_id_xyz"
                 },
                 "observationUnits": {
                     "description": "A list of the affected observation units. If this parameter is not given, it is understood that the event affected all units in the study",
@@ -70,6 +84,12 @@
                     "type": [
                         "null",
                         "array"
+                    ],
+                    "example": [
+                        {
+                            "obsUnitDbId": "unit_1",
+                            "obsUnitType": "Plot"
+                        }
                     ]
                 },
                 "study": {
@@ -83,7 +103,11 @@
                     ],
                     "description": "The study in which the event occurred",
                     "referencedAttribute": "events",
-                    "relationshipType": "many-to-one"
+                    "relationshipType": "many-to-one",
+                    "example": {
+                        "studyDbId": "study_123",
+                        "title": "Trial Alpha"
+                    }
                 }
             },
             "required": [
@@ -100,7 +124,7 @@
         "EventDateRange": {
             "nullable": true,
             "properties": {
-				"discreteDates": {
+                "discreteDates": {
                     "description": "A list of dates when the event occurred\n<br/>MIAPPE V1.1 (DM-68) Event date - Date and time of the event.",
                     "items": {
                         "format": "date-time",

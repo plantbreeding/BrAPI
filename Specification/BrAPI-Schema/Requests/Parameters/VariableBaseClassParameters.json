@@ -196,6 +196,21 @@
                                 "Root"
                             ]
                         },
+                        "variableCategories": {
+                            "description": "Defines the broad category of the variable, allowing for groupings such as phenotyping, environmental, or germplasm attributes.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "phenotyping",
+                                "Trial evaluation",
+                                "Nursery evaluation",
+                                "Germplasm Attributes",
+                                "Environmental",
+                                "Morphological"
+                            ]
+                        },
                         "traitEntityPUIs": {
                             "description": "The Permanent Unique Identifier of a Trait Entity, usually in the form of a URI\n<br/>A trait can be decomposed as \"Trait\" = \"Entity\" + \"Attribute\", the entity is the part of the plant that the trait refers to e.g., for \"grain colour\", entity = \"grain\" ",
                             "items": {

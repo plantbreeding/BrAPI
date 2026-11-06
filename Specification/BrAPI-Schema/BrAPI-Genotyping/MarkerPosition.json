@@ -4,6 +4,7 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "example": { "details": "marker info" },
                     "relationshipType": "one-to-one",
                     "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
                 },
@@ -20,11 +21,13 @@
                         {"type": "null"}
                     ],
                     "description": "The ID which uniquely identifies a `GenomeMap`",
+                    "example": { "mapDbId": "g1" },
                     "referencedAttribute": "markerPositions",
                     "relationshipType": "many-to-one"
                 },
                 "position": {
                     "description": "The position of a marker or variant within a `LinkageGroup`",
+                    "example": 1000,
                     "type": [
                         "null",
                         "integer"
@@ -36,6 +39,7 @@
                         {"type": "null"}
                     ],
                     "description": "The ID which uniquely identifies a `Variant` within the given database server\n<br> A `Variant` can also represent a Marker ",
+                    "example": { "variantDbId": "v1" },
                     "referencedAttribute": "markerPositions",
                     "relationshipType": "many-to-one"
                 }

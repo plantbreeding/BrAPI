@@ -4,6 +4,7 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "example": { "details": "reference metadata" },
                     "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
                     "relationshipType": "one-to-one"
                 },
@@ -21,6 +22,11 @@
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "example": [
+                        {
+                            "uri": "http://example.com/reference"
+                        }
+                    ],
                     "relationshipType": "one-to-many",
                     "items": {
                         "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
@@ -73,6 +79,9 @@
                 },
                 "sourceAccessions": {
                     "description": "All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.",
+                    "example": [
+                        "GCF_000001405.26"
+                    ],
                     "items": {
                         "type": "string"
                     },
@@ -83,6 +92,7 @@
                 },
                 "sourceDivergence": {
                     "description": "The `sourceDivergence` is the fraction of non-indel bases that do not match the `Reference` this message was derived from.",
+                    "example": 0.05,
                     "type": [
                         "null",
                         "number"
@@ -90,6 +100,7 @@
                 },
                 "sourceGermplasm": {
                     "description": "All known corresponding Germplasm",
+                    "example": [ { "germplasmDbId": "g1", "germplasmName": "Test_Plant" } ],
                     "relationshipType": "one-to-many",
                     "referencedAttribute": "reference",
                     "items": {
@@ -104,6 +115,7 @@
                 },
                 "sourceURI": {
                     "description": "The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.",
+                    "example": "ftp://data.dbj.ie/seq/fasta_data.txt",
                     "type": [
                         "null",
                         "string"
@@ -117,7 +129,10 @@
                 },
                 "variants": {
                     "title": "variants",
-                    "description": "variants",
+                    "description": "A list of variants associated with this Reference.",
+                    "example": [
+                        { "variantDbId": "v1" }
+                    ],
                     "referencedAttribute": "reference",
                     "relationshipType": "one-to-many",
                     "items": {

@@ -10,6 +10,12 @@
                 "markerPositions": {
                     "title": "markerPositions",
                     "description": "markerPositions",
+                    "example": [
+                        {
+                            "markerDbId": "m1",
+                            "position": 1000
+                        }
+                    ],
                     "referencedAttribute": "map",
                     "relationshipType": "one-to-many",
                     "items": {

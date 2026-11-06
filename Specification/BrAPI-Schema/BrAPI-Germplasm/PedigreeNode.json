@@ -91,7 +91,7 @@
                     ]
                 },
                 "progeny": {
-                    "description": "A list of germplasm references that are direct children of this germplasm. These represent edges in the tree, connecting to other nodes.\n<br/> The given germplasm could have a large number of progeny, across a number of different breeding methods. The 'parentType' shows \n      the type of parent this germplasm is to each of the child germplasm references.\n<br/> If the parameter 'includeProgeny' is set to false, then this array should be empty, null, or not present in the response.",
+                    "description": "A list of germplasm references that are direct children of this germplasm. These represent edges in the tree, connecting to other nodes.\n<br/> The given germplasm could have a large number of progeny, across a number of different breeding methods. The 'parentType' shows \n the type of parent this germplasm is to each of the child germplasm references.\n<br/> If the parameter 'includeProgeny' is set to false, then this array should be empty, null, or not present in the response.",
                     "relationshipType": "one-to-many",
                     "referencedAttribute": "pedigreeNode",
                     "items": {

@@ -4,20 +4,23 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
-                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
-					"relationshipType": "one-to-one"
+                    "example": { "details": "some additional info" },
+                    "relationshipType": "one-to-one",
+                    "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
                 },
                 "callSets": {
                     "description": "A list of unique identifiers for the CallSets contained in the matrix response. This array should match the ordering for columns in the matrix. A CallSet is a unique combination of a Sample and a sequencing event. CallSets often have a 1-to-1 relationship with Samples, but this is not always the case.",
                     "items": {
                         "$ref": "CallSet.json#/$defs/CallSet"
                     },
+                    "example": [ { "callSetDbId": "cs1" } ],
                     "referencedAttribute": "alleleMatrices",
                     "relationshipType": "many-to-many",
                     "type": "array"
                 },
                 "dataMatrices": {
                     "description": "The 'dataMatrices' are an array of matrix objects that hold the allele data and associated metadata. Each matrix should be the same size and orientation, aligned with the \"callSetDbIds\" as columns and the \"variantDbIds\" as rows.",
+                    "example": [ { "dataMatrix": [ ["0/1", "1/0"] ], "dataMatrixAbbreviation": "GT" } ],
                     "relationshipType": "one-to-many",
                     "referencedAttribute": "alleleMatrix",
                     "items": {
@@ -32,6 +35,7 @@
                 },
                 "expandHomozygotes": {
                     "description": "Should homozygotes be expanded (true) or collapsed into a single occurrence (false)",
+                    "example": false,
                     "type": [
                         "null",
                         "boolean"
@@ -39,6 +43,7 @@
                 },
                 "pagination": {
                     "description": "Pagination for the matrix",
+                    "example": { "page": 1, "pageSize": 100, "totalCount": 1000 },
                     "relationshipType": "one-to-many",
                     "referencedAttribute": "alleleMatrix",
                     "items": {
@@ -53,6 +58,7 @@
                 },
                 "sepPhased": {
                     "description": "The string used as a separator for phased allele calls.",
+                    "example": "|",
                     "type": [
                         "null",
                         "string"
@@ -60,6 +66,7 @@
                 },
                 "sepUnphased": {
                     "description": "The string used as a separator for unphased allele calls.",
+                    "example": ",",
                     "type": [
                         "null",
                         "string"
@@ -67,6 +74,7 @@
                 },
                 "unknownString": {
                     "description": "The string used as a representation for missing data.",
+                    "example": "NA",
                     "type": [
                         "null",
                         "string"
@@ -74,6 +82,7 @@
                 },
                 "variantSets": {
                     "description": "A list of unique identifiers for the VariantSets contained in the matrix response. A VariantSet is a data set originating from a sequencing event. Often, users will only be interested in data from a single VariantSet, but in some cases a user might be interested in a matrix with data from multiple VariantSets.",
+                    "example": [ { "variantSetDbId": "vs1" } ],
                     "items": {
                         "$ref": "VariantSet.json#/$defs/VariantSet"
                     },
@@ -83,6 +92,7 @@
                 },
                 "variants": {
                     "description": "A list of unique identifiers for the Variants contained in the matrix response. This array should match the ordering for rows in the matrix.",
+                    "example": [ { "variantDbId": "v1" } ],
                     "items": {
                         "$ref": "Variant.json#/$defs/Variant"
                     },

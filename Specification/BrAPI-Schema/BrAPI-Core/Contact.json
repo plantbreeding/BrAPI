@@ -9,21 +9,27 @@
                     "properties": {
                         "contactDbId": {
                             "description": "**Deprecated in v2.2** Please use `personDbId`. Github issue number #582 <br> The ID which uniquely identifies this contact\n\nMIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.",
-                            "type": "string"
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "example": "c12345"
                         },
                         "email": {
                             "description": "**Deprecated in v2.2** Please use `emailAddress`. Github issue number #582 <br> The contacts email address\n\nMIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.",
                             "type": [
                                 "null",
                                 "string"
-                            ]
+                            ],
+                            "example": "test@example.com"
                         },
                         "name": {
                             "description": "**Deprecated in v2.2** Please use `firstName`, `middleName`, and `lastName`. Github issue number #582 <br> The full name of this contact person\n\nMIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)",
                             "type": [
                                 "null",
                                 "string"
-                            ]
+                            ],
+                            "example": "John Doe"
                         }
                     },
                     "required": [

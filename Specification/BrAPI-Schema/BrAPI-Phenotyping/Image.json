@@ -31,6 +31,11 @@
                     "type": [
                         "null",
                         "array"
+                    ],
+                    "example": [
+                        "tomato",
+                        "Ripe",
+                        "Solanum_lycopersicum"
                     ]
                 },
                 "externalReferences": {
@@ -41,16 +46,24 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": "array"
+                    "type": "array",
+                    "example": [
+                        {
+                            "externalRefDbId": "ref_1",
+                            "type": "WikiPage"
+                        }
+                    ]
                 },
                 "imageContent": {
                     "description": "The unique identifier of an image",
                     "type": "string",
-                    "format": "binary"
+                    "format": "binary",
+                    "example": "sha256:a1b2c3d4e5f6..."
                 },
                 "imageDbId": {
                     "description": "The unique identifier of an image",
-                    "type": "string"
+                    "type": "string",
+                    "example": "image_id_001"
                 },
                 "imageFileName": {
                     "description": "The name of the image file. Might be the same as 'imageName', but could be different.",
@@ -134,7 +147,11 @@
                         {
                             "type": "null"
                         }
-                    ]
+                    ],
+                    "example": {
+                        "obsUnitDbId": "plot_101",
+                        "obsUnitType": "Plot"
+                    }
                 },
                 "observations": {
                     "description": "A list of observation Ids this image is associated with, if applicable.",
@@ -143,13 +160,29 @@
                     },
                     "referencedAttribute": "images",
                     "relationshipType": "one-to-many",
-                    "type": ["null", "array"]
+                    "type": [
+                        "null",
+                        "array"
+                    ],
+                    "example": [
+                        {
+                            "obsDbId": "obs_1",
+                            "obsTitle": "Visual count"
+                        },
+                        {
+                            "obsDbId": "obs_2",
+                            "obsTitle": "Phenotype measurement"
+                        }
+                    ]
                 },
                 "germplasmMedia": {
                     "description": "A list of observation Ids this image is associated with, if applicable.",
                     "$ref": "../BrAPI-Germplasm/Germplasm.json#/$defs/GermplasmMedia",
                     "referencedAttribute": "image",
-                    "relationshipType": "one-to-one"
+                    "relationshipType": "one-to-one",
+                    "example": {
+                        "mediaDbId": "gmedia_1"
+                    }
                 }
             },
             "required": [

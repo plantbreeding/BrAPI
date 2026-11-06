@@ -43,6 +43,12 @@
                     "type": [
                         "null",
                         "array"
+                    ],
+                    "example": [
+                        {
+                            "externalRefDbId": "ref_s1",
+                            "type": "DOI"
+                        }
                     ]
                 },
                 "ontologyReference": {
@@ -115,6 +121,11 @@
                     "type": [
                         "null",
                         "array"
+                    ],
+                    "example": [
+                        {"label": "Low", "value": "L"},
+                        {"label": "Medium", "value": "M"},
+                        {"label": "High", "value": "H"}
                     ]
                 },
                 "maximumValue": {
@@ -138,6 +149,12 @@
                     "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/Scale",
                     "relationshipType": "many-to-one",
                     "referencedAttribute": "validValues"
+                },
+                "example": {
+                    "type": "object",
+                    "properties": {
+                        "categories": {"type": "array", "items": {"$ref": "#/$defs/ValidValuesCategory"}}
+                    }
                 }
             },
             "title": "ValidValues",

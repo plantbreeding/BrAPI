@@ -4,11 +4,17 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "example": { "meta": "plate data source" },
                     "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
                     "relationshipType": "one-to-one"
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "example": [
+                        {
+                            "uri": "http://example.com/plate"
+                        }
+                    ],
                     "relationshipType": "one-to-many",
                     "items": {
                         "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
@@ -52,6 +58,7 @@
                 },
                 "program": {
                     "description": "The ID which uniquely identifies a `Program` within the given database server",
+                    "example": { "programDbId": "p1" },
                     "referencedAttribute": "plates",
                     "relationshipType": "many-to-one",
                     "anyOf": [
@@ -80,6 +87,7 @@
                 },
                 "study": {
                     "description": "The ID which uniquely identifies a `Study` within the given database server",
+                    "example": { "studyDbId": "stu1" },
                     "referencedAttribute": "plates",
                     "relationshipType": "many-to-one",
                     "anyOf": [
@@ -93,6 +101,7 @@
                 },
                 "trial": {
                     "description": "The ID which uniquely identifies a `Trial` within the given database server",
+                    "example": { "trialDbId": "t1" },
                     "referencedAttribute": "plates",
                     "relationshipType": "many-to-one",
                     "anyOf": [
@@ -106,7 +115,10 @@
                 },
                 "samples": {
                     "title": "samples",
-                    "description": "samples",
+                    "description": "A list of Samples associated with this Plate.",
+                    "example": [
+                        { "sampleDbId": "s1" }
+                    ],
                     "referencedAttribute": "plate",
                     "relationshipType": "one-to-many",
                     "items": {

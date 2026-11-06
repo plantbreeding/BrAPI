@@ -1,49 +1,54 @@
 {
     "$defs": {
         "DataLink": {
-            "description": "A link to a data file associated with a study. Extra data could include notes, images, and reference data. Based on the MIAPPE V1.1 (DM-38) Data file description.",
             "properties": {
                 "dataFormat": {
                     "description": "The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)\n\nMIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "VCF"
                 },
                 "description": {
                     "description": "The general description of this data link\n\nMIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Detailed description of data"
                 },
                 "fileFormat": {
                     "description": "The MIME type of the file (ie text/csv, application/excel, application/zip).\n\nMIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "text/csv"
                 },
                 "name": {
                     "description": "The name of the external data link\n\nMIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Data file for Trial 1"
                 },
                 "provenance": {
                     "description": "The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "MyLab Pipeline v1.2"
                 },
                 "scientificType": {
                     "description": "The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "Phenotyping raw data"
                 },
                 "url": {
                     "description": "URL describing the location of this data file to view or download\n\nMIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.",
@@ -51,14 +56,16 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "http://example.com/data.zip"
                 },
                 "version": {
                     "description": "The version number for this data \n\nMIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).",
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "1.0"
                 }
             },
             "title": "DataLink",
