@@ -4,17 +4,27 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "example": { "details": "some additional info" },
                     "relationshipType": "one-to-one",
                     "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo"
                 },
                 "callSet": {
-                    "$ref": "CallSet.json#/$defs/CallSet",
                     "description": "The ID of the call set this variant call belongs to.\n\nIf this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.",
+                    "example": { "callSetDbId": "cs1" },
+                    "$ref": "CallSet.json#/$defs/CallSet",
                     "referencedAttribute": "calls",
                     "relationshipType": "many-to-one"
                 },
                 "genotypeMetadata": {
                     "description": "Genotype Metadata are additional layers of metadata associated with each genotype.",
+                    "example": [
+                        {
+                            "dataType": "string",
+                            "fieldAbbreviation": "GQ",
+                            "fieldName": "Genotype Quality",
+                            "fieldValue": "99"
+                        }
+                    ],
                     "relationshipType": "one-to-many",
                     "referencedAttribute": "call",
                     "items": {
@@ -32,6 +42,7 @@
                 },
                 "phaseSet": {
                     "description": "If this field is populated, this variant call's genotype ordering implies the phase of the bases and \nis consistent with any other variant calls on the same contig which have the same phase set string.",
+                    "example": "phased",
                     "type": "string"
                 },
                 "genotype": {
@@ -80,6 +91,7 @@
             "properties": {
                 "dataType": {
                     "description": "The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.",
+                    "example": "string",
                     "enum": [
                         "string",
                         "integer",
@@ -91,14 +103,17 @@
                 },
                 "fieldAbbreviation": {
                     "description": "The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: \"GQ\", \"RD\", and \"HQ\"\n<br> This maps to a FORMAT field in the VCF file standard.",
+                    "example": "GT",
                     "type": "string"
                 },
                 "fieldName": {
                     "description": "The name of the field represented in this Genotype Field. Examples include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype Quality\"\n<br> This maps to a FORMAT field in the VCF file standard.",
+                    "example": "Genotype",
                     "type": "string"
                 },
                 "fieldValue": {
                     "description": "The additional metadata value associated with this genotype call",
+                    "example": "99.5",
                     "type": "string"
                 },
                 "call": {

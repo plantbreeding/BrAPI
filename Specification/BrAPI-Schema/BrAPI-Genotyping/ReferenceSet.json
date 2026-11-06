@@ -4,11 +4,13 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "example": { "metadata": "reference set data" },
                     "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
                     "relationshipType": "one-to-one"
                 },
                 "assemblyPUI": {
                     "description": "The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.",
+                    "example": "GRCh38",
                     "type": [
                         "null",
                         "string"
@@ -23,6 +25,7 @@
                 },
                 "description": {
                     "description": "Optional free text description of this reference set.",
+                    "example": "Reference set covering human genome assembly hg38.",
                     "type": [
                         "null",
                         "string"
@@ -30,6 +33,11 @@
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "example": [
+                        {
+                            "uri": "http://example.com/refset"
+                        }
+                    ],
                     "relationshipType": "one-to-many",
                     "items": {
                         "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
@@ -65,6 +73,9 @@
                 },
                 "sourceAccessions": {
                     "description": "All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.",
+                    "example": [
+                        "NC_000001.11"
+                    ],
                     "items": {
                         "type": "string"
                     },
@@ -75,6 +86,7 @@
                 },
                 "sourceGermplasm": {
                     "description": "All known corresponding Germplasm",
+                    "example": [ { "germplasmDbId": "g1" } ],
                     "relationshipType": "one-to-many",
                     "referencedAttribute": "referenceSet",
                     "items": {
@@ -89,6 +101,7 @@
                 },
                 "sourceURI": {
                     "description": "Specifies a FASTA format file/string.",
+                    "example": "https://example.com/fasta.fasta",
                     "type": [
                         "null",
                         "string"
@@ -109,7 +122,10 @@
                 },
                 "variants": {
                     "title": "variants",
-                    "description": "variants",
+                    "description": "A list of variants associated with this ReferenceSet.",
+                    "example": [
+                        { "variantDbId": "v1" }
+                    ],
                     "referencedAttribute": "referenceSet",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -120,7 +136,7 @@
                         "null",
                         "array"
                     ]
-                },
+                },,
                 "variantSets": {
                     "title": "variantSets",
                     "description": "variantSets",

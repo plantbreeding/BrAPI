@@ -1,7 +1,7 @@
 {
     "$defs": {
         "CrossType": {
-            "description": "The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK',  'BULK_SELFED',  'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'.",
+            "description": "The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK', 'BULK_SELFED', 'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'.",
             "enum": [
                 "BIPARENTAL",
                 "SELF",

@@ -98,7 +98,12 @@
                 },
                 "trials": {
                     "title": "Trials",
-                    "description": "",
+                    "description": "A set of experiments or trials conducted as part of a program.",
+                    "example": [
+                        {
+                            "$ref": "Trial.json#/$defs/Trial"
+                        }
+                    ],
                     "referencedAttribute": "program",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -112,7 +117,12 @@
                 },
                 "plates": {
                     "title": "plates",
-                    "description": "plates",
+                    "description": "An array of plates used in this program.",
+                    "example": [
+                        {
+                            "$ref": "../BrAPI-Genotyping/Plate.json#/$defs/Plate"
+                        }
+                    ],
                     "referencedAttribute": "program",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -126,7 +136,12 @@
                 },
                 "samples": {
                     "title": "samples",
-                    "description": "samples",
+                    "description": "An array of samples associated with this program.",
+                    "example": [
+                        {
+                            "$ref": "../BrAPI-Genotyping/Sample.json#/$defs/Sample"
+                        }
+                    ],
                     "referencedAttribute": "program",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -140,7 +155,12 @@
                 },
                 "crossingProjects": {
                     "title": "crossingProjects",
-                    "description": "crossingProjects",
+                    "description": "An array of crossing projects initiated under this program.",
+                    "example": [
+                        {
+                            "$ref": "../BrAPI-Germplasm/CrossingProject.json#/$defs/CrossingProject"
+                        }
+                    ],
                     "referencedAttribute": "program",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -154,7 +174,12 @@
                 },
                 "seedLots": {
                     "title": "seedLots",
-                    "description": "seedLots",
+                    "description": "A collection of seed lots managed by this program.",
+                    "example": [
+                        {
+                            "$ref": "../BrAPI-Germplasm/SeedLot.json#/$defs/SeedLot"
+                        }
+                    ],
                     "referencedAttribute": "program",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -168,7 +193,12 @@
                 },
                 "observationUnits": {
                     "title": "observationUnits",
-                    "description": "observationUnits",
+                    "description": "A collection of observation units used in this program.",
+                    "example": [
+                        {
+                            "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnit"
+                        }
+                    ],
                     "referencedAttribute": "program",
                     "relationshipType": "one-to-many",
                     "items": {

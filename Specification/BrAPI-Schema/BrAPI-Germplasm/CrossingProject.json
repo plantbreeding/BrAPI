@@ -17,7 +17,10 @@
                 },
                 "crossingProjectDbId": {
                     "description": "The unique identifier for a crossing project",
-                    "type": "string"
+                    "type": "string",
+                    "examples": [
+                        "CP_CORE_2024"
+                    ]
                 },
                 "crossingProjectDescription": {
                     "description": "the description for a crossing project",
@@ -43,6 +46,11 @@
                     "type": [
                         "null",
                         "array"
+                    ],
+                    "examples": [
+                        {
+                            "uri": "http://external.org/proj1"
+                        }
                     ]
                 },
                 "potentialParents": {
@@ -53,6 +61,12 @@
                     "type": [
                         "null",
                         "array"
+                    ],
+                    "examples": [
+                        {
+                            "germplasm": "G1",
+                            "parentType": "MALE"
+                        }
                     ]
                 },
                 "program": {
@@ -80,6 +94,12 @@
                     "type": [
                         "null",
                         "array"
+                    ],
+                    "examples": [
+                        {
+                            "crossDbId": "C1",
+                            "crossName": "C1"
+                        }
                     ]
                 },
                 "plannedCrosses": {
@@ -94,11 +114,16 @@
                     "type": [
                         "null",
                         "array"
+                    ],
+                    "examples": [
+                        {
+                            "crossDbId": "PC1"
+                        }
                     ]
                 },
                 "pedigreeNodes": {
                     "title": "pedigreeNodes",
-                    "description": "pedigreeNodes",
+                    "description": "Nodes representing individuals within the pedigree structure of the crossing project.",
                     "referencedAttribute": "crossingProject",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -108,6 +133,11 @@
                     "type": [
                         "null",
                         "array"
+                    ],
+                    "examples": [
+                        {
+                            "nodeId": "PN1"
+                        }
                     ]
                 }
             },

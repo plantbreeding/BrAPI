@@ -23,7 +23,7 @@
                     "relationshipType": "one-to-one"
                 },
                 "biologicalStatusOfAccessionCode": {
-                    "description": "MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. \n\n100) Wild \n110) Natural \n120) Semi-natural/wild \n130) Semi-natural/sown \n200) Weedy \n300) Traditional cultivar/landrace \n400) Breeding/research material \n410) Breeders line \n411) Synthetic population \n412) Hybrid \n413) Founder stock/base population \n414) Inbred line (parent of hybrid cultivar) \n415) Segregating population \n416) Clonal selection \n420) Genetic stock \n421) Mutant (e.g. induced/insertion mutants, tilling populations) \n422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) \n423) Other genetic stocks (e.g. mapping populations) \n500) Advanced or improved cultivar (conventional breeding methods) \n600) GMO (by genetic engineering) \n999) Other (Elaborate in REMARKS field)",
+                    "description": "MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. \n\n100) Wild \n110) Natural \n120) Semi-natural/wild \n130) Semi-natural/sown \n200) Weedy \n300) Traditional cultivar/landrace \n400) Breeding/research material \n410) Breeders line \n411) Synthetic population \n412) Hybrid \n413) Founder stock/base population \n414) Inbred line (parent of hybrid cultivar) \n415) Segregating population \n416) Clonal selection \n420) Genetic stock \n421) Mutant (e.g. induced/insertion mutants, tilling populations) \n422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids, amphiploids) \n423) Other genetic stocks (e.g. mapping populations) \n500) Advanced or improved cultivar (conventional breeding methods) \n600) GMO (by genetic engineering) \n999) Other (Elaborate in REMARKS field)",
                     "enum": [
                         "100",
                         "110",
@@ -217,7 +217,10 @@
                 },
                 "media": {
                     "description": "Descriptive images of a model example for a particular germplasm",
-                    "type": ["null", "array"],
+                    "type": [
+                        "null",
+                        "array"
+                    ],
                     "items": {
                         "$ref": "Germplasm.json#/$defs/GermplasmMedia"
                     }
@@ -277,7 +280,7 @@
                     ]
                 },
                 "subtaxa": {
-                    "description": "Subtaxon can be used to store any additional taxonomic identifier.\n\nMCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: \"subsp.\" (for subspecies); \"convar.\" (for convariety); \"var.\" (for variety); \"f.\" (for form); \"Group\" (for \"cultivar group\").\n\nMIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).",
+                    "description": "Subtaxon can be used to store any additional taxonomic identifier.\n\nMCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: \"subsp.\" (for subspecies); \"convar.\" (for convariety); \"var.\" (for variety); \"f.\" (for form); \"Group\" (for \"cultivar group\").\n\nMIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).",
                     "type": [
                         "null",
                         "string"
@@ -527,7 +530,7 @@
                     "example": "A0000001/A0000002"
                 },
                 "biologicalStatusOfAccessionCode": {
-                    "description": "MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. \n\n100) Wild \n110) Natural \n120) Semi-natural/wild \n130) Semi-natural/sown \n200) Weedy \n300) Traditional cultivar/landrace \n400) Breeding/research material \n410) Breeders line \n411) Synthetic population \n412) Hybrid \n413) Founder stock/base population \n414) Inbred line (parent of hybrid cultivar) \n415) Segregating population \n416) Clonal selection \n420) Genetic stock \n421) Mutant (e.g. induced/insertion mutants, tilling populations) \n422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) \n423) Other genetic stocks (e.g. mapping populations) \n500) Advanced or improved cultivar (conventional breeding methods) \n600) GMO (by genetic engineering) \n999) Other (Elaborate in REMARKS field)",
+                    "description": "MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. \n\n100) Wild \n110) Natural \n120) Semi-natural/wild \n130) Semi-natural/sown \n200) Weedy \n300) Traditional cultivar/landrace \n400) Breeding/research material \n410) Breeders line \n411) Synthetic population \n412) Hybrid \n413) Founder stock/base population \n414) Inbred line (parent of hybrid cultivar) \n415) Segregating population \n416) Clonal selection \n420) Genetic stock \n421) Mutant (e.g. induced/insertion mutants, tilling populations) \n422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids, amphiploids) \n423) Other genetic stocks (e.g. mapping populations) \n500) Advanced or improved cultivar (conventional breeding methods) \n600) GMO (by genetic engineering) \n999) Other (Elaborate in REMARKS field)",
                     "enum": [
                         "100",
                         "110",
@@ -558,7 +561,7 @@
                     "example": "421"
                 },
                 "breedingInstitutes": {
-                    "description": "A list of institutes that were involved with breeding a material/germplasm\n<br> MCPD (v2.1) (BREDCODE) 18. FAO WIEWS code of the institute that has bred the material. If the holding institute has bred the material, the breeding institute code (BREDCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard.\n<br> MCPD (v2.1) (BREDNAME) 18.1  Name of the institute (or person) that bred the material. This descriptor should be used only if BREDCODE can not be filled because the FAO WIEWS code for this institute is not available.",
+                    "description": "A list of institutes that were involved with breeding a material/germplasm\n<br> MCPD (v2.1) (BREDCODE) 18. FAO WIEWS code of the institute that has bred the material. If the holding institute has bred the material, the breeding institute code (BREDCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard.\n<br> MCPD (v2.1) (BREDNAME) 18.1 Name of the institute (or person) that bred the material. This descriptor should be used only if BREDCODE can not be filled because the FAO WIEWS code for this institute is not available.",
                     "type": [
                         "null",
                         "array"
@@ -625,7 +628,7 @@
                                     "example": "35"
                                 },
                                 "georeferencingMethod": {
-                                    "description": "MCPD (v2.1) (GEOREFMETH) 15.7  The georeferencing method used (GPS, determined from map, gazetteer, or estimated using software). Leave the value empty if georeferencing method is not known.",
+                                    "description": "MCPD (v2.1) (GEOREFMETH) 15.7 The georeferencing method used (GPS, determined from map, gazetteer, or estimated using software). Leave the value empty if georeferencing method is not known.",
                                     "type": [
                                         "null",
                                         "string"
@@ -726,7 +729,7 @@
                             "example": "A0090204"
                         },
                         "donorInstitute": {
-                            "description": "The identifying information for the entity acting as an accession donor\n<br> MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.\n<br> MCPD (v2.1) (DONORNAME) 22.1  Name of the donor institute (or person). This descriptor should be used only if DONORCODE can not be filled because the FAO WIEWS code for this institute is not available.",
+                            "description": "The identifying information for the entity acting as an accession donor\n<br> MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.\n<br> MCPD (v2.1) (DONORNAME) 22.1 Name of the donor institute (or person). This descriptor should be used only if DONORCODE can not be filled because the FAO WIEWS code for this institute is not available.",
                             "$ref": "Germplasm.json#/$defs/Institute"
                         }
                     }
@@ -852,7 +855,7 @@
         "Institute": {
             "properties": {
                 "instituteAddress": {
-                    "description": "MCPD (v2.1) (COLLINSTADDRESS) 4.1.1  Address of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled since the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.",
+                    "description": "MCPD (v2.1) (COLLINSTADDRESS) 4.1.1 Address of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled since the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.",
                     "type": [
                         "null",
                         "string"
@@ -860,7 +863,7 @@
                     "example": "123 Main Street, Lima, Peru, 5555"
                 },
                 "instituteCode": {
-                    "description": "MCPD (v2.1) (COLLCODE) 4.  FAO WIEWS code of the institute collecting the sample. If the holding institute has collected the material, the collecting institute code (COLLCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard. Multiple values are separated by a semicolon without space.",
+                    "description": "MCPD (v2.1) (COLLCODE) 4. FAO WIEWS code of the institute collecting the sample. If the holding institute has collected the material, the collecting institute code (COLLCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard. Multiple values are separated by a semicolon without space.",
                     "type": [
                         "null",
                         "string"
@@ -868,7 +871,7 @@
                     "example": "PER001"
                 },
                 "instituteName": {
-                    "description": "MCPD (v2.1) (COLLNAME) 4.1  Name of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled because the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.",
+                    "description": "MCPD (v2.1) (COLLNAME) 4.1 Name of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled because the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.",
                     "type": [
                         "null",
                         "string"
@@ -1041,7 +1044,7 @@
                 "primaryModel": false
             }
         },
-        "GermplasmMedia":{
+        "GermplasmMedia": {
             "title": "GermplasmMedia",
             "type": "object",
             "brapi-metadata": {
@@ -1057,9 +1060,14 @@
                 },
                 "imageURL": {
                     "descritpion": "URL of the image file",
-                    "type": ["null", "string"],
+                    "type": [
+                        "null",
+                        "string"
+                    ],
                     "format": "url",
-                    "examples": ["http://foo.bar/baz.png"]
+                    "examples": [
+                        "http://foo.bar/baz.png"
+                    ]
                 }
             }
         }

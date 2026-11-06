@@ -4,12 +4,24 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "example": { "details": "metadata" },
                     "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
                     "relationshipType": "one-to-one"
                 },
                 "alleleMatrices": {
                     "title": "AlleleMatrices",
-                    "description": "",
+                    "description": "Array of allele matrices associated with this call set.",
+                    "example": [
+                        {
+                            "dataMatrix": [
+                                [
+                                    "0/1",
+                                    "1/0"
+                                ]
+                            ],
+                            "dataMatrixAbbreviation": "GT"
+                        }
+                    ],
                     "referencedAttribute": "callSets",
                     "relationshipType": "many-to-many",
                     "items": {
@@ -23,7 +35,14 @@
                 },
                 "calls": {
                     "title": "Calls",
-                    "description": "",
+                    "description": "A list of calls associated with this CallSet.",
+                    "example": [
+                        {
+                            "callSetDbId": "cs1",
+                            "variantDbId": "v1",
+                            "genotypeValue": "0/1"
+                        }
+                    ],
                     "referencedAttribute": "callSet",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -41,6 +60,7 @@
                 },
                 "callSetName": {
                     "description": "The human readable name which identifies a germplasm within the given database server",
+                    "example": "NA_12345",
                     "type": [
                         "null",
                         "string"
@@ -48,6 +68,7 @@
                 },
                 "created": {
                     "description": "The date this call set was created",
+                    "example": "2023-10-27T10:00:00Z",
                     "format": "date-time",
                     "type": [
                         "null",
@@ -56,6 +77,11 @@
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "example": [
+                        {
+                            "uri": "http://example.com/data"
+                        }
+                    ],
                     "relationshipType": "one-to-many",
                     "items": {
                         "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
@@ -74,6 +100,7 @@
                         }
                     ],
                     "description": "The Biosample entity the call set data was generated from.",
+                    "example": { "sampleDbId": "s1" },
                     "referencedAttribute": "callSets",
                     "relationshipType": "many-to-one"
                 },
@@ -87,11 +114,13 @@
                         }
                     ],
                     "description": "The ID which uniquely identifies a study within the given database server",
+                    "example": { "studyDbId": "stu1" },
                     "referencedAttribute": "callSets",
                     "relationshipType": "many-to-one"
                 },
                 "updated": {
                     "description": "The time at which this call set was last updated",
+                    "example": "2024-01-01T12:00:00Z",
                     "format": "date-time",
                     "type": [
                         "null",
@@ -100,6 +129,7 @@
                 },
                 "variantSets": {
                     "description": "The IDs of the variantSets this callSet has calls in.",
+                    "example": [ { "variantSetDbId": "vs1" } ],
                     "items": {
                         "$ref": "VariantSet.json#/$defs/VariantSet"
                     },

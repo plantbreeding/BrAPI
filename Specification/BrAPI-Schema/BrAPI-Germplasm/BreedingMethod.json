@@ -7,17 +7,28 @@
                     "type": [
                         "null",
                         "string"
+                    ],
+                    "examples": [
+                        "GP"
                     ]
                 },
                 "breedingMethodDbId": {
                     "description": "the unique identifier for this breeding method",
-                    "type": "string"
+                    "type": [
+                        "string"
+                    ],
+                    "examples": [
+                        "BM_123"
+                    ]
                 },
                 "breedingMethodName": {
                     "description": "the human readable identifier for this breeding method",
                     "type": [
                         "null",
                         "string"
+                    ],
+                    "examples": [
+                        "Generative Breeding"
                     ]
                 },
                 "description": {
@@ -25,6 +36,9 @@
                     "type": [
                         "null",
                         "string"
+                    ],
+                    "examples": [
+                        "A description of the method"
                     ]
                 },
                 "type": {
@@ -33,11 +47,15 @@
                         "null",
                         "string"
                     ],
-                    "examples": ["Generative", "Maintenance", "Derivative"]
+                    "examples": [
+                        "Generative",
+                        "Maintenance",
+                        "Derivative"
+                    ]
                 },
                 "germplasm": {
                     "title": "germplasm",
-                    "description": "germplasm",
+                    "description": "A collection of genetic material used in breeding programs.",
                     "referencedAttribute": "breedingMethod",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -47,11 +65,12 @@
                     "type": [
                         "null",
                         "array"
-                    ]
+                    ],
+                    "examples": []
                 },
                 "pedigreeNodes": {
                     "title": "pedigreeNodes",
-                    "description": "pedigreeNodes",
+                    "description": "A collection of nodes representing individuals within a breeding pedigree.",
                     "referencedAttribute": "breedingMethod",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -61,7 +80,8 @@
                     "type": [
                         "null",
                         "array"
-                    ]
+                    ],
+                    "examples": []
                 }
             },
             "required": [

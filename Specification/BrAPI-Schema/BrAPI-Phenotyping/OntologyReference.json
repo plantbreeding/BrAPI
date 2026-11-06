@@ -22,7 +22,7 @@
                     "relationshipType": "one-to-one",
                     "$ref": "../BrAPI-Phenotyping/Ontology.json#/$defs/Ontology"
                 },
-				"ontologyReferenceDbId": {
+                "ontologyReferenceDbId": {
                     "description": "The ID which uniquely identifies a ontology reference",
                     "type": [
                         "null",

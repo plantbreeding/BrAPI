@@ -14,6 +14,10 @@
                             "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnit",
                             "relationshipType": "one-to-one"
                         }
+                    },
+                    "example": {
+                        "levelName": {"type": "string", "example": "Plot"},
+                        "observationUnit": {"$ref": "ObservationUnit.json#/$defs/ObservationUnit"}
                     }
                 }
             ]

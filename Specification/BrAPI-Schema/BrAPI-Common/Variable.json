@@ -16,7 +16,7 @@
                     "example": "Maize"
                 },
                 "contextOfUse": {
-                    "description": "Indication of how trait is routinely used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])",
+                    "description": "Indicates how a given variable is typically used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])",
                     "items": {
                         "type": "string"
                     },
@@ -102,7 +102,6 @@
                     "$ref": "../BrAPI-Phenotyping/Scale.json#/$defs/Scale"
                 },
                 "scientist": {
-                    "description": "Name of scientist submitting the variable.",
                     "type": [
                         "null",
                         "string"

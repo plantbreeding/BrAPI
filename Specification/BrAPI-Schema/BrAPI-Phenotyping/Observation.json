@@ -26,6 +26,12 @@
                     "type": [
                         "null",
                         "array"
+                    ],
+                    "example": [
+                        {
+                            "externalRefDbId": "ref_300",
+                            "type": "DOI"
+                        }
                     ]
                 },
                 "geoCoordinates": {
@@ -159,6 +165,12 @@
                     "type": [
                         "null",
                         "array"
+                    ],
+                    "example": [
+                        {
+                            "imageDbId": "img_101",
+                            "imageName": "tomato_plant_1"
+                        }
                     ]
                 }
             },

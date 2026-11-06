@@ -4,12 +4,16 @@
             "properties": {
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
+                    "example": { "meta": "sample data info" },
                     "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
                     "relationshipType": "one-to-one"
                 },
                 "callSets": {
                     "title": "CallSets",
-                    "description": "",
+                    "description": "A list of CallSets associated with this Sample.",
+                    "example": [
+                        { "callSetDbId": "cs1" }
+                    ],
                     "referencedAttribute": "sample",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -31,6 +35,11 @@
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                    "example": [
+                        {
+                            "uri": "http://example.com/sample"
+                        }
+                    ],
                     "relationshipType": "one-to-many",
                     "items": {
                         "$ref": "../BrAPI-Common/ExternalReference.json#/$defs/ExternalReference",
@@ -41,6 +50,7 @@
                 },
                 "germplasm": {
                     "description": "The ID which uniquely identifies a `Germplasm`",
+                    "example": { "germplasmDbId": "g1" },
                     "referencedAttribute": "samples",
                     "relationshipType": "many-to-one",
                     "anyOf": [
@@ -54,6 +64,7 @@
                 },
                 "observationUnit": {
                     "description": "The ID which uniquely identifies an `ObservationUnit`",
+                    "example": { "observationUnitDbId": "ou1" },
                     "referencedAttribute": "samples",
                     "relationshipType": "many-to-one",
                     "anyOf": [
@@ -67,6 +78,7 @@
                 },
                 "plate": {
                     "description": "The ID which uniquely identifies a `Plate` of `Sample`",
+                    "example": { "plateDbId": "p1" },
                     "referencedAttribute": "samples",
                     "relationshipType": "many-to-one",
                     "anyOf": [
@@ -80,6 +92,7 @@
                 },
                 "program": {
                     "description": "The ID which uniquely identifies a `Program` within the given database server",
+                    "example": { "programDbId": "p1" },
                     "referencedAttribute": "samples",
                     "relationshipType": "many-to-one",
                     "anyOf": [

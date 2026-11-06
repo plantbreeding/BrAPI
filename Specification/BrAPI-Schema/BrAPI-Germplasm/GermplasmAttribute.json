@@ -20,6 +20,11 @@
                             "type": [
                                 "null",
                                 "array"
+                            ],
+                            "examples": [
+                                {
+                                    "value": "Present"
+                                }
                             ]
                         }
                     }

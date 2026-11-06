@@ -5,7 +5,8 @@
                 "additionalInfo": {
                     "description": "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification.",
                     "$ref": "../BrAPI-Common/AdditionalInfo.json#/$defs/AdditionalInfo",
-                    "relationshipType": "one-to-one"
+                    "relationshipType": "one-to-one",
+                    "example": {}
                 },
                 "data": {
                     "description": "The array of DbIds of the BrAPI objects contained in a List",
@@ -16,6 +17,10 @@
                     "type": [
                         "null",
                         "array"
+                    ],
+                    "example": [
+                        "dbid1",
+                        "dbid2"
                     ]
                 },
                 "dateCreated": {
@@ -24,7 +29,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "2023-01-01T12:00:00Z"
                 },
                 "dateModified": {
                     "description": "Timestamp when the entity was last updated",
@@ -32,7 +38,8 @@
                     "type": [
                         "null",
                         "string"
-                    ]
+                    ],
+                    "example": "2023-01-02T10:00:00Z"
                 },
                 "externalReferences": {
                     "description": "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
@@ -45,11 +52,20 @@
                     "type": [
                         "null",
                         "array"
+                    ],
+                    "example": [
+                        {
+                            "ref": "http://externalsystem.org/id1"
+                        }
                     ]
                 },
                 "listDbId": {
                     "description": "The unique identifier for a List",
-                    "type": "string"
+                    "type": [
+                        "null",
+                        "string"
+                    ],
+                    "example": "l12345"
                 },
                 "listDescription": {
                     "description": "Description of a List",
@@ -61,7 +77,10 @@
                 },
                 "listName": {
                     "description": "Human readable name of a List",
-                    "type": "string",
+                    "type": [
+                        "null",
+                        "string"
+                    ],
                     "example": "MyGermplasm_Sept_2020"
                 },
                 "listOwnerName": {
@@ -76,7 +95,10 @@
                     "$ref": "Person.json#/$defs/Person",
                     "description": "The unique identifier for a List Owner. (usually a user or person)",
                     "referencedAttribute": "lists",
-                    "relationshipType": "many-to-one"
+                    "relationshipType": "many-to-one",
+                    "example": {
+                        "personDbId": "p67890"
+                    }
                 },
                 "listSize": {
                     "description": "The number of elements in a List",
@@ -97,7 +119,10 @@
                 "listType": {
                     "description": "A flag to indicate the type of objects that are referenced in a List",
                     "$ref": "ListType.json#/$defs/ListType",
-                    "nullable": false
+                    "nullable": false,
+                    "example": {
+                        "listTypeId": "g"
+                    }
                 }
             },
             "required": [

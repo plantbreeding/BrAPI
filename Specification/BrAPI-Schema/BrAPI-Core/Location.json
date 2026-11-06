@@ -153,7 +153,12 @@
                 },
                 "studies": {
                     "title": "Studies",
-                    "description": "",
+                    "description": "An array of studies that took place at this location.",
+                    "example": [
+                        {
+                            "$ref": "Study.json#/$defs/Study"
+                        }
+                    ],
                     "referencedAttribute": "location",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -191,7 +196,12 @@
                 },
                 "seedLots": {
                     "title": "SeedLots",
-                    "description": "seedLots",
+                    "description": "A collection of seed lots associated with this location.",
+                    "example": [
+                        {
+                            "$ref": "../BrAPI-Germplasm/SeedLot.json#/$defs/SeedLot"
+                        }
+                    ],
                     "referencedAttribute": "location",
                     "relationshipType": "one-to-many",
                     "items": {
@@ -205,7 +215,12 @@
                 },
                 "observationUnits": {
                     "title": "ObservationUnits",
-                    "description": "observationUnits",
+                    "description": "A collection of observation units associated with this location.",
+                    "example": [
+                        {
+                            "$ref": "../BrAPI-Phenotyping/ObservationUnit.json#/$defs/ObservationUnit"
+                        }
+                    ],
                     "referencedAttribute": "location",
                     "relationshipType": "one-to-many",
                     "items": {

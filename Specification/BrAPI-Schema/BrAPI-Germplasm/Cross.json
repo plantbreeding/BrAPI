@@ -19,6 +19,14 @@
                     "type": [
                         "null",
                         "array"
+                    ],
+                    "examples": [
+                        [
+                            {
+                                "crossAttributeName": "Humidity",
+                                "crossAttributeValue": "80%"
+                            }
+                        ]
                     ]
                 },
                 "crossDbId": {
@@ -49,6 +57,11 @@
                         {
                             "type": "null"
                         }
+                    ],
+                    "examples": [
+                        {
+                            "crossDbId": "CP123"
+                        }
                     ]
                 },
                 "externalReferences": {
@@ -59,7 +72,12 @@
                         "description": "ExternalReferences"
                     },
                     "title": "ExternalReferences",
-                    "type": "array"
+                    "type": "array",
+                    "examples": [
+                        {
+                            "uri": "http://example.com"
+                        }
+                    ]
                 },
                 "parent1": {
                     "$ref": "CrossParent.json#/$defs/CrossParent",
@@ -79,6 +97,11 @@
                         },
                         {
                             "type": "null"
+                        }
+                    ],
+                    "examples": [
+                        {
+                            "crossDbId": "PC_123"
                         }
                     ]
                 },
@@ -103,6 +126,13 @@
                     "type": [
                         "null",
                         "array"
+                    ],
+                    "examples": [
+                        {
+                            "pollinationNumber": "PE001",
+                            "pollinationSuccessful": true,
+                            "pollinationTimeStamp": "2023-01-01T10:00:00Z"
+                        }
                     ]
                 },
                 "observationUnits": {
@@ -117,6 +147,12 @@
                     "type": [
                         "null",
                         "array"
+                    ],
+                    "examples": [
+                        {
+                            "unitName": "cm",
+                            "unitSymbol": "cm"
+                        }
                     ]
                 }
             },
