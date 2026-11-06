@@ -146,8 +146,7 @@
                         },
                         {
                             "type": "null"
-                        },
-                        "Plot"
+                        }
                     ],
                     "example": {
                         "obsUnitDbId": "plot_101",

@@ -40,17 +40,6 @@
                                 "a26b576e"
                             ]
                         },
-                        "contextOfUses": {
-                            "description": "Indicates how a given variable is typically used.",
-                            "items": {
-                                "type": "string"
-                            },
-                            "type": "array",
-                            "example": [
-                                "f44f7b23",
-                                "a26b576e"
-                            ]
-                        },
                         "methodDbIds": {
                             "description": "List of methods to filter search results",
                             "items": {
@@ -205,6 +194,21 @@
                             "example": [
                                 "Stalk",
                                 "Root"
+                            ]
+                        },
+                        "variableCategories": {
+                            "description": "Defines the broad category of the variable, allowing for groupings such as phenotyping, environmental, or germplasm attributes.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "example": [
+                                "phenotyping",
+                                "Trial evaluation",
+                                "Nursery evaluation",
+                                "Germplasm Attributes",
+                                "Environmental",
+                                "Morphological"
                             ]
                         },
                         "traitEntityPUIs": {
