@@ -1398,6 +1398,16 @@
                         }
                     },
                     {
+                        "name" : "variableCategory",
+                        "in" : "query",
+                        "description" : "Defines the broad category of the variable, allowing for groupings such as phenotyping, environmental, or germplasm attributes.",
+                        "required" : false,
+                        "schema" : {
+                            "type" : "string",
+                            "nullable" : false
+                        }
+                    },
+                    {
                         "name" : "attributeDbId",
                         "in" : "query",
                         "description" : "List of Germplasm Attribute IDs to search for",
@@ -3145,6 +3155,16 @@
                         "name" : "traitPUI",
                         "in" : "query",
                         "description" : "The Permanent Unique Identifier of a Trait, usually in the form of a URI",
+                        "required" : false,
+                        "schema" : {
+                            "type" : "string",
+                            "nullable" : false
+                        }
+                    },
+                    {
+                        "name" : "variableCategory",
+                        "in" : "query",
+                        "description" : "Defines the broad category of the variable, allowing for groupings such as phenotyping, environmental, or germplasm attributes.",
                         "required" : false,
                         "schema" : {
                             "type" : "string",
@@ -12087,7 +12107,8 @@
                     "expandHomozygotes" : {
                         "type" : "boolean",
                         "description" : "Should homozygotes be expanded (true) or collapsed into a single occurrence (false)",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : false
                     },
                     "pagination" : {
                         "type" : "array",
@@ -12100,17 +12121,20 @@
                     "sepPhased" : {
                         "type" : "string",
                         "description" : "The string used as a separator for phased allele calls.",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "|"
                     },
                     "sepUnphased" : {
                         "type" : "string",
                         "description" : "The string used as a separator for unphased allele calls.",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : ","
                     },
                     "unknownString" : {
                         "type" : "string",
                         "description" : "The string used as a representation for missing data.",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "NA"
                     },
                     "variantDbIds" : {
                         "type" : "array",
@@ -12537,8 +12561,9 @@
                     },
                     "attributeCategory" : {
                         "type" : "string",
-                        "description" : "General category for the attribute. very similar to Trait class.",
-                        "example" : "Morphological"
+                        "description" : "**Deprecated in v2.2** Use the variableCategory property.\nGeneral category for the attribute. very similar to Trait class.",
+                        "example" : "Morphological",
+                        "deprecated" : true
                     },
                     "attributeDbId" : {
                         "type" : "string",
@@ -12567,8 +12592,9 @@
                     },
                     "contextOfUse" : {
                         "type" : "array",
-                        "description" : "Indication of how trait is routinely used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])",
+                        "description" : "**Deprecated in v2.2** Please use `variableCategory` instead.\n Indicates how a given variable is typically used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])",
                         "nullable" : true,
+                        "deprecated" : true,
                         "items" : {
                             "type" : "string"
                         }
@@ -12628,7 +12654,7 @@
                     },
                     "scientist" : {
                         "type" : "string",
-                        "description" : "Name of scientist submitting the variable.",
+                        "description" : "scientist: string",
                         "nullable" : true,
                         "example" : "Dr. Bob Robertson"
                     },
@@ -12642,7 +12668,8 @@
                         "type" : "string",
                         "description" : "Timestamp when the Variable was added (ISO 8601)",
                         "format" : "date-time",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "2017-06-16T20:47:23Z"
                     },
                     "synonyms" : {
                         "type" : "array",
@@ -12654,6 +12681,11 @@
                     },
                     "trait" : {
                         "$ref" : "#/components/schemas/Trait"
+                    },
+                    "variableCategory" : {
+                        "type" : "string",
+                        "description" : "Defines the broad category of the variable, allowing for groupings such as phenotyping, environmental, or germplasm attributes.",
+                        "nullable" : true
                     }
                 }
             },
@@ -12715,7 +12747,7 @@
             },
             "BiologicalStatusOfAccessionCode" : {
                 "type" : "string",
-                "description" : "MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. \n\n100) Wild \n110) Natural \n120) Semi-natural/wild \n130) Semi-natural/sown \n200) Weedy \n300) Traditional cultivar/landrace \n400) Breeding/research material \n410) Breeders line \n411) Synthetic population \n412) Hybrid \n413) Founder stock/base population \n414) Inbred line (parent of hybrid cultivar) \n415) Segregating population \n416) Clonal selection \n420) Genetic stock \n421) Mutant (e.g. induced/insertion mutants, tilling populations) \n422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) \n423) Other genetic stocks (e.g. mapping populations) \n500) Advanced or improved cultivar (conventional breeding methods) \n600) GMO (by genetic engineering) \n999) Other (Elaborate in REMARKS field)",
+                "description" : "MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. \n\n100) Wild \n110) Natural \n120) Semi-natural/wild \n130) Semi-natural/sown \n200) Weedy \n300) Traditional cultivar/landrace \n400) Breeding/research material \n410) Breeders line \n411) Synthetic population \n412) Hybrid \n413) Founder stock/base population \n414) Inbred line (parent of hybrid cultivar) \n415) Segregating population \n416) Clonal selection \n420) Genetic stock \n421) Mutant (e.g. induced/insertion mutants, tilling populations) \n422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids, amphiploids) \n423) Other genetic stocks (e.g. mapping populations) \n500) Advanced or improved cultivar (conventional breeding methods) \n600) GMO (by genetic engineering) \n999) Other (Elaborate in REMARKS field)",
                 "enum" : [
                     "100",
                     "110",
@@ -12749,21 +12781,25 @@
                     "abbreviation" : {
                         "type" : "string",
                         "description" : "A shortened version of the human readable name for a Breeding Method",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "GP"
                     },
                     "breedingMethodDbId" : {
                         "type" : "string",
-                        "description" : "the unique identifier for this breeding method"
+                        "description" : "the unique identifier for this breeding method",
+                        "example" : "BM_123"
                     },
                     "breedingMethodName" : {
                         "type" : "string",
                         "description" : "the human readable identifier for this breeding method",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "Generative Breeding"
                     },
                     "description" : {
                         "type" : "string",
                         "description" : "human readable description of the breeding method",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "A description of the method"
                     },
                     "type" : {
                         "type" : "string",
@@ -12826,7 +12862,8 @@
                     },
                     "phaseSet" : {
                         "type" : "string",
-                        "description" : "If this field is populated, this variant call's genotype ordering implies the phase of the bases and \nis consistent with any other variant calls on the same contig which have the same phase set string."
+                        "description" : "If this field is populated, this variant call's genotype ordering implies the phase of the bases and \nis consistent with any other variant calls on the same contig which have the same phase set string.",
+                        "example" : "phased"
                     },
                     "variantDbId" : {
                         "type" : "string"
@@ -12993,13 +13030,15 @@
                     "callSetName" : {
                         "type" : "string",
                         "description" : "The human readable name which identifies a germplasm within the given database server",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "NA_12345"
                     },
                     "created" : {
                         "type" : "string",
                         "description" : "The date this call set was created",
                         "format" : "date-time",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "2023-10-27T10:00:00Z"
                     },
                     "externalReferences" : {
                         "type" : "array",
@@ -13020,7 +13059,8 @@
                         "type" : "string",
                         "description" : "The time at which this call set was last updated",
                         "format" : "date-time",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "2024-01-01T12:00:00Z"
                     },
                     "variantSetDbIds" : {
                         "type" : "array",
@@ -13334,7 +13374,7 @@
                             },
                             "georeferencingMethod" : {
                                 "type" : "string",
-                                "description" : "MCPD (v2.1) (GEOREFMETH) 15.7  The georeferencing method used (GPS, determined from map, gazetteer, or estimated using software). Leave the value empty if georeferencing method is not known.",
+                                "description" : "MCPD (v2.1) (GEOREFMETH) 15.7 The georeferencing method used (GPS, determined from map, gazetteer, or estimated using software). Leave the value empty if georeferencing method is not known.",
                                 "nullable" : true,
                                 "example" : "WGS84"
                             },
@@ -13398,7 +13438,7 @@
                     },
                     "georeferencingMethod" : {
                         "type" : "string",
-                        "description" : "MCPD (v2.1) (GEOREFMETH) 15.7  The georeferencing method used (GPS, determined from map, gazetteer, or estimated using software). Leave the value empty if georeferencing method is not known.",
+                        "description" : "MCPD (v2.1) (GEOREFMETH) 15.7 The georeferencing method used (GPS, determined from map, gazetteer, or estimated using software). Leave the value empty if georeferencing method is not known.",
                         "nullable" : true,
                         "example" : "WGS84"
                     },
@@ -13469,7 +13509,9 @@
                     },
                     "contactDbId" : {
                         "type" : "string",
-                        "description" : "**Deprecated in v2.2** Please use `personDbId`. Github issue number #582 <br> The ID which uniquely identifies this contact\n\nMIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended."
+                        "description" : "**Deprecated in v2.2** Please use `personDbId`. Github issue number #582 <br> The ID which uniquely identifies this contact\n\nMIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.",
+                        "nullable" : true,
+                        "example" : "c12345"
                     },
                     "description" : {
                         "type" : "string",
@@ -13480,7 +13522,8 @@
                     "email" : {
                         "type" : "string",
                         "description" : "**Deprecated in v2.2** Please use `emailAddress`. Github issue number #582 <br> The contacts email address\n\nMIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "test@example.com"
                     },
                     "emailAddress" : {
                         "type" : "string",
@@ -13505,7 +13548,8 @@
                     "instituteName" : {
                         "type" : "string",
                         "description" : "The name of the institution which this person is part of\n\nMIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "University of Genetics"
                     },
                     "lastName" : {
                         "type" : "string",
@@ -13515,7 +13559,7 @@
                     },
                     "listDbIds" : {
                         "type" : "array",
-                        "description" : "",
+                        "description" : "Lists created by this person, typically to track collections of data objects.",
                         "nullable" : true,
                         "items" : {
                             "type" : "string"
@@ -13536,7 +13580,8 @@
                     "name" : {
                         "type" : "string",
                         "description" : "**Deprecated in v2.2** Please use `firstName`, `middleName`, and `lastName`. Github issue number #582 <br> The full name of this contact person\n\nMIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "John Doe"
                     },
                     "observationDbIds" : {
                         "type" : "array",
@@ -13549,7 +13594,8 @@
                     "orcid" : {
                         "type" : "string",
                         "description" : "The Open Researcher and Contributor ID for this person (orcid.org)\n\nMIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "0000-0000-0000-0001"
                     },
                     "personDbId" : {
                         "type" : "string",
@@ -13564,7 +13610,7 @@
                     },
                     "programDbIds" : {
                         "type" : "array",
-                        "description" : "",
+                        "description" : "Programs led or managed by this person.",
                         "nullable" : true,
                         "items" : {
                             "type" : "string"
@@ -13573,7 +13619,8 @@
                     "type" : {
                         "type" : "string",
                         "description" : "The type of person this represents (ex: Coordinator, Scientist, PI, etc.)\n\nMIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "Scientist"
                     },
                     "userID" : {
                         "type" : "string",
@@ -13849,7 +13896,7 @@
             },
             "CrossType" : {
                 "type" : "string",
-                "description" : "The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK',  'BULK_SELFED',  'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'.",
+                "description" : "The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK', 'BULK_SELFED', 'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'.",
                 "nullable" : true,
                 "enum" : [
                     "BIPARENTAL",
@@ -13874,7 +13921,8 @@
                         "properties" : {
                             "crossingProjectDbId" : {
                                 "type" : "string",
-                                "description" : "The unique identifier for a crossing project"
+                                "description" : "The unique identifier for a crossing project",
+                                "example" : "CP_CORE_2024"
                             }
                         },
                         "description" : "A project structure where a list of PlannedCrosses is generated, the crossing events occur in the field, and the resulting actual Crosses can documented."
@@ -14000,43 +14048,51 @@
                     "dataFormat" : {
                         "type" : "string",
                         "description" : "The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)\n\nMIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "VCF"
                     },
                     "description" : {
                         "type" : "string",
                         "description" : "The general description of this data link\n\nMIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "Detailed description of data"
                     },
                     "fileFormat" : {
                         "type" : "string",
                         "description" : "The MIME type of the file (ie text/csv, application/excel, application/zip).\n\nMIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "text/csv"
                     },
                     "name" : {
                         "type" : "string",
                         "description" : "The name of the external data link\n\nMIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "Data file for Trial 1"
                     },
                     "provenance" : {
                         "type" : "string",
                         "description" : "The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "MyLab Pipeline v1.2"
                     },
                     "scientificType" : {
                         "type" : "string",
                         "description" : "The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "Phenotyping raw data"
                     },
                     "url" : {
                         "type" : "string",
                         "description" : "URL describing the location of this data file to view or download\n\nMIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.",
                         "format" : "uri",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "http://example.com/data.zip"
                     },
                     "version" : {
                         "type" : "string",
                         "description" : "The version number for this data \n\nMIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "1.0"
                     }
                 },
                 "description" : "A link to extra data files associated with this study. Extra data could include notes, images, and reference data."
@@ -14281,12 +14337,14 @@
                     },
                     "eventDbId" : {
                         "type" : "string",
-                        "description" : "Internal database identifier"
+                        "description" : "Internal database identifier",
+                        "example" : "UUID-12345"
                     },
                     "eventDescription" : {
                         "type" : "string",
                         "description" : "A detailed, human-readable description of this event\n<br/>MIAPPE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. ",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "Fertilizer application of 100kg of nitrogen."
                     },
                     "eventParameters" : {
                         "type" : "array",
@@ -14298,12 +14356,14 @@
                     },
                     "eventType" : {
                         "type" : "string",
-                        "description" : "An identifier for this event type, in the form of an ontology class reference\n<br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other\n<br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology)."
+                        "description" : "An identifier for this event type, in the form of an ontology class reference\n<br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other\n<br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).",
+                        "example" : "planting"
                     },
                     "eventTypeDbId" : {
                         "type" : "string",
                         "description" : "An identifier for this event type, in the form of an ontology class reference\n<br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other\n<br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "event_type_db_id_xyz"
                     },
                     "observationUnitDbIds" : {
                         "type" : "array",
@@ -14456,6 +14516,18 @@
                         "description" : "List of study names to filter search results",
                         "items" : {
                             "type" : "string"
+                        }
+                    }
+                }
+            },
+            "Example" : {
+                "type" : "object",
+                "properties" : {
+                    "categories" : {
+                        "type" : "array",
+                        "description" : "categories: Categories",
+                        "items" : {
+                            "$ref" : "#/components/schemas/ValidValuesCategory"
                         }
                     }
                 }
@@ -14784,6 +14856,7 @@
                     "dataType" : {
                         "type" : "string",
                         "description" : "The type of field represented in this Genotype Field. This is intended to help parse the data out of JSON.",
+                        "example" : "string",
                         "enum" : [
                             "string",
                             "integer",
@@ -14793,15 +14866,18 @@
                     },
                     "fieldAbbreviation" : {
                         "type" : "string",
-                        "description" : "The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: \"GQ\", \"RD\", and \"HQ\"\n<br> This maps to a FORMAT field in the VCF file standard."
+                        "description" : "The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: \"GQ\", \"RD\", and \"HQ\"\n<br> This maps to a FORMAT field in the VCF file standard.",
+                        "example" : "GT"
                     },
                     "fieldName" : {
                         "type" : "string",
-                        "description" : "The name of the field represented in this Genotype Field. Examples include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype Quality\"\n<br> This maps to a FORMAT field in the VCF file standard."
+                        "description" : "The name of the field represented in this Genotype Field. Examples include: \"Genotype Quality\", \"Read Depth\", and \"Haplotype Quality\"\n<br> This maps to a FORMAT field in the VCF file standard.",
+                        "example" : "Genotype"
                     },
                     "fieldValue" : {
                         "type" : "string",
-                        "description" : "The additional metadata value associated with this genotype call"
+                        "description" : "The additional metadata value associated with this genotype call",
+                        "example" : "99.5"
                     }
                 },
                 "description" : "Genotype Metadata are additional layers of metadata associated with each genotype."
@@ -15004,8 +15080,9 @@
                     },
                     "attributeCategory" : {
                         "type" : "string",
-                        "description" : "General category for the attribute. very similar to Trait class.",
-                        "example" : "Morphological"
+                        "description" : "**Deprecated in v2.2** Use the variableCategory property.\nGeneral category for the attribute. very similar to Trait class.",
+                        "example" : "Morphological",
+                        "deprecated" : true
                     },
                     "attributeDescription" : {
                         "type" : "string",
@@ -15030,8 +15107,9 @@
                     },
                     "contextOfUse" : {
                         "type" : "array",
-                        "description" : "Indication of how trait is routinely used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])",
+                        "description" : "**Deprecated in v2.2** Please use `variableCategory` instead.\n Indicates how a given variable is typically used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])",
                         "nullable" : true,
+                        "deprecated" : true,
                         "items" : {
                             "type" : "string"
                         }
@@ -15156,7 +15234,7 @@
                     },
                     "scientist" : {
                         "type" : "string",
-                        "description" : "Name of scientist submitting the variable.",
+                        "description" : "scientist: string",
                         "nullable" : true,
                         "example" : "Dr. Bob Robertson"
                     },
@@ -15170,7 +15248,8 @@
                         "type" : "string",
                         "description" : "Timestamp when the Variable was added (ISO 8601)",
                         "format" : "date-time",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "2017-06-16T20:47:23Z"
                     },
                     "synonyms" : {
                         "type" : "array",
@@ -15287,6 +15366,11 @@
                             }
                         },
                         "description" : "A Trait describes what property is being observed. \n<br>For example, an ObservationVariable might be defined with a Trait of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\". This variable would be distinct from a variable with the Trait \"Leaf length\" or \"Flower height\". "
+                    },
+                    "variableCategory" : {
+                        "type" : "string",
+                        "description" : "Defines the broad category of the variable, allowing for groupings such as phenotyping, environmental, or germplasm attributes.",
+                        "nullable" : true
                     }
                 },
                 "description" : "The Trait-Method-Scale definition for a variable, specifically variables related to Germplasm. Similar to an ObservationVariable, but related to a Germplasm instead of an ObservationUnit"
@@ -15507,6 +15591,13 @@
                     "trialNames" : {
                         "type" : "array",
                         "description" : "The human readable name of a trial to search for",
+                        "items" : {
+                            "type" : "string"
+                        }
+                    },
+                    "variableCategories" : {
+                        "type" : "array",
+                        "description" : "Defines the broad category of the variable, allowing for groupings such as phenotyping, environmental, or germplasm attributes.",
                         "items" : {
                             "type" : "string"
                         }
@@ -15763,6 +15854,13 @@
                     "trialNames" : {
                         "type" : "array",
                         "description" : "The human readable name of a trial to search for",
+                        "items" : {
+                            "type" : "string"
+                        }
+                    },
+                    "variableCategories" : {
+                        "type" : "array",
+                        "description" : "Defines the broad category of the variable, allowing for groupings such as phenotyping, environmental, or germplasm attributes.",
                         "items" : {
                             "type" : "string"
                         }
@@ -16195,7 +16293,7 @@
                     },
                     "biologicalStatusOfAccessionCode" : {
                         "type" : "string",
-                        "description" : "MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. \n\n100) Wild \n110) Natural \n120) Semi-natural/wild \n130) Semi-natural/sown \n200) Weedy \n300) Traditional cultivar/landrace \n400) Breeding/research material \n410) Breeders line \n411) Synthetic population \n412) Hybrid \n413) Founder stock/base population \n414) Inbred line (parent of hybrid cultivar) \n415) Segregating population \n416) Clonal selection \n420) Genetic stock \n421) Mutant (e.g. induced/insertion mutants, tilling populations) \n422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) \n423) Other genetic stocks (e.g. mapping populations) \n500) Advanced or improved cultivar (conventional breeding methods) \n600) GMO (by genetic engineering) \n999) Other (Elaborate in REMARKS field)",
+                        "description" : "MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. \n\n100) Wild \n110) Natural \n120) Semi-natural/wild \n130) Semi-natural/sown \n200) Weedy \n300) Traditional cultivar/landrace \n400) Breeding/research material \n410) Breeders line \n411) Synthetic population \n412) Hybrid \n413) Founder stock/base population \n414) Inbred line (parent of hybrid cultivar) \n415) Segregating population \n416) Clonal selection \n420) Genetic stock \n421) Mutant (e.g. induced/insertion mutants, tilling populations) \n422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids, amphiploids) \n423) Other genetic stocks (e.g. mapping populations) \n500) Advanced or improved cultivar (conventional breeding methods) \n600) GMO (by genetic engineering) \n999) Other (Elaborate in REMARKS field)",
                         "nullable" : true,
                         "example" : "421",
                         "enum" : [
@@ -16224,7 +16322,7 @@
                     },
                     "breedingInstitutes" : {
                         "type" : "array",
-                        "description" : "A list of institutes that were involved with breeding a material/germplasm\n<br> MCPD (v2.1) (BREDCODE) 18. FAO WIEWS code of the institute that has bred the material. If the holding institute has bred the material, the breeding institute code (BREDCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard.\n<br> MCPD (v2.1) (BREDNAME) 18.1  Name of the institute (or person) that bred the material. This descriptor should be used only if BREDCODE can not be filled because the FAO WIEWS code for this institute is not available.",
+                        "description" : "A list of institutes that were involved with breeding a material/germplasm\n<br> MCPD (v2.1) (BREDCODE) 18. FAO WIEWS code of the institute that has bred the material. If the holding institute has bred the material, the breeding institute code (BREDCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard.\n<br> MCPD (v2.1) (BREDNAME) 18.1 Name of the institute (or person) that bred the material. This descriptor should be used only if BREDCODE can not be filled because the FAO WIEWS code for this institute is not available.",
                         "nullable" : true,
                         "items" : {
                             "$ref" : "#/components/schemas/Institute"
@@ -16276,7 +16374,7 @@
                                     },
                                     "georeferencingMethod" : {
                                         "type" : "string",
-                                        "description" : "MCPD (v2.1) (GEOREFMETH) 15.7  The georeferencing method used (GPS, determined from map, gazetteer, or estimated using software). Leave the value empty if georeferencing method is not known.",
+                                        "description" : "MCPD (v2.1) (GEOREFMETH) 15.7 The georeferencing method used (GPS, determined from map, gazetteer, or estimated using software). Leave the value empty if georeferencing method is not known.",
                                         "nullable" : true,
                                         "example" : "WGS84"
                                     },
@@ -16497,7 +16595,7 @@
                     },
                     "biologicalStatusOfAccessionCode" : {
                         "type" : "string",
-                        "description" : "MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. \n\n100) Wild \n110) Natural \n120) Semi-natural/wild \n130) Semi-natural/sown \n200) Weedy \n300) Traditional cultivar/landrace \n400) Breeding/research material \n410) Breeders line \n411) Synthetic population \n412) Hybrid \n413) Founder stock/base population \n414) Inbred line (parent of hybrid cultivar) \n415) Segregating population \n416) Clonal selection \n420) Genetic stock \n421) Mutant (e.g. induced/insertion mutants, tilling populations) \n422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) \n423) Other genetic stocks (e.g. mapping populations) \n500) Advanced or improved cultivar (conventional breeding methods) \n600) GMO (by genetic engineering) \n999) Other (Elaborate in REMARKS field)",
+                        "description" : "MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. \n\n100) Wild \n110) Natural \n120) Semi-natural/wild \n130) Semi-natural/sown \n200) Weedy \n300) Traditional cultivar/landrace \n400) Breeding/research material \n410) Breeders line \n411) Synthetic population \n412) Hybrid \n413) Founder stock/base population \n414) Inbred line (parent of hybrid cultivar) \n415) Segregating population \n416) Clonal selection \n420) Genetic stock \n421) Mutant (e.g. induced/insertion mutants, tilling populations) \n422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids, amphiploids) \n423) Other genetic stocks (e.g. mapping populations) \n500) Advanced or improved cultivar (conventional breeding methods) \n600) GMO (by genetic engineering) \n999) Other (Elaborate in REMARKS field)",
                         "nullable" : true,
                         "example" : "420",
                         "enum" : [
@@ -16679,7 +16777,7 @@
                     },
                     "subtaxa" : {
                         "type" : "string",
-                        "description" : "Subtaxon can be used to store any additional taxonomic identifier.\n\nMCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: \"subsp.\" (for subspecies); \"convar.\" (for convariety); \"var.\" (for variety); \"f.\" (for form); \"Group\" (for \"cultivar group\").\n\nMIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).",
+                        "description" : "Subtaxon can be used to store any additional taxonomic identifier.\n\nMCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: \"subsp.\" (for subspecies); \"convar.\" (for convariety); \"var.\" (for variety); \"f.\" (for form); \"Group\" (for \"cultivar group\").\n\nMIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).",
                         "nullable" : true,
                         "example" : "Aspergillus fructus A"
                     },
@@ -17188,7 +17286,8 @@
                         "properties" : {
                             "imageDbId" : {
                                 "type" : "string",
-                                "description" : "The unique identifier of an image"
+                                "description" : "The unique identifier of an image",
+                                "example" : "image_id_001"
                             }
                         },
                         "description" : "The metadata for an image file that is connected to some phenotypic observation data."
@@ -17599,19 +17698,19 @@
                 "properties" : {
                     "instituteAddress" : {
                         "type" : "string",
-                        "description" : "MCPD (v2.1) (COLLINSTADDRESS) 4.1.1  Address of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled since the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.",
+                        "description" : "MCPD (v2.1) (COLLINSTADDRESS) 4.1.1 Address of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled since the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.",
                         "nullable" : true,
                         "example" : "123 Main Street, Lima, Peru, 5555"
                     },
                     "instituteCode" : {
                         "type" : "string",
-                        "description" : "MCPD (v2.1) (COLLCODE) 4.  FAO WIEWS code of the institute collecting the sample. If the holding institute has collected the material, the collecting institute code (COLLCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard. Multiple values are separated by a semicolon without space.",
+                        "description" : "MCPD (v2.1) (COLLCODE) 4. FAO WIEWS code of the institute collecting the sample. If the holding institute has collected the material, the collecting institute code (COLLCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard. Multiple values are separated by a semicolon without space.",
                         "nullable" : true,
                         "example" : "PER001"
                     },
                     "instituteName" : {
                         "type" : "string",
-                        "description" : "MCPD (v2.1) (COLLNAME) 4.1  Name of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled because the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.",
+                        "description" : "MCPD (v2.1) (COLLNAME) 4.1 Name of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled because the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.",
                         "nullable" : true,
                         "example" : "The BrAPI Institute"
                     }
@@ -17684,7 +17783,9 @@
                         "properties" : {
                             "listDbId" : {
                                 "type" : "string",
-                                "description" : "The unique identifier for a List"
+                                "description" : "The unique identifier for a List",
+                                "nullable" : true,
+                                "example" : "l12345"
                             }
                         },
                         "description" : "A List represents a collection of other BrAPI data objects. Typically these are custom lists generated by a user to keep track of interesting data. For example, a user might build a List of Germplasm that they have manually marked for further study."
@@ -17718,13 +17819,15 @@
                         "type" : "string",
                         "description" : "Timestamp when the entity was first created",
                         "format" : "date-time",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "2023-01-01T12:00:00Z"
                     },
                     "dateModified" : {
                         "type" : "string",
                         "description" : "Timestamp when the entity was last updated",
                         "format" : "date-time",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "2023-01-02T10:00:00Z"
                     },
                     "externalReferences" : {
                         "type" : "array",
@@ -17743,6 +17846,7 @@
                     "listName" : {
                         "type" : "string",
                         "description" : "Human readable name of a List",
+                        "nullable" : true,
                         "example" : "MyGermplasm_Sept_2020"
                     },
                     "listOwnerName" : {
@@ -18528,7 +18632,8 @@
                         "type" : "integer",
                         "description" : "The position of a marker or variant within a `LinkageGroup`",
                         "format" : "int32",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : 1000
                     },
                     "variantDbId" : {
                         "type" : "string",
@@ -19510,7 +19615,8 @@
                     "levelCode" : {
                         "type" : "string",
                         "description" : "An ID code or number to represent a real thing that may or may not be an an observation unit.\n<br/>For example, if the 'levelName' is 'plot', then the 'levelCode' would be the plot number or plot barcode. If this plot is also considered an ObservationUnit, then the appropriate observationUnitDbId should also be recorded.\n<br/>If the 'levelName' is 'field', then the 'levelCode' might be something like '3' or 'F3' to indicate the third field at a research station. ",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "F3"
                     },
                     "levelName" : {
                         "type" : "string",
@@ -19532,7 +19638,8 @@
                     "levelCode" : {
                         "type" : "string",
                         "description" : "An ID code or number to represent a real thing that may or may not be an an observation unit.\n<br/>For example, if the 'levelName' is 'plot', then the 'levelCode' would be the plot number or plot barcode. If this plot is also considered an ObservationUnit, then the appropriate observationUnitDbId should also be recorded.\n<br/>If the 'levelName' is 'field', then the 'levelCode' might be something like '3' or 'F3' to indicate the third field at a research station. ",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "F3"
                     },
                     "levelName" : {
                         "type" : "string",
@@ -20281,8 +20388,9 @@
                     },
                     "contextOfUse" : {
                         "type" : "array",
-                        "description" : "Indication of how trait is routinely used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])",
+                        "description" : "**Deprecated in v2.2** Please use `variableCategory` instead.\n Indicates how a given variable is typically used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])",
                         "nullable" : true,
+                        "deprecated" : true,
                         "items" : {
                             "type" : "string"
                         }
@@ -20418,7 +20526,7 @@
                     },
                     "scientist" : {
                         "type" : "string",
-                        "description" : "Name of scientist submitting the variable.",
+                        "description" : "scientist: string",
                         "nullable" : true,
                         "example" : "Dr. Bob Robertson"
                     },
@@ -20432,7 +20540,8 @@
                         "type" : "string",
                         "description" : "Timestamp when the Variable was added (ISO 8601)",
                         "format" : "date-time",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "2017-06-16T20:47:23Z"
                     },
                     "synonyms" : {
                         "type" : "array",
@@ -20549,6 +20658,11 @@
                             }
                         },
                         "description" : "A Trait describes what property is being observed. \n<br>For example, an ObservationVariable might be defined with a Trait of \"plant height\", a Scale of \"meters\", and a Method of \"tape measure\". This variable would be distinct from a variable with the Trait \"Leaf length\" or \"Flower height\". "
+                    },
+                    "variableCategory" : {
+                        "type" : "string",
+                        "description" : "Defines the broad category of the variable, allowing for groupings such as phenotyping, environmental, or germplasm attributes.",
+                        "nullable" : true
                     }
                 }
             },
@@ -20767,6 +20881,13 @@
                     "trialNames" : {
                         "type" : "array",
                         "description" : "The human readable name of a trial to search for",
+                        "items" : {
+                            "type" : "string"
+                        }
+                    },
+                    "variableCategories" : {
+                        "type" : "array",
+                        "description" : "Defines the broad category of the variable, allowing for groupings such as phenotyping, environmental, or germplasm attributes.",
                         "items" : {
                             "type" : "string"
                         }
@@ -20996,6 +21117,13 @@
                     "trialNames" : {
                         "type" : "array",
                         "description" : "The human readable name of a trial to search for",
+                        "items" : {
+                            "type" : "string"
+                        }
+                    },
+                    "variableCategories" : {
+                        "type" : "array",
+                        "description" : "Defines the broad category of the variable, allowing for groupings such as phenotyping, environmental, or germplasm attributes.",
                         "items" : {
                             "type" : "string"
                         }
@@ -21305,7 +21433,7 @@
                     },
                     "progeny" : {
                         "type" : "array",
-                        "description" : "A list of germplasm references that are direct children of this germplasm. These represent edges in the tree, connecting to other nodes.\n<br/> The given germplasm could have a large number of progeny, across a number of different breeding methods. The 'parentType' shows \n      the type of parent this germplasm is to each of the child germplasm references.\n<br/> If the parameter 'includeProgeny' is set to false, then this array should be empty, null, or not present in the response.",
+                        "description" : "A list of germplasm references that are direct children of this germplasm. These represent edges in the tree, connecting to other nodes.\n<br/> The given germplasm could have a large number of progeny, across a number of different breeding methods. The 'parentType' shows \n the type of parent this germplasm is to each of the child germplasm references.\n<br/> If the parameter 'includeProgeny' is set to false, then this array should be empty, null, or not present in the response.",
                         "nullable" : true,
                         "items" : {
                             "$ref" : "#/components/schemas/GermplasmChild"
@@ -21774,7 +21902,8 @@
                     "instituteName" : {
                         "type" : "string",
                         "description" : "The name of the institution which this person is part of\n\nMIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "University of Genetics"
                     },
                     "lastName" : {
                         "type" : "string",
@@ -21797,7 +21926,8 @@
                     "orcid" : {
                         "type" : "string",
                         "description" : "The Open Researcher and Contributor ID for this person (orcid.org)\n\nMIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "0000-0000-0000-0001"
                     },
                     "phoneNumber" : {
                         "type" : "string",
@@ -21808,7 +21938,8 @@
                     "type" : {
                         "type" : "string",
                         "description" : "The type of person this represents (ex: Coordinator, Scientist, PI, etc.)\n\nMIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "Scientist"
                     },
                     "userID" : {
                         "type" : "string",
@@ -23012,7 +23143,8 @@
                     "sourceDivergence" : {
                         "type" : "number",
                         "description" : "The `sourceDivergence` is the fraction of non-indel bases that do not match the `Reference` this message was derived from.",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : 0.05
                     },
                     "sourceGermplasm" : {
                         "type" : "array",
@@ -23025,7 +23157,8 @@
                     "sourceURI" : {
                         "type" : "string",
                         "description" : "The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "ftp://data.dbj.ie/seq/fasta_data.txt"
                     },
                     "species" : {
                         "$ref" : "#/components/schemas/OntologyTerm"
@@ -23389,7 +23522,8 @@
                     "assemblyPUI" : {
                         "type" : "string",
                         "description" : "The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "GRCh38"
                     },
                     "commonCropName" : {
                         "type" : "string",
@@ -23399,7 +23533,8 @@
                     "description" : {
                         "type" : "string",
                         "description" : "Optional free text description of this reference set.",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "Reference set covering human genome assembly hg38."
                     },
                     "externalReferences" : {
                         "type" : "array",
@@ -23442,7 +23577,8 @@
                     "sourceURI" : {
                         "type" : "string",
                         "description" : "Specifies a FASTA format file/string.",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "https://example.com/fasta.fasta"
                     },
                     "species" : {
                         "$ref" : "#/components/schemas/OntologyTerm"
@@ -26034,6 +26170,19 @@
                             "$ref" : "#/components/schemas/ValidValuesCategory"
                         }
                     },
+                    "example" : {
+                        "type" : "object",
+                        "properties" : {
+                            "categories" : {
+                                "type" : "array",
+                                "description" : "categories: Categories",
+                                "items" : {
+                                    "$ref" : "#/components/schemas/ValidValuesCategory"
+                                }
+                            }
+                        },
+                        "description" : "example: Example"
+                    },
                     "maximumValue" : {
                         "type" : "string",
                         "description" : "Maximum value for numerical, date, and time scales. Typically used for data capture control and QC.",
@@ -26113,8 +26262,9 @@
                     },
                     "contextOfUse" : {
                         "type" : "array",
-                        "description" : "Indication of how trait is routinely used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])",
+                        "description" : "**Deprecated in v2.2** Please use `variableCategory` instead.\n Indicates how a given variable is typically used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])",
                         "nullable" : true,
+                        "deprecated" : true,
                         "items" : {
                             "type" : "string"
                         }
@@ -26174,7 +26324,7 @@
                     },
                     "scientist" : {
                         "type" : "string",
-                        "description" : "Name of scientist submitting the variable.",
+                        "description" : "scientist: string",
                         "nullable" : true,
                         "example" : "Dr. Bob Robertson"
                     },
@@ -26188,7 +26338,8 @@
                         "type" : "string",
                         "description" : "Timestamp when the Variable was added (ISO 8601)",
                         "format" : "date-time",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "2017-06-16T20:47:23Z"
                     },
                     "synonyms" : {
                         "type" : "array",
@@ -26200,6 +26351,11 @@
                     },
                     "trait" : {
                         "$ref" : "#/components/schemas/Trait"
+                    },
+                    "variableCategory" : {
+                        "type" : "string",
+                        "description" : "Defines the broad category of the variable, allowing for groupings such as phenotyping, environmental, or germplasm attributes.",
+                        "nullable" : true
                     }
                 },
                 "description" : "A unique combination of Trait, Method, and Scale to define a clear context for an Observation."
@@ -26375,6 +26531,13 @@
                         "items" : {
                             "type" : "string"
                         }
+                    },
+                    "variableCategories" : {
+                        "type" : "array",
+                        "description" : "Defines the broad category of the variable, allowing for groupings such as phenotyping, environmental, or germplasm attributes.",
+                        "items" : {
+                            "type" : "string"
+                        }
                     }
                 }
             },
@@ -26431,13 +26594,15 @@
                         "type" : "string",
                         "description" : "The timestamp when this variant was created.",
                         "format" : "date-time",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "2023-10-27T10:00:00Z"
                     },
                     "end" : {
                         "type" : "integer",
                         "description" : "This field is optional and may be ignored if there is no relevant map or reference to be associated with.\n<br>The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated \nby `start + referenceBases.length`.",
                         "format" : "int32",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : 1500
                     },
                     "externalReferences" : {
                         "type" : "array",
@@ -26449,7 +26614,8 @@
                     "filtersApplied" : {
                         "type" : "boolean",
                         "description" : "True if filters were applied for this variant. VCF column 7 \"FILTER\" any value other than the missing value.",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : true
                     },
                     "filtersFailed" : {
                         "type" : "array",
@@ -26462,12 +26628,14 @@
                     "filtersPassed" : {
                         "type" : "boolean",
                         "description" : "True if all filters for this variant passed. VCF column 7 \"FILTER\" value PASS.",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : true
                     },
                     "referenceBases" : {
                         "type" : "string",
                         "description" : "The reference bases for this variant. They start at the given start position.",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "TGCAT"
                     },
                     "referenceDbId" : {
                         "type" : "string",
@@ -26489,19 +26657,22 @@
                         "type" : "integer",
                         "description" : "This field is optional and may be ignored if there is no relevant map or reference to be associated with.\n<br> The start position at which this variant occurs (0-based). This corresponds to the first base of the string \nof reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning \nthe join of circular genomes are represented as two variants one on each side of the join (position 0).",
                         "format" : "int32",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : 100
                     },
                     "svlen" : {
                         "type" : "integer",
                         "description" : "Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2",
                         "format" : "int32",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : 50
                     },
                     "updated" : {
                         "type" : "string",
                         "description" : "The time at which this variant was last updated.",
                         "format" : "date-time",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : "2023-10-27T10:00:00Z"
                     },
                     "variantDbId" : {
                         "type" : "string",
@@ -26839,11 +27010,13 @@
                         "type" : "integer",
                         "description" : "The number of CallSets included in this VariantSet",
                         "format" : "int32",
-                        "nullable" : true
+                        "nullable" : true,
+                        "example" : 5
                     },
                     "externalReferences" : {
                         "type" : "array",
                         "description" : "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.",
+                        "nullable" : true,
                         "items" : {
                             "$ref" : "#/components/schemas/ExternalReference"
                         }

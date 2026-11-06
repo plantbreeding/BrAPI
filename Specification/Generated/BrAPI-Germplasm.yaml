@@ -597,6 +597,14 @@ paths:
         schema:
           type: string
           nullable: false
+      - name: variableCategory
+        in: query
+        description: "Defines the broad category of the variable, allowing for groupings\
+          \ such as phenotyping, environmental, or germplasm attributes."
+        required: false
+        schema:
+          type: string
+          nullable: false
       - name: attributeDbId
         in: query
         description: List of Germplasm Attribute IDs to search for
@@ -2270,8 +2278,11 @@ components:
           - $ref: "#/components/schemas/AdditionalInfo"
         attributeCategory:
           type: string
-          description: General category for the attribute. very similar to Trait class.
+          description: |-
+            **Deprecated in v2.2** Use the variableCategory property.
+            General category for the attribute. very similar to Trait class.
           example: Morphological
+          deprecated: true
         attributeDbId:
           type: string
           description: The ID which uniquely identifies this attribute within the
@@ -2296,9 +2307,11 @@ components:
           example: Maize
         contextOfUse:
           type: array
-          description: "Indication of how trait is routinely used. (examples: [\"\
-            Trial evaluation\", \"Nursery evaluation\"])"
+          description: |-
+            **Deprecated in v2.2** Please use `variableCategory` instead.
+             Indicates how a given variable is typically used. (examples: ["Trial evaluation", "Nursery evaluation"])
           nullable: true
+          deprecated: true
           items:
             type: string
         defaultValue:
@@ -2347,7 +2360,7 @@ components:
           $ref: "#/components/schemas/Scale"
         scientist:
           type: string
-          description: Name of scientist submitting the variable.
+          description: "scientist: string"
           nullable: true
           example: Dr. Bob Robertson
         status:
@@ -2361,6 +2374,7 @@ components:
           description: Timestamp when the Variable was added (ISO 8601)
           format: date-time
           nullable: true
+          example: 2017-06-16T20:47:23Z
         synonyms:
           type: array
           description: Other variable names
@@ -2369,6 +2383,11 @@ components:
             type: string
         trait:
           $ref: "#/components/schemas/Trait"
+        variableCategory:
+          type: string
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
+          nullable: true
     BiologicalStatusOfAccessionCode:
       type: string
       description: "MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used\
@@ -2381,9 +2400,9 @@ components:
         \ cultivar) \n415) Segregating population \n416) Clonal selection \n420) Genetic\
         \ stock \n421) Mutant (e.g. induced/insertion mutants, tilling populations)\
         \ \n422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,\
-        \  amphiploids) \n423) Other genetic stocks (e.g. mapping populations) \n\
-        500) Advanced or improved cultivar (conventional breeding methods) \n600)\
-        \ GMO (by genetic engineering) \n999) Other (Elaborate in REMARKS field)"
+        \ amphiploids) \n423) Other genetic stocks (e.g. mapping populations) \n500)\
+        \ Advanced or improved cultivar (conventional breeding methods) \n600) GMO\
+        \ (by genetic engineering) \n999) Other (Elaborate in REMARKS field)"
       enum:
       - "100"
       - "110"
@@ -2416,17 +2435,21 @@ components:
           description: A shortened version of the human readable name for a Breeding
             Method
           nullable: true
+          example: GP
         breedingMethodDbId:
           type: string
           description: the unique identifier for this breeding method
+          example: BM_123
         breedingMethodName:
           type: string
           description: the human readable identifier for this breeding method
           nullable: true
+          example: Generative Breeding
         description:
           type: string
           description: human readable description of the breeding method
           nullable: true
+          example: A description of the method
         type:
           type: string
           description: "The specific type of Breeding Method. Ex: 'Generative', 'Maintenance',\
@@ -2632,7 +2655,7 @@ components:
               example: "35"
             georeferencingMethod:
               type: string
-              description: "MCPD (v2.1) (GEOREFMETH) 15.7  The georeferencing method\
+              description: "MCPD (v2.1) (GEOREFMETH) 15.7 The georeferencing method\
                 \ used (GPS, determined from map, gazetteer, or estimated using software).\
                 \ Leave the value empty if georeferencing method is not known."
               nullable: true
@@ -2705,7 +2728,7 @@ components:
           example: "35"
         georeferencingMethod:
           type: string
-          description: "MCPD (v2.1) (GEOREFMETH) 15.7  The georeferencing method used\
+          description: "MCPD (v2.1) (GEOREFMETH) 15.7 The georeferencing method used\
             \ (GPS, determined from map, gazetteer, or estimated using software).\
             \ Leave the value empty if georeferencing method is not known."
           nullable: true
@@ -2992,7 +3015,7 @@ components:
     CrossType:
       type: string
       description: "The type of cross make. Accepted values for this field are 'BIPARENTAL',\
-        \ 'SELF', 'OPEN_POLLINATED', 'BULK',  'BULK_SELFED',  'BULK_OPEN_POLLINATED'\
+        \ 'SELF', 'OPEN_POLLINATED', 'BULK', 'BULK_SELFED', 'BULK_OPEN_POLLINATED'\
         \ and 'DOUBLE_HAPLOID'."
       nullable: true
       enum:
@@ -3013,6 +3036,7 @@ components:
           crossingProjectDbId:
             type: string
             description: The unique identifier for a crossing project
+            example: CP_CORE_2024
         description: "A project structure where a list of PlannedCrosses is generated,\
           \ the crossing events occur in the field, and the resulting actual Crosses\
           \ can documented."
@@ -3473,8 +3497,11 @@ components:
           - $ref: "#/components/schemas/AdditionalInfo"
         attributeCategory:
           type: string
-          description: General category for the attribute. very similar to Trait class.
+          description: |-
+            **Deprecated in v2.2** Use the variableCategory property.
+            General category for the attribute. very similar to Trait class.
           example: Morphological
+          deprecated: true
         attributeDescription:
           type: string
           description: A human readable description of this attribute
@@ -3495,9 +3522,11 @@ components:
           example: Maize
         contextOfUse:
           type: array
-          description: "Indication of how trait is routinely used. (examples: [\"\
-            Trial evaluation\", \"Nursery evaluation\"])"
+          description: |-
+            **Deprecated in v2.2** Please use `variableCategory` instead.
+             Indicates how a given variable is typically used. (examples: ["Trial evaluation", "Nursery evaluation"])
           nullable: true
+          deprecated: true
           items:
             type: string
         defaultValue:
@@ -3611,7 +3640,7 @@ components:
           $ref: "#/components/schemas/Scale"
         scientist:
           type: string
-          description: Name of scientist submitting the variable.
+          description: "scientist: string"
           nullable: true
           example: Dr. Bob Robertson
         status:
@@ -3625,6 +3654,7 @@ components:
           description: Timestamp when the Variable was added (ISO 8601)
           format: date-time
           nullable: true
+          example: 2017-06-16T20:47:23Z
         synonyms:
           type: array
           description: Other variable names
@@ -3738,6 +3768,11 @@ components:
             plant height\", a Scale of \"meters\", and a Method of \"tape measure\"\
             . This variable would be distinct from a variable with the Trait \"Leaf\
             \ length\" or \"Flower height\". "
+        variableCategory:
+          type: string
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
+          nullable: true
       description: "The Trait-Method-Scale definition for a variable, specifically\
         \ variables related to Germplasm. Similar to an ObservationVariable, but related\
         \ to a Germplasm instead of an ObservationUnit"
@@ -3935,6 +3970,12 @@ components:
         trialNames:
           type: array
           description: The human readable name of a trial to search for
+          items:
+            type: string
+        variableCategories:
+          type: array
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
           items:
             type: string
     GermplasmAttributeSearchRequest:
@@ -4163,6 +4204,12 @@ components:
         trialNames:
           type: array
           description: The human readable name of a trial to search for
+          items:
+            type: string
+        variableCategories:
+          type: array
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
           items:
             type: string
       description: "The Trait-Method-Scale definition for a variable, specifically\
@@ -4575,7 +4622,7 @@ components:
             \ Inbred line (parent of hybrid cultivar) \n415) Segregating population\
             \ \n416) Clonal selection \n420) Genetic stock \n421) Mutant (e.g. induced/insertion\
             \ mutants, tilling populations) \n422) Cytogenetic stocks (e.g. chromosome\
-            \ addition/substitution, aneuploids,  amphiploids) \n423) Other genetic\
+            \ addition/substitution, aneuploids, amphiploids) \n423) Other genetic\
             \ stocks (e.g. mapping populations) \n500) Advanced or improved cultivar\
             \ (conventional breeding methods) \n600) GMO (by genetic engineering)\
             \ \n999) Other (Elaborate in REMARKS field)"
@@ -4608,7 +4655,7 @@ components:
           description: |-
             A list of institutes that were involved with breeding a material/germplasm
             <br> MCPD (v2.1) (BREDCODE) 18. FAO WIEWS code of the institute that has bred the material. If the holding institute has bred the material, the breeding institute code (BREDCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard.
-            <br> MCPD (v2.1) (BREDNAME) 18.1  Name of the institute (or person) that bred the material. This descriptor should be used only if BREDCODE can not be filled because the FAO WIEWS code for this institute is not available.
+            <br> MCPD (v2.1) (BREDNAME) 18.1 Name of the institute (or person) that bred the material. This descriptor should be used only if BREDCODE can not be filled because the FAO WIEWS code for this institute is not available.
           nullable: true
           items:
             $ref: "#/components/schemas/Institute"
@@ -4664,10 +4711,10 @@ components:
                   example: "35"
                 georeferencingMethod:
                   type: string
-                  description: "MCPD (v2.1) (GEOREFMETH) 15.7  The georeferencing\
-                    \ method used (GPS, determined from map, gazetteer, or estimated\
-                    \ using software). Leave the value empty if georeferencing method\
-                    \ is not known."
+                  description: "MCPD (v2.1) (GEOREFMETH) 15.7 The georeferencing method\
+                    \ used (GPS, determined from map, gazetteer, or estimated using\
+                    \ software). Leave the value empty if georeferencing method is\
+                    \ not known."
                   nullable: true
                   example: WGS84
                 latitudeDecimal:
@@ -4918,7 +4965,7 @@ components:
             \ Inbred line (parent of hybrid cultivar) \n415) Segregating population\
             \ \n416) Clonal selection \n420) Genetic stock \n421) Mutant (e.g. induced/insertion\
             \ mutants, tilling populations) \n422) Cytogenetic stocks (e.g. chromosome\
-            \ addition/substitution, aneuploids,  amphiploids) \n423) Other genetic\
+            \ addition/substitution, aneuploids, amphiploids) \n423) Other genetic\
             \ stocks (e.g. mapping populations) \n500) Advanced or improved cultivar\
             \ (conventional breeding methods) \n600) GMO (by genetic engineering)\
             \ \n999) Other (Elaborate in REMARKS field)"
@@ -5132,7 +5179,7 @@ components:
 
             MCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: "subsp." (for subspecies); "convar." (for convariety); "var." (for variety); "f." (for form); "Group" (for "cultivar group").
 
-            MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).
+            MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).
           nullable: true
           example: Aspergillus fructus A
         subtaxaAuthority:
@@ -5671,7 +5718,7 @@ components:
       properties:
         instituteAddress:
           type: string
-          description: MCPD (v2.1) (COLLINSTADDRESS) 4.1.1  Address of the institute
+          description: MCPD (v2.1) (COLLINSTADDRESS) 4.1.1 Address of the institute
             collecting the sample. This descriptor should be used only if COLLCODE
             can not be filled since the FAO WIEWS code for this institute is not available.
             Multiple values are separated by a semicolon without space.
@@ -5679,7 +5726,7 @@ components:
           example: "123 Main Street, Lima, Peru, 5555"
         instituteCode:
           type: string
-          description: "MCPD (v2.1) (COLLCODE) 4.  FAO WIEWS code of the institute\
+          description: "MCPD (v2.1) (COLLCODE) 4. FAO WIEWS code of the institute\
             \ collecting the sample. If the holding institute has collected the material,\
             \ the collecting institute code (COLLCODE) should be the same as the holding\
             \ institute code (INSTCODE). Follows INSTCODE standard. Multiple values\
@@ -5688,7 +5735,7 @@ components:
           example: PER001
         instituteName:
           type: string
-          description: MCPD (v2.1) (COLLNAME) 4.1  Name of the institute collecting
+          description: MCPD (v2.1) (COLLNAME) 4.1 Name of the institute collecting
             the sample. This descriptor should be used only if COLLCODE can not be
             filled because the FAO WIEWS code for this institute is not available.
             Multiple values are separated by a semicolon without space.
@@ -6712,6 +6759,12 @@ components:
           description: The human readable name of a trial to search for
           items:
             type: string
+        variableCategories:
+          type: array
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
+          items:
+            type: string
     OntologyParameters:
       type: object
       properties:
@@ -6853,7 +6906,7 @@ components:
             \ this germplasm. These represent edges in the tree, connecting to other\
             \ nodes.\n<br/> The given germplasm could have a large number of progeny,\
             \ across a number of different breeding methods. The 'parentType' shows\
-            \ \n      the type of parent this germplasm is to each of the child germplasm\
+            \ \n the type of parent this germplasm is to each of the child germplasm\
             \ references.\n<br/> If the parameter 'includeProgeny' is set to false,\
             \ then this array should be empty, null, or not present in the response."
           nullable: true
@@ -8903,9 +8956,11 @@ components:
           example: Maize
         contextOfUse:
           type: array
-          description: "Indication of how trait is routinely used. (examples: [\"\
-            Trial evaluation\", \"Nursery evaluation\"])"
+          description: |-
+            **Deprecated in v2.2** Please use `variableCategory` instead.
+             Indicates how a given variable is typically used. (examples: ["Trial evaluation", "Nursery evaluation"])
           nullable: true
+          deprecated: true
           items:
             type: string
         defaultValue:
@@ -8954,7 +9009,7 @@ components:
           $ref: "#/components/schemas/Scale"
         scientist:
           type: string
-          description: Name of scientist submitting the variable.
+          description: "scientist: string"
           nullable: true
           example: Dr. Bob Robertson
         status:
@@ -8968,6 +9023,7 @@ components:
           description: Timestamp when the Variable was added (ISO 8601)
           format: date-time
           nullable: true
+          example: 2017-06-16T20:47:23Z
         synonyms:
           type: array
           description: Other variable names
@@ -8976,6 +9032,11 @@ components:
             type: string
         trait:
           $ref: "#/components/schemas/Trait"
+        variableCategory:
+          type: string
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
+          nullable: true
       description: "A unique combination of Trait, Method, and Scale to define a clear\
         \ context for an Observation."
     VariableBaseClassParameters:
@@ -9133,6 +9194,12 @@ components:
         trialNames:
           type: array
           description: The human readable name of a trial to search for
+          items:
+            type: string
+        variableCategories:
+          type: array
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
           items:
             type: string
     VariantRequest:

@@ -2127,8 +2127,11 @@ components:
           - $ref: "#/components/schemas/AdditionalInfo"
         attributeCategory:
           type: string
-          description: General category for the attribute. very similar to Trait class.
+          description: |-
+            **Deprecated in v2.2** Use the variableCategory property.
+            General category for the attribute. very similar to Trait class.
           example: Morphological
+          deprecated: true
         attributeDbId:
           type: string
           description: The ID which uniquely identifies this attribute within the
@@ -2153,9 +2156,11 @@ components:
           example: Maize
         contextOfUse:
           type: array
-          description: "Indication of how trait is routinely used. (examples: [\"\
-            Trial evaluation\", \"Nursery evaluation\"])"
+          description: |-
+            **Deprecated in v2.2** Please use `variableCategory` instead.
+             Indicates how a given variable is typically used. (examples: ["Trial evaluation", "Nursery evaluation"])
           nullable: true
+          deprecated: true
           items:
             type: string
         defaultValue:
@@ -2204,7 +2209,7 @@ components:
           $ref: "#/components/schemas/Scale"
         scientist:
           type: string
-          description: Name of scientist submitting the variable.
+          description: "scientist: string"
           nullable: true
           example: Dr. Bob Robertson
         status:
@@ -2218,6 +2223,7 @@ components:
           description: Timestamp when the Variable was added (ISO 8601)
           format: date-time
           nullable: true
+          example: 2017-06-16T20:47:23Z
         synonyms:
           type: array
           description: Other variable names
@@ -2226,6 +2232,11 @@ components:
             type: string
         trait:
           $ref: "#/components/schemas/Trait"
+        variableCategory:
+          type: string
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
+          nullable: true
     CallRequest:
       type: object
       properties:
@@ -2405,6 +2416,8 @@ components:
             **Deprecated in v2.2** Please use `personDbId`. Github issue number #582 <br> The ID which uniquely identifies this contact
 
             MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.
+          nullable: true
+          example: c12345
         description:
           type: string
           description: description of this person
@@ -2417,6 +2430,7 @@ components:
 
             MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.
           nullable: true
+          example: test@example.com
         emailAddress:
           type: string
           description: email address for this person
@@ -2442,6 +2456,7 @@ components:
 
             MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to
           nullable: true
+          example: University of Genetics
         lastName:
           type: string
           description: Persons last name
@@ -2449,7 +2464,8 @@ components:
           example: Robertson
         listDbIds:
           type: array
-          description: ""
+          description: "Lists created by this person, typically to track collections\
+            \ of data objects."
           nullable: true
           items:
             type: string
@@ -2470,6 +2486,7 @@ components:
 
             MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)
           nullable: true
+          example: John Doe
         observationDbIds:
           type: array
           description: Observations uploaded by a person
@@ -2483,6 +2500,7 @@ components:
 
             MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.
           nullable: true
+          example: 0000-0000-0000-0001
         personDbId:
           type: string
           description: Unique ID for a person
@@ -2494,7 +2512,7 @@ components:
           example: +1-555-555-5555
         programDbIds:
           type: array
-          description: ""
+          description: Programs led or managed by this person.
           nullable: true
           items:
             type: string
@@ -2505,6 +2523,7 @@ components:
 
             MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation
           nullable: true
+          example: Scientist
         userID:
           type: string
           description: A systems user ID associated with this person. Different from
@@ -2645,6 +2664,7 @@ components:
 
             MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.
           nullable: true
+          example: VCF
         description:
           type: string
           description: |-
@@ -2652,6 +2672,7 @@ components:
 
             MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.
           nullable: true
+          example: Detailed description of data
         fileFormat:
           type: string
           description: |-
@@ -2659,6 +2680,7 @@ components:
 
             MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.
           nullable: true
+          example: text/csv
         name:
           type: string
           description: |-
@@ -2666,16 +2688,19 @@ components:
 
             MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.
           nullable: true
+          example: Data file for Trial 1
         provenance:
           type: string
           description: "The description of the origin or ownership of this linked\
             \ data. Could be a formal reference to software, method, or workflow."
           nullable: true
+          example: MyLab Pipeline v1.2
         scientificType:
           type: string
           description: "The general type of data. For example- Genotyping, Phenotyping\
             \ raw data, Phenotyping reduced data, Environmental, etc"
           nullable: true
+          example: Phenotyping raw data
         url:
           type: string
           description: |-
@@ -2684,11 +2709,13 @@ components:
             MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.
           format: uri
           nullable: true
+          example: http://example.com/data.zip
         version:
           type: string
           description: "The version number for this data \n\nMIAPPE V1.1 (DM-39) Data\
             \ file version - The version of the dataset (the actual data)."
           nullable: true
+          example: "1.0"
       description: "A link to extra data files associated with this study. Extra data\
         \ could include notes, images, and reference data."
     DatasetAuthorships:
@@ -3335,6 +3362,12 @@ components:
           description: The human readable name of a trial to search for
           items:
             type: string
+        variableCategories:
+          type: array
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
+          items:
+            type: string
     GermplasmAttributeValueRequest:
       type: object
       properties:
@@ -3755,6 +3788,8 @@ components:
           listDbId:
             type: string
             description: The unique identifier for a List
+            nullable: true
+            example: l12345
         description: "A List represents a collection of other BrAPI data objects.\
           \ Typically these are custom lists generated by a user to keep track of\
           \ interesting data. For example, a user might build a List of Germplasm\
@@ -3780,11 +3815,13 @@ components:
           description: Timestamp when the entity was first created
           format: date-time
           nullable: true
+          example: 2023-01-01T12:00:00Z
         dateModified:
           type: string
           description: Timestamp when the entity was last updated
           format: date-time
           nullable: true
+          example: 2023-01-02T10:00:00Z
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -3801,6 +3838,7 @@ components:
         listName:
           type: string
           description: Human readable name of a List
+          nullable: true
           example: MyGermplasm_Sept_2020
         listOwnerName:
           type: string
@@ -5275,6 +5313,12 @@ components:
           description: The human readable name of a trial to search for
           items:
             type: string
+        variableCategories:
+          type: array
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
+          items:
+            type: string
     OntologyParameters:
       type: object
       properties:
@@ -5549,6 +5593,7 @@ components:
 
             MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to
           nullable: true
+          example: University of Genetics
         lastName:
           type: string
           description: Persons last name
@@ -5571,6 +5616,7 @@ components:
 
             MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.
           nullable: true
+          example: 0000-0000-0000-0001
         phoneNumber:
           type: string
           description: phone number of this person
@@ -5583,6 +5629,7 @@ components:
 
             MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation
           nullable: true
+          example: Scientist
         userID:
           type: string
           description: A systems user ID associated with this person. Different from
@@ -7920,9 +7967,11 @@ components:
           example: Maize
         contextOfUse:
           type: array
-          description: "Indication of how trait is routinely used. (examples: [\"\
-            Trial evaluation\", \"Nursery evaluation\"])"
+          description: |-
+            **Deprecated in v2.2** Please use `variableCategory` instead.
+             Indicates how a given variable is typically used. (examples: ["Trial evaluation", "Nursery evaluation"])
           nullable: true
+          deprecated: true
           items:
             type: string
         defaultValue:
@@ -7971,7 +8020,7 @@ components:
           $ref: "#/components/schemas/Scale"
         scientist:
           type: string
-          description: Name of scientist submitting the variable.
+          description: "scientist: string"
           nullable: true
           example: Dr. Bob Robertson
         status:
@@ -7985,6 +8034,7 @@ components:
           description: Timestamp when the Variable was added (ISO 8601)
           format: date-time
           nullable: true
+          example: 2017-06-16T20:47:23Z
         synonyms:
           type: array
           description: Other variable names
@@ -7993,6 +8043,11 @@ components:
             type: string
         trait:
           $ref: "#/components/schemas/Trait"
+        variableCategory:
+          type: string
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
+          nullable: true
       description: "A unique combination of Trait, Method, and Scale to define a clear\
         \ context for an Observation."
     VariableBaseClassParameters:
@@ -8150,6 +8205,12 @@ components:
         trialNames:
           type: array
           description: The human readable name of a trial to search for
+          items:
+            type: string
+        variableCategories:
+          type: array
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
           items:
             type: string
     VariantRequest:

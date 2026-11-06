@@ -1047,6 +1047,14 @@ paths:
         schema:
           type: string
           nullable: false
+      - name: variableCategory
+        in: query
+        description: "Defines the broad category of the variable, allowing for groupings\
+          \ such as phenotyping, environmental, or germplasm attributes."
+        required: false
+        schema:
+          type: string
+          nullable: false
       - $ref: "#/components/parameters/externalReferenceId"
       - $ref: "#/components/parameters/externalReferenceID"
       - $ref: "#/components/parameters/externalReferenceSource"
@@ -2786,8 +2794,11 @@ components:
           - $ref: "#/components/schemas/AdditionalInfo"
         attributeCategory:
           type: string
-          description: General category for the attribute. very similar to Trait class.
+          description: |-
+            **Deprecated in v2.2** Use the variableCategory property.
+            General category for the attribute. very similar to Trait class.
           example: Morphological
+          deprecated: true
         attributeDbId:
           type: string
           description: The ID which uniquely identifies this attribute within the
@@ -2812,9 +2823,11 @@ components:
           example: Maize
         contextOfUse:
           type: array
-          description: "Indication of how trait is routinely used. (examples: [\"\
-            Trial evaluation\", \"Nursery evaluation\"])"
+          description: |-
+            **Deprecated in v2.2** Please use `variableCategory` instead.
+             Indicates how a given variable is typically used. (examples: ["Trial evaluation", "Nursery evaluation"])
           nullable: true
+          deprecated: true
           items:
             type: string
         defaultValue:
@@ -2863,7 +2876,7 @@ components:
           $ref: "#/components/schemas/Scale"
         scientist:
           type: string
-          description: Name of scientist submitting the variable.
+          description: "scientist: string"
           nullable: true
           example: Dr. Bob Robertson
         status:
@@ -2877,6 +2890,7 @@ components:
           description: Timestamp when the Variable was added (ISO 8601)
           format: date-time
           nullable: true
+          example: 2017-06-16T20:47:23Z
         synonyms:
           type: array
           description: Other variable names
@@ -2885,6 +2899,11 @@ components:
             type: string
         trait:
           $ref: "#/components/schemas/Trait"
+        variableCategory:
+          type: string
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
+          nullable: true
     CallRequest:
       type: object
       properties:
@@ -3258,12 +3277,14 @@ components:
         eventDbId:
           type: string
           description: Internal database identifier
+          example: UUID-12345
         eventDescription:
           type: string
           description: "A detailed, human-readable description of this event\n<br/>MIAPPE\
             \ V1.1 (DM-67) Event description - Description of the event, including\
             \ details such as amount applied and possibly duration of the event. "
           nullable: true
+          example: Fertilizer application of 100kg of nitrogen.
         eventParameters:
           type: array
           description: A list of objects describing additional event parameters. Each
@@ -3277,6 +3298,7 @@ components:
             An identifier for this event type, in the form of an ontology class reference
             <br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other
             <br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).
+          example: planting
         eventTypeDbId:
           type: string
           description: |-
@@ -3284,6 +3306,7 @@ components:
             <br/>ICASA Management events allow for the following types: planting, fertilizer, irrigation, tillage, organic_material, harvest, bed_prep, inorg_mulch, inorg_mul_rem, chemicals, mowing, observation, weeding, puddling, flood_level, other
             <br/>MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).
           nullable: true
+          example: event_type_db_id_xyz
         observationUnitDbIds:
           type: array
           description: "A list of the affected observation units. If this parameter\
@@ -3440,6 +3463,14 @@ components:
           description: List of study names to filter search results
           items:
             type: string
+    Example:
+      type: object
+      properties:
+        categories:
+          type: array
+          description: "categories: Categories"
+          items:
+            $ref: "#/components/schemas/ValidValuesCategory"
     ExternalReference:
       type: object
       properties:
@@ -3868,6 +3899,12 @@ components:
           description: The human readable name of a trial to search for
           items:
             type: string
+        variableCategories:
+          type: array
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
+          items:
+            type: string
     GermplasmAttributeValueRequest:
       type: object
       properties:
@@ -4166,6 +4203,7 @@ components:
           imageDbId:
             type: string
             description: The unique identifier of an image
+            example: image_id_001
         description: The metadata for an image file that is connected to some phenotypic
           observation data.
     ImageNewRequest:
@@ -5556,6 +5594,7 @@ components:
             \ is 'field', then the 'levelCode' might be something like '3' or 'F3'\
             \ to indicate the third field at a research station. "
           nullable: true
+          example: F3
         levelName:
           type: string
           description: "A name for this level \n\n**Standard Level Names: study, field,\
@@ -5599,6 +5638,7 @@ components:
             \ is 'field', then the 'levelCode' might be something like '3' or 'F3'\
             \ to indicate the third field at a research station. "
           nullable: true
+          example: F3
         levelName:
           type: string
           description: "A name for this level \n\n**Standard Level Names: study, field,\
@@ -6300,9 +6340,11 @@ components:
           example: Maize
         contextOfUse:
           type: array
-          description: "Indication of how trait is routinely used. (examples: [\"\
-            Trial evaluation\", \"Nursery evaluation\"])"
+          description: |-
+            **Deprecated in v2.2** Please use `variableCategory` instead.
+             Indicates how a given variable is typically used. (examples: ["Trial evaluation", "Nursery evaluation"])
           nullable: true
+          deprecated: true
           items:
             type: string
         defaultValue:
@@ -6429,7 +6471,7 @@ components:
           $ref: "#/components/schemas/Scale"
         scientist:
           type: string
-          description: Name of scientist submitting the variable.
+          description: "scientist: string"
           nullable: true
           example: Dr. Bob Robertson
         status:
@@ -6443,6 +6485,7 @@ components:
           description: Timestamp when the Variable was added (ISO 8601)
           format: date-time
           nullable: true
+          example: 2017-06-16T20:47:23Z
         synonyms:
           type: array
           description: Other variable names
@@ -6556,6 +6599,11 @@ components:
             plant height\", a Scale of \"meters\", and a Method of \"tape measure\"\
             . This variable would be distinct from a variable with the Trait \"Leaf\
             \ length\" or \"Flower height\". "
+        variableCategory:
+          type: string
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
+          nullable: true
     ObservationVariableParameters:
       type: object
       properties:
@@ -6746,6 +6794,12 @@ components:
         trialNames:
           type: array
           description: The human readable name of a trial to search for
+          items:
+            type: string
+        variableCategories:
+          type: array
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
           items:
             type: string
     ObservationVariableSearchRequest:
@@ -6951,6 +7005,12 @@ components:
         trialNames:
           type: array
           description: The human readable name of a trial to search for
+          items:
+            type: string
+        variableCategories:
+          type: array
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
           items:
             type: string
     Ontology:
@@ -8816,6 +8876,15 @@ components:
           nullable: true
           items:
             $ref: "#/components/schemas/ValidValuesCategory"
+        example:
+          type: object
+          properties:
+            categories:
+              type: array
+              description: "categories: Categories"
+              items:
+                $ref: "#/components/schemas/ValidValuesCategory"
+          description: "example: Example"
         maximumValue:
           type: string
           description: "Maximum value for numerical, date, and time scales. Typically\
@@ -8866,9 +8935,11 @@ components:
           example: Maize
         contextOfUse:
           type: array
-          description: "Indication of how trait is routinely used. (examples: [\"\
-            Trial evaluation\", \"Nursery evaluation\"])"
+          description: |-
+            **Deprecated in v2.2** Please use `variableCategory` instead.
+             Indicates how a given variable is typically used. (examples: ["Trial evaluation", "Nursery evaluation"])
           nullable: true
+          deprecated: true
           items:
             type: string
         defaultValue:
@@ -8917,7 +8988,7 @@ components:
           $ref: "#/components/schemas/Scale"
         scientist:
           type: string
-          description: Name of scientist submitting the variable.
+          description: "scientist: string"
           nullable: true
           example: Dr. Bob Robertson
         status:
@@ -8931,6 +9002,7 @@ components:
           description: Timestamp when the Variable was added (ISO 8601)
           format: date-time
           nullable: true
+          example: 2017-06-16T20:47:23Z
         synonyms:
           type: array
           description: Other variable names
@@ -8939,6 +9011,11 @@ components:
             type: string
         trait:
           $ref: "#/components/schemas/Trait"
+        variableCategory:
+          type: string
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
+          nullable: true
       description: "A unique combination of Trait, Method, and Scale to define a clear\
         \ context for an Observation."
     VariableBaseClassParameters:
@@ -9096,6 +9173,12 @@ components:
         trialNames:
           type: array
           description: The human readable name of a trial to search for
+          items:
+            type: string
+        variableCategories:
+          type: array
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
           items:
             type: string
     VariantRequest:

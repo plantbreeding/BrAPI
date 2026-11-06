@@ -2524,6 +2524,7 @@ components:
           description: Should homozygotes be expanded (true) or collapsed into a single
             occurrence (false)
           nullable: true
+          example: false
         pagination:
           type: array
           description: Pagination for the matrix
@@ -2534,14 +2535,17 @@ components:
           type: string
           description: The string used as a separator for phased allele calls.
           nullable: true
+          example: '|'
         sepUnphased:
           type: string
           description: The string used as a separator for unphased allele calls.
           nullable: true
+          example: ","
         unknownString:
           type: string
           description: The string used as a representation for missing data.
           nullable: true
+          example: NA
         variantDbIds:
           type: array
           description: A list of unique identifiers for the Variants contained in
@@ -2924,8 +2928,11 @@ components:
           - $ref: "#/components/schemas/AdditionalInfo"
         attributeCategory:
           type: string
-          description: General category for the attribute. very similar to Trait class.
+          description: |-
+            **Deprecated in v2.2** Use the variableCategory property.
+            General category for the attribute. very similar to Trait class.
           example: Morphological
+          deprecated: true
         attributeDbId:
           type: string
           description: The ID which uniquely identifies this attribute within the
@@ -2950,9 +2957,11 @@ components:
           example: Maize
         contextOfUse:
           type: array
-          description: "Indication of how trait is routinely used. (examples: [\"\
-            Trial evaluation\", \"Nursery evaluation\"])"
+          description: |-
+            **Deprecated in v2.2** Please use `variableCategory` instead.
+             Indicates how a given variable is typically used. (examples: ["Trial evaluation", "Nursery evaluation"])
           nullable: true
+          deprecated: true
           items:
             type: string
         defaultValue:
@@ -3001,7 +3010,7 @@ components:
           $ref: "#/components/schemas/Scale"
         scientist:
           type: string
-          description: Name of scientist submitting the variable.
+          description: "scientist: string"
           nullable: true
           example: Dr. Bob Robertson
         status:
@@ -3015,6 +3024,7 @@ components:
           description: Timestamp when the Variable was added (ISO 8601)
           format: date-time
           nullable: true
+          example: 2017-06-16T20:47:23Z
         synonyms:
           type: array
           description: Other variable names
@@ -3023,6 +3033,11 @@ components:
             type: string
         trait:
           $ref: "#/components/schemas/Trait"
+        variableCategory:
+          type: string
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
+          nullable: true
     AvailableFormat:
       type: object
       properties:
@@ -3123,6 +3138,7 @@ components:
           description: "If this field is populated, this variant call's genotype ordering\
             \ implies the phase of the bases and \nis consistent with any other variant\
             \ calls on the same contig which have the same phase set string."
+          example: phased
         variantDbId:
           type: string
         variantName:
@@ -3274,11 +3290,13 @@ components:
           description: The human readable name which identifies a germplasm within
             the given database server
           nullable: true
+          example: NA_12345
         created:
           type: string
           description: The date this call set was created
           format: date-time
           nullable: true
+          example: 2023-10-27T10:00:00Z
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -3297,6 +3315,7 @@ components:
           description: The time at which this call set was last updated
           format: date-time
           nullable: true
+          example: 2024-01-01T12:00:00Z
         variantSetDbIds:
           type: array
           description: The IDs of the variantSets this callSet has calls in.
@@ -3960,6 +3979,7 @@ components:
           type: string
           description: The type of field represented in this Genotype Field. This
             is intended to help parse the data out of JSON.
+          example: string
           enum:
           - string
           - integer
@@ -3970,15 +3990,18 @@ components:
           description: |-
             The abbreviated code of the field represented in this Genotype Field. These codes should match the VCF standard when possible. Examples include: "GQ", "RD", and "HQ"
             <br> This maps to a FORMAT field in the VCF file standard.
+          example: GT
         fieldName:
           type: string
           description: |-
             The name of the field represented in this Genotype Field. Examples include: "Genotype Quality", "Read Depth", and "Haplotype Quality"
             <br> This maps to a FORMAT field in the VCF file standard.
+          example: Genotype
         fieldValue:
           type: string
           description: The additional metadata value associated with this genotype
             call
+          example: "99.5"
       description: Genotype Metadata are additional layers of metadata associated
         with each genotype.
     GeoJSON:
@@ -4294,6 +4317,12 @@ components:
         trialNames:
           type: array
           description: The human readable name of a trial to search for
+          items:
+            type: string
+        variableCategories:
+          type: array
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
           items:
             type: string
     GermplasmAttributeValueRequest:
@@ -4965,6 +4994,7 @@ components:
           description: The position of a marker or variant within a `LinkageGroup`
           format: int32
           nullable: true
+          example: 1000
         variantDbId:
           type: string
           nullable: true
@@ -5832,6 +5862,12 @@ components:
         trialNames:
           type: array
           description: The human readable name of a trial to search for
+          items:
+            type: string
+        variableCategories:
+          type: array
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
           items:
             type: string
     OntologyParameters:
@@ -6737,6 +6773,7 @@ components:
           description: The `sourceDivergence` is the fraction of non-indel bases that
             do not match the `Reference` this message was derived from.
           nullable: true
+          example: 0.05
         sourceGermplasm:
           type: array
           description: All known corresponding Germplasm
@@ -6750,6 +6787,7 @@ components:
             \ clients should call the `getReferenceBases()` method to obtain sequence\
             \ bases for a `Reference` instead of attempting to retrieve this URI."
           nullable: true
+          example: ftp://data.dbj.ie/seq/fasta_data.txt
         species:
           $ref: "#/components/schemas/OntologyTerm"
       description: "A `Reference` is a canonical assembled contig, intended to act\
@@ -7091,6 +7129,7 @@ components:
           description: "The remaining information is about the source of the sequences\
             \ Public id of this reference set, such as `GRCH_37`."
           nullable: true
+          example: GRCh38
         commonCropName:
           type: string
           description: Common name for the crop
@@ -7099,6 +7138,7 @@ components:
           type: string
           description: Optional free text description of this reference set.
           nullable: true
+          example: Reference set covering human genome assembly hg38.
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -7143,6 +7183,7 @@ components:
           type: string
           description: Specifies a FASTA format file/string.
           nullable: true
+          example: https://example.com/fasta.fasta
         species:
           $ref: "#/components/schemas/OntologyTerm"
       description: "A `ReferenceSet` is a set of `Reference` s which typically comprise\
@@ -8419,9 +8460,11 @@ components:
           example: Maize
         contextOfUse:
           type: array
-          description: "Indication of how trait is routinely used. (examples: [\"\
-            Trial evaluation\", \"Nursery evaluation\"])"
+          description: |-
+            **Deprecated in v2.2** Please use `variableCategory` instead.
+             Indicates how a given variable is typically used. (examples: ["Trial evaluation", "Nursery evaluation"])
           nullable: true
+          deprecated: true
           items:
             type: string
         defaultValue:
@@ -8470,7 +8513,7 @@ components:
           $ref: "#/components/schemas/Scale"
         scientist:
           type: string
-          description: Name of scientist submitting the variable.
+          description: "scientist: string"
           nullable: true
           example: Dr. Bob Robertson
         status:
@@ -8484,6 +8527,7 @@ components:
           description: Timestamp when the Variable was added (ISO 8601)
           format: date-time
           nullable: true
+          example: 2017-06-16T20:47:23Z
         synonyms:
           type: array
           description: Other variable names
@@ -8492,6 +8536,11 @@ components:
             type: string
         trait:
           $ref: "#/components/schemas/Trait"
+        variableCategory:
+          type: string
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
+          nullable: true
       description: "A unique combination of Trait, Method, and Scale to define a clear\
         \ context for an Observation."
     VariableBaseClassParameters:
@@ -8651,6 +8700,12 @@ components:
           description: The human readable name of a trial to search for
           items:
             type: string
+        variableCategories:
+          type: array
+          description: "Defines the broad category of the variable, allowing for groupings\
+            \ such as phenotyping, environmental, or germplasm attributes."
+          items:
+            type: string
     Variant:
       required:
       - variantDbId
@@ -8701,6 +8756,7 @@ components:
           description: The timestamp when this variant was created.
           format: date-time
           nullable: true
+          example: 2023-10-27T10:00:00Z
         end:
           type: integer
           description: "This field is optional and may be ignored if there is no relevant\
@@ -8709,6 +8765,7 @@ components:
             \ \nby `start + referenceBases.length`."
           format: int32
           nullable: true
+          example: 1500
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
@@ -8721,6 +8778,7 @@ components:
           description: True if filters were applied for this variant. VCF column 7
             "FILTER" any value other than the missing value.
           nullable: true
+          example: true
         filtersFailed:
           type: array
           description: Zero or more filters that failed for this variant. VCF column
@@ -8733,11 +8791,13 @@ components:
           description: True if all filters for this variant passed. VCF column 7 "FILTER"
             value PASS.
           nullable: true
+          example: true
         referenceBases:
           type: string
           description: The reference bases for this variant. They start at the given
             start position.
           nullable: true
+          example: TGCAT
         referenceDbId:
           type: string
           nullable: true
@@ -8761,17 +8821,20 @@ components:
             \ the join (position 0)."
           format: int32
           nullable: true
+          example: 100
         svlen:
           type: integer
           description: Length of the - if labeled as such in variant_type - structural
             variation. Based on the use in VCF v4.2
           format: int32
           nullable: true
+          example: 50
         updated:
           type: string
           description: The time at which this variant was last updated.
           format: date-time
           nullable: true
+          example: 2023-10-27T10:00:00Z
         variantDbId:
           type: string
           description: The ID which uniquely identifies a `Variant`
@@ -9099,11 +9162,13 @@ components:
           description: The number of CallSets included in this VariantSet
           format: int32
           nullable: true
+          example: 5
         externalReferences:
           type: array
           description: An array of external reference ids. These are references to
             this piece of data in an external system. Could be a simple string or
             a URI.
+          nullable: true
           items:
             $ref: "#/components/schemas/ExternalReference"
         metadataFields:

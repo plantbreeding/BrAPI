@@ -28,7 +28,10 @@ directive @specifiedBy(
 interface Attribute implements Variable {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfo
-  "General category for the attribute. very similar to Trait class."
+  """
+  **Deprecated in v2.2** Use the variableCategory property.
+  General category for the attribute. very similar to Trait class.
+  """
   attributeCategory: String
   "The ID which uniquely identifies this attribute within the given database server"
   attributeDbId: String
@@ -40,7 +43,10 @@ interface Attribute implements Variable {
   attributePUI: String
   "Crop name (examples: \"Maize\", \"Wheat\")"
   commonCropName: String
-  "Indication of how trait is routinely used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])"
+  """
+  **Deprecated in v2.2** Please use `variableCategory` instead.
+   Indicates how a given variable is typically used. (examples: ["Trial evaluation", "Nursery evaluation"])
+  """
   contextOfUse: [String]
   "Variable default value. (examples: \"red\", \"2.3\", etc.)"
   defaultValue: String
@@ -76,7 +82,6 @@ interface Attribute implements Variable {
   <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".
   """
   scaleDbIds: ID
-  "Name of scientist submitting the variable."
   scientist: String
   "Variable status. (examples: \"recommended\", \"obsolete\", \"legacy\", etc.)"
   status: String
@@ -89,6 +94,8 @@ interface Attribute implements Variable {
   <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height". 
   """
   traitDbIds: ID
+  "Defines the broad category of the variable, allowing for groupings such as phenotyping, environmental, or germplasm attributes."
+  variableCategory: String
 }
 
 """
@@ -124,7 +131,10 @@ interface Variable {
   additionalInfo: AdditionalInfo
   "Crop name (examples: \"Maize\", \"Wheat\")"
   commonCropName: String
-  "Indication of how trait is routinely used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])"
+  """
+  **Deprecated in v2.2** Please use `variableCategory` instead.
+   Indicates how a given variable is typically used. (examples: ["Trial evaluation", "Nursery evaluation"])
+  """
   contextOfUse: [String]
   "Variable default value. (examples: \"red\", \"2.3\", etc.)"
   defaultValue: String
@@ -160,7 +170,6 @@ interface Variable {
   <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".
   """
   scaleDbIds: ID
-  "Name of scientist submitting the variable."
   scientist: String
   "Variable status. (examples: \"recommended\", \"obsolete\", \"legacy\", etc.)"
   status: String
@@ -173,6 +182,8 @@ interface Variable {
   <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height". 
   """
   traitDbIds: ID
+  "Defines the broad category of the variable, allowing for groupings such as phenotyping, environmental, or germplasm attributes."
+  variableCategory: String
 }
 
 union GeoJSONGeometry = GeoJSONPoint | GeoJSONPolygon
@@ -339,11 +350,13 @@ type CallListResponse {
 type CallSet {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfo
+  "Array of allele matrices associated with this call set."
   alleleMatrices(alleleMatrixInput: AlleleMatrixInput, paging: PageInput): AlleleMatrixListResponse
   "The ID which uniquely identifies a CallSet within the given database server"
   callSetDbId: String
   "The human readable name which identifies a germplasm within the given database server"
   callSetName: String
+  "A list of calls associated with this CallSet."
   calls(callsInput: CallsInput, paging: PageInput): CallListResponse
   "The date this call set was created"
   created: String
@@ -394,7 +407,7 @@ type CollectingSite {
   coordinateUncertainty: String
   "MCPD (v2.1) (ELEVATION) 16. Elevation of collecting site expressed in metres above sea level. Negative values are allowed."
   elevation: String
-  "MCPD (v2.1) (GEOREFMETH) 15.7  The georeferencing method used (GPS, determined from map, gazetteer, or estimated using software). Leave the value empty if georeferencing method is not known."
+  "MCPD (v2.1) (GEOREFMETH) 15.7 The georeferencing method used (GPS, determined from map, gazetteer, or estimated using software). Leave the value empty if georeferencing method is not known."
   georeferencingMethod: String
   "MCPD (v2.1) (DECLATITUDE) 15.1 Latitude expressed in decimal degrees. Positive values are North of the Equator; negative values are South of the Equator (e.g. -44.6975)."
   latitudeDecimal: String
@@ -441,6 +454,7 @@ type Contact {
   instituteName: String
   "Persons last name"
   lastName: String
+  "Lists created by this person, typically to track collections of data objects."
   listDbId: [ID]
   "physical address of this person"
   mailingAddress: String
@@ -464,6 +478,7 @@ type Contact {
   personDbId: String
   "phone number of this person"
   phoneNumber: String
+  "Programs led or managed by this person."
   programDbId: [ID]
   """
   The type of person this represents (ex: Coordinator, Scientist, PI, etc.)
@@ -694,7 +709,7 @@ type DonorInfo {
   """
   The identifying information for the entity acting as an accession donor
   <br> MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.
-  <br> MCPD (v2.1) (DONORNAME) 22.1  Name of the donor institute (or person). This descriptor should be used only if DONORCODE can not be filled because the FAO WIEWS code for this institute is not available.
+  <br> MCPD (v2.1) (DONORNAME) 22.1 Name of the donor institute (or person). This descriptor should be used only if DONORCODE can not be filled because the FAO WIEWS code for this institute is not available.
   """
   donorInstitute: Institute
 }
@@ -844,6 +859,10 @@ type EventParameter {
 type EventsSearchResponse {
   data: [Event]
   searchResultsDbId: String
+}
+
+type Example {
+  categories: [ValidValuesCategory]
 }
 
 type ExperimentFactor {
@@ -1036,7 +1055,7 @@ type Germplasm {
   416) Clonal selection 
   420) Genetic stock 
   421) Mutant (e.g. induced/insertion mutants, tilling populations) 
-  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) 
+  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids, amphiploids) 
   423) Other genetic stocks (e.g. mapping populations) 
   500) Advanced or improved cultivar (conventional breeding methods) 
   600) GMO (by genetic engineering) 
@@ -1154,7 +1173,7 @@ type Germplasm {
   
   MCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: "subsp." (for subspecies); "convar." (for convariety); "var." (for variety); "f." (for form); "Group" (for "cultivar group").
   
-  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).
+  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).
   """
   subtaxa: String
   """
@@ -1181,7 +1200,10 @@ type Germplasm {
 type GermplasmAttribute implements Attribute & Variable {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfo
-  "General category for the attribute. very similar to Trait class."
+  """
+  **Deprecated in v2.2** Use the variableCategory property.
+  General category for the attribute. very similar to Trait class.
+  """
   attributeCategory: String
   "The ID which uniquely identifies this attribute within the given database server"
   attributeDbId: String
@@ -1195,7 +1217,10 @@ type GermplasmAttribute implements Attribute & Variable {
   attributeValueDbId: [ID]
   "Crop name (examples: \"Maize\", \"Wheat\")"
   commonCropName: String
-  "Indication of how trait is routinely used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])"
+  """
+  **Deprecated in v2.2** Please use `variableCategory` instead.
+   Indicates how a given variable is typically used. (examples: ["Trial evaluation", "Nursery evaluation"])
+  """
   contextOfUse: [String]
   "Variable default value. (examples: \"red\", \"2.3\", etc.)"
   defaultValue: String
@@ -1231,7 +1256,6 @@ type GermplasmAttribute implements Attribute & Variable {
   <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".
   """
   scaleDbIds: ID
-  "Name of scientist submitting the variable."
   scientist: String
   "Variable status. (examples: \"recommended\", \"obsolete\", \"legacy\", etc.)"
   status: String
@@ -1244,6 +1268,8 @@ type GermplasmAttribute implements Attribute & Variable {
   <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height". 
   """
   traitDbIds: ID
+  "Defines the broad category of the variable, allowing for groupings such as phenotyping, environmental, or germplasm attributes."
+  variableCategory: String
 }
 
 type GermplasmAttributeListResponse {
@@ -1374,7 +1400,7 @@ type GermplasmMCPD {
   416) Clonal selection 
   420) Genetic stock 
   421) Mutant (e.g. induced/insertion mutants, tilling populations) 
-  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) 
+  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids, amphiploids) 
   423) Other genetic stocks (e.g. mapping populations) 
   500) Advanced or improved cultivar (conventional breeding methods) 
   600) GMO (by genetic engineering) 
@@ -1384,7 +1410,7 @@ type GermplasmMCPD {
   """
   A list of institutes that were involved with breeding a material/germplasm
   <br> MCPD (v2.1) (BREDCODE) 18. FAO WIEWS code of the institute that has bred the material. If the holding institute has bred the material, the breeding institute code (BREDCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard.
-  <br> MCPD (v2.1) (BREDNAME) 18.1  Name of the institute (or person) that bred the material. This descriptor should be used only if BREDCODE can not be filled because the FAO WIEWS code for this institute is not available.
+  <br> MCPD (v2.1) (BREDNAME) 18.1 Name of the institute (or person) that bred the material. This descriptor should be used only if BREDCODE can not be filled because the FAO WIEWS code for this institute is not available.
   """
   breedingInstitutes: [Institute]
   "Information about the collection of a germplasm"
@@ -1535,11 +1561,11 @@ type ImagesSearchResponse {
 
 "The details of an Institute or other simular entity."
 type Institute {
-  "MCPD (v2.1) (COLLINSTADDRESS) 4.1.1  Address of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled since the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space."
+  "MCPD (v2.1) (COLLINSTADDRESS) 4.1.1 Address of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled since the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space."
   instituteAddress: String
-  "MCPD (v2.1) (COLLCODE) 4.  FAO WIEWS code of the institute collecting the sample. If the holding institute has collected the material, the collecting institute code (COLLCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard. Multiple values are separated by a semicolon without space."
+  "MCPD (v2.1) (COLLCODE) 4. FAO WIEWS code of the institute collecting the sample. If the holding institute has collected the material, the collecting institute code (COLLCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard. Multiple values are separated by a semicolon without space."
   instituteCode: String
-  "MCPD (v2.1) (COLLNAME) 4.1  Name of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled because the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space."
+  "MCPD (v2.1) (COLLNAME) 4.1 Name of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled because the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space."
   instituteName: String
 }
 
@@ -2389,7 +2415,7 @@ type PedigreeNode {
   """
   A list of germplasm references that are direct children of this germplasm. These represent edges in the tree, connecting to other nodes.
   <br/> The given germplasm could have a large number of progeny, across a number of different breeding methods. The 'parentType' shows 
-        the type of parent this germplasm is to each of the child germplasm references.
+   the type of parent this germplasm is to each of the child germplasm references.
   <br/> If the parameter 'includeProgeny' is set to false, then this array should be empty, null, or not present in the response.
   """
   progeny: [GermplasmChild]
@@ -2822,7 +2848,7 @@ type Reference {
   sourceURI: String
   "An ontology term describing an attribute."
   species: OntologyTerm
-  "variants"
+  "A list of variants associated with this Reference."
   variantDbId: [ID]
 }
 
@@ -2878,7 +2904,7 @@ type ReferenceSet {
   sourceURI: String
   "An ontology term describing an attribute."
   species: OntologyTerm
-  "variants"
+  "A list of variants associated with this ReferenceSet."
   variantDbId: [ID]
   "variantSets"
   variantSetDbId: [ID]
@@ -2903,6 +2929,7 @@ type ReferencesSearchResponse {
 type Sample {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfo
+  "A list of CallSets associated with this Sample."
   callSetDbId: [ID]
   "The Column identifier for this `Sample` location in the `Plate`"
   column: Int
@@ -3438,6 +3465,7 @@ type TrialsSearchResponse {
 type ValidValues {
   "List of possible values with optional labels"
   categories: [ValidValuesCategory]
+  example: Example
   "Maximum value for numerical, date, and time scales. Typically used for data capture control and QC."
   maximumValue: String
   "Minimum value for numerical, date, and time scales. Typically used for data capture control and QC."
@@ -3460,6 +3488,7 @@ type ValidValuesCategory {
 type Variant {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfo
+  "Allele matrices associated with this variant."
   alleleMatrices(alleleMatrixInput: AlleleMatrixInput, paging: PageInput): AlleleMatrixListResponse
   "The bases that appear instead of the reference bases. Multiple alternate alleles are possible."
   alternateBases: [String]
@@ -3468,6 +3497,7 @@ type Variant {
   <br>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.
   """
   alternate_bases: [String]
+  "A list of calls associated with this variant."
   calls(callsInput: CallsInput, paging: PageInput): CallListResponse
   "Similar to \"cipos\", but for the variant's end position (which is derived from start + svlen)."
   ciend: [Int]
@@ -3538,6 +3568,7 @@ type VariantListResponse {
 type VariantSet {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfo
+  "Allele matrices containing the genotype data for the variants in this set."
   alleleMatrices(alleleMatrixInput: AlleleMatrixInput, paging: PageInput): AlleleMatrixListResponse
   "Set of Analysis descriptors for this VariantSet"
   analysis: [Analysis]
@@ -3549,7 +3580,9 @@ type VariantSet {
   availableFormats: [AvailableFormat]
   "The number of CallSets included in this VariantSet"
   callSetCount: Int
+  "A list of CallSets that include the variants described in this VariantSet."
   callSets(callSetsInput: CallSetsInput, paging: PageInput): CallSetListResponse
+  "A list of Calls associated with this VariantSet."
   calls(callsInput: CallsInput, paging: PageInput): CallListResponse
   "An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI."
   externalReferences: [ExternalReference]
@@ -3659,7 +3692,7 @@ MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different
 416) Clonal selection 
 420) Genetic stock 
 421) Mutant (e.g. induced/insertion mutants, tilling populations) 
-422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) 
+422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids, amphiploids) 
 423) Other genetic stocks (e.g. mapping populations) 
 500) Advanced or improved cultivar (conventional breeding methods) 
 600) GMO (by genetic engineering) 
@@ -3695,7 +3728,7 @@ enum CrossStatus {
   TODO
 }
 
-"The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK',  'BULK_SELFED',  'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'."
+"The type of cross make. Accepted values for this field are 'BIPARENTAL', 'SELF', 'OPEN_POLLINATED', 'BULK', 'BULK_SELFED', 'BULK_OPEN_POLLINATED' and 'DOUBLE_HAPLOID'."
 enum CrossType {
   BIPARENTAL
   BULK
@@ -4000,9 +4033,9 @@ input BreedingMethodInput {
   breedingMethodName: String
   "human readable description of the breeding method"
   description: String
-  "germplasm"
+  "A collection of genetic material used in breeding programs."
   germplasm: [GermplasmInput]
-  "pedigreeNodes"
+  "A collection of nodes representing individuals within a breeding pedigree."
   pedigreeNodes: [PedigreeNodeInput]
   "The specific type of Breeding Method. Ex: 'Generative', 'Maintenance', or 'Derivative'."
   type: String
@@ -4047,11 +4080,13 @@ input CallInput {
 input CallSetInput {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfoInput
+  "Array of allele matrices associated with this call set."
   alleleMatrices: [AlleleMatrixInput]
   "The ID which uniquely identifies a CallSet within the given database server"
   callSetDbId: String
   "The human readable name which identifies a germplasm within the given database server"
   callSetName: String
+  "A list of calls associated with this CallSet."
   calls: [CallInput]
   "The date this call set was created"
   created: String
@@ -4157,7 +4192,7 @@ input CollectingSiteInput {
   coordinateUncertainty: String
   "MCPD (v2.1) (ELEVATION) 16. Elevation of collecting site expressed in metres above sea level. Negative values are allowed."
   elevation: String
-  "MCPD (v2.1) (GEOREFMETH) 15.7  The georeferencing method used (GPS, determined from map, gazetteer, or estimated using software). Leave the value empty if georeferencing method is not known."
+  "MCPD (v2.1) (GEOREFMETH) 15.7 The georeferencing method used (GPS, determined from map, gazetteer, or estimated using software). Leave the value empty if georeferencing method is not known."
   georeferencingMethod: String
   "MCPD (v2.1) (DECLATITUDE) 15.1 Latitude expressed in decimal degrees. Positive values are North of the Equator; negative values are South of the Equator (e.g. -44.6975)."
   latitudeDecimal: String
@@ -4204,6 +4239,7 @@ input ContactInput {
   instituteName: String
   "Persons last name"
   lastName: String
+  "Lists created by this person, typically to track collections of data objects."
   lists: [ListInput]
   "physical address of this person"
   mailingAddress: String
@@ -4227,6 +4263,7 @@ input ContactInput {
   personDbId: String
   "phone number of this person"
   phoneNumber: String
+  "Programs led or managed by this person."
   programs: [ProgramInput]
   """
   The type of person this represents (ex: Coordinator, Scientist, PI, etc.)
@@ -4356,7 +4393,7 @@ input CrossingProjectInput {
   crossingProjectName: String
   "Filter by External References"
   externalReferences: [ExternalReferenceInput]
-  "pedigreeNodes"
+  "Nodes representing individuals within the pedigree structure of the crossing project."
   pedigreeNodes: [PedigreeNodeInput]
   "plannedCrosses"
   plannedCrosses: [PlannedCrossInput]
@@ -4497,7 +4534,7 @@ input DonorInfoInput {
   """
   The identifying information for the entity acting as an accession donor
   <br> MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.
-  <br> MCPD (v2.1) (DONORNAME) 22.1  Name of the donor institute (or person). This descriptor should be used only if DONORCODE can not be filled because the FAO WIEWS code for this institute is not available.
+  <br> MCPD (v2.1) (DONORNAME) 22.1 Name of the donor institute (or person). This descriptor should be used only if DONORCODE can not be filled because the FAO WIEWS code for this institute is not available.
   """
   donorInstitute: InstituteInput
 }
@@ -4671,6 +4708,10 @@ input EventsInput {
   studyDbIds: [String]
   "List of study names to filter search results"
   studyNames: [String]
+}
+
+input ExampleInput {
+  categories: [ValidValuesCategoryInput]
 }
 
 input ExperimentFactorInput {
@@ -4893,7 +4934,10 @@ input GeoJSONSearchAreaInput {
 input GermplasmAttributeInput {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfoInput
-  "General category for the attribute. very similar to Trait class."
+  """
+  **Deprecated in v2.2** Use the variableCategory property.
+  General category for the attribute. very similar to Trait class.
+  """
   attributeCategory: String
   "The ID which uniquely identifies this attribute within the given database server"
   attributeDbId: String
@@ -4907,7 +4951,10 @@ input GermplasmAttributeInput {
   attributeValues: [GermplasmAttributeValueInput]
   "Crop name (examples: \"Maize\", \"Wheat\")"
   commonCropName: String
-  "Indication of how trait is routinely used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])"
+  """
+  **Deprecated in v2.2** Please use `variableCategory` instead.
+   Indicates how a given variable is typically used. (examples: ["Trial evaluation", "Nursery evaluation"])
+  """
   contextOfUse: [String]
   "Variable default value. (examples: \"red\", \"2.3\", etc.)"
   defaultValue: String
@@ -4943,7 +4990,6 @@ input GermplasmAttributeInput {
   <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".
   """
   scale: ScaleInput
-  "Name of scientist submitting the variable."
   scientist: String
   "Variable status. (examples: \"recommended\", \"obsolete\", \"legacy\", etc.)"
   status: String
@@ -4956,6 +5002,8 @@ input GermplasmAttributeInput {
   <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height". 
   """
   trait: TraitInput
+  "Defines the broad category of the variable, allowing for groupings such as phenotyping, environmental, or germplasm attributes."
+  variableCategory: String
 }
 
 "The value recorded for a particular Trait/Attribute and a particular Germplasm. Similar to an Observation value, but more concrete, applying to the whole Germplasm instead of a single ObservationUnit."
@@ -5118,6 +5166,8 @@ input GermplasmAttributesInput {
   trialDbIds: [String]
   "The human readable name of a trial to search for"
   trialNames: [String]
+  "Defines the broad category of the variable, allowing for groupings such as phenotyping, environmental, or germplasm attributes."
+  variableCategories: [String]
 }
 
 "A germplasm reference that is a direct child of this germplasm. These represent edges in the tree, connecting to other nodes."
@@ -5176,7 +5226,7 @@ input GermplasmInput {
   416) Clonal selection 
   420) Genetic stock 
   421) Mutant (e.g. induced/insertion mutants, tilling populations) 
-  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) 
+  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids, amphiploids) 
   423) Other genetic stocks (e.g. mapping populations) 
   500) Advanced or improved cultivar (conventional breeding methods) 
   600) GMO (by genetic engineering) 
@@ -5310,7 +5360,7 @@ input GermplasmInput {
   
   MCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: "subsp." (for subspecies); "convar." (for convariety); "var." (for variety); "f." (for form); "Group" (for "cultivar group").
   
-  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).
+  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).
   """
   subtaxa: String
   """
@@ -5399,7 +5449,7 @@ input GermplasmMCPDInput {
   416) Clonal selection 
   420) Genetic stock 
   421) Mutant (e.g. induced/insertion mutants, tilling populations) 
-  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) 
+  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids, amphiploids) 
   423) Other genetic stocks (e.g. mapping populations) 
   500) Advanced or improved cultivar (conventional breeding methods) 
   600) GMO (by genetic engineering) 
@@ -5409,7 +5459,7 @@ input GermplasmMCPDInput {
   """
   A list of institutes that were involved with breeding a material/germplasm
   <br> MCPD (v2.1) (BREDCODE) 18. FAO WIEWS code of the institute that has bred the material. If the holding institute has bred the material, the breeding institute code (BREDCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard.
-  <br> MCPD (v2.1) (BREDNAME) 18.1  Name of the institute (or person) that bred the material. This descriptor should be used only if BREDCODE can not be filled because the FAO WIEWS code for this institute is not available.
+  <br> MCPD (v2.1) (BREDNAME) 18.1 Name of the institute (or person) that bred the material. This descriptor should be used only if BREDCODE can not be filled because the FAO WIEWS code for this institute is not available.
   """
   breedingInstitutes: [InstituteInput]
   "Information about the collection of a germplasm"
@@ -5603,11 +5653,11 @@ input ImagesInput {
 
 "The details of an Institute or other simular entity."
 input InstituteInput {
-  "MCPD (v2.1) (COLLINSTADDRESS) 4.1.1  Address of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled since the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space."
+  "MCPD (v2.1) (COLLINSTADDRESS) 4.1.1 Address of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled since the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space."
   instituteAddress: String
-  "MCPD (v2.1) (COLLCODE) 4.  FAO WIEWS code of the institute collecting the sample. If the holding institute has collected the material, the collecting institute code (COLLCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard. Multiple values are separated by a semicolon without space."
+  "MCPD (v2.1) (COLLCODE) 4. FAO WIEWS code of the institute collecting the sample. If the holding institute has collected the material, the collecting institute code (COLLCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard. Multiple values are separated by a semicolon without space."
   instituteCode: String
-  "MCPD (v2.1) (COLLNAME) 4.1  Name of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled because the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space."
+  "MCPD (v2.1) (COLLNAME) 4.1 Name of the institute collecting the sample. This descriptor should be used only if COLLCODE can not be filled because the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space."
   instituteName: String
 }
 
@@ -5783,7 +5833,7 @@ input LocationInput {
   locationName: String
   "A short description of a type of Location (ex. Field Station, Breeding Location, Storage Location, etc)"
   locationType: String
-  "observationUnits"
+  "A collection of observation units associated with this location."
   observationUnits: [ObservationUnitInput]
   """
   The unique identifier for a Location
@@ -5791,12 +5841,13 @@ input LocationInput {
   For example, an Institution might have multiple Field Stations inside it and each Field Station might have multiple Fields.
   """
   parentLocation: LocationInput
-  "seedLots"
+  "A collection of seed lots associated with this location."
   seedLots: [SeedLotInput]
   "Description of the accessibility of the location (ex. Public, Private)"
   siteStatus: String
   "Describes the approximate slope (height/distance) of a Location."
   slope: String
+  "An array of studies that took place at this location."
   studies: [StudyInput]
   "Describes the topography of the land at a Location. (ex. Plateau, Cirque, Hill, Valley, etc)"
   topography: String
@@ -6382,7 +6433,10 @@ input ObservationVariableInput {
   additionalInfo: AdditionalInfoInput
   "Crop name (examples: \"Maize\", \"Wheat\")"
   commonCropName: String
-  "Indication of how trait is routinely used. (examples: [\"Trial evaluation\", \"Nursery evaluation\"])"
+  """
+  **Deprecated in v2.2** Please use `variableCategory` instead.
+   Indicates how a given variable is typically used. (examples: ["Trial evaluation", "Nursery evaluation"])
+  """
   contextOfUse: [String]
   "Variable default value. (examples: \"red\", \"2.3\", etc.)"
   defaultValue: String
@@ -6434,7 +6488,6 @@ input ObservationVariableInput {
   <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Scale "inches" or "pixels".
   """
   scale: ScaleInput
-  "Name of scientist submitting the variable."
   scientist: String
   "Variable status. (examples: \"recommended\", \"obsolete\", \"legacy\", etc.)"
   status: String
@@ -6448,6 +6501,8 @@ input ObservationVariableInput {
   <br>For example, an ObservationVariable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This variable would be distinct from a variable with the Trait "Leaf length" or "Flower height". 
   """
   trait: TraitInput
+  "Defines the broad category of the variable, allowing for groupings such as phenotyping, environmental, or germplasm attributes."
+  variableCategory: String
 }
 
 input ObservationVariablesInput {
@@ -6539,6 +6594,8 @@ input ObservationVariablesInput {
   trialDbIds: [String]
   "The human readable name of a trial to search for"
   trialNames: [String]
+  "Defines the broad category of the variable, allowing for groupings such as phenotyping, environmental, or germplasm attributes."
+  variableCategories: [String]
 }
 
 input ObservationsInput {
@@ -6762,7 +6819,7 @@ input PedigreeNodeInput {
   """
   A list of germplasm references that are direct children of this germplasm. These represent edges in the tree, connecting to other nodes.
   <br/> The given germplasm could have a large number of progeny, across a number of different breeding methods. The 'parentType' shows 
-        the type of parent this germplasm is to each of the child germplasm references.
+   the type of parent this germplasm is to each of the child germplasm references.
   <br/> If the parameter 'includeProgeny' is set to false, then this array should be empty, null, or not present in the response.
   """
   progeny: [GermplasmChildInput]
@@ -6909,6 +6966,7 @@ input PersonInput {
   instituteName: String
   "Persons last name"
   lastName: String
+  "Lists created by this person, typically to track collections of data objects."
   lists: [ListInput]
   "physical address of this person"
   mailingAddress: String
@@ -6926,6 +6984,7 @@ input PersonInput {
   personDbId: String
   "phone number of this person"
   phoneNumber: String
+  "Programs led or managed by this person."
   programs: [ProgramInput]
   """
   The type of person this represents (ex: Coordinator, Scientist, PI, etc.)
@@ -7014,7 +7073,7 @@ input PlateInput {
   program: ProgramInput
   "The type of samples taken. ex. 'DNA', 'RNA', 'Tissue', etc"
   sampleType: SampleType
-  "samples"
+  "A list of Samples associated with this Plate."
   samples: [SampleInput]
   "The ID which uniquely identifies a `Study` within the given database server"
   study: StudyInput
@@ -7093,7 +7152,7 @@ input ProgramInput {
   additionalInfo: AdditionalInfoInput
   "Common name for the crop which this program is for"
   commonCropName: String
-  "crossingProjects"
+  "An array of crossing projects initiated under this program."
   crossingProjects: [CrossingProjectInput]
   "A URL to the human readable documentation of an object"
   documentationURL: String
@@ -7105,9 +7164,9 @@ input ProgramInput {
   leadPerson: PersonInput
   "The primary objective of the program"
   objective: String
-  "observationUnits"
+  "A collection of observation units used in this program."
   observationUnits: [ObservationUnitInput]
-  "plates"
+  "An array of plates used in this program."
   plates: [PlateInput]
   "The ID which uniquely identifies the program"
   programDbId: String
@@ -7119,10 +7178,11 @@ input ProgramInput {
   <br/> 'PROJECT' represents a short term project, usually with a set time limit based on funding   
   """
   programType: ProgramType
-  "samples"
+  "An array of samples associated with this program."
   samples: [SampleInput]
-  "seedLots"
+  "A collection of seed lots managed by this program."
   seedLots: [SeedLotInput]
+  "A set of experiments or trials conducted as part of a program."
   trials: [TrialInput]
 }
 
@@ -7217,7 +7277,7 @@ input ReferenceInput {
   sourceURI: String
   "An ontology term describing an attribute."
   species: OntologyTermInput
-  "variants"
+  "A list of variants associated with this Reference."
   variants: [VariantInput]
 }
 
@@ -7260,7 +7320,7 @@ input ReferenceSetInput {
   species: OntologyTermInput
   "variantSets"
   variantSets: [VariantSetInput]
-  "variants"
+  "A list of variants associated with this ReferenceSet."
   variants: [VariantInput]
 }
 
@@ -7364,6 +7424,7 @@ input ReferencesInput {
 input SampleInput {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfoInput
+  "A list of CallSets associated with this Sample."
   callSets: [CallSetInput]
   "The Column identifier for this `Sample` location in the `Plate`"
   column: Int
@@ -8197,6 +8258,7 @@ input ValidValuesCategoryInput {
 input ValidValuesInput {
   "List of possible values with optional labels"
   categories: [ValidValuesCategoryInput]
+  example: ExampleInput
   "Maximum value for numerical, date, and time scales. Typically used for data capture control and QC."
   maximumValue: String
   "Minimum value for numerical, date, and time scales. Typically used for data capture control and QC."
@@ -8218,6 +8280,7 @@ input ValueInput {
 input VariantInput {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfoInput
+  "Allele matrices associated with this variant."
   alleleMatrices: [AlleleMatrixInput]
   "The bases that appear instead of the reference bases. Multiple alternate alleles are possible."
   alternateBases: [String]
@@ -8226,6 +8289,7 @@ input VariantInput {
   <br>The bases that appear instead of the reference bases. Multiple alternate alleles are possible.
   """
   alternate_bases: [String]
+  "A list of calls associated with this variant."
   calls: [CallInput]
   "Similar to \"cipos\", but for the variant's end position (which is derived from start + svlen)."
   ciend: [Int]
@@ -8291,6 +8355,7 @@ input VariantInput {
 input VariantSetInput {
   "A free space containing any additional information related to a particular object. A data source may provide any JSON object, unrestricted by the BrAPI specification."
   additionalInfo: AdditionalInfoInput
+  "Allele matrices containing the genotype data for the variants in this set."
   alleleMatrices: [AlleleMatrixInput]
   "Set of Analysis descriptors for this VariantSet"
   analysis: [AnalysisInput]
@@ -8302,7 +8367,9 @@ input VariantSetInput {
   availableFormats: [AvailableFormatInput]
   "The number of CallSets included in this VariantSet"
   callSetCount: Int
+  "A list of CallSets that include the variants described in this VariantSet."
   callSets: [CallSetInput]
+  "A list of Calls associated with this VariantSet."
   calls: [CallInput]
   "Filter by External References"
   externalReferences: [ExternalReferenceInput]
