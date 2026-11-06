@@ -86,7 +86,6 @@
                         "$ref": "VariantSet.json#/$defs/VariantSet"
                     },
                     "referencedAttribute": "alleleMatrices",
-                    "referencedAttribute": "alleleMatrices",
                     "relationshipType": "many-to-many",
                     "type": "array"
                 },
@@ -96,7 +95,6 @@
                     "items": {
                         "$ref": "Variant.json#/$defs/Variant"
                     },
-                    "referencedAttribute": "alleleMatrices",
                     "referencedAttribute": "alleleMatrices",
                     "relationshipType": "many-to-many",
                     "type": [

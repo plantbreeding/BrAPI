@@ -18,14 +18,6 @@
                             "example": "F3"
                         }
                     }
-                },
-                "example": {
-                    "type": "object",
-                    "properties": {
-                        "levelName": {"type": "string", "example": "Plot"},
-                        "levelOrder": {"type": "integer", "example": 4},
-                        "levelCode": {"type": "string", "example": "P10"}
-                    }
                 }
             ]
         }

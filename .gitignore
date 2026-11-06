@@ -6,6 +6,7 @@
 .vscode/
 BrAPI.code-workspace
 .idea
+.agents/
 
 /_temp
 brapi_blueprint.apib
