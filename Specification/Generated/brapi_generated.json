@@ -6018,6 +6018,16 @@
                         }
                     },
                     {
+                        "name" : "variantName",
+                        "in" : "query",
+                        "description" : "A list human readable names which identify `Variants`",
+                        "required" : false,
+                        "schema" : {
+                            "type" : "string",
+                            "nullable" : false
+                        }
+                    },
+                    {
                         "name" : "variantSetDbId",
                         "in" : "query",
                         "description" : "A list of IDs which uniquely identify `VariantSets`",
@@ -26812,6 +26822,14 @@
                             "type" : "string"
                         }
                     },
+                    "variantNames" : {
+                        "type" : "array",
+                        "description" : "A list human readable names which identify `Variants`",
+                        "nullable" : true,
+                        "items" : {
+                            "type" : "string"
+                        }
+                    },
                     "variantSetDbIds" : {
                         "type" : "array",
                         "description" : "A list of IDs which uniquely identify `VariantSets`",
@@ -26960,6 +26978,14 @@
                     "variantDbIds" : {
                         "type" : "array",
                         "description" : "A list of IDs which uniquely identify `Variants`",
+                        "nullable" : true,
+                        "items" : {
+                            "type" : "string"
+                        }
+                    },
+                    "variantNames" : {
+                        "type" : "array",
+                        "description" : "A list human readable names which identify `Variants`",
                         "nullable" : true,
                         "items" : {
                             "type" : "string"

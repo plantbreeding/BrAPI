@@ -8494,6 +8494,8 @@ input VariantsInput {
   trialNames: [String]
   "A list of IDs which uniquely identify `Variants`"
   variantDbIds: [String]
+  "A list human readable names which identify `Variants`"
+  variantNames: [String]
   "A list of IDs which uniquely identify `VariantSets`"
   variantSetDbIds: [String]
 }

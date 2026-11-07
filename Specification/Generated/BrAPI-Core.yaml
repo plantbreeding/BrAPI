@@ -8323,6 +8323,12 @@ components:
           nullable: true
           items:
             type: string
+        variantNames:
+          type: array
+          description: A list human readable names which identify `Variants`
+          nullable: true
+          items:
+            type: string
         variantSetDbIds:
           type: array
           description: A list of IDs which uniquely identify `VariantSets`
