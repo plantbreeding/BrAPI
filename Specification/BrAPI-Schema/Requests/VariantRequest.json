@@ -78,6 +78,17 @@
                                 "ab4d174d"
                             ]
                         },
+                        "variantNames": {
+                            "description": "A list human readable names which identify `Variants`",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": ["array", "null"],
+                            "example": [
+                                "p.Leu17Pro",
+                                "c.Tyr253Ter"
+                            ]
+                        },
                         "variantSetDbIds": {
                             "description": "A list of IDs which uniquely identify `VariantSets`",
                             "items": {
